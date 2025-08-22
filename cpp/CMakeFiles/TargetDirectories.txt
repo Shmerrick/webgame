@@ -1,0 +1,3 @@
+/app/cpp/CMakeFiles/database_viewer.dir
+/app/cpp/CMakeFiles/edit_cache.dir
+/app/cpp/CMakeFiles/rebuild_cache.dir

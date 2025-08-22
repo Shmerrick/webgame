@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Game Simulator - Materials</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: {} } };
+      document.documentElement.classList.add("dark");
+    </script>
+    <style>
+      :root { color-scheme: dark; }
+      body { background: #0f172a; color: #e2e8f0; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <div class="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
+      <div class="max-w-7xl mx-auto">
+        <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
+          <div class="flex items-center justify-between">
+            <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+            <div class="flex gap-4">
+              <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
+              <a href="materials.html" class="text-emerald-400 font-semibold">Materials</a>
+              <a href="simulator.html" class="text-slate-300 hover:text-emerald-400">Simulator</a>
+            </div>
+          </div>
+        </nav>
+
+        <header class="text-center">
+          <h1 class="text-4xl font-bold tracking-tight mb-4">Material Database</h1>
+          <p class="text-lg text-slate-300">
+            Browse the materials available in the game.
+          </p>
+        </header>
+
+        <main id="materials-container" class="mt-10 grid grid-cols-1 gap-6">
+          <!-- Materials will be loaded here dynamically -->
+        </main>
+      </div>
+    </div>
+    <script src="materials.js"></script>
+  </body>
+</html>
