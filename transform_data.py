@@ -902,5 +902,7 @@ for mat in materials:
         }
         db[category][tier].append(new_mat)
 
-db_json_string = json.dumps(db, indent=2)
-print(f"const DB = {db_json_string};")
+with open('public/db.json', 'w') as f:
+    json.dump(db, f, indent=2)
+
+print("Successfully created public/db.json")

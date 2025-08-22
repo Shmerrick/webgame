@@ -20,493 +20,23 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
-    <div id="root"></div>
+    <div class="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
+      <div class="max-w-7xl mx-auto">
+        <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
+          <div class="flex items-center justify-between">
+            <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+            <div class="flex gap-4">
+              <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
+              <a href="materials.html" class="text-slate-300 hover:text-emerald-400">Materials</a>
+              <a href="simulator.html" class="text-emerald-400 font-semibold">Simulator</a>
+            </div>
+          </div>
+        </nav>
+        <div id="root"></div>
+      </div>
+    </div>
 
     <script type="text/babel">
-      /* ====== Materials DB (T1–T5) embedded from your spreadsheet ====== */
-      const DB = {
-  "Cloth": {
-    "T1": [
-      {
-        "name": "Rabbit/Fox",
-        "slash": 0.0,
-        "pierce": 0.0,
-        "blunt": 0.55,
-        "magic": 0.2890625
-      },
-      {
-        "name": "Mulberry Silk",
-        "slash": 0.15358,
-        "pierce": 0.26454,
-        "blunt": 0.39384,
-        "magic": 0.5897175
-      }
-    ],
-    "T2": [
-      {
-        "name": "Wolf/Deer",
-        "slash": 0.12913,
-        "pierce": 0.037078,
-        "blunt": 0.64196,
-        "magic": 0.34610425
-      },
-      {
-        "name": "Tussar/Eri/Muga",
-        "slash": 0.23967,
-        "pierce": 0.30953,
-        "blunt": 0.43037,
-        "magic": 0.6287400000000001
-      }
-    ],
-    "T3": [
-      {
-        "name": "Bear/Bison",
-        "slash": 0.27049,
-        "pierce": 0.086377,
-        "blunt": 0.73393,
-        "magic": 0.40481500000000004
-      },
-      {
-        "name": "Spider Silk",
-        "slash": 0.46073,
-        "pierce": 0.42785,
-        "blunt": 0.52854,
-        "magic": 0.6904175
-      }
-    ],
-    "T4": [
-      {
-        "name": "Polar Bear/Musk Ox",
-        "slash": 0.39962,
-        "pierce": 0.12346,
-        "blunt": 0.82589,
-        "magic": 0.4750625
-      },
-      {
-        "name": "Giant Spider Silk",
-        "slash": 0.65097,
-        "pierce": 0.56673,
-        "blunt": 0.57078,
-        "magic": 0.73735
-      }
-    ],
-    "T5": [
-      {
-        "name": "Phoenix Down",
-        "slash": 0.61484,
-        "pierce": 0.18498,
-        "blunt": 0.9795,
-        "magic": 0.7306174999999999
-      },
-      {
-        "name": "Arachne/Starlight Weave",
-        "slash": 0.81667,
-        "pierce": 0.69338,
-        "blunt": 0.60068,
-        "magic": 0.81383
-      }
-    ]
-  },
-  "Leather": {
-    "T1": [
-      {
-        "name": "Goat/Sheep Hide",
-        "slash": 0.20884,
-        "pierce": 0.09583,
-        "blunt": 0.66073,
-        "magic": 0.35450249999999994
-      }
-    ],
-    "T2": [
-      {
-        "name": "Cowhide/Pigskin",
-        "slash": 0.37464,
-        "pierce": 0.17327,
-        "blunt": 0.74817,
-        "magic": 0.4085775
-      }
-    ],
-    "T3": [
-      {
-        "name": "Croc/Ostrich",
-        "slash": 0.52184,
-        "pierce": 0.26088,
-        "blunt": 0.80731,
-        "magic": 0.45742249999999995
-      }
-    ],
-    "T4": [
-      {
-        "name": "Buffalo/Rhino",
-        "slash": 0.66904,
-        "pierce": 0.34849,
-        "blunt": 0.86644,
-        "magic": 0.4696
-      }
-    ],
-    "T5": [
-      {
-        "name": "Dragonhide",
-        "slash": 0.85928,
-        "pierce": 0.45038,
-        "blunt": 0.95388,
-        "magic": 0.700865
-      }
-    ]
-  },
-  "Scales": {
-    "T1": [
-      {
-        "name": "Snake/Lizard",
-        "slash": 0.1472,
-        "pierce": 0.10405,
-        "blunt": 0.58904,
-        "magic": 0.492505
-      }
-    ],
-    "T2": [
-      {
-        "name": "Carp/Salmon",
-        "slash": 0.25773,
-        "pierce": 0.15705,
-        "blunt": 0.64566,
-        "magic": 0.5088550000000001
-      }
-    ],
-    "T3": [
-      {
-        "name": "Croc/Alligator",
-        "slash": 0.52184,
-        "pierce": 0.27321,
-        "blunt": 0.79224,
-        "magic": 0.561825
-      }
-    ],
-    "T4": [
-      {
-        "name": "Pangolin/Armadillo",
-        "slash": 0.66904,
-        "pierce": 0.36082,
-        "blunt": 0.85137,
-        "magic": 0.59192
-      }
-    ],
-    "T5": [
-      {
-        "name": "Dragon Scales",
-        "slash": 0.85928,
-        "pierce": 0.46682,
-        "blunt": 0.93379,
-        "magic": 0.7297699999999999
-      }
-    ]
-  },
-  "Wood": {
-    "T1": [
-      {
-        "name": "Pine/Cedar",
-        "slash": 0.18387,
-        "pierce": 0.32565,
-        "blunt": 0.36301,
-        "magic": 0.31886000000000003
-      }
-    ],
-    "T2": [
-      {
-        "name": "Oak/Ash/Maple",
-        "slash": 0.45967,
-        "pierce": 0.55008,
-        "blunt": 0.40525,
-        "magic": 0.3720325
-      }
-    ],
-    "T3": [
-      {
-        "name": "Hickory/Ebony/Ironwood",
-        "slash": 0.70518,
-        "pierce": 0.71339,
-        "blunt": 0.47831,
-        "magic": 0.45023499999999994
-      }
-    ],
-    "T4": [
-      {
-        "name": "Lignum Vitae/Snakewood",
-        "slash": 0.85875,
-        "pierce": 0.8156,
-        "blunt": 0.52055,
-        "magic": 0.60094
-      }
-    ],
-    "T5": [
-      {
-        "name": "Worldtree Yew",
-        "slash": 0.98151,
-        "pierce": 0.91781,
-        "blunt": 0.53196,
-        "magic": 0.7217899999999999
-      }
-    ]
-  },
-  "Metals": {
-    "T1": [
-      {
-        "name": "Copper",
-        "slash": 0.29598,
-        "pierce": 0.225,
-        "blunt": 0.5939,
-        "magic": 0.21581125
-      },
-      {
-        "name": "Iron",
-        "slash": 0.39687,
-        "pierce": 0.40039,
-        "blunt": 0.4957,
-        "magic": 0.46443
-      },
-      {
-        "name": "Tin",
-        "slash": 0.032143,
-        "pierce": 0.039844,
-        "blunt": 0.53344,
-        "magic": 0.502865
-      },
-      {
-        "name": "Lead",
-        "slash": 0.0,
-        "pierce": 0.0,
-        "blunt": 0.55,
-        "magic": 0.6406725
-      },
-      {
-        "name": "Silver",
-        "slash": 0.16518,
-        "pierce": 0.14727,
-        "blunt": 0.55047,
-        "magic": 0.2587075
-      },
-      {
-        "name": "Gold",
-        "slash": 0.13304,
-        "pierce": 0.14258,
-        "blunt": 0.52405,
-        "magic": 0.5882525000000001
-      },
-      {
-        "name": "Zinc",
-        "slash": 0.13304,
-        "pierce": 0.17656,
-        "blunt": 0.48251,
-        "magic": 0.5006675
-      },
-      {
-        "name": "Nickel",
-        "slash": 0.39687,
-        "pierce": 0.3875,
-        "blunt": 0.51146,
-        "magic": 0.6246224999999999
-      },
-      {
-        "name": "Aluminum",
-        "slash": 0.21451,
-        "pierce": 0.14805,
-        "blunt": 0.60266,
-        "magic": 0.44033
-      }
-    ],
-    "T2": [
-      {
-        "name": "Bronze (Cu+Sn)",
-        "slash": 0.3625,
-        "pierce": 0.23594,
-        "blunt": 0.65469,
-        "magic": 0.62205
-      },
-      {
-        "name": "Brass (Cu+Zn)",
-        "slash": 0.26384,
-        "pierce": 0.20156,
-        "blunt": 0.5904,
-        "magic": 0.5874400000000001
-      },
-      {
-        "name": "Pewter (Sn+Pb/Cu)",
-        "slash": 0.052768,
-        "pierce": 0.066328,
-        "blunt": 0.52628,
-        "magic": 0.62072
-      },
-      {
-        "name": "Wrought Iron",
-        "slash": 0.42902,
-        "pierce": 0.37578,
-        "blunt": 0.55792,
-        "magic": 0.5594975
-      }
-    ],
-    "T3": [
-      {
-        "name": "Cast Iron",
-        "slash": 0.30268,
-        "pierce": 0.31641,
-        "blunt": 0.51179,
-        "magic": 0.5348875
-      },
-      {
-        "name": "Carbon Steel",
-        "slash": 0.6308,
-        "pierce": 0.53672,
-        "blunt": 0.59356,
-        "magic": 0.56331
-      },
-      {
-        "name": "Damascus Steel",
-        "slash": 0.69732,
-        "pierce": 0.56523,
-        "blunt": 0.63287,
-        "magic": 0.59602
-      }
-    ],
-    "T4": [
-      {
-        "name": "Stainless Steel",
-        "slash": 0.62634,
-        "pierce": 0.45625,
-        "blunt": 0.67217,
-        "magic": 0.8962525
-      },
-      {
-        "name": "Tool Steel",
-        "slash": 0.7317,
-        "pierce": 0.60547,
-        "blunt": 0.62571,
-        "magic": 0.7580875
-      },
-      {
-        "name": "Titanium",
-        "slash": 0.6308,
-        "pierce": 0.42656,
-        "blunt": 0.7282,
-        "magic": 0.84623
-      },
-      {
-        "name": "Tungsten",
-        "slash": 0.60536,
-        "pierce": 0.8625,
-        "blunt": 0.19286,
-        "magic": 0.7902525
-      }
-    ],
-    "T5": [
-      {
-        "name": "Mithril",
-        "slash": 0.89911,
-        "pierce": 0.67344,
-        "blunt": 0.73296,
-        "magic": 0.764855
-      },
-      {
-        "name": "Adamantite",
-        "slash": 1.0,
-        "pierce": 0.88281,
-        "blunt": 0.59323,
-        "magic": 0.841145
-      },
-      {
-        "name": "Orichalcum",
-        "slash": 0.83259,
-        "pierce": 0.67422,
-        "blunt": 0.65785,
-        "magic": 0.7821600000000001
-      }
-    ]
-  },
-  "Minerals": {
-    "T1": [
-      {
-        "name": "Sandstone",
-        "slash": 0.0,
-        "pierce": 0.0,
-        "blunt": 0.55,
-        "magic": 0.314165
-      },
-      {
-        "name": "Quartz",
-        "slash": 0.41346,
-        "pierce": 0.36046,
-        "blunt": 0.59811,
-        "magic": 0.61383
-      }
-    ],
-    "T2": [
-      {
-        "name": "Limestone",
-        "slash": 0.087143,
-        "pierce": 0.13,
-        "blunt": 0.49048,
-        "magic": 0.28497
-      },
-      {
-        "name": "Calcite",
-        "slash": 0.05,
-        "pierce": 0.025,
-        "blunt": 0.56944,
-        "magic": 0.3240925
-      }
-    ],
-    "T3": [
-      {
-        "name": "Granite",
-        "slash": 0.51357,
-        "pierce": 0.61,
-        "blunt": 0.40357,
-        "magic": 0.4121725
-      },
-      {
-        "name": "Obsidian",
-        "slash": 0.21154,
-        "pierce": 0.21154,
-        "blunt": 0.55,
-        "magic": 0.625
-      }
-    ],
-    "T4": [
-      {
-        "name": "Basalt",
-        "slash": 0.52286,
-        "pierce": 0.63,
-        "blunt": 0.37619,
-        "magic": 0.65149
-      },
-      {
-        "name": "Corundum (Ruby/Sapphire)",
-        "slash": 0.55769,
-        "pierce": 0.85769,
-        "blunt": 0.17222,
-        "magic": 0.58889
-      }
-    ],
-    "T5": [
-      {
-        "name": "Worldstone",
-        "slash": 1.0,
-        "pierce": 1.0,
-        "blunt": 0.45,
-        "magic": 0.84375
-      },
-      {
-        "name": "Aethercrystal",
-        "slash": 1.0,
-        "pierce": 1.0,
-        "blunt": 0.45,
-        "magic": 0.799075
-      }
-    ]
-  }
-};
-      /* NOTE: The chat UI may truncate huge JSON blobs in previews. If you paste this file and it runs, you're good.
-         If you get a console error about DB, tell me and I’ll repost the code in smaller chunks. */
-
       const { useState, useMemo } = React;
 
       const STAT_POOL = 270;
@@ -679,13 +209,13 @@
         return { blunt: c.phys, slash: c.phys, pierce: c.phys, magic: c.magic };
       }
 
-      function getMaterialsForCategory(cat){ return DB[cat] || {}; }
-      function tiersForCategory(cat){ return Object.keys(getMaterialsForCategory(cat)).sort(); }
-      function itemsForCategoryAndTier(cat, tier){
-        const obj = getMaterialsForCategory(cat); return (obj[tier] || []);
+      function getMaterialsForCategory(DB, cat){ return DB[cat] || {}; }
+      function tiersForCategory(DB, cat){ return Object.keys(getMaterialsForCategory(DB, cat)).sort(); }
+      function itemsForCategoryAndTier(DB, cat, tier){
+        const obj = getMaterialsForCategory(DB, cat); return (obj[tier] || []);
       }
-      function factorsFor(cat, materialName){
-        const tiers = getMaterialsForCategory(cat);
+      function factorsFor(DB, cat, materialName){
+        const tiers = getMaterialsForCategory(DB, cat);
         for (const list of Object.values(tiers)){
           for (const m of list){ if (m.name === materialName) return m; }
         }
@@ -693,15 +223,15 @@
       }
 
       // Weighted 80% outer, 15% inner, 5% binding; multiplied by armor-class base DRs
-      function effectiveDRForSlot(cls, outerCategory, materialName, innerName, bindName, isShield=false){
+      function effectiveDRForSlot(DB, cls, outerCategory, materialName, innerName, bindName, isShield=false){
         const base = classBasePerType(cls);
         let outerFac = null;
         if (isShield){
-          const woodTiers = getMaterialsForCategory("Wood");
+          const woodTiers = getMaterialsForCategory(DB, "Wood");
           const anyWood = (woodTiers?.T5?.[0]) || null;
           outerFac = anyWood ? anyWood : { slash:0, pierce:0, blunt:0, magic:0 };
         } else {
-          outerFac = factorsFor(outerCategory, materialName) || { slash:0, pierce:0, blunt:0, magic:0 };
+          outerFac = factorsFor(DB, outerCategory, materialName) || { slash:0, pierce:0, blunt:0, magic:0 };
         }
         const inner = INNER_MATERIALS[innerName] || { blunt:0, slash:0, pierce:0, magic:0 };
         const bind  = THREAD_BINDINGS[bindName] || { blunt:0, slash:0, pierce:0, magic:0 };
@@ -719,48 +249,48 @@
           magic: clamp01(base.magic * comb.magic),
         };
       }
-      function effectiveDRForTarget(cls, outerCategory, tier, materialName, innerName, bindName){
-        return effectiveDRForSlot(cls, outerCategory, materialName, innerName, bindName, false);
+      function effectiveDRForTarget(DB, cls, outerCategory, tier, materialName, innerName, bindName){
+        return effectiveDRForSlot(DB, cls, outerCategory, materialName, innerName, bindName, false);
       }
 
-      function App(){
+      function App({ DB }){
         // Character
         const [raceId, setRaceId] = useState("human");
         const [stats, setStats]   = useState({ STR:0, DEX:0, INT:0, PSY:0 });
 
         // Skills with a pool
-const [skills, setSkills] = useState({
-  ArmorTraining: 0,
-  BlockingAndShields: 0,
-  Sword: 0,
-  Axe: 0,
-  Hammer: 0,
-  Spear: 0,
-  Dagger: 0,
-  Polesword: 0,
-  Poleaxe: 0,
-  Lance: 0,
-  Fists: 0,
-  RangedWeapons: 0,
-  Bow: 0,
-  Crossbow: 0,
-  Sling: 0,
-  MountedCombat: 0,
-  MountedArchery: 0,
-  MountedMagery: 0,
-  Anatomy: 0,
-  BeastControl: 0,
-  Fire: 0,
-  Water: 0,
-  Earth: 0,
-  Wind: 0,
-  Radiance: 0,
-  Void: 0,
-  Stealth: 0,
-  MeleeAmbush: 0,
-  RangedAmbush: 0,
-  ElementalAmbush: 0,
-});
+        const [skills, setSkills] = useState({
+          ArmorTraining: 0,
+          BlockingAndShields: 0,
+          Sword: 0,
+          Axe: 0,
+          Hammer: 0,
+          Spear: 0,
+          Dagger: 0,
+          Polesword: 0,
+          Poleaxe: 0,
+          Lance: 0,
+          Fists: 0,
+          RangedWeapons: 0,
+          Bow: 0,
+          Crossbow: 0,
+          Sling: 0,
+          MountedCombat: 0,
+          MountedArchery: 0,
+          MountedMagery: 0,
+          Anatomy: 0,
+          BeastControl: 0,
+          Fire: 0,
+          Water: 0,
+          Earth: 0,
+          Wind: 0,
+          Radiance: 0,
+          Void: 0,
+          Stealth: 0,
+          MeleeAmbush: 0,
+          RangedAmbush: 0,
+          ElementalAmbush: 0,
+        });
 
         const totalSkill = Object.values(skills).reduce((a,b)=> a+(b||0), 0);
         function setSkillBound(name, val){
@@ -773,7 +303,7 @@ const [skills, setSkills] = useState({
 
         // Helpers for materials
         function firstName(cat, tier){
-          const items = itemsForCategoryAndTier(cat, tier);
+          const items = itemsForCategoryAndTier(DB, cat, tier);
           return (items[0]?.name) || "";
         }
 
@@ -941,11 +471,11 @@ const [skills, setSkills] = useState({
           const isHeavy = (weapon.type!=='mounted') && (charge >= 1.5 - 1e-6);
           const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1));
           return { total, parts: finalParts, staminaCost: staminaCostFinal, isHeavy };
-        }, [weapon, direction, charge, swing, effective.STR, mountedSpeed, missingPieces, nakedOverride, selCore, selGrip, selFit, selHead, skillMult]);
+        }, [weapon, direction, charge, swing, effective.STR, mountedSpeed, missingPieces, nakedOverride, selCore, selGrip, selFit, selHead, skillMult, DB]);
 
         // Damage against target armor
         const dmgVsArmor = useMemo(()=>{
-          const t = effectiveDRForTarget(targetArmor.class, targetArmor.category, targetArmor.tier, targetArmor.material, targetArmor.inner, targetArmor.binding);
+          const t = effectiveDRForTarget(DB, targetArmor.class, targetArmor.category, targetArmor.tier, targetArmor.material, targetArmor.inner, targetArmor.binding);
           const mapKey = (k)=> k.toLowerCase();
           let acc = 0;
           for (const [k,v] of Object.entries(damage.parts)){
@@ -954,7 +484,7 @@ const [skills, setSkills] = useState({
             acc += Math.max(0, v * (1 - dr));
           }
           return Math.floor(acc);
-        }, [damage.parts, targetArmor]);
+        }, [damage.parts, targetArmor, DB]);
 
         // Attribute handlers
         const setStat = (key, val)=>{ const next = { ...stats, [key]: val }; if (sumCost(next) <= STAT_POOL) setStats(next); };
@@ -1176,11 +706,11 @@ const [skills, setSkills] = useState({
                           const material = entry.material || "";
                           const innerName = entry.inner || "Linen";
                           const bindName  = entry.binding || "Cotton";
-                          const eff = effectiveDRForSlot(cls, category, material, innerName, bindName, isShield);
+                          const eff = effectiveDRForSlot(DB, cls, category, material, innerName, bindName, isShield);
                           const allowedCats = MATERIALS_FOR_CLASS[entry.class||"None"] || [];
-                          const allTiers = tiersForCategory(category);
-                          const items = itemsForCategoryAndTier(category, tier);
-                          const matObj = factorsFor(category, material);
+                          const allTiers = tiersForCategory(DB, category);
+                          const items = itemsForCategoryAndTier(DB, category, tier);
+                          const matObj = factorsFor(DB, category, material);
 
                           return (
                             <div key={slot.id} className="bg-slate-800/60 rounded-xl p-3">
@@ -1308,8 +838,8 @@ const [skills, setSkills] = useState({
                         <div>
                           <label className="block text-sm">Outer Material Category, which is eighty percent of the weighting</label>
                           <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2" value={targetArmor.category} onChange={e=> {
-                            const cat = e.target.value; const tiers = tiersForCategory(cat); const firstTier = tiers[0]||"T1";
-                            const firstNameInCat = (itemsForCategoryAndTier(cat, firstTier)[0]?.name) || "";
+                            const cat = e.target.value; const tiers = tiersForCategory(DB, cat); const firstTier = tiers[0]||"T1";
+                            const firstNameInCat = (itemsForCategoryAndTier(DB, cat, firstTier)[0]?.name) || "";
                             setTargetArmor(t=> ({...t, category: cat, tier:firstTier, material:firstNameInCat}));
                           }}>
                             {(MATERIALS_FOR_CLASS[targetArmor.class]||[]).map(k=> <option key={k} value={k}>{k}</option>)}
@@ -1320,16 +850,16 @@ const [skills, setSkills] = useState({
                             <label className="block text-sm">Tier</label>
                             <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2" value={targetArmor.tier} onChange={e=> {
                               const tier = e.target.value;
-                              const mat = (itemsForCategoryAndTier(targetArmor.category, tier)[0]?.name) || "";
+                              const mat = (itemsForCategoryAndTier(DB, targetArmor.category, tier)[0]?.name) || "";
                               setTargetArmor(t=> ({...t, tier, material: mat}));
                             }}>
-                              {tiersForCategory(targetArmor.category).map(t=> <option key={t} value={t}>{t}</option>)}
+                              {tiersForCategory(DB, targetArmor.category).map(t=> <option key={t} value={t}>{t}</option>)}
                             </select>
                           </div>
                           <div>
                             <label className="block text-sm">Specific Material</label>
                             <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2" value={targetArmor.material} onChange={e=> setTargetArmor(t=> ({...t, material: e.target.value}))}>
-                              {itemsForCategoryAndTier(targetArmor.category, targetArmor.tier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                              {itemsForCategoryAndTier(DB, targetArmor.category, targetArmor.tier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
                             </select>
                           </div>
                         </div>
@@ -1414,9 +944,13 @@ const [skills, setSkills] = useState({
         );
       }
 
-      ReactDOM.createRoot(document.getElementById("root")).render(
-        <React.StrictMode><App /></React.StrictMode>
-      );
+      fetch('db.json')
+        .then(response => response.json())
+        .then(db => {
+          ReactDOM.createRoot(document.getElementById("root")).render(
+            <React.StrictMode><App DB={db} /></React.StrictMode>
+          );
+        });
     </script>
   </body>
 </html>
