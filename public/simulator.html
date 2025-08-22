@@ -25,10 +25,17 @@
         <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
           <div class="flex items-center justify-between">
             <div class="text-xl font-bold tracking-tight">Game Simulator</div>
-            <div class="flex gap-4">
+            <div class="flex flex-wrap gap-4">
               <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
               <a href="materials.html" class="text-slate-300 hover:text-emerald-400">Materials</a>
               <a href="simulator.html" class="text-emerald-400 font-semibold">Simulator</a>
+              <a href="combat.html" class="text-slate-300 hover:text-emerald-400">Combat</a>
+              <a href="movement.html" class="text-slate-300 hover:text-emerald-400">Movement</a>
+              <a href="races.html" class="text-slate-300 hover:text-emerald-400">Races</a>
+              <a href="ascension.html" class="text-slate-300 hover:text-emerald-400">Ascension</a>
+              <a href="magic.html" class="text-slate-300 hover:text-emerald-400">Magic</a>
+              <a href="crafting.html" class="text-slate-300 hover:text-emerald-400">Crafting</a>
+              <a href="materials_guide.html" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
             </div>
           </div>
         </nav>
@@ -59,15 +66,15 @@
         { id: "boots",  name: "Boots",  factor: 2 },
         { id: "torso",  name: "Torso",  factor: 3 },
         { id: "legs",   name: "Legs",   factor: 3 },
-        { id: "shield", name: "Shield", factor: 3 },
+        { id: "shield", name: "Shield", factor: 2 },
       ];
 
-      // Armor class base reductions (heavy magic = 25% as requested)
+      // Armor class base reductions (heavy magic = 50% from doc)
       const ARMOR_CLASS = {
         None:   { value: 0, phys: 0.00, magic: 0.00 },
         Light:  { value: 1, phys: 0.25, magic: 0.75 },
         Medium: { value: 2, phys: 0.50, magic: 0.50 },
-        Heavy:  { value: 3, phys: 0.75, magic: 0.25 },
+        Heavy:  { value: 3, phys: 0.75, magic: 0.50 },
       };
 
       const SHIELDS = {
@@ -109,8 +116,9 @@
         Dagger:  { type: "melee",   massKg: 1, baseCost: 20, head: { Blunt: 0.05, Slash: 0.20, Pierce: 0.30 }, dir: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
         Bow:     { type: "ranged",  drawWeight: 50, head: { Pierce: 0.40 } },
         Crossbow:{ type: "ranged",  drawWeight: 35, head: { Pierce: 0.30 } },
-        Sling:   { type: "ranged",  drawWeight: 20, head: { Pierce: 0.20 } },
         Lance:   { type: "mounted", massKg: 5, head: { Blunt: 0.20, Pierce: 0.50 }, speed: { Walk: 0.5, Trot: 0.9, Canter: 1.2, Gallop: 1.6 } },
+        Polesword: { type: "melee", massKg: 5, baseCost: 35, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.25 }, dir: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Slash" } },
+        Poleaxe: { type: "melee", massKg: 6, baseCost: 40, head: { Blunt: 0.25, Slash: 0.30, Pierce: 0.15 }, dir: { Left: "Slash", Right: "Blunt", Up: "Pierce", Down: "Slash" } },
       };
 
       // Handle/hilt 3 components
@@ -269,17 +277,13 @@
           Dagger: 0,
           Polesword: 0,
           Poleaxe: 0,
-          Lance: 0,
-          Fists: 0,
           RangedWeapons: 0,
-          Bow: 0,
-          Crossbow: 0,
-          Sling: 0,
           MountedCombat: 0,
           MountedArchery: 0,
           MountedMagery: 0,
           Anatomy: 0,
           BeastControl: 0,
+          Taming: 0,
           Fire: 0,
           Water: 0,
           Earth: 0,
@@ -359,7 +363,6 @@
           switch(weaponKey){
             case 'Bow': return ['Ash','Yew','Composite'];
             case 'Crossbow': return ['Oak','Ironwood','SteelProd'];
-            case 'Sling': return ['Leather','Hemp','Wool'];
             case 'Spear':
             case 'Lance': return ['Ash','Oak','Ironwood'];
             case 'Axe':
@@ -372,7 +375,6 @@
           switch(weaponKey){
             case 'Bow':
             case 'Crossbow': return ['Leather','Hemp','Wool'];
-            case 'Sling': return ['Leather','Hemp','Cord'];
             default: return ['Leather','Hemp','Wool'];
           }
         }, [weaponKey]);
@@ -380,7 +382,6 @@
           switch(weaponKey){
             case 'Bow': return ['None','Bone','Bronze'];
             case 'Crossbow': return ['Bronze','Iron','Steel','SteelProd'];
-            case 'Sling': return ['None','Bone'];
             case 'Lance':
             case 'Spear': return ['Bronze','Iron','Steel'];
             default: return ['Bronze','Iron','Steel','Bone'];
@@ -390,7 +391,6 @@
           switch(weaponKey){
             case 'Bow': return ['Stone','Iron','Steel','Mithril'];
             case 'Crossbow': return ['Iron','Steel','Mithril'];
-            case 'Sling': return ['Stone','Lead'];
             case 'Lance': return ['Bronze','Iron','Steel'];
             default: return ['Bronze','Iron','Steel','Mithril'];
           }
@@ -403,7 +403,7 @@
 
         // Active weapon skill multiplier
         const activeWeaponSkillName = useMemo(()=>{
-          if (weaponKey==='Bow' || weaponKey==='Crossbow' || weaponKey==='Sling') return 'RangedWeapons';
+          if (weaponKey==='Bow' || weaponKey==='Crossbow') return 'RangedWeapons';
           if (weaponKey==='Lance') return 'MountedCombat';
           return weaponKey;
         }, [weaponKey]);
@@ -661,28 +661,32 @@
                     </div>
                     <div className="space-y-3">
                       {[
-                        ["ArmorTraining","Armor Training"],
-                        ["BlockingAndShields","Blocking and Shields"],
-                        ["Sword","Sword"],
-                        ["Axe","Axe"],
-                        ["Hammer","Hammer"],
-                        ["Spear","Spear"],
-                        ["Dagger","Dagger"],
-                        ["RangedWeapons","Ranged Weapons"],
-                        ["MountedCombat","Mounted Combat"],
-						["MountedArchery","MountedArchery"],
-						["MountedMagery","MountedMagery"],
-						["Anatomy","Anatomy"],
-						["BeastControl","BeastControl"],
-						["Fire","Fire"],
-						["Water","Water"],
-						["Earth","Earth"],
-						["Radiance","Radiance"],
-						["Void","Void"],
-						["Stealth","Stealth"],
-						["MeleeAmbush","MeleeAmbush"],
-						["RangedAmbush","RangedAmbush"],
-						["ElementalAmbush","ElementalAmbush"],
+                        ["ArmorTraining", "Armor Training"],
+                        ["BlockingAndShields", "Blocking & Shields"],
+                        ["Sword", "Sword"],
+                        ["Axe", "Axe"],
+                        ["Dagger", "Dagger"],
+                        ["Hammer", "Hammer"],
+                        ["Polesword", "Polesword"],
+                        ["Poleaxe", "Poleaxe"],
+                        ["Spear", "Spear"],
+                        ["RangedWeapons", "Ranged Weapons"],
+                        ["MountedCombat", "Mounted Combat"],
+                        ["MountedArchery", "Mounted Archery"],
+                        ["MountedMagery", "Mounted Magery"],
+                        ["Anatomy", "Anatomy"],
+                        ["BeastControl", "Beast Control"],
+                        ["Taming", "Taming"],
+                        ["Fire", "Fire"],
+                        ["Water", "Water"],
+                        ["Earth", "Earth"],
+                        ["Wind", "Wind"],
+                        ["Radiance", "Radiance"],
+                        ["Void", "Void"],
+                        ["Stealth", "Stealth"],
+                        ["MeleeAmbush", "Melee Ambush"],
+                        ["RangedAmbush", "Ranged Ambush"],
+                        ["ElementalAmbush", "Elemental Ambush"],
                       ].map(([key,label]) => (
                         <div key={key}>
                           <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>

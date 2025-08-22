@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Game Simulator - Movement System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {} } };
+    document.documentElement.classList.add("dark");
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    body { background: #0f172a; color: #e2e8f0; margin: 0; }
+    h2 { margin-top: 1.5rem; margin-bottom: 1rem; }
+    h3 { margin-top: 1rem; margin-bottom: 0.5rem; }
+    ul { margin-left: 1.5rem; }
+    li { margin-bottom: 0.25rem; }
+    code { background-color: #1e293b; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+      <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
+        <div class="flex items-center justify-between">
+          <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+          <div class="flex flex-wrap gap-4">
+            <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
+            <a href="materials.html" class="text-slate-300 hover:text-emerald-400">Materials</a>
+            <a href="simulator.html" class="text-slate-300 hover:text-emerald-400">Simulator</a>
+            <a href="combat.html" class="text-slate-300 hover:text-emerald-400">Combat</a>
+            <a href="movement.html" class="text-emerald-400 font-semibold">Movement</a>
+            <a href="races.html" class="text-slate-300 hover:text-emerald-400">Races</a>
+            <a href="ascension.html" class="text-slate-300 hover:text-emerald-400">Ascension</a>
+            <a href="magic.html" class="text-slate-300 hover:text-emerald-400">Magic</a>
+            <a href="crafting.html" class="text-slate-300 hover:text-emerald-400">Crafting</a>
+            <a href="materials_guide.html" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
+          </div>
+        </div>
+      </nav>
+
+      <header class="text-center">
+        <h1 class="text-4xl font-bold tracking-tight mb-4">Movement System</h1>
+        <p class="text-lg text-slate-300">
+          Comprehensive Movement System & Anti-Cheat Design
+        </p>
+      </header>
+
+      <main class="mt-10 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+
+        <section id="core-states">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">1. Core Player States</h2>
+          <p class="text-slate-300 mt-2">The game defines three core player states which affect movement and interactions:</p>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li><strong>Out of Combat (OoC):</strong> Normal traversal stance. Sprinting and free movement allowed.</li>
+            <li><strong>In Combat (IC):</strong> Weapon must be drawn to attack. 0.5s delay when entering or swapping weapons. Movement speed halved but stamina regen doubled. Sprint speed matches OoC.</li>
+            <li><strong>Mounted:</strong> Riding a mount with its own max speed and handling profile.</li>
+            <li><strong>Swimming:</strong> Slower movement, ignores slope effects.</li>
+            <li><strong>Falling:</strong> Freefall state with terminal velocity applied; slope >50° triggers sliding.</li>
+          </ul>
+        </section>
+
+        <section id="movement-mechanics" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">2. Movement Mechanics</h2>
+          <p class="text-slate-300 mt-2">Movement follows realistic physics principles with speed modifiers based on posture, slope, and inertia.</p>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li><strong>Postures:</strong> Crouch (-50% noise), Crawl (0 noise), Walk, Jog, Run.</li>
+            <li><strong>Sprint:</strong> Ramp-up of 2s to max speed, 5 stamina to engage, stamina does not regenerate during sprint. Damage >5 cancels sprint.</li>
+            <li><strong>Backpedal:</strong> -25% speed in all environments.</li>
+            <li><strong>Jumping:</strong> After 3 quick jumps (<2s apart), apply 10%, 15%, 20% successive speed decay.</li>
+            <li><strong>Clamber:</strong> Costs 5 stamina.</li>
+            <li><strong>Inertia:</strong> No instant directional changes; momentum and animations control responsiveness.</li>
+          </ul>
+        </section>
+
+        <section id="terrain-effects" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">3. Terrain & Slope Effects</h2>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li><strong>Uphill:</strong> Speed reduction begins at 20° slope, capped at -45% speed at ≥45°.</li>
+            <li><strong>Downhill:</strong> Provides acceleration up to 12 m/s. Steering control narrows with speed. Players slide uncontrollably if slope >50° until ≤30°.</li>
+            <li><strong>Climbing:</strong> Cannot climb >49° slope.</li>
+            <li><strong>Swimming</strong> ignores slope modifiers.</li>
+          </ul>
+        </section>
+
+        <section id="speed-matrix" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">4. Speed Matrix</h2>
+          <p class="text-slate-300 mt-2">Minimum floor speed is set to 0.5 m/s so movement never feels broken.</p>
+          <!-- The document mentions a speed matrix but does not provide it. -->
+        </section>
+
+        <section id="combat-interactions" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">5. Combat Interactions</h2>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li>Weapons can only be used in Combat Stance.</li>
+            <li>Entering combat stance, removing a weapon, or swapping incurs 0.5s delay.</li>
+            <li>Out of Combat vs In Combat sprint speeds are identical.</li>
+            <li><strong>Quick Turn:</strong> Costs 20 stamina, look direction temporarily locked, released after animation. Adds disorientation effect.</li>
+          </ul>
+        </section>
+
+        <section id="noise-stealth" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">6. Noise & Stealth</h2>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li><strong>Walking/Running:</strong> Normal noise.</li>
+            <li><strong>Crouch:</strong> Generates 50% less noise.</li>
+            <li><strong>Crawl:</strong> Generates no noise.</li>
+            <li><strong>Volume scaling:</strong> Noise radius changes with environment/stance.</li>
+          </ul>
+        </section>
+
+        <section id="gravity-falling" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">7. Gravity & Falling</h2>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li>Real-world drag modeled at sea level.</li>
+            <li>Max falling speed (terminal velocity): 55 m/s.</li>
+            <li>Hitting slopes >50° triggers sliding until ≤30°.</li>
+            <li>Players cannot stick to vertical surfaces; hitbox remains consistent.</li>
+          </ul>
+        </section>
+
+        <section id="anti-cheat" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">8. Anti-Cheat Enforcement</h2>
+          <p class="text-slate-300 mt-2">Server-authoritative system enforces per-state speed caps. Any exceedance flags potential cheats.</p>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li>Each state has a max speed cap (see matrix).</li>
+            <li>Effective cap = design cap × 1.10 tolerance.</li>
+            <li>Whitelist legitimate buffs (knockback, dash, ziplines).</li>
+            <li>If player exceeds cap for >500ms, increment flag count. After N flags, temp ban player and alert GM.</li>
+            <li>Snapshot telemetry saved for GM review: recent state transitions, velocity, slope, stance, network RTT, and collision data.</li>
+          </ul>
+        </section>
+
+        <section id="design-considerations" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">9. Design Considerations & Pitfalls</h2>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li>Uphill/downhill realism adds immersion but may feel punishing; caps and floors ensure playability.</li>
+            <li>Combat stance delay (0.5s) allows animations to complete, but too long could frustrate players.</li>
+            <li>Swimming intentionally weak to discourage use.</li>
+            <li>Gradual speed decay on jumps avoids sudden punishments.</li>
+            <li>Mounted state balances fantasy speed with real-world believability.</li>
+            <li>Anti-cheat tolerances prevent false bans from latency or scripted events.</li>
+          </ul>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</body>
+</html>

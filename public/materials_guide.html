@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Game Simulator - Material System Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {} } };
+    document.documentElement.classList.add("dark");
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    body { background: #0f172a; color: #e2e8f0; margin: 0; }
+    h2 { margin-top: 1.5rem; margin-bottom: 1rem; }
+    h3 { margin-top: 1rem; margin-bottom: 0.5rem; }
+    ul { margin-left: 1.5rem; }
+    li { margin-bottom: 0.25rem; }
+    code { display: block; background-color: #1e293b; padding: 0.5rem 0.8rem; border-radius: 0.25rem; font-family: monospace; white-space: pre; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+      <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
+        <div class="flex items-center justify-between">
+          <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+          <div class="flex flex-wrap gap-4">
+            <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
+            <a href="materials.html" class="text-slate-300 hover:text-emerald-400">Materials</a>
+            <a href="simulator.html" class="text-slate-300 hover:text-emerald-400">Simulator</a>
+            <a href="combat.html" class="text-slate-300 hover:text-emerald-400">Combat</a>
+            <a href="movement.html" class="text-slate-300 hover:text-emerald-400">Movement</a>
+            <a href="races.html" class="text-slate-300 hover:text-emerald-400">Races</a>
+            <a href="ascension.html" class="text-slate-300 hover:text-emerald-400">Ascension</a>
+            <a href="magic.html" class="text-slate-300 hover:text-emerald-400">Magic</a>
+            <a href="crafting.html" class="text-slate-300 hover:text-emerald-400">Crafting</a>
+            <a href="materials_guide.html" class="text-emerald-400 font-semibold">Materials Guide</a>
+          </div>
+        </div>
+      </nav>
+
+      <header class="text-center">
+        <h1 class="text-4xl font-bold tracking-tight mb-4">Material and Gameplay System</h1>
+        <p class="text-lg text-slate-300">
+          How real-world materials are translated into gameplay statistics.
+        </p>
+      </header>
+
+      <main class="mt-10 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+
+        <section id="overview">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">1. Overview</h2>
+          <p class="text-slate-300 mt-2">The system is divided into four material families: Metals, Organics, Rocks, and Minerals. Each family has a Tier system (1–5), where Tier 5 represents mythical materials with a ~10% enhancement over Tier 4.</p>
+        </section>
+
+        <section id="properties" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">2. Real-World Material Properties</h2>
+          <p class="text-slate-300 mt-2">Each material is registered with baseline scientific properties which are then normalized to a 0-1 scale for gameplay calculations.</p>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li>Density (g/cm³)</li>
+            <li>Hardness (Mohs or Janka)</li>
+            <li>Elastic Modulus (GPa) – stiffness</li>
+            <li>Thermal & Electrical Conductivity</li>
+            <li>Toughness & Chemical Resistance</li>
+            <li>Water Absorption</li>
+          </ul>
+        </section>
+
+        <section id="formulas" class="mt-8">
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">3. Gameplay Formulas</h2>
+            <p class="text-slate-300 mt-2">The following formulas translate normalized real-world properties into gameplay values.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div>
+                    <h3 class="text-xl font-semibold">Offense Formulas</h3>
+                    <code>Offense_Slash  = 0.6 × Hardness_norm + 0.4 × Density_norm
+Offense_Pierce = 0.6 × Hardness_norm + 0.4 × ElasticMod_norm
+Offense_Blunt  = 0.6 × Density_norm  + 0.4 × Toughness_norm</code>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Defense Formulas</h3>
+                    <code>Defense_Slash  = 0.55 × Hardness_norm + 0.45 × Toughness_norm
+Defense_Pierce = 0.55 × Hardness_norm + 0.45 × ElasticMod_norm
+Defense_Blunt  = 0.55 × (1 − ElasticMod_norm) + 0.45 × Toughness_norm</code>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Elemental Resistance Formulas</h3>
+                    <code>Element_Fire  = 0.7 × (1 − ThermalCond_norm) + 0.3 × ChemRes_norm
+Element_Water = ChemRes_norm × (1 − 0.5 × WaterAbsorption_rel)
+Element_Wind  = 1 − ElectricalCond_norm
+Element_Earth = 0.5 × Toughness_norm + 0.5 × Density_norm</code>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Environmental Formula</h3>
+                    <code>Heat_Retention = 0.6 × (1 − ThermalCond_norm) + 0.4 × Density_norm</code>
+                </div>
+            </div>
+        </section>
+
+        <section id="tiers" class="mt-8">
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">4. Tier Systems</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div>
+                    <h3 class="text-xl font-semibold">Metals</h3>
+                    <ul class="list-disc text-slate-300 mt-2">
+                        <li><strong>T1:</strong> Iron, Copper, Tin, Lead</li>
+                        <li><strong>T2:</strong> Bronze, Brass</li>
+                        <li><strong>T3:</strong> Steels (Carbon, Damascus)</li>
+                        <li><strong>T4:</strong> Titanium, Tungsten</li>
+                        <li><strong>T5:</strong> Mithril, Adamantite</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Organics</h3>
+                    <ul class="list-disc text-slate-300 mt-2">
+                        <li><strong>Woods:</strong> Pine → Oak → Hickory → Lignum Vitae → Worldtree Yew</li>
+                        <li><strong>Leathers:</strong> Goat → Cow → Crocodile → Rhino → Dragonhide</li>
+                        <li><strong>Furs:</strong> Rabbit → Wolf → Bear → Polar Bear → Phoenix Down</li>
+                        <li><strong>Silks:</strong> Mulberry → Tussar → Spider Silk → Giant Spider Silk → Arachne Silk</li>
+                        <li><strong>Scales:</strong> Snake → Fish → Crocodile → Pangolin → Dragon Scale</li>
+                        <li><strong>Bones:</strong> Chicken → Deer → Cow → Whale → Titanbone</li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3 class="text-xl font-semibold">Rocks</h3>
+                    <ul class="list-disc text-slate-300 mt-2">
+                        <li><strong>T1:</strong> Sandstone</li>
+                        <li><strong>T2:</strong> Limestone</li>
+                        <li><strong>T3:</strong> Granite</li>
+                        <li><strong>T4:</strong> Basalt</li>
+                        <li><strong>T5:</strong> Worldstone</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold">Minerals</h3>
+                    <ul class="list-disc text-slate-300 mt-2">
+                        <li><strong>T1:</strong> Quartz</li>
+                        <li><strong>T2:</strong> Calcite</li>
+                        <li><strong>T3:</strong> Obsidian</li>
+                        <li><strong>T4:</strong> Corundum</li>
+                        <li><strong>T5:</strong> Aethercrystal</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="damage-model" class="mt-8">
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">5. Melee Weapon Damage Model</h2>
+            <p class="text-slate-300 mt-2">This section defines how to compute melee damage for unimbued and elementally imbued weapons.</p>
+            <h3 class="text-xl font-semibold mt-4">Unimbued (Physical-Only) Damage</h3>
+            <p class="text-slate-300 mt-2">Base damage is distributed across physical types (Slash, Pierce, Blunt) using normalized weights derived from the weapon head's material properties.</p>
+            <code>Phys_Slash  = Base_Dmg × Weight_Slash
+Phys_Pierce = Base_Dmg × Weight_Pierce
+Phys_Blunt  = Base_Dmg × Weight_Blunt</code>
+            <h3 class="text-xl font-semibold mt-4">Elementally Imbued Damage (Additive)</h3>
+            <p class="text-slate-300 mt-2">When an element is applied, the full physical damage is kept, and an elemental damage term is added. This term is scaled by a global tuning factor for the element, an optional power multiplier from the spell, and the weapon head's elemental affinity.</p>
+            <code>Elem_Damage = Base_Dmg × Tuning_Factor × Imbue_Power × Head_Affinity
+Total_Payload = { Physical_Damage, Elemental_Damage }</code>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</body>
+</html>
