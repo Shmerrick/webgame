@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/database_viewer.dir/database_viewer.cpp.o -o database_viewer

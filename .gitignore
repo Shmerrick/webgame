@@ -1,0 +1,7 @@
+# CMake
+cpp/build/
+cpp/CMakeCache.txt
+cpp/CMakeFiles/
+cpp/Makefile
+cpp/cmake_install.cmake
+cpp/database_viewer
