@@ -1,0 +1,1422 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Game Simulator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: {} } };
+      document.documentElement.classList.add("dark");
+    </script>
+    <style>
+      :root { color-scheme: dark; }
+      body { background: #0f172a; color: #e2e8f0; margin: 0; }
+      .slot-box { min-height: 82px; }
+    </style>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      /* ====== Materials DB (T1–T5) embedded from your spreadsheet ====== */
+      const DB = {
+  "Cloth": {
+    "T1": [
+      {
+        "name": "Rabbit/Fox",
+        "slash": 0.0,
+        "pierce": 0.0,
+        "blunt": 0.55,
+        "magic": 0.2890625
+      },
+      {
+        "name": "Mulberry Silk",
+        "slash": 0.15358,
+        "pierce": 0.26454,
+        "blunt": 0.39384,
+        "magic": 0.5897175
+      }
+    ],
+    "T2": [
+      {
+        "name": "Wolf/Deer",
+        "slash": 0.12913,
+        "pierce": 0.037078,
+        "blunt": 0.64196,
+        "magic": 0.34610425
+      },
+      {
+        "name": "Tussar/Eri/Muga",
+        "slash": 0.23967,
+        "pierce": 0.30953,
+        "blunt": 0.43037,
+        "magic": 0.6287400000000001
+      }
+    ],
+    "T3": [
+      {
+        "name": "Bear/Bison",
+        "slash": 0.27049,
+        "pierce": 0.086377,
+        "blunt": 0.73393,
+        "magic": 0.40481500000000004
+      },
+      {
+        "name": "Spider Silk",
+        "slash": 0.46073,
+        "pierce": 0.42785,
+        "blunt": 0.52854,
+        "magic": 0.6904175
+      }
+    ],
+    "T4": [
+      {
+        "name": "Polar Bear/Musk Ox",
+        "slash": 0.39962,
+        "pierce": 0.12346,
+        "blunt": 0.82589,
+        "magic": 0.4750625
+      },
+      {
+        "name": "Giant Spider Silk",
+        "slash": 0.65097,
+        "pierce": 0.56673,
+        "blunt": 0.57078,
+        "magic": 0.73735
+      }
+    ],
+    "T5": [
+      {
+        "name": "Phoenix Down",
+        "slash": 0.61484,
+        "pierce": 0.18498,
+        "blunt": 0.9795,
+        "magic": 0.7306174999999999
+      },
+      {
+        "name": "Arachne/Starlight Weave",
+        "slash": 0.81667,
+        "pierce": 0.69338,
+        "blunt": 0.60068,
+        "magic": 0.81383
+      }
+    ]
+  },
+  "Leather": {
+    "T1": [
+      {
+        "name": "Goat/Sheep Hide",
+        "slash": 0.20884,
+        "pierce": 0.09583,
+        "blunt": 0.66073,
+        "magic": 0.35450249999999994
+      }
+    ],
+    "T2": [
+      {
+        "name": "Cowhide/Pigskin",
+        "slash": 0.37464,
+        "pierce": 0.17327,
+        "blunt": 0.74817,
+        "magic": 0.4085775
+      }
+    ],
+    "T3": [
+      {
+        "name": "Croc/Ostrich",
+        "slash": 0.52184,
+        "pierce": 0.26088,
+        "blunt": 0.80731,
+        "magic": 0.45742249999999995
+      }
+    ],
+    "T4": [
+      {
+        "name": "Buffalo/Rhino",
+        "slash": 0.66904,
+        "pierce": 0.34849,
+        "blunt": 0.86644,
+        "magic": 0.4696
+      }
+    ],
+    "T5": [
+      {
+        "name": "Dragonhide",
+        "slash": 0.85928,
+        "pierce": 0.45038,
+        "blunt": 0.95388,
+        "magic": 0.700865
+      }
+    ]
+  },
+  "Scales": {
+    "T1": [
+      {
+        "name": "Snake/Lizard",
+        "slash": 0.1472,
+        "pierce": 0.10405,
+        "blunt": 0.58904,
+        "magic": 0.492505
+      }
+    ],
+    "T2": [
+      {
+        "name": "Carp/Salmon",
+        "slash": 0.25773,
+        "pierce": 0.15705,
+        "blunt": 0.64566,
+        "magic": 0.5088550000000001
+      }
+    ],
+    "T3": [
+      {
+        "name": "Croc/Alligator",
+        "slash": 0.52184,
+        "pierce": 0.27321,
+        "blunt": 0.79224,
+        "magic": 0.561825
+      }
+    ],
+    "T4": [
+      {
+        "name": "Pangolin/Armadillo",
+        "slash": 0.66904,
+        "pierce": 0.36082,
+        "blunt": 0.85137,
+        "magic": 0.59192
+      }
+    ],
+    "T5": [
+      {
+        "name": "Dragon Scales",
+        "slash": 0.85928,
+        "pierce": 0.46682,
+        "blunt": 0.93379,
+        "magic": 0.7297699999999999
+      }
+    ]
+  },
+  "Wood": {
+    "T1": [
+      {
+        "name": "Pine/Cedar",
+        "slash": 0.18387,
+        "pierce": 0.32565,
+        "blunt": 0.36301,
+        "magic": 0.31886000000000003
+      }
+    ],
+    "T2": [
+      {
+        "name": "Oak/Ash/Maple",
+        "slash": 0.45967,
+        "pierce": 0.55008,
+        "blunt": 0.40525,
+        "magic": 0.3720325
+      }
+    ],
+    "T3": [
+      {
+        "name": "Hickory/Ebony/Ironwood",
+        "slash": 0.70518,
+        "pierce": 0.71339,
+        "blunt": 0.47831,
+        "magic": 0.45023499999999994
+      }
+    ],
+    "T4": [
+      {
+        "name": "Lignum Vitae/Snakewood",
+        "slash": 0.85875,
+        "pierce": 0.8156,
+        "blunt": 0.52055,
+        "magic": 0.60094
+      }
+    ],
+    "T5": [
+      {
+        "name": "Worldtree Yew",
+        "slash": 0.98151,
+        "pierce": 0.91781,
+        "blunt": 0.53196,
+        "magic": 0.7217899999999999
+      }
+    ]
+  },
+  "Metals": {
+    "T1": [
+      {
+        "name": "Copper",
+        "slash": 0.29598,
+        "pierce": 0.225,
+        "blunt": 0.5939,
+        "magic": 0.21581125
+      },
+      {
+        "name": "Iron",
+        "slash": 0.39687,
+        "pierce": 0.40039,
+        "blunt": 0.4957,
+        "magic": 0.46443
+      },
+      {
+        "name": "Tin",
+        "slash": 0.032143,
+        "pierce": 0.039844,
+        "blunt": 0.53344,
+        "magic": 0.502865
+      },
+      {
+        "name": "Lead",
+        "slash": 0.0,
+        "pierce": 0.0,
+        "blunt": 0.55,
+        "magic": 0.6406725
+      },
+      {
+        "name": "Silver",
+        "slash": 0.16518,
+        "pierce": 0.14727,
+        "blunt": 0.55047,
+        "magic": 0.2587075
+      },
+      {
+        "name": "Gold",
+        "slash": 0.13304,
+        "pierce": 0.14258,
+        "blunt": 0.52405,
+        "magic": 0.5882525000000001
+      },
+      {
+        "name": "Zinc",
+        "slash": 0.13304,
+        "pierce": 0.17656,
+        "blunt": 0.48251,
+        "magic": 0.5006675
+      },
+      {
+        "name": "Nickel",
+        "slash": 0.39687,
+        "pierce": 0.3875,
+        "blunt": 0.51146,
+        "magic": 0.6246224999999999
+      },
+      {
+        "name": "Aluminum",
+        "slash": 0.21451,
+        "pierce": 0.14805,
+        "blunt": 0.60266,
+        "magic": 0.44033
+      }
+    ],
+    "T2": [
+      {
+        "name": "Bronze (Cu+Sn)",
+        "slash": 0.3625,
+        "pierce": 0.23594,
+        "blunt": 0.65469,
+        "magic": 0.62205
+      },
+      {
+        "name": "Brass (Cu+Zn)",
+        "slash": 0.26384,
+        "pierce": 0.20156,
+        "blunt": 0.5904,
+        "magic": 0.5874400000000001
+      },
+      {
+        "name": "Pewter (Sn+Pb/Cu)",
+        "slash": 0.052768,
+        "pierce": 0.066328,
+        "blunt": 0.52628,
+        "magic": 0.62072
+      },
+      {
+        "name": "Wrought Iron",
+        "slash": 0.42902,
+        "pierce": 0.37578,
+        "blunt": 0.55792,
+        "magic": 0.5594975
+      }
+    ],
+    "T3": [
+      {
+        "name": "Cast Iron",
+        "slash": 0.30268,
+        "pierce": 0.31641,
+        "blunt": 0.51179,
+        "magic": 0.5348875
+      },
+      {
+        "name": "Carbon Steel",
+        "slash": 0.6308,
+        "pierce": 0.53672,
+        "blunt": 0.59356,
+        "magic": 0.56331
+      },
+      {
+        "name": "Damascus Steel",
+        "slash": 0.69732,
+        "pierce": 0.56523,
+        "blunt": 0.63287,
+        "magic": 0.59602
+      }
+    ],
+    "T4": [
+      {
+        "name": "Stainless Steel",
+        "slash": 0.62634,
+        "pierce": 0.45625,
+        "blunt": 0.67217,
+        "magic": 0.8962525
+      },
+      {
+        "name": "Tool Steel",
+        "slash": 0.7317,
+        "pierce": 0.60547,
+        "blunt": 0.62571,
+        "magic": 0.7580875
+      },
+      {
+        "name": "Titanium",
+        "slash": 0.6308,
+        "pierce": 0.42656,
+        "blunt": 0.7282,
+        "magic": 0.84623
+      },
+      {
+        "name": "Tungsten",
+        "slash": 0.60536,
+        "pierce": 0.8625,
+        "blunt": 0.19286,
+        "magic": 0.7902525
+      }
+    ],
+    "T5": [
+      {
+        "name": "Mithril",
+        "slash": 0.89911,
+        "pierce": 0.67344,
+        "blunt": 0.73296,
+        "magic": 0.764855
+      },
+      {
+        "name": "Adamantite",
+        "slash": 1.0,
+        "pierce": 0.88281,
+        "blunt": 0.59323,
+        "magic": 0.841145
+      },
+      {
+        "name": "Orichalcum",
+        "slash": 0.83259,
+        "pierce": 0.67422,
+        "blunt": 0.65785,
+        "magic": 0.7821600000000001
+      }
+    ]
+  },
+  "Minerals": {
+    "T1": [
+      {
+        "name": "Sandstone",
+        "slash": 0.0,
+        "pierce": 0.0,
+        "blunt": 0.55,
+        "magic": 0.314165
+      },
+      {
+        "name": "Quartz",
+        "slash": 0.41346,
+        "pierce": 0.36046,
+        "blunt": 0.59811,
+        "magic": 0.61383
+      }
+    ],
+    "T2": [
+      {
+        "name": "Limestone",
+        "slash": 0.087143,
+        "pierce": 0.13,
+        "blunt": 0.49048,
+        "magic": 0.28497
+      },
+      {
+        "name": "Calcite",
+        "slash": 0.05,
+        "pierce": 0.025,
+        "blunt": 0.56944,
+        "magic": 0.3240925
+      }
+    ],
+    "T3": [
+      {
+        "name": "Granite",
+        "slash": 0.51357,
+        "pierce": 0.61,
+        "blunt": 0.40357,
+        "magic": 0.4121725
+      },
+      {
+        "name": "Obsidian",
+        "slash": 0.21154,
+        "pierce": 0.21154,
+        "blunt": 0.55,
+        "magic": 0.625
+      }
+    ],
+    "T4": [
+      {
+        "name": "Basalt",
+        "slash": 0.52286,
+        "pierce": 0.63,
+        "blunt": 0.37619,
+        "magic": 0.65149
+      },
+      {
+        "name": "Corundum (Ruby/Sapphire)",
+        "slash": 0.55769,
+        "pierce": 0.85769,
+        "blunt": 0.17222,
+        "magic": 0.58889
+      }
+    ],
+    "T5": [
+      {
+        "name": "Worldstone",
+        "slash": 1.0,
+        "pierce": 1.0,
+        "blunt": 0.45,
+        "magic": 0.84375
+      },
+      {
+        "name": "Aethercrystal",
+        "slash": 1.0,
+        "pierce": 1.0,
+        "blunt": 0.45,
+        "magic": 0.799075
+      }
+    ]
+  }
+};
+      /* NOTE: The chat UI may truncate huge JSON blobs in previews. If you paste this file and it runs, you're good.
+         If you get a console error about DB, tell me and I’ll repost the code in smaller chunks. */
+
+      const { useState, useMemo } = React;
+
+      const STAT_POOL = 270;
+      const SKILL_POOL = 500;
+      const HEALTH_FIXED = 200;
+      const MSF = 1.0;
+
+      const races = [
+        { id: "human", name: "Human",  mod: { STR: 2, DEX: 2, INT: 2, PSY: 2 } },
+        { id: "dwarf", name: "Dwarf",  mod: { STR: 0, DEX: 4, INT: 0, PSY: 4 } },
+        { id: "elf",   name: "Elf",    mod: { STR: 0, DEX: 4, INT: 4, PSY: 0 } },
+        { id: "orc",   name: "Orc",    mod: { STR: 4, DEX: 4, INT: 0, PSY: 0 } },
+        { id: "goliath", name: "Goliath", mod: { STR: 8, DEX: -4, INT: -8, PSY: 0 } },
+        { id: "fae",   name: "Fae",    mod: { STR: -8, DEX: 0, INT: 8, PSY: -4 } },
+      ];
+
+      const armorSlots = [
+        { id: "helmet", name: "Helmet", factor: 1 },
+        { id: "gloves", name: "Gloves", factor: 1 },
+        { id: "boots",  name: "Boots",  factor: 2 },
+        { id: "torso",  name: "Torso",  factor: 3 },
+        { id: "legs",   name: "Legs",   factor: 3 },
+        { id: "shield", name: "Shield", factor: 3 },
+      ];
+
+      // Armor class base reductions (heavy magic = 25% as requested)
+      const ARMOR_CLASS = {
+        None:   { value: 0, phys: 0.00, magic: 0.00 },
+        Light:  { value: 1, phys: 0.25, magic: 0.75 },
+        Medium: { value: 2, phys: 0.50, magic: 0.50 },
+        Heavy:  { value: 3, phys: 0.75, magic: 0.25 },
+      };
+
+      const SHIELDS = {
+        None:  { class: "None",   strReq: 0 },
+        Round: { class: "Light",  strReq: 50 },
+        Kite:  { class: "Medium", strReq: 75 },
+        Tower: { class: "Heavy",  strReq: 100 },
+      };
+
+      const REGEN_MULT = { Naked: 1.0, Light: 0.75, Medium: 0.50, Heavy: 0.25 };
+      const BASE_TICK_PCT = 0.10;
+
+      // Allowed outer categories by armor class (kept aligned to your DB families)
+      const MATERIALS_FOR_CLASS = {
+        None:   [],
+        Light:  ["Cloth","Leather","Scales"],
+        Medium: ["Leather","Scales","Wood"],
+        Heavy:  ["Wood","Minerals","Metals"],
+      };
+
+      // Inner & Binding choices (plain English, shown, and used in 80/15/5 weighting)
+      const INNER_MATERIALS = {
+        Linen: { blunt: 0.20, slash: 0.20, pierce: 0.20, magic: 0.20, desc: "Linen lining inside the armor adds a small, even amount of protection and comfort." },
+        Wool:  { blunt: 0.25, slash: 0.25, pierce: 0.25, magic: 0.15, desc: "Wool inner layer cushions impacts better but is less helpful against magic." },
+        Silk:  { blunt: 0.15, slash: 0.15, pierce: 0.15, magic: 0.35, desc: "Silk inner layer focuses on magical protection with some comfort." },
+      };
+      const THREAD_BINDINGS = {
+        Cotton: { blunt: 0.10, slash: 0.10, pierce: 0.10, magic: 0.10, desc: "Cotton thread and simple bindings provide basic reinforcement." },
+        Sinew:  { blunt: 0.20, slash: 0.15, pierce: 0.15, magic: 0.05, desc: "Sinew bindings tighten the construction and help against impacts." },
+        Rivets: { blunt: 0.25, slash: 0.25, pierce: 0.25, magic: 0.00, desc: "Metal rivets reinforce the structure strongly but do not help against magic." },
+      };
+
+      // Weapons
+      const WEAPONS = {
+        Sword:   { type: "melee",   massKg: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.20 }, dir: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
+        Axe:     { type: "melee",   massKg: 4, baseCost: 40, head: { Blunt: 0.20, Slash: 0.45, Pierce: 0.10 }, dir: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Blunt" } },
+        Hammer:  { type: "melee",   massKg: 6, baseCost: 40, head: { Blunt: 0.60, Slash: 0.10, Pierce: 0.10 }, dir: { Left: "Blunt", Right: "Blunt", Up: "Blunt", Down: "Blunt" } },
+        Spear:   { type: "melee",   massKg: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.15, Pierce: 0.45 }, dir: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Pierce" } },
+        Dagger:  { type: "melee",   massKg: 1, baseCost: 20, head: { Blunt: 0.05, Slash: 0.20, Pierce: 0.30 }, dir: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
+        Bow:     { type: "ranged",  drawWeight: 50, head: { Pierce: 0.40 } },
+        Crossbow:{ type: "ranged",  drawWeight: 35, head: { Pierce: 0.30 } },
+        Sling:   { type: "ranged",  drawWeight: 20, head: { Pierce: 0.20 } },
+        Lance:   { type: "mounted", massKg: 5, head: { Blunt: 0.20, Pierce: 0.50 }, speed: { Walk: 0.5, Trot: 0.9, Canter: 1.2, Gallop: 1.6 } },
+      };
+
+      // Handle/hilt 3 components
+      const HANDLE_CORE_MATS = {
+        Wood: { massMult: 1.00 },
+        Ash: { massMult: 1.05 },
+        Oak: { massMult: 1.10 },
+        Ironwood: { massMult: 1.15 },
+        Bone: { massMult: 0.95 },
+        Iron: { massMult: 1.20 },
+        Yew: { massMult: 1.05, draw: 0.05 },
+        Composite: { massMult: 1.00, draw: 0.10 },
+        SteelProd: { massMult: 1.20, draw: 0.10 },
+      };
+      const HANDLE_GRIP_MATS = {
+        Leather: { massMult: 0.98 },
+        Wool: { massMult: 1.00 },
+        Hemp: { massMult: 1.00 },
+        Cord: { massMult: 1.00 },
+      };
+      const HANDLE_FITTING_MATS = {
+        None: { massMult: 1.00 },
+        Bronze: { massMult: 1.05 },
+        Iron: { massMult: 1.10 },
+        Steel: { massMult: 1.15 },
+        Bone: { massMult: 1.02 },
+        SteelProd: { massMult: 1.20, draw: 0.10 },
+      };
+
+      // Head materials — Carapace intentionally excluded
+      const HEAD_MATS = {
+        Bronze:   { dmg: -0.05, massMult: 1.05 },
+        Iron:     { dmg:  0.00, massMult: 1.00 },
+        Steel:    { dmg:  0.05, massMult: 1.05 },
+        Mithril:  { dmg:  0.10, massMult: 0.90 },
+        Stone:    { dmg: -0.05, massMult: 1.05 },
+        Lead:     { dmg:  0.05, massMult: 1.10 },
+      };
+
+      const DIRECTIONS = ["Left","Right","Up","Down"];
+
+      function statCost(v){
+        const clamp=(x)=> Math.max(0, Math.min(100, x));
+        v = clamp(v);
+        const s1 = Math.min(v,50);
+        const s2 = Math.min(Math.max(v-50,0),30);
+        const s3 = Math.min(Math.max(v-80,0),10);
+        const s4 = Math.max(v-90,0);
+        return Math.round(s1*1 + s2*2 + s3*3 + s4*4);
+      }
+      function sumCost(stats){
+        return statCost(stats.STR)+statCost(stats.DEX)+statCost(stats.INT)+statCost(stats.PSY);
+      }
+      const staminaPool = (DEX)=> 100 + 2*DEX;
+      const manaPool    = (PSY)=> 100 + 2*PSY;
+
+      function loadoutCategory(equipped, STR){
+        let S=0,Smax=0, missingPieces=0;
+        for (const slot of armorSlots){
+          const entry = equipped[slot.id] || {};
+          const factor = slot.factor;
+          let className = entry.class || "None";
+          if (slot.id==="shield"){
+            const subtype = entry.shield || "None";
+            const meta = SHIELDS[subtype];
+            className = (STR >= (meta?.strReq||0)) ? (meta?.class||"None") : "None";
+          }
+          const metaC = ARMOR_CLASS[className] || { value:0 };
+          S    += factor * (metaC.value||0);
+          Smax += factor * ARMOR_CLASS.Heavy.value;
+          if (slot.id!=="shield" && className==="None") missingPieces++;
+        }
+        const R = Smax ? S/Smax : 0;
+        const category = R <= 0.4 ? "Light" : (R < 0.8 ? "Medium" : "Heavy");
+        const noArmor = armorSlots.every(s=> s.id==="shield" || (equipped[s.id]?.class||"None")==="None");
+        const shieldSubtype = equipped.shield?.shield || "None";
+        const hasShield = (SHIELDS[shieldSubtype]?.class||"None")!=="None" && STR >= (SHIELDS[shieldSubtype]?.strReq||0);
+        const nakedOverride = noArmor && !hasShield;
+        return { S,Smax,R,category,missingPieces,nakedOverride };
+      }
+
+      function regenPerTick(pool, category, nakedOverride, armorTraining=0){
+        const REGEN_MULT = { Naked: 1.0, Light: 0.75, Medium: 0.50, Heavy: 0.25 };
+        const mult = nakedOverride ? REGEN_MULT.Naked : (REGEN_MULT[category]||1);
+        const skillBonus = 1 + 0.10 * (armorTraining/100);
+        return Math.ceil(BASE_TICK_PCT * pool * mult * skillBonus);
+      }
+
+      const chargeMultiplier = (t)=> t <= 0.5 ? 0 : (t >= 1.0 ? 1 : (t-0.5)/0.5);
+      const swingMultiplier  = (p)=> p < 0.6 ? 0 : Math.max(0, Math.min(1, p));
+      const floorInt = (x)=> Math.floor(x);
+      const clamp01 = (x)=> Math.max(0, Math.min(1, x));
+
+      function classBasePerType(cls){
+        const c = ARMOR_CLASS[cls] || { phys:0, magic:0 };
+        return { blunt: c.phys, slash: c.phys, pierce: c.phys, magic: c.magic };
+      }
+
+      function getMaterialsForCategory(cat){ return DB[cat] || {}; }
+      function tiersForCategory(cat){ return Object.keys(getMaterialsForCategory(cat)).sort(); }
+      function itemsForCategoryAndTier(cat, tier){
+        const obj = getMaterialsForCategory(cat); return (obj[tier] || []);
+      }
+      function factorsFor(cat, materialName){
+        const tiers = getMaterialsForCategory(cat);
+        for (const list of Object.values(tiers)){
+          for (const m of list){ if (m.name === materialName) return m; }
+        }
+        return null;
+      }
+
+      // Weighted 80% outer, 15% inner, 5% binding; multiplied by armor-class base DRs
+      function effectiveDRForSlot(cls, outerCategory, materialName, innerName, bindName, isShield=false){
+        const base = classBasePerType(cls);
+        let outerFac = null;
+        if (isShield){
+          const woodTiers = getMaterialsForCategory("Wood");
+          const anyWood = (woodTiers?.T5?.[0]) || null;
+          outerFac = anyWood ? anyWood : { slash:0, pierce:0, blunt:0, magic:0 };
+        } else {
+          outerFac = factorsFor(outerCategory, materialName) || { slash:0, pierce:0, blunt:0, magic:0 };
+        }
+        const inner = INNER_MATERIALS[innerName] || { blunt:0, slash:0, pierce:0, magic:0 };
+        const bind  = THREAD_BINDINGS[bindName] || { blunt:0, slash:0, pierce:0, magic:0 };
+        const wOuter=0.80, wInner=0.15, wBind=0.05;
+        const comb = {
+          blunt: outerFac.blunt*wOuter + inner.blunt*wInner + bind.blunt*wBind,
+          slash: outerFac.slash*wOuter + inner.slash*wInner + bind.slash*wBind,
+          pierce:outerFac.pierce*wOuter+ inner.pierce*wInner+ bind.pierce*wBind,
+          magic: outerFac.magic*wOuter + inner.magic*wInner + bind.magic*wBind,
+        };
+        return {
+          blunt: clamp01(base.blunt * comb.blunt),
+          slash: clamp01(base.slash * comb.slash),
+          pierce:clamp01(base.pierce* comb.pierce),
+          magic: clamp01(base.magic * comb.magic),
+        };
+      }
+      function effectiveDRForTarget(cls, outerCategory, tier, materialName, innerName, bindName){
+        return effectiveDRForSlot(cls, outerCategory, materialName, innerName, bindName, false);
+      }
+
+      function App(){
+        // Character
+        const [raceId, setRaceId] = useState("human");
+        const [stats, setStats]   = useState({ STR:0, DEX:0, INT:0, PSY:0 });
+
+        // Skills with a pool
+const [skills, setSkills] = useState({
+  ArmorTraining: 0,
+  BlockingAndShields: 0,
+  Sword: 0,
+  Axe: 0,
+  Hammer: 0,
+  Spear: 0,
+  Dagger: 0,
+  Polesword: 0,
+  Poleaxe: 0,
+  Lance: 0,
+  Fists: 0,
+  RangedWeapons: 0,
+  Bow: 0,
+  Crossbow: 0,
+  Sling: 0,
+  MountedCombat: 0,
+  MountedArchery: 0,
+  MountedMagery: 0,
+  Anatomy: 0,
+  BeastControl: 0,
+  Fire: 0,
+  Water: 0,
+  Earth: 0,
+  Wind: 0,
+  Radiance: 0,
+  Void: 0,
+  Stealth: 0,
+  MeleeAmbush: 0,
+  RangedAmbush: 0,
+  ElementalAmbush: 0,
+});
+
+        const totalSkill = Object.values(skills).reduce((a,b)=> a+(b||0), 0);
+        function setSkillBound(name, val){
+          val = Math.max(0, Math.min(100, val));
+          const others = totalSkill - (skills[name]||0);
+          const maxAllowed = Math.max(0, SKILL_POOL - others);
+          const final = Math.min(val, maxAllowed);
+          setSkills(s=>({ ...s, [name]: final }));
+        }
+
+        // Helpers for materials
+        function firstName(cat, tier){
+          const items = itemsForCategoryAndTier(cat, tier);
+          return (items[0]?.name) || "";
+        }
+
+        // Armor pieces (each piece has class, outer category/tier/material + inner + binding)
+        const [armor, setArmor] = useState({
+          helmet: { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
+          gloves: { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
+          boots:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
+          torso:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
+          legs:   { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
+          shield: { shield:"None" }
+        });
+
+        // Target armor (for “damage against armor”)
+        const [targetArmor, setTargetArmor] = useState({
+          class: "Medium", category: "Leather", tier: "T5", material: firstName("Leather","T5"), inner:"Linen", binding:"Cotton"
+        });
+
+        // Weapon & attack
+        const [weaponKey, setWeaponKey] = useState("Sword");
+        const [direction, setDirection] = useState("Left");
+        const [charge, setCharge]       = useState(1.0); // up to 1.5 (heavy at 1.5)
+        const [swing, setSwing]         = useState(1.0);
+        const [mountedSpeed, setMountedSpeed] = useState("Gallop");
+        // Handle/hilt (3) + head
+        const [coreMat, setCoreMat]       = useState("Wood");
+        const [gripMat, setGripMat]       = useState("Leather");
+        const [fittingMat, setFittingMat] = useState("Bronze");
+        const [headMat, setHeadMat]       = useState("Iron");
+
+        // Effective stats with racial mods
+        const race = races.find(r=> r.id===raceId) || races[0];
+        const effective = useMemo(()=> ({
+          STR: Math.max(0, Math.min(100, stats.STR + (race.mod.STR||0))),
+          DEX: Math.max(0, Math.min(100, stats.DEX + (race.mod.DEX||0))),
+          INT: Math.max(0, Math.min(100, stats.INT + (race.mod.INT||0))),
+          PSY: Math.max(0, Math.min(100, stats.PSY + (race.mod.PSY||0))),
+        }), [stats, race]);
+
+        const spent  = sumCost(stats);
+        const remain = STAT_POOL - spent;
+        const stamPool = staminaPool(effective.DEX);
+        const manaPoolV= manaPool(effective.PSY);
+
+        const { S,Smax,R,category,missingPieces,nakedOverride } = useMemo(()=> loadoutCategory(armor, effective.STR), [armor, effective.STR]);
+        const regenStam = regenPerTick(stamPool, category, nakedOverride, skills.ArmorTraining);
+        const regenMana = regenPerTick(manaPoolV, category, nakedOverride, skills.ArmorTraining);
+
+        const weapon = WEAPONS[weaponKey];
+
+        // Options per weapon
+        const coreOptions = useMemo(()=>{
+          switch(weaponKey){
+            case 'Bow': return ['Ash','Yew','Composite'];
+            case 'Crossbow': return ['Oak','Ironwood','SteelProd'];
+            case 'Sling': return ['Leather','Hemp','Wool'];
+            case 'Spear':
+            case 'Lance': return ['Ash','Oak','Ironwood'];
+            case 'Axe':
+            case 'Hammer': return ['Wood','Ash','Ironwood'];
+            case 'Dagger':
+            case 'Sword': default: return ['Wood','Bone','Iron'];
+          }
+        }, [weaponKey]);
+        const gripOptions = useMemo(()=>{
+          switch(weaponKey){
+            case 'Bow':
+            case 'Crossbow': return ['Leather','Hemp','Wool'];
+            case 'Sling': return ['Leather','Hemp','Cord'];
+            default: return ['Leather','Hemp','Wool'];
+          }
+        }, [weaponKey]);
+        const fittingOptions = useMemo(()=>{
+          switch(weaponKey){
+            case 'Bow': return ['None','Bone','Bronze'];
+            case 'Crossbow': return ['Bronze','Iron','Steel','SteelProd'];
+            case 'Sling': return ['None','Bone'];
+            case 'Lance':
+            case 'Spear': return ['Bronze','Iron','Steel'];
+            default: return ['Bronze','Iron','Steel','Bone'];
+          }
+        }, [weaponKey]);
+        const headOptions = useMemo(()=>{
+          switch(weaponKey){
+            case 'Bow': return ['Stone','Iron','Steel','Mithril'];
+            case 'Crossbow': return ['Iron','Steel','Mithril'];
+            case 'Sling': return ['Stone','Lead'];
+            case 'Lance': return ['Bronze','Iron','Steel'];
+            default: return ['Bronze','Iron','Steel','Mithril'];
+          }
+        }, [weaponKey]);
+
+        const selCore = coreOptions.includes(coreMat) ? coreMat : coreOptions[0];
+        const selGrip = gripOptions.includes(gripMat) ? gripMat : gripOptions[0];
+        const selFit  = fittingOptions.includes(fittingMat) ? fittingMat : fittingOptions[0];
+        const selHead = headOptions.includes(headMat) ? headMat : headOptions[0];
+
+        // Active weapon skill multiplier
+        const activeWeaponSkillName = useMemo(()=>{
+          if (weaponKey==='Bow' || weaponKey==='Crossbow' || weaponKey==='Sling') return 'RangedWeapons';
+          if (weaponKey==='Lance') return 'MountedCombat';
+          return weaponKey;
+        }, [weaponKey]);
+        const skillMult = useMemo(()=> 1 + 0.50 * ((skills[activeWeaponSkillName]||0)/100), [skills, activeWeaponSkillName]);
+
+        const formulaText = useMemo(()=>{
+          if (!weapon) return "";
+          if (weapon.type==='melee'){
+            const dirType = weapon.dir[direction] || 'Slash';
+            return `Melee damage equals Strength multiplied by the sum of Blunt and the selected direction type (here: ${dirType}), then multiplied by Charge, Swing, the Weapon Head modifier, and your relevant Skill.`;
+          }
+          if (weapon.type==='ranged') return 'Ranged damage equals Bow or Crossbow draw weight multiplied by Pierce, then multiplied by Charge, Swing, the Arrow or Bolt Head modifier, and your relevant Skill.';
+          return 'Lance damage equals Strength multiplied by the sum of Blunt and Pierce, then multiplied by the Mount speed modifier, the Lance Head modifier, and your relevant Skill.';
+        }, [weapon, direction]);
+
+        // Damage & stamina
+        const damage = useMemo(()=>{
+          if (!weapon) return { total:0, parts:{}, staminaCost:0, isHeavy:false };
+          let staminaCost = 0;
+          let total = 0; let parts={};
+
+          const massMult = (HANDLE_CORE_MATS[selCore]?.massMult||1)
+            * (HANDLE_GRIP_MATS[selGrip]?.massMult||1)
+            * (HANDLE_FITTING_MATS[selFit]?.massMult||1)
+            * (HEAD_MATS[selHead]?.massMult||1);
+
+          if (weapon.type==='mounted'){
+            const m = weapon.head; const factor = weapon.speed[mountedSpeed] || 1.0;
+            const mass = Math.ceil((weapon.massKg||0) * massMult);
+            staminaCost = (weapon.baseCost||0) + MSF*mass;
+            const rawB = effective.STR*(m.Blunt||0)*factor;
+            const rawP = effective.STR*(m.Pierce||0)*factor;
+            total = (rawB+rawP) * (1 + (HEAD_MATS[selHead]?.dmg||0));
+            parts = { Blunt: floorInt(rawB), Pierce: floorInt(rawP) };
+          } else if (weapon.type==='ranged'){
+            const pierce = weapon.head.Pierce||0; const cMul = chargeMultiplier(charge); const sMul = swingMultiplier(swing);
+            const drawBonus = (HANDLE_CORE_MATS[selCore]?.draw||0) + (HANDLE_FITTING_MATS[selFit]?.draw||0);
+            const effDraw = (weapon.drawWeight||0) * (1 + drawBonus);
+            total = effDraw*pierce*cMul*sMul*(1 + (HEAD_MATS[selHead]?.dmg||0));
+            parts = { Pierce: floorInt(total) };
+            staminaCost = 0;
+          } else {
+            const dirType = weapon.dir[direction] || 'Slash'; const head = weapon.head;
+            const blunt = head.Blunt||0; const typed = head[dirType]||0; const cMul = chargeMultiplier(charge); const sMul = swingMultiplier(swing);
+            const mass = Math.ceil((weapon.massKg||0) * massMult);
+            staminaCost = (weapon.baseCost||0) + MSF*mass;
+            const rawB = effective.STR*blunt*cMul*sMul;
+            const rawT = effective.STR*typed*cMul*sMul;
+            total = (rawB+rawT) * (1 + (HEAD_MATS[selHead]?.dmg||0));
+            parts = { Blunt: floorInt(rawB), [dirType]: floorInt(rawT) };
+          }
+
+          total *= skillMult;
+          const partsSum0 = Object.values(parts).reduce((a,b)=> a+(b||0), 0) || 1;
+          const scaledWithSkill = {};
+          for (const [k,v] of Object.entries(parts)) scaledWithSkill[k] = (v||0) * (total/partsSum0);
+
+          const outMult = (nakedOverride ? 0.25 : 1) * Math.max(0, 1 - 0.15*missingPieces);
+          total = Math.floor(total * outMult);
+
+          const partsSum = Object.values(scaledWithSkill).reduce((a,b)=> a+(b||0), 0) || 1;
+          const finalParts = {};
+          for (const [k,v] of Object.entries(scaledWithSkill)) finalParts[k] = Math.floor(total * (v||0) / partsSum);
+
+          const isHeavy = (weapon.type!=='mounted') && (charge >= 1.5 - 1e-6);
+          const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1));
+          return { total, parts: finalParts, staminaCost: staminaCostFinal, isHeavy };
+        }, [weapon, direction, charge, swing, effective.STR, mountedSpeed, missingPieces, nakedOverride, selCore, selGrip, selFit, selHead, skillMult]);
+
+        // Damage against target armor
+        const dmgVsArmor = useMemo(()=>{
+          const t = effectiveDRForTarget(targetArmor.class, targetArmor.category, targetArmor.tier, targetArmor.material, targetArmor.inner, targetArmor.binding);
+          const mapKey = (k)=> k.toLowerCase();
+          let acc = 0;
+          for (const [k,v] of Object.entries(damage.parts)){
+            const key = mapKey(k);
+            const dr = key==='blunt'?t.blunt: key==='slash'?t.slash: key==='pierce'?t.pierce: 0;
+            acc += Math.max(0, v * (1 - dr));
+          }
+          return Math.floor(acc);
+        }, [damage.parts, targetArmor]);
+
+        // Attribute handlers
+        const setStat = (key, val)=>{ const next = { ...stats, [key]: val }; if (sumCost(next) <= STAT_POOL) setStats(next); };
+
+        // Armor handlers
+        const setArmorClassSafe = (slotId, className)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const allowed = MATERIALS_FOR_CLASS[className] || [];
+          let category = prev.category || allowed[0] || "Leather";
+          if (!allowed.includes(category)) category = allowed[0] || "Leather";
+          const tier = "T5";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, class: className, category, tier, material } };
+        });
+        const setShieldSubtypeSafe = (sub)=> setArmor(p=> ({ ...p, shield: { ...p.shield, shield: sub } }));
+        const setArmorCategory = (slotId, category)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const tier = prev.tier || "T5";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, category, tier, material } };
+        });
+        const setArmorTier = (slotId, tier)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const category = prev.category || "Leather";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, tier, material } };
+        });
+        const setArmorMaterial = (slotId, material)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], material } }));
+        const setArmorInner   = (slotId, inner)=>   setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], inner } }));
+        const setArmorBinding = (slotId, binding)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], binding } }));
+
+        const setSkill = (name, val)=> setSkillBound(name, val);
+
+        /* ============================== UI ============================== */
+        return (
+          <>
+            <div className="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
+              <div className="max-w-7xl mx-auto">
+                <div className="flex flex-col gap-2">
+                  <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Web Game Simulator — v15 (Standalone)</h1>
+                  <p className="text-slate-300"></p>
+                </div>
+
+                {/* 3 columns, skills centered */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                  {/* Left */}
+                  <div className="flex flex-col gap-6">
+                    <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
+                      <h2 className="text-lg font-semibold mb-3">Character</h2>
+                      <div className="mb-4">
+                        <label className="block text-sm mb-1">Race</label>
+                        <select className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2" value={raceId} onChange={e=>setRaceId(e.target.value)}>
+                          {races.map(r=> <option key={r.id} value={r.id}>{r.name}</option>)}
+                        </select>
+                        <div className="text-sm text-slate-300 mt-2">
+                          The chosen race applies the following adjustments to your base attributes:
+                          Strength {race.mod.STR>=0?"+":""}{race.mod.STR}, Dexterity {race.mod.DEX>=0?"+":""}{race.mod.DEX}, Intelligence {race.mod.INT>=0?"+":""}{race.mod.INT}, Psyche {race.mod.PSY>=0?"+":""}{race.mod.PSY}.
+                        </div>
+                      </div>
+                      {["STR","DEX","INT","PSY"].map(k=> (
+                        <div key={k} className="mb-3">
+                          <div className="flex items-center justify-between text-sm">
+                            <span>{k}</span>
+                            <span className="tabular-nums">{stats[k]} <span className="text-slate-500">(effective {effective[k]})</span></span>
+                          </div>
+                          <input type="range" min={0} max={100} value={stats[k]} onChange={e=>setStat(k, parseInt(e.target.value))} className="w-full" />
+                        </div>
+                      ))}
+                      <div className="flex items-center justify-between text-sm mt-2">
+                        <div>Attribute points spent</div>
+                        <div className={`tabular-nums ${remain<0?"text-rose-400":""}`}>{spent} / {STAT_POOL} <span className="text-slate-500">(remaining {Math.max(0, remain)})</span></div>
+                      </div>
+                      <div className="grid grid-cols-3 gap-3 mt-4 text-sm">
+                        <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Health</div><div className="text-xl tabular-nums">{HEALTH_FIXED}</div></div>
+                        <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Stamina</div><div className="text-xl tabular-nums">{stamPool}</div></div>
+                        <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Mana</div><div className="text-xl tabular-nums">{manaPoolV}</div></div>
+                      </div>
+                    </section>
+
+                    <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
+                      <h2 className="text-lg font-semibold mb-3">Weapons and Attack</h2>
+                      <div className="grid grid-cols-1 gap-3">
+                        <div>
+                          <label className="block text-sm mb-1">Weapon</label>
+                          <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponKey} onChange={e=>setWeaponKey(e.target.value)}>
+                            {Object.keys(WEAPONS).map(k=> <option key={k} value={k}>{k}</option>)}
+                          </select>
+                          {weapon?.type==='melee' && <div className="text-sm text-slate-300 mt-1">This weapon weighs approximately {weapon.massKg} kilograms. The stamina cost to swing is the base cost {weapon.baseCost} plus one times the rounded mass.</div>}
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-sm mb-1">Handle or Core Material</label>
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={selCore} onChange={e=>setCoreMat(e.target.value)}>
+                              {(coreOptions).map(k=> <option key={k} value={k}>{k}</option>)}
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-sm mb-1">Grip or Wrap Material</label>
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={selGrip} onChange={e=>setGripMat(e.target.value)}>
+                              {(gripOptions).map(k=> <option key={k} value={k}>{k}</option>)}
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-sm mb-1">Guard or Pommel Fittings</label>
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={selFit} onChange={e=>setFittingMat(e.target.value)}>
+                              {(fittingOptions).map(k=> <option key={k} value={k}>{k}</option>)}
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-sm mb-1">Weapon Head Material</label>
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={selHead} onChange={e=>setHeadMat(e.target.value)}>
+                              {(headOptions).map(k=> <option key={k} value={k}>{k}</option>)}
+                            </select>
+                            <div className="text-xs text-slate-400 mt-1">Carapace is not available for weapon heads.</div>
+                          </div>
+                        </div>
+
+                        {weapon?.type==='melee' && (
+                          <div>
+                            <label className="block text-sm mb-1">Attack Direction</label>
+                            <div className="grid grid-cols-1 gap-2">
+                              {DIRECTIONS.map(d=> (
+                                <button key={d} onClick={() => setDirection(d)} className={`w-full px-3 py-2 text-sm rounded-lg border ${direction===d ? "border-emerald-400 bg-emerald-400/10" : "border-slate-700"}`}>
+                                  {d}
+                                </button>
+                              ))}
+                            </div>
+                            <div className="text-sm text-slate-300 mt-1">Each direction selects a different type of damage for your weapon. For example, the downward direction with a sword is a piercing thrust.</div>
+                          </div>
+                        )}
+
+                        {weapon?.type==='mounted' && (
+                          <div>
+                            <label className="block text-sm mb-1">Mount Speed</label>
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={mountedSpeed} onChange={e=>setMountedSpeed(e.target.value)}>
+                              {Object.keys(WEAPONS.Lance.speed).map(k=> <option key={k} value={k}>{k}</option>)}
+                            </select>
+                            <div className="text-sm text-slate-300 mt-1">Lance attacks do not use charge time or swing completion. Damage scales with the speed of the mount.</div>
+                          </div>
+                        )}
+
+                        {weapon && weapon.type!=='mounted' && (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div>
+                              <div className="flex items-center justify-between text-sm">
+                                <span>Charge Time</span>
+                                <span className="tabular-nums">{charge.toFixed(2)} seconds</span>
+                              </div>
+                              <input type="range" min={0} max={1.5} step={0.01} value={charge} onChange={e=>setCharge(parseFloat(e.target.value))} className="w-full" />
+                              <div className="text-sm text-slate-300 mt-1">If your charge time is one and a half seconds, the attack is a heavy attack and costs twice as much stamina.</div>
+                            </div>
+                            <div>
+                              <div className="flex items-center justify-between text-sm">
+                                <span>Swing Completion</span>
+                                <span className="tabular-nums">{(swing*100).toFixed(0)}%</span>
+                              </div>
+                              <input type="range" min={0} max={1} step={0.01} value={swing} onChange={e=>setSwing(parseFloat(e.target.value))} className="w-full" />
+                              <div className="text-sm text-slate-300 mt-1">If your swing completion is below sixty percent, your attack does no damage. Otherwise damage scales with completion.</div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </section>
+                  </div>
+
+                  {/* Center column: Skills */}
+                  <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
+                    <h2 className="text-lg font-semibold mb-3">Skills and Specialization</h2>
+                    <div className="text-sm text-slate-300 mb-2">Use the sliders to distribute your skill points. The total number of points you can allocate is limited. The skill that corresponds to your current weapon contributes directly to damage.</div>
+                    <div className="flex items-center justify-between text-sm mb-3">
+                      <div>Skill points spent</div>
+                      <div className={`tabular-nums ${totalSkill>SKILL_POOL?"text-rose-400":""}`}>{totalSkill} / {SKILL_POOL} <span className="text-slate-500">(remaining {Math.max(0, SKILL_POOL-totalSkill)})</span></div>
+                    </div>
+                    <div className="space-y-3">
+                      {[
+                        ["ArmorTraining","Armor Training"],
+                        ["BlockingAndShields","Blocking and Shields"],
+                        ["Sword","Sword"],
+                        ["Axe","Axe"],
+                        ["Hammer","Hammer"],
+                        ["Spear","Spear"],
+                        ["Dagger","Dagger"],
+                        ["RangedWeapons","Ranged Weapons"],
+                        ["MountedCombat","Mounted Combat"],
+						["MountedArchery","MountedArchery"],
+						["MountedMagery","MountedMagery"],
+						["Anatomy","Anatomy"],
+						["BeastControl","BeastControl"],
+						["Fire","Fire"],
+						["Water","Water"],
+						["Earth","Earth"],
+						["Radiance","Radiance"],
+						["Void","Void"],
+						["Stealth","Stealth"],
+						["MeleeAmbush","MeleeAmbush"],
+						["RangedAmbush","RangedAmbush"],
+						["ElementalAmbush","ElementalAmbush"],
+                      ].map(([key,label]) => (
+                        <div key={key}>
+                          <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
+                          <input type="range" min={0} max={100} value={skills[key]} onChange={e=>setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+
+                  {/* Right column: Armor & Target */}
+                  <div className="flex flex-col gap-6">
+                    <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
+                      <h2 className="text-lg font-semibold mb-3">Armor Loadout and Regeneration</h2>
+                      <div className="grid grid-cols-2 gap-3">
+                        {armorSlots.map(slot=>{
+                          const isShield = slot.id==="shield";
+                          const entry = armor[slot.id] || {};
+                          const cls = isShield ? (SHIELDS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
+                          const category = entry.category || "Leather";
+                          const tier = entry.tier || "T5";
+                          const material = entry.material || "";
+                          const innerName = entry.inner || "Linen";
+                          const bindName  = entry.binding || "Cotton";
+                          const eff = effectiveDRForSlot(cls, category, material, innerName, bindName, isShield);
+                          const allowedCats = MATERIALS_FOR_CLASS[entry.class||"None"] || [];
+                          const allTiers = tiersForCategory(category);
+                          const items = itemsForCategoryAndTier(category, tier);
+                          const matObj = factorsFor(category, material);
+
+                          return (
+                            <div key={slot.id} className="bg-slate-800/60 rounded-xl p-3">
+                              <div className="flex items-center justify-between">
+                                <div className="text-sm font-medium">{slot.name}</div>
+                                <div className="text-xs text-slate-400">Weight factor in loadout score: {slot.factor}</div>
+                              </div>
+
+                              {!isShield ? (
+                                <>
+                                  <label className="block text-sm mt-2">Armor Class</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.class||"None"} onChange={e=>setArmorClassSafe(slot.id, e.target.value)}>
+                                    {Object.keys(ARMOR_CLASS).map(k=> <option key={k} value={k}>{k}</option>)}
+                                  </select>
+
+                                  <label className="block text-sm mt-3">Outer Material Category</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={category} onChange={e=>setArmorCategory(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                    {allowedCats.map(k=> <option key={k} value={k}>{k}</option>)}
+                                  </select>
+
+                                  <div className="grid grid-cols-2 gap-2 mt-3">
+                                    <div>
+                                      <label className="block text-sm">Tier</label>
+                                      <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={tier} onChange={e=>setArmorTier(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                        {allTiers.map(t=> <option key={t} value={t}>{t}</option>)}
+                                      </select>
+                                    </div>
+                                    <div>
+                                      <label className="block text-sm">Specific Material</label>
+                                      <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={material} onChange={e=>setArmorMaterial(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                        {items.map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                                      </select>
+                                    </div>
+                                  </div>
+
+                                  <label className="block text-sm mt-3">Inner Layer Material</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={innerName} onChange={e=>setArmorInner(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                    {Object.keys(INNER_MATERIALS).map(k=> <option key={k} value={k}>{k}</option>)}
+                                  </select>
+                                  <div className="text-sm text-slate-300 mt-1">{INNER_MATERIALS[innerName]?.desc}</div>
+
+                                  <label className="block text-sm mt-3">Thread and Binding</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={bindName} onChange={e=>setArmorBinding(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                    {Object.keys(THREAD_BINDINGS).map(k=> <option key={k} value={k}>{k}</option>)}
+                                  </select>
+                                  <div className="text-sm text-slate-300 mt-1">{THREAD_BINDINGS[bindName]?.desc}</div>
+
+                                  {(entry.class||"None")!=="None" && matObj && (
+                                    <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
+                                      <div className="font-medium mb-1">Material and Armor Explanation</div>
+                                      <p className="text-sm text-slate-300">
+                                        The outer layer is <span className="font-semibold">{material}</span> which belongs to the <span className="font-semibold">{category}</span> category and is at <span className="font-semibold">{tier}</span>. Its defensive multipliers are: Slash reduction {(matObj.slash*100).toFixed(0)} percent, Pierce reduction {(matObj.pierce*100).toFixed(0)} percent, Blunt reduction {(matObj.blunt*100).toFixed(0)} percent, and Magic reduction {(matObj.magic*100).toFixed(0)} percent. The magic value is the average of Fire, Water, Wind, and Earth resistances in your database.
+                                      </p>
+                                      <p className="text-sm text-slate-300 mt-2">
+                                        The armor class is <span className="font-semibold">{entry.class}</span>. Its base reduction for physical damage types, which are blunt, slash, and pierce, is {(ARMOR_CLASS[entry.class].phys*100).toFixed(0)} percent, and its base reduction for magic is {(ARMOR_CLASS[entry.class].magic*100).toFixed(0)} percent.
+                                      </p>
+                                      <p className="text-sm text-slate-300 mt-2">
+                                        The effective damage reduction for this slot is calculated by weighting the materials: the outer material contributes eighty percent, the inner layer contributes fifteen percent, and the thread and binding contribute five percent. These weighted values are then multiplied by the base armor class reductions to produce the final results:
+                                        <br/>Blunt effective reduction {(eff.blunt*100).toFixed(0)} percent,
+                                        <br/>Slash effective reduction {(eff.slash*100).toFixed(0)} percent,
+                                        <br/>Pierce effective reduction {(eff.pierce*100).toFixed(0)} percent,
+                                        <br/>Magic effective reduction {(eff.magic*100).toFixed(0)} percent.
+                                      </p>
+                                    </div>
+                                  )}
+                                </>
+                              ) : (
+                                <div>
+                                  <label className="block text-sm mt-2">Shield Type</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={armor.shield?.shield||"None"} onChange={e=>setShieldSubtypeSafe(e.target.value)}>
+                                    {Object.keys(SHIELDS).map(k=> <option key={k} value={k}>{k}</option>)}
+                                  </select>
+                                  {armor.shield?.shield!=="None" && (
+                                    <div className="text-sm text-slate-300 mt-1">
+                                      Required Strength: <span className={`font-semibold ${(effective.STR >= (SHIELDS[armor.shield?.shield].strReq||0)) ? "text-emerald-300" : "text-rose-300"}`}>{SHIELDS[armor.shield?.shield].strReq}</span>.
+                                    </div>
+                                  )}
+                                  <div className="text-sm text-slate-300 mt-2">
+                                    Shield faces are treated similarly to wood planks for now so that the calculations stay consistent with your materials database. If you want a dedicated shield material list, tell me how you would like it organized, and I will add it.
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+                        <div className="bg-slate-800/70 rounded-xl p-3">
+                          <div className="text-slate-300 font-medium">Loadout Score</div>
+                          <div className="text-sm">S equals the sum of each slot’s weight factor multiplied by the numeric value of its armor class. Smax is the same calculation as if every slot were Heavy. The ratio R equals S divided by Smax and determines your category.</div>
+                          <div className="text-lg tabular-nums mt-1">S = {S} / Smax = {Smax} (R = {(R*100).toFixed(1)} percent)</div>
+                          <div className="text-slate-300 mt-1">Category: <span className="font-semibold">{nakedOverride ? "Naked Override (no armor equipped)" : category}</span></div>
+                        </div>
+                        <div className="bg-slate-800/70 rounded-xl p-3">
+                          <div className="text-slate-300 font-medium">Missing Armor Penalty</div>
+                          <div className="text-sm">Each missing armor piece reduces your outgoing damage by fifteen percent. If you are completely naked and unshielded, there is a special rule that sets your regeneration to the naked rate and reduces your outgoing damage by seventy-five percent.</div>
+                          <div className="text-lg tabular-nums mt-1">Total outgoing damage penalty from missing pieces: -{missingPieces*15} percent</div>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+                        <div className="bg-slate-800/70 rounded-xl p-3">
+                          <div className="text-slate-300 font-medium">Stamina Regeneration</div>
+                          <div className="text-2xl tabular-nums">{regenStam}</div>
+                          <div className="text-sm text-slate-300 mt-1">Regeneration ticks occur every two seconds and are ten percent of the pool multiplied by your loadout multiplier and increased by up to ten percent from Armor Training.</div>
+                        </div>
+                        <div className="bg-slate-800/70 rounded-xl p-3">
+                          <div className="text-slate-300 font-medium">Mana Regeneration</div>
+                          <div className="text-2xl tabular-nums">{regenMana}</div>
+                          <div className="text-sm text-slate-300 mt-1">Armor class reduces both stamina and mana regeneration using the same multipliers.</div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
+                      <h2 className="text-lg font-semibold mb-3">Target Armor for Damage Against Armor</h2>
+                      <div className="grid grid-cols-1 gap-2">
+                        <div>
+                          <label className="block text-sm">Armor Class</label>
+                          <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2" value={targetArmor.class} onChange={e=> setTargetArmor(t=> ({...t, class: e.target.value}))}>
+                            {Object.keys(ARMOR_CLASS).map(k=> <option key={k} value={k}>{k}</option>)}
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm">Outer Material Category, which is eighty percent of the weighting</label>
+                          <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2" value={targetArmor.category} onChange={e=> {
+                            const cat = e.target.value; const tiers = tiersForCategory(cat); const firstTier = tiers[0]||"T1";
+                            const firstNameInCat = (itemsForCategoryAndTier(cat, firstTier)[0]?.name) || "";
+                            setTargetArmor(t=> ({...t, category: cat, tier:firstTier, material:firstNameInCat}));
+                          }}>
+                            {(MATERIALS_FOR_CLASS[targetArmor.class]||[]).map(k=> <option key={k} value={k}>{k}</option>)}
+                          </select>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <label className="block text-sm">Tier</label>
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2" value={targetArmor.tier} onChange={e=> {
+                              const tier = e.target.value;
+                              const mat = (itemsForCategoryAndTier(targetArmor.category, tier)[0]?.name) || "";
+                              setTargetArmor(t=> ({...t, tier, material: mat}));
+                            }}>
+                              {tiersForCategory(targetArmor.category).map(t=> <option key={t} value={t}>{t}</option>)}
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-sm">Specific Material</label>
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2" value={targetArmor.material} onChange={e=> setTargetArmor(t=> ({...t, material: e.target.value}))}>
+                              {itemsForCategoryAndTier(targetArmor.category, targetArmor.tier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                            </select>
+                          </div>
+                        </div>
+                        <div>
+                          <label className="block text-sm">Inner Layer, which is fifteen percent of the weighting</label>
+                          <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2" value={targetArmor.inner} onChange={e=> setTargetArmor(t=> ({...t, inner:e.target.value}))}>
+                            {Object.keys(INNER_MATERIALS).map(k=> <option key={k} value={k}>{k}</option>)}
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm">Thread and Binding, which is five percent of the weighting</label>
+                          <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2" value={targetArmor.binding} onChange={e=> setTargetArmor(t=> ({...t, binding:e.target.value}))}>
+                            {Object.keys(THREAD_BINDINGS).map(k=> <option key={k} value={k}>{k}</option>)}
+                          </select>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+
+                {/* Results */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm mt-6">
+                  <div className="bg-slate-800/70 rounded-xl p-4" title={formulaText}>
+                    <div className="text-slate-300 font-medium">Raw Damage (hover for the complete formula)</div>
+                    <div className="text-2xl tabular-nums mt-1">{damage.total}</div>
+                    <div className="text-sm text-slate-300 mt-1">Damage components: {Object.entries(damage.parts).map(([k,v])=>`${k} ${v}`).join(' • ') || 'None'}</div>
+                    <div className="text-sm text-slate-400 mt-1">Relevant skill multiplier × {skillMult.toFixed(2)}.</div>
+                  </div>
+                  <div className="bg-slate-800/70 rounded-xl p-4">
+                    <div className="text-slate-300 font-medium">Damage Against Target Armor</div>
+                    <div className="text-2xl tabular-nums mt-1">{dmgVsArmor}</div>
+                    <div className="text-sm text-slate-300 mt-1">This number applies the target’s effective reductions for blunt, slash, and pierce types to your attack parts.</div>
+                  </div>
+                  <div className="bg-slate-800/70 rounded-xl p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="text-slate-300 font-medium">Stamina Cost for the Attack</div>
+                      {damage.isHeavy && <span className="text-[10px] px-2 py-0.5 rounded-full border border-amber-400 text-amber-300">Heavy attack (double stamina)</span>}
+                    </div>
+                    <div className="text-2xl tabular-nums mt-1">{damage.staminaCost}</div>
+                  </div>
+                </div>
+
+                {/* Equipment preview */}
+                <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6">
+                  <h2 className="text-lg font-semibold mb-3">Equipment Preview</h2>
+                  <p className="text-sm text-slate-300 mb-3">Each slot shows the selected armor class and the chosen material. Where there is no image, the slot uses a simple fill color. This is a lightweight representation so you can see your loadout at a glance.</p>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {["helmet","torso","legs","boots","gloves","shield"].map(slotId=>{
+                      const entry = armor[slotId] || {};
+                      const label = slotId[0].toUpperCase()+slotId.slice(1);
+                      const cls = slotId==="shield" ? (SHIELDS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
+                      const name = slotId==="shield" ? (armor.shield?.shield || "None") : (entry.material || "");
+                      const color = cls==="None" ? "bg-slate-800/70" : (cls==="Light" ? "bg-emerald-900/40" : (cls==="Medium" ? "bg-amber-900/40" : "bg-rose-900/40"));
+                      return (
+                        <div key={slotId} className={`rounded-xl border border-slate-800 p-3 ${color}`}>
+                          <div className="text-sm font-medium">{label}</div>
+                          <div className="slot-box mt-2 rounded-lg border border-slate-700 flex items-center justify-center">
+                            <div className="text-center">
+                              <div className="text-sm">{cls} class</div>
+                              <div className="text-xs text-slate-400">{name}</div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                    <div className="rounded-xl border border-slate-800 p-3 bg-slate-800/50">
+                      <div className="text-sm font-medium">Ranged Weapon</div>
+                      <div className="slot-box mt-2 rounded-lg border border-slate-700 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-sm">{weaponKey==='Bow'||weaponKey==='Crossbow'||weaponKey==='Sling'? weaponKey : 'Not Equipped'}</div>
+                          <div className="text-xs text-slate-400">{weaponKey==='Bow'||weaponKey==='Crossbow'||weaponKey==='Sling'? (selHead+' head') : ''}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <div className="mt-6 text-xs text-slate-500">v15: Database-backed materials (T1–T5), inner and binding options per armor piece, centered skill specification with points, equipment preview restored at the bottom, and clear plain-English explanations. Heavy armor reduces magic by twenty-five percent, and Carapace is not available for weapon heads.</div>
+              </div>
+            </div>
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <React.StrictMode><App /></React.StrictMode>
+      );
+    </script>
+  </body>
+</html>
