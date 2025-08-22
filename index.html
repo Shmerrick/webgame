@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Character Creator</h1>
+        <div class="character-sheet">
+            <div class="form-group">
+                <label for="name">Character Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="class">Class:</label>
+                <select id="class" name="class">
+                    <option value="warrior">Warrior</option>
+                    <option value="mage">Mage</option>
+                    <option value="rogue">Rogue</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="armor">Armor Set:</label>
+                <select id="armor" name="armor">
+                    <option value="leather">Leather</option>
+                    <option value="chainmail">Chainmail</option>
+                    <option value="plate">Plate</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="weapon">Weapon:</label>
+                <select id="weapon" name="weapon">
+                    <option value="sword">Sword</option>
+                    <option value="bow">Bow</option>
+                    <option value="staff">Staff</option>
+                </select>
+            </div>
+        </div>
+        <div class="character-summary">
+            <h2>Character Summary</h2>
+            <p><strong>Name:</strong> <span id="summary-name"></span></p>
+            <p><strong>Class:</strong> <span id="summary-class"></span></p>
+            <p><strong>Armor:</strong> <span id="summary-armor"></span></p>
+            <p><strong>Weapon:</strong> <span id="summary-weapon"></span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
