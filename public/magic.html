@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Game Simulator - Magic System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {} } };
+    document.documentElement.classList.add("dark");
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    body { background: #0f172a; color: #e2e8f0; margin: 0; }
+    h2 { margin-top: 1.5rem; margin-bottom: 1rem; }
+    h3 { margin-top: 1rem; margin-bottom: 0.5rem; }
+    ul { margin-left: 1.5rem; }
+    li { margin-bottom: 0.25rem; }
+    code { background-color: #1e293b; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: monospace; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #334155; padding: 0.75rem; text-align: left; }
+    th { background-color: #1e293b; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+      <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
+        <div class="flex items-center justify-between">
+          <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+          <div class="flex flex-wrap gap-4">
+            <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
+            <a href="materials.html" class="text-slate-300 hover:text-emerald-400">Materials</a>
+            <a href="simulator.html" class="text-slate-300 hover:text-emerald-400">Simulator</a>
+            <a href="combat.html" class="text-slate-300 hover:text-emerald-400">Combat</a>
+            <a href="movement.html" class="text-slate-300 hover:text-emerald-400">Movement</a>
+            <a href="races.html" class="text-slate-300 hover:text-emerald-400">Races</a>
+            <a href="ascension.html" class="text-slate-300 hover:text-emerald-400">Ascension</a>
+            <a href="magic.html" class="text-emerald-400 font-semibold">Magic</a>
+            <a href="crafting.html" class="text-slate-300 hover:text-emerald-400">Crafting</a>
+            <a href="materials_guide.html" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
+          </div>
+        </div>
+      </nav>
+
+      <header class="text-center">
+        <h1 class="text-4xl font-bold tracking-tight mb-4">🔮 Magic System – Complete Reference</h1>
+        <p class="text-lg text-slate-300">
+          This document consolidates all design decisions into one comprehensive system reference.
+        </p>
+      </header>
+
+      <main class="mt-10 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+
+        <section id="attributes">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">1. Core Attributes and Resource Pools</h2>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li><strong>Intelligence</strong> → Governs magic damage scaling.</li>
+            <li><strong>Psyche</strong> → Governs mana pool size.</li>
+            <li><strong>Dexterity</strong> → Governs stamina pool size.</li>
+          </ul>
+          <div class="mt-4">
+            <h3 class="text-xl font-semibold">Formulas:</h3>
+            <p><code>Mana = 100 (base) + Psyche × 2</code></p>
+            <p><code>Stamina = 100 (base) + Dexterity × 2</code></p>
+            <p class="text-slate-400 text-sm mt-1">Even with 0 Psyche or Dexterity, all players still have 100 Mana and 100 Stamina.</p>
+          </div>
+        </section>
+
+        <section id="elemental-specialization" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">2. Elemental Specialization (Choose ONE)</h2>
+          <p class="text-slate-300 mt-2">Mages must choose one elemental school only:</p>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li><strong>Fire</strong> → burns enemies (<em>Singed</em>)</li>
+            <li><strong>Earth</strong> → crushes enemies, roughens terrain (<em>Roughened</em>)</li>
+            <li><strong>Wind</strong> → disrupts and knocks enemies (<em>Winded</em>)</li>
+            <li><strong>Water</strong> → freezes, slows, and soaks enemies (<em>Wet</em>)</li>
+          </ul>
+          <p class="text-rose-400 mt-2">⚠️ You cannot mix elements. A player is not their element; they simply wield it.</p>
+          <p class="text-slate-400 mt-2"><strong>Respec Rule:</strong> A player may change element later, but only by wiping their prior investment first.</p>
+        </section>
+
+        <section id="entropy-schools" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">3. Entropy Schools (Choose ONE)</h2>
+          <p class="text-slate-300 mt-2">Mages must also align with exactly one entropy school:</p>
+          <div class="mt-4">
+            <h3 class="text-2xl font-semibold">✨ Radiance (Entropy Expansion)</h3>
+            <p class="text-slate-300">Amplifies chaos, spreads effects, volatile and destructive.</p>
+            <ul class="list-disc text-slate-300 mt-2">
+              <li>Bigger AoE, chain reactions, random scatter.</li>
+              <li>Defense: <em>Radiant Barrier</em> (disperses enemy projectiles).</li>
+            </ul>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-2xl font-semibold">🌑 Void (Entropy Compression)</h3>
+            <p class="text-slate-300">Focuses order, condenses effects, nullifies chaos.</p>
+            <ul class="list-disc text-slate-300 mt-2">
+              <li>Precision strikes, piercing projectiles, mana efficiency.</li>
+              <li>Defense: <em>Void Shield</em> (absorbs enemy magic and restores mana).</li>
+              <li>Control: <em>Null Fields</em> (zones where magic is suppressed).</li>
+            </ul>
+          </div>
+          <p class="text-slate-400 mt-2"><strong>Respec Rule:</strong> A player may change entropy style later, but only by wiping their prior investment first.</p>
+        </section>
+
+        <section id="spell-ranges" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">4. Spell Ranges</h2>
+          <p class="text-slate-300 mt-2">Each element provides the following ranges of spells:</p>
+          <ol class="list-decimal list-inside text-slate-300 mt-2">
+            <li><strong>Touch (0–2m)</strong> → cheap, efficient melee magic.</li>
+            <li><strong>Short Range (Cone/Burst ≈8–10m)</strong> → cone AoE, crowd control.</li>
+            <li><strong>Long Range (Projectile ≈20–40m)</strong> → straight shot, balanced damage.</li>
+            <li><strong>Ultra-Long Range (Siege ≈60–100m)</strong> → arcing bombardment, very costly.</li>
+          </ol>
+        </section>
+
+        <section id="mana-cost" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">5. Mana Cost Formula</h2>
+          <p class="mt-2"><code>Mana Cost = Base (20) × Range Multiplier × Damage Multiplier × AoE Multiplier</code></p>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li><strong>Range Multipliers:</strong> Touch 1.0, Short 1.2, Long 1.5, Siege 2.0</li>
+            <li><strong>Damage Multipliers:</strong> Low 0.8, Medium 1.0, High 1.3, Extreme 1.6</li>
+            <li><strong>AoE Multipliers:</strong> Single 1.0, Small ≈3m 1.15, Medium ≈6m 1.3, Large ≈10m 1.5</li>
+          </ul>
+        </section>
+
+        <section id="interactions" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">6. Elemental Interaction Rules (Spells Only)</h2>
+          <p class="text-slate-300 mt-2">Interactions apply to spells, not players. A Fire Mage is not weak to Water attacks; only Fire spells are countered by Water spells.</p>
+          <h3 class="text-xl font-semibold mt-4">Element vs Element Table</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Attacking Element ↓ vs Defending Element →</th>
+                <th>Fire</th><th>Earth</th><th>Wind</th><th>Water</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Fire</strong></td><td>Nullify/Half</td><td class="text-emerald-400">Strong (2×)</td><td class="text-rose-400">Weak (0.5×)</td><td class="text-rose-400">Weak (0.5×)</td></tr>
+              <tr><td><strong>Earth</strong></td><td class="text-rose-400">Weak (0.5×)</td><td>Nullify/Half</td><td class="text-emerald-400">Strong (2×)</td><td class="text-rose-400">Weak (0.5×)</td></tr>
+              <tr><td><strong>Wind</strong></td><td class="text-emerald-400">Strong (2×)</td><td class="text-emerald-400">Strong (2×)</td><td>Nullify/Half</td><td class="text-rose-400">Weak (0.5×)</td></tr>
+              <tr><td><strong>Water</strong></td><td class="text-emerald-400">Strong (2×)</td><td class="text-emerald-400">Strong (2×)</td><td class="text-emerald-400">Strong (2×)</td><td>Nullify/Half</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="defense" class="mt-8">
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">7. Magical Defense System</h2>
+            <p class="text-slate-300 mt-2">Magic defense is <strong>active</strong>, unlike passive armor defense.</p>
+            <ul class="list-disc text-slate-300 mt-2">
+                <li><strong>Elemental Counters</strong> → cast opposite element to weaken/erase.</li>
+                <li><strong>Entropy Barriers</strong> → Radiance disperses, Void absorbs.</li>
+                <li><strong>Null Fields (Void)</strong> → suppress or weaken magic in zones.</li>
+                <li><strong>Counter-Casting</strong> → time a cast to cancel enemy spells.</li>
+            </ul>
+        </section>
+
+        <section id="archetypes" class="mt-8">
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">8. Archetypes (8 Mage Builds)</h2>
+            <p class="text-slate-300 mt-2">Each mage ends with one element × one entropy = 8 archetypes.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div>
+                    <h4 class="text-xl font-semibold">Fire</h4>
+                    <ul class="list-disc text-slate-300 mt-2">
+                        <li><strong>Radiant Fire</strong> → chaotic AoE nuker (Wildfires, Meteor Swarm).</li>
+                        <li><strong>Void Fire</strong> → precision duelist (Firelance, Singularity Ember).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold">Earth</h4>
+                    <ul class="list-disc text-slate-300 mt-2">
+                        <li><strong>Radiant Earth</strong> → battlefield disruptor (Shrapnel Bursts, Avalanches).</li>
+                        <li><strong>Void Earth</strong> → fortress mage (Walls, Colossus Boulder).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold">Wind</h4>
+                    <ul class="list-disc text-slate-300 mt-2">
+                        <li><strong>Radiant Wind</strong> → storm chaos mage (Cyclones, Tempests).</li>
+                        <li><strong>Void Wind</strong> → precision air mage (Vacuum Strikes, Gale Cannon).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold">Water</h4>
+                    <ul class="list-disc text-slate-300 mt-2">
+                        <li><strong>Radiant Water</strong> → AoE flood mage (Flood Surges, Steam Bombardments).</li>
+                        <li><strong>Void Water</strong> → control mage (Frozen Spikes, Null Fields).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</body>
+</html>

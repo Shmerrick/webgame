@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Game Simulator - Ascension System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {} } };
+    document.documentElement.classList.add("dark");
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    body { background: #0f172a; color: #e2e8f0; margin: 0; }
+    h2 { margin-top: 1.5rem; margin-bottom: 1rem; }
+    h3 { margin-top: 1rem; margin-bottom: 0.5rem; }
+    ul { margin-left: 1.5rem; }
+    li { margin-bottom: 0.25rem; }
+    blockquote { border-left: 4px solid #334155; padding-left: 1rem; margin-left: 0; font-style: italic; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+      <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
+        <div class="flex items-center justify-between">
+          <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+          <div class="flex flex-wrap gap-4">
+            <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
+            <a href="materials.html" class="text-slate-300 hover:text-emerald-400">Materials</a>
+            <a href="simulator.html" class="text-slate-300 hover:text-emerald-400">Simulator</a>
+            <a href="combat.html" class="text-slate-300 hover:text-emerald-400">Combat</a>
+            <a href="movement.html" class="text-slate-300 hover:text-emerald-400">Movement</a>
+            <a href="races.html" class="text-slate-300 hover:text-emerald-400">Races</a>
+            <a href="ascension.html" class="text-emerald-400 font-semibold">Ascension</a>
+            <a href="magic.html" class="text-slate-300 hover:text-emerald-400">Magic</a>
+            <a href="crafting.html" class="text-slate-300 hover:text-emerald-400">Crafting</a>
+            <a href="materials_guide.html" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
+          </div>
+        </div>
+      </nav>
+
+      <header class="text-center">
+        <h1 class="text-4xl font-bold tracking-tight mb-4">📜 Ascension System</h1>
+      </header>
+
+      <main class="mt-10 flex flex-col gap-8">
+
+        <section id="developer-summary" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">Developer Summary</h2>
+
+          <h3 class="text-2xl font-semibold mt-4">1. Core Concept</h3>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li>Ascension is a temporary divine elevation granted by the elemental gods.</li>
+            <li><strong>Void</strong> = entropy reduction (stability, order, decay).</li>
+            <li><strong>Radiance</strong> = entropy increase (chaos, volatility, disruption).</li>
+            <li>Neither is good nor evil — both are natural cosmic forces.</li>
+            <li>Ascension lasts 24 hours, with possible short extensions under certain conditions.</li>
+            <li>Only player-vs-player (PvP) kills contribute to gaining or maintaining Ascension.</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6">2. Types of Ascension</h3>
+          <h4 class="text-xl font-semibold mt-2 text-slate-300">🌌 Elemental Ascension (Divine Choosing)</h4>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li><strong>Void Ascended (Elemental):</strong> Gain power by systematically killing players. Buffs (24h): +20% All Damage, Elemental Immunity. Penalty: –20% to all stats for 24h if killed before expiration. Cooldown: 3 real days.</li>
+            <li><strong>Radiance Ascended (Elemental):</strong> Gained by being the top damage contributor against a Void Ascended player. Buffs (24h): +20% Damage Reduction, Elemental Immunity. Penalty: None.</li>
+          </ul>
+          <h4 class="text-xl font-semibold mt-4 text-slate-300">⚔️ Tribunal Ascension (Non-Elemental Choosing)</h4>
+           <ul class="list-disc text-slate-300 mt-2">
+            <li><strong>Void Tribunal Ascended:</strong> Requirement: Reach a kill threshold (e.g., 100 player kills). Buff (24h): +20% Physical Damage.</li>
+            <li><strong>Radiance Tribunal Ascended:</strong> Requirement: Defeat a Void Tribunal Ascended in PvP. Buff (24h): +20% Damage Reduction.</li>
+            <li><strong>Shared Ability (Both Tribunal Types):</strong> Weapon Imbuement (10 min duration, choose any elemental effect).</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6">3. Intelligent Damage Tracking</h3>
+          <p class="text-slate-300 mt-2">Radiance Ascension is awarded to the player who dealt the most damage to a Void Ascended during their entire 24h reign. If that player is offline, it goes to the next highest online contributor.</p>
+
+          <h3 class="text-2xl font-semibold mt-6">4. Buff Decay & Maintenance</h3>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li>After 12 hours, their flat attribute boost is removed.</li>
+            <li>Their damage bonus/reduction begins to decay by 2% per hour unless they score PvP kills.</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6">5. Anti-Exploitation Safeguards</h3>
+           <ul class="list-disc text-slate-300 mt-2">
+            <li>No farming alts or guildmates.</li>
+            <li><strong>Godly Smite:</strong> Cheaters are stripped of status and receive a divine debuff.</li>
+          </ul>
+
+          <h3 class="text-2xl font-semibold mt-6">6. Time Extensions</h3>
+           <ul class="list-disc text-slate-300 mt-2">
+            <li>In the final 2 hours, players may slightly extend their reign through continued PvP kills (max 1-2 hours).</li>
+          </ul>
+        </section>
+
+        <section id="player-lore" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">🎭 Player-Facing Lore Summary</h2>
+
+          <div class="mt-4">
+            <h3 class="text-2xl font-semibold">🌌 The Way of Ascension</h3>
+            <blockquote class="mt-2">
+              The elemental gods walk among us not in body, but in judgment. From time to time, they lift mortals above all others, granting them the mantle of Ascended.
+            </blockquote>
+          </div>
+
+          <div class="mt-4">
+            <h4 class="text-xl font-semibold text-slate-300">⚫ Void Ascended</h4>
+            <blockquote class="mt-2">
+              The Void is the force of stillness and decay, the hand that stills the storm. A Void Ascended is chosen through endless conquest, striking down foe after foe until their dominance is undeniable. In their time of power, their blows carry ruin, and no element can touch them. Yet the Void is heavy, and if they fall too soon, their strength becomes their curse.
+            </blockquote>
+          </div>
+
+          <div class="mt-4">
+            <h4 class="text-xl font-semibold text-slate-300">✨ Radiance Ascended</h4>
+            <blockquote class="mt-2">
+              The Radiance is the spark of chaos, the surge of energy that breaks order apart. A Radiance Ascended is not chosen by one blow, but by the weight of their fury. When a Void Ascended falls, the gods look not at who struck last, but at who bore the greatest burden of battle. Radiance rises in the one who dealt the greatest harm, who turned the tide through chaos.
+            </blockquote>
+          </div>
+
+          <div class="mt-4">
+            <h4 class="text-xl font-semibold text-slate-300">⚖️ Tribunal Ascended</h4>
+            <blockquote class="mt-2">
+              When the gods themselves are divided, they gather as a tribunal. From this court, another champion may rise. The Tribunal chooses mortals who embody the struggle between Void and Radiance. These Ascended may wield any element as a weapon for a brief time, but once chosen, they cannot change until the element fades.
+            </blockquote>
+          </div>
+
+          <div class="mt-4">
+            <h3 class="text-2xl font-semibold">⏳ The Fleeting Flame</h3>
+            <blockquote class="mt-2">
+              Ascension lasts one full day — 24 hours of divine empowerment. Yet as the hours pass, even the greatest champions begin to wane. Unless they fight, their strength begins to fade. In their final hours, the Ascended may extend their reign through fresh conquest, but never forever. The gods always reclaim their gifts.
+            </blockquote>
+          </div>
+
+          <div class="mt-4">
+            <h3 class="text-2xl font-semibold">⚡ Divine Justice</h3>
+            <blockquote class="mt-2">
+              The gods do not tolerate dishonor. Should a champion cheat their way to power — by slaying allies or false foes — the gods will smite them instantly. Their glory ends in shame, and they bear a divine curse as a mark of their disgrace.
+            </blockquote>
+          </div>
+
+        </section>
+
+      </main>
+    </div>
+  </div>
+</body>
+</html>

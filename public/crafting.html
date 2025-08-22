@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Game Simulator - Crafting Professions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {} } };
+    document.documentElement.classList.add("dark");
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    body { background: #0f172a; color: #e2e8f0; margin: 0; }
+    h2 { margin-top: 1.5rem; margin-bottom: 1rem; }
+    dt { font-weight: bold; color: #64e9a9; margin-top: 1rem;}
+    dd { margin-left: 1.5rem; color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+      <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
+        <div class="flex items-center justify-between">
+          <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+          <div class="flex flex-wrap gap-4">
+            <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
+            <a href="materials.html" class="text-slate-300 hover:text-emerald-400">Materials</a>
+            <a href="simulator.html" class="text-slate-300 hover:text-emerald-400">Simulator</a>
+            <a href="combat.html" class="text-slate-300 hover:text-emerald-400">Combat</a>
+            <a href="movement.html" class="text-slate-300 hover:text-emerald-400">Movement</a>
+            <a href="races.html" class="text-slate-300 hover:text-emerald-400">Races</a>
+            <a href="ascension.html" class="text-slate-300 hover:text-emerald-400">Ascension</a>
+            <a href="magic.html" class="text-slate-300 hover:text-emerald-400">Magic</a>
+            <a href="crafting.html" class="text-emerald-400 font-semibold">Crafting</a>
+            <a href="materials_guide.html" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
+          </div>
+        </div>
+      </nav>
+
+      <header class="text-center">
+        <h1 class="text-4xl font-bold tracking-tight mb-4">🎨 Crafting Professions</h1>
+        <p class="text-lg text-slate-300">
+          Players may choose ONE crafting profession.
+        </p>
+      </header>
+
+      <main class="mt-10 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+
+        <section id="core-gear">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">Core Gear Professions</h2>
+          <dl>
+            <dt>Armor Smithing</dt>
+            <dd>Creates metal and leather armors (helmets, chestplates, greaves, boots, gauntlets).</dd>
+
+            <dt>Weapon Smithing</dt>
+            <dd>Creates melee weapons (swords, axes, maces, daggers, polearms).</dd>
+
+            <dt>Bowyer</dt>
+            <dd>Creates bows, crossbows, arrows, bolts.</dd>
+
+            <dt>Shield Crafting</dt>
+            <dd>Creates shields of various sizes and styles.</dd>
+          </dl>
+        </section>
+
+        <section id="consumables" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">Consumables & Enhancements</h2>
+          <dl>
+            <dt>Alchemy</dt>
+            <dd>Potions, poisons, elixirs, antidotes.</dd>
+
+            <dt>Cooking</dt>
+            <dd>Food buffs, meals, feasts for groups.</dd>
+
+            <dt>Enchanting</dt>
+            <dd>Runes, wards, permanent magical buffs (e.g., stamina regen, mana efficiency).</dd>
+
+            <dt>Artificer</dt>
+            <dd>Imbues non-magical gear with elemental damage (fire sword, frost arrows) or magical defense (resistance wards).</dd>
+          </dl>
+        </section>
+
+        <section id="luxury" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">Luxury</h2>
+          <dl>
+            <dt>Jewelry Crafting</dt>
+            <dd>Rings, necklaces, amulets, trinkets (no socketing, no augmenting).</dd>
+          </dl>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</body>
+</html>
