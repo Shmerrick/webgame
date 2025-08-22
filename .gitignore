@@ -5,3 +5,6 @@ cpp/CMakeFiles/
 cpp/Makefile
 cpp/cmake_install.cmake
 cpp/database_viewer
+
+# Log files
+*.log
