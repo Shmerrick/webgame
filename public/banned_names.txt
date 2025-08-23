@@ -1,0 +1,6 @@
+profanity
+badword
+curse
+swear
+inappropriate
+offensive

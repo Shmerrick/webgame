@@ -6,7 +6,10 @@
         "slash": 0.0,
         "pierce": 0.0,
         "blunt": 0.55,
-        "magic": 0.4625,
+        "fire": 0.25,
+        "water": 0.15,
+        "wind": 0.95,
+        "earth": 0.5,
         "toughness": 0
       },
       {
@@ -14,7 +17,10 @@
         "slash": 0.0,
         "pierce": 0.0,
         "blunt": 0.55,
-        "magic": 0.42,
+        "fire": 0.2,
+        "water": 0.13,
+        "wind": 0.95,
+        "earth": 0.4,
         "toughness": 0
       },
       {
@@ -22,7 +28,10 @@
         "slash": 0.15358,
         "pierce": 0.26454,
         "blunt": 0.39384,
-        "magic": 0.58972,
+        "fire": 0.87812,
+        "water": 0.63333,
+        "wind": 0.5,
+        "earth": 0.34742,
         "toughness": 0
       }
     ],
@@ -32,7 +41,10 @@
         "slash": 0.12913,
         "pierce": 0.03708,
         "blunt": 0.64196,
-        "magic": 0.3461,
+        "fire": 0.67437,
+        "water": 0.09667,
+        "wind": 0.5,
+        "earth": 0.11338,
         "toughness": 0
       },
       {
@@ -40,7 +52,10 @@
         "slash": 0.23967,
         "pierce": 0.30953,
         "blunt": 0.43037,
-        "magic": 0.62874,
+        "fire": 0.89812,
+        "water": 0.69667,
+        "wind": 0.5,
+        "earth": 0.42017,
         "toughness": 0
       }
     ],
@@ -50,7 +65,10 @@
         "slash": 0.27049,
         "pierce": 0.08638,
         "blunt": 0.73393,
-        "magic": 0.40482,
+        "fire": 0.6925,
+        "water": 0.2,
+        "wind": 0.5,
+        "earth": 0.22676,
         "toughness": 0
       },
       {
@@ -58,7 +76,10 @@
         "slash": 0.46073,
         "pierce": 0.42785,
         "blunt": 0.52854,
-        "magic": 0.69042,
+        "fire": 0.91813,
+        "water": 0.78,
+        "wind": 0.5,
+        "earth": 0.56354,
         "toughness": 0
       }
     ],
@@ -68,7 +89,10 @@
         "slash": 0.39962,
         "pierce": 0.12346,
         "blunt": 0.82589,
-        "magic": 0.47506,
+        "fire": 0.75437,
+        "water": 0.31,
+        "wind": 0.5,
+        "earth": 0.33588,
         "toughness": 0
       },
       {
@@ -76,7 +100,10 @@
         "slash": 0.65097,
         "pierce": 0.56673,
         "blunt": 0.57078,
-        "magic": 0.73735,
+        "fire": 0.93812,
+        "water": 0.845,
+        "wind": 0.5,
+        "earth": 0.66628,
         "toughness": 0
       }
     ],
@@ -86,7 +113,10 @@
         "slash": 0.61484,
         "pierce": 0.18498,
         "blunt": 0.9795,
-        "magic": 0.73062,
+        "fire": 0.97812,
+        "water": 0.95,
+        "wind": 0.5,
+        "earth": 0.49435,
         "toughness": 0
       },
       {
@@ -94,7 +124,10 @@
         "slash": 0.81667,
         "pierce": 0.69338,
         "blunt": 0.60068,
-        "magic": 0.81383,
+        "fire": 1.0,
+        "water": 1.0,
+        "wind": 0.5,
+        "earth": 0.75532,
         "toughness": 0
       }
     ]
@@ -106,7 +139,10 @@
         "slash": 0.20884,
         "pierce": 0.09583,
         "blunt": 0.66073,
-        "magic": 0.3545,
+        "fire": 0.40812,
+        "water": 0.21333,
+        "wind": 0.5,
+        "earth": 0.29656,
         "toughness": 0
       }
     ],
@@ -116,7 +152,10 @@
         "slash": 0.37464,
         "pierce": 0.17327,
         "blunt": 0.74817,
-        "magic": 0.40858,
+        "fire": 0.40437,
+        "water": 0.32,
+        "wind": 0.5,
+        "earth": 0.40994,
         "toughness": 0
       }
     ],
@@ -126,7 +165,10 @@
         "slash": 0.52184,
         "pierce": 0.26088,
         "blunt": 0.80731,
-        "magic": 0.45742,
+        "fire": 0.40062,
+        "water": 0.44,
+        "wind": 0.5,
+        "earth": 0.48907,
         "toughness": 0
       }
     ],
@@ -136,7 +178,10 @@
         "slash": 0.66904,
         "pierce": 0.34849,
         "blunt": 0.86644,
-        "magic": 0.4696,
+        "fire": 0.35687,
+        "water": 0.45333,
+        "wind": 0.5,
+        "earth": 0.5682,
         "toughness": 0
       }
     ],
@@ -146,7 +191,10 @@
         "slash": 0.85928,
         "pierce": 0.45038,
         "blunt": 0.95388,
-        "magic": 0.70086,
+        "fire": 0.67188,
+        "water": 0.95,
+        "wind": 0.5,
+        "earth": 0.68158,
         "toughness": 0
       }
     ]
@@ -158,7 +206,10 @@
         "slash": 0.1472,
         "pierce": 0.10405,
         "blunt": 0.58904,
-        "magic": 0.49251,
+        "fire": 0.52812,
+        "water": 0.65,
+        "wind": 0.5,
+        "earth": 0.2919,
         "toughness": 0
       }
     ],
@@ -168,7 +219,10 @@
         "slash": 0.25773,
         "pierce": 0.15705,
         "blunt": 0.64566,
-        "magic": 0.50886,
+        "fire": 0.43875,
+        "water": 0.715,
+        "wind": 0.5,
+        "earth": 0.38167,
         "toughness": 0
       }
     ],
@@ -178,7 +232,10 @@
         "slash": 0.52184,
         "pierce": 0.27321,
         "blunt": 0.79224,
-        "magic": 0.56183,
+        "fire": 0.39312,
+        "water": 0.78,
+        "wind": 0.5,
+        "earth": 0.57418,
         "toughness": 0
       }
     ],
@@ -188,7 +245,10 @@
         "slash": 0.66904,
         "pierce": 0.36082,
         "blunt": 0.85137,
-        "magic": 0.59192,
+        "fire": 0.36937,
+        "water": 0.845,
+        "wind": 0.5,
+        "earth": 0.65331,
         "toughness": 0
       }
     ],
@@ -198,7 +258,10 @@
         "slash": 0.85928,
         "pierce": 0.46682,
         "blunt": 0.93379,
-        "magic": 0.72977,
+        "fire": 0.7375,
+        "water": 1.0,
+        "wind": 0.5,
+        "earth": 0.68158,
         "toughness": 0
       }
     ]
@@ -210,7 +273,10 @@
         "slash": 0.18387,
         "pierce": 0.32565,
         "blunt": 0.36301,
-        "magic": 0.31886,
+        "fire": 0.54312,
+        "water": 0.1,
+        "wind": 0.5,
+        "earth": 0.13232,
         "toughness": 0
       }
     ],
@@ -220,7 +286,10 @@
         "slash": 0.45967,
         "pierce": 0.55008,
         "blunt": 0.40525,
-        "magic": 0.37203,
+        "fire": 0.49562,
+        "water": 0.2,
+        "wind": 0.5,
+        "earth": 0.29251,
         "toughness": 0
       }
     ],
@@ -230,7 +299,10 @@
         "slash": 0.70518,
         "pierce": 0.71339,
         "blunt": 0.47831,
-        "magic": 0.45023,
+        "fire": 0.49187,
+        "water": 0.32,
+        "wind": 0.5,
+        "earth": 0.48907,
         "toughness": 0
       }
     ],
@@ -240,7 +312,10 @@
         "slash": 0.85875,
         "pierce": 0.8156,
         "blunt": 0.52055,
-        "magic": 0.60094,
+        "fire": 0.56812,
+        "water": 0.68,
+        "wind": 0.5,
+        "earth": 0.65564,
         "toughness": 0
       }
     ],
@@ -250,7 +325,10 @@
         "slash": 0.98151,
         "pierce": 0.91781,
         "blunt": 0.53196,
-        "magic": 0.72179,
+        "fire": 0.7375,
+        "water": 1.0,
+        "wind": 0.5,
+        "earth": 0.64966,
         "toughness": 0
       }
     ]
@@ -262,7 +340,10 @@
         "slash": 0.1734,
         "pierce": 0.10011,
         "blunt": 0.5939,
-        "magic": 0.21581,
+        "fire": 0.12903,
+        "water": 0.26667,
+        "wind": 0.06494,
+        "earth": 0.40261,
         "toughness": 210
       },
       {
@@ -270,7 +351,10 @@
         "slash": 0.43088,
         "pierce": 0.19794,
         "blunt": 0.4957,
-        "magic": 0.46443,
+        "fire": 0.59179,
+        "water": 0.0,
+        "wind": 0.86039,
+        "earth": 0.40554,
         "toughness": 540
       },
       {
@@ -278,7 +362,10 @@
         "slash": 0.0,
         "pierce": 0.0,
         "blunt": 0.53344,
-        "magic": 0.50287,
+        "fire": 0.69377,
+        "water": 0.26667,
+        "wind": 0.87662,
+        "earth": 0.1744,
         "toughness": 15
       },
       {
@@ -286,7 +373,10 @@
         "slash": 0.00041,
         "pierce": 0.00213,
         "blunt": 0.55,
-        "magic": 0.3925,
+        "fire": 0.3,
+        "water": 0.0,
+        "wind": 0.97,
+        "earth": 0.3,
         "toughness": 12
       },
       {
@@ -294,7 +384,10 @@
         "slash": 0.1029,
         "pierce": 0.02953,
         "blunt": 0.55047,
-        "magic": 0.25871,
+        "fire": 0.16,
+        "water": 0.53333,
+        "wind": 0.0,
+        "earth": 0.3415,
         "toughness": 150
       },
       {
@@ -302,7 +395,10 @@
         "slash": 0.0865,
         "pierce": 0.03125,
         "blunt": 0.52405,
-        "magic": 0.58825,
+        "fire": 0.48937,
+        "water": 1.0,
+        "wind": 0.29221,
+        "earth": 0.57143,
         "toughness": 120
       },
       {
@@ -310,7 +406,10 @@
         "slash": 0.22015,
         "pierce": 0.1111,
         "blunt": 0.48251,
-        "magic": 0.50067,
+        "fire": 0.65092,
+        "water": 0.4,
+        "wind": 0.74675,
+        "earth": 0.205,
         "toughness": 110
       },
       {
@@ -318,7 +417,10 @@
         "slash": 0.53747,
         "pierce": 0.2643,
         "blunt": 0.51146,
-        "magic": 0.62462,
+        "fire": 0.73319,
+        "water": 0.53333,
+        "wind": 0.79545,
+        "earth": 0.43652,
         "toughness": 480
       },
       {
@@ -326,7 +428,10 @@
         "slash": 0.48581,
         "pierce": 0.21711,
         "blunt": 0.60266,
-        "magic": 0.44033,
+        "fire": 0.52971,
+        "water": 0.66667,
+        "wind": 0.42208,
+        "earth": 0.14286,
         "toughness": 90
       }
     ],
@@ -336,7 +441,10 @@
         "slash": 0.37184,
         "pierce": 0.19914,
         "blunt": 0.65469,
-        "magic": 0.62205,
+        "fire": 0.7456,
+        "water": 0.4,
+        "wind": 0.90909,
+        "earth": 0.43351,
         "toughness": 241
       },
       {
@@ -344,7 +452,10 @@
         "slash": 0.31608,
         "pierce": 0.13449,
         "blunt": 0.5904,
-        "magic": 0.58744,
+        "fire": 0.68415,
+        "water": 0.53333,
+        "wind": 0.77922,
+        "earth": 0.35306,
         "toughness": 350
       },
       {
@@ -352,7 +463,10 @@
         "slash": 0.03649,
         "pierce": 0.02919,
         "blunt": 0.52628,
-        "magic": 0.62072,
+        "fire": 0.82787,
+        "water": 0.53333,
+        "wind": 0.94156,
+        "earth": 0.18012,
         "toughness": 15
       },
       {
@@ -360,7 +474,10 @@
         "slash": 0.23655,
         "pierce": 0.11783,
         "blunt": 0.55792,
-        "magic": 0.5595,
+        "fire": 0.67179,
+        "water": 0.26667,
+        "wind": 0.86039,
+        "earth": 0.43914,
         "toughness": 345
       }
     ],
@@ -370,7 +487,10 @@
         "slash": 0.16358,
         "pierce": 0.27351,
         "blunt": 0.51179,
-        "magic": 0.53489,
+        "fire": 0.71406,
+        "water": 0.26667,
+        "wind": 0.92532,
+        "earth": 0.2335,
         "toughness": 172
       },
       {
@@ -378,7 +498,10 @@
         "slash": 0.34888,
         "pierce": 0.17024,
         "blunt": 0.59356,
-        "magic": 0.56331,
+        "fire": 0.68251,
+        "water": 0.13333,
+        "wind": 0.92532,
+        "earth": 0.51208,
         "toughness": 620
       },
       {
@@ -386,7 +509,10 @@
         "slash": 0.68507,
         "pierce": 1.0,
         "blunt": 0.63287,
-        "magic": 0.59602,
+        "fire": 0.71097,
+        "water": 0.2,
+        "wind": 0.92532,
+        "earth": 0.54779,
         "toughness": 930
       }
     ],
@@ -396,7 +522,10 @@
         "slash": 0.56822,
         "pierce": 0.19794,
         "blunt": 0.67217,
-        "magic": 0.89625,
+        "fire": 1.0,
+        "water": 1.0,
+        "wind": 1.0,
+        "earth": 0.58501,
         "toughness": 655
       },
       {
@@ -404,7 +533,10 @@
         "slash": 1.0,
         "pierce": 0.49656,
         "blunt": 0.62571,
-        "magic": 0.75809,
+        "fire": 0.87633,
+        "water": 0.66667,
+        "wind": 0.94156,
+        "earth": 0.54779,
         "toughness": 2070
       },
       {
@@ -412,7 +544,10 @@
         "slash": 0.76706,
         "pierce": 0.45664,
         "blunt": 0.7282,
-        "magic": 0.84623,
+        "fire": 0.98986,
+        "water": 1.0,
+        "wind": 0.98377,
+        "earth": 0.41129,
         "toughness": 434
       },
       {
@@ -420,7 +555,10 @@
         "slash": 0.79167,
         "pierce": 0.40157,
         "blunt": 0.19286,
-        "magic": 0.79025,
+        "fire": 0.73454,
+        "water": 1.0,
+        "wind": 0.71429,
+        "earth": 0.71218,
         "toughness": 980
       }
     ],
@@ -430,7 +568,10 @@
         "slash": 0.89911,
         "pierce": 0.67344,
         "blunt": 0.73296,
-        "magic": 0.76485,
+        "fire": 0.85797,
+        "water": 1.0,
+        "wind": 0.69805,
+        "earth": 0.5034,
         "toughness": 1500
       },
       {
@@ -438,7 +579,10 @@
         "slash": 1.0,
         "pierce": 0.88281,
         "blunt": 0.59323,
-        "magic": 0.84115,
+        "fire": 0.85488,
+        "water": 0.93333,
+        "wind": 0.89286,
+        "earth": 0.68351,
         "toughness": 2500
       },
       {
@@ -446,7 +590,10 @@
         "slash": 0.83259,
         "pierce": 0.67422,
         "blunt": 0.65785,
-        "magic": 0.78216,
+        "fire": 0.9087,
+        "water": 1.0,
+        "wind": 0.61688,
+        "earth": 0.60306,
         "toughness": 2000
       }
     ]
@@ -458,7 +605,10 @@
         "slash": 0.0,
         "pierce": 0.0,
         "blunt": 0.55,
-        "magic": 0.3925,
+        "fire": 0.25,
+        "water": 0.07,
+        "wind": 1.0,
+        "earth": 0.25,
         "toughness": 0
       },
       {
@@ -466,7 +616,10 @@
         "slash": 0.41346,
         "pierce": 0.36046,
         "blunt": 0.59811,
-        "magic": 0.61383,
+        "fire": 0.8615,
+        "water": 0.93333,
+        "wind": 0.5,
+        "earth": 0.16049,
         "toughness": 0
       }
     ],
@@ -476,7 +629,10 @@
         "slash": 0.08714,
         "pierce": 0.13,
         "blunt": 0.49048,
-        "magic": 0.28497,
+        "fire": 0.29167,
+        "water": 0.0,
+        "wind": 0.5,
+        "earth": 0.34821,
         "toughness": 0
       },
       {
@@ -484,7 +640,10 @@
         "slash": 0.05,
         "pierce": 0.025,
         "blunt": 0.56944,
-        "magic": 0.32409,
+        "fire": 0.64514,
+        "water": 0.0,
+        "wind": 0.5,
+        "earth": 0.15123,
         "toughness": 0
       }
     ],
@@ -494,7 +653,10 @@
         "slash": 0.51357,
         "pierce": 0.61,
         "blunt": 0.40357,
-        "magic": 0.41217,
+        "fire": 0.16,
+        "water": 0.53333,
+        "wind": 0.5,
+        "earth": 0.45536,
         "toughness": 0
       },
       {
@@ -502,7 +664,10 @@
         "slash": 0.21154,
         "pierce": 0.21154,
         "blunt": 0.55,
-        "magic": 0.625,
+        "fire": 1.0,
+        "water": 1.0,
+        "wind": 0.5,
+        "earth": 0.0,
         "toughness": 0
       }
     ],
@@ -512,7 +677,10 @@
         "slash": 0.52286,
         "pierce": 0.63,
         "blunt": 0.37619,
-        "magic": 0.65149,
+        "fire": 0.725,
+        "water": 0.66667,
+        "wind": 0.5,
+        "earth": 0.71429,
         "toughness": 0
       },
       {
@@ -520,7 +688,10 @@
         "slash": 0.55769,
         "pierce": 0.85769,
         "blunt": 0.17222,
-        "magic": 0.58889,
+        "fire": 0.3,
+        "water": 1.0,
+        "wind": 0.5,
+        "earth": 0.55556,
         "toughness": 0
       }
     ],
@@ -530,7 +701,10 @@
         "slash": 1.0,
         "pierce": 1.0,
         "blunt": 0.45,
-        "magic": 0.84375,
+        "fire": 1.0,
+        "water": 1.0,
+        "wind": 0.5,
+        "earth": 0.875,
         "toughness": 0
       },
       {
@@ -538,7 +712,10 @@
         "slash": 1.0,
         "pierce": 1.0,
         "blunt": 0.45,
-        "magic": 0.79907,
+        "fire": 0.98025,
+        "water": 1.0,
+        "wind": 0.5,
+        "earth": 0.71605,
         "toughness": 0
       }
     ]

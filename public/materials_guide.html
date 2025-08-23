@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Game Simulator - Material System Guide</title>
+  <title>Game Simulator - A Crafter's Guide to Materials</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.tailwindcss.com"></script>
-    <script src="aspect_ratio.js"></script>
+  <script src="aspect_ratio.js"></script>
   <script>
       tailwind.config = {
         theme: {
@@ -23,20 +23,15 @@
   <style>
     :root { color-scheme: dark; }
     body { background: #0f172a; color: #e2e8f0; margin: 0; }
-    h2 { margin-top: 1.5rem; margin-bottom: 1rem; }
-    h3 { margin-top: 1rem; margin-bottom: 0.5rem; }
-    ul { margin-left: 1.5rem; }
-    li { margin-bottom: 0.25rem; }
-    code { display: block; background-color: #1e293b; padding: 0.5rem 0.8rem; border-radius: 0.25rem; font-family: monospace; white-space: pre; }
-        [data-aspect-ratio='ultrawide'] #materials-container {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-      [data-aspect-ratio='widescreen'] #materials-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    </style>
+    h2 { margin-top: 2rem; margin-bottom: 1rem; font-weight: 600; }
+    h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 600; }
+    p { margin-bottom: 1rem; line-height: 1.6; }
+    ul { margin-left: 1.5rem; list-style-type: disc; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; }
+    strong { color: #64e9a9; }
+  </style>
 </head>
-  <body style="background-image: url('Art/Backgrounds/winter.png'); background-size: cover; background-attachment: fixed;">
+<body style="background-image: url('Art/Backgrounds/winter.png'); background-size: cover; background-attachment: fixed;">
     <div class="min-h-screen w-full bg-slate-950/80 text-slate-100 p-4 md:p-8">
     <div class="max-w-4xl mx-auto">
       <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
@@ -60,121 +55,98 @@
       </nav>
 
       <header class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight mb-4">Material and Gameplay System</h1>
+        <h1 class="text-4xl font-bold tracking-tight mb-4">A Crafter's Guide to Materials</h1>
         <p class="text-lg text-slate-300 break-words">
-          How real-world materials are translated into gameplay statistics.
+          Welcome, artisan! This guide unveils the secrets of the materials you'll use to forge legendary weapons and armor. Our world is built on a simple principle: the properties of materials in our world mirror those of the real world, bringing a unique depth to the art of crafting.
         </p>
       </header>
 
       <main class="mt-10 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg break-words">
 
-        <section id="overview">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">1. Overview</h2>
-          <p class="text-slate-300 mt-2">The system is divided into four material families: Metals, Organics, Rocks, and Minerals. Each family has a Tier system (1–5), where Tier 5 represents mythical materials with a ~10% enhancement over Tier 4.</p>
+        <section id="philosophy">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">The Soul of a Material</h2>
+          <p>Every item you craft carries the essence of its components. We've translated the science of real-world materials into tangible gameplay stats. A heavy, dense metal will feel weighty and powerful. A light, flexible wood will be nimble and quick. This means your choice of material is not just cosmetic—it's a strategic decision that will define your combat style.</p>
         </section>
 
         <section id="properties" class="mt-8">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">2. Real-World Material Properties</h2>
-          <p class="text-slate-300 mt-2">Each material is registered with baseline scientific properties which are then normalized to a 0-1 scale for gameplay calculations.</p>
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">From Science to Swordcraft</h2>
+          <p>So, how does a simple rock become a mighty shield? We look at a few key scientific properties:</p>
           <ul class="list-disc text-slate-300 mt-2">
-            <li>Density (g/cm³)</li>
-            <li>Hardness (Mohs or Janka)</li>
-            <li>Elastic Modulus (GPa) – stiffness</li>
-            <li>Thermal & Electrical Conductivity</li>
-            <li>Toughness & Chemical Resistance</li>
-            <li>Water Absorption</li>
+            <li><strong>Density:</strong> Determines an item's weight. Heavier items hit harder (more Blunt damage) but can be slower to wield.</li>
+            <li><strong>Hardness:</strong> A material's ability to resist being scratched or dented. Hard materials excel at Slashing and Piercing.</li>
+            <li><strong>Stiffness (Elastic Modulus):</strong> How much a material bends under stress. Stiff materials are great for piercing attacks, while more flexible ones can absorb blunt force.</li>
+            <li><strong>Toughness:</strong> A material's resistance to breaking. Tough materials make for durable armor that can take a beating.</li>
+            <li><strong>Conductivity & Resistance:</strong> How a material handles heat and electricity. This directly influences its resistance to Fire and Wind magic.</li>
           </ul>
         </section>
 
-        <section id="formulas" class="mt-8">
-            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">3. Gameplay Formulas</h2>
-            <p class="text-slate-300 mt-2">The following formulas translate normalized real-world properties into gameplay values.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <div>
-                    <h3 class="text-xl font-semibold">Offense Formulas</h3>
-                    <code>Offense_Slash  = 0.6 × Hardness_norm + 0.4 × Density_norm
-Offense_Pierce = 0.6 × Hardness_norm + 0.4 × ElasticMod_norm
-Offense_Blunt  = 0.6 × Density_norm  + 0.4 × Toughness_norm</code>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold">Defense Formulas</h3>
-                    <code>Defense_Slash  = 0.55 × Hardness_norm + 0.45 × Toughness_norm
-Defense_Pierce = 0.55 × Hardness_norm + 0.45 × ElasticMod_norm
-Defense_Blunt  = 0.55 × (1 − ElasticMod_norm) + 0.45 × Toughness_norm</code>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold">Elemental Resistance Formulas</h3>
-                    <code>Element_Fire  = 0.7 × (1 − ThermalCond_norm) + 0.3 × ChemRes_norm
-Element_Water = ChemRes_norm × (1 − 0.5 × WaterAbsorption_rel)
-Element_Wind  = 1 − ElectricalCond_norm
-Element_Earth = 0.5 × Toughness_norm + 0.5 × Density_norm</code>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold">Environmental Formula</h3>
-                    <code>Heat_Retention = 0.6 × (1 − ThermalCond_norm) + 0.4 × Density_norm</code>
-                </div>
-            </div>
+        <section id="gameplay-stats" class="mt-8">
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">Understanding Your Stats</h2>
+            <p>These properties are distilled into the stats you see on your items. Here’s what they mean for you on the battlefield:</p>
+
+            <h3 class="text-xl text-emerald-300">Offensive Stats</h3>
+            <p>Offensive stats determine the type of damage your weapon inflicts.</p>
+            <ul class="list-disc text-slate-300 mt-2">
+                <li><strong>Slash:</strong> The ability to cut through soft targets. Ideal for weapons made from hard materials like steel. Effective against lightly armored foes.</li>
+                <li><strong>Pierce:</strong> The power to punch through armor. Stiff, hard materials like obsidian and bone make for excellent spearheads and arrowheads.</li>
+                <li><strong>Blunt:</strong> The force of impact. Dense, heavy materials like lead and iron are perfect for hammers and maces that crush and stagger opponents.</li>
+            </ul>
+
+            <h3 class="text-xl text-emerald-300">Defensive Stats</h3>
+            <p>Defensive stats on your armor determine how well you resist different types of attacks.</p>
+            <ul class="list-disc text-slate-300 mt-2">
+                <li><strong>Slash Defense:</strong> Reduces damage from cutting attacks. Tough, hard materials that don't tear easily provide the best slash defense.</li>
+                <li><strong>Pierce Defense:</strong> Protects against arrows, spears, and daggers. Materials that are both hard and stiff are needed to stop a piercing point.</li>
+                <li><strong>Blunt Defense:</strong> Absorbs the shock from heavy blows. Softer, more flexible materials can distribute the force of a blow, preventing broken bones. This is why even heavy plate armor has soft padding underneath!</li>
+            </ul>
+
+            <h3 class="text-xl text-emerald-300">Elemental Resistances</h3>
+            <p>The world is filled with magic. The right material can save you from a fiery end.</p>
+             <ul class="list-disc text-slate-300 mt-2">
+                <li><strong>Fire Resistance:</strong> Materials that don't conduct heat well, like stone and certain minerals, offer protection from flames.</li>
+                <li><strong>Water Resistance:</strong> Materials that don't corrode or soak up water will resist corrosive and water-based spells.</li>
+                <li><strong>Wind Resistance:</strong> In our world, wind magic is tied to electricity. Materials that are poor electrical conductors will shield you from shocking attacks.</li>
+                <li><strong>Earth Resistance:</strong> Dense and tough materials are your best bet for withstanding the crushing force of earth magic.</li>
+            </ul>
         </section>
 
         <section id="tiers" class="mt-8">
-            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">4. Tier Systems</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <div>
-                    <h3 class="text-xl font-semibold">Metals</h3>
-                    <ul class="list-disc text-slate-300 mt-2">
-                        <li><strong>T1:</strong> Iron, Copper, Tin, Lead</li>
-                        <li><strong>T2:</strong> Bronze, Brass</li>
-                        <li><strong>T3:</strong> Steels (Carbon, Damascus)</li>
-                        <li><strong>T4:</strong> Titanium, Tungsten</li>
-                        <li><strong>T5:</strong> Mithril, Adamantite</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold">Organics</h3>
-                    <ul class="list-disc text-slate-300 mt-2">
-                        <li><strong>Woods:</strong> Pine → Oak → Hickory → Lignum Vitae → Worldtree Yew</li>
-                        <li><strong>Leathers:</strong> Goat → Cow → Crocodile → Rhino → Dragonhide</li>
-                        <li><strong>Furs:</strong> Rabbit → Wolf → Bear → Polar Bear → Phoenix Down</li>
-                        <li><strong>Silks:</strong> Mulberry → Tussar → Spider Silk → Giant Spider Silk → Arachne Silk</li>
-                        <li><strong>Scales:</strong> Snake → Fish → Crocodile → Pangolin → Dragon Scale</li>
-                        <li><strong>Bones:</strong> Chicken → Deer → Cow → Whale → Titanbone</li>
-                    </ul>
-                </div>
-                 <div>
-                    <h3 class="text-xl font-semibold">Rocks</h3>
-                    <ul class="list-disc text-slate-300 mt-2">
-                        <li><strong>T1:</strong> Sandstone</li>
-                        <li><strong>T2:</strong> Limestone</li>
-                        <li><strong>T3:</strong> Granite</li>
-                        <li><strong>T4:</strong> Basalt</li>
-                        <li><strong>T5:</strong> Worldstone</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold">Minerals</h3>
-                    <ul class="list-disc text-slate-300 mt-2">
-                        <li><strong>T1:</strong> Quartz</li>
-                        <li><strong>T2:</strong> Calcite</li>
-                        <li><strong>T3:</strong> Obsidian</li>
-                        <li><strong>T4:</strong> Corundum</li>
-                        <li><strong>T5:</strong> Aethercrystal</li>
-                    </ul>
-                </div>
-            </div>
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">The Crafter's Progression: Tiers of Power</h2>
+            <p>As you explore the world, you'll discover new and rarer materials, organized into five tiers of quality. While a Tier 1 material can create a serviceable piece of gear, only a master artisan working with legendary Tier 5 components can craft items of myth.</p>
+
+            <h3 class="text-xl text-emerald-300">Metals</h3>
+            <p>The backbone of any armory. From the humble copper to the legendary adamantite, metals offer a balance of offense and defense.</p>
+            <ul class="list-disc text-slate-300 mt-2">
+                <li><strong>T1:</strong> Iron, Copper, Tin, Lead</li>
+                <li><strong>T2:</strong> Bronze, Brass</li>
+                <li><strong>T3:</strong> Steels (Carbon, Damascus)</li>
+                <li><strong>T4:</strong> Titanium, Tungsten</li>
+                <li><strong>T5:</strong> Mithril, Adamantite</li>
+            </ul>
+
+            <h3 class="text-xl text-emerald-300">Organics</h3>
+            <p>Harvested from the flora and fauna of the world, organic materials are versatile and offer unique properties.</p>
+            <ul class="list-disc text-slate-300 mt-2">
+                <li><strong>Woods:</strong> Pine → Oak → Hickory → Lignum Vitae → Worldtree Yew</li>
+                <li><strong>Leathers:</strong> Goat Hide → Cowhide → Crocodile Hide → Rhino Hide → Dragonhide</li>
+                <li><strong>Furs:</strong> Rabbit Fur → Wolf Fur → Bear Fur → Polar Bear Fur → Phoenix Down</li>
+                <li><strong>Silks:</strong> Mulberry Silk → Tussar Silk → Spider Silk → Giant Spider Silk → Arachne Silk</li>
+                <li><strong>Scales:</strong> Snake Scale → Fish Scale → Crocodile Scale → Pangolin Scale → Dragon Scale</li>
+                <li><strong>Bones:</strong> Chicken Bone → Deer Bone → Cow Bone → Whale Bone → Titanbone</li>
+            </ul>
+
+            <h3 class="text-xl text-emerald-300">Rocks & Minerals</h3>
+            <p>Dug from the deepest parts of the earth, these materials are often heavy and exceptionally resistant to the elements.</p>
+            <ul class="list-disc text-slate-300 mt-2">
+                <li><strong>Rocks:</strong> Sandstone → Limestone → Granite → Basalt → Worldstone</li>
+                <li><strong>Minerals:</strong> Quartz → Calcite → Obsidian → Corundum → Aethercrystal</li>
+            </ul>
         </section>
 
         <section id="damage-model" class="mt-8">
-            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">5. Melee Weapon Damage Model</h2>
-            <p class="text-slate-300 mt-2">This section defines how to compute melee damage for unimbued and elementally imbued weapons.</p>
-            <h3 class="text-xl font-semibold mt-4">Unimbued (Physical-Only) Damage</h3>
-            <p class="text-slate-300 mt-2">Base damage is distributed across physical types (Slash, Pierce, Blunt) using normalized weights derived from the weapon head's material properties.</p>
-            <code>Phys_Slash  = Base_Dmg × Weight_Slash
-Phys_Pierce = Base_Dmg × Weight_Pierce
-Phys_Blunt  = Base_Dmg × Weight_Blunt</code>
-            <h3 class="text-xl font-semibold mt-4">Elementally Imbued Damage (Additive)</h3>
-            <p class="text-slate-300 mt-2">When an element is applied, the full physical damage is kept, and an elemental damage term is added. This term is scaled by a global tuning factor for the element, an optional power multiplier from the spell, and the weapon head's elemental affinity.</p>
-            <code>Elem_Damage = Base_Dmg × Tuning_Factor × Imbue_Power × Head_Affinity
-Total_Payload = { Physical_Damage, Elemental_Damage }</code>
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">A Note on Weapon Damage</h2>
+            <p>The material you choose for your weapon's head is paramount. It determines the primary damage type and how much it hurts. A sword made with a sharp, hard steel head will deal excellent <strong>Slash</strong> damage. A hammer with a dense lead head will be a master of <strong>Blunt</strong> force.</p>
+            <p>Furthermore, you can imbue your weapons with elemental magic. This adds a new layer of damage on top of the physical damage, allowing you to exploit your enemy's elemental weaknesses. The material of your weapon head also influences how well it holds an enchantment, making some materials better conduits for magic than others.</p>
         </section>
 
       </main>
