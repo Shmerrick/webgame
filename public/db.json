@@ -2,18 +2,18 @@
   "Cloth": {
     "T1": [
       {
-        "name": "Rabbit",
+        "name": "Fox Fur",
         "slash": 0.0,
         "pierce": 0.0,
         "blunt": 0.55,
-        "magic": 0.2890625
+        "magic": 0.4625
       },
       {
-        "name": "Fox",
+        "name": "Rabbit or Hare Fur",
         "slash": 0.0,
         "pierce": 0.0,
         "blunt": 0.55,
-        "magic": 0.2890625
+        "magic": 0.42000000000000004
       },
       {
         "name": "Mulberry Silk",
@@ -25,35 +25,14 @@
     ],
     "T2": [
       {
-        "name": "Wolf",
+        "name": "Wolf/Deer",
         "slash": 0.12913,
         "pierce": 0.037078,
         "blunt": 0.64196,
         "magic": 0.34610425
       },
       {
-        "name": "Deer",
-        "slash": 0.12913,
-        "pierce": 0.037078,
-        "blunt": 0.64196,
-        "magic": 0.34610425
-      },
-      {
-        "name": "Tussar",
-        "slash": 0.23967,
-        "pierce": 0.30953,
-        "blunt": 0.43037,
-        "magic": 0.6287400000000001
-      },
-      {
-        "name": "Eri",
-        "slash": 0.23967,
-        "pierce": 0.30953,
-        "blunt": 0.43037,
-        "magic": 0.6287400000000001
-      },
-      {
-        "name": "Muga",
+        "name": "Tussar/Eri/Muga",
         "slash": 0.23967,
         "pierce": 0.30953,
         "blunt": 0.43037,
@@ -62,14 +41,7 @@
     ],
     "T3": [
       {
-        "name": "Bear",
-        "slash": 0.27049,
-        "pierce": 0.086377,
-        "blunt": 0.73393,
-        "magic": 0.40481500000000004
-      },
-      {
-        "name": "Bison",
+        "name": "Bear/Bison",
         "slash": 0.27049,
         "pierce": 0.086377,
         "blunt": 0.73393,
@@ -85,14 +57,7 @@
     ],
     "T4": [
       {
-        "name": "Polar Bear",
-        "slash": 0.39962,
-        "pierce": 0.12346,
-        "blunt": 0.82589,
-        "magic": 0.4750625
-      },
-      {
-        "name": "Musk Ox",
+        "name": "Polar Bear/Musk Ox",
         "slash": 0.39962,
         "pierce": 0.12346,
         "blunt": 0.82589,
@@ -115,14 +80,7 @@
         "magic": 0.7306174999999999
       },
       {
-        "name": "Arachne",
-        "slash": 0.81667,
-        "pierce": 0.69338,
-        "blunt": 0.60068,
-        "magic": 0.81383
-      },
-      {
-        "name": "Starlight Weave",
+        "name": "Arachne/Starlight Weave",
         "slash": 0.81667,
         "pierce": 0.69338,
         "blunt": 0.60068,
@@ -133,14 +91,7 @@
   "Leather": {
     "T1": [
       {
-        "name": "Goat Hide",
-        "slash": 0.20884,
-        "pierce": 0.09583,
-        "blunt": 0.66073,
-        "magic": 0.35450249999999994
-      },
-      {
-        "name": "Sheep Hide",
+        "name": "Goat/Sheep Hide",
         "slash": 0.20884,
         "pierce": 0.09583,
         "blunt": 0.66073,
@@ -149,14 +100,7 @@
     ],
     "T2": [
       {
-        "name": "Cowhide",
-        "slash": 0.37464,
-        "pierce": 0.17327,
-        "blunt": 0.74817,
-        "magic": 0.4085775
-      },
-      {
-        "name": "Pigskin",
+        "name": "Cowhide/Pigskin",
         "slash": 0.37464,
         "pierce": 0.17327,
         "blunt": 0.74817,
@@ -165,14 +109,7 @@
     ],
     "T3": [
       {
-        "name": "Croc Hide",
-        "slash": 0.52184,
-        "pierce": 0.26088,
-        "blunt": 0.80731,
-        "magic": 0.45742249999999995
-      },
-      {
-        "name": "Ostrich Hide",
+        "name": "Crocodile/Ostrich",
         "slash": 0.52184,
         "pierce": 0.26088,
         "blunt": 0.80731,
@@ -181,14 +118,7 @@
     ],
     "T4": [
       {
-        "name": "Buffalo Hide",
-        "slash": 0.66904,
-        "pierce": 0.34849,
-        "blunt": 0.86644,
-        "magic": 0.4696
-      },
-      {
-        "name": "Rhino Hide",
+        "name": "Buffalo/Rhino",
         "slash": 0.66904,
         "pierce": 0.34849,
         "blunt": 0.86644,
@@ -208,14 +138,7 @@
   "Scales": {
     "T1": [
       {
-        "name": "Snake Scales",
-        "slash": 0.1472,
-        "pierce": 0.10405,
-        "blunt": 0.58904,
-        "magic": 0.492505
-      },
-      {
-        "name": "Lizard Scales",
+        "name": "Snake/Lizard",
         "slash": 0.1472,
         "pierce": 0.10405,
         "blunt": 0.58904,
@@ -224,14 +147,7 @@
     ],
     "T2": [
       {
-        "name": "Carp Scales",
-        "slash": 0.25773,
-        "pierce": 0.15705,
-        "blunt": 0.64566,
-        "magic": 0.5088550000000001
-      },
-      {
-        "name": "Salmon Scales",
+        "name": "Carp/Salmon",
         "slash": 0.25773,
         "pierce": 0.15705,
         "blunt": 0.64566,
@@ -240,14 +156,7 @@
     ],
     "T3": [
       {
-        "name": "Croc Scales",
-        "slash": 0.52184,
-        "pierce": 0.27321,
-        "blunt": 0.79224,
-        "magic": 0.561825
-      },
-      {
-        "name": "Alligator Scales",
+        "name": "Crocodile/Alligator",
         "slash": 0.52184,
         "pierce": 0.27321,
         "blunt": 0.79224,
@@ -256,14 +165,7 @@
     ],
     "T4": [
       {
-        "name": "Pangolin Scales",
-        "slash": 0.66904,
-        "pierce": 0.36082,
-        "blunt": 0.85137,
-        "magic": 0.59192
-      },
-      {
-        "name": "Armadillo Scales",
+        "name": "Pangolin/Armadillo",
         "slash": 0.66904,
         "pierce": 0.36082,
         "blunt": 0.85137,
@@ -283,14 +185,7 @@
   "Wood": {
     "T1": [
       {
-        "name": "Pine",
-        "slash": 0.18387,
-        "pierce": 0.32565,
-        "blunt": 0.36301,
-        "magic": 0.31886000000000003
-      },
-      {
-        "name": "Cedar",
+        "name": "Pine/Cedar",
         "slash": 0.18387,
         "pierce": 0.32565,
         "blunt": 0.36301,
@@ -299,21 +194,7 @@
     ],
     "T2": [
       {
-        "name": "Oak",
-        "slash": 0.45967,
-        "pierce": 0.55008,
-        "blunt": 0.40525,
-        "magic": 0.3720325
-      },
-      {
-        "name": "Ash",
-        "slash": 0.45967,
-        "pierce": 0.55008,
-        "blunt": 0.40525,
-        "magic": 0.3720325
-      },
-      {
-        "name": "Maple",
+        "name": "Oak/Ash/Maple",
         "slash": 0.45967,
         "pierce": 0.55008,
         "blunt": 0.40525,
@@ -322,21 +203,7 @@
     ],
     "T3": [
       {
-        "name": "Hickory",
-        "slash": 0.70518,
-        "pierce": 0.71339,
-        "blunt": 0.47831,
-        "magic": 0.45023499999999994
-      },
-      {
-        "name": "Ebony",
-        "slash": 0.70518,
-        "pierce": 0.71339,
-        "blunt": 0.47831,
-        "magic": 0.45023499999999994
-      },
-      {
-        "name": "Ironwood",
+        "name": "Hickory/Ebony/Ironwood",
         "slash": 0.70518,
         "pierce": 0.71339,
         "blunt": 0.47831,
@@ -345,14 +212,7 @@
     ],
     "T4": [
       {
-        "name": "Lignum Vitae",
-        "slash": 0.85875,
-        "pierce": 0.8156,
-        "blunt": 0.52055,
-        "magic": 0.60094
-      },
-      {
-        "name": "Snakewood",
+        "name": "Lignum Vitae/Snakewood",
         "slash": 0.85875,
         "pierce": 0.8156,
         "blunt": 0.52055,
@@ -397,7 +257,7 @@
         "slash": 0.0,
         "pierce": 0.0,
         "blunt": 0.55,
-        "magic": 0.6406725
+        "magic": 0.3925
       },
       {
         "name": "Silver",
@@ -549,7 +409,7 @@
         "slash": 0.0,
         "pierce": 0.0,
         "blunt": 0.55,
-        "magic": 0.314165
+        "magic": 0.3925
       },
       {
         "name": "Quartz",

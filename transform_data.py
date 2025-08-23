@@ -54,10 +54,10 @@ json_data = """
             "Defense_Slash": 0.0,
             "Defense_Pierce": 0.0,
             "Defense_Blunt": 0.55,
-            "Element_Fire": 0.82787,
-            "Element_Water": 0.53333,
-            "Element_Wind": 0.94156,
-            "Element_Earth": 0.25993
+            "Element_Fire": 0.3,
+            "Element_Water": 0.0,
+            "Element_Wind": 0.97,
+            "Element_Earth": 0.3
         },
         {
             "Family": "Metals",
@@ -420,7 +420,7 @@ json_data = """
             "Family": "Organics",
             "Subfamily": "Leather",
             "Tier": "T3",
-            "Name": "Croc/Ostrich",
+            "Name": "Crocodile/Ostrich",
             "Defense_Slash": 0.52184,
             "Defense_Pierce": 0.26088,
             "Defense_Blunt": 0.80731,
@@ -459,14 +459,27 @@ json_data = """
             "Family": "Organics",
             "Subfamily": "Fur",
             "Tier": "T1",
-            "Name": "Rabbit/Fox",
+            "Name": "Fox Fur",
             "Defense_Slash": 0.0,
             "Defense_Pierce": 0.0,
             "Defense_Blunt": 0.55,
-            "Element_Fire": 0.65625,
-            "Element_Water": 0.0,
-            "Element_Wind": 0.5,
-            "Element_Earth": 0.0
+            "Element_Fire": 0.25,
+            "Element_Water": 0.15,
+            "Element_Wind": 0.95,
+            "Element_Earth": 0.5
+        },
+        {
+            "Family": "Organics",
+            "Subfamily": "Fur",
+            "Tier": "T1",
+            "Name": "Rabbit or Hare Fur",
+            "Defense_Slash": 0.0,
+            "Defense_Pierce": 0.0,
+            "Defense_Blunt": 0.55,
+            "Element_Fire": 0.2,
+            "Element_Water": 0.13,
+            "Element_Wind": 0.95,
+            "Element_Earth": 0.4
         },
         {
             "Family": "Organics",
@@ -615,7 +628,7 @@ json_data = """
             "Family": "Organics",
             "Subfamily": "Scale",
             "Tier": "T3",
-            "Name": "Croc/Alligator",
+            "Name": "Crocodile/Alligator",
             "Defense_Slash": 0.52184,
             "Defense_Pierce": 0.27321,
             "Defense_Blunt": 0.79224,
@@ -723,10 +736,10 @@ json_data = """
             "Defense_Slash": 0.0,
             "Defense_Pierce": 0.0,
             "Defense_Blunt": 0.55,
-            "Element_Fire": 0.62333,
-            "Element_Water": 0.13333,
-            "Element_Wind": 0.5,
-            "Element_Earth": 0.0
+            "Element_Fire": 0.25,
+            "Element_Water": 0.07,
+            "Element_Wind": 1.0,
+            "Element_Earth": 0.25
         },
         {
             "Family": "Rocks",
