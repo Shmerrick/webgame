@@ -20,6 +20,10 @@ The webpage needs to be served by a local web server for the database to load co
     ```bash
     python -m SimpleHTTPServer
     ```
+    Alternatively, if you have Node.js and npm installed, you can use the `serve` package.
+    ```bash
+    npx serve
+    ```
 
 3.  **Open the webpage in your browser:**
     Open your web browser and go to the following address:

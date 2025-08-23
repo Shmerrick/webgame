@@ -1,187 +1,151 @@
-#ifndef FORMULAS_H
-#define FORMULAS_H
+#pragma once
 
+#include "CoreMinimal.h"
 #include "DataTypes.h"
-#include <cmath>
-#include <numeric>
-#include <map>
-#include <vector>
-#include <string>
-#include <algorithm>
+#include "Formulas.generated.h"
 
-namespace Game {
+USTRUCT(BlueprintType)
+struct FMaterialProperties {
+    GENERATED_BODY()
 
-class Formulas {
-public:
-    // Placeholder for material properties. This would be expanded in a Material class.
-    struct MaterialProperties {
-        double Hardness_norm = 0;
-        double Density_norm = 0;
-        double ElasticMod_norm = 0;
-        double Toughness_norm = 0;
-        double ThermalCond_norm = 0;
-        double ChemRes_norm = 0;
-        double WaterAbsorption_rel = 0;
-        double ElectricalCond_norm = 0;
-    };
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material Properties")
+    float Hardness = 0.0f;
 
-    // 1. Offense Formulas
-    static double CalculateOffenseSlash(const MaterialProperties& props) {
-        return 0.6 * props.Hardness_norm + 0.4 * props.Density_norm;
-    }
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material Properties")
+    float Density = 0.0f;
 
-    static double CalculateOffensePierce(const MaterialProperties& props) {
-        return 0.6 * props.Hardness_norm + 0.4 * props.ElasticMod_norm;
-    }
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material Properties")
+    float ElasticModulus = 0.0f;
 
-    static double CalculateOffenseBlunt(const MaterialProperties& props) {
-        return 0.6 * props.Density_norm + 0.4 * props.Toughness_norm;
-    }
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material Properties")
+    float Toughness = 0.0f;
 
-    // 2. Defense Formulas
-    static double CalculateDefenseSlash(const MaterialProperties& props) {
-        return 0.55 * props.Hardness_norm + 0.45 * props.Toughness_norm;
-    }
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material Properties")
+    float ThermalConductivity = 0.0f;
 
-    static double CalculateDefensePierce(const MaterialProperties& props) {
-        return 0.55 * props.Hardness_norm + 0.45 * props.ElasticMod_norm;
-    }
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material Properties")
+    float ChemicalResistance = 0.0f;
 
-    static double CalculateDefenseBlunt(const MaterialProperties& props) {
-        return 0.55 * (1.0 - props.ElasticMod_norm) + 0.45 * props.Toughness_norm;
-    }
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material Properties")
+    float WaterAbsorption = 0.0f;
 
-    // 3. Elemental Resistance Formulas
-    static double CalculateElementFire(const MaterialProperties& props) {
-        return 0.7 * (1.0 - props.ThermalCond_norm) + 0.3 * props.ChemRes_norm;
-    }
-
-    static double CalculateElementWater(const MaterialProperties& props) {
-        return props.ChemRes_norm * (1.0 - 0.5 * props.WaterAbsorption_rel);
-    }
-
-    static double CalculateElementWind(const MaterialProperties& props) {
-        return 1.0 - props.ElectricalCond_norm;
-    }
-
-    static double CalculateElementEarth(const MaterialProperties& props) {
-        return 0.5 * props.Toughness_norm + 0.5 * props.Density_norm;
-    }
-
-    // 4. Environmental Formula
-    static double CalculateHeatRetention(const MaterialProperties& props) {
-        return 0.6 * (1.0 - props.ThermalCond_norm) + 0.4 * props.Density_norm;
-    }
-
-    // 5. Regeneration Formulas
-    static int CalculateStamina(int DEX) {
-        return 100 + (2 * DEX);
-    }
-
-    static int CalculateMana(int PSY) {
-        return 100 + (2 * PSY);
-    }
-
-    enum class LoadoutCategory { Naked, Light, Medium, Heavy };
-
-    static int CalculateRegenPerTick(int pool, LoadoutCategory category) {
-        const double BASE_TICK_PCT = 0.10;
-        std::map<LoadoutCategory, double> multipliers = {
-            {LoadoutCategory::Naked, 1.00},
-            {LoadoutCategory::Light, 0.75},
-            {LoadoutCategory::Medium, 0.50},
-            {LoadoutCategory::Heavy, 0.25}
-        };
-        double multiplier = multipliers.count(category) ? multipliers[category] : 1.0;
-        return static_cast<int>(std::ceil(BASE_TICK_PCT * pool * multiplier));
-    }
-
-    // 6. Loadout Classification
-    struct LoadoutResult {
-        double S;
-        double Smax;
-        double R;
-        LoadoutCategory category;
-    };
-
-    struct ArmorSlotInfo {
-        ArmorClass armorClass;
-        int factor;
-    };
-
-    static LoadoutResult CalculateLoadout(const std::vector<ArmorSlotInfo>& equippedArmor) {
-        LoadoutResult result{};
-        std::map<ArmorClass, int> class_values = {
-            {ArmorClass::None, 0}, {ArmorClass::Light, 1}, {ArmorClass::Medium, 2}, {ArmorClass::Heavy, 3}
-        };
-
-        for (const auto& piece : equippedArmor) {
-            result.S += piece.factor * class_values[piece.armorClass];
-            result.Smax += piece.factor * class_values[ArmorClass::Heavy];
-        }
-
-        result.R = (result.Smax > 0) ? result.S / result.Smax : 0;
-
-        if (result.R <= 0.40) {
-            result.category = LoadoutCategory::Light;
-        } else if (result.R <= 0.79) {
-            result.category = LoadoutCategory::Medium;
-        } else {
-            result.category = LoadoutCategory::Heavy;
-        }
-        return result;
-    }
-
-
-    // 7. Strength Requirements for Shields
-    static bool IsShieldUsable(ShieldType shield, int STR) {
-        std::map<ShieldType, int> reqs = {
-            {ShieldType::Round, 50}, {ShieldType::Kite, 75}, {ShieldType::Tower, 100}
-        };
-        if (reqs.count(shield)) {
-            return STR >= reqs.at(shield);
-        }
-        return true; // For None shield
-    }
-
-    // 8. Damage Reduction by Armor Class
-    struct DamageReduction {
-        double physical;
-        double magical;
-    };
-    static DamageReduction GetDamageReductionForClass(ArmorClass ac) {
-        switch (ac) {
-            case ArmorClass::Light:  return {0.25, 0.75};
-            case ArmorClass::Medium: return {0.50, 0.50};
-            case ArmorClass::Heavy:  return {0.75, 0.50}; // As per user request
-            default:                 return {0.00, 0.00};
-        }
-    }
-
-    // 9. Missing Armor Penalty
-    static double CalculateIncomingDamageMultiplier(int numEquippedPieces) {
-        const int TOTAL_ARMOR_SLOTS = 5; // Assuming helmet, torso, legs, gloves, boots
-        int missingPieces = std::max(0, TOTAL_ARMOR_SLOTS - numEquippedPieces);
-        return 1.0 + (static_cast<double>(missingPieces) * 0.15);
-    }
-
-    // 10. Crafting Rules
-    static double CalculateMass(double totalMaterialMass, double slotFactor, double classFactor) {
-        return totalMaterialMass * slotFactor * classFactor;
-    }
-
-    static double CalculatePieceDefense(double materialDefense, double classScalar) {
-        const double PIECE_DEFENSE_CAP = 0.60;
-        return std::min(materialDefense * classScalar, PIECE_DEFENSE_CAP);
-    }
-    // Global Defense Cap of 0.80 would be applied after summing all piece defenses.
-
-    // 11. Magic System Formulas
-    static int CalculateManaCost(int baseCost, double rangeMultiplier, double damageMultiplier, double aoeMultiplier) {
-        return static_cast<int>(static_cast<double>(baseCost) * rangeMultiplier * damageMultiplier * aoeMultiplier);
-    }
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material Properties")
+    float ElectricalConductivity = 0.0f;
 };
 
-} // namespace Game
+UENUM(BlueprintType)
+enum class ELoadoutCategory : uint8 {
+    Naked UMETA(DisplayName = "Naked"),
+    Light UMETA(DisplayName = "Light"),
+    Medium UMETA(DisplayName = "Medium"),
+    Heavy UMETA(DisplayName = "Heavy")
+};
 
-#endif // FORMULAS_H
+USTRUCT(BlueprintType)
+struct FLoadoutResult {
+    GENERATED_BODY()
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Loadout")
+    float LoadoutScore = 0.0f;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Loadout")
+    float MaxLoadoutScore = 0.0f;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Loadout")
+    float LoadoutRatio = 0.0f;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Loadout")
+    ELoadoutCategory Category = ELoadoutCategory::Naked;
+};
+
+USTRUCT(BlueprintType)
+struct FArmorSlotInfo {
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Armor")
+    EArmorClass ArmorClass = EArmorClass::None;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Armor")
+    int32 Factor = 0;
+};
+
+USTRUCT(BlueprintType)
+struct FDamageReduction {
+    GENERATED_BODY()
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Damage")
+    float Physical = 0.0f;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Damage")
+    float Magical = 0.0f;
+};
+
+UCLASS()
+class UFormulas : public UBlueprintFunctionLibrary
+{
+    GENERATED_BODY()
+
+public:
+    UFUNCTION(BlueprintPure, Category = "Formulas|Offense")
+    static float CalculateOffenseSlash(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Offense")
+    static float CalculateOffensePierce(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Offense")
+    static float CalculateOffenseBlunt(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Defense")
+    static float CalculateDefenseSlash(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Defense")
+    static float CalculateDefensePierce(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Defense")
+    static float CalculateDefenseBlunt(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Elemental")
+    static float CalculateElementFire(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Elemental")
+    static float CalculateElementWater(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Elemental")
+    static float CalculateElementWind(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Elemental")
+    static float CalculateElementEarth(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Environmental")
+    static float CalculateHeatRetention(const FMaterialProperties& props);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Regeneration")
+    static int32 CalculateStamina(int32 Dexterity);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Regeneration")
+    static int32 CalculateMana(int32 Psyche);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Regeneration")
+    static int32 CalculateRegenPerTick(int32 pool, ELoadoutCategory category);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Loadout")
+    static FLoadoutResult CalculateLoadout(const TArray<FArmorSlotInfo>& equippedArmor);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Shields")
+    static bool IsShieldUsable(EShieldType shield, int32 Strength);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Damage")
+    static FDamageReduction GetDamageReductionForClass(EArmorClass armorClass);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Damage")
+    static float CalculateIncomingDamageMultiplier(int32 numEquippedPieces);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Crafting")
+    static float CalculateMass(float totalMaterialMass, float slotFactor, float classFactor);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Crafting")
+    static float CalculatePieceDefense(float materialDefense, float classScalar);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Magic")
+    static int32 CalculateManaCost(int32 baseCost, float rangeMultiplier, float damageMultiplier, float aoeMultiplier);
+};

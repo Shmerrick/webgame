@@ -44,7 +44,7 @@
     </div>
 
     <script type="text/babel">
-      const { useState, useMemo } = React;
+      const { useState, useMemo, useEffect } = React;
 
       const STAT_POOL = 270;
       const SKILL_POOL = 500;
@@ -52,12 +52,12 @@
       const MSF = 1.0;
 
       const races = [
-        { id: "human", name: "Human",  mod: { STR: 2, DEX: 2, INT: 2, PSY: 2 } },
-        { id: "dwarf", name: "Dwarf",  mod: { STR: 0, DEX: 4, INT: 0, PSY: 4 } },
-        { id: "elf",   name: "Elf",    mod: { STR: 0, DEX: 4, INT: 4, PSY: 0 } },
-        { id: "orc",   name: "Orc",    mod: { STR: 4, DEX: 4, INT: 0, PSY: 0 } },
-        { id: "goliath", name: "Goliath", mod: { STR: 8, DEX: -4, INT: -8, PSY: 0 } },
-        { id: "fae",   name: "Fae",    mod: { STR: -8, DEX: 0, INT: 8, PSY: -4 } },
+        { id: "human", name: "Human",  modifier: { STR: 2, DEX: 2, INT: 2, PSY: 2 }, magicProficiency: "Fire" },
+        { id: "dwarf", name: "Dwarf",  modifier: { STR: 0, DEX: 4, INT: 0, PSY: 4 }, magicProficiency: "Earth" },
+        { id: "elf",   name: "Elf",    modifier: { STR: 0, DEX: 4, INT: 4, PSY: 0 }, magicProficiency: "Water" },
+        { id: "orc",   name: "Orc",    modifier: { STR: 4, DEX: 4, INT: 0, PSY: 0 }, magicProficiency: "Wind" },
+        { id: "goliath", name: "Goliath", modifier: { STR: 8, DEX: -4, INT: -8, PSY: 0 }, magicProficiency: "Void" },
+        { id: "fae",   name: "Fae",    modifier: { STR: -8, DEX: 0, INT: 8, PSY: -4 }, magicProficiency: "Radiance" },
       ];
 
       const armorSlots = [
@@ -71,17 +71,17 @@
 
       // Armor class base reductions (heavy magic = 50% from doc)
       const ARMOR_CLASS = {
-        None:   { value: 0, phys: 0.00, magic: 0.00 },
-        Light:  { value: 1, phys: 0.25, magic: 0.75 },
-        Medium: { value: 2, phys: 0.50, magic: 0.50 },
-        Heavy:  { value: 3, phys: 0.75, magic: 0.50 },
+        None:   { value: 0, physical: 0.00, magical: 0.00 },
+        Light:  { value: 1, physical: 0.45, magical: 0.45 },
+        Medium: { value: 2, physical: 0.65, magical: 0.65 },
+        Heavy:  { value: 3, physical: 0.85, magical: 0.85 },
       };
 
       const SHIELDS = {
-        None:  { class: "None",   strReq: 0 },
-        Round: { class: "Light",  strReq: 50 },
-        Kite:  { class: "Medium", strReq: 75 },
-        Tower: { class: "Heavy",  strReq: 100 },
+        None:  { class: "None",   strengthRequirement: 0 },
+        Round: { class: "Light",  strengthRequirement: 50 },
+        Kite:  { class: "Medium", strengthRequirement: 75 },
+        Tower: { class: "Heavy",  strengthRequirement: 100 },
       };
 
       const REGEN_MULT = { Naked: 1.0, Light: 0.75, Medium: 0.50, Heavy: 0.25 };
@@ -109,16 +109,16 @@
 
       // Weapons
       const WEAPONS = {
-        Sword:   { type: "melee",   massKg: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.20 }, dir: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
-        Axe:     { type: "melee",   massKg: 4, baseCost: 40, head: { Blunt: 0.20, Slash: 0.45, Pierce: 0.10 }, dir: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Blunt" } },
-        Hammer:  { type: "melee",   massKg: 6, baseCost: 40, head: { Blunt: 0.60, Slash: 0.10, Pierce: 0.10 }, dir: { Left: "Blunt", Right: "Blunt", Up: "Blunt", Down: "Blunt" } },
-        Spear:   { type: "melee",   massKg: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.15, Pierce: 0.45 }, dir: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Pierce" } },
-        Dagger:  { type: "melee",   massKg: 1, baseCost: 20, head: { Blunt: 0.05, Slash: 0.20, Pierce: 0.30 }, dir: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
+        Sword:   { type: "melee",   massKilograms: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.20 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
+        Axe:     { type: "melee",   massKilograms: 4, baseCost: 40, head: { Blunt: 0.20, Slash: 0.45, Pierce: 0.10 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Blunt" } },
+        Hammer:  { type: "melee",   massKilograms: 6, baseCost: 40, head: { Blunt: 0.60, Slash: 0.10, Pierce: 0.10 }, direction: { Left: "Blunt", Right: "Blunt", Up: "Blunt", Down: "Blunt" } },
+        Spear:   { type: "melee",   massKilograms: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.15, Pierce: 0.45 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Pierce" } },
+        Dagger:  { type: "melee",   massKilograms: 1, baseCost: 20, head: { Blunt: 0.05, Slash: 0.20, Pierce: 0.30 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
         Bow:     { type: "ranged",  drawWeight: 50, head: { Pierce: 0.40 } },
         Crossbow:{ type: "ranged",  drawWeight: 35, head: { Pierce: 0.30 } },
-        Lance:   { type: "mounted", massKg: 5, head: { Blunt: 0.20, Pierce: 0.50 }, speed: { Walk: 0.5, Trot: 0.9, Canter: 1.2, Gallop: 1.6 } },
-        Polesword: { type: "melee", massKg: 5, baseCost: 35, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.25 }, dir: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Slash" } },
-        Poleaxe: { type: "melee", massKg: 6, baseCost: 40, head: { Blunt: 0.25, Slash: 0.30, Pierce: 0.15 }, dir: { Left: "Slash", Right: "Blunt", Up: "Pierce", Down: "Slash" } },
+        Lance:   { type: "mounted", massKilograms: 5, head: { Blunt: 0.20, Pierce: 0.50 }, speed: { Walk: 0.5, Trot: 0.9, Canter: 1.2, Gallop: 1.6 } },
+        Polesword: { type: "melee", massKilograms: 5, baseCost: 35, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.25 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Slash" } },
+        Poleaxe: { type: "melee", massKilograms: 6, baseCost: 40, head: { Blunt: 0.25, Slash: 0.30, Pierce: 0.15 }, direction: { Left: "Slash", Right: "Blunt", Up: "Pierce", Down: "Slash" } },
       };
 
       // Handle/hilt 3 components
@@ -150,12 +150,12 @@
 
       // Head materials — Carapace intentionally excluded
       const HEAD_MATS = {
-        Bronze:   { dmg: -0.05, massMult: 1.05 },
-        Iron:     { dmg:  0.00, massMult: 1.00 },
-        Steel:    { dmg:  0.05, massMult: 1.05 },
-        Mithril:  { dmg:  0.10, massMult: 0.90 },
-        Stone:    { dmg: -0.05, massMult: 1.05 },
-        Lead:     { dmg:  0.05, massMult: 1.10 },
+        Bronze:   { damage: -0.05, massMult: 1.05 },
+        Iron:     { damage:  0.00, massMult: 1.00 },
+        Steel:    { damage:  0.05, massMult: 1.05 },
+        Mithril:  { damage:  0.10, massMult: 0.90 },
+        Stone:    { damage: -0.05, massMult: 1.05 },
+        Lead:     { damage:  0.05, massMult: 1.10 },
       };
 
       const DIRECTIONS = ["Left","Right","Up","Down"];
@@ -184,7 +184,7 @@
           if (slot.id==="shield"){
             const subtype = entry.shield || "None";
             const meta = SHIELDS[subtype];
-            className = (STR >= (meta?.strReq||0)) ? (meta?.class||"None") : "None";
+            className = (STR >= (meta?.strengthRequirement||0)) ? (meta?.class||"None") : "None";
           }
           const metaC = ARMOR_CLASS[className] || { value:0 };
           S    += factor * (metaC.value||0);
@@ -213,8 +213,8 @@
       const clamp01 = (x)=> Math.max(0, Math.min(1, x));
 
       function classBasePerType(cls){
-        const c = ARMOR_CLASS[cls] || { phys:0, magic:0 };
-        return { blunt: c.phys, slash: c.phys, pierce: c.phys, magic: c.magic };
+        const c = ARMOR_CLASS[cls] || { physical:0, magical:0 };
+        return { blunt: c.physical, slash: c.physical, pierce: c.physical, magic: c.magical };
       }
 
       function getMaterialsForCategory(DB, cat){ return DB[cat] || {}; }
@@ -251,10 +251,10 @@
           magic: outerFac.magic*wOuter + inner.magic*wInner + bind.magic*wBind,
         };
         return {
-          blunt: clamp01(base.blunt * comb.blunt),
-          slash: clamp01(base.slash * comb.slash),
-          pierce:clamp01(base.pierce* comb.pierce),
-          magic: clamp01(base.magic * comb.magic),
+          blunt: Math.min(0.95, clamp01(base.blunt * comb.blunt)),
+          slash: Math.min(0.95, clamp01(base.slash * comb.slash)),
+          pierce: Math.min(0.95, clamp01(base.pierce* comb.pierce)),
+          magic: Math.min(0.95, clamp01(base.magic * comb.magic)),
         };
       }
       function effectiveDRForTarget(DB, cls, outerCategory, tier, materialName, innerName, bindName){
@@ -284,17 +284,25 @@
           Anatomy: 0,
           BeastControl: 0,
           Taming: 0,
-          Fire: 0,
-          Water: 0,
-          Earth: 0,
-          Wind: 0,
-          Radiance: 0,
-          Void: 0,
           Stealth: 0,
           MeleeAmbush: 0,
           RangedAmbush: 0,
           ElementalAmbush: 0,
         });
+
+        const [elementalSchool, setElementalSchool] = useState("Fire");
+        const [entropySchool, setEntropySchool] = useState("Radiance");
+
+        useEffect(() => {
+          const race = races.find(r => r.id === raceId);
+          if (race) {
+            if (race.magicProficiency === "Void" || race.magicProficiency === "Radiance") {
+              setEntropySchool(race.magicProficiency);
+            } else {
+              setElementalSchool(race.magicProficiency);
+            }
+          }
+        }, [raceId]);
 
         const totalSkill = Object.values(skills).reduce((a,b)=> a+(b||0), 0);
         function setSkillBound(name, val){
@@ -338,13 +346,13 @@
         const [fittingMat, setFittingMat] = useState("Bronze");
         const [headMat, setHeadMat]       = useState("Iron");
 
-        // Effective stats with racial mods
+        // Effective stats with racial modifiers
         const race = races.find(r=> r.id===raceId) || races[0];
         const effective = useMemo(()=> ({
-          STR: Math.max(0, Math.min(100, stats.STR + (race.mod.STR||0))),
-          DEX: Math.max(0, Math.min(100, stats.DEX + (race.mod.DEX||0))),
-          INT: Math.max(0, Math.min(100, stats.INT + (race.mod.INT||0))),
-          PSY: Math.max(0, Math.min(100, stats.PSY + (race.mod.PSY||0))),
+          STR: Math.max(0, Math.min(100, stats.STR + (race.modifier.STR||0))),
+          DEX: Math.max(0, Math.min(100, stats.DEX + (race.modifier.DEX||0))),
+          INT: Math.max(0, Math.min(100, stats.INT + (race.modifier.INT||0))),
+          PSY: Math.max(0, Math.min(100, stats.PSY + (race.modifier.PSY||0))),
         }), [stats, race]);
 
         const spent  = sumCost(stats);
@@ -412,8 +420,8 @@
         const formulaText = useMemo(()=>{
           if (!weapon) return "";
           if (weapon.type==='melee'){
-            const dirType = weapon.dir[direction] || 'Slash';
-            return `Melee damage equals Strength multiplied by the sum of Blunt and the selected direction type (here: ${dirType}), then multiplied by Charge, Swing, the Weapon Head modifier, and your relevant Skill.`;
+            const directionType = weapon.direction[direction] || 'Slash';
+            return `Melee damage equals Strength multiplied by the sum of Blunt and the selected direction type (here: ${directionType}), then multiplied by Charge, Swing, the Weapon Head modifier, and your relevant Skill.`;
           }
           if (weapon.type==='ranged') return 'Ranged damage equals Bow or Crossbow draw weight multiplied by Pierce, then multiplied by Charge, Swing, the Arrow or Bolt Head modifier, and your relevant Skill.';
           return 'Lance damage equals Strength multiplied by the sum of Blunt and Pierce, then multiplied by the Mount speed modifier, the Lance Head modifier, and your relevant Skill.';
@@ -432,28 +440,28 @@
 
           if (weapon.type==='mounted'){
             const m = weapon.head; const factor = weapon.speed[mountedSpeed] || 1.0;
-            const mass = Math.ceil((weapon.massKg||0) * massMult);
+            const mass = Math.ceil((weapon.massKilograms||0) * massMult);
             staminaCost = (weapon.baseCost||0) + MSF*mass;
             const rawB = effective.STR*(m.Blunt||0)*factor;
             const rawP = effective.STR*(m.Pierce||0)*factor;
-            total = (rawB+rawP) * (1 + (HEAD_MATS[selHead]?.dmg||0));
+            total = (rawB+rawP) * (1 + (HEAD_MATS[selHead]?.damage||0));
             parts = { Blunt: floorInt(rawB), Pierce: floorInt(rawP) };
           } else if (weapon.type==='ranged'){
             const pierce = weapon.head.Pierce||0; const cMul = chargeMultiplier(charge); const sMul = swingMultiplier(swing);
             const drawBonus = (HANDLE_CORE_MATS[selCore]?.draw||0) + (HANDLE_FITTING_MATS[selFit]?.draw||0);
             const effDraw = (weapon.drawWeight||0) * (1 + drawBonus);
-            total = effDraw*pierce*cMul*sMul*(1 + (HEAD_MATS[selHead]?.dmg||0));
+            total = effDraw*pierce*cMul*sMul*(1 + (HEAD_MATS[selHead]?.damage||0));
             parts = { Pierce: floorInt(total) };
             staminaCost = 0;
           } else {
-            const dirType = weapon.dir[direction] || 'Slash'; const head = weapon.head;
-            const blunt = head.Blunt||0; const typed = head[dirType]||0; const cMul = chargeMultiplier(charge); const sMul = swingMultiplier(swing);
-            const mass = Math.ceil((weapon.massKg||0) * massMult);
+            const directionType = weapon.direction[direction] || 'Slash'; const head = weapon.head;
+            const blunt = head.Blunt||0; const typed = head[directionType]||0; const cMul = chargeMultiplier(charge); const sMul = swingMultiplier(swing);
+            const mass = Math.ceil((weapon.massKilograms||0) * massMult);
             staminaCost = (weapon.baseCost||0) + MSF*mass;
             const rawB = effective.STR*blunt*cMul*sMul;
             const rawT = effective.STR*typed*cMul*sMul;
-            total = (rawB+rawT) * (1 + (HEAD_MATS[selHead]?.dmg||0));
-            parts = { Blunt: floorInt(rawB), [dirType]: floorInt(rawT) };
+            total = (rawB+rawT) * (1 + (HEAD_MATS[selHead]?.damage||0));
+            parts = { Blunt: floorInt(rawB), [directionType]: floorInt(rawT) };
           }
 
           total *= skillMult;
@@ -541,7 +549,7 @@
                         </select>
                         <div className="text-sm text-slate-300 mt-2">
                           The chosen race applies the following adjustments to your base attributes:
-                          Strength {race.mod.STR>=0?"+":""}{race.mod.STR}, Dexterity {race.mod.DEX>=0?"+":""}{race.mod.DEX}, Intelligence {race.mod.INT>=0?"+":""}{race.mod.INT}, Psyche {race.mod.PSY>=0?"+":""}{race.mod.PSY}.
+                          Strength {race.modifier.STR>=0?"+":""}{race.modifier.STR}, Dexterity {race.modifier.DEX>=0?"+":""}{race.modifier.DEX}, Intelligence {race.modifier.INT>=0?"+":""}{race.modifier.INT}, Psyche {race.modifier.PSY>=0?"+":""}{race.modifier.PSY}.
                         </div>
                       </div>
                       {["STR","DEX","INT","PSY"].map(k=> (
@@ -572,7 +580,7 @@
                           <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponKey} onChange={e=>setWeaponKey(e.target.value)}>
                             {Object.keys(WEAPONS).map(k=> <option key={k} value={k}>{k}</option>)}
                           </select>
-                          {weapon?.type==='melee' && <div className="text-sm text-slate-300 mt-1">This weapon weighs approximately {weapon.massKg} kilograms. The stamina cost to swing is the base cost {weapon.baseCost} plus one times the rounded mass.</div>}
+                          {weapon?.type==='melee' && <div className="text-sm text-slate-300 mt-1">This weapon weighs approximately {weapon.massKilograms} kilograms. The stamina cost to swing is the base cost {weapon.baseCost} plus one times the rounded mass.</div>}
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -660,39 +668,84 @@
                       <div className={`tabular-nums ${totalSkill>SKILL_POOL?"text-rose-400":""}`}>{totalSkill} / {SKILL_POOL} <span className="text-slate-500">(remaining {Math.max(0, SKILL_POOL-totalSkill)})</span></div>
                     </div>
                     <div className="space-y-3">
-                      {[
-                        ["ArmorTraining", "Armor Training"],
-                        ["BlockingAndShields", "Blocking & Shields"],
-                        ["Sword", "Sword"],
-                        ["Axe", "Axe"],
-                        ["Dagger", "Dagger"],
-                        ["Hammer", "Hammer"],
-                        ["Polesword", "Polesword"],
-                        ["Poleaxe", "Poleaxe"],
-                        ["Spear", "Spear"],
-                        ["RangedWeapons", "Ranged Weapons"],
-                        ["MountedCombat", "Mounted Combat"],
-                        ["MountedArchery", "Mounted Archery"],
-                        ["MountedMagery", "Mounted Magery"],
-                        ["Anatomy", "Anatomy"],
-                        ["BeastControl", "Beast Control"],
-                        ["Taming", "Taming"],
-                        ["Fire", "Fire"],
-                        ["Water", "Water"],
-                        ["Earth", "Earth"],
-                        ["Wind", "Wind"],
-                        ["Radiance", "Radiance"],
-                        ["Void", "Void"],
-                        ["Stealth", "Stealth"],
-                        ["MeleeAmbush", "Melee Ambush"],
-                        ["RangedAmbush", "Ranged Ambush"],
-                        ["ElementalAmbush", "Elemental Ambush"],
-                      ].map(([key,label]) => (
-                        <div key={key}>
-                          <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
-                          <input type="range" min={0} max={100} value={skills[key]} onChange={e=>setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                      <div>
+                        <h3 className="text-lg font-semibold mt-4">Combat Skills</h3>
+                        {[
+                          ["ArmorTraining", "Armor Training"],
+                          ["BlockingAndShields", "Blocking & Shields"],
+                          ["Sword", "Sword"],
+                          ["Axe", "Axe"],
+                          ["Dagger", "Dagger"],
+                          ["Hammer", "Hammer"],
+                          ["Polesword", "Polesword"],
+                          ["Poleaxe", "Poleaxe"],
+                          ["Spear", "Spear"],
+                          ["RangedWeapons", "Ranged Weapons"],
+                          ["MountedCombat", "Mounted Combat"],
+                          ["MountedArchery", "Mounted Archery"],
+                        ].map(([key,label]) => (
+                          <div key={key}>
+                            <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
+                            <input type="range" min={0} max={100} value={skills[key]} onChange={e=>setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                          </div>
+                        ))}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold mt-4">Magic Skills</h3>
+                        <div>
+                          <h4 className="text-md font-semibold mt-2">Elemental School</h4>
+                          {["Fire", "Water", "Earth", "Wind"].map(school => (
+                            <div key={school}>
+                              <input type="radio" id={school} name="elemental" value={school} checked={elementalSchool === school} onChange={() => setElementalSchool(school)} />
+                              <label htmlFor={school}>{school}</label>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                        <div>
+                          <h4 className="text-md font-semibold mt-2">Entropy School</h4>
+                          {["Radiance", "Void"].map(school => (
+                            <div key={school}>
+                              <input type="radio" id={school} name="entropy" value={school} checked={entropySchool === school} onChange={() => setEntropySchool(school)} />
+                              <label htmlFor={school}>{school}</label>
+                            </div>
+                          ))}
+                        </div>
+                        {[
+                          ["MountedMagery", "Mounted Magery"],
+                        ].map(([key,label]) => (
+                          <div key={key}>
+                            <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
+                            <input type="range" min={0} max={100} value={skills[key]} onChange={e=>setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                          </div>
+                        ))}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold mt-4">Stealth Skills</h3>
+                        {[
+                          ["Stealth", "Stealth"],
+                          ["MeleeAmbush", "Melee Ambush"],
+                          ["RangedAmbush", "Ranged Ambush"],
+                          ["ElementalAmbush", "Elemental Ambush"],
+                        ].map(([key,label]) => (
+                          <div key={key}>
+                            <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
+                            <input type="range" min={0} max={100} value={skills[key]} onChange={e=>setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                          </div>
+                        ))}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold mt-4">Other Skills</h3>
+                        {[
+                          ["Anatomy", "Anatomy"],
+                          ["BeastControl", "Beast Control"],
+                          ["Taming", "Taming"],
+                        ].map(([key,label]) => (
+                          <div key={key}>
+                            <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
+                            <input type="range" min={0} max={100} value={skills[key]} onChange={e=>setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </section>
 
@@ -789,7 +842,7 @@
                                   </select>
                                   {armor.shield?.shield!=="None" && (
                                     <div className="text-sm text-slate-300 mt-1">
-                                      Required Strength: <span className={`font-semibold ${(effective.STR >= (SHIELDS[armor.shield?.shield].strReq||0)) ? "text-emerald-300" : "text-rose-300"}`}>{SHIELDS[armor.shield?.shield].strReq}</span>.
+                                      Required Strength: <span className={`font-semibold ${(effective.STR >= (SHIELDS[armor.shield?.shield].strengthRequirement||0)) ? "text-emerald-300" : "text-rose-300"}`}>{SHIELDS[armor.shield?.shield].strengthRequirement}</span>.
                                     </div>
                                   )}
                                   <div className="text-sm text-slate-300 mt-2">
@@ -886,11 +939,15 @@
 
                 {/* Results */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm mt-6">
-                  <div className="bg-slate-800/70 rounded-xl p-4" title={formulaText}>
-                    <div className="text-slate-300 font-medium">Raw Damage (hover for the complete formula)</div>
+                  <div className="bg-slate-800/70 rounded-xl p-4">
+                    <div className="text-slate-300 font-medium">Raw Damage</div>
                     <div className="text-2xl tabular-nums mt-1">{damage.total}</div>
                     <div className="text-sm text-slate-300 mt-1">Damage components: {Object.entries(damage.parts).map(([k,v])=>`${k} ${v}`).join(' • ') || 'None'}</div>
                     <div className="text-sm text-slate-400 mt-1">Relevant skill multiplier × {skillMult.toFixed(2)}.</div>
+                    <div className="text-xs text-slate-400 mt-2 p-2 bg-slate-900/50 rounded-lg">
+                      <h4 className="font-semibold">Formula</h4>
+                      <p>{formulaText}</p>
+                    </div>
                   </div>
                   <div className="bg-slate-800/70 rounded-xl p-4">
                     <div className="text-slate-300 font-medium">Damage Against Target Armor</div>
