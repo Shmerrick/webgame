@@ -1,0 +1,12 @@
+ShieldType,Component,Volume_cm3
+Buckler,Body,500
+Buckler,Boss,100
+Round Shield,Body,1000
+Round Shield,Boss,150
+Round Shield,Rim,200
+Kite Shield,Body,1500
+Kite Shield,Boss,200
+Kite Shield,Rim,300
+Tower Shield,Body,2500
+Tower Shield,Boss,250
+Tower Shield,Rim,400

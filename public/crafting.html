@@ -106,6 +106,32 @@
 
             <dt>Shield Crafting</dt>
             <dd>Creates shields of various sizes and styles.</dd>
+            <dd class="mt-4">
+              <div class="bg-slate-800/50 p-4 rounded-lg">
+                <h4 class="text-lg font-semibold text-emerald-300 mb-2">Shield Crafting Calculator</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="shield-type" class="block text-sm font-medium text-slate-300">Shield Type</label>
+                    <select id="shield-type" name="shield-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
+                    <label for="shield-body-material" class="block text-sm font-medium text-slate-300">Body Material</label>
+                    <select id="shield-body-material" name="shield-body-material" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
+                    <label for="shield-boss-material" class="block text-sm font-medium text-slate-300">Boss Material</label>
+                    <select id="shield-boss-material" name="shield-boss-material" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
+                    <label for="shield-rim-material" class="block text-sm font-medium text-slate-300">Rim Material</label>
+                    <select id="shield-rim-material" name="shield-rim-material" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                </div>
+                <div id="shield-crafting-results" class="mt-4 text-slate-300">
+                  <!-- Results will be populated by JavaScript -->
+                </div>
+              </div>
+            </dd>
           </dl>
         </section>
 
