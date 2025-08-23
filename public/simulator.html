@@ -65,6 +65,17 @@
     <script type="text/babel">
       const { useState, useMemo, useEffect } = React;
 
+      function Tooltip({ text, children }) {
+        return (
+          <span className="relative group inline-block">
+            {children}
+            <span className="absolute hidden group-hover:block bottom-full mb-2 w-max px-2 py-1 bg-slate-900 text-white text-xs rounded-md border border-slate-700 shadow-lg">
+              {text}
+            </span>
+          </span>
+        );
+      }
+
       const STAT_POOL = 270;
       const SKILL_POOL = 500;
       const HEALTH_FIXED = 200;
@@ -222,25 +233,44 @@
         if (isShield){
           const woodTiers = getMaterialsForCategory(DB, "Wood");
           const anyWood = (woodTiers?.T5?.[0]) || null;
-          outerFac = anyWood ? anyWood : { slash:0, pierce:0, blunt:0, magic:0 };
+          outerFac = anyWood ? anyWood : { slash:0, pierce:0, blunt:0, fire:0, water:0, wind:0, earth:0 };
         } else {
-          outerFac = factorsFor(DB, outerCategory, materialName) || { slash:0, pierce:0, blunt:0, magic:0 };
+          outerFac = factorsFor(DB, outerCategory, materialName) || { slash:0, pierce:0, blunt:0, fire:0, water:0, wind:0, earth:0 };
         }
-        const innerFac = factorsFor(DB, innerCategory, innerMaterialName) || { slash:0, pierce:0, blunt:0, magic:0 };
-        const bindFac  = factorsFor(DB, bindingCategory, bindingMaterialName) || { slash:0, pierce:0, blunt:0, magic:0 };
+        const innerFac = factorsFor(DB, innerCategory, innerMaterialName) || { slash:0, pierce:0, blunt:0, fire:0, water:0, wind:0, earth:0 };
+        const bindFac  = factorsFor(DB, bindingCategory, bindingMaterialName) || { slash:0, pierce:0, blunt:0, fire:0, water:0, wind:0, earth:0 };
         const wOuter=0.80, wInner=0.15, wBind=0.05;
         const comb = {
           blunt: outerFac.blunt*wOuter + innerFac.blunt*wInner + bindFac.blunt*wBind,
           slash: outerFac.slash*wOuter + innerFac.slash*wInner + bindFac.slash*wBind,
           pierce:outerFac.pierce*wOuter+ innerFac.pierce*wInner+ bindFac.pierce*wBind,
-          magic: outerFac.magic*wOuter + innerFac.magic*wInner + bindFac.magic*wBind,
+          fire: (outerFac.fire||0)*wOuter + (innerFac.fire||0)*wInner + (bindFac.fire||0)*wBind,
+          water: (outerFac.water||0)*wOuter + (innerFac.water||0)*wInner + (bindFac.water||0)*wBind,
+          wind: (outerFac.wind||0)*wOuter + (innerFac.wind||0)*wInner + (bindFac.wind||0)*wBind,
+          earth: (outerFac.earth||0)*wOuter + (innerFac.earth||0)*wInner + (bindFac.earth||0)*wBind,
         };
-        return {
+
+        const defenses = {
           blunt: Math.min(0.95, clamp01(base.blunt * comb.blunt)),
           slash: Math.min(0.95, clamp01(base.slash * comb.slash)),
           pierce: Math.min(0.95, clamp01(base.pierce* comb.pierce)),
-          magic: Math.min(0.95, clamp01(base.magic * comb.magic)),
+          fire: Math.min(0.95, clamp01(base.magic * comb.fire)),
+          water: Math.min(0.95, clamp01(base.magic * comb.water)),
+          wind: Math.min(0.95, clamp01(base.magic * comb.wind)),
+          earth: Math.min(0.95, clamp01(base.magic * comb.earth)),
         };
+
+        const fallbackFlags = {};
+        for (const key in defenses) {
+            if (defenses[key] === 0) {
+                defenses[key] = 0.1;
+                fallbackFlags[key] = true;
+            } else {
+                fallbackFlags[key] = false;
+            }
+        }
+
+        return { ...defenses, fallbackFlags };
       }
       function effectiveDRForTarget(DB, cls, outerCategory, tier, materialName, innerCategory, innerMaterialName, bindingCategory, bindingMaterialName){
         return effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory, innerMaterialName, bindingCategory, bindingMaterialName, false);
@@ -482,8 +512,9 @@
           const headMat = factorsFor(DB, weaponComps.head.category, weaponComps.head.material) || {};
 
           const massMult = (1 + (coreMat.blunt || 0) / 2) * (1 + (gripMat.blunt || 0) / 2) * (1 + (fittingMat.blunt || 0) / 2) * (1 + (headMat.blunt || 0) / 2);
-          const damageMod = (headMat.slash || 0 + headMat.pierce || 0) / 4;
-          const drawBonus = (coreMat.magic || 0) / 10 + (fittingMat.magic || 0) / 10;
+          const damageMod = ((headMat.slash || 0) + (headMat.pierce || 0)) / 4;
+          const avgMagic = (mat) => (((mat.fire||0) + (mat.water||0) + (mat.wind||0) + (mat.earth||0)) / 4);
+          const drawBonus = avgMagic(coreMat) / 10 + avgMagic(fittingMat) / 10;
           // --- End new logic ---
 
           if (weapon.type==='mounted'){
@@ -1097,17 +1128,40 @@
                                 <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
                                   <div className="font-medium mb-1">Material and Armor Explanation</div>
                                   <p className="text-sm text-slate-300">
-                                    The outer layer is <span className="font-semibold">{material}</span> which belongs to the <span className="font-semibold">{category}</span> category and is at <span className="font-semibold">{tier}</span>. Its defensive multipliers are: Slash reduction {(matObj.slash*100).toFixed(0)} percent, Pierce reduction {(matObj.pierce*100).toFixed(0)} percent, Blunt reduction {(matObj.blunt*100).toFixed(0)} percent, and Magic reduction {(matObj.magic*100).toFixed(0)} percent. The magic value is the average of Fire, Water, Wind, and Earth resistances in your database.
+                                    The outer layer is <span className="font-semibold">{material}</span> which belongs to the <span className="font-semibold">{category}</span> category and is at <span className="font-semibold">{tier}</span>. Its defensive multipliers are:
+                                    Slash {(matObj.slash*100).toFixed(0)}%,
+                                    Pierce {(matObj.pierce*100).toFixed(0)}%,
+                                    Blunt {(matObj.blunt*100).toFixed(0)}%.
+                                    <br/>
+                                    Elemental resistances are:
+                                    Fire {(matObj.fire*100).toFixed(0)}%,
+                                    Water {(matObj.water*100).toFixed(0)}%,
+                                    Wind {(matObj.wind*100).toFixed(0)}%,
+                                    Earth {(matObj.earth*100).toFixed(0)}%.
                                   </p>
                                   <p className="text-sm text-slate-300 mt-2">
-                                    The armor class is <span className="font-semibold">{entry.class}</span>. Its base reduction for physical damage types, which are blunt, slash, and pierce, is {(ARMOR_CLASS[entry.class].phys*100).toFixed(0)} percent, and its base reduction for magic is {(ARMOR_CLASS[entry.class].magic*100).toFixed(0)} percent.
+                                    The armor class is <span className="font-semibold">{entry.class}</span>. Its base reduction for physical damage is {((ARMOR_CLASS[entry.class] || {}).physical*100).toFixed(0)}%, and its base reduction for magic is {((ARMOR_CLASS[entry.class] || {}).magical*100).toFixed(0)}%.
                                   </p>
                                   <p className="text-sm text-slate-300 mt-2">
-                                    The effective damage reduction for this slot is calculated by weighting the materials: the outer material contributes eighty percent, the inner layer contributes fifteen percent, and the thread and binding contribute five percent. These weighted values are then multiplied by the base armor class reductions to produce the final results:
-                                    <br/>Blunt effective reduction {(eff.blunt*100).toFixed(0)} percent,
-                                    <br/>Slash effective reduction {(eff.slash*100).toFixed(0)} percent,
-                                    <br/>Pierce effective reduction {(eff.pierce*100).toFixed(0)} percent,
-                                    <br/>Magic effective reduction {(eff.magic*100).toFixed(0)} percent.
+                                    The final effective damage reduction for this slot is:
+                                    <br/>
+                                    {Object.keys(eff).filter(k => k !== 'fallbackFlags').map(key => {
+                                        const value = eff[key];
+                                        const isFallback = eff.fallbackFlags[key];
+                                        const text = `${key.charAt(0).toUpperCase() + key.slice(1)}: ${(value * 100).toFixed(0)}%`;
+
+                                        if (isFallback) {
+                                            return (
+                                                <React.Fragment key={key}>
+                                                    <Tooltip text="This value is a fallback for missing data.">
+                                                        <span className="text-amber-400 cursor-help">{text}*</span>
+                                                    </Tooltip>
+                                                    {' '}
+                                                </React.Fragment>
+                                            );
+                                        }
+                                        return <span key={key}>{text} </span>;
+                                    })}
                                   </p>
                                 </div>
                               )}
@@ -1161,7 +1215,7 @@
                   </div>
                 </section>
 
-                <div className="mt-6 text-xs text-slate-500">v15: Database-backed materials (T1–T5), inner and binding options per armor piece, centered skill specification with points, equipment preview restored at the bottom, and clear plain-English explanations. Heavy armor reduces magic by twenty-five percent, and Carapace is not available for weapon heads.</div>
+                <div className="mt-6 text-xs text-slate-500">v16.0: Database-backed materials (T1–T5), inner and binding options per armor piece, centered skill specification with points, equipment preview restored at the bottom, and clear plain-English explanations. Heavy armor reduces magic by twenty-five percent, and Carapace is not available for weapon heads.</div>
               </div>
             </div>
           </>
@@ -1176,17 +1230,10 @@
           );
         });
 
-      fetch('README.md')
-        .then(response => response.text())
-        .then(text => {
-          const match = text.match(/Version: (.*)/);
-          if (match && match[1]) {
-            const versionDisplay = document.getElementById('version-display');
-            if (versionDisplay) {
-              versionDisplay.textContent = `Version: ${match[1]}`;
-            }
-          }
-        });
+      const versionDisplay = document.getElementById('version-display');
+      if (versionDisplay) {
+        versionDisplay.textContent = 'Version: 16.0';
+      }
     </script>
   </body>
 </html>

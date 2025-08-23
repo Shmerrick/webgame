@@ -924,17 +924,15 @@ for mat in materials:
         if tier not in db[category]:
             db[category][tier] = []
 
-        magic_avg = (mat.get("Element_Fire", 0) +
-                     mat.get("Element_Water", 0) +
-                     mat.get("Element_Wind", 0) +
-                     mat.get("Element_Earth", 0)) / 4
-
         new_mat = {
             "name": mat["Name"],
             "slash": round(mat.get("Defense_Slash", 0), 5),
             "pierce": round(mat.get("Defense_Pierce", 0), 5),
             "blunt": round(mat.get("Defense_Blunt", 0), 5),
-            "magic": round(magic_avg, 5),
+            "fire": round(mat.get("Element_Fire", 0), 5),
+            "water": round(mat.get("Element_Water", 0), 5),
+            "wind": round(mat.get("Element_Wind", 0), 5),
+            "earth": round(mat.get("Element_Earth", 0), 5),
             "toughness": mat.get("Toughness", 0)
         }
         db[category][tier].append(new_mat)

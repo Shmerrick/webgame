@@ -1,9 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Common
     let materialsData = [];
+    let bannedNames = [];
+
+    const ARMOR_CLASS = {
+        Light:  { physical: 0.45, magical: 0.45 },
+        Medium: { physical: 0.65, magical: 0.65 },
+        Heavy:  { physical: 0.85, magical: 0.85 },
+    };
 
     // Armor
     const armorPieceSelect = document.getElementById('armor-piece');
+    const armorClassSelect = document.getElementById('armor-class');
+    const armorNameInput = document.getElementById('armor-name');
     const outerMaterialSelect = document.getElementById('outer-material');
     const innerMaterialSelect = document.getElementById('inner-material');
     const bindingMaterialSelect = document.getElementById('binding-material');
@@ -20,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Weapon
     const weaponTypeSelect = document.getElementById('weapon-type');
+    const weaponNameInput = document.getElementById('weapon-name');
     const weaponComponentsDiv = document.getElementById('weapon-components');
     const weaponResultsDiv = document.getElementById('weapon-crafting-results');
     let weaponVolumesData = {};
@@ -42,6 +52,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const enchantingResultsDiv = document.getElementById('enchanting-results');
     let enchantmentRunesData = [];
 
+    const WEAPONS = {
+        Sword:   { type: "melee",   massKilograms: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.20 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
+        Axe:     { type: "melee",   massKilograms: 4, baseCost: 40, head: { Blunt: 0.20, Slash: 0.45, Pierce: 0.10 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Blunt" } },
+        Hammer:  { type: "melee",   massKilograms: 6, baseCost: 40, head: { Blunt: 0.60, Slash: 0.10, Pierce: 0.10 }, direction: { Left: "Blunt", Right: "Blunt", Up: "Blunt", Down: "Blunt" } },
+        Spear:   { type: "melee",   massKilograms: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.15, Pierce: 0.45 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Pierce" } },
+        Dagger:  { type: "melee",   massKilograms: 1, baseCost: 20, head: { Blunt: 0.05, Slash: 0.20, Pierce: 0.30 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
+        Bow:     { type: "ranged",  drawWeight: 50, head: { Pierce: 0.40 } },
+        Crossbow:{ type: "ranged",  drawWeight: 35, head: { Pierce: 0.30 } },
+        Sling:   { type: "ranged",  drawWeight: 15, head: { Blunt: 0.20 } },
+        Throwing:{ type: "ranged",  drawWeight: 20, head: { Pierce: 0.25 } },
+        Lance:   { type: "mounted", massKilograms: 5, head: { Blunt: 0.20, Pierce: 0.50 }, speed: { Walk: 0.5, Trot: 0.9, Canter: 1.2, Gallop: 1.6 } },
+        Polesword: { type: "melee", massKilograms: 5, baseCost: 35, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.25 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Slash" } },
+        Poleaxe: { type: "melee", massKilograms: 6, baseCost: 40, head: { Blunt: 0.25, Slash: 0.30, Pierce: 0.15 }, direction: { Left: "Slash", Right: "Blunt", Up: "Pierce", Down: "Slash" } },
+    };
 
     // Utility to parse CSV data
     function parseCSV(csv) {
@@ -105,6 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const runesCsv = await runesResponse.text();
             enchantmentRunesData = parseCSV(runesCsv);
 
+            // Fetch banned names
+            const bannedNamesResponse = await fetch('/banned_names.txt');
+            const bannedNamesText = await bannedNamesResponse.text();
+            bannedNames = bannedNamesText.split('\n').filter(name => name.trim() !== '').map(name => name.toLowerCase());
+
             populateAllDropdowns();
             setupAllEventListeners();
             calculateAllResults();
@@ -128,12 +157,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupAllEventListeners() {
-        [armorPieceSelect, outerMaterialSelect, innerMaterialSelect, bindingMaterialSelect].forEach(el => el.addEventListener('change', calculateAndDisplayArmorResults));
+        [armorPieceSelect, armorClassSelect, outerMaterialSelect, innerMaterialSelect, bindingMaterialSelect, armorNameInput].forEach(el => el.addEventListener('change', calculateAndDisplayArmorResults));
         [shieldTypeSelect, shieldBodyMaterialSelect, shieldBossMaterialSelect, shieldRimMaterialSelect].forEach(el => el.addEventListener('change', calculateAndDisplayShieldResults));
         weaponTypeSelect.addEventListener('change', () => {
             populateWeaponComponents();
             calculateAndDisplayWeaponResults();
         });
+        weaponNameInput.addEventListener('change', calculateAndDisplayWeaponResults);
         bowTypeSelect.addEventListener('change', () => {
             populateBowComponents();
             calculateAndDisplayBowResults();
@@ -219,21 +249,82 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Calculation Functions ---
+    function validateName(name) {
+        if (!name) return true; // Empty name is valid
+        const lowerCaseName = name.toLowerCase();
+        return !bannedNames.some(bannedWord => lowerCaseName.includes(bannedWord));
+    }
+
+    function formatArmorResults({ requiredMaterials, totalMass, defenses, piece, armorClass, name }) {
+        let materialsList = '';
+        for (const name in requiredMaterials) {
+            materialsList += `<li>${name}: ${requiredMaterials[name].units.toFixed(2)} units of ${requiredMaterials[name].name}</li>`;
+        }
+
+        let defenseList = '';
+        for (const [key, value] of Object.entries(defenses)) {
+            defenseList += `<li>${key}: ${(value * 100).toFixed(1)}%</li>`;
+        }
+
+        return `
+            <h5 class="text-md font-semibold text-emerald-400 mt-4">Crafted Item:</h5>
+            <p>${name || `[${armorClass}] [${piece}]`}</p>
+
+            <h5 class="text-md font-semibold text-emerald-400 mt-4">Defensive Stats:</h5>
+            <ul class="list-disc list-inside">${defenseList}</ul>
+
+            <h5 class="text-md font-semibold text-emerald-400 mt-4">Required Materials:</h5>
+            <ul class="list-disc list-inside">${materialsList}</ul>
+
+            <h5 class="text-md font-semibold text-emerald-400 mt-2">Item Stats:</h5>
+            <p>Estimated Mass: ${totalMass.toFixed(2)} kg</p>
+        `;
+    }
+
     function calculateAndDisplayArmorResults() {
         const piece = armorPieceSelect.value;
+        const armorClass = armorClassSelect.value;
+        const armorName = armorNameInput.value;
         const outerMat = findMaterial(outerMaterialSelect.value);
         const innerMat = findMaterial(innerMaterialSelect.value);
         const bindingMat = findMaterial(bindingMaterialSelect.value);
 
-        if (!piece || !outerMat || !innerMat || !bindingMat) return;
+        if (!piece || !armorClass || !outerMat || !innerMat || !bindingMat) return;
+
+        const isNameValid = validateName(armorName);
+        if (!isNameValid) {
+            armorResultsDiv.innerHTML = '<p class="text-red-400">This name is not allowed. Please choose another.</p>';
+            return;
+        }
 
         const volumes = armorVolumesData[piece];
-        const result = calculatePhysicalItemStats({
+        const physicalStats = calculatePhysicalItemStats({
             Outer: { material: outerMat, volume: volumes.Outer },
             Inner: { material: innerMat, volume: volumes.Inner },
             Binding: { material: bindingMat, volume: volumes.Binding }
         });
-        armorResultsDiv.innerHTML = formatResults(result);
+
+        const wOuter = 0.80, wInner = 0.15, wBind = 0.05;
+        const combinedSlash = (parseFloat(outerMat.Slash) * wOuter) + (parseFloat(innerMat.Slash) * wInner) + (parseFloat(bindingMat.Slash) * wBind);
+        const combinedPierce = (parseFloat(outerMat.Pierce) * wOuter) + (parseFloat(innerMat.Pierce) * wInner) + (parseFloat(bindingMat.Pierce) * wBind);
+        const combinedBlunt = (parseFloat(outerMat.Blunt) * wOuter) + (parseFloat(innerMat.Blunt) * wInner) + (parseFloat(bindingMat.Blunt) * wBind);
+        const combinedMagic = (parseFloat(outerMat.Magic) * wOuter) + (parseFloat(innerMat.Magic) * wInner) + (parseFloat(bindingMat.Magic) * wBind);
+
+        const base = ARMOR_CLASS[armorClass];
+        const defenses = {
+            Slash: Math.min(0.95, base.physical * combinedSlash),
+            Pierce: Math.min(0.95, base.physical * combinedPierce),
+            Blunt: Math.min(0.95, base.physical * combinedBlunt),
+            Magic: Math.min(0.95, base.magical * combinedMagic),
+        };
+
+        armorResultsDiv.innerHTML = formatArmorResults({
+            ...physicalStats,
+            defenses,
+            piece,
+            armorClass,
+            name: armorName,
+        });
     }
 
     function calculateAndDisplayShieldResults() {
@@ -253,15 +344,68 @@ document.addEventListener('DOMContentLoaded', () => {
         shieldResultsDiv.innerHTML = formatResults(result);
     }
 
+    function formatWeaponResults({ requiredMaterials, totalMass, damageMod, weaponInfo, type, name }) {
+        let materialsList = '';
+        for (const matName in requiredMaterials) {
+            materialsList += `<li>${matName}: ${requiredMaterials[matName].units.toFixed(2)} units of ${requiredMaterials[matName].name}</li>`;
+        }
+
+        let damageTypeList = '';
+        if (weaponInfo && weaponInfo.head) {
+            for (const [key, value] of Object.entries(weaponInfo.head)) {
+                damageTypeList += `<li>${key}: ${value}</li>`;
+            }
+        }
+
+        return `
+            <h5 class="text-md font-semibold text-emerald-400 mt-4">Crafted Item:</h5>
+            <p>${name || `[${type}]`}</p>
+
+            <h5 class="text-md font-semibold text-emerald-400 mt-4">Base Damage Multipliers:</h5>
+            <ul class="list-disc list-inside">${damageTypeList}</ul>
+
+            <h5 class="text-md font-semibold text-emerald-400 mt-2">Head Material Damage Modifier:</h5>
+            <p>${damageMod.toFixed(2)}</p>
+
+            <h5 class="text-md font-semibold text-emerald-400 mt-4">Required Materials:</h5>
+            <ul class="list-disc list-inside">${materialsList}</ul>
+
+            <h5 class="text-md font-semibold text-emerald-400 mt-2">Item Stats:</h5>
+            <p>Estimated Mass: ${totalMass.toFixed(2)} kg</p>
+        `;
+    }
+
     function calculateAndDisplayWeaponResults() {
         const type = weaponTypeSelect.value;
+        const weaponName = weaponNameInput.value;
         if (!type || !weaponVolumesData[type]) return;
+
+        const isNameValid = validateName(weaponName);
+        if (!isNameValid) {
+            weaponResultsDiv.innerHTML = '<p class="text-red-400">This name is not allowed. Please choose another.</p>';
+            return;
+        }
 
         const components = getComponentData(weaponComponentsDiv, 'weapon-comp-');
         if(!components) return;
 
         const result = calculatePhysicalItemStats(components);
-        weaponResultsDiv.innerHTML = formatResults(result);
+
+        const headMat = components['Head'] ? components['Head'].material : null;
+        let damageMod = 0;
+        if (headMat) {
+            damageMod = ((parseFloat(headMat.Slash) || 0) + (parseFloat(headMat.Pierce) || 0)) / 4;
+        }
+
+        const weaponInfo = WEAPONS[type];
+
+        weaponResultsDiv.innerHTML = formatWeaponResults({
+            ...result,
+            damageMod,
+            weaponInfo,
+            type,
+            name: weaponName,
+        });
     }
 
     function calculateAndDisplayBowResults() {
