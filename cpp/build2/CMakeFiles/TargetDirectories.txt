@@ -1,2 +1,0 @@
-/app/cpp/build2/CMakeFiles/edit_cache.dir
-/app/cpp/build2/CMakeFiles/rebuild_cache.dir

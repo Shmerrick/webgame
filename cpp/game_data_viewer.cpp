@@ -12,9 +12,81 @@
 #include <SDL_opengl.h>
 #endif
 
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#include "json.hpp"
+
+using json = nlohmann::json;
+
+struct Material {
+    std::string name;
+    double slash;
+    double pierce;
+    double blunt;
+    double fire;
+    double water;
+    double wind;
+    double earth;
+    int toughness;
+    double magic;
+    double density;
+};
+
+using Tier = std::vector<Material>;
+using Category = std::map<std::string, Tier>;
+using Database = std::map<std::string, Category>;
+
+// Function to load and parse the database
+bool loadDatabase(Database& db, const std::string& filepath) {
+    std::ifstream f(filepath);
+    if (!f.is_open()) {
+        std::cerr << "Error: Could not open database file: " << filepath << std::endl;
+        return false;
+    }
+
+    try {
+        json data = json::parse(f);
+        for (auto const& [cat_key, cat_val] : data.items()) {
+            for (auto const& [tier_key, tier_val] : cat_val.items()) {
+                for (auto const& mat_val : tier_val) {
+                    Material m;
+                    m.name = mat_val.at("name");
+                    m.slash = mat_val.at("slash");
+                    m.pierce = mat_val.at("pierce");
+                    m.blunt = mat_val.at("blunt");
+                    m.fire = mat_val.at("fire");
+                    m.water = mat_val.at("water");
+                    m.wind = mat_val.at("wind");
+                    m.earth = mat_val.at("earth");
+                    m.toughness = mat_val.at("toughness");
+                    m.magic = mat_val.at("magic");
+                    m.density = mat_val.at("density");
+                    db[cat_key][tier_key].push_back(m);
+                }
+            }
+        }
+    } catch (json::parse_error& e) {
+        std::cerr << "Error parsing JSON: " << e.what() << std::endl;
+        return false;
+    }
+
+    std::cout << "Database loaded successfully." << std::endl;
+    return true;
+}
+
+
 // Main code
 int main(int, char**)
 {
+    // Load the database
+    Database db;
+    if (!loadDatabase(db, "../../public/db.json")) {
+        return 1;
+    }
+
     // Setup SDL
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0)
     {
@@ -72,8 +144,6 @@ int main(int, char**)
     ImGui_ImplOpenGL3_Init(glsl_version);
 
     // Our state
-    bool show_demo_window = true;
-    bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
     // Main loop
@@ -95,33 +165,35 @@ int main(int, char**)
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
 
-        if (show_demo_window)
-            ImGui::ShowDemoWindow(&show_demo_window);
-
         {
-            static float f = 0.0f;
-            static int counter = 0;
+            ImGui::Begin("Material Database");
 
-            ImGui::Begin("Hello, world!");
-            ImGui::Text("This is some useful text.");
-            ImGui::Checkbox("Demo Window", &show_demo_window);
-            ImGui::Checkbox("Another Window", &show_another_window);
-            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
-            ImGui::ColorEdit3("clear color", (float*)&clear_color);
-            if (ImGui::Button("Button"))
-                counter++;
-            ImGui::SameLine();
-            ImGui::Text("counter = %d", counter);
-            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-            ImGui::End();
-        }
+            for (auto const& [cat_key, cat_val] : db) {
+                if (ImGui::TreeNode(cat_key.c_str())) {
+                    for (auto const& [tier_key, tier_val] : cat_val) {
+                        if (ImGui::TreeNode(tier_key.c_str())) {
+                            for (auto const& mat : tier_val) {
+                                if (ImGui::TreeNode(mat.name.c_str())) {
+                                    ImGui::Text("Slash: %.4f", mat.slash);
+                                    ImGui::Text("Pierce: %.4f", mat.pierce);
+                                    ImGui::Text("Blunt: %.4f", mat.blunt);
+                                    ImGui::Text("Magic: %.4f", mat.magic);
+                                    ImGui::Text("Fire: %.4f", mat.fire);
+                                    ImGui::Text("Water: %.4f", mat.water);
+                                    ImGui::Text("Wind: %.4f", mat.wind);
+                                    ImGui::Text("Earth: %.4f", mat.earth);
+                                    ImGui::Text("Toughness: %d", mat.toughness);
+                                    ImGui::Text("Density: %.2f", mat.density);
+                                    ImGui::TreePop();
+                                }
+                            }
+                            ImGui::TreePop();
+                        }
+                    }
+                    ImGui::TreePop();
+                }
+            }
 
-        if (show_another_window)
-        {
-            ImGui::Begin("Another Window", &show_another_window);
-            ImGui::Text("Hello from another window!");
-            if (ImGui::Button("Close Me"))
-                show_another_window = false;
             ImGui::End();
         }
 
@@ -139,7 +211,7 @@ int main(int, char**)
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext();
 
-    SDL_GL_DestroyContext(gl_context);
+    SDL_GL_DeleteContext(gl_context);
     SDL_DestroyWindow(window);
     SDL_Quit();
 
