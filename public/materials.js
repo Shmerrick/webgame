@@ -36,6 +36,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     data[category][tier].forEach(material => {
                         const materialItem = document.createElement("li");
                         materialItem.textContent = material.name;
+                        materialItem.style.cursor = "pointer";
+                        materialItem.addEventListener("click", () => {
+                            const existingDetails = materialItem.querySelector(".details");
+                            if (existingDetails) {
+                                existingDetails.remove();
+                            } else {
+                                const details = document.createElement("div");
+                                details.className = "details";
+                                details.style.paddingLeft = "20px";
+                                details.innerHTML = `
+                                    <p>Slash: ${material.slash}</p>
+                                    <p>Pierce: ${material.pierce}</p>
+                                    <p>Blunt: ${material.blunt}</p>
+                                    <p>Magic: ${material.magic}</p>
+                                `;
+                                materialItem.appendChild(details);
+                            }
+                        });
                         tierList.appendChild(materialItem);
                     });
                     tierItem.appendChild(tierList);
