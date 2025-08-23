@@ -58,3 +58,41 @@ Minerals_T4_Basalt,Minerals,T4,Basalt,0.52286,0.63,0.37619,0.65149
 Minerals_T4_Corundum,Minerals,T4,Corundum (Ruby/Sapphire),0.55769,0.85769,0.17222,0.58889
 Minerals_T5_Worldstone,Minerals,T5,Worldstone,1.0,1.0,0.45,0.84375
 Minerals_T5_Aethercrystal,Minerals,T5,Aethercrystal,1.0,1.0,0.45,0.79907
+Metals_T4_Uranium-235,Metals,T4,Uranium-235,0.8,0.85,0.9,0.1
+Metals_T4_Uranium-238,Metals,T4,Uranium-238,0.8,0.85,0.9,0.1
+Metals_T5_Plutonium-239,Metals,T5,Plutonium-239,0.9,0.9,0.95,0.05
+Wood_T1_Balsa,Wood,T1,Balsa,0.1,0.1,0.9,0.8
+Wood_T3_Bamboo,Wood,T3,Bamboo,0.4,0.6,0.5,0.6
+Minerals_T2_Gypsum,Minerals,T2,Gypsum,0.1,0.1,0.2,0.9
+Minerals_T3_Feldspar,Minerals,T3,Feldspar,0.3,0.3,0.4,0.7
+Minerals_T4_Topaz,Minerals,T4,Topaz,0.6,0.7,0.5,0.5
+Minerals_T5_Diamond,Minerals,T5,Diamond,1.0,1.0,0.3,0.4
+Cloth_T1_Linen,Cloth,T1,Linen,0.1,0.2,0.4,0.6
+Cloth_T2_Hemp,Cloth,T2,Hemp,0.2,0.3,0.5,0.5
+Leather_T2_Alligator,Leather,T2,Alligator,0.5,0.3,0.7,0.4
+Scales_T3_Iron_Scales,Scales,T3,Iron Scales,0.6,0.5,0.8,0.3
+Metals_T2_Steel_1020,Metals,T2,Steel 1020,0.4,0.3,0.6,0.4
+Metals_T3_Steel_4140,Metals,T3,Steel 4140,0.6,0.5,0.7,0.3
+Metals_T4_Inconel,Metals,T4,Inconel,0.7,0.6,0.8,0.2
+Metals_T5_Stellite,Metals,T5,Stellite,0.8,0.8,0.7,0.2
+Wood_T2_Ipe,Wood,T2,Ipe,0.5,0.4,0.8,0.5
+Minerals_T1_Talc,Minerals,T1,Talc,0.05,0.05,0.1,0.95
+Minerals_T3_Garnet,Minerals,T3,Garnet,0.5,0.6,0.5,0.6
+Cloth_T1_Hessian,Cloth,T1,Hessian (Jute),0.1,0.1,0.6,0.7
+Leather_T1_Deerskin,Leather,T1,Deerskin,0.2,0.1,0.5,0.5
+Scales_T2_Bronze_Scales,Scales,T2,Bronze Scales,0.4,0.3,0.7,0.5
+Metals_T2_Zamak,Metals,T2,Zamak,0.3,0.2,0.5,0.6
+Wood_T3_Bloodwood,Wood,T3,Bloodwood,0.6,0.5,0.7,0.4
+Minerals_T4_Emerald,Minerals,T4,Emerald,0.6,0.7,0.4,0.6
+Cloth_T2_Canvas,Cloth,T2,Canvas,0.2,0.2,0.6,0.5
+Leather_T3_Sharkskin,Leather,T3,Sharkskin,0.6,0.7,0.6,0.3
+Scales_T4_Titanium_Scales,Scales,T4,Titanium Scales,0.8,0.7,0.8,0.2
+Metals_T4_Nitinol,Metals,T4,Nitinol,0.7,0.7,0.7,0.3
+Wood_T4_Wenge,Wood,T4,Wenge,0.7,0.6,0.8,0.3
+Minerals_T5_Ruby,Minerals,T5,Ruby,0.7,0.8,0.5,0.5
+Cloth_T3_Kevlar,Cloth,T3,Kevlar,0.8,0.9,0.3,0.1
+Leather_T4_Stingray,Leather,T4,Stingray,0.7,0.8,0.5,0.2
+Scales_T5_Adamantite_Scales,Scales,T5,Adamantite Scales,1.0,0.9,0.9,0.1
+Metals_T5_Cobalt_Alloy,Metals,T5,Cobalt Alloy,0.9,0.8,0.8,0.1
+Wood_T5_Ebony,Wood,T5,Ebony,0.8,0.7,0.9,0.2
+Minerals_T5_Sapphire,Minerals,T5,Sapphire,0.7,0.8,0.5,0.5
