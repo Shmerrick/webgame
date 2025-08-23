@@ -36,8 +36,8 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
-  <body>
-    <div class="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
+  <body style="background-image: url('Art/Backgrounds/summer.png'); background-size: cover; background-attachment: fixed;">
+    <div class="min-h-screen w-full bg-slate-950/80 text-slate-100 p-4 md:p-8">
       <div class="max-w-7xl mx-auto">
         <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
           <div class="flex items-center justify-between flex-wrap">
@@ -51,6 +51,7 @@
               <a href="races.html" class="text-slate-300 hover:text-emerald-400">Races</a>
               <a href="ascension.html" class="text-slate-300 hover:text-emerald-400">Ascension</a>
               <a href="magic.html" class="text-slate-300 hover:text-emerald-400">Magic</a>
+              <a href="spells.html" class="text-slate-300 hover:text-emerald-400">Spells</a>
               <a href="crafting.html" class="text-slate-300 hover:text-emerald-400">Crafting</a>
               <a href="materials_guide.html" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
             </div>
@@ -278,6 +279,43 @@
         return effectiveDRForSlot(DB, cls, outerCategory, materialName, innerName, bindName, false);
       }
 
+      function getIconUrl(slotId, cls, shieldType) {
+        const basePath = 'Art/Icons/';
+        const fallbackIcon = `${basePath}404.png`;
+
+        if (slotId === 'shield') {
+          if (!shieldType || shieldType === 'None') return fallbackIcon;
+          const shieldName = shieldType.toLowerCase();
+          const shieldIcons = {
+            'round': `${basePath}Shields/round.jpg`,
+            'kite': `${basePath}Shields/kite.png`,
+            'tower': `${basePath}Shields/tower.jpg`,
+          };
+          return shieldIcons[shieldName] || fallbackIcon;
+        } else {
+          if (!cls || cls === 'None' || cls === 'Light') return fallbackIcon;
+          const className = cls.toLowerCase();
+
+          const heavy_slot_map = {
+              'boots': 'heavy_boots.png', 'gloves': 'heavy_gloves.png',
+              'helmet': 'heavy_helmet.png', 'legs': 'heavy_legs.png', 'torso': 'heavy_torso.png',
+          }
+          const medium_slot_map = {
+              'boots': 'medium_boots.png', 'gloves': 'medium_gauntlets.png',
+              'helmet': 'medium_helmet.png', 'legs': 'medium_legs.png', 'torso': 'medium_torso.png',
+          }
+
+          if (className === 'heavy' && heavy_slot_map[slotId]) {
+              return `${basePath}Armor/Heavy/${heavy_slot_map[slotId]}`;
+          }
+          if (className === 'medium' && medium_slot_map[slotId]) {
+              return `${basePath}Armor/Medium/${medium_slot_map[slotId]}`;
+          }
+
+          return fallbackIcon;
+        }
+      }
+
       function App({ DB }){
         // Character
         const [raceId, setRaceId] = useState("human");
@@ -318,16 +356,58 @@
             } else {
               setElementalSchool(race.magicProficiency);
             }
+
+            const raceArmorPreference = {
+              human: 'Medium',
+              dwarf: 'Heavy',
+              elf: 'Light',
+              orc: 'Medium',
+              goliath: 'Heavy',
+              fae: 'Light',
+            };
+            const preferredArmorClass = raceArmorPreference[raceId] || 'None';
+
+            setArmor(currentArmor => {
+              const newArmor = { ...currentArmor };
+              for (const slot of armorSlots) {
+                if (slot.id !== 'shield') {
+                  const prev = newArmor[slot.id] || {};
+                  const allowed = MATERIALS_FOR_CLASS[preferredArmorClass] || [];
+                  let category = prev.category || allowed[0] || "Leather";
+                  if (!allowed.includes(category)) category = allowed[0] || "Leather";
+                  const tier = "T5"; // Default to T5 for simplicity
+                  const material = firstName(category, tier);
+                  newArmor[slot.id] = { ...prev, class: preferredArmorClass, category, tier, material };
+                }
+              }
+              return newArmor;
+            });
           }
         }, [raceId]);
 
         const totalSkill = Object.values(skills).reduce((a,b)=> a+(b||0), 0);
-        function setSkillBound(name, val){
+        function setSkillBound(name, val) {
           val = Math.max(0, Math.min(100, val));
-          const others = totalSkill - (skills[name]||0);
+
+          const nextSkills = { ...skills };
+
+          if (name === 'MeleeAmbush' || name === 'RangedAmbush' || name === 'ElementalAmbush') {
+            val = Math.min(val, skills.Stealth || 0);
+          }
+
+          const others = totalSkill - (skills[name] || 0);
           const maxAllowed = Math.max(0, SKILL_POOL - others);
-          const final = Math.min(val, maxAllowed);
-          setSkills(s=>({ ...s, [name]: final }));
+          const finalVal = Math.min(val, maxAllowed);
+
+          nextSkills[name] = finalVal;
+
+          if (name === 'Stealth') {
+            nextSkills.MeleeAmbush = Math.min(nextSkills.MeleeAmbush, finalVal);
+            nextSkills.RangedAmbush = Math.min(nextSkills.RangedAmbush, finalVal);
+            nextSkills.ElementalAmbush = Math.min(nextSkills.ElementalAmbush, finalVal);
+          }
+
+          setSkills(nextSkills);
         }
 
         // Helpers for materials
@@ -549,8 +629,8 @@
             <div className="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
               <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col gap-2">
-                  <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Web Game Simulator — v15 (Standalone)</h1>
-                  <p className="text-slate-300"></p>
+                  <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Web Game Simulator</h1>
+                  <p className="text-slate-300" id="version-display"></p>
                 </div>
 
                 {/* 3 columns, skills centered */}
@@ -685,84 +765,70 @@
                       <div className={`tabular-nums ${totalSkill>SKILL_POOL?"text-rose-400":""}`}>{totalSkill} / {SKILL_POOL} <span className="text-slate-500">(remaining {Math.max(0, SKILL_POOL-totalSkill)})</span></div>
                     </div>
                     <div className="space-y-3">
-                      <div>
-                        <h3 className="text-lg font-semibold mt-4">Combat Skills</h3>
-                        {[
+                      {Object.entries({
+                        "General": [
                           ["ArmorTraining", "Armor Training"],
                           ["BlockingAndShields", "Blocking & Shields"],
-                          ["Sword", "Sword"],
-                          ["Axe", "Axe"],
-                          ["Dagger", "Dagger"],
-                          ["Hammer", "Hammer"],
-                          ["Polesword", "Polesword"],
-                          ["Poleaxe", "Poleaxe"],
-                          ["Spear", "Spear"],
-                          ["RangedWeapons", "Ranged Weapons"],
+                          ["Anatomy", "Anatomy"],
+                        ],
+                        "Melee Combat": [
+                          ["Sword", "Sword"], ["Axe", "Axe"], ["Dagger", "Dagger"], ["Hammer", "Hammer"],
+                          ["Polesword", "Polesword"], ["Poleaxe", "Poleaxe"], ["Spear", "Spear"],
+                        ],
+                        "Ranged Combat": [ ["RangedWeapons", "Ranged Weapons"] ],
+                        "Mounted": [
                           ["MountedCombat", "Mounted Combat"],
                           ["MountedArchery", "Mounted Archery"],
-                        ].map(([key,label]) => (
-                          <div key={key}>
-                            <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
-                            <input type="range" min={0} max={100} value={skills[key]} onChange={e=>setSkillBound(key, parseInt(e.target.value))} className="w-full" />
-                          </div>
-                        ))}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold mt-4">Magic Skills</h3>
-                        <div>
-                          <h4 className="text-md font-semibold mt-2">Elemental School</h4>
-                          {["Fire", "Water", "Earth", "Wind"].map(school => (
-                            <div key={school}>
-                              <input type="radio" id={school} name="elemental" value={school} checked={elementalSchool === school} onChange={() => setElementalSchool(school)} />
-                              <label htmlFor={school}>{school}</label>
-                            </div>
-                          ))}
-                        </div>
-                        <div>
-                          <h4 className="text-md font-semibold mt-2">Entropy School</h4>
-                          {["Radiance", "Void"].map(school => (
-                            <div key={school}>
-                              <input type="radio" id={school} name="entropy" value={school} checked={entropySchool === school} onChange={() => setEntropySchool(school)} />
-                              <label htmlFor={school}>{school}</label>
-                            </div>
-                          ))}
-                        </div>
-                        {[
                           ["MountedMagery", "Mounted Magery"],
-                        ].map(([key,label]) => (
-                          <div key={key}>
-                            <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
-                            <input type="range" min={0} max={100} value={skills[key]} onChange={e=>setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                        ],
+                        "Stealth": [
+                          ["Stealth", "Stealth"], ["MeleeAmbush", "Melee Ambush"],
+                          ["RangedAmbush", "Ranged Ambush"], ["ElementalAmbush", "Elemental Ambush"],
+                        ],
+                        "Animal Handling": [
+                          ["BeastControl", "Beast Control"], ["Taming", "Taming"],
+                        ],
+                      }).map(([groupName, groupSkills]) => (
+                        <details key={groupName} className="bg-slate-800/50 rounded-xl" open>
+                          <summary className="text-lg font-semibold p-3 cursor-pointer select-none">{groupName}</summary>
+                          <div className="p-3 border-t border-slate-700/50 space-y-3">
+                            {groupSkills.map(([key, label]) => (
+                              <div key={key} title={
+                                (key === 'MeleeAmbush' || key === 'RangedAmbush' || key === 'ElementalAmbush')
+                                ? 'This skill cannot be higher than your Stealth skill.'
+                                : ''
+                              }>
+                                <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
+                                <input type="range" min={0} max={100} value={skills[key]} onChange={e => setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                              </div>
+                            ))}
                           </div>
-                        ))}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold mt-4">Stealth Skills</h3>
-                        {[
-                          ["Stealth", "Stealth"],
-                          ["MeleeAmbush", "Melee Ambush"],
-                          ["RangedAmbush", "Ranged Ambush"],
-                          ["ElementalAmbush", "Elemental Ambush"],
-                        ].map(([key,label]) => (
-                          <div key={key}>
-                            <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
-                            <input type="range" min={0} max={100} value={skills[key]} onChange={e=>setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                        </details>
+                      ))}
+
+                      <details className="bg-slate-800/50 rounded-xl" open>
+                        <summary className="text-lg font-semibold p-3 cursor-pointer select-none">Magic</summary>
+                        <div className="p-3 border-t border-slate-700/50 space-y-3">
+                          <div>
+                            <h4 className="text-md font-semibold">Elemental School</h4>
+                            {["Fire", "Water", "Earth", "Wind"].map(school => (
+                              <div key={school}>
+                                <input type="radio" id={school} name="elemental" value={school} checked={elementalSchool === school} onChange={() => setElementalSchool(school)} />
+                                <label htmlFor={school} className="ml-2">{school}</label>
+                              </div>
+                            ))}
                           </div>
-                        ))}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold mt-4">Other Skills</h3>
-                        {[
-                          ["Anatomy", "Anatomy"],
-                          ["BeastControl", "Beast Control"],
-                          ["Taming", "Taming"],
-                        ].map(([key,label]) => (
-                          <div key={key}>
-                            <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
-                            <input type="range" min={0} max={100} value={skills[key]} onChange={e=>setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                          <div>
+                            <h4 className="text-md font-semibold mt-2">Entropy School</h4>
+                            {["Radiance", "Void"].map(school => (
+                              <div key={school}>
+                                <input type="radio" id={school} name="entropy" value={school} checked={entropySchool === school} onChange={() => setEntropySchool(school)} />
+                                <label htmlFor={school} className="ml-2">{school}</label>
+                              </div>
+                            ))}
                           </div>
-                        ))}
-                      </div>
+                        </div>
+                      </details>
                     </div>
                   </section>
 
@@ -770,7 +836,7 @@
                   <div className="flex flex-col gap-6">
                     <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
                       <h2 className="text-lg font-semibold mb-3">Armor Loadout and Regeneration</h2>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {armorSlots.map(slot=>{
                           const isShield = slot.id==="shield";
                           const entry = armor[slot.id] || {};
@@ -963,7 +1029,7 @@
                     <div className="text-sm text-slate-400 mt-1">Relevant skill multiplier × {skillMult.toFixed(2)}.</div>
                     <div className="text-xs text-slate-400 mt-2 p-2 bg-slate-900/50 rounded-lg">
                       <h4 className="font-semibold">Formula</h4>
-                      <p>{formulaText}</p>
+                      <p className="break-words">{formulaText}</p>
                     </div>
                   </div>
                   <div className="bg-slate-800/70 rounded-xl p-4">
@@ -989,16 +1055,16 @@
                       const entry = armor[slotId] || {};
                       const label = slotId[0].toUpperCase()+slotId.slice(1);
                       const cls = slotId==="shield" ? (SHIELDS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
-                      const name = slotId==="shield" ? (armor.shield?.shield || "None") : (entry.material || "");
-                      const color = cls==="None" ? "bg-slate-800/70" : (cls==="Light" ? "bg-emerald-900/40" : (cls==="Medium" ? "bg-amber-900/40" : "bg-rose-900/40"));
+                      const shieldType = slotId === "shield" ? (armor.shield?.shield || "None") : null;
+
+                      const iconUrl = getIconUrl(slotId, cls, shieldType);
+                      const borderColor = cls==="None" ? "border-slate-700" : (cls==="Light" ? "border-emerald-500" : (cls==="Medium" ? "border-amber-500" : "border-rose-500"));
+
                       return (
-                        <div key={slotId} className={`rounded-xl border border-slate-800 p-3 ${color}`}>
+                        <div key={slotId} className="rounded-xl border border-slate-800 p-3 bg-slate-800/50">
                           <div className="text-sm font-medium">{label}</div>
-                          <div className="slot-box mt-2 rounded-lg border border-slate-700 flex items-center justify-center">
-                            <div className="text-center">
-                              <div className="text-sm">{cls} class</div>
-                              <div className="text-xs text-slate-400">{name}</div>
-                            </div>
+                          <div className="slot-box mt-2 rounded-lg flex items-center justify-center">
+                            <img src={iconUrl} alt={label} className={`w-20 h-20 object-contain rounded-lg border-4 ${borderColor}`} />
                           </div>
                         </div>
                       );
@@ -1028,6 +1094,18 @@
           ReactDOM.createRoot(document.getElementById("root")).render(
             <React.StrictMode><App DB={db} /></React.StrictMode>
           );
+        });
+
+      fetch('README.md')
+        .then(response => response.text())
+        .then(text => {
+          const match = text.match(/Version: (.*)/);
+          if (match && match[1]) {
+            const versionDisplay = document.getElementById('version-display');
+            if (versionDisplay) {
+              versionDisplay.textContent = `Version: ${match[1]}`;
+            }
+          }
         });
     </script>
   </body>

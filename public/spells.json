@@ -1,0 +1,88 @@
+{
+  "spells": [
+    {
+      "name": "Fireball",
+      "school": "Fire",
+      "type": "Attack",
+      "mana_cost": 20,
+      "description": "Hurls a ball of fire at the target, causing moderate fire damage."
+    },
+    {
+      "name": "Healing Wave",
+      "school": "Water",
+      "type": "Defense",
+      "mana_cost": 25,
+      "description": "A wave of healing water that restores a moderate amount of health to an ally."
+    },
+    {
+      "name": "Stone Skin",
+      "school": "Earth",
+      "type": "Defense",
+      "mana_cost": 15,
+      "description": "Hardens the caster's skin, increasing armor for a short duration."
+    },
+    {
+      "name": "Gust of Wind",
+      "school": "Wind",
+      "type": "Utility",
+      "mana_cost": 10,
+      "description": "Creates a strong gust of wind that can push back enemies or clear obstacles."
+    },
+    {
+      "name": "Radiant Bolt",
+      "school": "Radiance",
+      "type": "Attack",
+      "mana_cost": 30,
+      "description": "A bolt of pure light that sears the target, causing high radiant damage."
+    },
+    {
+      "name": "Void Grasp",
+      "school": "Void",
+      "type": "Utility",
+      "mana_cost": 35,
+      "description": "Tendrils of void energy grasp the target, holding them in place for a short duration."
+    },
+    {
+      "name": "Flame Cloak",
+      "school": "Fire",
+      "type": "Defense",
+      "mana_cost": 40,
+      "description": "Surrounds the caster in a cloak of flames, damaging any enemy that comes into melee range."
+    },
+    {
+      "name": "Ice Shard",
+      "school": "Water",
+      "type": "Attack",
+      "mana_cost": 15,
+      "description": "Launches a shard of ice that deals piercing cold damage."
+    },
+    {
+      "name": "Earthquake",
+      "school": "Earth",
+      "type": "Attack",
+      "mana_cost": 50,
+      "description": "Causes the ground to shake violently, damaging and knocking down all enemies in a large area."
+    },
+    {
+      "name": "Teleport",
+      "school": "Wind",
+      "type": "Utility",
+      "mana_cost": 20,
+      "description": "Instantly transports the caster to a nearby location."
+    },
+    {
+      "name": "Holy Light",
+      "school": "Radiance",
+      "type": "Defense",
+      "mana_cost": 45,
+      "description": "A powerful healing spell that restores a large amount of health to a single ally."
+    },
+    {
+      "name": "Life Drain",
+      "school": "Void",
+      "type": "Attack",
+      "mana_cost": 25,
+      "description": "Drains the life force from an enemy, damaging them and healing the caster."
+    }
+  ]
+}
