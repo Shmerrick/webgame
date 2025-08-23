@@ -1,0 +1,77 @@
+[
+  {
+    "ArmorPiece": "Helmet",
+    "Component": "Outer",
+    "Volume_cm3": 2100
+  },
+  {
+    "ArmorPiece": "Helmet",
+    "Component": "Inner",
+    "Volume_cm3": 1050
+  },
+  {
+    "ArmorPiece": "Helmet",
+    "Component": "Binding",
+    "Volume_cm3": 350
+  },
+  {
+    "ArmorPiece": "Chestplate",
+    "Component": "Outer",
+    "Volume_cm3": 6000
+  },
+  {
+    "ArmorPiece": "Chestplate",
+    "Component": "Inner",
+    "Volume_cm3": 3000
+  },
+  {
+    "ArmorPiece": "Chestplate",
+    "Component": "Binding",
+    "Volume_cm3": 1000
+  },
+  {
+    "ArmorPiece": "Greaves",
+    "Component": "Outer",
+    "Volume_cm3": 1200
+  },
+  {
+    "ArmorPiece": "Greaves",
+    "Component": "Inner",
+    "Volume_cm3": 600
+  },
+  {
+    "ArmorPiece": "Greaves",
+    "Component": "Binding",
+    "Volume_cm3": 200
+  },
+  {
+    "ArmorPiece": "Boots",
+    "Component": "Outer",
+    "Volume_cm3": 1800
+  },
+  {
+    "ArmorPiece": "Boots",
+    "Component": "Inner",
+    "Volume_cm3": 900
+  },
+  {
+    "ArmorPiece": "Boots",
+    "Component": "Binding",
+    "Volume_cm3": 300
+  },
+  {
+    "ArmorPiece": "Gauntlets",
+    "Component": "Outer",
+    "Volume_cm3": 900
+  },
+  {
+    "ArmorPiece": "Gauntlets",
+    "Component": "Inner",
+    "Volume_cm3": 450
+  },
+  {
+    "ArmorPiece": "Gauntlets",
+    "Component": "Binding",
+    "Volume_cm3": 150
+  }
+]

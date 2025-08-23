@@ -1,0 +1,137 @@
+[
+  {
+    "weapon_type": "Sword",
+    "component_name": "Blade",
+    "volume_cm3": 800
+  },
+  {
+    "weapon_type": "Sword",
+    "component_name": "Guard",
+    "volume_cm3": 100
+  },
+  {
+    "weapon_type": "Sword",
+    "component_name": "Handle",
+    "volume_cm3": 150
+  },
+  {
+    "weapon_type": "Sword",
+    "component_name": "Pommel",
+    "volume_cm3": 50
+  },
+  {
+    "weapon_type": "Axe",
+    "component_name": "Head",
+    "volume_cm3": 1200
+  },
+  {
+    "weapon_type": "Axe",
+    "component_name": "Handle",
+    "volume_cm3": 200
+  },
+  {
+    "weapon_type": "Axe",
+    "component_name": "Pommel",
+    "volume_cm3": 50
+  },
+  {
+    "weapon_type": "Dagger",
+    "component_name": "Blade",
+    "volume_cm3": 300
+  },
+  {
+    "weapon_type": "Dagger",
+    "component_name": "Guard",
+    "volume_cm3": 50
+  },
+  {
+    "weapon_type": "Dagger",
+    "component_name": "Handle",
+    "volume_cm3": 100
+  },
+  {
+    "weapon_type": "Dagger",
+    "component_name": "Pommel",
+    "volume_cm3": 25
+  },
+  {
+    "weapon_type": "Hammer",
+    "component_name": "Head",
+    "volume_cm3": 1500
+  },
+  {
+    "weapon_type": "Hammer",
+    "component_name": "Handle",
+    "volume_cm3": 250
+  },
+  {
+    "weapon_type": "Hammer",
+    "component_name": "Pommel",
+    "volume_cm3": 75
+  },
+  {
+    "weapon_type": "Spear",
+    "component_name": "Head",
+    "volume_cm3": 600
+  },
+  {
+    "weapon_type": "Spear",
+    "component_name": "Shaft",
+    "volume_cm3": 1000
+  },
+  {
+    "weapon_type": "Spear",
+    "component_name": "Butt",
+    "volume_cm3": 50
+  },
+  {
+    "weapon_type": "Bow",
+    "component_name": "Stave",
+    "volume_cm3": 1200
+  },
+  {
+    "weapon_type": "Bow",
+    "component_name": "String",
+    "volume_cm3": 50
+  },
+  {
+    "weapon_type": "Crossbow",
+    "component_name": "Stock",
+    "volume_cm3": 1500
+  },
+  {
+    "weapon_type": "Crossbow",
+    "component_name": "Bow",
+    "volume_cm3": 800
+  },
+  {
+    "weapon_type": "Crossbow",
+    "component_name": "String",
+    "volume_cm3": 50
+  },
+  {
+    "weapon_type": "Lance",
+    "component_name": "Head",
+    "volume_cm3": 1000
+  },
+  {
+    "weapon_type": "Lance",
+    "component_name": "Shaft",
+    "volume_cm3": 2000
+  },
+  {
+    "weapon_type": "Lance",
+    "component_name": "Guard",
+    "volume_cm3": 150
+  },
+  {
+    "weapon_type": "Sling",
+    "component_name": "Pouch",
+    "volume_cm3": 100
+  },
+  {
+    "weapon_type": "Sling",
+    "component_name": "Cords",
+    "volume_cm3": 100
+  }
+]

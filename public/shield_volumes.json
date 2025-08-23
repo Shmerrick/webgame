@@ -1,0 +1,57 @@
+[
+  {
+    "ShieldType": "Buckler",
+    "Component": "Body",
+    "Volume_cm3": 500
+  },
+  {
+    "ShieldType": "Buckler",
+    "Component": "Boss",
+    "Volume_cm3": 100
+  },
+  {
+    "ShieldType": "Round Shield",
+    "Component": "Body",
+    "Volume_cm3": 1000
+  },
+  {
+    "ShieldType": "Round Shield",
+    "Component": "Boss",
+    "Volume_cm3": 150
+  },
+  {
+    "ShieldType": "Round Shield",
+    "Component": "Rim",
+    "Volume_cm3": 200
+  },
+  {
+    "ShieldType": "Kite Shield",
+    "Component": "Body",
+    "Volume_cm3": 1500
+  },
+  {
+    "ShieldType": "Kite Shield",
+    "Component": "Boss",
+    "Volume_cm3": 200
+  },
+  {
+    "ShieldType": "Kite Shield",
+    "Component": "Rim",
+    "Volume_cm3": 300
+  },
+  {
+    "ShieldType": "Tower Shield",
+    "Component": "Body",
+    "Volume_cm3": 2500
+  },
+  {
+    "ShieldType": "Tower Shield",
+    "Component": "Boss",
+    "Volume_cm3": 250
+  },
+  {
+    "ShieldType": "Tower Shield",
+    "Component": "Rim",
+    "Volume_cm3": 400
+  }
+]

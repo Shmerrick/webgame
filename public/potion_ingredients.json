@@ -1,0 +1,22 @@
+[
+  {
+    "RowName": "Crimson_Petal",
+    "Name": "Crimson Petal",
+    "Effect": "Health"
+  },
+  {
+    "RowName": "Azure_Leaf",
+    "Name": "Azure Leaf",
+    "Effect": "Mana"
+  },
+  {
+    "RowName": "Sun_Kissed_Fern",
+    "Name": "Sun-Kissed Fern",
+    "Effect": "Stamina"
+  },
+  {
+    "RowName": "Moonlit_Mushroom",
+    "Name": "Moonlit Mushroom",
+    "Effect": "Invisibility"
+  }
+]
