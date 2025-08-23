@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const materialsContainer = document.getElementById("materials-container");
 
-    fetch("db.json")
+    fetch("materials.json")
         .then(response => response.json())
         .then(data => {
             for (const category in data) {
