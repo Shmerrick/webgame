@@ -15,7 +15,8 @@ json_data = '''
             "Element_Fire": 0.12903,
             "Element_Water": 0.26667,
             "Element_Wind": 0.064935,
-            "Element_Earth": 0.40261
+            "Element_Earth": 0.40261,
+            "Toughness": 210
         },
         {
             "Family": "Metals",
@@ -29,7 +30,8 @@ json_data = '''
             "Element_Fire": 0.59179,
             "Element_Water": 0.0,
             "Element_Wind": 0.86039,
-            "Element_Earth": 0.40554
+            "Element_Earth": 0.40554,
+            "Toughness": 540
         },
         {
             "Family": "Metals",
@@ -43,7 +45,8 @@ json_data = '''
             "Element_Fire": 0.69377,
             "Element_Water": 0.26667,
             "Element_Wind": 0.87662,
-            "Element_Earth": 0.1744
+            "Element_Earth": 0.1744,
+            "Toughness": 15
         },
         {
             "Family": "Metals",
@@ -57,7 +60,8 @@ json_data = '''
             "Element_Fire": 0.3,
             "Element_Water": 0.0,
             "Element_Wind": 0.97,
-            "Element_Earth": 0.3
+            "Element_Earth": 0.3,
+            "Toughness": 12
         },
         {
             "Family": "Metals",
@@ -71,7 +75,8 @@ json_data = '''
             "Element_Fire": 0.16,
             "Element_Water": 0.53333,
             "Element_Wind": 0.0,
-            "Element_Earth": 0.3415
+            "Element_Earth": 0.3415,
+            "Toughness": 150
         },
         {
             "Family": "Metals",
@@ -85,7 +90,8 @@ json_data = '''
             "Element_Fire": 0.48937,
             "Element_Water": 1.0,
             "Element_Wind": 0.29221,
-            "Element_Earth": 0.57143
+            "Element_Earth": 0.57143,
+            "Toughness": 120
         },
         {
             "Family": "Metals",
@@ -99,7 +105,8 @@ json_data = '''
             "Element_Fire": 0.65092,
             "Element_Water": 0.4,
             "Element_Wind": 0.74675,
-            "Element_Earth": 0.205
+            "Element_Earth": 0.205,
+            "Toughness": 110
         },
         {
             "Family": "Metals",
@@ -113,7 +120,8 @@ json_data = '''
             "Element_Fire": 0.73319,
             "Element_Water": 0.53333,
             "Element_Wind": 0.79545,
-            "Element_Earth": 0.43652
+            "Element_Earth": 0.43652,
+            "Toughness": 480
         },
         {
             "Family": "Metals",
@@ -127,7 +135,8 @@ json_data = '''
             "Element_Fire": 0.52971,
             "Element_Water": 0.66667,
             "Element_Wind": 0.42208,
-            "Element_Earth": 0.14286
+            "Element_Earth": 0.14286,
+            "Toughness": 90
         },
         {
             "Family": "Metals",
@@ -141,7 +150,8 @@ json_data = '''
             "Element_Fire": 0.7456,
             "Element_Water": 0.4,
             "Element_Wind": 0.90909,
-            "Element_Earth": 0.43351
+            "Element_Earth": 0.43351,
+            "Toughness": 241
         },
         {
             "Family": "Metals",
@@ -155,7 +165,8 @@ json_data = '''
             "Element_Fire": 0.68415,
             "Element_Water": 0.53333,
             "Element_Wind": 0.77922,
-            "Element_Earth": 0.35306
+            "Element_Earth": 0.35306,
+            "Toughness": 350
         },
         {
             "Family": "Metals",
@@ -169,7 +180,8 @@ json_data = '''
             "Element_Fire": 0.82787,
             "Element_Water": 0.53333,
             "Element_Wind": 0.94156,
-            "Element_Earth": 0.18012
+            "Element_Earth": 0.18012,
+            "Toughness": 15
         },
         {
             "Family": "Metals",
@@ -183,7 +195,8 @@ json_data = '''
             "Element_Fire": 0.67179,
             "Element_Water": 0.26667,
             "Element_Wind": 0.86039,
-            "Element_Earth": 0.43914
+            "Element_Earth": 0.43914,
+            "Toughness": 345
         },
         {
             "Family": "Metals",
@@ -197,7 +210,8 @@ json_data = '''
             "Element_Fire": 0.71406,
             "Element_Water": 0.26667,
             "Element_Wind": 0.92532,
-            "Element_Earth": 0.2335
+            "Element_Earth": 0.2335,
+            "Toughness": 172
         },
         {
             "Family": "Metals",
@@ -211,7 +225,8 @@ json_data = '''
             "Element_Fire": 0.68251,
             "Element_Water": 0.13333,
             "Element_Wind": 0.92532,
-            "Element_Earth": 0.51208
+            "Element_Earth": 0.51208,
+            "Toughness": 620
         },
         {
             "Family": "Metals",
@@ -225,7 +240,8 @@ json_data = '''
             "Element_Fire": 0.71097,
             "Element_Water": 0.2,
             "Element_Wind": 0.92532,
-            "Element_Earth": 0.54779
+            "Element_Earth": 0.54779,
+            "Toughness": 930
         },
         {
             "Family": "Metals",
@@ -239,7 +255,8 @@ json_data = '''
             "Element_Fire": 1.0,
             "Element_Water": 1.0,
             "Element_Wind": 1.0,
-            "Element_Earth": 0.58501
+            "Element_Earth": 0.58501,
+            "Toughness": 655
         },
         {
             "Family": "Metals",
@@ -253,7 +270,8 @@ json_data = '''
             "Element_Fire": 0.87633,
             "Element_Water": 0.66667,
             "Element_Wind": 0.94156,
-            "Element_Earth": 0.54779
+            "Element_Earth": 0.54779,
+            "Toughness": 2070
         },
         {
             "Family": "Metals",
@@ -267,7 +285,8 @@ json_data = '''
             "Element_Fire": 0.98986,
             "Element_Water": 1.0,
             "Element_Wind": 0.98377,
-            "Element_Earth": 0.41129
+            "Element_Earth": 0.41129,
+            "Toughness": 434
         },
         {
             "Family": "Metals",
@@ -281,7 +300,8 @@ json_data = '''
             "Element_Fire": 0.73454,
             "Element_Water": 1.0,
             "Element_Wind": 0.71429,
-            "Element_Earth": 0.71218
+            "Element_Earth": 0.71218,
+            "Toughness": 980
         },
         {
             "Family": "Metals",
@@ -295,7 +315,8 @@ json_data = '''
             "Element_Fire": 0.85797,
             "Element_Water": 1.0,
             "Element_Wind": 0.69805,
-            "Element_Earth": 0.5034
+            "Element_Earth": 0.5034,
+            "Toughness": 1500
         },
         {
             "Family": "Metals",
@@ -309,7 +330,8 @@ json_data = '''
             "Element_Fire": 0.85488,
             "Element_Water": 0.93333,
             "Element_Wind": 0.89286,
-            "Element_Earth": 0.68351
+            "Element_Earth": 0.68351,
+            "Toughness": 2500
         },
         {
             "Family": "Metals",
@@ -323,7 +345,8 @@ json_data = '''
             "Element_Fire": 0.9087,
             "Element_Water": 1.0,
             "Element_Wind": 0.61688,
-            "Element_Earth": 0.60306
+            "Element_Earth": 0.60306,
+            "Toughness": 2000
         },
         {
             "Family": "Organics",
@@ -911,7 +934,8 @@ for mat in materials:
             "slash": round(mat.get("Defense_Slash", 0), 5),
             "pierce": round(mat.get("Defense_Pierce", 0), 5),
             "blunt": round(mat.get("Defense_Blunt", 0), 5),
-            "magic": round(magic_avg, 5)
+            "magic": round(magic_avg, 5),
+            "toughness": mat.get("Toughness", 0)
         }
         db[category][tier].append(new_mat)
 
