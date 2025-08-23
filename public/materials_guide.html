@@ -5,8 +5,19 @@
   <title>Game Simulator - Material System Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.tailwindcss.com"></script>
+    <script src="aspect_ratio.js"></script>
   <script>
-    tailwind.config = { theme: { extend: {} } };
+      tailwind.config = {
+        theme: {
+          extend: {
+            screens: {
+              "aspect-ultrawide": { "raw": "[data-aspect-ratio='ultrawide']" },
+              "aspect-widescreen": { "raw": "[data-aspect-ratio='widescreen']" },
+              "aspect-mobile": { "raw": "[data-aspect-ratio='mobile']" },
+            },
+          },
+        },
+      };
     document.documentElement.classList.add("dark");
   </script>
   <style>
@@ -17,13 +28,19 @@
     ul { margin-left: 1.5rem; }
     li { margin-bottom: 0.25rem; }
     code { display: block; background-color: #1e293b; padding: 0.5rem 0.8rem; border-radius: 0.25rem; font-family: monospace; white-space: pre; }
-  </style>
+        [data-aspect-ratio='ultrawide'] #materials-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      [data-aspect-ratio='widescreen'] #materials-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    </style>
 </head>
 <body>
   <div class="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
     <div class="max-w-4xl mx-auto">
       <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between flex-wrap">
           <div class="text-xl font-bold tracking-tight">Game Simulator</div>
           <div class="flex flex-wrap gap-4">
             <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
@@ -42,12 +59,12 @@
 
       <header class="text-center">
         <h1 class="text-4xl font-bold tracking-tight mb-4">Material and Gameplay System</h1>
-        <p class="text-lg text-slate-300">
+        <p class="text-lg text-slate-300 break-words">
           How real-world materials are translated into gameplay statistics.
         </p>
       </header>
 
-      <main class="mt-10 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+      <main class="mt-10 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg break-words">
 
         <section id="overview">
           <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">1. Overview</h2>
