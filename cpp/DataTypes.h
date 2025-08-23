@@ -68,6 +68,14 @@ enum class EWeaponType : uint8 {
     Lance UMETA(DisplayName = "Lance")
 };
 
+UENUM(BlueprintType)
+enum class ESiegeWeaponType : uint8 {
+    Catapult UMETA(DisplayName = "Catapult"),
+    BatteringRam UMETA(DisplayName = "Battering Ram"),
+    Trebuchet UMETA(DisplayName = "Trebuchet"),
+    Ballista UMETA(DisplayName = "Ballista")
+};
+
 namespace Game {
     using ArmorClass = EArmorClass;
     using DamageType = EDamageType;
@@ -75,6 +83,7 @@ namespace Game {
     using Race = ERace;
     using ShieldType = EShieldType;
     using WeaponType = EWeaponType;
+    using SiegeWeaponType = ESiegeWeaponType;
 }
 
 UENUM(BlueprintType)
