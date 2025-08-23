@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Jewelry Crafting
     const jewelryTypeSelect = document.getElementById('jewelry-type');
     const jewelryMetalSelect = document.getElementById('jewelry-metal');
-    const jewelryGemstoneSelect = document.getElementById('jewelry-gemstone');
-    const jewelryResultsDiv = document.getElementById('jewelry-results');
+    const jewelryTierSelect = document.getElementById('jewelry-tier');
+    const jewelryResultsDiv = document.getElementById('jewelry-crafting-results');
 
     const WEAPONS = {
         Sword:   { type: "melee",   massKilograms: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.20 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [ingredient1Select, ingredient2Select].forEach(el => el.addEventListener('change', calculateAndDisplayAlchemyResults));
         [rune1Select, rune2Select].forEach(el => el.addEventListener('change', calculateAndDisplayEnchantingResults));
         roughGemstoneSelect.addEventListener('change', calculateAndDisplayRefiningResults);
-        [jewelryTypeSelect, jewelryMetalSelect, jewelryGemstoneSelect].forEach(el => el.addEventListener('change', calculateAndDisplayJewelryResults));
+        [jewelryTypeSelect, jewelryMetalSelect, jewelryTierSelect].forEach(el => el.addEventListener('change', calculateAndDisplayJewelryResults));
     }
 
     function calculateAllResults() {
@@ -236,12 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Garnet", rowName: "Minerals_T3_Garnet", rough: "Rough Garnet", cut: "Cut Garnet" },
         { name: "Quartz", rowName: "Minerals_T1_Quartz", rough: "Rough Quartz", cut: "Cut Quartz" },
     ];
-
-    const JEWELRY_VOLUMES = {
-        Ring: { Metal: 50, Gemstone: 5 },
-        Necklace: { Metal: 150, Gemstone: 10 },
-        Amulet: { Metal: 100, Gemstone: 15 },
-    };
 
     function populateBowyerDropdowns() {
         const bowTypes = ["Long", "Recurve", "Yumi", "Horse", "Flat"];
@@ -520,38 +514,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateJewelryDropdowns() {
         if (!jewelryTypeSelect) return;
-        Object.keys(JEWELRY_VOLUMES).forEach(type => addOption(jewelryTypeSelect, type, type));
         materialsData.filter(m => m.Category === 'Metals').forEach(m => addOption(jewelryMetalSelect, m.Name, m.RowName));
-        GEMSTONES.forEach(gem => addOption(jewelryGemstoneSelect, gem.cut, gem.rowName));
     }
 
     function calculateAndDisplayJewelryResults() {
         if (!jewelryTypeSelect) return;
         const itemType = jewelryTypeSelect.value;
         const metalMaterial = findMaterial(jewelryMetalSelect.value);
-        const gemData = GEMSTONES.find(g => g.rowName === jewelryGemstoneSelect.value);
+        const tier = parseInt(jewelryTierSelect.value, 10);
 
-        if (!itemType || !metalMaterial || !gemData) return;
+        if (!itemType || !metalMaterial || !tier) return;
 
-        const volumes = JEWELRY_VOLUMES[itemType];
-        const metalDensity = parseFloat(metalMaterial.Density);
-        const gemMaterial = findMaterial(gemData.rowName);
-        const gemDensity = parseFloat(gemMaterial.Density);
+        const toughness = (parseFloat(metalMaterial.Slash) + parseFloat(metalMaterial.Pierce) + parseFloat(metalMaterial.Blunt)) / 3;
+        const durability = toughness * 100 * tier; // Scaled up to be a more meaningful number
 
-        const requiredMetal = (volumes.Metal * metalDensity) / 100;
-        const requiredGem = (volumes.Gemstone * gemDensity) / 100; // This is a bit of a guess, as we don't have separate densities for rough/cut.
+        let attribute = '';
+        let modifier = 0;
+        let skill = '';
+        let skillIncrease = 0;
 
-        const totalMass = (volumes.Metal * metalDensity + volumes.Gemstone * gemDensity) / 1000;
+        if (itemType === 'Ring') {
+            attribute = Math.random() < 0.5 ? 'Intelligence' : 'Strength';
+            modifier = Math.floor(Math.random() * tier) + 1;
+        } else if (itemType === 'Earring') {
+            attribute = Math.random() < 0.5 ? 'Dexterity' : 'Psyche';
+            modifier = Math.floor(Math.random() * tier) + 1;
+        } else if (itemType === 'Amulet') {
+            const skills = [
+                "ArmorTraining", "BlockingAndShields", "Sword", "Axe", "Dagger", "Hammer", "Polesword",
+                "Poleaxe", "Spear", "MountedCombat", "MountedArchery", "MountedMagery", "Anatomy",
+                "BeastControl", "Taming", "Fire", "Water", "Earth", "Wind", "Radiance", "Void",
+                "Stealth", "MeleeAmbush", "RangedAmbush", "ElementalAmbush"
+            ];
+            skill = skills[Math.floor(Math.random() * skills.length)];
+            skillIncrease = Math.floor(Math.random() * (10 * tier)) + 1;
+        }
 
-        jewelryResultsDiv.innerHTML = `
-            <h5 class="text-md font-semibold text-emerald-400 mt-4">Crafting requirements for ${itemType}:</h5>
-            <ul class="list-disc list-inside">
-                <li>Metal: ${requiredMetal.toFixed(2)} units of ${metalMaterial.Name}</li>
-                <li>Gemstone: 1 x ${gemData.cut}</li>
-            </ul>
-            <h5 class="text-md font-semibold text-emerald-400 mt-2">Item Stats:</h5>
-            <p>Estimated Mass: ${totalMass.toFixed(2)} kg</p>
+        let resultsHTML = `
+            <h5 class="text-md font-semibold text-emerald-400 mt-4">Crafted ${itemType}:</h5>
+            <p><strong>Material:</strong> ${metalMaterial.Name}</p>
+            <p><strong>Tier:</strong> ${tier}</p>
+            <p><strong>Durability:</strong> ${durability.toFixed(2)}</p>
         `;
+
+        if (itemType === 'Ring' || itemType === 'Earring') {
+            resultsHTML += `<p><strong>Bonus:</strong> +${modifier} ${attribute}</p>`;
+        } else if (itemType === 'Amulet') {
+            resultsHTML += `<p><strong>Bonus:</strong> +${skillIncrease} to ${skill}</p>`;
+        }
+
+        jewelryResultsDiv.innerHTML = resultsHTML;
     }
 
     function calculatePhysicalItemStats(components) {

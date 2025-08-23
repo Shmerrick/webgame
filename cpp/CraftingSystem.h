@@ -9,6 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <map>
+#include <random>
 
 namespace Game {
 
@@ -281,6 +282,79 @@ public:
         newSiegeWeapon.setDurability(maxDurability, maxDurability);
 
         return newSiegeWeapon;
+    }
+
+    // Jewelry Crafting
+    static Item* CraftJewelry(
+        JewelryType jewelryType,
+        const Material* metal,
+        int tier
+    ) {
+        if (!metal) {
+            throw std::runtime_error("Metal material is required for jewelry crafting.");
+        }
+
+        std::random_device rd;
+        std::mt19937 gen(rd());
+
+        double durability = metal->getToughness() * 10 * tier; // Example durability calculation
+
+        if (jewelryType == JewelryType::Ring) {
+            Ring* newRing = new Ring(metal, tier);
+            newRing->setDurability(durability, durability);
+
+            // Logic for Ring
+            std::uniform_int_distribution<> attrib_dist(0, 1);
+            std::string attribute = (attrib_dist(gen) == 0) ? "Intelligence" : "Strength";
+
+            std::uniform_int_distribution<> roll_dist(1, tier);
+            int roll = roll_dist(gen);
+
+            newRing->setModifiedStat(attribute);
+            newRing->setModifierValue(roll);
+
+            return newRing;
+        }
+        else if (jewelryType == JewelryType::Earring) {
+            Earring* newEarring = new Earring(metal, tier);
+            newEarring->setDurability(durability, durability);
+
+            // Logic for Earring
+            std::uniform_int_distribution<> attrib_dist(0, 1);
+            std::string attribute = (attrib_dist(gen) == 0) ? "Dexterity" : "Psyche";
+
+            std::uniform_int_distribution<> roll_dist(1, tier);
+            int roll = roll_dist(gen);
+
+            newEarring->setModifiedStat(attribute);
+            newEarring->setModifierValue(roll);
+
+            return newEarring;
+        }
+        else if (jewelryType == JewelryType::Amulet) {
+            Amulet* newAmulet = new Amulet(metal, tier);
+            newAmulet->setDurability(durability, durability);
+
+            // Logic for Amulet
+            static const std::vector<std::string> skills = {
+                "ArmorTraining", "BlockingAndShields", "Sword", "Axe", "Dagger", "Hammer", "Polesword",
+                "Poleaxe", "Spear", "MountedCombat", "MountedArchery", "MountedMagery", "Anatomy",
+                "BeastControl", "Taming", "Fire", "Water", "Earth", "Wind", "Radiance", "Void",
+                "Stealth", "MeleeAmbush", "RangedAmbush", "ElementalAmbush"
+            };
+            std::uniform_int_distribution<> skill_dist(0, skills.size() - 1);
+            std::string skill = skills[skill_dist(gen)];
+
+            std::uniform_int_distribution<> roll_dist(1, 10 * tier);
+            int roll = roll_dist(gen);
+
+            newAmulet->setModifiedSkill(skill);
+            newAmulet->setSkillIncrease(roll);
+
+            return newAmulet;
+        }
+
+        return nullptr;
     }
 };
 

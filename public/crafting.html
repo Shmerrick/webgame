@@ -267,18 +267,28 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label for="jewelry-type" class="block text-sm font-medium text-slate-300">Item Type</label>
-                    <select id="jewelry-type" name="jewelry-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                    <select id="jewelry-type" name="jewelry-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white">
+                        <option>Ring</option>
+                        <option>Earring</option>
+                        <option>Amulet</option>
+                    </select>
                   </div>
                   <div>
                     <label for="jewelry-metal" class="block text-sm font-medium text-slate-300">Metal</label>
                     <select id="jewelry-metal" name="jewelry-metal" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
                   </div>
                   <div>
-                    <label for="jewelry-gemstone" class="block text-sm font-medium text-slate-300">Gemstone</label>
-                    <select id="jewelry-gemstone" name="jewelry-gemstone" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                    <label for="jewelry-tier" class="block text-sm font-medium text-slate-300">Tier</label>
+                    <select id="jewelry-tier" name="jewelry-tier" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
                   </div>
                 </div>
-                <div id="jewelry-results" class="mt-4 text-slate-300">
+                <div id="jewelry-crafting-results" class="mt-4 text-slate-300">
                   <!-- Results will be populated by JavaScript -->
                 </div>
               </div>

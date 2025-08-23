@@ -143,6 +143,69 @@ private:
     std::vector<SiegeComponent> components;
 };
 
+class Ring : public Item {
+public:
+    Ring(const Material* metal, int tier) : metal(metal), tier(tier) {
+        // Determine attribute and roll modifier
+    }
+
+    const Material* getMetal() const { return metal; }
+    int getTier() const { return tier; }
+    std::string getModifiedStat() const { return modifiedStat; }
+    int getModifierValue() const { return modifierValue; }
+
+    void setModifiedStat(const std::string& stat) { modifiedStat = stat; }
+    void setModifierValue(int value) { modifierValue = value; }
+
+private:
+    const Material* metal;
+    int tier;
+    std::string modifiedStat; // "Intelligence" or "Strength"
+    int modifierValue;
+};
+
+class Earring : public Item {
+public:
+    Earring(const Material* metal, int tier) : metal(metal), tier(tier) {
+        // Determine attribute and roll modifier
+    }
+
+    const Material* getMetal() const { return metal; }
+    int getTier() const { return tier; }
+    std::string getModifiedStat() const { return modifiedStat; }
+    int getModifierValue() const { return modifierValue; }
+
+    void setModifiedStat(const std::string& stat) { modifiedStat = stat; }
+    void setModifierValue(int value) { modifierValue = value; }
+
+private:
+    const Material* metal;
+    int tier;
+    std::string modifiedStat; // "Dexterity" or "Psyche"
+    int modifierValue;
+};
+
+class Amulet : public Item {
+public:
+    Amulet(const Material* metal, int tier) : metal(metal), tier(tier) {
+        // Determine skill and roll modifier
+    }
+
+    const Material* getMetal() const { return metal; }
+    int getTier() const { return tier; }
+    std::string getModifiedSkill() const { return modifiedSkill; }
+    int getSkillIncrease() const { return skillIncrease; }
+
+    void setModifiedSkill(const std::string& skill) { modifiedSkill = skill; }
+    void setSkillIncrease(int value) { skillIncrease = value; }
+
+private:
+    const Material* metal;
+    int tier;
+    std::string modifiedSkill;
+    int skillIncrease;
+};
+
 } // namespace Game
 
 #endif // ITEMS_H
