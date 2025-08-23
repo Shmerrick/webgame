@@ -25,9 +25,13 @@
     body { background: #0f172a; color: #e2e8f0; margin: 0; }
     h2 { margin-top: 1.5rem; margin-bottom: 1rem; }
     h3 { margin-top: 1rem; margin-bottom: 0.5rem; }
-    ul { margin-left: 1.5rem; }
-    li { margin-bottom: 0.25rem; }
+    ul { margin-left: 1.5rem; list-style-type: '— '; }
+    li { margin-bottom: 0.5rem; }
     code { background-color: #1e293b; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: monospace; }
+    section { transition: all 0.2s ease-in-out; }
+    section:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+    h2 { margin-bottom: 1.5rem; }
+    h3 { margin-top: 1.5rem; margin-bottom: 1rem; }
         [data-aspect-ratio='ultrawide'] #materials-container {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -67,12 +71,12 @@
         </p>
       </header>
 
-      <main class="mt-10 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg break-words">
+      <main class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="flex flex-col gap-8">
+          <section id="core-stats" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2 mb-4">📖 Core Stats System</h2>
 
-        <section id="core-stats">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">📖 Core Stats System</h2>
-
-          <h3 class="text-2xl font-semibold mt-4">Attributes (Range: 0–100)</h3>
+            <h3 class="text-2xl font-semibold mt-4">Attributes (Range: 0–100)</h3>
           <ul class="list-disc text-slate-300">
             <li><strong>Strength:</strong> Increases melee damage and allows the user to use heavier shields and armor. It also allows the player to use higher draw strength bows and crossbow.</li>
             <li><strong>Dexterity:</strong> Increases stamina
@@ -95,12 +99,11 @@
             <li><strong>81–90:</strong> 3 points → 1 stat</li>
             <li><strong>91–100:</strong> 4 points → 1 stat</li>
           </ul>
-        </section>
+          </section>
+          <section id="example-builds" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2 mb-4">🛠 Example Builds</h2>
 
-        <section id="example-builds" class="mt-8">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">🛠 Example Builds</h2>
-
-          <div class="mt-4">
+            <div class="mt-4">
             <h3 class="text-2xl font-semibold">1. Warrior Build (Melee Focus)</h3>
             <p class="text-slate-400 italic">Goal: Maximize Strength for high melee/bow damage, balanced stamina for survivability.</p>
             <ul class="list-disc text-slate-300 mt-2">
@@ -136,9 +139,11 @@
             <p class="font-semibold text-emerald-400 mt-2">✅ Total Cost = 270 points (perfect allocation)</p>
           </div>
         </section>
+      </div>
 
-        <section id="combat-system" class="mt-8">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">Combat System – Summary</h2>
+      <div class="flex flex-col gap-8">
+        <section id="combat-system" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2 mb-4">⚔️ Combat System – Summary</h2>
 
           <h3 class="text-2xl font-semibold mt-4">0) Tunable Knobs</h3>
           <ul class="list-disc text-slate-300">
@@ -216,10 +221,9 @@
             <li>On crafting: Calculate and save Blunt, Slash, Pierce damage values.</li>
             <li>Runtime: Combat uses stored integer values for performance.</li>
           </ul>
-
         </section>
-
-      </main>
+      </div>
+    </main>
     </div>
   </div>
 </body>

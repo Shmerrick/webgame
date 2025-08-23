@@ -132,6 +132,8 @@
 
       const MATERIALS_FOR_INNER = ["Cloth", "Leather"];
       const MATERIALS_FOR_BINDING = ["Leather", "Metals"];
+      const MATERIALS_FOR_JEWELRY_SETTING = ["Metals"];
+      const MATERIALS_FOR_JEWELRY_GEM = ["Minerals"];
 
       // Weapons
       const WEAPONS = {
@@ -270,8 +272,10 @@
 
         const fallbackFlags = {};
         for (const key in defenses) {
-            if (defenses[key] === 0) {
-                defenses[key] = 0.1;
+            // If the calculated defense value is so low that it would display as 0%,
+            // apply the fallback value to ensure a minimum level of defense is shown.
+            if (defenses[key] < 0.005) {
+                defenses[key] = 0.1; // Fallback to 10%
                 fallbackFlags[key] = true;
             } else {
                 fallbackFlags[key] = false;
@@ -434,11 +438,11 @@
           torso:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
           legs:   { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
           shield: { shield:"None" },
-          ring1: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5") },
-          ring2: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5") },
-          earring1: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5") },
-          earring2: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5") },
-          amulet: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5") },
+          ring1: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5") },
+          ring2: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5") },
+          earring1: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5") },
+          earring2: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5") },
+          amulet: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5") },
         });
 
         // Target armor (for “damage against armor”)
@@ -648,6 +652,33 @@
           return { ...p, [slotId]: { ...prev, bindingTier: tier, bindingMaterial: material } };
         });
         const setArmorBindingMaterial = (slotId, material)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], bindingMaterial: material } }));
+
+        const setJewelrySettingCategory = (slotId, category)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const tier = prev.settingTier || "T5";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, settingCategory: category, settingTier: tier, settingMaterial: material } };
+        });
+        const setJewelrySettingTier = (slotId, tier)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const category = prev.settingCategory || "Metals";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, settingTier: tier, settingMaterial: material } };
+        });
+        const setJewelrySettingMaterial = (slotId, material)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], settingMaterial: material } }));
+        const setJewelryGemCategory = (slotId, category)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const tier = prev.gemTier || "T5";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, gemCategory: category, gemTier: tier, gemMaterial: material } };
+        });
+        const setJewelryGemTier = (slotId, tier)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const category = prev.gemCategory || "Minerals";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, gemTier: tier, gemMaterial: material } };
+        });
+        const setJewelryGemMaterial = (slotId, material)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], gemMaterial: material } }));
 
         const setWeaponCompCategory = (comp, category)=> setWeaponComps(p=>{
           const prev = p[comp] || {};
@@ -1143,7 +1174,8 @@
                       const bindingCategory = entry.bindingCategory || "Leather";
                       const bindingTier = entry.bindingTier || "T1";
                       const bindingMaterial = entry.bindingMaterial || "";
-                      const eff = effectiveDRForSlot(DB, cls, category, material, innerCategory, innerMaterial, bindingCategory, bindingMaterial, isShield);
+                      const isJewelry = ["ring1", "ring2", "earring1", "earring2", "amulet"].includes(slot.id);
+                      const eff = isJewelry ? { blunt: 0, slash: 0, pierce: 0, fire: 0, water: 0, wind: 0, earth: 0, fallbackFlags: {} } : effectiveDRForSlot(DB, cls, category, material, innerCategory, innerMaterial, bindingCategory, bindingMaterial, isShield);
                       const allowedCats = MATERIALS_FOR_CLASS[entry.class||"None"] || [];
                       const allTiers = tiersForCategory(DB, category);
                       const items = itemsForCategoryAndTier(DB, category, tier);
@@ -1156,7 +1188,47 @@
                             <div className="text-xs text-slate-400">Weight factor in loadout score: {slot.factor}</div>
                           </div>
 
-                          {!isShield ? (
+                          {isJewelry ? (
+                            <>
+                              <label className="block text-sm mt-3">Setting Material</label>
+                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.settingCategory} onChange={e=>setJewelrySettingCategory(slot.id, e.target.value)}>
+                                {MATERIALS_FOR_JEWELRY_SETTING.map(k=> <option key={k} value={k}>{k}</option>)}
+                              </select>
+                              <div className="grid grid-cols-2 gap-2 mt-3">
+                                <div>
+                                  <label className="block text-sm">Tier</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.settingTier} onChange={e=>setJewelrySettingTier(slot.id, e.target.value)}>
+                                    {tiersForCategory(DB, entry.settingCategory).map(t=> <option key={t} value={t}>{t}</option>)}
+                                  </select>
+                                </div>
+                                <div>
+                                  <label className="block text-sm">Specific Material</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.settingMaterial} onChange={e=>setJewelrySettingMaterial(slot.id, e.target.value)}>
+                                    {itemsForCategoryAndTier(DB, entry.settingCategory, entry.settingTier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                                  </select>
+                                </div>
+                              </div>
+
+                              <label className="block text-sm mt-3">Gem</label>
+                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.gemCategory} onChange={e=>setJewelryGemCategory(slot.id, e.target.value)}>
+                                {MATERIALS_FOR_JEWELRY_GEM.map(k=> <option key={k} value={k}>{k}</option>)}
+                              </select>
+                              <div className="grid grid-cols-2 gap-2 mt-3">
+                                <div>
+                                  <label className="block text-sm">Tier</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.gemTier} onChange={e=>setJewelryGemTier(slot.id, e.target.value)}>
+                                    {tiersForCategory(DB, entry.gemCategory).map(t=> <option key={t} value={t}>{t}</option>)}
+                                  </select>
+                                </div>
+                                <div>
+                                  <label className="block text-sm">Specific Material</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.gemMaterial} onChange={e=>setJewelryGemMaterial(slot.id, e.target.value)}>
+                                    {itemsForCategoryAndTier(DB, entry.gemCategory, entry.gemTier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                                  </select>
+                                </div>
+                              </div>
+                            </>
+                          ) : !isShield ? (
                             <>
                               <label className="block text-sm mt-2">Armor Class</label>
                               <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.class||"None"} onChange={e=>setArmorClassSafe(slot.id, e.target.value)}>
