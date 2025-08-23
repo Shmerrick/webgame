@@ -77,76 +77,71 @@ document.addEventListener('DOMContentLoaded', () => {
         Poleaxe: { type: "melee", massKilograms: 6, baseCost: 40, head: { Blunt: 0.25, Slash: 0.30, Pierce: 0.15 }, direction: { Left: "Slash", Right: "Blunt", Up: "Pierce", Down: "Slash" } },
     };
 
-    // Utility to parse CSV data
-    function parseCSV(csv) {
-        const lines = csv.split('\n').filter(line => line.trim());
-        const header = lines[0].split(',').map(h => h.trim());
-        return lines.slice(1).map(line => {
-            const values = line.split(',');
-            return header.reduce((obj, key, index) => {
-                obj[key] = values[index] ? values[index].trim() : '';
-                return obj;
-            }, {});
-        });
-    }
-
     // Fetch and process data
     async function loadData() {
         try {
-            // Fetch materials from db.json
-            const materialsResponse = await fetch('/db.json');
-            const materialsJson = await materialsResponse.json();
-            materialsData = processMaterials(materialsJson);
+            console.log("Starting data load...");
+            // Fetch all data from new JSON files
+            const [
+                materialsJson,
+                armorVolumesList,
+                shieldVolumesList,
+                weaponVolumesList,
+                ingredientsList,
+                runesList,
+                bannedNamesText
+            ] = await Promise.all([
+                fetch('/materials.json').then(res => res.json()),
+                fetch('/armor_volumes.json').then(res => res.json()),
+                fetch('/shield_volumes.json').then(res => res.json()),
+                fetch('/weapon_volumes.json').then(res => res.json()),
+                fetch('/potion_ingredients.json').then(res => res.json()),
+                fetch('/enchantment_runes.json').then(res => res.json()),
+                fetch('/banned_names.txt').then(res => res.text())
+            ]);
+            console.log("All files fetched.");
 
-            // Fetch armor volumes
-            const armorVolumesResponse = await fetch('/armor_volumes.csv');
-            const armorVolumesCsv = await armorVolumesResponse.text();
-            const parsedArmorVolumes = parseCSV(armorVolumesCsv);
+            // Process materials
+            materialsData = processMaterials(materialsJson);
+            console.log("Materials processed.");
 
             // Restructure armor volumes for easy lookup
-            parsedArmorVolumes.forEach(item => {
+            armorVolumesList.forEach(item => {
                 if (!armorVolumesData[item.ArmorPiece]) {
                     armorVolumesData[item.ArmorPiece] = {};
                 }
                 armorVolumesData[item.ArmorPiece][item.Component] = parseFloat(item.Volume_cm3);
             });
+            console.log("Armor volumes processed.");
 
-            // Fetch shield volumes
-            const shieldVolumesResponse = await fetch('/shield_volumes.csv');
-            const shieldVolumesCsv = await shieldVolumesResponse.text();
-            const parsedShieldVolumes = parseCSV(shieldVolumesCsv);
-            parsedShieldVolumes.forEach(item => {
+            // Restructure shield volumes for easy lookup
+            shieldVolumesList.forEach(item => {
                 if (!shieldVolumesData[item.ShieldType]) shieldVolumesData[item.ShieldType] = {};
                 shieldVolumesData[item.ShieldType][item.Component] = parseFloat(item.Volume_cm3);
             });
+            console.log("Shield volumes processed.");
 
-            // Fetch weapon volumes
-            const weaponVolumesResponse = await fetch('/weapon_volumes.csv');
-            const weaponVolumesCsv = await weaponVolumesResponse.text();
-            const parsedWeaponVolumes = parseCSV(weaponVolumesCsv);
-            parsedWeaponVolumes.forEach(item => {
+            // Restructure weapon volumes for easy lookup
+            weaponVolumesList.forEach(item => {
                 if (!weaponVolumesData[item.weapon_type]) weaponVolumesData[item.weapon_type] = {};
                 weaponVolumesData[item.weapon_type][item.component_name] = parseFloat(item.volume_cm3);
             });
+            console.log("Weapon volumes processed.");
 
-            // Fetch potion ingredients
-            const ingredientsResponse = await fetch('/potion_ingredients.csv');
-            const ingredientsCsv = await ingredientsResponse.text();
-            potionIngredientsData = parseCSV(ingredientsCsv);
+            // Assign other data
+            potionIngredientsData = ingredientsList;
+            enchantmentRunesData = runesList;
+            console.log("Ingredients and runes assigned.");
 
-            // Fetch enchantment runes
-            const runesResponse = await fetch('/enchantment_runes.csv');
-            const runesCsv = await runesResponse.text();
-            enchantmentRunesData = parseCSV(runesCsv);
-
-            // Fetch banned names
-            const bannedNamesResponse = await fetch('/banned_names.txt');
-            const bannedNamesText = await bannedNamesResponse.text();
             bannedNames = bannedNamesText.split('\n').filter(name => name.trim() !== '').map(name => name.toLowerCase());
+            console.log("Banned names processed.");
 
             populateAllDropdowns();
+            console.log("Dropdowns populated.");
             setupAllEventListeners();
+            console.log("Event listeners set up.");
             calculateAllResults();
+            console.log("Initial results calculated. Load complete.");
 
         } catch (error) {
             console.error("Failed to load crafting data:", error);
@@ -159,28 +154,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function processMaterials(data) {
         const materials = [];
-        const rowNames = new Set();
-
         for (const category in data) {
             for (const tier in data[category]) {
                 for (const material of data[category][tier]) {
-                    // Sanitize the material name to create a valid RowName
-                    let cleanName = material.name.replace(/\(.*\)/, '').trim();
-                    cleanName = cleanName.replace(/[^a-zA-Z0-9_]/g, '_');
-
-                    let rowName = `${category}_${tier}_${cleanName}`;
-
-                    // Handle potential duplicate RowNames
-                    let counter = 1;
-                    const originalRowName = rowName;
-                    while (rowNames.has(rowName)) {
-                        rowName = `${originalRowName}_${counter}`;
-                        counter++;
-                    }
-                    rowNames.add(rowName);
-
                     materials.push({
-                        RowName: rowName,
+                        RowName: material.rowName, // Use the pre-existing rowName from JSON
                         Category: category,
                         Tier: tier,
                         Name: material.name,

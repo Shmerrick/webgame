@@ -1,0 +1,22 @@
+[
+  {
+    "RowName": "Rune_of_Fire",
+    "Name": "Rune of Fire",
+    "Effect": "FireDamage"
+  },
+  {
+    "RowName": "Rune_of_Ice",
+    "Name": "Rune of Ice",
+    "Effect": "IceDamage"
+  },
+  {
+    "RowName": "Rune_of_Healing",
+    "Name": "Rune of Healing",
+    "Effect": "HealthRegen"
+  },
+  {
+    "RowName": "Rune_of_Protection",
+    "Name": "Rune of Protection",
+    "Effect": "ArmorBuff"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "siege_weapon_type": "Battering Ram",
+    "component_name": "Frame",
+    "volume_cm3": "50000"
+  },
+  {
+    "siege_weapon_type": "Battering Ram",
+    "component_name": "Head",
+    "volume_cm3": "10000"
+  },
+  {
+    "siege_weapon_type": "Battering Ram",
+    "component_name": "Straps",
+    "volume_cm3": "5000"
+  },
+  {
+    "siege_weapon_type": "Ballista",
+    "component_name": "Bow Assembly",
+    "volume_cm3": "30000"
+  },
+  {
+    "siege_weapon_type": "Ballista",
+    "component_name": "String",
+    "volume_cm3": "2000"
+  },
+  {
+    "siege_weapon_type": "Ballista",
+    "component_name": "Frame",
+    "volume_cm3": "40000"
+  },
+  {
+    "siege_weapon_type": "Ballista",
+    "component_name": "Winch",
+    "volume_cm3": "5000"
+  },
+  {
+    "siege_weapon_type": "Catapult",
+    "component_name": "Frame",
+    "volume_cm3": "60000"
+  },
+  {
+    "siege_weapon_type": "Catapult",
+    "component_name": "Arm",
+    "volume_cm3": "15000"
+  },
+  {
+    "siege_weapon_type": "Catapult",
+    "component_name": "Bucket",
+    "volume_cm3": "8000"
+  },
+  {
+    "siege_weapon_type": "Catapult",
+    "component_name": "Rope",
+    "volume_cm3": "3000"
+  },
+  {
+    "siege_weapon_type": "Trebuchet",
+    "component_name": "Frame",
+    "volume_cm3": "120000"
+  },
+  {
+    "siege_weapon_type": "Trebuchet",
+    "component_name": "Arm",
+    "volume_cm3": "30000"
+  },
+  {
+    "siege_weapon_type": "Trebuchet",
+    "component_name": "Counterweight",
+    "volume_cm3": "50000"
+  },
+  {
+    "siege_weapon_type": "Trebuchet",
+    "component_name": "Sling",
+    "volume_cm3": "4000"
+  },
+  {
+    "siege_weapon_type": "Ammunition",
+    "component_name": "Ballista Bolt",
+    "volume_cm3": "500"
+  },
+  {
+    "siege_weapon_type": "Ammunition",
+    "component_name": "Catapult Stone",
+    "volume_cm3": "2000"
+  },
+  {
+    "siege_weapon_type": "Ammunition",
+    "component_name": "Trebuchet Boulder",
+    "volume_cm3": "10000"
+  }
+]

@@ -53,17 +53,17 @@ bool loadDatabase(Database& db, const std::string& filepath) {
             for (auto const& [tier_key, tier_val] : cat_val.items()) {
                 for (auto const& mat_val : tier_val) {
                     Material m;
-                    m.name = mat_val.at("name");
-                    m.slash = mat_val.at("slash");
-                    m.pierce = mat_val.at("pierce");
-                    m.blunt = mat_val.at("blunt");
-                    m.fire = mat_val.at("fire");
-                    m.water = mat_val.at("water");
-                    m.wind = mat_val.at("wind");
-                    m.earth = mat_val.at("earth");
-                    m.toughness = mat_val.at("toughness");
-                    m.magic = mat_val.at("magic");
-                    m.density = mat_val.at("density");
+                    m.name = mat_val.value("name", "Unknown");
+                    m.slash = mat_val.value("slash", 0.0);
+                    m.pierce = mat_val.value("pierce", 0.0);
+                    m.blunt = mat_val.value("blunt", 0.0);
+                    m.fire = mat_val.value("fire", 0.0);
+                    m.water = mat_val.value("water", 0.0);
+                    m.wind = mat_val.value("wind", 0.0);
+                    m.earth = mat_val.value("earth", 0.0);
+                    m.toughness = mat_val.value("toughness", 0);
+                    m.magic = mat_val.value("magic", 0.0);
+                    m.density = mat_val.value("density", 1.0);
                     db[cat_key][tier_key].push_back(m);
                 }
             }
@@ -83,7 +83,7 @@ int main(int, char**)
 {
     // Load the database
     Database db;
-    if (!loadDatabase(db, "../../public/db.json")) {
+    if (!loadDatabase(db, "../../public/materials.json")) {
         return 1;
     }
 

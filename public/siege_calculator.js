@@ -6,34 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const siegeWeaponComponentsDiv = document.getElementById('siege-weapon-components');
     const siegeResultsDiv = document.getElementById('siege-crafting-results');
 
-    // Utility to parse CSV data
-    function parseCSV(csv) {
-        const lines = csv.split('\n').filter(line => line.trim());
-        const header = lines[0].split(',').map(h => h.trim());
-        return lines.slice(1).map(line => {
-            const values = line.split(',');
-            return header.reduce((obj, key, index) => {
-                obj[key] = values[index] ? values[index].trim() : '';
-                return obj;
-            }, {});
-        });
-    }
-
     // Fetch and process data
     async function loadData() {
         try {
-            // Fetch materials
-            const materialsResponse = await fetch('/materials.csv');
-            const materialsCsv = await materialsResponse.text();
-            materialsData = parseCSV(materialsCsv);
+            // Fetch all data from new JSON files
+            const [
+                materialsJson,
+                siegeVolumesList,
+            ] = await Promise.all([
+                fetch('/materials.json').then(res => res.json()),
+                fetch('/siege_volumes.json').then(res => res.json()),
+            ]);
 
-            // Fetch siege volumes
-            const siegeVolumesResponse = await fetch('/siege_volumes.csv');
-            const siegeVolumesCsv = await siegeVolumesResponse.text();
-            const parsedSiegeVolumes = parseCSV(siegeVolumesCsv);
+            // Process materials into a flat list
+            materialsData = processMaterials(materialsJson);
 
             // Restructure siege volumes for easy lookup
-            parsedSiegeVolumes.forEach(item => {
+            siegeVolumesList.forEach(item => {
                 if (!siegeVolumesData[item.siege_weapon_type]) {
                     siegeVolumesData[item.siege_weapon_type] = {};
                 }
@@ -82,6 +71,28 @@ document.addEventListener('DOMContentLoaded', () => {
             container.appendChild(select);
             siegeWeaponComponentsDiv.appendChild(container);
         });
+    }
+
+    function processMaterials(data) {
+        const materials = [];
+        for (const category in data) {
+            for (const tier in data[category]) {
+                for (const material of data[category][tier]) {
+                    materials.push({
+                        RowName: material.rowName, // Use the pre-existing rowName from JSON
+                        Category: category,
+                        Tier: tier,
+                        Name: material.name,
+                        Slash: material.slash,
+                        Pierce: material.pierce,
+                        Blunt: material.blunt,
+                        Magic: material.magic,
+                        Density: material.density
+                    });
+                }
+            }
+        }
+        return materials;
     }
 
     function calculateAndDisplaySiegeResults() {
