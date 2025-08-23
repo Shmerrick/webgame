@@ -1,98 +1,98 @@
-RowName,Category,Tier,Name,Slash,Pierce,Blunt,Magic
-Cloth_T1_Fox_Fur,Cloth,T1,Fox Fur,0.0,0.0,0.55,0.4625
-Cloth_T1_Rabbit_or_Hare_Fur,Cloth,T1,Rabbit or Hare Fur,0.0,0.0,0.55,0.42
-Cloth_T1_Mulberry_Silk,Cloth,T1,Mulberry Silk,0.15358,0.26454,0.39384,0.58972
-Cloth_T2_Wolf_Deer,Cloth,T2,Wolf/Deer,0.12913,0.03708,0.64196,0.3461
-Cloth_T2_Tussar_Eri_Muga,Cloth,T2,Tussar/Eri/Muga,0.23967,0.30953,0.43037,0.62874
-Cloth_T3_Bear_Bison,Cloth,T3,Bear/Bison,0.27049,0.08638,0.73393,0.40482
-Cloth_T3_Spider_Silk,Cloth,T3,Spider Silk,0.46073,0.42785,0.52854,0.69042
-Cloth_T4_Polar_Bear_Musk_Ox,Cloth,T4,Polar Bear/Musk Ox,0.39962,0.12346,0.82589,0.47506
-Cloth_T4_Giant_Spider_Silk,Cloth,T4,Giant Spider Silk,0.65097,0.56673,0.57078,0.73735
-Cloth_T5_Phoenix_Down,Cloth,T5,Phoenix Down,0.61484,0.18498,0.9795,0.73062
-Cloth_T5_Arachne_Starlight_Weave,Cloth,T5,Arachne/Starlight Weave,0.81667,0.69338,0.60068,0.81383
-Leather_T1_Goat_Sheep_Hide,Leather,T1,Goat/Sheep Hide,0.20884,0.09583,0.66073,0.3545
-Leather_T2_Cowhide_Pigskin,Leather,T2,Cowhide/Pigskin,0.37464,0.17327,0.74817,0.40858
-Leather_T3_Crocodile_Ostrich,Leather,T3,Crocodile/Ostrich,0.52184,0.26088,0.80731,0.45742
-Leather_T4_Buffalo_Rhino,Leather,T4,Buffalo/Rhino,0.66904,0.34849,0.86644,0.4696
-Leather_T5_Dragonhide,Leather,T5,Dragonhide,0.85928,0.45038,0.95388,0.70086
-Scales_T1_Snake_Lizard,Scales,T1,Snake/Lizard,0.1472,0.10405,0.58904,0.49251
-Scales_T2_Carp_Salmon,Scales,T2,Carp/Salmon,0.25773,0.15705,0.64566,0.50886
-Scales_T3_Crocodile_Alligator,Scales,T3,Crocodile/Alligator,0.52184,0.27321,0.79224,0.56183
-Scales_T4_Pangolin_Armadillo,Scales,T4,Pangolin/Armadillo,0.66904,0.36082,0.85137,0.59192
-Scales_T5_Dragon_Scales,Scales,T5,Dragon Scales,0.85928,0.46682,0.93379,0.72977
-Wood_T1_Pine_Cedar,Wood,T1,Pine/Cedar,0.18387,0.32565,0.36301,0.31886
-Wood_T2_Oak_Ash_Maple,Wood,T2,Oak/Ash/Maple,0.45967,0.55008,0.40525,0.37203
-Wood_T3_Hickory_Ebony_Ironwood,Wood,T3,Hickory/Ebony/Ironwood,0.70518,0.71339,0.47831,0.45023
-Wood_T4_Lignum_Vitae_Snakewood,Wood,T4,Lignum Vitae/Snakewood,0.85875,0.8156,0.52055,0.60094
-Wood_T5_Worldtree_Yew,Wood,T5,Worldtree Yew,0.98151,0.91781,0.53196,0.72179
-Metals_T1_Copper,Metals,T1,Copper,0.1734,0.10011,0.5939,0.21581
-Metals_T1_Iron,Metals,T1,Iron,0.43088,0.19794,0.4957,0.46443
-Metals_T1_Tin,Metals,T1,Tin,0.0,0.0,0.53344,0.50287
-Metals_T1_Lead,Metals,T1,Lead,0.00041,0.00213,0.55,0.3925
-Metals_T1_Silver,Metals,T1,Silver,0.1029,0.02953,0.55047,0.25871
-Metals_T1_Gold,Metals,T1,Gold,0.0865,0.03125,0.52405,0.58825
-Metals_T1_Zinc,Metals,T1,Zinc,0.22015,0.1111,0.48251,0.50067
-Metals_T1_Nickel,Metals,T1,Nickel,0.53747,0.2643,0.51146,0.62462
-Metals_T1_Aluminum,Metals,T1,Aluminum,0.48581,0.21711,0.60266,0.44033
-Metals_T2_Bronze,Metals,T2,Bronze (Cu+Sn),0.37184,0.19914,0.65469,0.62205
-Metals_T2_Brass,Metals,T2,Brass (Cu+Zn),0.31608,0.13449,0.5904,0.58744
-Metals_T2_Pewter,Metals,T2,Pewter (Sn+Pb/Cu),0.03649,0.02919,0.52628,0.62072
-Metals_T2_Wrought_Iron,Metals,T2,Wrought Iron,0.23655,0.11783,0.55792,0.5595
-Metals_T3_Cast_Iron,Metals,T3,Cast Iron,0.16358,0.27351,0.51179,0.53489
-Metals_T3_Carbon_Steel,Metals,T3,Carbon Steel,0.34888,0.17024,0.59356,0.56331
-Metals_T3_Damascus_Steel,Metals,T3,Damascus Steel,0.68507,1.0,0.63287,0.59602
-Metals_T4_Stainless_Steel,Metals,T4,Stainless Steel,0.56822,0.19794,0.67217,0.89625
-Metals_T4_Tool_Steel,Metals,T4,Tool Steel,1.0,0.49656,0.62571,0.75809
-Metals_T4_Titanium,Metals,T4,Titanium,0.76706,0.45664,0.7282,0.84623
-Metals_T4_Tungsten,Metals,T4,Tungsten,0.79167,0.40157,0.19286,0.79025
-Metals_T5_Mithril,Metals,T5,Mithril,0.89911,0.67344,0.73296,0.76485
-Metals_T5_Adamantite,Metals,T5,Adamantite,1.0,0.88281,0.59323,0.84115
-Metals_T5_Orichalcum,Metals,T5,Orichalcum,0.83259,0.67422,0.65785,0.78216
-Minerals_T1_Sandstone,Minerals,T1,Sandstone,0.0,0.0,0.55,0.3925
-Minerals_T1_Quartz,Minerals,T1,Quartz,0.41346,0.36046,0.59811,0.61383
-Minerals_T2_Limestone,Minerals,T2,Limestone,0.08714,0.13,0.49048,0.28497
-Minerals_T2_Calcite,Minerals,T2,Calcite,0.05,0.025,0.56944,0.32409
-Minerals_T3_Granite,Minerals,T3,Granite,0.51357,0.61,0.40357,0.41217
-Minerals_T3_Obsidian,Minerals,T3,Obsidian,0.21154,0.21154,0.55,0.625
-Minerals_T4_Basalt,Minerals,T4,Basalt,0.52286,0.63,0.37619,0.65149
-Minerals_T4_Corundum,Minerals,T4,Corundum (Ruby/Sapphire),0.55769,0.85769,0.17222,0.58889
-Minerals_T5_Worldstone,Minerals,T5,Worldstone,1.0,1.0,0.45,0.84375
-Minerals_T5_Aethercrystal,Minerals,T5,Aethercrystal,1.0,1.0,0.45,0.79907
-Metals_T4_Uranium-235,Metals,T4,Uranium-235,0.8,0.85,0.9,0.1
-Metals_T4_Uranium-238,Metals,T4,Uranium-238,0.8,0.85,0.9,0.1
-Metals_T5_Plutonium-239,Metals,T5,Plutonium-239,0.9,0.9,0.95,0.05
-Wood_T1_Balsa,Wood,T1,Balsa,0.1,0.1,0.9,0.8
-Wood_T3_Bamboo,Wood,T3,Bamboo,0.4,0.6,0.5,0.6
-Minerals_T2_Gypsum,Minerals,T2,Gypsum,0.1,0.1,0.2,0.9
-Minerals_T3_Feldspar,Minerals,T3,Feldspar,0.3,0.3,0.4,0.7
-Minerals_T4_Topaz,Minerals,T4,Topaz,0.6,0.7,0.5,0.5
-Minerals_T5_Diamond,Minerals,T5,Diamond,1.0,1.0,0.3,0.4
-Cloth_T1_Linen,Cloth,T1,Linen,0.1,0.2,0.4,0.6
-Cloth_T2_Hemp,Cloth,T2,Hemp,0.2,0.3,0.5,0.5
-Leather_T2_Alligator,Leather,T2,Alligator,0.5,0.3,0.7,0.4
-Scales_T3_Iron_Scales,Scales,T3,Iron Scales,0.6,0.5,0.8,0.3
-Metals_T2_Steel_1020,Metals,T2,Steel 1020,0.4,0.3,0.6,0.4
-Metals_T3_Steel_4140,Metals,T3,Steel 4140,0.6,0.5,0.7,0.3
-Metals_T4_Inconel,Metals,T4,Inconel,0.7,0.6,0.8,0.2
-Metals_T5_Stellite,Metals,T5,Stellite,0.8,0.8,0.7,0.2
-Wood_T2_Ipe,Wood,T2,Ipe,0.5,0.4,0.8,0.5
-Minerals_T1_Talc,Minerals,T1,Talc,0.05,0.05,0.1,0.95
-Minerals_T3_Garnet,Minerals,T3,Garnet,0.5,0.6,0.5,0.6
-Cloth_T1_Hessian,Cloth,T1,Hessian (Jute),0.1,0.1,0.6,0.7
-Leather_T1_Deerskin,Leather,T1,Deerskin,0.2,0.1,0.5,0.5
-Scales_T2_Bronze_Scales,Scales,T2,Bronze Scales,0.4,0.3,0.7,0.5
-Metals_T2_Zamak,Metals,T2,Zamak,0.3,0.2,0.5,0.6
-Wood_T3_Bloodwood,Wood,T3,Bloodwood,0.6,0.5,0.7,0.4
-Minerals_T4_Emerald,Minerals,T4,Emerald,0.6,0.7,0.4,0.6
-Cloth_T2_Canvas,Cloth,T2,Canvas,0.2,0.2,0.6,0.5
-Leather_T3_Sharkskin,Leather,T3,Sharkskin,0.6,0.7,0.6,0.3
-Scales_T4_Titanium_Scales,Scales,T4,Titanium Scales,0.8,0.7,0.8,0.2
-Metals_T4_Nitinol,Metals,T4,Nitinol,0.7,0.7,0.7,0.3
-Wood_T4_Wenge,Wood,T4,Wenge,0.7,0.6,0.8,0.3
-Minerals_T5_Ruby,Minerals,T5,Ruby,0.7,0.8,0.5,0.5
-Cloth_T3_Kevlar,Cloth,T3,Kevlar,0.8,0.9,0.3,0.1
-Leather_T4_Stingray,Leather,T4,Stingray,0.7,0.8,0.5,0.2
-Scales_T5_Adamantite_Scales,Scales,T5,Adamantite Scales,1.0,0.9,0.9,0.1
-Metals_T5_Cobalt_Alloy,Metals,T5,Cobalt Alloy,0.9,0.8,0.8,0.1
-Wood_T5_Ebony,Wood,T5,Ebony,0.8,0.7,0.9,0.2
-Minerals_T5_Sapphire,Minerals,T5,Sapphire,0.7,0.8,0.5,0.5
+RowName,Category,Tier,Name,Slash,Pierce,Blunt,Magic,Density
+Cloth_T1_Fox_Fur,Cloth,T1,Fox Fur,0.0,0.0,0.55,0.4625,0.9
+Cloth_T1_Rabbit_or_Hare_Fur,Cloth,T1,Rabbit or Hare Fur,0.0,0.0,0.55,0.42,0.9
+Cloth_T1_Mulberry_Silk,Cloth,T1,Mulberry Silk,0.15358,0.26454,0.39384,0.58972,1.34
+Cloth_T2_Wolf_Deer,Cloth,T2,Wolf/Deer,0.12913,0.03708,0.64196,0.3461,1.0
+Cloth_T2_Tussar_Eri_Muga,Cloth,T2,Tussar/Eri/Muga,0.23967,0.30953,0.43037,0.62874,1.3
+Cloth_T3_Bear_Bison,Cloth,T3,Bear/Bison,0.27049,0.08638,0.73393,0.40482,1.1
+Cloth_T3_Spider_Silk,Cloth,T3,Spider Silk,0.46073,0.42785,0.52854,0.69042,1.3
+Cloth_T4_Polar_Bear_Musk_Ox,Cloth,T4,Polar Bear/Musk Ox,0.39962,0.12346,0.82589,0.47506,1.2
+Cloth_T4_Giant_Spider_Silk,Cloth,T4,Giant Spider Silk,0.65097,0.56673,0.57078,0.73735,1.4
+Cloth_T5_Phoenix_Down,Cloth,T5,Phoenix Down,0.61484,0.18498,0.9795,0.73062,0.1
+Cloth_T5_Arachne_Starlight_Weave,Cloth,T5,Arachne/Starlight Weave,0.81667,0.69338,0.60068,0.81383,0.5
+Leather_T1_Goat_Sheep_Hide,Leather,T1,Goat/Sheep Hide,0.20884,0.09583,0.66073,0.3545,0.8
+Leather_T2_Cowhide_Pigskin,Leather,T2,Cowhide/Pigskin,0.37464,0.17327,0.74817,0.40858,0.9
+Leather_T3_Crocodile_Ostrich,Leather,T3,Crocodile/Ostrich,0.52184,0.26088,0.80731,0.45742,1.0
+Leather_T4_Buffalo_Rhino,Leather,T4,Buffalo/Rhino,0.66904,0.34849,0.86644,0.4696,1.1
+Leather_T5_Dragonhide,Leather,T5,Dragonhide,0.85928,0.45038,0.95388,0.70086,1.5
+Scales_T1_Snake_Lizard,Scales,T1,Snake/Lizard,0.1472,0.10405,0.58904,0.49251,1.5
+Scales_T2_Carp_Salmon,Scales,T2,Carp/Salmon,0.25773,0.15705,0.64566,0.50886,1.8
+Scales_T3_Crocodile_Alligator,Scales,T3,Crocodile/Alligator,0.52184,0.27321,0.79224,0.56183,2.0
+Scales_T4_Pangolin_Armadillo,Scales,T4,Pangolin/Armadillo,0.66904,0.36082,0.85137,0.59192,2.2
+Scales_T5_Dragon_Scales,Scales,T5,Dragon Scales,0.85928,0.46682,0.93379,0.72977,2.5
+Wood_T1_Pine_Cedar,Wood,T1,Pine/Cedar,0.18387,0.32565,0.36301,0.31886,0.5
+Wood_T2_Oak_Ash_Maple,Wood,T2,Oak/Ash/Maple,0.45967,0.55008,0.40525,0.37203,0.7
+Wood_T3_Hickory_Ebony_Ironwood,Wood,T3,Hickory/Ebony/Ironwood,0.70518,0.71339,0.47831,0.45023,1.0
+Wood_T4_Lignum_Vitae_Snakewood,Wood,T4,Lignum Vitae/Snakewood,0.85875,0.8156,0.52055,0.60094,1.2
+Wood_T5_Worldtree_Yew,Wood,T5,Worldtree Yew,0.98151,0.91781,0.53196,0.72179,1.2
+Metals_T1_Copper,Metals,T1,Copper,0.1734,0.10011,0.5939,0.21581,8.94
+Metals_T1_Iron,Metals,T1,Iron,0.43088,0.19794,0.4957,0.46443,7.87
+Metals_T1_Tin,Metals,T1,Tin,0.0,0.0,0.53344,0.50287,7.31
+Metals_T1_Lead,Metals,T1,Lead,0.00041,0.00213,0.55,0.3925,11.34
+Metals_T1_Silver,Metals,T1,Silver,0.1029,0.02953,0.55047,0.25871,10.50
+Metals_T1_Gold,Metals,T1,Gold,0.0865,0.03125,0.52405,0.58825,19.28
+Metals_T1_Zinc,Metals,T1,Zinc,0.22015,0.1111,0.48251,0.50067,6.7
+Metals_T1_Nickel,Metals,T1,Nickel,0.53747,0.2643,0.51146,0.62462,8.9
+Metals_T1_Aluminum,Metals,T1,Aluminum,0.48581,0.21711,0.60266,0.44033,2.83
+Metals_T2_Bronze,Metals,T2,Bronze (Cu+Sn),0.37184,0.19914,0.65469,0.62205,8.40
+Metals_T2_Brass,Metals,T2,Brass (Cu+Zn),0.31608,0.13449,0.5904,0.58744,8.44
+Metals_T2_Pewter,Metals,T2,Pewter (Sn+Pb/Cu),0.03649,0.02919,0.52628,0.62072,7.28
+Metals_T2_Wrought_Iron,Metals,T2,Wrought Iron,0.23655,0.11783,0.55792,0.5595,7.7
+Metals_T3_Cast_Iron,Metals,T3,Cast Iron,0.16358,0.27351,0.51179,0.53489,7.3
+Metals_T3_Carbon_Steel,Metals,T3,Carbon Steel,0.34888,0.17024,0.59356,0.56331,7.87
+Metals_T3_Damascus_Steel,Metals,T3,Damascus Steel,0.68507,1.0,0.63287,0.59602,7.8
+Metals_T4_Stainless_Steel,Metals,T4,Stainless Steel,0.56822,0.19794,0.67217,0.89625,8.0
+Metals_T4_Tool_Steel,Metals,T4,Tool Steel,1.0,0.49656,0.62571,0.75809,7.85
+Metals_T4_Titanium,Metals,T4,Titanium,0.76706,0.45664,0.7282,0.84623,4.43
+Metals_T4_Tungsten,Metals,T4,Tungsten,0.79167,0.40157,0.19286,0.79025,19.3
+Metals_T5_Mithril,Metals,T5,Mithril,0.89911,0.67344,0.73296,0.76485,4.0
+Metals_T5_Adamantite,Metals,T5,Adamantite,1.0,0.88281,0.59323,0.84115,10.0
+Metals_T5_Orichalcum,Metals,T5,Orichalcum,0.83259,0.67422,0.65785,0.78216,8.0
+Minerals_T1_Sandstone,Minerals,T1,Sandstone,0.0,0.0,0.55,0.3925,2.4
+Minerals_T1_Quartz,Minerals,T1,Quartz,0.41346,0.36046,0.59811,0.61383,2.65
+Minerals_T2_Limestone,Minerals,T2,Limestone,0.08714,0.13,0.49048,0.28497,2.7
+Minerals_T2_Calcite,Minerals,T2,Calcite,0.05,0.025,0.56944,0.32409,2.71
+Minerals_T3_Granite,Minerals,T3,Granite,0.51357,0.61,0.40357,0.41217,2.75
+Minerals_T3_Obsidian,Minerals,T3,Obsidian,0.21154,0.21154,0.55,0.625,2.4
+Minerals_T4_Basalt,Minerals,T4,Basalt,0.52286,0.63,0.37619,0.65149,3.0
+Minerals_T4_Corundum,Minerals,T4,Corundum (Ruby/Sapphire),0.55769,0.85769,0.17222,0.58889,4.0
+Minerals_T5_Worldstone,Minerals,T5,Worldstone,1.0,1.0,0.45,0.84375,3.5
+Minerals_T5_Aethercrystal,Minerals,T5,Aethercrystal,1.0,1.0,0.45,0.79907,3.0
+Metals_T4_Uranium-235,Metals,T4,Uranium-235,0.8,0.85,0.9,0.1,19.1
+Metals_T4_Uranium-238,Metals,T4,Uranium-238,0.8,0.85,0.9,0.1,19.1
+Metals_T5_Plutonium-239,Metals,T5,Plutonium-239,0.9,0.9,0.95,0.05,19.8
+Wood_T1_Balsa,Wood,T1,Balsa,0.1,0.1,0.9,0.8,0.16
+Wood_T3_Bamboo,Wood,T3,Bamboo,0.4,0.6,0.5,0.6,0.4
+Minerals_T2_Gypsum,Minerals,T2,Gypsum,0.1,0.1,0.2,0.9,2.3
+Minerals_T3_Feldspar,Minerals,T3,Feldspar,0.3,0.3,0.4,0.7,2.6
+Minerals_T4_Topaz,Minerals,T4,Topaz,0.6,0.7,0.5,0.5,3.5
+Minerals_T5_Diamond,Minerals,T5,Diamond,1.0,1.0,0.3,0.4,3.5
+Cloth_T1_Linen,Cloth,T1,Linen,0.1,0.2,0.4,0.6,1.5
+Cloth_T2_Hemp,Cloth,T2,Hemp,0.2,0.3,0.5,0.5,1.48
+Leather_T2_Alligator,Leather,T2,Alligator,0.5,0.3,0.7,0.4,0.9
+Scales_T3_Iron_Scales,Scales,T3,Iron Scales,0.6,0.5,0.8,0.3,7.87
+Metals_T2_Steel_1020,Metals,T2,Steel 1020,0.4,0.3,0.6,0.4,7.87
+Metals_T3_Steel_4140,Metals,T3,Steel 4140,0.6,0.5,0.7,0.3,7.87
+Metals_T4_Inconel,Metals,T4,Inconel,0.7,0.6,0.8,0.2,8.44
+Metals_T5_Stellite,Metals,T5,Stellite,0.8,0.8,0.7,0.2,8.4
+Wood_T2_Ipe,Wood,T2,Ipe,0.5,0.4,0.8,0.5,1.1
+Minerals_T1_Talc,Minerals,T1,Talc,0.05,0.05,0.1,0.95,2.7
+Minerals_T3_Garnet,Minerals,T3,Garnet,0.5,0.6,0.5,0.6,4.0
+Cloth_T1_Hessian,Cloth,T1,Hessian (Jute),0.1,0.1,0.6,0.7,1.5
+Leather_T1_Deerskin,Leather,T1,Deerskin,0.2,0.1,0.5,0.5,0.8
+Scales_T2_Bronze_Scales,Scales,T2,Bronze Scales,0.4,0.3,0.7,0.5,8.4
+Metals_T2_Zamak,Metals,T2,Zamak,0.3,0.2,0.5,0.6,6.7
+Wood_T3_Bloodwood,Wood,T3,Bloodwood,0.6,0.5,0.7,0.4,1.0
+Minerals_T4_Emerald,Minerals,T4,Emerald,0.6,0.7,0.4,0.6,2.7
+Cloth_T2_Canvas,Cloth,T2,Canvas,0.2,0.2,0.6,0.5,0.9
+Leather_T3_Sharkskin,Leather,T3,Sharkskin,0.6,0.7,0.6,0.3,1.0
+Scales_T4_Titanium_Scales,Scales,T4,Titanium Scales,0.8,0.7,0.8,0.2,4.43
+Metals_T4_Nitinol,Metals,T4,Nitinol,0.7,0.7,0.7,0.3,6.45
+Wood_T4_Wenge,Wood,T4,Wenge,0.7,0.6,0.8,0.3,0.85
+Minerals_T5_Ruby,Minerals,T5,Ruby,0.7,0.8,0.5,0.5,4.0
+Cloth_T3_Kevlar,Cloth,T3,Kevlar,0.8,0.9,0.3,0.1,1.44
+Leather_T4_Stingray,Leather,T4,Stingray,0.7,0.8,0.5,0.2,1.2
+Scales_T5_Adamantite_Scales,Scales,T5,Adamantite Scales,1.0,0.9,0.9,0.1,10.0
+Metals_T5__Cobalt_Alloy,Metals,T5,Cobalt Alloy,0.9,0.8,0.8,0.1,8.8
+Wood_T5_Ebony,Wood,T5,Ebony,0.8,0.7,0.9,0.2,1.2
+Minerals_T5_Sapphire,Minerals,T5,Sapphire,0.7,0.8,0.5,0.5,4.0

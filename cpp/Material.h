@@ -31,6 +31,7 @@ public:
     double getElementWind() const { return element_wind; }
     double getElementEarth() const { return element_earth; }
     double getHeatRetention() const { return heat_retention; }
+    double getDensity() const { return density; }
 
 private:
     // Allow MaterialDatabase to populate private members
@@ -54,6 +55,7 @@ private:
     double element_wind = 0;
     double element_earth = 0;
     double heat_retention = 0;
+    double density = 0;
 };
 
 class MaterialDatabase {

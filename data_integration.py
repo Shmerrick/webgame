@@ -60,20 +60,60 @@ def process_woods(woods_df):
     return woods_df[['RowName', 'Category', 'Tier', 'Name', 'Slash', 'Pierce', 'Blunt', 'Magic']]
 
 
-# In a real scenario, I would load the CSVs I created into pandas DataFrames,
-# apply these transformations, and then append the results to the original
-# materials.csv.
-#
-# e.g.
-# metals_df = pd.read_csv("metals.csv")
-# processed_metals = process_metals(metals_df)
-#
-# woods_df = pd.read_csv("woods.csv")
-# processed_woods = process_woods(woods_df)
-#
-# ... and so on for minerals and textiles.
-#
-# final_df = pd.concat([original_df, processed_metals, processed_woods, ...])
-# final_df.to_csv("materials.csv", index=False)
+def integrate_density(materials_df, real_world_df):
+    """
+    Merges real-world density data into the materials dataframe and estimates
+    densities for materials without real-world counterparts.
+    """
+    # Clean up names for merging, e.g., "Bronze (Cu+Sn)" becomes "Bronze"
+    materials_df['MergeName'] = materials_df['Name'].str.split(' \(').str[0]
+    real_world_df['MergeName'] = real_world_df['Material'].str.split(' \(').str[0]
 
-print("This script defines the logic for data integration.")
+    # Perform a left merge to add density data to the materials
+    merged_df = pd.merge(
+        materials_df,
+        real_world_df[['MergeName', 'Density (g/cm^3)']],
+        on='MergeName',
+        how='left'
+    )
+
+    merged_df.rename(columns={'Density (g/cm^3)': 'Density'}, inplace=True)
+    merged_df.drop(columns=['MergeName'], inplace=True)
+
+    # Estimate densities for fantasy materials where real-world data is not available
+    fantasy_densities = {
+        'Mithril': 4.0,       # Lighter than steel, akin to Titanium
+        'Adamantite': 10.0,   # Very dense and strong
+        'Orichalcum': 8.0,    # Magical, dense like bronze
+        'Dragonhide': 1.5,    # Tough but relatively light
+        'Dragon Scales': 2.5, # Heavier than normal scales
+    }
+    merged_df['Density'] = merged_df.apply(
+        lambda row: fantasy_densities.get(row['Name'], row['Density']),
+        axis=1
+    )
+
+    # For any other missing values, fill with the mean of their category and tier
+    merged_df['Density'] = merged_df.groupby(['Category', 'Tier'])['Density'].transform(
+        lambda x: x.fillna(x.mean())
+    )
+    # Fill any remaining NaNs with the global mean density
+    merged_df['Density'].fillna(merged_df['Density'].mean(), inplace=True)
+
+    return merged_df
+
+
+# In a real scenario, this is how the script would be used:
+#
+# 1. Load the existing material data and the real-world properties.
+#    materials_df = pd.read_csv("materials.csv")
+#    real_world_df = pd.read_csv("real_world_properties.csv")
+#
+# 2. Integrate the density information.
+#    updated_materials_df = integrate_density(materials_df, real_world_df)
+#
+# 3. Save the updated dataframe, now including the 'Density' column,
+#    back to materials.csv.
+#    updated_materials_df.to_csv("materials.csv", index=False)
+
+print("This script defines the logic for data integration, including density.")

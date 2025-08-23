@@ -1,0 +1,16 @@
+ArmorPiece,Component,Volume_cm3
+Helmet,Outer,2100
+Helmet,Inner,1050
+Helmet,Binding,350
+Chestplate,Outer,6000
+Chestplate,Inner,3000
+Chestplate,Binding,1000
+Greaves,Outer,1200
+Greaves,Inner,600
+Greaves,Binding,200
+Boots,Outer,1800
+Boots,Inner,900
+Boots,Binding,300
+Gauntlets,Outer,900
+Gauntlets,Inner,450
+Gauntlets,Binding,150

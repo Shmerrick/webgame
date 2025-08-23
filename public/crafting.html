@@ -33,6 +33,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     </style>
+    <script src="crafting_calculator.js" defer></script>
 </head>
   <body style="background-image: url('Art/Backgrounds/fall.png'); background-size: cover; background-attachment: fixed;">
     <div class="min-h-screen w-full bg-slate-950/80 text-slate-100 p-4 md:p-8">
@@ -70,6 +71,32 @@
           <dl>
             <dt>Armor Smithing</dt>
             <dd>Creates metal and leather armors (helmets, chestplates, greaves, boots, gauntlets).</dd>
+            <dd class="mt-4">
+              <div class="bg-slate-800/50 p-4 rounded-lg">
+                <h4 class="text-lg font-semibold text-emerald-300 mb-2">Armor Crafting Calculator</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="armor-piece" class="block text-sm font-medium text-slate-300">Armor Piece</label>
+                    <select id="armor-piece" name="armor-piece" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
+                    <label for="outer-material" class="block text-sm font-medium text-slate-300">Outer Layer</label>
+                    <select id="outer-material" name="outer-material" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
+                    <label for="inner-material" class="block text-sm font-medium text-slate-300">Inner Layer</label>
+                    <select id="inner-material" name="inner-material" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
+                    <label for="binding-material" class="block text-sm font-medium text-slate-300">Binding</label>
+                    <select id="binding-material" name="binding-material" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                </div>
+                <div id="crafting-results" class="mt-4 text-slate-300">
+                  <!-- Results will be populated by JavaScript -->
+                </div>
+              </div>
+            </dd>
 
             <dt>Weapon Smithing</dt>
             <dd>Creates melee weapons (swords, axes, maces, daggers, polearms).</dd>
