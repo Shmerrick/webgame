@@ -233,64 +233,64 @@
     "T1": [
       {
         "name": "Copper",
-        "slash": 0.29598,
-        "pierce": 0.225,
+        "slash": 0.1734,
+        "pierce": 0.10011,
         "blunt": 0.5939,
         "magic": 0.21581
       },
       {
         "name": "Iron",
-        "slash": 0.39687,
-        "pierce": 0.40039,
+        "slash": 0.43088,
+        "pierce": 0.19794,
         "blunt": 0.4957,
         "magic": 0.46443
       },
       {
         "name": "Tin",
-        "slash": 0.03214,
-        "pierce": 0.03984,
+        "slash": 0.0,
+        "pierce": 0.0,
         "blunt": 0.53344,
         "magic": 0.50287
       },
       {
         "name": "Lead",
-        "slash": 0.0,
-        "pierce": 0.0,
+        "slash": 0.00041,
+        "pierce": 0.00213,
         "blunt": 0.55,
         "magic": 0.3925
       },
       {
         "name": "Silver",
-        "slash": 0.16518,
-        "pierce": 0.14727,
+        "slash": 0.1029,
+        "pierce": 0.02953,
         "blunt": 0.55047,
         "magic": 0.25871
       },
       {
         "name": "Gold",
-        "slash": 0.13304,
-        "pierce": 0.14258,
+        "slash": 0.0865,
+        "pierce": 0.03125,
         "blunt": 0.52405,
         "magic": 0.58825
       },
       {
         "name": "Zinc",
-        "slash": 0.13304,
-        "pierce": 0.17656,
+        "slash": 0.22015,
+        "pierce": 0.1111,
         "blunt": 0.48251,
         "magic": 0.50067
       },
       {
         "name": "Nickel",
-        "slash": 0.39687,
-        "pierce": 0.3875,
+        "slash": 0.53747,
+        "pierce": 0.2643,
         "blunt": 0.51146,
         "magic": 0.62462
       },
       {
         "name": "Aluminum",
-        "slash": 0.21451,
-        "pierce": 0.14805,
+        "slash": 0.48581,
+        "pierce": 0.21711,
         "blunt": 0.60266,
         "magic": 0.44033
       }
@@ -298,29 +298,29 @@
     "T2": [
       {
         "name": "Bronze (Cu+Sn)",
-        "slash": 0.3625,
-        "pierce": 0.23594,
+        "slash": 0.37184,
+        "pierce": 0.19914,
         "blunt": 0.65469,
         "magic": 0.62205
       },
       {
         "name": "Brass (Cu+Zn)",
-        "slash": 0.26384,
-        "pierce": 0.20156,
+        "slash": 0.31608,
+        "pierce": 0.13449,
         "blunt": 0.5904,
         "magic": 0.58744
       },
       {
         "name": "Pewter (Sn+Pb/Cu)",
-        "slash": 0.05277,
-        "pierce": 0.06633,
+        "slash": 0.03649,
+        "pierce": 0.02919,
         "blunt": 0.52628,
         "magic": 0.62072
       },
       {
         "name": "Wrought Iron",
-        "slash": 0.42902,
-        "pierce": 0.37578,
+        "slash": 0.23655,
+        "pierce": 0.11783,
         "blunt": 0.55792,
         "magic": 0.5595
       }
@@ -328,22 +328,22 @@
     "T3": [
       {
         "name": "Cast Iron",
-        "slash": 0.30268,
-        "pierce": 0.31641,
+        "slash": 0.16358,
+        "pierce": 0.27351,
         "blunt": 0.51179,
         "magic": 0.53489
       },
       {
         "name": "Carbon Steel",
-        "slash": 0.6308,
-        "pierce": 0.53672,
+        "slash": 0.34888,
+        "pierce": 0.17024,
         "blunt": 0.59356,
         "magic": 0.56331
       },
       {
         "name": "Damascus Steel",
-        "slash": 0.69732,
-        "pierce": 0.56523,
+        "slash": 0.68507,
+        "pierce": 1.0,
         "blunt": 0.63287,
         "magic": 0.59602
       }
@@ -351,29 +351,29 @@
     "T4": [
       {
         "name": "Stainless Steel",
-        "slash": 0.62634,
-        "pierce": 0.45625,
+        "slash": 0.56822,
+        "pierce": 0.19794,
         "blunt": 0.67217,
         "magic": 0.89625
       },
       {
         "name": "Tool Steel",
-        "slash": 0.7317,
-        "pierce": 0.60547,
+        "slash": 1.0,
+        "pierce": 0.49656,
         "blunt": 0.62571,
         "magic": 0.75809
       },
       {
         "name": "Titanium",
-        "slash": 0.6308,
-        "pierce": 0.42656,
+        "slash": 0.76706,
+        "pierce": 0.45664,
         "blunt": 0.7282,
         "magic": 0.84623
       },
       {
         "name": "Tungsten",
-        "slash": 0.60536,
-        "pierce": 0.8625,
+        "slash": 0.79167,
+        "pierce": 0.40157,
         "blunt": 0.19286,
         "magic": 0.79025
       }
