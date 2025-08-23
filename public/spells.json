@@ -5,7 +5,7 @@
       "school": "Fire",
       "type": "Attack",
       "range": "Long Range",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Void",
       "mana_cost": 20,
       "description": "Hurls a ball of fire at the target, causing moderate fire damage."
     },
@@ -14,7 +14,7 @@
       "school": "Water",
       "type": "Defense",
       "range": "Short Range",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Radiance",
       "mana_cost": 25,
       "description": "A wave of healing water that restores a moderate amount of health to an ally."
     },
@@ -23,7 +23,7 @@
       "school": "Earth",
       "type": "Defense",
       "range": "Touch",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Void",
       "mana_cost": 15,
       "description": "Hardens the caster's skin, increasing armor for a short duration."
     },
@@ -32,7 +32,7 @@
       "school": "Wind",
       "type": "Utility",
       "range": "Short Range",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Radiance",
       "mana_cost": 10,
       "description": "Creates a strong gust of wind that can push back enemies or clear obstacles."
     },
@@ -59,7 +59,7 @@
       "school": "Fire",
       "type": "Defense",
       "range": "Touch",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Radiance",
       "mana_cost": 40,
       "description": "Surrounds the caster in a cloak of flames, damaging any enemy that comes into melee range."
     },
@@ -68,7 +68,7 @@
       "school": "Water",
       "type": "Attack",
       "range": "Long Range",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Void",
       "mana_cost": 15,
       "description": "Launches a shard of ice that deals piercing cold damage."
     },
@@ -77,7 +77,7 @@
       "school": "Earth",
       "type": "Attack",
       "range": "Short Range",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Radiance",
       "mana_cost": 50,
       "description": "Causes the ground to shake violently, damaging and knocking down all enemies in a large area."
     },
@@ -86,7 +86,7 @@
       "school": "Wind",
       "type": "Utility",
       "range": "Touch",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Void",
       "mana_cost": 20,
       "description": "Instantly transports the caster to a nearby location."
     },
@@ -113,7 +113,7 @@
       "school": "Fire",
       "type": "Attack",
       "range": "Touch",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Void",
       "mana_cost": 30,
       "description": "The caster's hands burst into flames, adding fire damage to their melee attacks."
     },
@@ -140,7 +140,7 @@
       "school": "Water",
       "type": "Defense",
       "range": "Short Range",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Radiance",
       "mana_cost": 15,
       "description": "Creates a gentle mist that slowly heals all allies within it."
     },
@@ -149,7 +149,7 @@
       "school": "Earth",
       "type": "Utility",
       "range": "Long Range",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Void",
       "mana_cost": 40,
       "description": "Raises a wall of solid earth from the ground, blocking movement and projectiles."
     },
@@ -176,7 +176,7 @@
       "school": "Wind",
       "type": "Attack",
       "range": "Long Range",
-      "entropy_modifier": "None",
+      "entropy_modifier": "Void",
       "mana_cost": 25,
       "description": "A powerful bolt of lightning strikes a single target for high damage."
     },
@@ -197,6 +197,24 @@
       "entropy_modifier": "Void",
       "mana_cost": 30,
       "description": "A spike of pure void energy erupts from the ground to impale a single target."
+    },
+    {
+      "name": "Void Shield",
+      "school": "Void",
+      "type": "Defense",
+      "range": "Touch",
+      "entropy_modifier": "Void",
+      "mana_cost": 50,
+      "description": "Creates a shield of void energy that absorbs incoming magic, converting a portion of the damage into mana for the caster."
+    },
+    {
+      "name": "Radiant Barrier",
+      "school": "Radiance",
+      "type": "Defense",
+      "range": "Touch",
+      "entropy_modifier": "Radiance",
+      "mana_cost": 50,
+      "description": "Erects a barrier of pure light that reflects incoming spells at an angle. The spell's effective distance is renewed upon reflection."
     }
   ]
 }
