@@ -4,6 +4,8 @@
       "name": "Fireball",
       "school": "Fire",
       "type": "Attack",
+      "range": "Long Range",
+      "entropy_modifier": "None",
       "mana_cost": 20,
       "description": "Hurls a ball of fire at the target, causing moderate fire damage."
     },
@@ -11,6 +13,8 @@
       "name": "Healing Wave",
       "school": "Water",
       "type": "Defense",
+      "range": "Short Range",
+      "entropy_modifier": "None",
       "mana_cost": 25,
       "description": "A wave of healing water that restores a moderate amount of health to an ally."
     },
@@ -18,6 +22,8 @@
       "name": "Stone Skin",
       "school": "Earth",
       "type": "Defense",
+      "range": "Touch",
+      "entropy_modifier": "None",
       "mana_cost": 15,
       "description": "Hardens the caster's skin, increasing armor for a short duration."
     },
@@ -25,6 +31,8 @@
       "name": "Gust of Wind",
       "school": "Wind",
       "type": "Utility",
+      "range": "Short Range",
+      "entropy_modifier": "None",
       "mana_cost": 10,
       "description": "Creates a strong gust of wind that can push back enemies or clear obstacles."
     },
@@ -32,6 +40,8 @@
       "name": "Radiant Bolt",
       "school": "Radiance",
       "type": "Attack",
+      "range": "Long Range",
+      "entropy_modifier": "Radiance",
       "mana_cost": 30,
       "description": "A bolt of pure light that sears the target, causing high radiant damage."
     },
@@ -39,6 +49,8 @@
       "name": "Void Grasp",
       "school": "Void",
       "type": "Utility",
+      "range": "Short Range",
+      "entropy_modifier": "Void",
       "mana_cost": 35,
       "description": "Tendrils of void energy grasp the target, holding them in place for a short duration."
     },
@@ -46,6 +58,8 @@
       "name": "Flame Cloak",
       "school": "Fire",
       "type": "Defense",
+      "range": "Touch",
+      "entropy_modifier": "None",
       "mana_cost": 40,
       "description": "Surrounds the caster in a cloak of flames, damaging any enemy that comes into melee range."
     },
@@ -53,6 +67,8 @@
       "name": "Ice Shard",
       "school": "Water",
       "type": "Attack",
+      "range": "Long Range",
+      "entropy_modifier": "None",
       "mana_cost": 15,
       "description": "Launches a shard of ice that deals piercing cold damage."
     },
@@ -60,6 +76,8 @@
       "name": "Earthquake",
       "school": "Earth",
       "type": "Attack",
+      "range": "Short Range",
+      "entropy_modifier": "None",
       "mana_cost": 50,
       "description": "Causes the ground to shake violently, damaging and knocking down all enemies in a large area."
     },
@@ -67,6 +85,8 @@
       "name": "Teleport",
       "school": "Wind",
       "type": "Utility",
+      "range": "Touch",
+      "entropy_modifier": "None",
       "mana_cost": 20,
       "description": "Instantly transports the caster to a nearby location."
     },
@@ -74,6 +94,8 @@
       "name": "Holy Light",
       "school": "Radiance",
       "type": "Defense",
+      "range": "Short Range",
+      "entropy_modifier": "Radiance",
       "mana_cost": 45,
       "description": "A powerful healing spell that restores a large amount of health to a single ally."
     },
@@ -81,8 +103,100 @@
       "name": "Life Drain",
       "school": "Void",
       "type": "Attack",
+      "range": "Short Range",
+      "entropy_modifier": "Void",
       "mana_cost": 25,
       "description": "Drains the life force from an enemy, damaging them and healing the caster."
+    },
+    {
+      "name": "Immolation",
+      "school": "Fire",
+      "type": "Attack",
+      "range": "Touch",
+      "entropy_modifier": "None",
+      "mana_cost": 30,
+      "description": "The caster's hands burst into flames, adding fire damage to their melee attacks."
+    },
+    {
+      "name": "Firestorm",
+      "school": "Fire",
+      "type": "Attack",
+      "range": "Ultra-Long Range",
+      "entropy_modifier": "Radiance",
+      "mana_cost": 100,
+      "description": "Calls down a storm of fire and brimstone in a large area, dealing massive damage over time."
+    },
+    {
+      "name": "Tidal Wave",
+      "school": "Water",
+      "type": "Attack",
+      "range": "Ultra-Long Range",
+      "entropy_modifier": "Radiance",
+      "mana_cost": 90,
+      "description": "Summons a massive wave that crashes down on the battlefield, washing away and damaging enemies."
+    },
+    {
+      "name": "Soothing Mist",
+      "school": "Water",
+      "type": "Defense",
+      "range": "Short Range",
+      "entropy_modifier": "None",
+      "mana_cost": 15,
+      "description": "Creates a gentle mist that slowly heals all allies within it."
+    },
+    {
+      "name": "Earthen Wall",
+      "school": "Earth",
+      "type": "Utility",
+      "range": "Long Range",
+      "entropy_modifier": "None",
+      "mana_cost": 40,
+      "description": "Raises a wall of solid earth from the ground, blocking movement and projectiles."
+    },
+    {
+      "name": "Meteor",
+      "school": "Earth",
+      "type": "Attack",
+      "range": "Ultra-Long Range",
+      "entropy_modifier": "Void",
+      "mana_cost": 120,
+      "description": "A single, massive meteor is pulled from the sky to strike a designated area with devastating force."
+    },
+    {
+      "name": "Cyclone",
+      "school": "Wind",
+      "type": "Attack",
+      "range": "Short Range",
+      "entropy_modifier": "Radiance",
+      "mana_cost": 45,
+      "description": "Creates a swirling cyclone that picks up and damages enemies in its path."
+    },
+    {
+      "name": "Lightning Bolt",
+      "school": "Wind",
+      "type": "Attack",
+      "range": "Long Range",
+      "entropy_modifier": "None",
+      "mana_cost": 25,
+      "description": "A powerful bolt of lightning strikes a single target for high damage."
+    },
+    {
+      "name": "Radiant Flare",
+      "school": "Radiance",
+      "type": "Utility",
+      "range": "Short Range",
+      "entropy_modifier": "Radiance",
+      "mana_cost": 20,
+      "description": "Emits a blinding flash of light, stunning nearby enemies."
+    },
+    {
+      "name": "Void Spike",
+      "school": "Void",
+      "type": "Attack",
+      "range": "Long Range",
+      "entropy_modifier": "Void",
+      "mana_cost": 30,
+      "description": "A spike of pure void energy erupts from the ground to impale a single target."
     }
   ]
 }

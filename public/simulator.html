@@ -85,6 +85,11 @@
         { id: "torso",  name: "Torso",  factor: 3 },
         { id: "legs",   name: "Legs",   factor: 3 },
         { id: "shield", name: "Shield", factor: 2 },
+        { id: "ring1", name: "Ring 1", factor: 0 },
+        { id: "ring2", name: "Ring 2", factor: 0 },
+        { id: "earring1", name: "Earring 1", factor: 0 },
+        { id: "earring2", name: "Earring 2", factor: 0 },
+        { id: "amulet", name: "Amulet", factor: 0 },
       ];
 
       // Armor class base reductions (heavy magic = 50% from doc)
@@ -134,6 +139,8 @@
         Dagger:  { type: "melee",   massKilograms: 1, baseCost: 20, head: { Blunt: 0.05, Slash: 0.20, Pierce: 0.30 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
         Bow:     { type: "ranged",  drawWeight: 50, head: { Pierce: 0.40 } },
         Crossbow:{ type: "ranged",  drawWeight: 35, head: { Pierce: 0.30 } },
+        Sling:   { type: "ranged",  drawWeight: 15, head: { Blunt: 0.20 } },
+        Throwing:{ type: "ranged",  drawWeight: 20, head: { Pierce: 0.25 } },
         Lance:   { type: "mounted", massKilograms: 5, head: { Blunt: 0.20, Pierce: 0.50 }, speed: { Walk: 0.5, Trot: 0.9, Canter: 1.2, Gallop: 1.6 } },
         Polesword: { type: "melee", massKilograms: 5, baseCost: 35, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.25 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Slash" } },
         Poleaxe: { type: "melee", massKilograms: 6, baseCost: 40, head: { Blunt: 0.25, Slash: 0.30, Pierce: 0.15 }, direction: { Left: "Slash", Right: "Blunt", Up: "Pierce", Down: "Slash" } },
@@ -332,7 +339,10 @@
           Dagger: 0,
           Polesword: 0,
           Poleaxe: 0,
-          RangedWeapons: 0,
+          Archery: 0,
+          Crossbows: 0,
+          Slings: 0,
+          ThrowingWeapons: 0,
           MountedCombat: 0,
           MountedArchery: 0,
           MountedMagery: 0,
@@ -343,6 +353,8 @@
           MeleeAmbush: 0,
           RangedAmbush: 0,
           ElementalAmbush: 0,
+          ElementalMagic: 0,
+          EntropyMagic: 0,
         });
 
         const [elementalSchool, setElementalSchool] = useState("Fire");
@@ -423,7 +435,12 @@
           boots:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
           torso:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
           legs:   { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
-          shield: { shield:"None" }
+          shield: { shield:"None" },
+          ring1: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5"), inner:"None", binding:"None" },
+          ring2: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5"), inner:"None", binding:"None" },
+          earring1: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5"), inner:"None", binding:"None" },
+          earring2: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5"), inner:"None", binding:"None" },
+          amulet: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5"), inner:"None", binding:"None" },
         });
 
         // Target armor (for “damage against armor”)
@@ -508,7 +525,10 @@
 
         // Active weapon skill multiplier
         const activeWeaponSkillName = useMemo(()=>{
-          if (weaponKey==='Bow' || weaponKey==='Crossbow') return 'RangedWeapons';
+          if (weaponKey==='Bow') return 'Archery';
+          if (weaponKey==='Crossbow') return 'Crossbows';
+          if (weaponKey==='Sling') return 'Slings';
+          if (weaponKey==='Throwing') return 'ThrowingWeapons';
           if (weaponKey==='Lance') return 'MountedCombat';
           return weaponKey;
         }, [weaponKey]);
@@ -775,7 +795,12 @@
                           ["Sword", "Sword"], ["Axe", "Axe"], ["Dagger", "Dagger"], ["Hammer", "Hammer"],
                           ["Polesword", "Polesword"], ["Poleaxe", "Poleaxe"], ["Spear", "Spear"],
                         ],
-                        "Ranged Combat": [ ["RangedWeapons", "Ranged Weapons"] ],
+                        "Ranged Combat": [
+                          ["Archery", "Archery"],
+                          ["Crossbows", "Crossbows"],
+                          ["Slings", "Slings"],
+                          ["ThrowingWeapons", "Throwing Weapons"],
+                        ],
                         "Mounted": [
                           ["MountedCombat", "Mounted Combat"],
                           ["MountedArchery", "Mounted Archery"],
@@ -827,6 +852,20 @@
                               </div>
                             ))}
                           </div>
+                          <div className="pt-2">
+                            <div className="flex items-center justify-between text-sm">
+                              <span>Elemental Magic Investment</span>
+                              <span className="tabular-nums">{skills.ElementalMagic}</span>
+                            </div>
+                            <input type="range" min={0} max={100} value={skills.ElementalMagic} onChange={e => setSkillBound('ElementalMagic', parseInt(e.target.value))} className="w-full" />
+                          </div>
+                          <div>
+                            <div className="flex items-center justify-between text-sm">
+                              <span>Entropy Magic Investment</span>
+                              <span className="tabular-nums">{skills.EntropyMagic}</span>
+                            </div>
+                            <input type="range" min={0} max={100} value={skills.EntropyMagic} onChange={e => setSkillBound('EntropyMagic', parseInt(e.target.value))} className="w-full" />
+                          </div>
                         </div>
                       </details>
                     </div>
@@ -834,138 +873,6 @@
 
                   {/* Right column: Armor & Target */}
                   <div className="flex flex-col gap-6">
-                    <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
-                      <h2 className="text-lg font-semibold mb-3">Armor Loadout and Regeneration</h2>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {armorSlots.map(slot=>{
-                          const isShield = slot.id==="shield";
-                          const entry = armor[slot.id] || {};
-                          const cls = isShield ? (SHIELDS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
-                          const category = entry.category || "Leather";
-                          const tier = entry.tier || "T5";
-                          const material = entry.material || "";
-                          const innerName = entry.inner || "Linen";
-                          const bindName  = entry.binding || "Cotton";
-                          const eff = effectiveDRForSlot(DB, cls, category, material, innerName, bindName, isShield);
-                          const allowedCats = MATERIALS_FOR_CLASS[entry.class||"None"] || [];
-                          const allTiers = tiersForCategory(DB, category);
-                          const items = itemsForCategoryAndTier(DB, category, tier);
-                          const matObj = factorsFor(DB, category, material);
-
-                          return (
-                            <div key={slot.id} className="bg-slate-800/60 rounded-xl p-3">
-                              <div className="flex items-center justify-between">
-                                <div className="text-sm font-medium">{slot.name}</div>
-                                <div className="text-xs text-slate-400">Weight factor in loadout score: {slot.factor}</div>
-                              </div>
-
-                              {!isShield ? (
-                                <>
-                                  <label className="block text-sm mt-2">Armor Class</label>
-                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.class||"None"} onChange={e=>setArmorClassSafe(slot.id, e.target.value)}>
-                                    {Object.keys(ARMOR_CLASS).map(k=> <option key={k} value={k}>{k}</option>)}
-                                  </select>
-
-                                  <label className="block text-sm mt-3">Outer Material Category</label>
-                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={category} onChange={e=>setArmorCategory(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
-                                    {allowedCats.map(k=> <option key={k} value={k}>{k}</option>)}
-                                  </select>
-
-                                  <div className="grid grid-cols-2 gap-2 mt-3">
-                                    <div>
-                                      <label className="block text-sm">Tier</label>
-                                      <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={tier} onChange={e=>setArmorTier(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
-                                        {allTiers.map(t=> <option key={t} value={t}>{t}</option>)}
-                                      </select>
-                                    </div>
-                                    <div>
-                                      <label className="block text-sm">Specific Material</label>
-                                      <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={material} onChange={e=>setArmorMaterial(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
-                                        {items.map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
-                                      </select>
-                                    </div>
-                                  </div>
-
-                                  <label className="block text-sm mt-3">Inner Layer Material</label>
-                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={innerName} onChange={e=>setArmorInner(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
-                                    {Object.keys(INNER_MATERIALS).map(k=> <option key={k} value={k}>{k}</option>)}
-                                  </select>
-                                  <div className="text-sm text-slate-300 mt-1">{INNER_MATERIALS[innerName]?.desc}</div>
-
-                                  <label className="block text-sm mt-3">Thread and Binding</label>
-                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={bindName} onChange={e=>setArmorBinding(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
-                                    {Object.keys(THREAD_BINDINGS).map(k=> <option key={k} value={k}>{k}</option>)}
-                                  </select>
-                                  <div className="text-sm text-slate-300 mt-1">{THREAD_BINDINGS[bindName]?.desc}</div>
-
-                                  {(entry.class||"None")!=="None" && matObj && (
-                                    <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
-                                      <div className="font-medium mb-1">Material and Armor Explanation</div>
-                                      <p className="text-sm text-slate-300">
-                                        The outer layer is <span className="font-semibold">{material}</span> which belongs to the <span className="font-semibold">{category}</span> category and is at <span className="font-semibold">{tier}</span>. Its defensive multipliers are: Slash reduction {(matObj.slash*100).toFixed(0)} percent, Pierce reduction {(matObj.pierce*100).toFixed(0)} percent, Blunt reduction {(matObj.blunt*100).toFixed(0)} percent, and Magic reduction {(matObj.magic*100).toFixed(0)} percent. The magic value is the average of Fire, Water, Wind, and Earth resistances in your database.
-                                      </p>
-                                      <p className="text-sm text-slate-300 mt-2">
-                                        The armor class is <span className="font-semibold">{entry.class}</span>. Its base reduction for physical damage types, which are blunt, slash, and pierce, is {(ARMOR_CLASS[entry.class].phys*100).toFixed(0)} percent, and its base reduction for magic is {(ARMOR_CLASS[entry.class].magic*100).toFixed(0)} percent.
-                                      </p>
-                                      <p className="text-sm text-slate-300 mt-2">
-                                        The effective damage reduction for this slot is calculated by weighting the materials: the outer material contributes eighty percent, the inner layer contributes fifteen percent, and the thread and binding contribute five percent. These weighted values are then multiplied by the base armor class reductions to produce the final results:
-                                        <br/>Blunt effective reduction {(eff.blunt*100).toFixed(0)} percent,
-                                        <br/>Slash effective reduction {(eff.slash*100).toFixed(0)} percent,
-                                        <br/>Pierce effective reduction {(eff.pierce*100).toFixed(0)} percent,
-                                        <br/>Magic effective reduction {(eff.magic*100).toFixed(0)} percent.
-                                      </p>
-                                    </div>
-                                  )}
-                                </>
-                              ) : (
-                                <div>
-                                  <label className="block text-sm mt-2">Shield Type</label>
-                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={armor.shield?.shield||"None"} onChange={e=>setShieldSubtypeSafe(e.target.value)}>
-                                    {Object.keys(SHIELDS).map(k=> <option key={k} value={k}>{k}</option>)}
-                                  </select>
-                                  {armor.shield?.shield!=="None" && (
-                                    <div className="text-sm text-slate-300 mt-1">
-                                      Required Strength: <span className={`font-semibold ${(effective.STR >= (SHIELDS[armor.shield?.shield].strengthRequirement||0)) ? "text-emerald-300" : "text-rose-300"}`}>{SHIELDS[armor.shield?.shield].strengthRequirement}</span>.
-                                    </div>
-                                  )}
-                                  <div className="text-sm text-slate-300 mt-2">
-                                    Shield faces are treated similarly to wood planks for now so that the calculations stay consistent with your materials database. If you want a dedicated shield material list, tell me how you would like it organized, and I will add it.
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                        <div className="bg-slate-800/70 rounded-xl p-3">
-                          <div className="text-slate-300 font-medium">Loadout Score</div>
-                          <div className="text-sm">S equals the sum of each slot’s weight factor multiplied by the numeric value of its armor class. Smax is the same calculation as if every slot were Heavy. The ratio R equals S divided by Smax and determines your category.</div>
-                          <div className="text-lg tabular-nums mt-1">S = {S} / Smax = {Smax} (R = {(R*100).toFixed(1)} percent)</div>
-                          <div className="text-slate-300 mt-1">Category: <span className="font-semibold">{nakedOverride ? "Naked Override (no armor equipped)" : category}</span></div>
-                        </div>
-                        <div className="bg-slate-800/70 rounded-xl p-3">
-                          <div className="text-slate-300 font-medium">Missing Armor Penalty</div>
-                          <div className="text-sm">Each missing armor piece reduces your outgoing damage by fifteen percent. If you are completely naked and unshielded, there is a special rule that sets your regeneration to the naked rate and reduces your outgoing damage by seventy-five percent.</div>
-                          <div className="text-lg tabular-nums mt-1">Total outgoing damage penalty from missing pieces: -{missingPieces*15} percent</div>
-                        </div>
-                      </div>
-
-                      <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                        <div className="bg-slate-800/70 rounded-xl p-3">
-                          <div className="text-slate-300 font-medium">Stamina Regeneration</div>
-                          <div className="text-2xl tabular-nums">{regenStam}</div>
-                          <div className="text-sm text-slate-300 mt-1">Regeneration ticks occur every two seconds and are ten percent of the pool multiplied by your loadout multiplier and increased by up to ten percent from Armor Training.</div>
-                        </div>
-                        <div className="bg-slate-800/70 rounded-xl p-3">
-                          <div className="text-slate-300 font-medium">Mana Regeneration</div>
-                          <div className="text-2xl tabular-nums">{regenMana}</div>
-                          <div className="text-sm text-slate-300 mt-1">Armor class reduces both stamina and mana regeneration using the same multipliers.</div>
-                        </div>
-                      </div>
-                    </section>
-
                     <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
                       <h2 className="text-lg font-semibold mb-3">Target Armor for Damage Against Armor</h2>
                       <div className="grid grid-cols-1 gap-2">
@@ -1051,7 +958,7 @@
                   <h2 className="text-lg font-semibold mb-3">Equipment Preview</h2>
                   <p className="text-sm text-slate-300 mb-3">Each slot shows the selected armor class and the chosen material. Where there is no image, the slot uses a simple fill color. This is a lightweight representation so you can see your loadout at a glance.</p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {["helmet","torso","legs","boots","gloves","shield"].map(slotId=>{
+                    {["helmet","torso","legs","boots","gloves","shield", "ring1", "ring2", "earring1", "earring2", "amulet"].map(slotId=>{
                       const entry = armor[slotId] || {};
                       const label = slotId[0].toUpperCase()+slotId.slice(1);
                       const cls = slotId==="shield" ? (SHIELDS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
@@ -1073,10 +980,142 @@
                       <div className="text-sm font-medium">Ranged Weapon</div>
                       <div className="slot-box mt-2 rounded-lg border border-slate-700 flex items-center justify-center">
                         <div className="text-center">
-                          <div className="text-sm">{weaponKey==='Bow'||weaponKey==='Crossbow'||weaponKey==='Sling'? weaponKey : 'Not Equipped'}</div>
-                          <div className="text-xs text-slate-400">{weaponKey==='Bow'||weaponKey==='Crossbow'||weaponKey==='Sling'? (selHead+' head') : ''}</div>
+                          <div className="text-sm">{weaponKey==='Bow'||weaponKey==='Crossbow'||weaponKey==='Sling'||weaponKey==='Throwing'? weaponKey : 'Not Equipped'}</div>
+                          <div className="text-xs text-slate-400">{weaponKey==='Bow'||weaponKey==='Crossbow'||weaponKey==='Sling'||weaponKey==='Throwing'? (selHead+' head') : ''}</div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6">
+                  <h2 className="text-lg font-semibold mb-3">Armor Loadout and Regeneration</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {armorSlots.map(slot=>{
+                      const isShield = slot.id==="shield";
+                      const entry = armor[slot.id] || {};
+                      const cls = isShield ? (SHIELDS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
+                      const category = entry.category || "Leather";
+                      const tier = entry.tier || "T5";
+                      const material = entry.material || "";
+                      const innerName = entry.inner || "Linen";
+                      const bindName  = entry.binding || "Cotton";
+                      const eff = effectiveDRForSlot(DB, cls, category, material, innerName, bindName, isShield);
+                      const allowedCats = MATERIALS_FOR_CLASS[entry.class||"None"] || [];
+                      const allTiers = tiersForCategory(DB, category);
+                      const items = itemsForCategoryAndTier(DB, category, tier);
+                      const matObj = factorsFor(DB, category, material);
+
+                      return (
+                        <div key={slot.id} className="bg-slate-800/60 rounded-xl p-3">
+                          <div className="flex items-center justify-between">
+                            <div className="text-sm font-medium">{slot.name}</div>
+                            <div className="text-xs text-slate-400">Weight factor in loadout score: {slot.factor}</div>
+                          </div>
+
+                          {!isShield ? (
+                            <>
+                              <label className="block text-sm mt-2">Armor Class</label>
+                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.class||"None"} onChange={e=>setArmorClassSafe(slot.id, e.target.value)}>
+                                {Object.keys(ARMOR_CLASS).map(k=> <option key={k} value={k}>{k}</option>)}
+                              </select>
+
+                              <label className="block text-sm mt-3">Outer Material Category</label>
+                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={category} onChange={e=>setArmorCategory(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                {allowedCats.map(k=> <option key={k} value={k}>{k}</option>)}
+                              </select>
+
+                              <div className="grid grid-cols-2 gap-2 mt-3">
+                                <div>
+                                  <label className="block text-sm">Tier</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={tier} onChange={e=>setArmorTier(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                    {allTiers.map(t=> <option key={t} value={t}>{t}</option>)}
+                                  </select>
+                                </div>
+                                <div>
+                                  <label className="block text-sm">Specific Material</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={material} onChange={e=>setArmorMaterial(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                    {items.map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                                  </select>
+                                </div>
+                              </div>
+
+                              <label className="block text-sm mt-3">Inner Layer Material</label>
+                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={innerName} onChange={e=>setArmorInner(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                {Object.keys(INNER_MATERIALS).map(k=> <option key={k} value={k}>{k}</option>)}
+                              </select>
+                              <div className="text-sm text-slate-300 mt-1">{INNER_MATERIALS[innerName]?.desc}</div>
+
+                              <label className="block text-sm mt-3">Thread and Binding</label>
+                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={bindName} onChange={e=>setArmorBinding(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                {Object.keys(THREAD_BINDINGS).map(k=> <option key={k} value={k}>{k}</option>)}
+                              </select>
+                              <div className="text-sm text-slate-300 mt-1">{THREAD_BINDINGS[bindName]?.desc}</div>
+
+                              {(entry.class||"None")!=="None" && matObj && (
+                                <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
+                                  <div className="font-medium mb-1">Material and Armor Explanation</div>
+                                  <p className="text-sm text-slate-300">
+                                    The outer layer is <span className="font-semibold">{material}</span> which belongs to the <span className="font-semibold">{category}</span> category and is at <span className="font-semibold">{tier}</span>. Its defensive multipliers are: Slash reduction {(matObj.slash*100).toFixed(0)} percent, Pierce reduction {(matObj.pierce*100).toFixed(0)} percent, Blunt reduction {(matObj.blunt*100).toFixed(0)} percent, and Magic reduction {(matObj.magic*100).toFixed(0)} percent. The magic value is the average of Fire, Water, Wind, and Earth resistances in your database.
+                                  </p>
+                                  <p className="text-sm text-slate-300 mt-2">
+                                    The armor class is <span className="font-semibold">{entry.class}</span>. Its base reduction for physical damage types, which are blunt, slash, and pierce, is {(ARMOR_CLASS[entry.class].phys*100).toFixed(0)} percent, and its base reduction for magic is {(ARMOR_CLASS[entry.class].magic*100).toFixed(0)} percent.
+                                  </p>
+                                  <p className="text-sm text-slate-300 mt-2">
+                                    The effective damage reduction for this slot is calculated by weighting the materials: the outer material contributes eighty percent, the inner layer contributes fifteen percent, and the thread and binding contribute five percent. These weighted values are then multiplied by the base armor class reductions to produce the final results:
+                                    <br/>Blunt effective reduction {(eff.blunt*100).toFixed(0)} percent,
+                                    <br/>Slash effective reduction {(eff.slash*100).toFixed(0)} percent,
+                                    <br/>Pierce effective reduction {(eff.pierce*100).toFixed(0)} percent,
+                                    <br/>Magic effective reduction {(eff.magic*100).toFixed(0)} percent.
+                                  </p>
+                                </div>
+                              )}
+                            </>
+                          ) : (
+                            <div>
+                              <label className="block text-sm mt-2">Shield Type</label>
+                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={armor.shield?.shield||"None"} onChange={e=>setShieldSubtypeSafe(e.target.value)}>
+                                {Object.keys(SHIELDS).map(k=> <option key={k} value={k}>{k}</option>)}
+                              </select>
+                              {armor.shield?.shield!=="None" && (
+                                <div className="text-sm text-slate-300 mt-1">
+                                  Required Strength: <span className={`font-semibold ${(effective.STR >= (SHIELDS[armor.shield?.shield].strengthRequirement||0)) ? "text-emerald-300" : "text-rose-300"}`}>{SHIELDS[armor.shield?.shield].strengthRequirement}</span>.
+                                </div>
+                              )}
+                              <div className="text-sm text-slate-300 mt-2">
+                                Shield faces are treated similarly to wood planks for now so that the calculations stay consistent with your materials database. If you want a dedicated shield material list, tell me how you would like it organized, and I will add it.
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+                    <div className="bg-slate-800/70 rounded-xl p-3">
+                      <div className="text-slate-300 font-medium">Loadout Score</div>
+                      <div className="text-sm">S equals the sum of each slot’s weight factor multiplied by the numeric value of its armor class. Smax is the same calculation as if every slot were Heavy. The ratio R equals S divided by Smax and determines your category.</div>
+                      <div className="text-lg tabular-nums mt-1">S = {S} / Smax = {Smax} (R = {(R*100).toFixed(1)} percent)</div>
+                      <div className="text-slate-300 mt-1">Category: <span className="font-semibold">{nakedOverride ? "Naked Override (no armor equipped)" : category}</span></div>
+                    </div>
+                    <div className="bg-slate-800/70 rounded-xl p-3">
+                      <div className="text-slate-300 font-medium">Missing Armor Penalty</div>
+                      <div className="text-sm">Each missing armor piece reduces your outgoing damage by fifteen percent. If you are completely naked and unshielded, there is a special rule that sets your regeneration to the naked rate and reduces your outgoing damage by seventy-five percent.</div>
+                      <div className="text-lg tabular-nums mt-1">Total outgoing damage penalty from missing pieces: -{missingPieces*15} percent</div>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+                    <div className="bg-slate-800/70 rounded-xl p-3">
+                      <div className="text-slate-300 font-medium">Stamina Regeneration</div>
+                      <div className="text-2xl tabular-nums">{regenStam}</div>
+                      <div className="text-sm text-slate-300 mt-1">Regeneration ticks occur every two seconds and are ten percent of the pool multiplied by your loadout multiplier and increased by up to ten percent from Armor Training.</div>
+                    </div>
+                    <div className="bg-slate-800/70 rounded-xl p-3">
+                      <div className="text-slate-300 font-medium">Mana Regeneration</div>
+                      <div className="text-2xl tabular-nums">{regenMana}</div>
+                      <div className="text-sm text-slate-300 mt-1">Armor class reduces both stamina and mana regeneration using the same multipliers.</div>
                     </div>
                   </div>
                 </section>
