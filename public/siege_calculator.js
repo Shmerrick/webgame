@@ -55,16 +55,29 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateAndDisplaySiegeResults();
     }
 
+    function populateSelectWithOptions(selectElement, options) {
+        selectElement.innerHTML = '';
+        options.forEach(option => addOption(selectElement, option.Name, option.RowName));
+    }
+
     function populateSiegeWeaponComponents() {
         const type = siegeWeaponTypeSelect.value;
         siegeWeaponComponentsDiv.innerHTML = '';
         if (!type || !siegeVolumesData[type]) return;
+
+        const woodAndMetalMaterials = materialsData.filter(m => m.Category === 'Wood' || m.Category === 'Metals');
 
         Object.keys(siegeVolumesData[type]).forEach(comp => {
             const id = `siege-comp-${comp.toLowerCase().replace(/ /g, '-')}`;
             const label = createLabel(comp, id);
             const select = createMaterialSelect(id);
             select.addEventListener('change', calculateAndDisplaySiegeResults);
+
+            if (comp.toLowerCase() === 'frame' || comp.toLowerCase() === 'head') {
+                populateSelectWithOptions(select, woodAndMetalMaterials);
+            } else {
+                populateSelectWithOptions(select, materialsData);
+            }
 
             const container = document.createElement('div');
             container.appendChild(label);

@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [ingredient1Select, ingredient2Select].forEach(el => el.addEventListener('change', calculateAndDisplayAlchemyResults));
         [rune1Select, rune2Select].forEach(el => el.addEventListener('change', calculateAndDisplayEnchantingResults));
         roughGemstoneSelect.addEventListener('change', calculateAndDisplayRefiningResults);
-        [jewelryTypeSelect, jewelryMetalSelect, jewelryTierSelect].forEach(el => el.addEventListener('change', calculateAndDisplayJewelryResults));
+        [jewelryTypeSelect, jewelryMetalSelect, jewelryTierSelect, document.getElementById('jewelry-attribute')].forEach(el => el.addEventListener('change', calculateAndDisplayJewelryResults));
     }
 
     function calculateAllResults() {
@@ -217,11 +217,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Population Functions ---
+    function populateSelectWithOptions(selectElement, options) {
+        selectElement.innerHTML = '';
+        options.forEach(option => addOption(selectElement, option.Name, option.RowName));
+    }
+
     function populateArmorDropdowns() {
         Object.keys(armorVolumesData).forEach(piece => addOption(armorPieceSelect, piece, piece));
-        materialsData.forEach(m => addOption(outerMaterialSelect, m.Name, m.RowName));
-        materialsData.forEach(m => addOption(innerMaterialSelect, m.Name, m.RowName));
-        materialsData.forEach(m => addOption(bindingMaterialSelect, m.Name, m.RowName));
+
+        const allMaterials = materialsData;
+        const softMaterials = materialsData.filter(m => m.Category === 'Leather' || m.Category === 'Cloth');
+
+        populateSelectWithOptions(outerMaterialSelect, allMaterials);
+        populateSelectWithOptions(innerMaterialSelect, softMaterials);
+        populateSelectWithOptions(bindingMaterialSelect, softMaterials);
     }
 
     function populateShieldDropdowns() {
@@ -539,23 +548,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemType = jewelryTypeSelect.value;
         const metalMaterial = findMaterial(jewelryMetalSelect.value);
         const tier = parseInt(jewelryTierSelect.value, 10);
+        const attributeSelect = document.getElementById('jewelry-attribute');
 
         if (!itemType || !metalMaterial || !tier) return;
 
+        // Show/hide attribute dropdown
+        if (itemType === 'Ring' || itemType === 'Earring') {
+            attributeSelect.parentElement.style.display = 'block';
+        } else {
+            attributeSelect.parentElement.style.display = 'none';
+        }
+
         const toughness = (parseFloat(metalMaterial.Slash) + parseFloat(metalMaterial.Pierce) + parseFloat(metalMaterial.Blunt)) / 3;
-        const durability = toughness * 100 * tier; // Scaled up to be a more meaningful number
+        const durability = toughness * 100 * tier;
 
         let attribute = '';
         let modifier = 0;
         let skill = '';
         let skillIncrease = 0;
 
-        if (itemType === 'Ring') {
-            attribute = Math.random() < 0.5 ? 'Intelligence' : 'Strength';
-            modifier = Math.floor(Math.random() * tier) + 1;
-        } else if (itemType === 'Earring') {
-            attribute = Math.random() < 0.5 ? 'Dexterity' : 'Psyche';
-            modifier = Math.floor(Math.random() * tier) + 1;
+        if (itemType === 'Ring' || itemType === 'Earring') {
+            attribute = attributeSelect.value;
+            modifier = tier; // Bonus is equal to the tier
         } else if (itemType === 'Amulet') {
             const skills = [
                 "ArmorTraining", "BlockingAndShields", "Sword", "Axe", "Dagger", "Hammer", "Polesword",

@@ -438,11 +438,11 @@
           torso:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
           legs:   { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
           shield: { shield:"None" },
-          ring1: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5") },
-          ring2: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5") },
-          earring1: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5") },
-          earring2: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5") },
-          amulet: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5") },
+          ring1: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), jewelryTier: 1, attribute: 'Strength' },
+          ring2: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), jewelryTier: 1, attribute: 'Strength' },
+          earring1: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), jewelryTier: 1, attribute: 'Strength' },
+          earring2: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), jewelryTier: 1, attribute: 'Strength' },
+          amulet: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), jewelryTier: 1, attribute: 'Strength' },
         });
 
         // Target armor (for “damage against armor”)
@@ -468,12 +468,22 @@
 
         // Effective stats with racial modifiers
         const race = races.find(r=> r.id===raceId) || races[0];
-        const effective = useMemo(()=> ({
-          STR: Math.max(0, Math.min(100, stats.STR + (race.modifier.STR||0))),
-          DEX: Math.max(0, Math.min(100, stats.DEX + (race.modifier.DEX||0))),
-          INT: Math.max(0, Math.min(100, stats.INT + (race.modifier.INT||0))),
-          PSY: Math.max(0, Math.min(100, stats.PSY + (race.modifier.PSY||0))),
-        }), [stats, race]);
+        const effective = useMemo(()=> {
+            let bonuses = { STR: 0, DEX: 0, INT: 0, PSY: 0 };
+            ["ring1", "ring2", "earring1", "earring2", "amulet"].forEach(slotId => {
+                const item = armor[slotId];
+                if (item && item.attribute && item.jewelryTier) {
+                    bonuses[item.attribute] += item.jewelryTier;
+                }
+            });
+
+            return {
+              STR: Math.max(0, Math.min(100, stats.STR + (race.modifier.STR||0) + bonuses.STR)),
+              DEX: Math.max(0, Math.min(100, stats.DEX + (race.modifier.DEX||0) + bonuses.DEX)),
+              INT: Math.max(0, Math.min(100, stats.INT + (race.modifier.INT||0) + bonuses.INT)),
+              PSY: Math.max(0, Math.min(100, stats.PSY + (race.modifier.PSY||0) + bonuses.PSY)),
+            };
+        }, [stats, race, armor]);
 
         const spent  = sumCost(stats);
         const remain = STAT_POOL - spent;
@@ -1226,6 +1236,20 @@
                                     {itemsForCategoryAndTier(DB, entry.gemCategory, entry.gemTier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
                                   </select>
                                 </div>
+                              </div>
+                              <div className="mt-3">
+                                <label className="block text-sm">Jewelry Tier</label>
+                                <input type="range" min="1" max="5" value={entry.jewelryTier || 1} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], jewelryTier: parseInt(e.target.value, 10)}}))} className="w-full" />
+                                <div className="text-center text-sm">{entry.jewelryTier || 1}</div>
+                              </div>
+                              <div className="mt-3">
+                                <label className="block text-sm">Attribute Bonus</label>
+                                <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.attribute || 'Strength'} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], attribute: e.target.value}}))}>
+                                  <option value="Strength">Strength</option>
+                                  <option value="Dexterity">Dexterity</option>
+                                  <option value="Intelligence">Intelligence</option>
+                                  <option value="Psyche">Psyche</option>
+                                </select>
                               </div>
                             </>
                           ) : !isShield ? (
