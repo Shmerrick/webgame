@@ -1,7 +1,17 @@
 #pragma once
 
-#include "CoreMinimal.h"
-#include "DataTypes.generated.h"
+#ifndef COREMINIMAL_H
+#define COREMINIMAL_H
+
+// Mock UE macros for standalone compilation
+#define UENUM(BlueprintType)
+#define USTRUCT(BlueprintType)
+#define UPROPERTY(EditAnywhere, BlueprintReadWrite, Category)
+#define GENERATED_BODY()
+#define UMETA(DisplayName)
+
+#endif
+
 
 UENUM(BlueprintType)
 enum class EArmorClass : uint8 {
@@ -39,6 +49,7 @@ enum class ERace : uint8 {
 UENUM(BlueprintType)
 enum class EShieldType : uint8 {
     None UMETA(DisplayName = "None"),
+    Buckler UMETA(DisplayName = "Buckler"),
     Round UMETA(DisplayName = "Round"),
     Kite UMETA(DisplayName = "Kite"),
     Tower UMETA(DisplayName = "Tower")
@@ -56,6 +67,15 @@ enum class EWeaponType : uint8 {
     Sling UMETA(DisplayName = "Sling"),
     Lance UMETA(DisplayName = "Lance")
 };
+
+namespace Game {
+    using ArmorClass = EArmorClass;
+    using DamageType = EDamageType;
+    using ElementType = EElementType;
+    using Race = ERace;
+    using ShieldType = EShieldType;
+    using WeaponType = EWeaponType;
+}
 
 UENUM(BlueprintType)
 enum class EMountSpeed : uint8 {

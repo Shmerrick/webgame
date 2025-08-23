@@ -6,6 +6,9 @@
 #include "Material.h"
 #include <vector>
 #include <stdexcept>
+#include <fstream>
+#include <sstream>
+#include <map>
 
 namespace Game {
 
@@ -26,55 +29,56 @@ public:
         const Material* innerMaterial = materials[1];
         const Material* bindingMaterial = materials[2];
 
-        // In a real implementation, this data would be loaded from a file into a database.
-        struct ArmorComponentVolumes {
-            double outer;
-            double inner;
-            double binding;
-            double total;
-        };
-        auto getArmorComponentVolumes = [](const std::string& s) -> ArmorComponentVolumes {
-            if (s == "Helmet") return {2100, 1050, 350, 3500};
-            if (s == "Chestplate") return {6000, 3000, 1000, 10000};
-            if (s == "Greaves") return {1200, 600, 200, 2000};
-            if (s == "Boots") return {1800, 900, 300, 3000};
-            if (s == "Gauntlets") return {900, 450, 150, 1500};
-            throw std::runtime_error("Unknown armor slot: " + s);
-        };
+        // Load armor component volumes from CSV
+        std::map<std::string, std::map<std::string, double>> armorVolumes;
+        std::ifstream file("../armor_volumes.csv");
+        std::string line;
+        getline(file, line); // skip header
+        while (getline(file, line)) {
+            std::stringstream ss(line);
+            std::string piece, component, volume_str;
+            getline(ss, piece, ',');
+            getline(ss, component, ',');
+            getline(ss, volume_str, ',');
+            armorVolumes[piece][component] = std::stod(volume_str);
+        }
 
-        ArmorComponentVolumes volumes = getArmorComponentVolumes(slot);
+        if (armorVolumes.find(slot) == armorVolumes.end()) {
+            throw std::runtime_error("Unknown armor slot: " + slot);
+        }
+
+        double outerVolume = armorVolumes[slot]["Outer"];
+        double innerVolume = armorVolumes[slot]["Inner"];
+        double bindingVolume = armorVolumes[slot]["Binding"];
+        double totalVolume = outerVolume + innerVolume + bindingVolume;
 
         // Calculate required units of each material.
         // Formula: units = (volume_cm3 * density_g_cm3) / 100
-        double requiredOuterUnits = (volumes.outer * outerMaterial->getDensity()) / 100;
-        double requiredInnerUnits = (volumes.inner * innerMaterial->getDensity()) / 100;
-        double requiredBindingUnits = (volumes.binding * bindingMaterial->getDensity()) / 100;
+        double requiredOuterUnits = (outerVolume * outerMaterial->getDensity()) / 100;
+        double requiredInnerUnits = (innerVolume * innerMaterial->getDensity()) / 100;
+        double requiredBindingUnits = (bindingVolume * bindingMaterial->getDensity()) / 100;
 
         // In a full implementation, you would check player inventory for these amounts.
         // For now, we assume the player has the required materials.
 
-        Armor newArmor(slot, slotFactor, armorClass, outerMaterial, innerMaterial, bindingMaterial, volumes.total);
+        Armor newArmor(slot, slotFactor, armorClass, outerMaterial, innerMaterial, bindingMaterial, totalVolume);
 
         // Calculate the total mass of the armor in kg.
-        double totalMassGrams = (volumes.outer * outerMaterial->getDensity()) +
-                                (volumes.inner * innerMaterial->getDensity()) +
-                                (volumes.binding * bindingMaterial->getDensity());
+        double totalMassGrams = (outerVolume * outerMaterial->getDensity()) +
+                                (innerVolume * innerMaterial->getDensity()) +
+                                (bindingVolume * bindingMaterial->getDensity());
         double totalMassKg = totalMassGrams / 1000.0;
         newArmor.setMass(totalMassKg);
 
         // Calculate durability
-        double totalWeightedToughness = (volumes.outer * outerMaterial->getToughness()) +
-                                        (volumes.inner * innerMaterial->getToughness()) +
-                                        (volumes.binding * bindingMaterial->getToughness());
-        double maxDurability = (totalWeightedToughness / volumes.total) * (volumes.total / 100.0);
+        double totalWeightedToughness = (outerVolume * outerMaterial->getToughness()) +
+                                        (innerVolume * innerMaterial->getToughness()) +
+                                        (bindingVolume * bindingMaterial->getToughness());
+        double maxDurability = (totalWeightedToughness / totalVolume) * (totalVolume / 100.0);
         newArmor.setDurability(maxDurability, maxDurability);
 
         return newArmor;
     }
-
-#include <fstream>
-#include <sstream>
-#include <map>
 
     // Weapon Smithing
     static Weapon CraftWeapon(
@@ -84,7 +88,7 @@ public:
     ) {
         // Load weapon component volumes from CSV
         std::map<std::string, std::map<std::string, double>> weaponVolumes;
-        std::ifstream file("weapon_volumes.csv");
+        std::ifstream file("../weapon_volumes.csv");
         std::string line;
         getline(file, line); // skip header
         while (getline(file, line)) {
@@ -148,8 +152,76 @@ public:
         return newWeapon;
     }
 
+    // Shield Crafting
+    static Shield CraftShield(
+        ShieldType shieldType,
+        const std::vector<std::pair<std::string, const Material*>>& componentMaterials
+    ) {
+        // Load shield component volumes from CSV
+        std::map<std::string, std::map<std::string, double>> shieldVolumes;
+        std::ifstream file("../shield_volumes.csv");
+        std::string line;
+        getline(file, line); // skip header
+        while (getline(file, line)) {
+            std::stringstream ss(line);
+            std::string type, component, volume_str;
+            getline(ss, type, ',');
+            getline(ss, component, ',');
+            getline(ss, volume_str, ',');
+            shieldVolumes[type][component] = std::stod(volume_str);
+        }
+
+        std::vector<Shield::ShieldComponent> components;
+        double totalMassGrams = 0;
+        double totalVolume = 0;
+        double totalWeightedToughness = 0;
+
+        auto getShieldTypeString = [](ShieldType type) -> std::string {
+            switch (type) {
+                case ShieldType::Buckler: return "Buckler";
+                case ShieldType::Round: return "Round Shield";
+                case ShieldType::Kite: return "Kite Shield";
+                case ShieldType::Tower: return "Tower Shield";
+                default: throw std::runtime_error("Unknown shield type");
+            }
+        };
+
+        std::string shieldTypeStr = getShieldTypeString(shieldType);
+
+        for (const auto& compMat : componentMaterials) {
+            std::string componentName = compMat.first;
+            const Material* material = compMat.second;
+            double volume = shieldVolumes[shieldTypeStr][componentName];
+
+            components.push_back({componentName, material, volume});
+            totalMassGrams += volume * material->getDensity();
+            totalVolume += volume;
+            totalWeightedToughness += volume * material->getToughness();
+        }
+
+        Shield newShield(shieldType, components);
+
+        double totalMassKg = totalMassGrams / 1000.0;
+        newShield.setMass(totalMassKg);
+
+        double maxDurability = (totalWeightedToughness / totalVolume) * (totalVolume / 100.0);
+        newShield.setDurability(maxDurability, maxDurability);
+
+        return newShield;
+    }
+
+    // Bowyer Crafting
+    static Weapon CraftBow(
+        WeaponType weaponType,
+        const std::vector<std::pair<std::string, const Material*>>& componentMaterials
+    ) {
+        if (weaponType != WeaponType::Bow && weaponType != WeaponType::Crossbow && weaponType != WeaponType::Sling) {
+            throw std::runtime_error("Invalid weapon type for Bowyer crafting.");
+        }
+        return CraftWeapon(weaponType, componentMaterials);
+    }
+
     // Placeholders for other crafting professions
-    // static Shield CraftShield(...);
     // static Potion CraftPotion(...);
     // static Enchantment CraftEnchantment(...);
 };

@@ -100,9 +100,43 @@
 
             <dt>Weapon Smithing</dt>
             <dd>Creates melee weapons (swords, axes, maces, daggers, polearms).</dd>
+            <dd class="mt-4">
+              <div class="bg-slate-800/50 p-4 rounded-lg">
+                <h4 class="text-lg font-semibold text-emerald-300 mb-2">Weapon Crafting Calculator</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="weapon-type" class="block text-sm font-medium text-slate-300">Weapon Type</label>
+                    <select id="weapon-type" name="weapon-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                </div>
+                <div id="weapon-components" class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <!-- Components will be populated by JavaScript -->
+                </div>
+                <div id="weapon-crafting-results" class="mt-4 text-slate-300">
+                  <!-- Results will be populated by JavaScript -->
+                </div>
+              </div>
+            </dd>
 
             <dt>Bowyer</dt>
             <dd>Creates bows, crossbows, arrows, bolts.</dd>
+            <dd class="mt-4">
+              <div class="bg-slate-800/50 p-4 rounded-lg">
+                <h4 class="text-lg font-semibold text-emerald-300 mb-2">Bowyer Crafting Calculator</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="bow-type" class="block text-sm font-medium text-slate-300">Bow Type</label>
+                    <select id="bow-type" name="bow-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                </div>
+                <div id="bow-components" class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <!-- Components will be populated by JavaScript -->
+                </div>
+                <div id="bow-crafting-results" class="mt-4 text-slate-300">
+                  <!-- Results will be populated by JavaScript -->
+                </div>
+              </div>
+            </dd>
 
             <dt>Shield Crafting</dt>
             <dd>Creates shields of various sizes and styles.</dd>
@@ -140,12 +174,48 @@
           <dl>
             <dt>Alchemy</dt>
             <dd>Potions, poisons, elixirs, antidotes.</dd>
+            <dd class="mt-4">
+              <div class="bg-slate-800/50 p-4 rounded-lg">
+                <h4 class="text-lg font-semibold text-emerald-300 mb-2">Alchemy Calculator</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="ingredient1" class="block text-sm font-medium text-slate-300">Ingredient 1</label>
+                    <select id="ingredient1" name="ingredient1" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
+                    <label for="ingredient2" class="block text-sm font-medium text-slate-300">Ingredient 2</label>
+                    <select id="ingredient2" name="ingredient2" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                </div>
+                <div id="alchemy-results" class="mt-4 text-slate-300">
+                  <!-- Results will be populated by JavaScript -->
+                </div>
+              </div>
+            </dd>
 
             <dt>Cooking</dt>
             <dd>Food buffs, meals, feasts for groups.</dd>
 
             <dt>Enchanting</dt>
             <dd>Runes, wards, permanent magical buffs (e.g., stamina regen, mana efficiency).</dd>
+            <dd class="mt-4">
+                <div class="bg-slate-800/50 p-4 rounded-lg">
+                    <h4 class="text-lg font-semibold text-emerald-300 mb-2">Enchanting Calculator</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="rune1" class="block text-sm font-medium text-slate-300">Rune 1</label>
+                            <select id="rune1" name="rune1" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                        </div>
+                        <div>
+                            <label for="rune2" class="block text-sm font-medium text-slate-300">Rune 2</label>
+                            <select id="rune2" name="rune2" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                        </div>
+                    </div>
+                    <div id="enchanting-results" class="mt-4 text-slate-300">
+                        <!-- Results will be populated by JavaScript -->
+                    </div>
+                </div>
+            </dd>
 
             <dt>Artificer</dt>
             <dd>Imbues non-magical gear with elemental damage (fire sword, frost arrows) or magical defense (resistance wards).</dd>
