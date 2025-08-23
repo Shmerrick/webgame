@@ -62,24 +62,89 @@ public:
         double totalMassKg = totalMassGrams / 1000.0;
         newArmor.setMass(totalMassKg);
 
+        // Calculate durability
+        double totalWeightedToughness = (volumes.outer * outerMaterial->getToughness()) +
+                                        (volumes.inner * innerMaterial->getToughness()) +
+                                        (volumes.binding * bindingMaterial->getToughness());
+        double maxDurability = (totalWeightedToughness / volumes.total) * (volumes.total / 100.0);
+        newArmor.setDurability(maxDurability, maxDurability);
+
         return newArmor;
     }
 
+#include <fstream>
+#include <sstream>
+#include <map>
+
     // Weapon Smithing
     static Weapon CraftWeapon(
-        const std::vector<const Material*>& materials,
-        WeaponType weaponType
+        WeaponType weaponType,
+        const std::vector<std::pair<std::string, const Material*>>& componentMaterials,
+        double hollowFactor = 0.0
     ) {
-        // This function would validate materials and construct the weapon.
-        if (materials.size() < 2) {
-            throw std::runtime_error("Not enough materials for weapon crafting. Requires head and handle materials.");
+        // Load weapon component volumes from CSV
+        std::map<std::string, std::map<std::string, double>> weaponVolumes;
+        std::ifstream file("weapon_volumes.csv");
+        std::string line;
+        getline(file, line); // skip header
+        while (getline(file, line)) {
+            std::stringstream ss(line);
+            std::string type, component, volume_str;
+            getline(ss, type, ',');
+            getline(ss, component, ',');
+            getline(ss, volume_str, ',');
+            weaponVolumes[type][component] = std::stod(volume_str);
         }
 
-        const Material* head = materials[0];
-        const Material* handle = materials[1];
+        std::vector<Weapon::WeaponComponent> components;
+        double totalMassGrams = 0;
+        double totalVolume = 0;
+        double totalWeightedToughness = 0;
 
-        Weapon newWeapon(weaponType, head, handle);
-        // Here you would calculate and set the weapon's final mass, damage values, etc.
+        // EWeaponType enum to string mapping
+        auto getWeaponTypeString = [](WeaponType type) -> std::string {
+            switch (type) {
+                case WeaponType::Sword: return "Sword";
+                case WeaponType::Axe: return "Axe";
+                case WeaponType::Hammer: return "Hammer";
+                case WeaponType::Spear: return "Spear";
+                case WeaponType::Dagger: return "Dagger";
+                case WeaponType::Bow: return "Bow";
+                case WeaponType::Crossbow: return "Crossbow";
+                case WeaponType::Sling: return "Sling";
+                case WeaponType::Lance: return "Lance";
+                default: throw std::runtime_error("Unknown weapon type");
+            }
+        };
+
+        std::string weaponTypeStr = getWeaponTypeString(weaponType);
+
+        for (const auto& compMat : componentMaterials) {
+            std::string componentName = compMat.first;
+            const Material* material = compMat.second;
+            double volume = weaponVolumes[weaponTypeStr][componentName];
+
+            if (componentName == "Handle" || componentName == "Shaft" || componentName == "Stave") {
+                volume *= (1.0 - hollowFactor);
+            }
+
+            components.push_back({componentName, material, volume});
+            totalMassGrams += volume * material->getDensity();
+            totalVolume += volume;
+            totalWeightedToughness += volume * material->getToughness();
+        }
+
+        Weapon newWeapon(weaponType, components);
+
+        double totalMassKg = totalMassGrams / 1000.0;
+        newWeapon.setMass(totalMassKg);
+
+        double maxDurability = (totalWeightedToughness / totalVolume) * (totalVolume / 100.0);
+        if (hollowFactor > 0.0) {
+            maxDurability *= (1.0 - (hollowFactor * 0.5)); // Penalize hollowed weapons
+        }
+        newWeapon.setDurability(maxDurability, maxDurability);
+
         return newWeapon;
     }
 

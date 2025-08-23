@@ -10,7 +10,8 @@ void display_material(const json& material) {
               << std::setw(10) << std::fixed << std::setprecision(5) << material["slash"].get<double>()
               << std::setw(10) << material["pierce"].get<double>()
               << std::setw(10) << material["blunt"].get<double>()
-              << std::setw(10) << material["magic"].get<double>() << std::endl;
+              << std::setw(10) << material["magic"].get<double>()
+              << std::setw(10) << material["toughness"].get<double>() << std::endl;
 }
 
 int main() {
@@ -32,8 +33,9 @@ int main() {
                       << std::setw(10) << "Slash"
                       << std::setw(10) << "Pierce"
                       << std::setw(10) << "Blunt"
-                      << std::setw(10) << "Magic" << std::endl;
-            std::cout << "  " << std::string(70, '-') << std::endl;
+                      << std::setw(10) << "Magic"
+                      << std::setw(10) << "Toughness" << std::endl;
+            std::cout << "  " << std::string(80, '-') << std::endl;
             for (const auto& material : materials) {
                 std::cout << "  ";
                 display_material(material);
