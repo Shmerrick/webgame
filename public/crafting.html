@@ -236,6 +236,23 @@
 
             <dt>Artificer</dt>
             <dd>Imbues non-magical gear with elemental damage (fire sword, frost arrows) or magical defense (resistance wards).</dd>
+
+            <dt>Gemstone Refining</dt>
+            <dd>Refines rough gemstones into cut versions suitable for jewelry crafting.</dd>
+            <dd class="mt-4">
+              <div class="bg-slate-800/50 p-4 rounded-lg">
+                <h4 class="text-lg font-semibold text-emerald-300 mb-2">Gemstone Refining Calculator</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="rough-gemstone" class="block text-sm font-medium text-slate-300">Rough Gemstone</label>
+                    <select id="rough-gemstone" name="rough-gemstone" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                </div>
+                <div id="refining-results" class="mt-4 text-slate-300">
+                  <!-- Results will be populated by JavaScript -->
+                </div>
+              </div>
+            </dd>
           </dl>
         </section>
 
@@ -244,6 +261,28 @@
           <dl>
             <dt>Jewelry Crafting</dt>
             <dd>Rings, necklaces, amulets, trinkets (no socketing, no augmenting).</dd>
+            <dd class="mt-4">
+              <div class="bg-slate-800/50 p-4 rounded-lg">
+                <h4 class="text-lg font-semibold text-emerald-300 mb-2">Jewelry Crafting Calculator</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="jewelry-type" class="block text-sm font-medium text-slate-300">Item Type</label>
+                    <select id="jewelry-type" name="jewelry-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
+                    <label for="jewelry-metal" class="block text-sm font-medium text-slate-300">Metal</label>
+                    <select id="jewelry-metal" name="jewelry-metal" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
+                    <label for="jewelry-gemstone" class="block text-sm font-medium text-slate-300">Gemstone</label>
+                    <select id="jewelry-gemstone" name="jewelry-gemstone" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                </div>
+                <div id="jewelry-results" class="mt-4 text-slate-300">
+                  <!-- Results will be populated by JavaScript -->
+                </div>
+              </div>
+            </dd>
           </dl>
         </section>
 

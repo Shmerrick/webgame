@@ -52,6 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const enchantingResultsDiv = document.getElementById('enchanting-results');
     let enchantmentRunesData = [];
 
+    // Gemstone Refining
+    const roughGemstoneSelect = document.getElementById('rough-gemstone');
+    const refiningResultsDiv = document.getElementById('refining-results');
+
+    // Jewelry Crafting
+    const jewelryTypeSelect = document.getElementById('jewelry-type');
+    const jewelryMetalSelect = document.getElementById('jewelry-metal');
+    const jewelryGemstoneSelect = document.getElementById('jewelry-gemstone');
+    const jewelryResultsDiv = document.getElementById('jewelry-results');
+
     const WEAPONS = {
         Sword:   { type: "melee",   massKilograms: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.20 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
         Axe:     { type: "melee",   massKilograms: 4, baseCost: 40, head: { Blunt: 0.20, Slash: 0.45, Pierce: 0.10 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Blunt" } },
@@ -140,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error("Failed to load crafting data:", error);
-            const allResultsDivs = [armorResultsDiv, shieldResultsDiv, weaponResultsDiv, bowResultsDiv, alchemyResultsDiv, enchantingResultsDiv];
+            const allResultsDivs = [armorResultsDiv, shieldResultsDiv, weaponResultsDiv, bowResultsDiv, alchemyResultsDiv, enchantingResultsDiv, refiningResultsDiv, jewelryResultsDiv];
             allResultsDivs.forEach(div => {
                 if(div) div.innerHTML = `<p class="text-red-400">Error loading crafting data. Please try again later.</p>`;
             });
@@ -154,6 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
         populateBowyerDropdowns();
         populateAlchemyDropdowns();
         populateEnchantingDropdowns();
+        populateRefiningDropdowns();
+        populateJewelryDropdowns();
     }
 
     function setupAllEventListeners() {
@@ -170,6 +182,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         [ingredient1Select, ingredient2Select].forEach(el => el.addEventListener('change', calculateAndDisplayAlchemyResults));
         [rune1Select, rune2Select].forEach(el => el.addEventListener('change', calculateAndDisplayEnchantingResults));
+        roughGemstoneSelect.addEventListener('change', calculateAndDisplayRefiningResults);
+        [jewelryTypeSelect, jewelryMetalSelect, jewelryGemstoneSelect].forEach(el => el.addEventListener('change', calculateAndDisplayJewelryResults));
     }
 
     function calculateAllResults() {
@@ -181,6 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateAndDisplayBowResults();
         calculateAndDisplayAlchemyResults();
         calculateAndDisplayEnchantingResults();
+        calculateAndDisplayRefiningResults();
+        calculateAndDisplayJewelryResults();
     }
 
     // --- Population Functions ---
@@ -203,8 +219,32 @@ document.addEventListener('DOMContentLoaded', () => {
         weaponTypes.forEach(type => addOption(weaponTypeSelect, type, type));
     }
 
+    const BOW_VOLUMES = {
+        Long:    { Stave: 1300 },
+        Recurve: { Stave: 1100 },
+        Yumi:    { Stave: 1200 },
+        Horse:   { Stave: 900 },
+        Flat:    { Stave: 1000 },
+    };
+
+    const GEMSTONES = [
+        { name: "Diamond", rowName: "Minerals_T5_Diamond", rough: "Rough Diamond", cut: "Cut Diamond" },
+        { name: "Ruby", rowName: "Minerals_T5_Ruby", rough: "Rough Ruby", cut: "Cut Ruby" },
+        { name: "Sapphire", rowName: "Minerals_T5_Sapphire", rough: "Rough Sapphire", cut: "Cut Sapphire" },
+        { name: "Emerald", rowName: "Minerals_T4_Emerald", rough: "Rough Emerald", cut: "Cut Emerald" },
+        { name: "Topaz", rowName: "Minerals_T4_Topaz", rough: "Rough Topaz", cut: "Cut Topaz" },
+        { name: "Garnet", rowName: "Minerals_T3_Garnet", rough: "Rough Garnet", cut: "Cut Garnet" },
+        { name: "Quartz", rowName: "Minerals_T1_Quartz", rough: "Rough Quartz", cut: "Cut Quartz" },
+    ];
+
+    const JEWELRY_VOLUMES = {
+        Ring: { Metal: 50, Gemstone: 5 },
+        Necklace: { Metal: 150, Gemstone: 10 },
+        Amulet: { Metal: 100, Gemstone: 15 },
+    };
+
     function populateBowyerDropdowns() {
-        const bowTypes = ["Bow", "Crossbow", "Sling"];
+        const bowTypes = ["Long", "Recurve", "Yumi", "Horse", "Flat"];
         bowTypes.forEach(type => addOption(bowTypeSelect, type, type));
     }
 
@@ -216,6 +256,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function populateEnchantingDropdowns() {
         enchantmentRunesData.forEach(r => addOption(rune1Select, r.Name, r.RowName));
         enchantmentRunesData.forEach(r => addOption(rune2Select, r.Name, r.RowName));
+    }
+
+    function populateRefiningDropdowns() {
+        if (!roughGemstoneSelect) return;
+        GEMSTONES.forEach(gem => addOption(roughGemstoneSelect, gem.rough, gem.rowName));
     }
 
     function populateWeaponComponents() {
@@ -234,18 +279,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function populateBowComponents() {
-        const type = bowTypeSelect.value;
         bowComponentsDiv.innerHTML = '';
-        if (!type || !weaponVolumesData[type]) return;
+        const id = `bow-comp-wood`;
+        const label = createLabel("Wood", id);
+        const select = createWoodMaterialSelect(id);
+        select.addEventListener('change', calculateAndDisplayBowResults);
+        bowComponentsDiv.appendChild(label);
+        bowComponentsDiv.appendChild(select);
+    }
 
-        Object.keys(weaponVolumesData[type]).forEach(comp => {
-            const id = `bow-comp-${comp.toLowerCase().replace(' ', '-')}`;
-            const label = createLabel(comp, id);
-            const select = createMaterialSelect(id);
-            select.addEventListener('change', calculateAndDisplayBowResults);
-            bowComponentsDiv.appendChild(label);
-            bowComponentsDiv.appendChild(select);
-        });
+    function createWoodMaterialSelect(id) {
+        const select = document.createElement('select');
+        select.id = id;
+        select.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
+        materialsData.filter(m => m.Category === 'Wood').forEach(m => addOption(select, m.Name, m.RowName));
+        return select;
     }
 
     // --- Calculation Functions ---
@@ -410,12 +458,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function calculateAndDisplayBowResults() {
         const type = bowTypeSelect.value;
-        if (!type || !weaponVolumesData[type]) return;
+        if (!type) return;
 
-        const components = getComponentData(bowComponentsDiv, 'bow-comp-');
-        if(!components) return;
+        const woodSelect = document.getElementById('bow-comp-wood');
+        if (!woodSelect) return;
 
-        const result = calculatePhysicalItemStats(components);
+        const woodMaterial = findMaterial(woodSelect.value);
+        if (!woodMaterial) return;
+
+        const volume = BOW_VOLUMES[type].Stave;
+        const density = parseFloat(woodMaterial.Density);
+        const mass = volume * density;
+        const requiredUnits = mass / 100;
+
+        const result = {
+            requiredMaterials: {
+                "Stave": { name: woodMaterial.Name, units: requiredUnits }
+            },
+            totalMass: mass / 1000
+        };
+
         bowResultsDiv.innerHTML = formatResults(result);
     }
 
@@ -440,6 +502,55 @@ document.addEventListener('DOMContentLoaded', () => {
             <h5 class="text-md font-semibold text-emerald-400 mt-4">Crafted Enchantment:</h5>
             <p>Name: Enchantment of ${rune1.Name} and ${rune2.Name}</p>
             <p>Effect: Combines the powers of ${rune1.Effect} and ${rune2.Effect}.</p>
+        `;
+    }
+
+    function calculateAndDisplayRefiningResults() {
+        if (!roughGemstoneSelect) return;
+        const selectedGemRow = roughGemstoneSelect.value;
+        const gem = GEMSTONES.find(g => g.rowName === selectedGemRow);
+        if (!gem) return;
+
+        // Assuming a 1:1 ratio for rough to cut for now.
+        refiningResultsDiv.innerHTML = `
+            <h5 class="text-md font-semibold text-emerald-400 mt-4">Refining Result:</h5>
+            <p>1 x ${gem.rough}  ->  1 x ${gem.cut}</p>
+        `;
+    }
+
+    function populateJewelryDropdowns() {
+        if (!jewelryTypeSelect) return;
+        Object.keys(JEWELRY_VOLUMES).forEach(type => addOption(jewelryTypeSelect, type, type));
+        materialsData.filter(m => m.Category === 'Metals').forEach(m => addOption(jewelryMetalSelect, m.Name, m.RowName));
+        GEMSTONES.forEach(gem => addOption(jewelryGemstoneSelect, gem.cut, gem.rowName));
+    }
+
+    function calculateAndDisplayJewelryResults() {
+        if (!jewelryTypeSelect) return;
+        const itemType = jewelryTypeSelect.value;
+        const metalMaterial = findMaterial(jewelryMetalSelect.value);
+        const gemData = GEMSTONES.find(g => g.rowName === jewelryGemstoneSelect.value);
+
+        if (!itemType || !metalMaterial || !gemData) return;
+
+        const volumes = JEWELRY_VOLUMES[itemType];
+        const metalDensity = parseFloat(metalMaterial.Density);
+        const gemMaterial = findMaterial(gemData.rowName);
+        const gemDensity = parseFloat(gemMaterial.Density);
+
+        const requiredMetal = (volumes.Metal * metalDensity) / 100;
+        const requiredGem = (volumes.Gemstone * gemDensity) / 100; // This is a bit of a guess, as we don't have separate densities for rough/cut.
+
+        const totalMass = (volumes.Metal * metalDensity + volumes.Gemstone * gemDensity) / 1000;
+
+        jewelryResultsDiv.innerHTML = `
+            <h5 class="text-md font-semibold text-emerald-400 mt-4">Crafting requirements for ${itemType}:</h5>
+            <ul class="list-disc list-inside">
+                <li>Metal: ${requiredMetal.toFixed(2)} units of ${metalMaterial.Name}</li>
+                <li>Gemstone: 1 x ${gemData.cut}</li>
+            </ul>
+            <h5 class="text-md font-semibold text-emerald-400 mt-2">Item Stats:</h5>
+            <p>Estimated Mass: ${totalMass.toFixed(2)} kg</p>
         `;
     }
 
