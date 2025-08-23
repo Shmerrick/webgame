@@ -18,21 +18,49 @@ public:
         const std::string& slot,
         int slotFactor
     ) {
-        // This function would validate materials against a recipe and then construct the item.
         if (materials.size() < 3) {
             throw std::runtime_error("Not enough materials for armor crafting. Requires outer, inner, and binding.");
         }
 
-        const Material* outer = materials[0];
-        const Material* inner = materials[1];
-        const Material* binding = materials[2];
+        const Material* outerMaterial = materials[0];
+        const Material* innerMaterial = materials[1];
+        const Material* bindingMaterial = materials[2];
 
-        // The crafting rules mention mass calculation: (Σ material mass) × slot factor × class factor.
-        // This would require a getMass() method on the Material class and a defined classFactor.
-        // double totalMass = (outer->getMass() + inner->getMass() + binding->getMass()) * slotFactor * classFactor;
+        // In a real implementation, this data would be loaded from a file into a database.
+        struct ArmorComponentVolumes {
+            double outer;
+            double inner;
+            double binding;
+            double total;
+        };
+        auto getArmorComponentVolumes = [](const std::string& s) -> ArmorComponentVolumes {
+            if (s == "Helmet") return {2100, 1050, 350, 3500};
+            if (s == "Chestplate") return {6000, 3000, 1000, 10000};
+            if (s == "Greaves") return {1200, 600, 200, 2000};
+            if (s == "Boots") return {1800, 900, 300, 3000};
+            if (s == "Gauntlets") return {900, 450, 150, 1500};
+            throw std::runtime_error("Unknown armor slot: " + s);
+        };
 
-        Armor newArmor(slot, slotFactor, armorClass, outer, inner, binding);
-        // newArmor.setMass(totalMass); // The Armor class would need a setMass method.
+        ArmorComponentVolumes volumes = getArmorComponentVolumes(slot);
+
+        // Calculate required units of each material.
+        // Formula: units = (volume_cm3 * density_g_cm3) / 100
+        double requiredOuterUnits = (volumes.outer * outerMaterial->getDensity()) / 100;
+        double requiredInnerUnits = (volumes.inner * innerMaterial->getDensity()) / 100;
+        double requiredBindingUnits = (volumes.binding * bindingMaterial->getDensity()) / 100;
+
+        // In a full implementation, you would check player inventory for these amounts.
+        // For now, we assume the player has the required materials.
+
+        Armor newArmor(slot, slotFactor, armorClass, outerMaterial, innerMaterial, bindingMaterial, volumes.total);
+
+        // Calculate the total mass of the armor in kg.
+        double totalMassGrams = (volumes.outer * outerMaterial->getDensity()) +
+                                (volumes.inner * innerMaterial->getDensity()) +
+                                (volumes.binding * bindingMaterial->getDensity());
+        double totalMassKg = totalMassGrams / 1000.0;
+        newArmor.setMass(totalMassKg);
 
         return newArmor;
     }

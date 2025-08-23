@@ -25,16 +25,19 @@ protected:
 class Armor : public Item {
 public:
     Armor() : slot(""), slotFactor(0), armorClass(ArmorClass::None),
-              outerLayer(nullptr), innerLayer(nullptr), binding(nullptr) {}
+              outerLayer(nullptr), innerLayer(nullptr), binding(nullptr), volume(0) {}
 
     Armor(const std::string& slot, int slotFactor, ArmorClass armorClass,
-          const Material* outer, const Material* inner, const Material* binding)
+          const Material* outer, const Material* inner, const Material* binding, double volume)
         : slot(slot), slotFactor(slotFactor), armorClass(armorClass),
-          outerLayer(outer), innerLayer(inner), binding(binding) {}
+          outerLayer(outer), innerLayer(inner), binding(binding), volume(volume) {}
 
     const std::string& getSlot() const { return slot; }
     int getSlotFactor() const { return slotFactor; }
     ArmorClass getArmorClass() const { return armorClass; }
+    double getVolume() const { return volume; }
+    double getMass() const { return massKg; }
+    void setMass(double mass) { massKg = mass; }
 
     struct DefenseStats {
         double slash = 0; double pierce = 0; double blunt = 0; double magic = 0;
@@ -56,6 +59,8 @@ private:
     const Material* outerLayer;
     const Material* innerLayer;
     const Material* binding;
+    double volume;
+    double massKg = 0;
 };
 
 class Weapon : public Item {
