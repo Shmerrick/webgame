@@ -37,9 +37,16 @@ public:
     bool setSkill(const std::string& skillName, int value) {
         if (!skills.count(skillName)) return false;
 
+        int newSkillAP = std::max(0, std::min(100, value));
+
+        if (skillName == "MeleeAmbush" || skillName == "RangedAmbush" || skillName == "ElementalAmbush") {
+            if (skills.count("Stealth")) {
+                newSkillAP = std::min(newSkillAP, skills.at("Stealth"));
+            }
+        }
+
         int currentTotalAP = getTotalAP();
         int currentSkillAP = skills[skillName];
-        int newSkillAP = std::max(0, std::min(100, value));
         if ((currentTotalAP - currentSkillAP + newSkillAP) > MAX_ACTION_POINTS) {
             return false; // Not enough AP
         }
@@ -48,6 +55,19 @@ public:
         if (isEntropySkill(skillName) && getEntropySchool(skillName) != chosenEntropy) return false;
 
         skills[skillName] = newSkillAP;
+
+        if (skillName == "Stealth") {
+            if (skills.count("MeleeAmbush") && skills.at("MeleeAmbush") > newSkillAP) {
+                skills["MeleeAmbush"] = newSkillAP;
+            }
+            if (skills.count("RangedAmbush") && skills.at("RangedAmbush") > newSkillAP) {
+                skills["RangedAmbush"] = newSkillAP;
+            }
+            if (skills.count("ElementalAmbush") && skills.at("ElementalAmbush") > newSkillAP) {
+                skills["ElementalAmbush"] = newSkillAP;
+            }
+        }
+
         return true;
     }
 

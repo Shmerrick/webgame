@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Magical Spells</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="aspect_ratio.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            screens: {
+              "aspect-ultrawide": { "raw": "[data-aspect-ratio='ultrawide']" },
+              "aspect-widescreen": { "raw": "[data-aspect-ratio='widescreen']" },
+              "aspect-mobile": { "raw": "[data-aspect-ratio='mobile']" },
+            },
+          },
+        },
+      };
+      document.documentElement.classList.add("dark");
+    </script>
+    <style>
+      :root { color-scheme: dark; }
+      body { background: #0f172a; color: #e2e8f0; margin: 0; }
+    </style>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body style="background-image: url('Art/Backgrounds/summer.png'); background-size: cover; background-attachment: fixed;">
+    <div class="min-h-screen w-full bg-slate-950/80 text-slate-100 p-4 md:p-8">
+      <div class="max-w-7xl mx-auto">
+        <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
+          <div class="flex items-center justify-between flex-wrap">
+            <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+            <div class="flex flex-wrap gap-4">
+              <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
+              <a href="materials.html" class="text-slate-300 hover:text-emerald-400">Materials</a>
+              <a href="simulator.html" class="text-slate-300 hover:text-emerald-400">Simulator</a>
+              <a href="combat.html" class="text-slate-300 hover:text-emerald-400">Combat</a>
+              <a href="movement.html" class="text-slate-300 hover:text-emerald-400">Movement</a>
+              <a href="races.html" class="text-slate-300 hover:text-emerald-400">Races</a>
+              <a href="ascension.html" class="text-slate-300 hover:text-emerald-400">Ascension</a>
+              <a href="magic.html" class="text-slate-300 hover:text-emerald-400">Magic</a>
+              <a href="spells.html" class="text-emerald-400 font-semibold">Spells</a>
+              <a href="crafting.html" class="text-slate-300 hover:text-emerald-400">Crafting</a>
+              <a href="materials_guide.html" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
+            </div>
+          </div>
+        </nav>
+        <div id="root"></div>
+      </div>
+    </div>
+
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+
+      function SpellsPage({ spells }) {
+        const schools = ["Fire", "Water", "Earth", "Wind", "Radiance", "Void"];
+        return (
+          <div>
+            <h1 className="text-3xl font-bold mb-6">Magical Spells</h1>
+            {schools.map(school => (
+              <div key={school} className="mb-8">
+                <h2 className="text-2xl font-semibold mb-4 border-b-2 border-slate-700 pb-2">{school}</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {spells.filter(spell => spell.school === school).map(spell => (
+                    <div key={spell.name} className="bg-slate-800/60 rounded-xl p-4 border border-slate-800">
+                      <h3 className="text-xl font-bold text-emerald-400">{spell.name}</h3>
+                      <div className="text-sm text-slate-400 mt-1 mb-2">
+                        <span className="font-semibold">Type:</span> {spell.type} | <span className="font-semibold">Mana Cost:</span> {spell.mana_cost}
+                      </div>
+                      <p className="text-slate-300">{spell.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+      }
+
+      fetch('spells.json')
+        .then(response => response.json())
+        .then(data => {
+          ReactDOM.createRoot(document.getElementById("root")).render(
+            <React.StrictMode><SpellsPage spells={data.spells} /></React.StrictMode>
+          );
+        })
+        .catch(error => console.error('Error loading spells:', error));
+    </script>
+  </body>
+</html>

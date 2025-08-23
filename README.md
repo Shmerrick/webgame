@@ -1,5 +1,7 @@
 # Game Simulator
 
+**Version:** 16.0
+
 This project contains a web-based game simulator and a command-line tool to view the material database.
 
 ## Running the Webpage
