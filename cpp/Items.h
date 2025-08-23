@@ -103,6 +103,26 @@ private:
     double rawOffenseBlunt = 0;
 };
 
+class Shield : public Item {
+public:
+    struct ShieldComponent {
+        std::string name;
+        const Material* material;
+        double volume;
+    };
+
+    Shield(ShieldType type, std::vector<ShieldComponent> components)
+        : shieldType(type), components(std::move(components)) {}
+
+    void setMass(double mass) override { massKg = mass; }
+    ShieldType getShieldType() const { return shieldType; }
+
+private:
+    ShieldType shieldType;
+    double massKg = 0;
+    std::vector<ShieldComponent> components;
+};
+
 } // namespace Game
 
 #endif // ITEMS_H
