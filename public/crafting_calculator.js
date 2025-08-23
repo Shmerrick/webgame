@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadData() {
         try {
             // Fetch materials
-            const materialsResponse = await fetch('../materials.csv');
+            const materialsResponse = await fetch('/materials.csv');
             const materialsCsv = await materialsResponse.text();
             materialsData = parseCSV(materialsCsv);
 
             // Fetch armor volumes
-            const armorVolumesResponse = await fetch('../armor_volumes.csv');
+            const armorVolumesResponse = await fetch('/armor_volumes.csv');
             const armorVolumesCsv = await armorVolumesResponse.text();
             const parsedArmorVolumes = parseCSV(armorVolumesCsv);
 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Fetch shield volumes
-            const shieldVolumesResponse = await fetch('../shield_volumes.csv');
+            const shieldVolumesResponse = await fetch('/shield_volumes.csv');
             const shieldVolumesCsv = await shieldVolumesResponse.text();
             const parsedShieldVolumes = parseCSV(shieldVolumesCsv);
             parsedShieldVolumes.forEach(item => {
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Fetch weapon volumes
-            const weaponVolumesResponse = await fetch('../weapon_volumes.csv');
+            const weaponVolumesResponse = await fetch('/weapon_volumes.csv');
             const weaponVolumesCsv = await weaponVolumesResponse.text();
             const parsedWeaponVolumes = parseCSV(weaponVolumesCsv);
             parsedWeaponVolumes.forEach(item => {
@@ -96,12 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Fetch potion ingredients
-            const ingredientsResponse = await fetch('../potion_ingredients.csv');
+            const ingredientsResponse = await fetch('/potion_ingredients.csv');
             const ingredientsCsv = await ingredientsResponse.text();
             potionIngredientsData = parseCSV(ingredientsCsv);
 
             // Fetch enchantment runes
-            const runesResponse = await fetch('../enchantment_runes.csv');
+            const runesResponse = await fetch('/enchantment_runes.csv');
             const runesCsv = await runesResponse.text();
             enchantmentRunesData = parseCSV(runesCsv);
 

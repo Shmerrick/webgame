@@ -123,6 +123,26 @@ private:
     std::vector<ShieldComponent> components;
 };
 
+class SiegeWeapon : public Item {
+public:
+    struct SiegeComponent {
+        std::string name;
+        const Material* material;
+        double volume;
+    };
+
+    SiegeWeapon(SiegeWeaponType type, std::vector<SiegeComponent> components)
+        : siegeWeaponType(type), components(std::move(components)) {}
+
+    void setMass(double mass) override { massKg = mass; }
+    SiegeWeaponType getSiegeWeaponType() const { return siegeWeaponType; }
+
+private:
+    SiegeWeaponType siegeWeaponType;
+    double massKg = 0;
+    std::vector<SiegeComponent> components;
+};
+
 } // namespace Game
 
 #endif // ITEMS_H

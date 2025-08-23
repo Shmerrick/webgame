@@ -224,6 +224,64 @@ public:
     // Placeholders for other crafting professions
     // static Potion CraftPotion(...);
     // static Enchantment CraftEnchantment(...);
+
+    // Siege Weapon Crafting
+    static SiegeWeapon CraftSiegeWeapon(
+        SiegeWeaponType siegeWeaponType,
+        const std::vector<std::pair<std::string, const Material*>>& componentMaterials
+    ) {
+        // Load siege weapon component volumes from CSV
+        std::map<std::string, std::map<std::string, double>> siegeVolumes;
+        std::ifstream file("../siege_volumes.csv");
+        std::string line;
+        getline(file, line); // skip header
+        while (getline(file, line)) {
+            std::stringstream ss(line);
+            std::string type, component, volume_str;
+            getline(ss, type, ',');
+            getline(ss, component, ',');
+            getline(ss, volume_str, ',');
+            siegeVolumes[type][component] = std::stod(volume_str);
+        }
+
+        std::vector<SiegeWeapon::SiegeComponent> components;
+        double totalMassGrams = 0;
+        double totalVolume = 0;
+        double totalWeightedToughness = 0;
+
+        auto getSiegeWeaponTypeString = [](SiegeWeaponType type) -> std::string {
+            switch (type) {
+                case SiegeWeaponType::Catapult: return "Catapult";
+                case SiegeWeaponType::BatteringRam: return "Battering Ram";
+                case SiegeWeaponType::Trebuchet: return "Trebuchet";
+                case SiegeWeaponType::Ballista: return "Ballista";
+                default: throw std::runtime_error("Unknown siege weapon type");
+            }
+        };
+
+        std::string siegeWeaponTypeStr = getSiegeWeaponTypeString(siegeWeaponType);
+
+        for (const auto& compMat : componentMaterials) {
+            std::string componentName = compMat.first;
+            const Material* material = compMat.second;
+            double volume = siegeVolumes[siegeWeaponTypeStr][componentName];
+
+            components.push_back({componentName, material, volume});
+            totalMassGrams += volume * material->getDensity();
+            totalVolume += volume;
+            totalWeightedToughness += volume * material->getToughness();
+        }
+
+        SiegeWeapon newSiegeWeapon(siegeWeaponType, components);
+
+        double totalMassKg = totalMassGrams / 1000.0;
+        newSiegeWeapon.setMass(totalMassKg);
+
+        double maxDurability = (totalWeightedToughness / totalVolume) * (totalVolume / 100.0);
+        newSiegeWeapon.setDurability(maxDurability, maxDurability);
+
+        return newSiegeWeapon;
+    }
 };
 
 } // namespace Game
