@@ -79,6 +79,22 @@ public:
         equippedWeapon = &w;
     }
 
+    void equipRing(const Ring& ring, int slot) {
+        if (slot >= 0 && slot < 2) {
+            equippedRings[slot] = &ring;
+        }
+    }
+
+    void equipEarring(const Earring& earring, int slot) {
+        if (slot >= 0 && slot < 2) {
+            equippedEarrings[slot] = &earring;
+        }
+    }
+
+    void equipAmulet(const Amulet& amulet) {
+        equippedAmulet = &amulet;
+    }
+
     // --- Derived Stats and Calculations ---
     PlayerStats getEffectiveStats() const {
         PlayerStats effectiveStats = baseStats;
@@ -95,6 +111,28 @@ public:
             effectiveStats.INT = std::max(0, std::min(100, baseStats.INT + mod.INT));
             effectiveStats.PSY = std::max(0, std::min(100, baseStats.PSY + mod.PSY));
         }
+
+        // Apply jewelry stats
+        for (const auto& ring : equippedRings) {
+            if (ring) {
+                if (ring->getModifiedStat() == "Intelligence") {
+                    effectiveStats.INT += ring->getModifierValue();
+                } else if (ring->getModifiedStat() == "Strength") {
+                    effectiveStats.STR += ring->getModifierValue();
+                }
+            }
+        }
+
+        for (const auto& earring : equippedEarrings) {
+            if (earring) {
+                if (earring->getModifiedStat() == "Dexterity") {
+                    effectiveStats.DEX += earring->getModifierValue();
+                } else if (earring->getModifiedStat() == "Psyche") {
+                    effectiveStats.PSY += earring->getModifierValue();
+                }
+            }
+        }
+
         return effectiveStats;
     }
 
@@ -111,6 +149,20 @@ public:
             [](int acc, const std::pair<std::string, int>& p) { return acc + p.second; });
     }
 
+    int getEffectiveSkill(const std::string& skillName) const {
+        if (!skills.count(skillName)) {
+            return 0;
+        }
+
+        int effectiveSkill = skills.at(skillName);
+
+        if (equippedAmulet && equippedAmulet->getModifiedSkill() == skillName) {
+            effectiveSkill += equippedAmulet->getSkillIncrease();
+        }
+
+        return effectiveSkill;
+    }
+
 private:
     static constexpr int MAX_ACTION_POINTS = 500;
 
@@ -120,6 +172,9 @@ private:
 
     std::map<std::string, Armor> equippedArmor;
     const Weapon* equippedWeapon = nullptr;
+    const Ring* equippedRings[2] = {nullptr, nullptr};
+    const Earring* equippedEarrings[2] = {nullptr, nullptr};
+    const Amulet* equippedAmulet = nullptr;
 
     ElementType chosenElement;
     EntropySchool chosenEntropy;
