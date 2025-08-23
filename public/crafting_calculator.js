@@ -93,10 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch and process data
     async function loadData() {
         try {
-            // Fetch materials
-            const materialsResponse = await fetch('/materials.csv');
-            const materialsCsv = await materialsResponse.text();
-            materialsData = parseCSV(materialsCsv);
+            // Fetch materials from db.json
+            const materialsResponse = await fetch('/db.json');
+            const materialsJson = await materialsResponse.json();
+            materialsData = processMaterials(materialsJson);
 
             // Fetch armor volumes
             const armorVolumesResponse = await fetch('/armor_volumes.csv');
@@ -155,6 +155,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(div) div.innerHTML = `<p class="text-red-400">Error loading crafting data. Please try again later.</p>`;
             });
         }
+    }
+
+    function processMaterials(data) {
+        const materials = [];
+        const rowNames = new Set();
+
+        for (const category in data) {
+            for (const tier in data[category]) {
+                for (const material of data[category][tier]) {
+                    // Sanitize the material name to create a valid RowName
+                    let cleanName = material.name.replace(/\(.*\)/, '').trim();
+                    cleanName = cleanName.replace(/[^a-zA-Z0-9_]/g, '_');
+
+                    let rowName = `${category}_${tier}_${cleanName}`;
+
+                    // Handle potential duplicate RowNames
+                    let counter = 1;
+                    const originalRowName = rowName;
+                    while (rowNames.has(rowName)) {
+                        rowName = `${originalRowName}_${counter}`;
+                        counter++;
+                    }
+                    rowNames.add(rowName);
+
+                    materials.push({
+                        RowName: rowName,
+                        Category: category,
+                        Tier: tier,
+                        Name: material.name,
+                        Slash: material.slash,
+                        Pierce: material.pierce,
+                        Blunt: material.blunt,
+                        Magic: material.magic,
+                        Density: material.density
+                    });
+                }
+            }
+        }
+        return materials;
     }
 
     function populateAllDropdowns() {

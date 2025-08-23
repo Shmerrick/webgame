@@ -10,7 +10,9 @@
         "water": 0.15,
         "wind": 0.95,
         "earth": 0.5,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.4625,
+        "density": 0.9
       },
       {
         "name": "Rabbit or Hare Fur",
@@ -21,7 +23,9 @@
         "water": 0.13,
         "wind": 0.95,
         "earth": 0.4,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.42,
+        "density": 0.9
       },
       {
         "name": "Mulberry Silk",
@@ -32,7 +36,9 @@
         "water": 0.63333,
         "wind": 0.5,
         "earth": 0.34742,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.58972,
+        "density": 1.34
       }
     ],
     "T2": [
@@ -45,7 +51,9 @@
         "water": 0.09667,
         "wind": 0.5,
         "earth": 0.11338,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.3461,
+        "density": 1.0
       },
       {
         "name": "Tussar/Eri/Muga",
@@ -56,7 +64,9 @@
         "water": 0.69667,
         "wind": 0.5,
         "earth": 0.42017,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.62874,
+        "density": 1.3
       }
     ],
     "T3": [
@@ -69,7 +79,9 @@
         "water": 0.2,
         "wind": 0.5,
         "earth": 0.22676,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.40482,
+        "density": 1.1
       },
       {
         "name": "Spider Silk",
@@ -80,7 +92,9 @@
         "water": 0.78,
         "wind": 0.5,
         "earth": 0.56354,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.69042,
+        "density": 1.3
       }
     ],
     "T4": [
@@ -93,7 +107,9 @@
         "water": 0.31,
         "wind": 0.5,
         "earth": 0.33588,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.47506,
+        "density": 1.2
       },
       {
         "name": "Giant Spider Silk",
@@ -104,7 +120,9 @@
         "water": 0.845,
         "wind": 0.5,
         "earth": 0.66628,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.73735,
+        "density": 1.4
       }
     ],
     "T5": [
@@ -117,7 +135,9 @@
         "water": 0.95,
         "wind": 0.5,
         "earth": 0.49435,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.73062,
+        "density": 0.1
       },
       {
         "name": "Arachne/Starlight Weave",
@@ -128,7 +148,9 @@
         "water": 1.0,
         "wind": 0.5,
         "earth": 0.75532,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.81383,
+        "density": 0.5
       }
     ]
   },
@@ -143,7 +165,9 @@
         "water": 0.21333,
         "wind": 0.5,
         "earth": 0.29656,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.3545,
+        "density": 0.8
       }
     ],
     "T2": [
@@ -156,7 +180,9 @@
         "water": 0.32,
         "wind": 0.5,
         "earth": 0.40994,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.40858,
+        "density": 0.9
       }
     ],
     "T3": [
@@ -169,7 +195,9 @@
         "water": 0.44,
         "wind": 0.5,
         "earth": 0.48907,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.45742,
+        "density": 1.0
       }
     ],
     "T4": [
@@ -182,7 +210,9 @@
         "water": 0.45333,
         "wind": 0.5,
         "earth": 0.5682,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.4696,
+        "density": 1.1
       }
     ],
     "T5": [
@@ -195,7 +225,9 @@
         "water": 0.95,
         "wind": 0.5,
         "earth": 0.68158,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.70086,
+        "density": 1.5
       }
     ]
   },
@@ -210,7 +242,9 @@
         "water": 0.65,
         "wind": 0.5,
         "earth": 0.2919,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.49251,
+        "density": 1.5
       }
     ],
     "T2": [
@@ -223,7 +257,9 @@
         "water": 0.715,
         "wind": 0.5,
         "earth": 0.38167,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.50886,
+        "density": 1.8
       }
     ],
     "T3": [
@@ -236,7 +272,9 @@
         "water": 0.78,
         "wind": 0.5,
         "earth": 0.57418,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.56183,
+        "density": 2.0
       }
     ],
     "T4": [
@@ -249,7 +287,9 @@
         "water": 0.845,
         "wind": 0.5,
         "earth": 0.65331,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.59192,
+        "density": 2.2
       }
     ],
     "T5": [
@@ -262,7 +302,9 @@
         "water": 1.0,
         "wind": 0.5,
         "earth": 0.68158,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.72977,
+        "density": 2.5
       }
     ]
   },
@@ -277,7 +319,9 @@
         "water": 0.1,
         "wind": 0.5,
         "earth": 0.13232,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.31886,
+        "density": 0.5
       }
     ],
     "T2": [
@@ -290,7 +334,9 @@
         "water": 0.2,
         "wind": 0.5,
         "earth": 0.29251,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.37203,
+        "density": 0.7
       }
     ],
     "T3": [
@@ -303,7 +349,9 @@
         "water": 0.32,
         "wind": 0.5,
         "earth": 0.48907,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.45023,
+        "density": 1.0
       }
     ],
     "T4": [
@@ -316,7 +364,9 @@
         "water": 0.68,
         "wind": 0.5,
         "earth": 0.65564,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.60094,
+        "density": 1.2
       }
     ],
     "T5": [
@@ -329,7 +379,9 @@
         "water": 1.0,
         "wind": 0.5,
         "earth": 0.64966,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.72179,
+        "density": 1.2
       }
     ]
   },
@@ -344,7 +396,9 @@
         "water": 0.26667,
         "wind": 0.06494,
         "earth": 0.40261,
-        "toughness": 210
+        "toughness": 210,
+        "magic": 0.21581,
+        "density": 8.94
       },
       {
         "name": "Iron",
@@ -355,7 +409,9 @@
         "water": 0.0,
         "wind": 0.86039,
         "earth": 0.40554,
-        "toughness": 540
+        "toughness": 540,
+        "magic": 0.46443,
+        "density": 7.87
       },
       {
         "name": "Tin",
@@ -366,7 +422,9 @@
         "water": 0.26667,
         "wind": 0.87662,
         "earth": 0.1744,
-        "toughness": 15
+        "toughness": 15,
+        "magic": 0.50287,
+        "density": 7.31
       },
       {
         "name": "Lead",
@@ -377,7 +435,9 @@
         "water": 0.0,
         "wind": 0.97,
         "earth": 0.3,
-        "toughness": 12
+        "toughness": 12,
+        "magic": 0.3925,
+        "density": 11.34
       },
       {
         "name": "Silver",
@@ -388,7 +448,9 @@
         "water": 0.53333,
         "wind": 0.0,
         "earth": 0.3415,
-        "toughness": 150
+        "toughness": 150,
+        "magic": 0.25871,
+        "density": 10.5
       },
       {
         "name": "Gold",
@@ -399,7 +461,9 @@
         "water": 1.0,
         "wind": 0.29221,
         "earth": 0.57143,
-        "toughness": 120
+        "toughness": 120,
+        "magic": 0.58825,
+        "density": 19.28
       },
       {
         "name": "Zinc",
@@ -410,7 +474,9 @@
         "water": 0.4,
         "wind": 0.74675,
         "earth": 0.205,
-        "toughness": 110
+        "toughness": 110,
+        "magic": 0.50067,
+        "density": 6.7
       },
       {
         "name": "Nickel",
@@ -421,7 +487,9 @@
         "water": 0.53333,
         "wind": 0.79545,
         "earth": 0.43652,
-        "toughness": 480
+        "toughness": 480,
+        "magic": 0.62462,
+        "density": 8.9
       },
       {
         "name": "Aluminum",
@@ -432,7 +500,9 @@
         "water": 0.66667,
         "wind": 0.42208,
         "earth": 0.14286,
-        "toughness": 90
+        "toughness": 90,
+        "magic": 0.44033,
+        "density": 2.83
       }
     ],
     "T2": [
@@ -445,7 +515,9 @@
         "water": 0.4,
         "wind": 0.90909,
         "earth": 0.43351,
-        "toughness": 241
+        "toughness": 241,
+        "magic": 0.62205,
+        "density": 8.4
       },
       {
         "name": "Brass (Cu+Zn)",
@@ -456,7 +528,9 @@
         "water": 0.53333,
         "wind": 0.77922,
         "earth": 0.35306,
-        "toughness": 350
+        "toughness": 350,
+        "magic": 0.58744,
+        "density": 8.44
       },
       {
         "name": "Pewter (Sn+Pb/Cu)",
@@ -467,7 +541,9 @@
         "water": 0.53333,
         "wind": 0.94156,
         "earth": 0.18012,
-        "toughness": 15
+        "toughness": 15,
+        "magic": 0.62072,
+        "density": 7.28
       },
       {
         "name": "Wrought Iron",
@@ -478,7 +554,9 @@
         "water": 0.26667,
         "wind": 0.86039,
         "earth": 0.43914,
-        "toughness": 345
+        "toughness": 345,
+        "magic": 0.5595,
+        "density": 7.7
       }
     ],
     "T3": [
@@ -491,7 +569,9 @@
         "water": 0.26667,
         "wind": 0.92532,
         "earth": 0.2335,
-        "toughness": 172
+        "toughness": 172,
+        "magic": 0.53489,
+        "density": 7.3
       },
       {
         "name": "Carbon Steel",
@@ -502,7 +582,9 @@
         "water": 0.13333,
         "wind": 0.92532,
         "earth": 0.51208,
-        "toughness": 620
+        "toughness": 620,
+        "magic": 0.56331,
+        "density": 7.87
       },
       {
         "name": "Damascus Steel",
@@ -513,7 +595,9 @@
         "water": 0.2,
         "wind": 0.92532,
         "earth": 0.54779,
-        "toughness": 930
+        "toughness": 930,
+        "magic": 0.59602,
+        "density": 7.8
       }
     ],
     "T4": [
@@ -526,7 +610,9 @@
         "water": 1.0,
         "wind": 1.0,
         "earth": 0.58501,
-        "toughness": 655
+        "toughness": 655,
+        "magic": 0.89625,
+        "density": 8.0
       },
       {
         "name": "Tool Steel",
@@ -537,7 +623,9 @@
         "water": 0.66667,
         "wind": 0.94156,
         "earth": 0.54779,
-        "toughness": 2070
+        "toughness": 2070,
+        "magic": 0.75809,
+        "density": 7.85
       },
       {
         "name": "Titanium",
@@ -548,7 +636,9 @@
         "water": 1.0,
         "wind": 0.98377,
         "earth": 0.41129,
-        "toughness": 434
+        "toughness": 434,
+        "magic": 0.84623,
+        "density": 4.43
       },
       {
         "name": "Tungsten",
@@ -559,7 +649,9 @@
         "water": 1.0,
         "wind": 0.71429,
         "earth": 0.71218,
-        "toughness": 980
+        "toughness": 980,
+        "magic": 0.79025,
+        "density": 19.3
       }
     ],
     "T5": [
@@ -572,7 +664,9 @@
         "water": 1.0,
         "wind": 0.69805,
         "earth": 0.5034,
-        "toughness": 1500
+        "toughness": 1500,
+        "magic": 0.76485,
+        "density": 4.0
       },
       {
         "name": "Adamantite",
@@ -583,7 +677,9 @@
         "water": 0.93333,
         "wind": 0.89286,
         "earth": 0.68351,
-        "toughness": 2500
+        "toughness": 2500,
+        "magic": 0.84115,
+        "density": 10.0
       },
       {
         "name": "Orichalcum",
@@ -594,7 +690,9 @@
         "water": 1.0,
         "wind": 0.61688,
         "earth": 0.60306,
-        "toughness": 2000
+        "toughness": 2000,
+        "magic": 0.78216,
+        "density": 8.0
       }
     ]
   },
@@ -609,7 +707,9 @@
         "water": 0.07,
         "wind": 1.0,
         "earth": 0.25,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.3925,
+        "density": 2.4
       },
       {
         "name": "Quartz",
@@ -620,7 +720,9 @@
         "water": 0.93333,
         "wind": 0.5,
         "earth": 0.16049,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.61383,
+        "density": 2.65
       }
     ],
     "T2": [
@@ -633,7 +735,9 @@
         "water": 0.0,
         "wind": 0.5,
         "earth": 0.34821,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.28497,
+        "density": 2.7
       },
       {
         "name": "Calcite",
@@ -644,7 +748,9 @@
         "water": 0.0,
         "wind": 0.5,
         "earth": 0.15123,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.32409,
+        "density": 2.71
       }
     ],
     "T3": [
@@ -657,7 +763,9 @@
         "water": 0.53333,
         "wind": 0.5,
         "earth": 0.45536,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.41217,
+        "density": 2.75
       },
       {
         "name": "Obsidian",
@@ -668,7 +776,9 @@
         "water": 1.0,
         "wind": 0.5,
         "earth": 0.0,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.625,
+        "density": 2.4
       }
     ],
     "T4": [
@@ -681,7 +791,9 @@
         "water": 0.66667,
         "wind": 0.5,
         "earth": 0.71429,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.65149,
+        "density": 3.0
       },
       {
         "name": "Corundum (Ruby/Sapphire)",
@@ -692,7 +804,9 @@
         "water": 1.0,
         "wind": 0.5,
         "earth": 0.55556,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.58889,
+        "density": 4.0
       }
     ],
     "T5": [
@@ -705,7 +819,9 @@
         "water": 1.0,
         "wind": 0.5,
         "earth": 0.875,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.84375,
+        "density": 3.5
       },
       {
         "name": "Aethercrystal",
@@ -716,7 +832,9 @@
         "water": 1.0,
         "wind": 0.5,
         "earth": 0.71605,
-        "toughness": 0
+        "toughness": 0,
+        "magic": 0.79907,
+        "density": 3.0
       }
     ]
   }
