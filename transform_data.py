@@ -908,10 +908,10 @@ for mat in materials:
 
         new_mat = {
             "name": mat["Name"],
-            "slash": mat.get("Defense_Slash", 0),
-            "pierce": mat.get("Defense_Pierce", 0),
-            "blunt": mat.get("Defense_Blunt", 0),
-            "magic": magic_avg
+            "slash": round(mat.get("Defense_Slash", 0), 5),
+            "pierce": round(mat.get("Defense_Pierce", 0), 5),
+            "blunt": round(mat.get("Defense_Blunt", 0), 5),
+            "magic": round(magic_avg, 5)
         }
         db[category][tier].append(new_mat)
 

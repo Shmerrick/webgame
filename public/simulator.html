@@ -37,9 +37,9 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body style="background-image: url('Art/Backgrounds/summer.png'); background-size: cover; background-attachment: fixed;">
-    <div class="min-h-screen w-full bg-slate-950/80 text-slate-100 p-4 md:p-8">
+    <div class="min-h-screen w-full bg-slate-950/70 text-slate-100 p-4 md:p-8">
       <div class="max-w-7xl mx-auto">
-        <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
+        <nav class="sticky top-0 z-50 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
           <div class="flex items-center justify-between flex-wrap">
             <div class="text-xl font-bold tracking-tight">Game Simulator</div>
             <div class="flex flex-wrap gap-4">
@@ -118,17 +118,8 @@
         Heavy:  ["Wood","Minerals","Metals"],
       };
 
-      // Inner & Binding choices (plain English, shown, and used in 80/15/5 weighting)
-      const INNER_MATERIALS = {
-        Linen: { blunt: 0.20, slash: 0.20, pierce: 0.20, magic: 0.20, desc: "Linen lining inside the armor adds a small, even amount of protection and comfort." },
-        Wool:  { blunt: 0.25, slash: 0.25, pierce: 0.25, magic: 0.15, desc: "Wool inner layer cushions impacts better but is less helpful against magic." },
-        Silk:  { blunt: 0.15, slash: 0.15, pierce: 0.15, magic: 0.35, desc: "Silk inner layer focuses on magical protection with some comfort." },
-      };
-      const THREAD_BINDINGS = {
-        Cotton: { blunt: 0.10, slash: 0.10, pierce: 0.10, magic: 0.10, desc: "Cotton thread and simple bindings provide basic reinforcement." },
-        Sinew:  { blunt: 0.20, slash: 0.15, pierce: 0.15, magic: 0.05, desc: "Sinew bindings tighten the construction and help against impacts." },
-        Rivets: { blunt: 0.25, slash: 0.25, pierce: 0.25, magic: 0.00, desc: "Metal rivets reinforce the structure strongly but do not help against magic." },
-      };
+      const MATERIALS_FOR_INNER = ["Cloth", "Leather"];
+      const MATERIALS_FOR_BINDING = ["Leather", "Metals"];
 
       // Weapons
       const WEAPONS = {
@@ -146,42 +137,10 @@
         Poleaxe: { type: "melee", massKilograms: 6, baseCost: 40, head: { Blunt: 0.25, Slash: 0.30, Pierce: 0.15 }, direction: { Left: "Slash", Right: "Blunt", Up: "Pierce", Down: "Slash" } },
       };
 
-      // Handle/hilt 3 components
-      const HANDLE_CORE_MATS = {
-        Wood: { massMult: 1.00 },
-        Ash: { massMult: 1.05 },
-        Oak: { massMult: 1.10 },
-        Ironwood: { massMult: 1.15 },
-        Bone: { massMult: 0.95 },
-        Iron: { massMult: 1.20 },
-        Yew: { massMult: 1.05, draw: 0.05 },
-        Composite: { massMult: 1.00, draw: 0.10 },
-        SteelProd: { massMult: 1.20, draw: 0.10 },
-      };
-      const HANDLE_GRIP_MATS = {
-        Leather: { massMult: 0.98 },
-        Wool: { massMult: 1.00 },
-        Hemp: { massMult: 1.00 },
-        Cord: { massMult: 1.00 },
-      };
-      const HANDLE_FITTING_MATS = {
-        None: { massMult: 1.00 },
-        Bronze: { massMult: 1.05 },
-        Iron: { massMult: 1.10 },
-        Steel: { massMult: 1.15 },
-        Bone: { massMult: 1.02 },
-        SteelProd: { massMult: 1.20, draw: 0.10 },
-      };
-
-      // Head materials — Carapace intentionally excluded
-      const HEAD_MATS = {
-        Bronze:   { damage: -0.05, massMult: 1.05 },
-        Iron:     { damage:  0.00, massMult: 1.00 },
-        Steel:    { damage:  0.05, massMult: 1.05 },
-        Mithril:  { damage:  0.10, massMult: 0.90 },
-        Stone:    { damage: -0.05, massMult: 1.05 },
-        Lead:     { damage:  0.05, massMult: 1.10 },
-      };
+      const MATERIALS_FOR_HANDLE_CORE = ["Wood", "Metals"];
+      const MATERIALS_FOR_HANDLE_GRIP = ["Cloth", "Leather"];
+      const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Minerals"];
+      const MATERIALS_FOR_HEAD = ["Metals", "Minerals", "Wood"];
 
       const DIRECTIONS = ["Left","Right","Up","Down"];
 
@@ -256,7 +215,7 @@
       }
 
       // Weighted 80% outer, 15% inner, 5% binding; multiplied by armor-class base DRs
-      function effectiveDRForSlot(DB, cls, outerCategory, materialName, innerName, bindName, isShield=false){
+      function effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory, innerMaterialName, bindingCategory, bindingMaterialName, isShield=false){
         const base = classBasePerType(cls);
         let outerFac = null;
         if (isShield){
@@ -266,14 +225,14 @@
         } else {
           outerFac = factorsFor(DB, outerCategory, materialName) || { slash:0, pierce:0, blunt:0, magic:0 };
         }
-        const inner = INNER_MATERIALS[innerName] || { blunt:0, slash:0, pierce:0, magic:0 };
-        const bind  = THREAD_BINDINGS[bindName] || { blunt:0, slash:0, pierce:0, magic:0 };
+        const innerFac = factorsFor(DB, innerCategory, innerMaterialName) || { slash:0, pierce:0, blunt:0, magic:0 };
+        const bindFac  = factorsFor(DB, bindingCategory, bindingMaterialName) || { slash:0, pierce:0, blunt:0, magic:0 };
         const wOuter=0.80, wInner=0.15, wBind=0.05;
         const comb = {
-          blunt: outerFac.blunt*wOuter + inner.blunt*wInner + bind.blunt*wBind,
-          slash: outerFac.slash*wOuter + inner.slash*wInner + bind.slash*wBind,
-          pierce:outerFac.pierce*wOuter+ inner.pierce*wInner+ bind.pierce*wBind,
-          magic: outerFac.magic*wOuter + inner.magic*wInner + bind.magic*wBind,
+          blunt: outerFac.blunt*wOuter + innerFac.blunt*wInner + bindFac.blunt*wBind,
+          slash: outerFac.slash*wOuter + innerFac.slash*wInner + bindFac.slash*wBind,
+          pierce:outerFac.pierce*wOuter+ innerFac.pierce*wInner+ bindFac.pierce*wBind,
+          magic: outerFac.magic*wOuter + innerFac.magic*wInner + bindFac.magic*wBind,
         };
         return {
           blunt: Math.min(0.95, clamp01(base.blunt * comb.blunt)),
@@ -282,8 +241,8 @@
           magic: Math.min(0.95, clamp01(base.magic * comb.magic)),
         };
       }
-      function effectiveDRForTarget(DB, cls, outerCategory, tier, materialName, innerName, bindName){
-        return effectiveDRForSlot(DB, cls, outerCategory, materialName, innerName, bindName, false);
+      function effectiveDRForTarget(DB, cls, outerCategory, tier, materialName, innerCategory, innerMaterialName, bindingCategory, bindingMaterialName){
+        return effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory, innerMaterialName, bindingCategory, bindingMaterialName, false);
       }
 
       function getIconUrl(slotId, cls, shieldType) {
@@ -430,22 +389,22 @@
 
         // Armor pieces (each piece has class, outer category/tier/material + inner + binding)
         const [armor, setArmor] = useState({
-          helmet: { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
-          gloves: { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
-          boots:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
-          torso:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
-          legs:   { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), inner:"Linen", binding:"Cotton" },
+          helmet: { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
+          gloves: { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
+          boots:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
+          torso:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
+          legs:   { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
           shield: { shield:"None" },
-          ring1: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5"), inner:"None", binding:"None" },
-          ring2: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5"), inner:"None", binding:"None" },
-          earring1: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5"), inner:"None", binding:"None" },
-          earring2: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5"), inner:"None", binding:"None" },
-          amulet: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5"), inner:"None", binding:"None" },
+          ring1: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5") },
+          ring2: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5") },
+          earring1: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5") },
+          earring2: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5") },
+          amulet: { class:"None", category:"Metals", tier:"T5", material:firstName("Metals","T5") },
         });
 
         // Target armor (for “damage against armor”)
         const [targetArmor, setTargetArmor] = useState({
-          class: "Heavy", category: "Metals", tier: "T5", material: firstName("Metals","T5"), inner:"Linen", binding:"Cotton"
+          class: "Heavy", category: "Metals", tier: "T5", material: firstName("Metals","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1")
         });
 
         // Weapon & attack
@@ -455,10 +414,12 @@
         const [swing, setSwing]         = useState(1.0);
         const [mountedSpeed, setMountedSpeed] = useState("Gallop");
         // Handle/hilt (3) + head
-        const [coreMat, setCoreMat]       = useState("Wood");
-        const [gripMat, setGripMat]       = useState("Leather");
-        const [fittingMat, setFittingMat] = useState("Bronze");
-        const [headMat, setHeadMat]       = useState("Iron");
+        const [weaponComps, setWeaponComps] = useState({
+          core: { category: "Wood", tier: "T1", material: firstName("Wood", "T1") },
+          grip: { category: "Leather", tier: "T1", material: firstName("Leather", "T1") },
+          fitting: { category: "Metals", tier: "T1", material: firstName("Metals", "T1") },
+          head: { category: "Metals", tier: "T2", material: firstName("Metals", "T2") },
+        });
 
         // Effective stats with racial modifiers
         const race = races.find(r=> r.id===raceId) || races[0];
@@ -481,47 +442,6 @@
         const weapon = WEAPONS[weaponKey];
 
         // Options per weapon
-        const coreOptions = useMemo(()=>{
-          switch(weaponKey){
-            case 'Bow': return ['Ash','Yew','Composite'];
-            case 'Crossbow': return ['Oak','Ironwood','SteelProd'];
-            case 'Spear':
-            case 'Lance': return ['Ash','Oak','Ironwood'];
-            case 'Axe':
-            case 'Hammer': return ['Wood','Ash','Ironwood'];
-            case 'Dagger':
-            case 'Sword': default: return ['Wood','Bone','Iron'];
-          }
-        }, [weaponKey]);
-        const gripOptions = useMemo(()=>{
-          switch(weaponKey){
-            case 'Bow':
-            case 'Crossbow': return ['Leather','Hemp','Wool'];
-            default: return ['Leather','Hemp','Wool'];
-          }
-        }, [weaponKey]);
-        const fittingOptions = useMemo(()=>{
-          switch(weaponKey){
-            case 'Bow': return ['None','Bone','Bronze'];
-            case 'Crossbow': return ['Bronze','Iron','Steel','SteelProd'];
-            case 'Lance':
-            case 'Spear': return ['Bronze','Iron','Steel'];
-            default: return ['Bronze','Iron','Steel','Bone'];
-          }
-        }, [weaponKey]);
-        const headOptions = useMemo(()=>{
-          switch(weaponKey){
-            case 'Bow': return ['Stone','Iron','Steel','Mithril'];
-            case 'Crossbow': return ['Iron','Steel','Mithril'];
-            case 'Lance': return ['Bronze','Iron','Steel'];
-            default: return ['Bronze','Iron','Steel','Mithril'];
-          }
-        }, [weaponKey]);
-
-        const selCore = coreOptions.includes(coreMat) ? coreMat : coreOptions[0];
-        const selGrip = gripOptions.includes(gripMat) ? gripMat : gripOptions[0];
-        const selFit  = fittingOptions.includes(fittingMat) ? fittingMat : fittingOptions[0];
-        const selHead = headOptions.includes(headMat) ? headMat : headOptions[0];
 
         // Active weapon skill multiplier
         const activeWeaponSkillName = useMemo(()=>{
@@ -550,10 +470,20 @@
           let staminaCost = 0;
           let total = 0; let parts={};
 
-          const massMult = (HANDLE_CORE_MATS[selCore]?.massMult||1)
-            * (HANDLE_GRIP_MATS[selGrip]?.massMult||1)
-            * (HANDLE_FITTING_MATS[selFit]?.massMult||1)
-            * (HEAD_MATS[selHead]?.massMult||1);
+          // --- New weapon material logic ---
+          // Assumptions on how DB material properties translate to weapon stats:
+          // massMult: Derived from blunt defense. Higher blunt defense -> denser material -> higher mass. Formula: 1 + (blunt / 2)
+          // damage mod: Derived from slash and pierce. Formula: (slash + pierce) / 4
+          // draw bonus: Derived from magic stat for bows. Formula: magic / 10
+          const coreMat = factorsFor(DB, weaponComps.core.category, weaponComps.core.material) || {};
+          const gripMat = factorsFor(DB, weaponComps.grip.category, weaponComps.grip.material) || {};
+          const fittingMat = factorsFor(DB, weaponComps.fitting.category, weaponComps.fitting.material) || {};
+          const headMat = factorsFor(DB, weaponComps.head.category, weaponComps.head.material) || {};
+
+          const massMult = (1 + (coreMat.blunt || 0) / 2) * (1 + (gripMat.blunt || 0) / 2) * (1 + (fittingMat.blunt || 0) / 2) * (1 + (headMat.blunt || 0) / 2);
+          const damageMod = (headMat.slash || 0 + headMat.pierce || 0) / 4;
+          const drawBonus = (coreMat.magic || 0) / 10 + (fittingMat.magic || 0) / 10;
+          // --- End new logic ---
 
           if (weapon.type==='mounted'){
             const m = weapon.head; const factor = weapon.speed[mountedSpeed] || 1.0;
@@ -561,13 +491,12 @@
             staminaCost = (weapon.baseCost||0) + MSF*mass;
             const rawB = effective.STR*(m.Blunt||0)*factor;
             const rawP = effective.STR*(m.Pierce||0)*factor;
-            total = (rawB+rawP) * (1 + (HEAD_MATS[selHead]?.damage||0));
+            total = (rawB+rawP) * (1 + damageMod);
             parts = { Blunt: floorInt(rawB), Pierce: floorInt(rawP) };
           } else if (weapon.type==='ranged'){
             const pierce = weapon.head.Pierce||0; const cMul = chargeMultiplier(charge); const sMul = swingMultiplier(swing);
-            const drawBonus = (HANDLE_CORE_MATS[selCore]?.draw||0) + (HANDLE_FITTING_MATS[selFit]?.draw||0);
             const effDraw = (weapon.drawWeight||0) * (1 + drawBonus);
-            total = effDraw*pierce*cMul*sMul*(1 + (HEAD_MATS[selHead]?.damage||0));
+            total = effDraw*pierce*cMul*sMul*(1 + damageMod);
             parts = { Pierce: floorInt(total) };
             staminaCost = 0;
           } else {
@@ -577,7 +506,7 @@
             staminaCost = (weapon.baseCost||0) + MSF*mass;
             const rawB = effective.STR*blunt*cMul*sMul;
             const rawT = effective.STR*typed*cMul*sMul;
-            total = (rawB+rawT) * (1 + (HEAD_MATS[selHead]?.damage||0));
+            total = (rawB+rawT) * (1 + damageMod);
             parts = { Blunt: floorInt(rawB), [directionType]: floorInt(rawT) };
           }
 
@@ -600,7 +529,7 @@
 
         // Damage against target armor
         const dmgVsArmor = useMemo(()=>{
-          const t = effectiveDRForTarget(DB, targetArmor.class, targetArmor.category, targetArmor.tier, targetArmor.material, targetArmor.inner, targetArmor.binding);
+          const t = effectiveDRForTarget(DB, targetArmor.class, targetArmor.category, targetArmor.tier, targetArmor.material, targetArmor.innerCategory, targetArmor.innerMaterial, targetArmor.bindingCategory, targetArmor.bindingMaterial);
           const mapKey = (k)=> k.toLowerCase();
           let acc = 0;
           for (const [k,v] of Object.entries(damage.parts)){
@@ -638,8 +567,47 @@
           return { ...p, [slotId]: { ...prev, tier, material } };
         });
         const setArmorMaterial = (slotId, material)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], material } }));
-        const setArmorInner   = (slotId, inner)=>   setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], inner } }));
-        const setArmorBinding = (slotId, binding)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], binding } }));
+        const setArmorInnerCategory = (slotId, category)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const tier = prev.innerTier || "T1";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, innerCategory: category, innerTier: tier, innerMaterial: material } };
+        });
+        const setArmorInnerTier = (slotId, tier)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const category = prev.innerCategory || "Cloth";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, innerTier: tier, innerMaterial: material } };
+        });
+        const setArmorInnerMaterial = (slotId, material)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], innerMaterial: material } }));
+
+        const setArmorBindingCategory = (slotId, category)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const tier = prev.bindingTier || "T1";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, bindingCategory: category, bindingTier: tier, bindingMaterial: material } };
+        });
+        const setArmorBindingTier = (slotId, tier)=> setArmor(p=>{
+          const prev = p[slotId] || {};
+          const category = prev.bindingCategory || "Leather";
+          const material = firstName(category, tier);
+          return { ...p, [slotId]: { ...prev, bindingTier: tier, bindingMaterial: material } };
+        });
+        const setArmorBindingMaterial = (slotId, material)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], bindingMaterial: material } }));
+
+        const setWeaponCompCategory = (comp, category)=> setWeaponComps(p=>{
+          const prev = p[comp] || {};
+          const tier = prev.tier || "T1";
+          const material = firstName(category, tier);
+          return { ...p, [comp]: { ...prev, category, tier, material } };
+        });
+        const setWeaponCompTier = (comp, tier)=> setWeaponComps(p=>{
+          const prev = p[comp] || {};
+          const category = prev.category || "Wood";
+          const material = firstName(category, tier);
+          return { ...p, [comp]: { ...prev, tier, material } };
+        });
+        const setWeaponCompMaterial = (comp, material)=> setWeaponComps(p=> ({ ...p, [comp]: { ...p[comp], material } }));
 
         const setSkill = (name, val)=> setSkillBound(name, val);
 
@@ -700,31 +668,62 @@
                           {weapon?.type==='melee' && <div className="text-sm text-slate-300 mt-1">This weapon weighs approximately {weapon.massKilograms} kilograms. The stamina cost to swing is the base cost {weapon.baseCost} plus one times the rounded mass.</div>}
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 gap-3">
                           <div>
                             <label className="block text-sm mb-1">Handle or Core Material</label>
-                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={selCore} onChange={e=>setCoreMat(e.target.value)}>
-                              {(coreOptions).map(k=> <option key={k} value={k}>{k}</option>)}
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.core.category} onChange={e=>setWeaponCompCategory('core', e.target.value)}>
+                              {MATERIALS_FOR_HANDLE_CORE.map(k=> <option key={k} value={k}>{k}</option>)}
                             </select>
+                            <div className="grid grid-cols-2 gap-2 mt-1">
+                              <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.core.tier} onChange={e=>setWeaponCompTier('core', e.target.value)}>
+                                {tiersForCategory(DB, weaponComps.core.category).map(t=> <option key={t} value={t}>{t}</option>)}
+                              </select>
+                              <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.core.material} onChange={e=>setWeaponCompMaterial('core', e.target.value)}>
+                                {itemsForCategoryAndTier(DB, weaponComps.core.category, weaponComps.core.tier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                              </select>
+                            </div>
                           </div>
                           <div>
                             <label className="block text-sm mb-1">Grip or Wrap Material</label>
-                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={selGrip} onChange={e=>setGripMat(e.target.value)}>
-                              {(gripOptions).map(k=> <option key={k} value={k}>{k}</option>)}
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.grip.category} onChange={e=>setWeaponCompCategory('grip', e.target.value)}>
+                              {MATERIALS_FOR_HANDLE_GRIP.map(k=> <option key={k} value={k}>{k}</option>)}
                             </select>
+                            <div className="grid grid-cols-2 gap-2 mt-1">
+                              <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.grip.tier} onChange={e=>setWeaponCompTier('grip', e.target.value)}>
+                                {tiersForCategory(DB, weaponComps.grip.category).map(t=> <option key={t} value={t}>{t}</option>)}
+                              </select>
+                              <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.grip.material} onChange={e=>setWeaponCompMaterial('grip', e.target.value)}>
+                                {itemsForCategoryAndTier(DB, weaponComps.grip.category, weaponComps.grip.tier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                              </select>
+                            </div>
                           </div>
                           <div>
                             <label className="block text-sm mb-1">Guard or Pommel Fittings</label>
-                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={selFit} onChange={e=>setFittingMat(e.target.value)}>
-                              {(fittingOptions).map(k=> <option key={k} value={k}>{k}</option>)}
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.fitting.category} onChange={e=>setWeaponCompCategory('fitting', e.target.value)}>
+                              {MATERIALS_FOR_HANDLE_FITTING.map(k=> <option key={k} value={k}>{k}</option>)}
                             </select>
+                            <div className="grid grid-cols-2 gap-2 mt-1">
+                              <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.fitting.tier} onChange={e=>setWeaponCompTier('fitting', e.target.value)}>
+                                {tiersForCategory(DB, weaponComps.fitting.category).map(t=> <option key={t} value={t}>{t}</option>)}
+                              </select>
+                              <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.fitting.material} onChange={e=>setWeaponCompMaterial('fitting', e.target.value)}>
+                                {itemsForCategoryAndTier(DB, weaponComps.fitting.category, weaponComps.fitting.tier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                              </select>
+                            </div>
                           </div>
                           <div>
                             <label className="block text-sm mb-1">Weapon Head Material</label>
-                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={selHead} onChange={e=>setHeadMat(e.target.value)}>
-                              {(headOptions).map(k=> <option key={k} value={k}>{k}</option>)}
+                            <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.head.category} onChange={e=>setWeaponCompCategory('head', e.target.value)}>
+                              {MATERIALS_FOR_HEAD.map(k=> <option key={k} value={k}>{k}</option>)}
                             </select>
-                            <div className="text-xs text-slate-400 mt-1">Carapace is not available for weapon heads.</div>
+                            <div className="grid grid-cols-2 gap-2 mt-1">
+                              <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.head.tier} onChange={e=>setWeaponCompTier('head', e.target.value)}>
+                                {tiersForCategory(DB, weaponComps.head.category).map(t=> <option key={t} value={t}>{t}</option>)}
+                              </select>
+                              <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponComps.head.material} onChange={e=>setWeaponCompMaterial('head', e.target.value)}>
+                                {itemsForCategoryAndTier(DB, weaponComps.head.category, weaponComps.head.tier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                              </select>
+                            </div>
                           </div>
                         </div>
 
@@ -814,7 +813,7 @@
                           ["BeastControl", "Beast Control"], ["Taming", "Taming"],
                         ],
                       }).map(([groupName, groupSkills]) => (
-                        <details key={groupName} className="bg-slate-800/50 rounded-xl" open>
+                        <details key={groupName} className="bg-slate-800/50 rounded-xl">
                           <summary className="text-lg font-semibold p-3 cursor-pointer select-none">{groupName}</summary>
                           <div className="p-3 border-t border-slate-700/50 space-y-3">
                             {groupSkills.map(([key, label]) => (
@@ -831,7 +830,7 @@
                         </details>
                       ))}
 
-                      <details className="bg-slate-800/50 rounded-xl" open>
+                      <details className="bg-slate-800/50 rounded-xl">
                         <summary className="text-lg font-semibold p-3 cursor-pointer select-none">Magic</summary>
                         <div className="p-3 border-t border-slate-700/50 space-y-3">
                           <div>
@@ -854,14 +853,14 @@
                           </div>
                           <div className="pt-2">
                             <div className="flex items-center justify-between text-sm">
-                              <span>Elemental Magic Investment</span>
+                              <span>Elemental Magic</span>
                               <span className="tabular-nums">{skills.ElementalMagic}</span>
                             </div>
                             <input type="range" min={0} max={100} value={skills.ElementalMagic} onChange={e => setSkillBound('ElementalMagic', parseInt(e.target.value))} className="w-full" />
                           </div>
                           <div>
                             <div className="flex items-center justify-between text-sm">
-                              <span>Entropy Magic Investment</span>
+                              <span>Entropy Magic</span>
                               <span className="tabular-nums">{skills.EntropyMagic}</span>
                             </div>
                             <input type="range" min={0} max={100} value={skills.EntropyMagic} onChange={e => setSkillBound('EntropyMagic', parseInt(e.target.value))} className="w-full" />
@@ -922,6 +921,17 @@
                             {Object.keys(THREAD_BINDINGS).map(k=> <option key={k} value={k}>{k}</option>)}
                           </select>
                         </div>
+                      </div>
+                    </section>
+                    <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
+                      <h2 className="text-lg font-semibold mb-3">Character Portrait</h2>
+                      <div className="flex justify-center">
+                        <img
+                          id="race-portrait"
+                          src={`Art/Character Art/Portraits/${raceId}.png`}
+                          alt={`${race.name} portrait`}
+                          className="w-48 h-48 object-cover rounded-lg border-4 border-slate-700"
+                        />
                       </div>
                     </section>
                   </div>
@@ -998,9 +1008,13 @@
                       const category = entry.category || "Leather";
                       const tier = entry.tier || "T5";
                       const material = entry.material || "";
-                      const innerName = entry.inner || "Linen";
-                      const bindName  = entry.binding || "Cotton";
-                      const eff = effectiveDRForSlot(DB, cls, category, material, innerName, bindName, isShield);
+                      const innerCategory = entry.innerCategory || "Cloth";
+                      const innerTier = entry.innerTier || "T1";
+                      const innerMaterial = entry.innerMaterial || "";
+                      const bindingCategory = entry.bindingCategory || "Leather";
+                      const bindingTier = entry.bindingTier || "T1";
+                      const bindingMaterial = entry.bindingMaterial || "";
+                      const eff = effectiveDRForSlot(DB, cls, category, material, innerCategory, innerMaterial, bindingCategory, bindingMaterial, isShield);
                       const allowedCats = MATERIALS_FOR_CLASS[entry.class||"None"] || [];
                       const allTiers = tiersForCategory(DB, category);
                       const items = itemsForCategoryAndTier(DB, category, tier);
@@ -1041,16 +1055,42 @@
                               </div>
 
                               <label className="block text-sm mt-3">Inner Layer Material</label>
-                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={innerName} onChange={e=>setArmorInner(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
-                                {Object.keys(INNER_MATERIALS).map(k=> <option key={k} value={k}>{k}</option>)}
+                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.innerCategory} onChange={e=>setArmorInnerCategory(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                {MATERIALS_FOR_INNER.map(k=> <option key={k} value={k}>{k}</option>)}
                               </select>
-                              <div className="text-sm text-slate-300 mt-1">{INNER_MATERIALS[innerName]?.desc}</div>
+                              <div className="grid grid-cols-2 gap-2 mt-3">
+                                <div>
+                                  <label className="block text-sm">Tier</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.innerTier} onChange={e=>setArmorInnerTier(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                    {tiersForCategory(DB, entry.innerCategory).map(t=> <option key={t} value={t}>{t}</option>)}
+                                  </select>
+                                </div>
+                                <div>
+                                  <label className="block text-sm">Specific Material</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.innerMaterial} onChange={e=>setArmorInnerMaterial(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                    {itemsForCategoryAndTier(DB, entry.innerCategory, entry.innerTier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                                  </select>
+                                </div>
+                              </div>
 
                               <label className="block text-sm mt-3">Thread and Binding</label>
-                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={bindName} onChange={e=>setArmorBinding(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
-                                {Object.keys(THREAD_BINDINGS).map(k=> <option key={k} value={k}>{k}</option>)}
+                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.bindingCategory} onChange={e=>setArmorBindingCategory(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                {MATERIALS_FOR_BINDING.map(k=> <option key={k} value={k}>{k}</option>)}
                               </select>
-                              <div className="text-sm text-slate-300 mt-1">{THREAD_BINDINGS[bindName]?.desc}</div>
+                              <div className="grid grid-cols-2 gap-2 mt-3">
+                                <div>
+                                  <label className="block text-sm">Tier</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.bindingTier} onChange={e=>setArmorBindingTier(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                    {tiersForCategory(DB, entry.bindingCategory).map(t=> <option key={t} value={t}>{t}</option>)}
+                                  </select>
+                                </div>
+                                <div>
+                                  <label className="block text-sm">Specific Material</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.bindingMaterial} onChange={e=>setArmorBindingMaterial(slot.id, e.target.value)} disabled={(entry.class||"None")==="None"}>
+                                    {itemsForCategoryAndTier(DB, entry.bindingCategory, entry.bindingTier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                                  </select>
+                                </div>
+                              </div>
 
                               {(entry.class||"None")!=="None" && matObj && (
                                 <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
