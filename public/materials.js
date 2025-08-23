@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 categoryCard.className = "bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg";
 
                 const categoryTitle = document.createElement("h2");
-                categoryTitle.className = "text-2xl font-bold mb-4";
+                categoryTitle.className = "text-2xl font-bold mb-4 break-words";
                 categoryTitle.textContent = category;
 
                 const categoryContent = document.createElement("div");
-                categoryContent.className = "grid grid-cols-1 md:grid-cols-2 gap-8";
+                categoryContent.className = "grid grid-cols-1 md:grid-cols-2 aspect-widescreen:grid-cols-2 aspect-ultrawide:grid-cols-2 gap-8";
 
                 const imageContainer = document.createElement("div");
                 const image = document.createElement("img");
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 for (const tier in data[category]) {
                     const tierItem = document.createElement("li");
-                    tierItem.className = "font-semibold text-lg mt-2";
+                    tierItem.className = "font-semibold text-lg mt-2 break-words";
                     tierItem.textContent = tier;
 
                     const tierList = document.createElement("ul");
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     data[category][tier].forEach(material => {
                         const materialItem = document.createElement("li");
+                        materialItem.className = "break-words";
                         materialItem.textContent = material.name;
                         materialItem.style.cursor = "pointer";
                         materialItem.addEventListener("click", () => {
@@ -43,13 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                 existingDetails.remove();
                             } else {
                                 const details = document.createElement("div");
-                                details.className = "details";
+                                details.className = "details p-2 pl-4 text-slate-400 bg-slate-800/50 rounded-lg mt-2 break-words whitespace-normal";
                                 details.style.paddingLeft = "20px";
                                 details.innerHTML = `
-                                    <p>Slash: ${material.slash}</p>
-                                    <p>Pierce: ${material.pierce}</p>
-                                    <p>Blunt: ${material.blunt}</p>
-                                    <p>Magic: ${material.magic}</p>
+                                    <p><strong>Slash:</strong> ${material.slash}</p>
+                                    <p><strong>Pierce:</strong> ${material.pierce}</p>
+                                    <p><strong>Blunt:</strong> ${material.blunt}</p>
+                                    <p><strong>Magic:</strong> ${material.magic}</p>
                                 `;
                                 materialItem.appendChild(details);
                             }

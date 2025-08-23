@@ -5,20 +5,37 @@
     <title>Game Simulator - Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="aspect_ratio.js"></script>
     <script>
-      tailwind.config = { theme: { extend: {} } };
+      tailwind.config = {
+        theme: {
+          extend: {
+            screens: {
+              "aspect-ultrawide": { "raw": "[data-aspect-ratio='ultrawide']" },
+              "aspect-widescreen": { "raw": "[data-aspect-ratio='widescreen']" },
+              "aspect-mobile": { "raw": "[data-aspect-ratio='mobile']" },
+            },
+          },
+        },
+      };
       document.documentElement.classList.add("dark");
     </script>
     <style>
       :root { color-scheme: dark; }
       body { background: #0f172a; color: #e2e8f0; margin: 0; }
+          [data-aspect-ratio='ultrawide'] #materials-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      [data-aspect-ratio='widescreen'] #materials-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     </style>
   </head>
   <body>
     <div class="min-h-screen w-full bg-slate-950 text-slate-100 p-4 md:p-8">
       <div class="max-w-7xl mx-auto">
         <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
-          <div class="flex items-center justify-between">
+          <div class="flex items-center justify-between flex-wrap">
             <div class="text-xl font-bold tracking-tight">Game Simulator</div>
             <div class="flex flex-wrap gap-4">
               <a href="index.html" class="text-emerald-400 font-semibold">Home</a>
@@ -37,16 +54,16 @@
 
         <header class="text-center">
           <h1 class="text-4xl font-bold tracking-tight mb-4">Welcome to the Game Simulator</h1>
-          <p class="text-lg text-slate-300">
+          <p class="text-lg text-slate-300 break-words">
             This is a comprehensive tool to simulate game mechanics, including character stats, armor, weapons, and materials.
           </p>
         </header>
 
         <main class="mt-10">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 aspect-widescreen:grid-cols-2 aspect-ultrawide:grid-cols-2 gap-8">
             <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
               <h2 class="text-2xl font-bold mb-4">Explore Materials</h2>
-              <p class="text-slate-300 mb-4">
+              <p class="text-slate-300 mb-4 break-words">
                 Browse the extensive database of materials, view their properties, and see how they are used in crafting.
               </p>
               <a href="materials.html" class="inline-block bg-emerald-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-emerald-600">
@@ -55,7 +72,7 @@
             </div>
             <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
               <h2 class="text-2xl font-bold mb-4">Launch the Simulator</h2>
-              <p class="text-slate-300 mb-4">
+              <p class="text-slate-300 mb-4 break-words">
                 Dive into the simulator to create characters, equip them with armor and weapons, and test their combat effectiveness.
               </p>
               <a href="simulator.html" class="inline-block bg-emerald-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-emerald-600">
