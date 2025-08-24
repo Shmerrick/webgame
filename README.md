@@ -2,7 +2,8 @@
 
 **Version:** 16.0
 
-This project contains a web-based game simulator and a C++ tool to view the game data.
+This project contains a web-based game simulator and a C++ tool to view the game data. It relies solely on C++ and web
+tooling—no Python is required.
 
 ## Running the Webpage
 
@@ -14,15 +15,8 @@ The webpage needs to be served by a local web server for all features to work co
     ```
 
 2.  **Start a simple web server:**
-    If you have Python 3, you can use its built-in web server. The automated tests run on port 3000, so it's a good choice.
-    ```bash
-    python3 -m http.server 3000
-    ```
-    If you need to use a different port, you can specify it. For example, for port 8000:
-    ```bash
-    python3 -m http.server 8000
-    ```
-    Alternatively, if you have Node.js and npm installed, you can use the `serve` package.
+    Use any static file server. With Node.js installed, the [`serve`](https://www.npmjs.com/package/serve) package is the
+    easiest option:
     ```bash
     npx serve -l 3000
     ```
@@ -35,7 +29,7 @@ The webpage needs to be served by a local web server for all features to work co
 
 ## C++ Game Data Viewer
 
-This is a GUI tool to display the contents of the material database.
+This ImGui-based GUI tool displays the contents of the material database.
 
 ### Compiling the Game Data Viewer
 

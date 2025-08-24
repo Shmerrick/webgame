@@ -98,6 +98,17 @@ int main(int argc, char** argv)
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
 
+        if (ImGui::BeginMainMenuBar())
+        {
+            if (ImGui::BeginMenu("File"))
+            {
+                if (ImGui::MenuItem("Quit", "Alt+F4"))
+                    done = true;
+                ImGui::EndMenu();
+            }
+            ImGui::EndMainMenuBar();
+        }
+
         {
             ImGui::Begin("Item Database Viewer");
 
