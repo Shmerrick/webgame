@@ -10,6 +10,7 @@
 #include <sstream>
 #include <map>
 #include <random>
+#include <string>
 #include "json.hpp"
 
 // No SiegeSystem.h needed as SiegeWeapon is in Items.h now
@@ -20,6 +21,8 @@ namespace Game {
 
 class CraftingSystem {
 public:
+    static void SetDataPath(const std::string& path) { dataPath = path; }
+
     // Armor Smithing
     static Armor CraftArmor(
         const std::vector<const Material*>& materials,
@@ -35,24 +38,16 @@ public:
         const Material* innerMaterial = materials[1];
         const Material* bindingMaterial = materials[2];
 
-        // Load armor component volumes from JSON
-        std::map<std::string, std::map<std::string, double>> armorVolumes;
-        std::ifstream file("../../public/armor_volumes.json");
-        if (!file.is_open()) {
-            throw std::runtime_error("Could not open armor_volumes.json");
-        }
-        json data = json::parse(file);
-        for (const auto& item : data) {
-            armorVolumes[item["ArmorPiece"]][item["Component"]] = item["Volume_cm3"];
-        }
+        // Load armor component volumes from JSON once and reuse
+        loadArmorVolumes();
 
-        if (armorVolumes.find(slot) == armorVolumes.end()) {
+        if (armorVolumesCache.find(slot) == armorVolumesCache.end()) {
             throw std::runtime_error("Unknown armor slot: " + slot);
         }
 
-        double outerVolume = armorVolumes[slot]["Outer"];
-        double innerVolume = armorVolumes[slot]["Inner"];
-        double bindingVolume = armorVolumes[slot]["Binding"];
+        double outerVolume = armorVolumesCache[slot]["Outer"];
+        double innerVolume = armorVolumesCache[slot]["Inner"];
+        double bindingVolume = armorVolumesCache[slot]["Binding"];
         double totalVolume = outerVolume + innerVolume + bindingVolume;
 
         Armor newArmor(slot, slotFactor, armorClass, outerMaterial, innerMaterial, bindingMaterial, totalVolume);
@@ -80,16 +75,8 @@ public:
         const std::vector<std::pair<std::string, const Material*>>& componentMaterials,
         double hollowFactor = 0.0
     ) {
-        // Load weapon component volumes from JSON
-        std::map<std::string, std::map<std::string, double>> weaponVolumes;
-        std::ifstream file("../../public/weapon_volumes.json");
-        if (!file.is_open()) {
-            throw std::runtime_error("Could not open weapon_volumes.json");
-        }
-        json data = json::parse(file);
-        for (const auto& item : data) {
-            weaponVolumes[item["WeaponType"]][item["Component"]] = item["Volume_cm3"];
-        }
+        // Load weapon component volumes from JSON once and reuse
+        loadWeaponVolumes();
 
         std::vector<Weapon::WeaponComponent> components;
         double totalMassGrams = 0;
@@ -116,7 +103,7 @@ public:
         for (const auto& compMat : componentMaterials) {
             std::string componentName = compMat.first;
             const Material* material = compMat.second;
-            double volume = weaponVolumes[weaponTypeStr][componentName];
+            double volume = weaponVolumesCache[weaponTypeStr][componentName];
 
             if (componentName == "Handle" || componentName == "Shaft" || componentName == "Stave") {
                 volume *= (1.0 - hollowFactor);
@@ -147,16 +134,8 @@ public:
         ShieldType shieldType,
         const std::vector<std::pair<std::string, const Material*>>& componentMaterials
     ) {
-        // Load shield component volumes from JSON
-        std::map<std::string, std::map<std::string, double>> shieldVolumes;
-        std::ifstream file("../../public/shield_volumes.json");
-        if (!file.is_open()) {
-            throw std::runtime_error("Could not open shield_volumes.json");
-        }
-        json data = json::parse(file);
-        for (const auto& item : data) {
-            shieldVolumes[item["ShieldType"]][item["Component"]] = item["Volume_cm3"];
-        }
+        // Load shield component volumes from JSON once and reuse
+        loadShieldVolumes();
 
         std::vector<Shield::ShieldComponent> components;
         double totalMassGrams = 0;
@@ -178,7 +157,7 @@ public:
         for (const auto& compMat : componentMaterials) {
             std::string componentName = compMat.first;
             const Material* material = compMat.second;
-            double volume = shieldVolumes[shieldTypeStr][componentName];
+            double volume = shieldVolumesCache[shieldTypeStr][componentName];
 
             components.push_back({componentName, material, volume});
             totalMassGrams += volume * material->getDensity();
@@ -213,16 +192,8 @@ public:
         SiegeWeaponType siegeWeaponType,
         const std::vector<std::pair<std::string, const Material*>>& componentMaterials
     ) {
-        // Load siege weapon component volumes from JSON
-        std::map<std::string, std::map<std::string, double>> siegeVolumes;
-        std::ifstream file("../../public/siege_volumes.json");
-        if (!file.is_open()) {
-            throw std::runtime_error("Could not open siege_volumes.json");
-        }
-        json data = json::parse(file);
-        for (const auto& item : data) {
-            siegeVolumes[item["SiegeWeaponType"]][item["Component"]] = item["Volume_cm3"];
-        }
+        // Load siege weapon component volumes from JSON once and reuse
+        loadSiegeVolumes();
 
         std::vector<SiegeWeapon::SiegeComponent> components;
         double totalMassGrams = 0;
@@ -244,7 +215,7 @@ public:
         for (const auto& compMat : componentMaterials) {
             std::string componentName = compMat.first;
             const Material* material = compMat.second;
-            double volume = siegeVolumes[siegeWeaponTypeStr][componentName];
+            double volume = siegeVolumesCache[siegeWeaponTypeStr][componentName];
 
             components.push_back({componentName, material, volume});
             totalMassGrams += volume * material->getDensity();
@@ -331,6 +302,73 @@ public:
         }
 
         return nullptr;
+    }
+
+private:
+    inline static std::map<std::string, std::map<std::string, double>> armorVolumesCache;
+    inline static std::map<std::string, std::map<std::string, double>> weaponVolumesCache;
+    inline static std::map<std::string, std::map<std::string, double>> shieldVolumesCache;
+    inline static std::map<std::string, std::map<std::string, double>> siegeVolumesCache;
+    inline static bool armorVolumesLoaded = false;
+    inline static bool weaponVolumesLoaded = false;
+    inline static bool shieldVolumesLoaded = false;
+    inline static bool siegeVolumesLoaded = false;
+    inline static std::string dataPath = "";
+
+    static void loadArmorVolumes() {
+        if (armorVolumesLoaded)
+            return;
+        std::ifstream file(dataPath + "armor_volumes.json");
+        if (!file.is_open()) {
+            throw std::runtime_error("Could not open armor_volumes.json");
+        }
+        json data = json::parse(file);
+        for (const auto& item : data) {
+            armorVolumesCache[item["ArmorPiece"]][item["Component"]] = item["Volume_cm3"];
+        }
+        armorVolumesLoaded = true;
+    }
+
+    static void loadWeaponVolumes() {
+        if (weaponVolumesLoaded)
+            return;
+        std::ifstream file(dataPath + "weapon_volumes.json");
+        if (!file.is_open()) {
+            throw std::runtime_error("Could not open weapon_volumes.json");
+        }
+        json data = json::parse(file);
+        for (const auto& item : data) {
+            weaponVolumesCache[item["WeaponType"]][item["Component"]] = item["Volume_cm3"];
+        }
+        weaponVolumesLoaded = true;
+    }
+
+    static void loadShieldVolumes() {
+        if (shieldVolumesLoaded)
+            return;
+        std::ifstream file(dataPath + "shield_volumes.json");
+        if (!file.is_open()) {
+            throw std::runtime_error("Could not open shield_volumes.json");
+        }
+        json data = json::parse(file);
+        for (const auto& item : data) {
+            shieldVolumesCache[item["ShieldType"]][item["Component"]] = item["Volume_cm3"];
+        }
+        shieldVolumesLoaded = true;
+    }
+
+    static void loadSiegeVolumes() {
+        if (siegeVolumesLoaded)
+            return;
+        std::ifstream file(dataPath + "siege_volumes.json");
+        if (!file.is_open()) {
+            throw std::runtime_error("Could not open siege_volumes.json");
+        }
+        json data = json::parse(file);
+        for (const auto& item : data) {
+            siegeVolumesCache[item["SiegeWeaponType"]][item["Component"]] = item["Volume_cm3"];
+        }
+        siegeVolumesLoaded = true;
     }
 };
 

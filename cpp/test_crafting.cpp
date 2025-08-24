@@ -28,6 +28,8 @@ int main() {
 
         std::vector<const Game::Material*> materials = {outer, inner, binding};
 
+        Game::CraftingSystem::SetDataPath("../../public/");
+
         // Test armor crafting
         Game::Armor helmet = Game::CraftingSystem::CraftArmor(materials, Game::ArmorClass::Heavy, "Helmet", 1);
         std::cout << "Successfully crafted " << helmet.getName() << std::endl;
