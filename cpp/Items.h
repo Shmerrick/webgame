@@ -2,7 +2,7 @@
 #define ITEMS_H
 
 #include "DataTypes.h"
-#include "Material.h" // Include the missing header
+#include "Material.h"
 #include <string>
 #include <vector>
 #include <map>
@@ -30,6 +30,14 @@ public:
     double getDurability() const { return durability; }
     double getMaxDurability() const { return maxDurability; }
 
+    // --- Setters ---
+    void setName(const std::string& newName) { name = newName; }
+    void setMass(double newMass) { massKg = newMass; }
+    void setDurability(double newDurability, double newMaxDurability) {
+        durability = newDurability;
+        maxDurability = newMaxDurability;
+    }
+
 protected:
     // --- Item Properties ---
     std::string id;
@@ -44,7 +52,6 @@ protected:
     double durability = 0;
     double maxDurability = 0;
 
-    // Allow the database to populate private fields
     friend class ItemDatabase;
 };
 
@@ -57,6 +64,14 @@ public:
         double magic = 0;
     };
 
+    Armor() = default;
+    Armor(const std::string& slot, int slotFactor, ArmorClass armorClass,
+          const Material* outer, const Material* inner, const Material* binding, double volume) {
+        this->name = slot;
+        this->itemType = "Armor";
+        this->type = "Heavy"; // This should be calculated based on ArmorClass
+    }
+
     const DefenseStats& getDefenseStats() const { return defense; }
 
 private:
@@ -66,33 +81,130 @@ private:
 
 class Weapon : public Item {
 public:
+    struct WeaponComponent {
+        std::string name;
+        const Material* material;
+        double volume;
+    };
+
     struct OffenseStats {
         double slash = 0;
         double pierce = 0;
         double blunt = 0;
     };
 
+    Weapon() = default;
+    Weapon(WeaponType weaponType, const std::vector<WeaponComponent>& components) {
+        this->itemType = "Weapon";
+        // name and type should be derived from weaponType and components
+    }
+
     const OffenseStats& getOffenseStats() const { return offense; }
 
 private:
     OffenseStats offense;
+    std::vector<WeaponComponent> components;
     friend class ItemDatabase;
 };
 
 class Shield : public Item {
 public:
+    struct ShieldComponent {
+        std::string name;
+        const Material* material;
+        double volume;
+    };
+
     struct DefenseStats {
         double slash = 0;
         double pierce = 0;
         double blunt = 0;
     };
 
+    Shield() = default;
+    Shield(ShieldType shieldType, const std::vector<ShieldComponent>& components) {
+        this->itemType = "Shield";
+        // name and type should be derived from shieldType and components
+    }
+
     const DefenseStats& getDefenseStats() const { return defense; }
 
 private:
     DefenseStats defense;
+    std::vector<ShieldComponent> components;
     friend class ItemDatabase;
 };
+
+class SiegeWeapon : public Item {
+public:
+    struct SiegeComponent {
+        std::string name;
+        const Material* material;
+        double volume;
+    };
+
+    SiegeWeapon() = default;
+    SiegeWeapon(SiegeWeaponType siegeWeaponType, const std::vector<SiegeComponent>& components) {
+        this->itemType = "SiegeWeapon";
+        // name and type should be derived from siegeWeaponType and components
+    }
+
+private:
+    std::vector<SiegeComponent> components;
+};
+
+
+class Ring : public Item {
+public:
+    Ring(const Material* metal, int tier) {
+        this->itemType = "Jewelry";
+        this->type = "Ring";
+        this->name = metal->getName() + " Ring";
+        this->materialTier = tier;
+    }
+    const std::string& getModifiedStat() const { return modifiedStat; }
+    void setModifiedStat(const std::string& stat) { modifiedStat = stat; }
+    int getModifierValue() const { return modifierValue; }
+    void setModifierValue(int value) { modifierValue = value; }
+private:
+    std::string modifiedStat;
+    int modifierValue = 0;
+};
+
+class Earring : public Item {
+public:
+    Earring(const Material* metal, int tier) {
+        this->itemType = "Jewelry";
+        this->type = "Earring";
+        this->name = metal->getName() + " Earring";
+        this->materialTier = tier;
+    }
+    const std::string& getModifiedStat() const { return modifiedStat; }
+    void setModifiedStat(const std::string& stat) { modifiedStat = stat; }
+    int getModifierValue() const { return modifierValue; }
+    void setModifierValue(int value) { modifierValue = value; }
+private:
+    std::string modifiedStat;
+    int modifierValue = 0;
+};
+
+class Amulet : public Item {
+public:
+    Amulet(const Material* metal, int tier) {
+        this->itemType = "Jewelry";
+        this->type = "Amulet";
+        this->name = metal->getName() + " Amulet";
+        this->materialTier = tier;
+    }
+    const std::string& getModifiedSkill() const { return modifiedSkill; }
+    void setModifiedSkill(const std::string& skill) { modifiedSkill = skill; }
+    int getSkillIncrease() const { return skillIncrease; }
+    void setSkillIncrease(int value) { skillIncrease = value; }
+private:
+    std::string modifiedSkill;
+    int skillIncrease = 0;
+};
+
 
 class Potion : public Item {
 public:
