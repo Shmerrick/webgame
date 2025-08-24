@@ -140,3 +140,31 @@ float UFormulas::CalculatePieceDefense(float materialDefense, float classScalar)
 int32 UFormulas::CalculateManaCost(int32 baseCost, float rangeMultiplier, float damageMultiplier, float aoeMultiplier) {
     return static_cast<int32>(static_cast<float>(baseCost) * rangeMultiplier * damageMultiplier * aoeMultiplier);
 }
+
+float UFormulas::GetItemPriceModifier(int32 reputation) {
+    if (reputation <= 0) {
+        return 1.0f;
+    }
+    // 1% discount for every 100 reputation points.
+    int32 discountTiers = reputation / 100;
+    float discountPercentage = static_cast<float>(discountTiers) * 1.0f;
+    // Clamp discount to a max of 100%
+    if (discountPercentage > 100.0f) {
+        discountPercentage = 100.0f;
+    }
+    return 1.0f - (discountPercentage / 100.0f);
+}
+
+float UFormulas::GetTaxModifier(int32 reputation) {
+    if (reputation <= 0) {
+        return 1.0f;
+    }
+    // 5% discount for every 100 reputation points.
+    int32 discountTiers = reputation / 100;
+    float discountPercentage = static_cast<float>(discountTiers) * 5.0f;
+    // Clamp discount to a max of 100%
+    if (discountPercentage > 100.0f) {
+        discountPercentage = 100.0f;
+    }
+    return 1.0f - (discountPercentage / 100.0f);
+}

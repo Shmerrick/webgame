@@ -16,4 +16,4 @@ def test_shield_crafting(page: Page):
 
     expect(page.locator("#shield-crafting-results")).to_contain_text("Required Materials")
 
-    page.screenshot(path="shield_crafting_verification.png")
+    page.screenshot(path="tests/test_shield_crafting_ui.png")
