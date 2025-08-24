@@ -316,7 +316,7 @@
           };
           return shieldIcons[shieldName] || fallbackIcon;
         } else {
-          if (!cls || cls === 'None' || cls === 'Light') return fallbackIcon;
+          if (!cls || cls === 'None') return fallbackIcon;
           const className = cls.toLowerCase();
 
           const heavy_slot_map = {
@@ -327,12 +327,19 @@
               'boots': 'medium_boots.png', 'gloves': 'medium_gauntlets.png',
               'helmet': 'medium_helmet.png', 'legs': 'medium_legs.png', 'torso': 'medium_torso.png',
           }
+          const light_slot_map = {
+              'boots': 'boots.png', 'gloves': 'gloves.png',
+              'helmet': 'helmet.png', 'legs': 'legs.png', 'torso': 'torso.png',
+          }
 
           if (className === 'heavy' && heavy_slot_map[slotId]) {
               return `${basePath}Armor/Heavy/${heavy_slot_map[slotId]}`;
           }
           if (className === 'medium' && medium_slot_map[slotId]) {
               return `${basePath}Armor/Medium/${medium_slot_map[slotId]}`;
+          }
+          if (className === 'light' && light_slot_map[slotId]) {
+              return `${basePath}Armor/Light/${light_slot_map[slotId]}`;
           }
 
           return fallbackIcon;
@@ -1403,23 +1410,6 @@
                                 <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
                                   <div className="font-medium mb-1">Material and Armor Explanation</div>
                                   <p className="text-sm text-slate-300">
-                                    The outer layer is <span className="font-semibold">{material}</span> which belongs to the <span className="font-semibold">{category}</span> category and is at <span className="font-semibold">{tier}</span>. Its defensive multipliers are:
-                                    Slash {(matObj.defense_slash*100).toFixed(0)}%,
-                                    Pierce {(matObj.defense_pierce*100).toFixed(0)}%,
-                                    Blunt {(matObj.defense_blunt*100).toFixed(0)}%.
-                                    <br/>
-                                    Elemental resistances are:
-                                    Fire {(matObj.fire*100).toFixed(0)}%,
-                                    Water {(matObj.water*100).toFixed(0)}%,
-                                    Wind {(matObj.wind*100).toFixed(0)}%,
-                                    Earth {(matObj.earth*100).toFixed(0)}%.
-                                  </p>
-                                  <p className="text-sm text-slate-300 mt-2">
-                                    The armor class is <span className="font-semibold">{entry.class}</span>. Its base reduction for physical damage is {((ARMOR_CLASS[entry.class] || {}).physical*100).toFixed(0)}%, and its base reduction for magic is {((ARMOR_CLASS[entry.class] || {}).magical*100).toFixed(0)}%.
-                                  </p>
-                                  <p className="text-sm text-slate-300 mt-2">
-                                    The final effective damage reduction for this slot is:
-                                    <br/>
                                     {Object.keys(eff).filter(k => k !== 'fallbackFlags').map(key => {
                                         const value = eff[key];
                                         const isFallback = eff.fallbackFlags[key];
