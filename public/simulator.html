@@ -97,11 +97,11 @@
         { id: "torso",  name: "Torso",  factor: 3 },
         { id: "legs",   name: "Legs",   factor: 3 },
         { id: "shield", name: "Shield", factor: 2 },
-        { id: "ring1", name: "Ring 1", factor: 0 },
-        { id: "ring2", name: "Ring 2", factor: 0 },
-        { id: "earring1", name: "Earring 1", factor: 0 },
-        { id: "earring2", name: "Earring 2", factor: 0 },
-        { id: "amulet", name: "Amulet", factor: 0 },
+        { id: "ring1", name: "Ring 1", factor: 0, type: 'ring' },
+        { id: "ring2", name: "Ring 2", factor: 0, type: 'ring' },
+        { id: "earring1", name: "Earring 1", factor: 0, type: 'earring' },
+        { id: "earring2", name: "Earring 2", factor: 0, type: 'earring' },
+        { id: "amulet", name: "Amulet", factor: 0, type: 'amulet' },
       ];
 
       // Armor class base reductions (heavy magic = 50% from doc)
@@ -112,11 +112,12 @@
         Heavy:  { value: 3, physical: 0.85, magical: 0.85 },
       };
 
-      const SHIELDS = {
-        None:  { class: "None",   strengthRequirement: 0 },
-        Round: { class: "Light",  strengthRequirement: 50 },
-        Kite:  { class: "Medium", strengthRequirement: 75 },
-        Tower: { class: "Heavy",  strengthRequirement: 100 },
+      const OFFHAND_ITEMS = {
+        None:  { class: "None",   strengthRequirement: 0, type: 'shield' },
+        Round: { class: "Light",  strengthRequirement: 50, type: 'shield' },
+        Kite:  { class: "Medium", strengthRequirement: 75, type: 'shield' },
+        Tower: { class: "Heavy",  strengthRequirement: 100, type: 'shield' },
+        Sling: { class: "None", strengthRequirement: 0, type: 'weapon' }
       };
 
       const REGEN_MULT = { Naked: 1.0, Light: 0.75, Medium: 0.50, Heavy: 0.25 };
@@ -189,8 +190,12 @@
           let className = entry.class || "None";
           if (slot.id==="shield"){
             const subtype = entry.shield || "None";
-            const meta = SHIELDS[subtype];
-            className = (STR >= (meta?.strengthRequirement||0)) ? (meta?.class||"None") : "None";
+            const meta = OFFHAND_ITEMS[subtype];
+            if (meta.type === 'shield') {
+                className = (STR >= (meta?.strengthRequirement||0)) ? (meta?.class||"None") : "None";
+            } else {
+                className = "None";
+            }
           }
           const metaC = ARMOR_CLASS[className] || { value:0 };
           S    += factor * (metaC.value||0);
@@ -201,7 +206,7 @@
         const category = R <= 0.4 ? "Light" : (R < 0.8 ? "Medium" : "Heavy");
         const noArmor = armorSlots.every(s=> s.id==="shield" || (equipped[s.id]?.class||"None")==="None");
         const shieldSubtype = equipped.shield?.shield || "None";
-        const hasShield = (SHIELDS[shieldSubtype]?.class||"None")!=="None" && STR >= (SHIELDS[shieldSubtype]?.strReq||0);
+        const hasShield = (OFFHAND_ITEMS[shieldSubtype]?.class||"None")!=="None" && STR >= (OFFHAND_ITEMS[shieldSubtype]?.strReq||0);
         const nakedOverride = noArmor && !hasShield;
         return { S,Smax,R,category,missingPieces,nakedOverride };
       }
@@ -288,9 +293,18 @@
         return effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory, innerMaterialName, bindingCategory, bindingMaterialName, false);
       }
 
-      function getIconUrl(slotId, cls, shieldType) {
+      function getIconUrl(slotId, cls, shieldType, jewelryType) {
         const basePath = 'Art/Icons/';
         const fallbackIcon = `${basePath}404.png`;
+
+        if (jewelryType) {
+            const jewelryIcons = {
+                'ring': `${basePath}Jewelery/ring.png`,
+                'earring': `${basePath}Jewelery/earring.png`,
+                'amulet': `${basePath}Jewelery/amulet.png`,
+            };
+            return jewelryIcons[jewelryType] || fallbackIcon;
+        }
 
         if (slotId === 'shield') {
           if (!shieldType || shieldType === 'None') return fallbackIcon;
@@ -438,11 +452,11 @@
           torso:  { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
           legs:   { class:"None", category:"Leather", tier:"T5", material:firstName("Leather","T5"), innerCategory:"Cloth", innerTier:"T1", innerMaterial:firstName("Cloth","T1"), bindingCategory:"Leather", bindingTier:"T1", bindingMaterial:firstName("Leather","T1") },
           shield: { shield:"None" },
-          ring1: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), jewelryTier: 1, attribute: 'Strength' },
-          ring2: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), jewelryTier: 1, attribute: 'Strength' },
-          earring1: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), jewelryTier: 1, attribute: 'Strength' },
-          earring2: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), jewelryTier: 1, attribute: 'Strength' },
-          amulet: { settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), jewelryTier: 1, attribute: 'Strength' },
+          ring1: { isEquipped: true, settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), bonus: 1, attribute: 'Strength' },
+          ring2: { isEquipped: true, settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), bonus: 1, attribute: 'Strength' },
+          earring1: { isEquipped: true, settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), bonus: 1, attribute: 'Dexterity' },
+          earring2: { isEquipped: true, settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), bonus: 1, attribute: 'Dexterity' },
+          amulet: { isEquipped: true, settingCategory:"Metals", settingTier:"T5", settingMaterial:firstName("Metals","T5"), gemCategory:"Minerals", gemTier:"T5", gemMaterial:firstName("Minerals","T5"), bonus: 1, attribute: 'Intelligence' },
         });
 
         // Target armor (for “damage against armor”)
@@ -465,23 +479,35 @@
           fitting: { category: "Metals", tier: "T1", material: firstName("Metals", "T1") },
           head: { category: "Metals", tier: "T2", material: firstName("Metals", "T2") },
         });
+        const [isTwoHanded, setTwoHanded] = useState(false);
+
+        useEffect(() => {
+            if (["Polesword", "Poleaxe", "Lance"].includes(weaponKey)) {
+                setTwoHanded(true);
+            }
+        }, [weaponKey]);
 
         // Effective stats with racial modifiers
         const race = races.find(r=> r.id===raceId) || races[0];
         const effective = useMemo(()=> {
-            let bonuses = { STR: 0, DEX: 0, INT: 0, PSY: 0 };
+            let statsWithJewelry = { ...stats };
             ["ring1", "ring2", "earring1", "earring2", "amulet"].forEach(slotId => {
                 const item = armor[slotId];
-                if (item && item.attribute && item.jewelryTier) {
-                    bonuses[item.attribute] += item.jewelryTier;
+                if (item && item.isEquipped && item.attribute && item.bonus) {
+                    statsWithJewelry[item.attribute] += item.bonus;
                 }
             });
 
+            statsWithJewelry.STR = Math.min(100, statsWithJewelry.STR);
+            statsWithJewelry.DEX = Math.min(100, statsWithJewelry.DEX);
+            statsWithJewelry.INT = Math.min(100, statsWithJewelry.INT);
+            statsWithJewelry.PSY = Math.min(100, statsWithJewelry.PSY);
+
             return {
-              STR: Math.max(0, Math.min(100, stats.STR + (race.modifier.STR||0) + bonuses.STR)),
-              DEX: Math.max(0, Math.min(100, stats.DEX + (race.modifier.DEX||0) + bonuses.DEX)),
-              INT: Math.max(0, Math.min(100, stats.INT + (race.modifier.INT||0) + bonuses.INT)),
-              PSY: Math.max(0, Math.min(100, stats.PSY + (race.modifier.PSY||0) + bonuses.PSY)),
+              STR: Math.max(0, statsWithJewelry.STR + (race.modifier.STR||0)),
+              DEX: Math.max(0, statsWithJewelry.DEX + (race.modifier.DEX||0)),
+              INT: Math.max(0, statsWithJewelry.INT + (race.modifier.INT||0)),
+              PSY: Math.max(0, statsWithJewelry.PSY + (race.modifier.PSY||0)),
             };
         }, [stats, race, armor]);
 
@@ -554,7 +580,7 @@
 
             if (weapon.type==='mounted'){
               const m = weapon.head; const factor = weapon.speed[mountedSpeed] || 1.0;
-              const mass = Math.ceil((weapon.massKilograms||0) * massMult);
+              const mass = Math.ceil((weapon.massKilograms||0) * massMult * (isTwoHanded ? 1.5 : 1));
               staminaCost = (weapon.baseCost||0) + MSF*mass;
               const rawB = effective.STR*(m.Blunt||0)*factor;
               const rawP = effective.STR*(m.Pierce||0)*factor;
@@ -590,10 +616,13 @@
           const finalParts = {};
           for (const [k,v] of Object.entries(scaledWithSkill)) finalParts[k] = Math.floor(total * (v||0) / partsSum);
 
+          if (isTwoHanded) {
+            total *= 2;
+          }
           const isHeavy = (weapon.type!=='mounted') && (charge >= 1.5 - 1e-6);
           const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1));
           return { total, parts: finalParts, staminaCost: staminaCostFinal, isHeavy };
-        }, [weapon, direction, charge, swing, effective.STR, mountedSpeed, missingPieces, nakedOverride, weaponComps, skillMult, DB, bowType, bowWood]);
+        }, [weapon, direction, charge, swing, effective.STR, mountedSpeed, missingPieces, nakedOverride, weaponComps, skillMult, DB, bowType, bowWood, isTwoHanded]);
 
         // Damage against target armor
         const dmgVsArmor = useMemo(()=>{
@@ -757,7 +786,7 @@
                       <div className="grid grid-cols-1 gap-3">
                         <div>
                           <label className="block text-sm mb-1">Weapon</label>
-                          <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponKey} onChange={e=>setWeaponKey(e.target.value)}>
+                          <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponKey} onChange={e=>setWeaponKey(e.target.value)} disabled={armor.shield.shield === 'Sling'}>
                             {Object.keys(WEAPONS).map(k=> <option key={k} value={k}>{k}</option>)}
                           </select>
                           {weapon?.type==='melee' && <div className="text-sm text-slate-300 mt-1">This weapon weighs approximately {weapon.massKilograms} kilograms. The stamina cost to swing is the base cost {weapon.baseCost} plus one times the rounded mass.</div>}
@@ -851,6 +880,14 @@
                           </div>
                         )}
 
+                        {["Sword", "Axe", "Hammer", "Spear"].includes(weaponKey) && (
+                            <div>
+                                <label className="block text-sm mb-1">
+                                <input type="checkbox" checked={isTwoHanded} onChange={e => setTwoHanded(e.target.checked)} disabled={armor.shield.shield !== 'None'} />
+                                Two-Handed
+                                </label>
+                            </div>
+                        )}
                         {weapon?.type==='melee' && (
                           <div>
                             <label className="block text-sm mb-1">Attack Direction</label>
@@ -1138,13 +1175,14 @@
                   <h2 className="text-lg font-semibold mb-3">Equipment Preview</h2>
                   <p className="text-sm text-slate-300 mb-3">Each slot shows the selected armor class and the chosen material. Where there is no image, the slot uses a simple fill color. This is a lightweight representation so you can see your loadout at a glance.</p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {["helmet","torso","legs","boots","gloves","shield", "ring1", "ring2", "earring1", "earring2", "amulet"].map(slotId=>{
-                      const entry = armor[slotId] || {};
-                      const label = slotId[0].toUpperCase()+slotId.slice(1);
-                      const cls = slotId==="shield" ? (SHIELDS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
-                      const shieldType = slotId === "shield" ? (armor.shield?.shield || "None") : null;
+                    {armorSlots.map(slotId=>{
+                      const entry = armor[slotId.id] || {};
+                      const label = slotId.name;
+                      const cls = slotId.id==="shield" ? (OFFHAND_ITEMS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
+                      const shieldType = slotId.id === "shield" ? (armor.shield?.shield || "None") : null;
+                      const jewelryType = slotId.type;
 
-                      const iconUrl = getIconUrl(slotId, cls, shieldType);
+                      const iconUrl = getIconUrl(slotId.id, cls, shieldType, jewelryType);
                       const borderColor = cls==="None" ? "border-slate-700" : (cls==="Light" ? "border-emerald-500" : (cls==="Medium" ? "border-amber-500" : "border-rose-500"));
 
                       return (
@@ -1174,7 +1212,7 @@
                     {armorSlots.map(slot=>{
                       const isShield = slot.id==="shield";
                       const entry = armor[slot.id] || {};
-                      const cls = isShield ? (SHIELDS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
+                      const cls = isShield ? (OFFHAND_ITEMS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
                       const category = entry.category || "Leather";
                       const tier = entry.tier || "T5";
                       const material = entry.material || "";
@@ -1237,20 +1275,64 @@
                                   </select>
                                 </div>
                               </div>
-                              <div className="mt-3">
-                                <label className="block text-sm">Jewelry Tier</label>
-                                <input type="range" min="1" max="5" value={entry.jewelryTier || 1} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], jewelryTier: parseInt(e.target.value, 10)}}))} className="w-full" />
-                                <div className="text-center text-sm">{entry.jewelryTier || 1}</div>
-                              </div>
-                              <div className="mt-3">
-                                <label className="block text-sm">Attribute Bonus</label>
-                                <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.attribute || 'Strength'} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], attribute: e.target.value}}))}>
-                                  <option value="Strength">Strength</option>
-                                  <option value="Dexterity">Dexterity</option>
-                                  <option value="Intelligence">Intelligence</option>
-                                  <option value="Psyche">Psyche</option>
-                                </select>
-                              </div>
+                              {entry.isEquipped ? (
+                                <>
+                                  <label className="block text-sm mt-3">Setting Material</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.settingCategory} onChange={e=>setJewelrySettingCategory(slot.id, e.target.value)}>
+                                    {MATERIALS_FOR_JEWELRY_SETTING.map(k=> <option key={k} value={k}>{k}</option>)}
+                                  </select>
+                                  <div className="grid grid-cols-2 gap-2 mt-3">
+                                    <div>
+                                      <label className="block text-sm">Tier</label>
+                                      <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.settingTier} onChange={e=>setJewelrySettingTier(slot.id, e.target.value)}>
+                                        {tiersForCategory(DB, entry.settingCategory).map(t=> <option key={t} value={t}>{t}</option>)}
+                                      </select>
+                                    </div>
+                                    <div>
+                                      <label className="block text-sm">Specific Material</label>
+                                      <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.settingMaterial} onChange={e=>setJewelrySettingMaterial(slot.id, e.target.value)}>
+                                        {itemsForCategoryAndTier(DB, entry.settingCategory, entry.settingTier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                                      </select>
+                                    </div>
+                                  </div>
+
+                                  <label className="block text-sm mt-3">Gem</label>
+                                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.gemCategory} onChange={e=>setJewelryGemCategory(slot.id, e.target.value)}>
+                                    {MATERIALS_FOR_JEWELRY_GEM.map(k=> <option key={k} value={k}>{k}</option>)}
+                                  </select>
+                                  <div className="grid grid-cols-2 gap-2 mt-3">
+                                    <div>
+                                      <label className="block text-sm">Tier</label>
+                                      <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.gemTier} onChange={e=>setJewelryGemTier(slot.id, e.target.value)}>
+                                        {tiersForCategory(DB, entry.gemCategory).map(t=> <option key={t} value={t}>{t}</option>)}
+                                      </select>
+                                    </div>
+                                    <div>
+                                      <label className="block text-sm">Specific Material</label>
+                                      <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.gemMaterial} onChange={e=>setJewelryGemMaterial(slot.id, e.target.value)}>
+                                        {itemsForCategoryAndTier(DB, entry.gemCategory, entry.gemTier).map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div className="mt-3">
+                                    <label className="block text-sm">Bonus</label>
+                                    <input type="range" min="1" max="5" value={entry.bonus || 1} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], bonus: parseInt(e.target.value, 10)}}))} className="w-full" />
+                                    <div className="text-center text-sm">{entry.bonus || 1}</div>
+                                  </div>
+                                  <div className="mt-3">
+                                    <label className="block text-sm">Attribute Bonus</label>
+                                    <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.attribute || 'Strength'} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], attribute: e.target.value}}))}>
+                                      <option value="STR">Strength</option>
+                                      <option value="DEX">Dexterity</option>
+                                      <option value="INT">Intelligence</option>
+                                      <option value="PSY">Psyche</option>
+                                    </select>
+                                  </div>
+                                  <button onClick={() => setArmor(p => ({...p, [slot.id]: {...p[slot.id], isEquipped: false}}))} className="mt-3 w-full bg-rose-500/20 text-rose-300 border border-rose-500 rounded-lg py-2 hover:bg-rose-500/40">Unequip</button>
+                                </>
+                            ) : (
+                                <button onClick={() => setArmor(p => ({...p, [slot.id]: {...p[slot.id], isEquipped: true}}))} className="mt-3 w-full bg-emerald-500/20 text-emerald-300 border border-emerald-500 rounded-lg py-2 hover:bg-emerald-500/40">Equip</button>
+                            )}
                             </>
                           ) : !isShield ? (
                             <>
@@ -1362,12 +1444,12 @@
                           ) : (
                             <div>
                               <label className="block text-sm mt-2">Shield Type</label>
-                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={armor.shield?.shield||"None"} onChange={e=>setShieldSubtypeSafe(e.target.value)}>
-                                {Object.keys(SHIELDS).map(k=> <option key={k} value={k}>{k}</option>)}
+                              <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={armor.shield?.shield||"None"} onChange={e=>setShieldSubtypeSafe(e.target.value)} disabled={isTwoHanded}>
+                                {Object.keys(OFFHAND_ITEMS).map(k=> <option key={k} value={k}>{k}</option>)}
                               </select>
                               {armor.shield?.shield!=="None" && (
                                 <div className="text-sm text-slate-300 mt-1">
-                                  Required Strength: <span className={`font-semibold ${(effective.STR >= (SHIELDS[armor.shield?.shield].strengthRequirement||0)) ? "text-emerald-300" : "text-rose-300"}`}>{SHIELDS[armor.shield?.shield].strengthRequirement}</span>.
+                                  Required Strength: <span className={`font-semibold ${(effective.STR >= (OFFHAND_ITEMS[armor.shield?.shield].strengthRequirement||0)) ? "text-emerald-300" : "text-rose-300"}`}>{OFFHAND_ITEMS[armor.shield?.shield].strengthRequirement}</span>.
                                 </div>
                               )}
                               <div className="text-sm text-slate-300 mt-2">

@@ -100,10 +100,13 @@ public:
     }
 
     const OffenseStats& getOffenseStats() const { return offense; }
+    bool isTwoHanded() const { return twoHanded; }
+    void setTwoHanded(bool isTwoHanded) { twoHanded = isTwoHanded; }
 
 private:
     OffenseStats offense;
     std::vector<WeaponComponent> components;
+    bool twoHanded = false;
     friend class ItemDatabase;
 };
 
@@ -164,11 +167,11 @@ public:
     }
     const std::string& getModifiedStat() const { return modifiedStat; }
     void setModifiedStat(const std::string& stat) { modifiedStat = stat; }
-    int getModifierValue() const { return modifierValue; }
-    void setModifierValue(int value) { modifierValue = value; }
+    int getBonus() const { return bonus; }
+    void setBonus(int value) { bonus = value; }
 private:
     std::string modifiedStat;
-    int modifierValue = 0;
+    int bonus = 0;
 };
 
 class Earring : public Item {
@@ -181,11 +184,11 @@ public:
     }
     const std::string& getModifiedStat() const { return modifiedStat; }
     void setModifiedStat(const std::string& stat) { modifiedStat = stat; }
-    int getModifierValue() const { return modifierValue; }
-    void setModifierValue(int value) { modifierValue = value; }
+    int getBonus() const { return bonus; }
+    void setBonus(int value) { bonus = value; }
 private:
     std::string modifiedStat;
-    int modifierValue = 0;
+    int bonus = 0;
 };
 
 class Amulet : public Item {
@@ -198,11 +201,11 @@ public:
     }
     const std::string& getModifiedSkill() const { return modifiedSkill; }
     void setModifiedSkill(const std::string& skill) { modifiedSkill = skill; }
-    int getSkillIncrease() const { return skillIncrease; }
-    void setSkillIncrease(int value) { skillIncrease = value; }
+    int getBonus() const { return bonus; }
+    void setBonus(int value) { bonus = value; }
 private:
     std::string modifiedSkill;
-    int skillIncrease = 0;
+    int bonus = 0;
 };
 
 

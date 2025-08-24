@@ -98,12 +98,32 @@ public:
     }
 
     void equipWeapon(const Weapon& w) {
+        if (w.isTwoHanded()) {
+            equippedShield = nullptr;
+        }
         equippedWeapon = &w;
+    }
+
+    void equipShield(const Shield& s) {
+        if (equippedWeapon && equippedWeapon->isTwoHanded()) {
+            equippedWeapon = nullptr;
+        }
+        equippedShield = &s;
+    }
+
+    void unequipShield() {
+        equippedShield = nullptr;
     }
 
     void equipRing(const Ring& ring, int slot) {
         if (slot >= 0 && slot < 2) {
             equippedRings[slot] = &ring;
+        }
+    }
+
+    void unequipRing(int slot) {
+        if (slot >= 0 && slot < 2) {
+            equippedRings[slot] = nullptr;
         }
     }
 
@@ -113,13 +133,52 @@ public:
         }
     }
 
+    void unequipEarring(int slot) {
+        if (slot >= 0 && slot < 2) {
+            equippedEarrings[slot] = nullptr;
+        }
+    }
+
     void equipAmulet(const Amulet& amulet) {
         equippedAmulet = &amulet;
     }
 
+    void unequipAmulet() {
+        equippedAmulet = nullptr;
+    }
+
     // --- Derived Stats and Calculations ---
     PlayerStats getEffectiveStats() const {
-        PlayerStats effectiveStats = baseStats;
+        PlayerStats statsWithJewelry = baseStats;
+
+        // Apply jewelry stats first
+        for (const auto& ring : equippedRings) {
+            if (ring) {
+                if (ring->getModifiedStat() == "Intelligence") {
+                    statsWithJewelry.INT += ring->getBonus();
+                } else if (ring->getModifiedStat() == "Strength") {
+                    statsWithJewelry.STR += ring->getBonus();
+                }
+            }
+        }
+
+        for (const auto& earring : equippedEarrings) {
+            if (earring) {
+                if (earring->getModifiedStat() == "Dexterity") {
+                    statsWithJewelry.DEX += earring->getBonus();
+                } else if (earring->getModifiedStat() == "Psyche") {
+                    statsWithJewelry.PSY += earring->getBonus();
+                }
+            }
+        }
+
+        // Clamp to 100
+        statsWithJewelry.STR = std::min(100, statsWithJewelry.STR);
+        statsWithJewelry.DEX = std::min(100, statsWithJewelry.DEX);
+        statsWithJewelry.INT = std::min(100, statsWithJewelry.INT);
+        statsWithJewelry.PSY = std::min(100, statsWithJewelry.PSY);
+
+        PlayerStats effectiveStats = statsWithJewelry;
         static const std::map<Race, PlayerStats> raceMods = {
             {Race::Human,   {2, 2, 2, 2}}, {Race::Dwarf,   {0, 4, 0, 4}},
             {Race::Elf,     {0, 4, 4, 0}}, {Race::Orc,     {4, 4, 0, 0}},
@@ -128,31 +187,10 @@ public:
 
         if(raceMods.count(race)) {
             const auto& mod = raceMods.at(race);
-            effectiveStats.STR = std::max(0, std::min(100, baseStats.STR + mod.STR));
-            effectiveStats.DEX = std::max(0, std::min(100, baseStats.DEX + mod.DEX));
-            effectiveStats.INT = std::max(0, std::min(100, baseStats.INT + mod.INT));
-            effectiveStats.PSY = std::max(0, std::min(100, baseStats.PSY + mod.PSY));
-        }
-
-        // Apply jewelry stats
-        for (const auto& ring : equippedRings) {
-            if (ring) {
-                if (ring->getModifiedStat() == "Intelligence") {
-                    effectiveStats.INT += ring->getModifierValue();
-                } else if (ring->getModifiedStat() == "Strength") {
-                    effectiveStats.STR += ring->getModifierValue();
-                }
-            }
-        }
-
-        for (const auto& earring : equippedEarrings) {
-            if (earring) {
-                if (earring->getModifiedStat() == "Dexterity") {
-                    effectiveStats.DEX += earring->getModifierValue();
-                } else if (earring->getModifiedStat() == "Psyche") {
-                    effectiveStats.PSY += earring->getModifierValue();
-                }
-            }
+            effectiveStats.STR = std::max(0, statsWithJewelry.STR + mod.STR);
+            effectiveStats.DEX = std::max(0, statsWithJewelry.DEX + mod.DEX);
+            effectiveStats.INT = std::max(0, statsWithJewelry.INT + mod.INT);
+            effectiveStats.PSY = std::max(0, statsWithJewelry.PSY + mod.PSY);
         }
 
         return effectiveStats;
@@ -162,6 +200,11 @@ public:
         std::vector<Formulas::ArmorSlotInfo> equipped;
         for (const auto& pair : equippedArmor) {
             equipped.push_back({pair.second.getArmorClass(), pair.second.getSlotFactor()});
+        }
+        if (equippedShield) {
+            // This is a simplification. A proper implementation would have a way to get the shield's class.
+            // For now, we'll just assume all shields are "Light" class.
+            equipped.push_back({Formulas::ArmorClass::Light, 2});
         }
         return Formulas::CalculateLoadout(equipped);
     }
@@ -179,7 +222,7 @@ public:
         int effectiveSkill = skills.at(skillName);
 
         if (equippedAmulet && equippedAmulet->getModifiedSkill() == skillName) {
-            effectiveSkill += equippedAmulet->getSkillIncrease();
+            effectiveSkill += equippedAmulet->getBonus();
         }
 
         return effectiveSkill;
@@ -195,6 +238,7 @@ private:
 
     std::map<std::string, Armor> equippedArmor;
     const Weapon* equippedWeapon = nullptr;
+    const Shield* equippedShield = nullptr;
     const Ring* equippedRings[2] = {nullptr, nullptr};
     const Earring* equippedEarrings[2] = {nullptr, nullptr};
     const Amulet* equippedAmulet = nullptr;
