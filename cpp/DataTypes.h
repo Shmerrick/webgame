@@ -13,74 +13,68 @@
 #endif
 
 
-UENUM(BlueprintType)
-enum class EArmorClass : uint8 {
-    None UMETA(DisplayName = "None"),
-    Light UMETA(DisplayName = "Light"),
-    Medium UMETA(DisplayName = "Medium"),
-    Heavy UMETA(DisplayName = "Heavy")
+#include <cstdint>
+
+enum class EArmorClass {
+    None,
+    Light,
+    Medium,
+    Heavy
 };
 
-UENUM(BlueprintType)
-enum class EDamageType : uint8 {
-    Slash UMETA(DisplayName = "Slash"),
-    Pierce UMETA(DisplayName = "Pierce"),
-    Blunt UMETA(DisplayName = "Blunt")
+enum class EDamageType {
+    Slash,
+    Pierce,
+    Blunt
 };
 
-UENUM(BlueprintType)
-enum class EElementType : uint8 {
-    Fire UMETA(DisplayName = "Fire"),
-    Earth UMETA(DisplayName = "Earth"),
-    Wind UMETA(DisplayName = "Wind"),
-    Water UMETA(DisplayName = "Water")
+enum class EElementType {
+    Fire,
+    Earth,
+    Wind,
+    Water
 };
 
-UENUM(BlueprintType)
-enum class ERace : uint8 {
-    Human UMETA(DisplayName = "Human"),
-    Dwarf UMETA(DisplayName = "Dwarf"),
-    Elf UMETA(DisplayName = "Elf"),
-    Orc UMETA(DisplayName = "Orc"),
-    Goliath UMETA(DisplayName = "Goliath"),
-    Fae UMETA(DisplayName = "Fae")
+enum class ERace {
+    Human,
+    Dwarf,
+    Elf,
+    Orc,
+    Goliath,
+    Fae
 };
 
-UENUM(BlueprintType)
-enum class EShieldType : uint8 {
-    None UMETA(DisplayName = "None"),
-    Buckler UMETA(DisplayName = "Buckler"),
-    Round UMETA(DisplayName = "Round"),
-    Kite UMETA(DisplayName = "Kite"),
-    Tower UMETA(DisplayName = "Tower")
+enum class EShieldType {
+    None,
+    Buckler,
+    Round,
+    Kite,
+    Tower
 };
 
-UENUM(BlueprintType)
-enum class EWeaponType : uint8 {
-    Sword UMETA(DisplayName = "Sword"),
-    Axe UMETA(DisplayName = "Axe"),
-    Hammer UMETA(DisplayName = "Hammer"),
-    Spear UMETA(DisplayName = "Spear"),
-    Dagger UMETA(DisplayName = "Dagger"),
-    Bow UMETA(DisplayName = "Bow"),
-    Crossbow UMETA(DisplayName = "Crossbow"),
-    Sling UMETA(DisplayName = "Sling"),
-    Lance UMETA(DisplayName = "Lance")
+enum class EWeaponType {
+    Sword,
+    Axe,
+    Hammer,
+    Spear,
+    Dagger,
+    Bow,
+    Crossbow,
+    Sling,
+    Lance
 };
 
-UENUM(BlueprintType)
-enum class ESiegeWeaponType : uint8 {
-    Catapult UMETA(DisplayName = "Catapult"),
-    BatteringRam UMETA(DisplayName = "Battering Ram"),
-    Trebuchet UMETA(DisplayName = "Trebuchet"),
-    Ballista UMETA(DisplayName = "Ballista")
+enum class ESiegeWeaponType {
+    Catapult,
+    BatteringRam,
+    Trebuchet,
+    Ballista
 };
 
-UENUM(BlueprintType)
-enum class EJewelryType : uint8 {
-    Ring UMETA(DisplayName = "Ring"),
-    Earring UMETA(DisplayName = "Earring"),
-    Amulet UMETA(DisplayName = "Amulet")
+enum class EJewelryType {
+    Ring,
+    Earring,
+    Amulet
 };
 
 namespace Game {
@@ -94,60 +88,46 @@ namespace Game {
     using JewelryType = EJewelryType;
 }
 
-UENUM(BlueprintType)
-enum class EMountSpeed : uint8 {
-    Walk UMETA(DisplayName = "Walk"),
-    Trot UMETA(DisplayName = "Trot"),
-    Canter UMETA(DisplayName = "Canter"),
-    Gallop UMETA(DisplayName = "Gallop")
+enum class EMountSpeed {
+    Walk,
+    Trot,
+    Canter,
+    Gallop
 };
 
-USTRUCT(BlueprintType)
 struct FPlayerStats {
-    GENERATED_BODY()
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-    int32 Strength = 0;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-    int32 Dexterity = 0;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-    int32 Intelligence = 0;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-    int32 Psyche = 0;
+    int Strength = 0;
+    int Dexterity = 0;
+    int Intelligence = 0;
+    int Psyche = 0;
 };
 
-UENUM(BlueprintType)
-enum class ECraftingProfession : uint8 {
-    ArmorSmithing UMETA(DisplayName = "Armor Smithing"),
-    WeaponSmithing UMETA(DisplayName = "Weapon Smithing"),
-    Bowyer UMETA(DisplayName = "Bowyer"),
-    ShieldCrafting UMETA(DisplayName = "Shield Crafting"),
-    Alchemy UMETA(DisplayName = "Alchemy"),
-    Cooking UMETA(DisplayName = "Cooking"),
-    Enchanting UMETA(DisplayName = "Enchanting"),
-    Artificer UMETA(DisplayName = "Artificer"),
-    JewelryCrafting UMETA(DisplayName = "Jewelry Crafting")
+enum class ECraftingProfession {
+    ArmorSmithing,
+    WeaponSmithing,
+    Bowyer,
+    ShieldCrafting,
+    Alchemy,
+    Cooking,
+    Enchanting,
+    Artificer,
+    JewelryCrafting
 };
 
-UENUM(BlueprintType)
-enum class EPlayerState : uint8 {
-    OutOfCombat UMETA(DisplayName = "Out of Combat"),
-    InCombat UMETA(DisplayName = "In Combat"),
-    Mounted UMETA(DisplayName = "Mounted"),
-    Swimming UMETA(DisplayName = "Swimming"),
-    Falling UMETA(DisplayName = "Falling")
+enum class EPlayerState {
+    OutOfCombat,
+    InCombat,
+    Mounted,
+    Swimming,
+    Falling
 };
 
-UENUM(BlueprintType)
-enum class EPlayerPosture : uint8 {
-    Stand UMETA(DisplayName = "Stand"),
-    Crouch UMETA(DisplayName = "Crouch"),
-    Crawl UMETA(DisplayName = "Crawl"),
-    Walk UMETA(DisplayName = "Walk"),
-    Jog UMETA(DisplayName = "Jog"),
-    Run UMETA(DisplayName = "Run"),
-    Sprint UMETA(DisplayName = "Sprint")
+enum class EPlayerPosture {
+    Stand,
+    Crouch,
+    Crawl,
+    Walk,
+    Jog,
+    Run,
+    Sprint
 };

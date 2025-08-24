@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ingredient2Select = document.getElementById('ingredient2');
     const alchemyResultsDiv = document.getElementById('alchemy-results');
     let potionIngredientsData = [];
+    let alchemyRecipesData = [];
 
     // Enchanting
     const rune1Select = document.getElementById('rune1');
@@ -80,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fetch and process data
     async function loadData() {
+        console.log("CRAFTING_CALCULATOR: loadData function started.");
         try {
             console.log("CRAFTING_CALCULATOR: Starting data load...");
             // Fetch all data from new JSON files
@@ -90,7 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 weaponVolumesList,
                 ingredientsList,
                 runesList,
-                bannedNamesText
+                bannedNamesText,
+                alchemyRecipesList
             ] = await Promise.all([
                 fetch('/materials.json').then(res => res.json()),
                 fetch('/armor_volumes.json').then(res => res.json()),
@@ -98,8 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch('/weapon_volumes.json').then(res => res.json()),
                 fetch('/potion_ingredients.json').then(res => res.json()),
                 fetch('/enchantment_runes.json').then(res => res.json()),
-                fetch('/banned_names.txt').then(res => res.text())
+                fetch('/banned_names.txt').then(res => res.text()),
+                fetch('/alchemy_recipes.json').then(res => res.json())
             ]);
+            alchemyRecipesData = alchemyRecipesList;
             console.log("CRAFTING_CALCULATOR: All files fetched.");
 
             // Process materials
@@ -132,7 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Assign other data
             potionIngredientsData = ingredientsList;
             enchantmentRunesData = runesList;
-            console.log("Ingredients and runes assigned.");
+            alchemyRecipesData = alchemyRecipesList;
+            console.log("Ingredients, runes, and recipes assigned.");
 
             bannedNames = bannedNamesText.split('\n').filter(name => name.trim() !== '').map(name => name.toLowerCase());
             console.log("Banned names processed.");
@@ -267,6 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function populateAlchemyDropdowns() {
+        console.log("Populating alchemy dropdowns with:", potionIngredientsData);
         potionIngredientsData.forEach(i => addOption(ingredient1Select, i.Name, i.RowName));
         potionIngredientsData.forEach(i => addOption(ingredient2Select, i.Name, i.RowName));
     }
@@ -500,16 +507,39 @@ document.addEventListener('DOMContentLoaded', () => {
         bowResultsDiv.innerHTML = formatResults(result);
     }
 
+    // ... inside loadData ...
+
     function calculateAndDisplayAlchemyResults() {
-        const ing1 = findIngredient(ingredient1Select.value);
-        const ing2 = findIngredient(ingredient2Select.value);
+        const ing1 = ingredient1Select.value;
+        const ing2 = ingredient2Select.value;
         if (!ing1 || !ing2) return;
 
-        alchemyResultsDiv.innerHTML = `
-            <h5 class="text-md font-semibold text-emerald-400 mt-4">Crafted Potion:</h5>
-            <p>Name: ${ing1.Name} & ${ing2.Name} Potion</p>
-            <p>Effect: Combines the effects of ${ing1.Effect} and ${ing2.Effect}.</p>
-        `;
+        const provided_ingredients = [ing1, ing2].sort();
+
+        const recipe = alchemyRecipesData.find(r => {
+            const recipe_ingredients = [...r.ingredients].sort();
+            return recipe_ingredients[0] === provided_ingredients[0] && recipe_ingredients[1] === provided_ingredients[1];
+        });
+
+        if (recipe) {
+            let propertiesList = '';
+            for (const [key, value] of Object.entries(recipe.properties)) {
+                propertiesList += `<li>${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}</li>`;
+            }
+
+            alchemyResultsDiv.innerHTML = `
+                <h5 class="text-md font-semibold text-emerald-400 mt-4">Crafted Item:</h5>
+                <p><strong>Name:</strong> ${recipe.name}</p>
+                <p><strong>Type:</strong> ${recipe.type}</p>
+                <p><strong>Effect:</strong> ${recipe.effect}</p>
+                <h5 class="text-md font-semibold text-emerald-400 mt-2">Properties:</h5>
+                <ul class="list-disc list-inside">${propertiesList}</ul>
+            `;
+        } else {
+            alchemyResultsDiv.innerHTML = `
+                <p class="text-orange-400 mt-4">These ingredients cannot be combined.</p>
+            `;
+        }
     }
 
     function calculateAndDisplayEnchantingResults() {

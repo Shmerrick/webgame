@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "Formulas.h" // For Formulas::MaterialProperties
 
 namespace Game {
 
