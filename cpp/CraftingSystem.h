@@ -10,6 +10,7 @@
 #include <sstream>
 #include <map>
 #include <random>
+#include <memory>
 #include "json.hpp"
 
 // No SiegeSystem.h needed as SiegeWeapon is in Items.h now
@@ -264,7 +265,7 @@ public:
     }
 
     // Jewelry Crafting
-    static Item* CraftJewelry(
+    static std::unique_ptr<Item> CraftJewelry(
         JewelryType jewelryType,
         const Material* metal,
         int tier
@@ -279,7 +280,7 @@ public:
         double durability = metal->getToughness() * 10 * tier;
 
         if (jewelryType == JewelryType::Ring) {
-            Ring* newRing = new Ring(metal, tier);
+            auto newRing = std::make_unique<Ring>(metal, tier);
             newRing->setDurability(durability, durability);
 
             std::uniform_int_distribution<> attrib_dist(0, 1);
@@ -294,7 +295,7 @@ public:
             return newRing;
         }
         else if (jewelryType == JewelryType::Earring) {
-            Earring* newEarring = new Earring(metal, tier);
+            auto newEarring = std::make_unique<Earring>(metal, tier);
             newEarring->setDurability(durability, durability);
 
             std::uniform_int_distribution<> attrib_dist(0, 1);
@@ -309,7 +310,7 @@ public:
             return newEarring;
         }
         else if (jewelryType == JewelryType::Amulet) {
-            Amulet* newAmulet = new Amulet(metal, tier);
+            auto newAmulet = std::make_unique<Amulet>(metal, tier);
             newAmulet->setDurability(durability, durability);
 
             static const std::vector<std::string> skills = {

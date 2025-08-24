@@ -34,6 +34,13 @@ int main() {
         std::cout << "Mass: " << helmet.getMass() << " kg" << std::endl;
         std::cout << "Durability: " << helmet.getDurability() << "/" << helmet.getMaxDurability() << std::endl;
 
+        // Test jewelry crafting
+        auto ring = Game::CraftingSystem::CraftJewelry(Game::JewelryType::Ring, outer, 1);
+        if (ring) {
+            std::cout << "Successfully crafted " << ring->getName() << std::endl;
+            std::cout << "Durability: " << ring->getDurability() << "/" << ring->getMaxDurability() << std::endl;
+        }
+
     } catch (const std::exception& e) {
         std::cerr << "An error occurred: " << e.what() << std::endl;
         return 1;
