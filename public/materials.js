@@ -57,15 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
                                 const details = document.createElement("div");
                                 details.className = "details p-2 pl-4 text-slate-400 bg-slate-800/50 rounded-lg mt-2 break-words whitespace-normal";
                                 details.style.paddingLeft = "20px";
-                                details.innerHTML = `
-                                    <p><strong>Offense Slash:</strong> ${material.slash}</p>
-                                    <p><strong>Offense Pierce:</strong> ${material.pierce}</p>
-                                    <p><strong>Offense Blunt:</strong> ${material.blunt}</p>
-                                    <p><strong>Defense Slash:</strong> ${material.defense_slash}</p>
-                                    <p><strong>Defense Pierce:</strong> ${material.defense_pierce}</p>
-                                    <p><strong>Defense Blunt:</strong> ${material.defense_blunt}</p>
-                                    <p><strong>Magic:</strong> ${material.magic}</p>
-                                `;
+
+                                const stats = [
+                                    { label: "Offense Slash", value: material.slash },
+                                    { label: "Offense Pierce", value: material.pierce },
+                                    { label: "Offense Blunt", value: material.blunt },
+                                    { label: "Defense Slash", value: material.defense_slash },
+                                    { label: "Defense Pierce", value: material.defense_pierce },
+                                    { label: "Defense Blunt", value: material.defense_blunt },
+                                    { label: "Magic", value: material.magic },
+                                ];
+
+                                stats.forEach(stat => {
+                                    const p = document.createElement("p");
+                                    const strong = document.createElement("strong");
+                                    strong.textContent = `${stat.label}:`;
+                                    p.appendChild(strong);
+                                    p.appendChild(document.createTextNode(` ${stat.value}`));
+                                    details.appendChild(p);
+                                });
+
                                 materialItem.appendChild(details);
                             }
                         });
