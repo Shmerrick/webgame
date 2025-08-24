@@ -1,3 +1,4 @@
+console.log("CRAFTING_CALCULATOR: Script loaded.");
 document.addEventListener('DOMContentLoaded', () => {
     // Common
     let materialsData = [];
@@ -80,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch and process data
     async function loadData() {
         try {
-            console.log("Starting data load...");
+            console.log("CRAFTING_CALCULATOR: Starting data load...");
             // Fetch all data from new JSON files
             const [
                 materialsJson,
@@ -99,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch('/enchantment_runes.json').then(res => res.json()),
                 fetch('/banned_names.txt').then(res => res.text())
             ]);
-            console.log("All files fetched.");
+            console.log("CRAFTING_CALCULATOR: All files fetched.");
 
             // Process materials
             materialsData = processMaterials(materialsJson);
@@ -153,25 +154,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function processMaterials(data) {
-        const materials = [];
+        const materialsMap = new Map();
         for (const category in data) {
             for (const tier in data[category]) {
                 for (const material of data[category][tier]) {
-                    materials.push({
-                        RowName: material.rowName, // Use the pre-existing rowName from JSON
+                    const materialWithCategory = {
+                        ...material,
                         Category: category,
-                        Tier: tier,
-                        Name: material.name,
-                        Slash: material.slash,
-                        Pierce: material.pierce,
-                        Blunt: material.blunt,
-                        Magic: material.magic,
-                        Density: material.density
-                    });
+                        Tier: tier
+                    };
+                    materialsMap.set(material.rowName, materialWithCategory);
                 }
             }
         }
-        return materials;
+        return materialsMap;
     }
 
     function populateAllDropdowns() {
@@ -219,14 +215,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Population Functions ---
     function populateSelectWithOptions(selectElement, options) {
         selectElement.innerHTML = '';
-        options.forEach(option => addOption(selectElement, option.Name, option.RowName));
+        options.forEach(option => addOption(selectElement, option.name, option.rowName));
     }
 
     function populateArmorDropdowns() {
         Object.keys(armorVolumesData).forEach(piece => addOption(armorPieceSelect, piece, piece));
 
-        const allMaterials = materialsData;
-        const softMaterials = materialsData.filter(m => m.Category === 'Leather' || m.Category === 'Cloth');
+        const allMaterials = Array.from(materialsData.values());
+        const softMaterials = allMaterials.filter(m => m.Category === 'Leather' || m.Category === 'Cloth');
 
         populateSelectWithOptions(outerMaterialSelect, allMaterials);
         populateSelectWithOptions(innerMaterialSelect, softMaterials);
@@ -235,9 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateShieldDropdowns() {
         Object.keys(shieldVolumesData).forEach(type => addOption(shieldTypeSelect, type, type));
-        materialsData.forEach(m => addOption(shieldBodyMaterialSelect, m.Name, m.RowName));
-        materialsData.forEach(m => addOption(shieldBossMaterialSelect, m.Name, m.RowName));
-        materialsData.forEach(m => addOption(shieldRimMaterialSelect, m.Name, m.RowName));
+        for (const material of materialsData.values()) {
+            addOption(shieldBodyMaterialSelect, material.name, material.rowName);
+            addOption(shieldBossMaterialSelect, material.name, material.rowName);
+            addOption(shieldRimMaterialSelect, material.name, material.rowName);
+        }
     }
 
     function populateWeaponDropdowns() {
@@ -312,7 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const select = document.createElement('select');
         select.id = id;
         select.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
-        materialsData.filter(m => m.Category === 'Wood').forEach(m => addOption(select, m.Name, m.RowName));
+        const woodMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Wood');
+        populateSelectWithOptions(select, woodMaterials);
         return select;
     }
 
@@ -373,10 +372,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const wOuter = 0.80, wInner = 0.15, wBind = 0.05;
-        const combinedSlash = (parseFloat(outerMat.Slash) * wOuter) + (parseFloat(innerMat.Slash) * wInner) + (parseFloat(bindingMat.Slash) * wBind);
-        const combinedPierce = (parseFloat(outerMat.Pierce) * wOuter) + (parseFloat(innerMat.Pierce) * wInner) + (parseFloat(bindingMat.Pierce) * wBind);
-        const combinedBlunt = (parseFloat(outerMat.Blunt) * wOuter) + (parseFloat(innerMat.Blunt) * wInner) + (parseFloat(bindingMat.Blunt) * wBind);
-        const combinedMagic = (parseFloat(outerMat.Magic) * wOuter) + (parseFloat(innerMat.Magic) * wInner) + (parseFloat(bindingMat.Magic) * wBind);
+        const combinedSlash = (parseFloat(outerMat.slash) * wOuter) + (parseFloat(innerMat.slash) * wInner) + (parseFloat(bindingMat.slash) * wBind);
+        const combinedPierce = (parseFloat(outerMat.pierce) * wOuter) + (parseFloat(innerMat.pierce) * wInner) + (parseFloat(bindingMat.pierce) * wBind);
+        const combinedBlunt = (parseFloat(outerMat.blunt) * wOuter) + (parseFloat(innerMat.blunt) * wInner) + (parseFloat(bindingMat.blunt) * wBind);
+        const combinedMagic = (parseFloat(outerMat.magic) * wOuter) + (parseFloat(innerMat.magic) * wInner) + (parseFloat(bindingMat.magic) * wBind);
 
         const base = ARMOR_CLASS[armorClass];
         const defenses = {
@@ -462,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const headMat = components['Head'] ? components['Head'].material : null;
         let damageMod = 0;
         if (headMat) {
-            damageMod = ((parseFloat(headMat.Slash) || 0) + (parseFloat(headMat.Pierce) || 0)) / 4;
+            damageMod = ((parseFloat(headMat.slash) || 0) + (parseFloat(headMat.pierce) || 0)) / 4;
         }
 
         const weaponInfo = WEAPONS[type];
@@ -487,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!woodMaterial) return;
 
         const volume = BOW_VOLUMES[type].Stave;
-        const density = parseFloat(woodMaterial.Density);
+        const density = parseFloat(woodMaterial.density);
         const mass = volume * density;
         const requiredUnits = mass / 100;
 
@@ -540,7 +539,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateJewelryDropdowns() {
         if (!jewelryTypeSelect) return;
-        materialsData.filter(m => m.Category === 'Metals').forEach(m => addOption(jewelryMetalSelect, m.Name, m.RowName));
+        const metalMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Metals');
+        populateSelectWithOptions(jewelryMetalSelect, metalMaterials);
     }
 
     function calculateAndDisplayJewelryResults() {
@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attributeSelect.parentElement.style.display = 'none';
         }
 
-        const toughness = (parseFloat(metalMaterial.Slash) + parseFloat(metalMaterial.Pierce) + parseFloat(metalMaterial.Blunt)) / 3;
+        const toughness = (parseFloat(metalMaterial.slash) + parseFloat(metalMaterial.pierce) + parseFloat(metalMaterial.blunt)) / 3;
         const durability = toughness * 100 * tier;
 
         let attribute = '';
@@ -634,11 +634,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const select = document.createElement('select');
         select.id = id;
         select.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
-        materialsData.forEach(m => addOption(select, m.Name, m.RowName));
+        populateSelectWithOptions(select, Array.from(materialsData.values()));
         return select;
     }
 
-    function findMaterial(rowName) { return materialsData.find(m => m.RowName === rowName); }
+    function findMaterial(rowName) { return materialsData.get(rowName); }
     function findIngredient(rowName) { return potionIngredientsData.find(i => i.RowName === rowName); }
     function findRune(rowName) { return enchantmentRunesData.find(r => r.RowName === rowName); }
 

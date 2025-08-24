@@ -1,7 +1,8 @@
 from playwright.sync_api import Page, expect
 
 def test_siege_crafting(page: Page):
-    page.goto("http://localhost:8080/siege.html")
+    page.on("console", lambda msg: print(f"BROWSER LOG: {msg.text}"))
+    page.goto("http://localhost:3000/siege.html")
 
     siege_weapon_type_select = page.locator("#siege-weapon-type")
 

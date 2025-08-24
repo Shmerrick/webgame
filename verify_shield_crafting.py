@@ -1,7 +1,8 @@
 from playwright.sync_api import Page, expect
 
 def test_shield_crafting(page: Page):
-    page.goto("http://localhost:8080/crafting.html")
+    page.on("console", lambda msg: print(f"BROWSER LOG: {msg.text}"))
+    page.goto("http://localhost:3000/crafting.html")
 
     shield_type_select = page.locator("#shield-type")
     shield_body_material_select = page.locator("#shield-body-material")

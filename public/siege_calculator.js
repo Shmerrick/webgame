@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateSelectWithOptions(selectElement, options) {
         selectElement.innerHTML = '';
-        options.forEach(option => addOption(selectElement, option.Name, option.RowName));
+        options.forEach(option => addOption(selectElement, option.name, option.rowName));
     }
 
     function populateSiegeWeaponComponents() {
@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
         siegeWeaponComponentsDiv.innerHTML = '';
         if (!type || !siegeVolumesData[type]) return;
 
-        const woodAndMetalMaterials = materialsData.filter(m => m.Category === 'Wood' || m.Category === 'Metals');
+        const allMaterials = Array.from(materialsData.values());
+        const woodAndMetalMaterials = allMaterials.filter(m => m.Category === 'Wood' || m.Category === 'Metals');
 
         Object.keys(siegeVolumesData[type]).forEach(comp => {
             const id = `siege-comp-${comp.toLowerCase().replace(/ /g, '-')}`;
@@ -76,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (comp.toLowerCase() === 'frame' || comp.toLowerCase() === 'head') {
                 populateSelectWithOptions(select, woodAndMetalMaterials);
             } else {
-                populateSelectWithOptions(select, materialsData);
+                populateSelectWithOptions(select, allMaterials);
             }
 
             const container = document.createElement('div');
@@ -87,25 +88,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function processMaterials(data) {
-        const materials = [];
+        const materialsMap = new Map();
         for (const category in data) {
             for (const tier in data[category]) {
                 for (const material of data[category][tier]) {
-                    materials.push({
-                        RowName: material.rowName, // Use the pre-existing rowName from JSON
+                    const materialWithCategory = {
+                        ...material,
                         Category: category,
-                        Tier: tier,
-                        Name: material.name,
-                        Slash: material.slash,
-                        Pierce: material.pierce,
-                        Blunt: material.blunt,
-                        Magic: material.magic,
-                        Density: material.density
-                    });
+                        Tier: tier
+                    };
+                    materialsMap.set(material.rowName, materialWithCategory);
                 }
             }
         }
-        return materials;
+        return materialsMap;
     }
 
     function calculateAndDisplaySiegeResults() {
@@ -125,10 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for(const name in components) {
             const comp = components[name];
-            const density = parseFloat(comp.material.Density);
+            const density = parseFloat(comp.material.density);
             totalMass += comp.volume * density;
             requiredMaterials[name] = {
-                name: comp.material.Name,
+                name: comp.material.name,
                 units: (comp.volume * density) / 100
             };
         }
@@ -157,11 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
         select.id = id;
         select.name = id;
         select.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
-        materialsData.forEach(m => addOption(select, m.Name, m.RowName));
+        populateSelectWithOptions(select, Array.from(materialsData.values()));
         return select;
     }
 
-    function findMaterial(rowName) { return materialsData.find(m => m.RowName === rowName); }
+    function findMaterial(rowName) { return materialsData.get(rowName); }
 
     function getComponentData(container, prefix) {
         const components = {};
