@@ -4,16 +4,20 @@
 #define COREMINIMAL_H
 
 // Mock UE macros for standalone compilation
-#define UENUM(BlueprintType)
-#define USTRUCT(BlueprintType)
-#define UPROPERTY(EditAnywhere, BlueprintReadWrite, Category)
+#define UENUM(...)
+#define USTRUCT(...)
+#define UCLASS(...)
+#define UFUNCTION(...)
+#define UPROPERTY(...)
 #define GENERATED_BODY()
-#define UMETA(DisplayName)
+#define UMETA(...)
 
 #endif
 
 
 #include <cstdint>
+using uint8 = std::uint8_t;
+using int32 = std::int32_t;
 
 enum class EArmorClass {
     None,

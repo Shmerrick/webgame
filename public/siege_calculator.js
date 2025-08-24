@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 materialsJson,
                 siegeVolumesList,
             ] = await Promise.all([
-                fetch('/materials.json').then(res => res.json()),
-                fetch('/siege_volumes.json').then(res => res.json()),
+                fetch('/materials.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/siege_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
             ]);
 
             // Process materials into a flat list

@@ -1,8 +1,6 @@
 #pragma once
 
-#include "CoreMinimal.h"
 #include "DataTypes.h"
-#include "Formulas.generated.h"
 
 USTRUCT(BlueprintType)
 struct FMaterialProperties {
