@@ -289,7 +289,7 @@ public:
             int roll = roll_dist(gen);
 
             newRing->setModifiedStat(attribute);
-            newRing->setModifierValue(roll);
+            newRing->setBonus(roll);
 
             return newRing;
         }
@@ -304,7 +304,7 @@ public:
             int roll = roll_dist(gen);
 
             newEarring->setModifiedStat(attribute);
-            newEarring->setModifierValue(roll);
+            newEarring->setBonus(roll);
 
             return newEarring;
         }
@@ -325,7 +325,7 @@ public:
             int roll = roll_dist(gen);
 
             newAmulet->setModifiedSkill(skill);
-            newAmulet->setSkillIncrease(roll);
+            newAmulet->setBonus(roll);
 
             return newAmulet;
         }
