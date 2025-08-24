@@ -11,7 +11,7 @@ public:
     // This class will contain the logic for operating siege weapons.
     // For example, loading, aiming, and firing.
 
-    static void Fire(Character& operator, SiegeWeapon& weapon) {
+    static void Fire(PlayerCharacter& operatorCharacter, SiegeWeapon& weapon) {
         // Placeholder for firing logic.
         // This would check for ammunition, calculate trajectory, deal damage, etc.
     }
