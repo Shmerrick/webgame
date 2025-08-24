@@ -10,6 +10,11 @@
 #include <sstream>
 #include <map>
 #include <random>
+#include "json.hpp"
+
+// No SiegeSystem.h needed as SiegeWeapon is in Items.h now
+
+using json = nlohmann::json;
 
 namespace Game {
 
@@ -30,18 +35,15 @@ public:
         const Material* innerMaterial = materials[1];
         const Material* bindingMaterial = materials[2];
 
-        // Load armor component volumes from CSV
+        // Load armor component volumes from JSON
         std::map<std::string, std::map<std::string, double>> armorVolumes;
-        std::ifstream file("../armor_volumes.csv");
-        std::string line;
-        getline(file, line); // skip header
-        while (getline(file, line)) {
-            std::stringstream ss(line);
-            std::string piece, component, volume_str;
-            getline(ss, piece, ',');
-            getline(ss, component, ',');
-            getline(ss, volume_str, ',');
-            armorVolumes[piece][component] = std::stod(volume_str);
+        std::ifstream file("../../public/armor_volumes.json");
+        if (!file.is_open()) {
+            throw std::runtime_error("Could not open armor_volumes.json");
+        }
+        json data = json::parse(file);
+        for (const auto& item : data) {
+            armorVolumes[item["ArmorPiece"]][item["Component"]] = item["Volume_cm3"];
         }
 
         if (armorVolumes.find(slot) == armorVolumes.end()) {
@@ -52,15 +54,6 @@ public:
         double innerVolume = armorVolumes[slot]["Inner"];
         double bindingVolume = armorVolumes[slot]["Binding"];
         double totalVolume = outerVolume + innerVolume + bindingVolume;
-
-        // Calculate required units of each material.
-        // Formula: units = (volume_cm3 * density_g_cm3) / 100
-        double requiredOuterUnits = (outerVolume * outerMaterial->getDensity()) / 100;
-        double requiredInnerUnits = (innerVolume * innerMaterial->getDensity()) / 100;
-        double requiredBindingUnits = (bindingVolume * bindingMaterial->getDensity()) / 100;
-
-        // In a full implementation, you would check player inventory for these amounts.
-        // For now, we assume the player has the required materials.
 
         Armor newArmor(slot, slotFactor, armorClass, outerMaterial, innerMaterial, bindingMaterial, totalVolume);
 
@@ -87,18 +80,15 @@ public:
         const std::vector<std::pair<std::string, const Material*>>& componentMaterials,
         double hollowFactor = 0.0
     ) {
-        // Load weapon component volumes from CSV
+        // Load weapon component volumes from JSON
         std::map<std::string, std::map<std::string, double>> weaponVolumes;
-        std::ifstream file("../weapon_volumes.csv");
-        std::string line;
-        getline(file, line); // skip header
-        while (getline(file, line)) {
-            std::stringstream ss(line);
-            std::string type, component, volume_str;
-            getline(ss, type, ',');
-            getline(ss, component, ',');
-            getline(ss, volume_str, ',');
-            weaponVolumes[type][component] = std::stod(volume_str);
+        std::ifstream file("../../public/weapon_volumes.json");
+        if (!file.is_open()) {
+            throw std::runtime_error("Could not open weapon_volumes.json");
+        }
+        json data = json::parse(file);
+        for (const auto& item : data) {
+            weaponVolumes[item["WeaponType"]][item["Component"]] = item["Volume_cm3"];
         }
 
         std::vector<Weapon::WeaponComponent> components;
@@ -106,7 +96,6 @@ public:
         double totalVolume = 0;
         double totalWeightedToughness = 0;
 
-        // EWeaponType enum to string mapping
         auto getWeaponTypeString = [](WeaponType type) -> std::string {
             switch (type) {
                 case WeaponType::Sword: return "Sword";
@@ -158,18 +147,15 @@ public:
         ShieldType shieldType,
         const std::vector<std::pair<std::string, const Material*>>& componentMaterials
     ) {
-        // Load shield component volumes from CSV
+        // Load shield component volumes from JSON
         std::map<std::string, std::map<std::string, double>> shieldVolumes;
-        std::ifstream file("../shield_volumes.csv");
-        std::string line;
-        getline(file, line); // skip header
-        while (getline(file, line)) {
-            std::stringstream ss(line);
-            std::string type, component, volume_str;
-            getline(ss, type, ',');
-            getline(ss, component, ',');
-            getline(ss, volume_str, ',');
-            shieldVolumes[type][component] = std::stod(volume_str);
+        std::ifstream file("../../public/shield_volumes.json");
+        if (!file.is_open()) {
+            throw std::runtime_error("Could not open shield_volumes.json");
+        }
+        json data = json::parse(file);
+        for (const auto& item : data) {
+            shieldVolumes[item["ShieldType"]][item["Component"]] = item["Volume_cm3"];
         }
 
         std::vector<Shield::ShieldComponent> components;
@@ -222,27 +208,20 @@ public:
         return CraftWeapon(weaponType, componentMaterials);
     }
 
-    // Placeholders for other crafting professions
-    // static Potion CraftPotion(...);
-    // static Enchantment CraftEnchantment(...);
-
     // Siege Weapon Crafting
     static SiegeWeapon CraftSiegeWeapon(
         SiegeWeaponType siegeWeaponType,
         const std::vector<std::pair<std::string, const Material*>>& componentMaterials
     ) {
-        // Load siege weapon component volumes from CSV
+        // Load siege weapon component volumes from JSON
         std::map<std::string, std::map<std::string, double>> siegeVolumes;
-        std::ifstream file("../siege_volumes.csv");
-        std::string line;
-        getline(file, line); // skip header
-        while (getline(file, line)) {
-            std::stringstream ss(line);
-            std::string type, component, volume_str;
-            getline(ss, type, ',');
-            getline(ss, component, ',');
-            getline(ss, volume_str, ',');
-            siegeVolumes[type][component] = std::stod(volume_str);
+        std::ifstream file("../../public/siege_volumes.json");
+        if (!file.is_open()) {
+            throw std::runtime_error("Could not open siege_volumes.json");
+        }
+        json data = json::parse(file);
+        for (const auto& item : data) {
+            siegeVolumes[item["SiegeWeaponType"]][item["Component"]] = item["Volume_cm3"];
         }
 
         std::vector<SiegeWeapon::SiegeComponent> components;
@@ -297,13 +276,12 @@ public:
         std::random_device rd;
         std::mt19937 gen(rd());
 
-        double durability = metal->getToughness() * 10 * tier; // Example durability calculation
+        double durability = metal->getToughness() * 10 * tier;
 
         if (jewelryType == JewelryType::Ring) {
             Ring* newRing = new Ring(metal, tier);
             newRing->setDurability(durability, durability);
 
-            // Logic for Ring
             std::uniform_int_distribution<> attrib_dist(0, 1);
             std::string attribute = (attrib_dist(gen) == 0) ? "Intelligence" : "Strength";
 
@@ -319,7 +297,6 @@ public:
             Earring* newEarring = new Earring(metal, tier);
             newEarring->setDurability(durability, durability);
 
-            // Logic for Earring
             std::uniform_int_distribution<> attrib_dist(0, 1);
             std::string attribute = (attrib_dist(gen) == 0) ? "Dexterity" : "Psyche";
 
@@ -335,7 +312,6 @@ public:
             Amulet* newAmulet = new Amulet(metal, tier);
             newAmulet->setDurability(durability, durability);
 
-            // Logic for Amulet
             static const std::vector<std::string> skills = {
                 "ArmorTraining", "BlockingAndShields", "Sword", "Axe", "Dagger", "Hammer", "Polesword",
                 "Poleaxe", "Spear", "MountedCombat", "MountedArchery", "MountedMagery", "Anatomy",

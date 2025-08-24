@@ -71,21 +71,10 @@ public:
     MaterialDatabase(MaterialDatabase const&) = delete;
     void operator=(MaterialDatabase const&)  = delete;
 
-    // Method to load materials from a file (e.g., JSON).
-    // The implementation would require a JSON parsing library.
-    bool loadFromFile(const std::string& filepath) {
-        // In a full implementation, this method would:
-        // 1. Read the specified file.
-        // 2. Parse the data (e.g., from JSON).
-        // 3. Create Material objects and populate their members.
-        // 4. Store the materials in the 'materials' map.
+    bool loadFromFile(const std::string& filepath);
 
-        // For now, this is a placeholder.
-        return true;
-    }
-
-    const Material* getMaterialByID(const std::string& id) const {
-        auto it = materials.find(id);
+    const Material* getMaterialByName(const std::string& name) const {
+        auto it = materials.find(name);
         if (it != materials.end()) {
             return &it->second;
         }
