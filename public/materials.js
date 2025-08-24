@@ -25,7 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 const materialsList = document.createElement("ul");
                 materialsList.className = "list-disc list-inside";
 
-                for (const tier in data[category]) {
+                const tierKeys = Object.keys(data[category]).sort((a, b) => {
+                    const numA = parseInt(a.replace(/[^0-9]/g, ""));
+                    const numB = parseInt(b.replace(/[^0-9]/g, ""));
+                    return numA - numB;
+                });
+
+                tierKeys.forEach(tier => {
                     const tierItem = document.createElement("li");
                     tierItem.className = "font-semibold text-lg mt-2 break-words";
                     tierItem.textContent = tier;
@@ -62,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                     tierItem.appendChild(tierList);
                     materialsList.appendChild(tierItem);
-                }
+                });
 
                 categoryContent.appendChild(imageContainer);
                 categoryContent.appendChild(materialsList);
