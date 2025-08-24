@@ -33,15 +33,15 @@ This ImGui-based GUI tool displays the contents of the material database.
 
 ### Compiling the Game Data Viewer
 
-The C++ project uses CMake. The easiest way to compile on Linux or macOS is to use the provided build script.
+The C++ project uses CMake. On Windows, a convenience script is provided to generate the Visual Studio solution and build the project.
 
-#### Compiling with the Build Script (Recommended for Linux/macOS)
+#### Compiling with the Build Script (Windows)
 
 From the root directory of the project, run:
-```bash
-./build.sh
 ```
-This will create the executable at `cpp/build/game_data_viewer`.
+build.bat
+```
+This will generate a Visual Studio solution and place the compiled executable in `cpp/build`.
 
 #### Compiling Manually
 
