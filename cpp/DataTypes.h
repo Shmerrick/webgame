@@ -106,6 +106,16 @@ struct FPlayerStats {
     int Psyche = 0;
 };
 
+// Simplified stat block used by the standalone C++ tools. These names match
+// the convention used throughout the gameplay headers (STR/DEX/INT/PSY)
+// and avoid the Unreal-specific "F" prefix expected by engine code.
+struct PlayerStats {
+    int STR = 0;
+    int DEX = 0;
+    int INT = 0;
+    int PSY = 0;
+};
+
 enum class ECraftingProfession {
     ArmorSmithing,
     WeaponSmithing,

@@ -28,6 +28,25 @@ target_include_directories(game_data_viewer PUBLIC
 
 target_link_libraries(game_data_viewer PRIVATE SDL2::SDL2 ${OPENGL_LIBRARIES})
 
+add_executable(game_simulator
+    game_simulator.cpp
+    imgui/imgui.cpp
+    imgui/imgui_draw.cpp
+    imgui/imgui_tables.cpp
+    imgui/imgui_widgets.cpp
+    imgui/imgui_impl_sdl2.cpp
+    imgui/imgui_impl_opengl3.cpp
+)
+
+target_include_directories(game_simulator PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui
+    ${SDL2_INCLUDE_DIRS}
+    ${OPENGL_INCLUDE_DIR}
+)
+
+target_link_libraries(game_simulator PRIVATE SDL2::SDL2 ${OPENGL_LIBRARIES})
+
 add_executable(test_crafting
     test_crafting.cpp
     ItemDatabase.cpp
