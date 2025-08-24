@@ -95,14 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 bannedNamesText,
                 alchemyRecipesList
             ] = await Promise.all([
-                fetch('/materials.json').then(res => res.json()),
-                fetch('/armor_volumes.json').then(res => res.json()),
-                fetch('/shield_volumes.json').then(res => res.json()),
-                fetch('/weapon_volumes.json').then(res => res.json()),
-                fetch('/potion_ingredients.json').then(res => res.json()),
-                fetch('/enchantment_runes.json').then(res => res.json()),
-                fetch('/banned_names.txt').then(res => res.text()),
-                fetch('/alchemy_recipes.json').then(res => res.json())
+                fetch('/materials.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/armor_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/shield_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/weapon_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/potion_ingredients.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/enchantment_runes.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/banned_names.txt', { cache: 'no-cache' }).then(res => res.text()),
+                fetch('/alchemy_recipes.json', { cache: 'no-cache' }).then(res => res.json())
             ]);
             alchemyRecipesData = alchemyRecipesList;
             console.log("CRAFTING_CALCULATOR: All files fetched.");

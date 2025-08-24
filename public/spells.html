@@ -183,7 +183,7 @@
         );
       }
 
-      fetch('spells.json')
+      fetch('spells.json', { cache: 'no-cache' })
         .then(response => response.json())
         .then(data => {
           ReactDOM.createRoot(document.getElementById("root")).render(
