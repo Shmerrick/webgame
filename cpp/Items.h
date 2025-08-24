@@ -220,6 +220,112 @@ private:
     friend class ItemDatabase;
 };
 
+class HealthPotion : public Item {
+public:
+    HealthPotion(const std::string& name, double healthRestored)
+        : health(healthRestored) {
+        this->itemType = "Potion";
+        this->name = name;
+    }
+
+    double getHealth() const { return health; }
+
+private:
+    double health;
+};
+
+class ManaPotion : public Item {
+public:
+    ManaPotion(const std::string& name, double manaRestored)
+        : mana(manaRestored) {
+        this->itemType = "Potion";
+        this->name = name;
+    }
+
+    double getMana() const { return mana; }
+
+private:
+    double mana;
+};
+
+class StaminaPotion : public Item {
+public:
+    StaminaPotion(const std::string& name, double staminaRestored)
+        : stamina(staminaRestored) {
+        this->itemType = "Potion";
+        this->name = name;
+    }
+
+    double getStamina() const { return stamina; }
+
+private:
+    double stamina;
+};
+
+class Explosive : public Item {
+public:
+    Explosive(const std::string& name, double damage, double radius)
+        : damage(damage), radius(radius) {
+        this->itemType = "Explosive";
+        this->name = name;
+    }
+
+    double getDamage() const { return damage; }
+    double getRadius() const { return radius; }
+
+private:
+    double damage;
+    double radius;
+};
+
+class Poison : public Item {
+public:
+    Poison(const std::string& name, double damagePerSecond, double duration)
+        : dps(damagePerSecond), duration(duration) {
+        this->itemType = "Poison";
+        this->name = name;
+    }
+
+    double getDamagePerSecond() const { return dps; }
+    double getDuration() const { return duration; }
+
+private:
+    double dps;
+    double duration;
+};
+
+class AOEHealingEffect : public Item {
+public:
+    AOEHealingEffect(const std::string& name, double healthRestored, double radius)
+        : health(healthRestored), radius(radius) {
+        this->itemType = "AOEEffect";
+        this->name = name;
+    }
+
+    double getHealth() const { return health; }
+    double getRadius() const { return radius; }
+
+private:
+    double health;
+    double radius;
+};
+
+class FlammableLiquid : public Item {
+public:
+    FlammableLiquid(const std::string& name, double damagePerSecond, double duration)
+        : dps(damagePerSecond), duration(duration) {
+        this->itemType = "FlammableLiquid";
+        this->name = name;
+    }
+
+    double getDamagePerSecond() const { return dps; }
+    double getDuration() const { return duration; }
+
+private:
+    double dps;
+    double duration;
+};
+
 } // namespace Game
 
 #endif // ITEMS_H
