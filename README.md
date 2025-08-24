@@ -75,3 +75,29 @@ cd cpp/build
 ```
 
 This will launch a GUI window displaying the contents of `public/materials.json`.
+
+## C++ Game Simulator
+
+An experimental ImGui-based application that exposes the core C++ character logic
+outside of Unreal Engine. It allows tweaking base attributes and seeing the
+resulting effective stats for a prototype character.
+
+### Compiling the Game Simulator
+
+Follow the same setup steps as the data viewer. After running `cmake ..` from the
+`cpp/build` directory, build the simulator target:
+
+```bash
+make game_simulator
+```
+
+### Running the Game Simulator
+
+Launch from the `cpp/build` directory:
+
+```bash
+./game_simulator
+```
+
+This opens a window where you can adjust race and stats and immediately see the
+computed values using the shared game formulas.
