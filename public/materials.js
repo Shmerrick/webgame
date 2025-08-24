@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const materialsContainer = document.getElementById("materials-container");
 
     fetch("materials.json", { cache: "no-cache" })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             for (const category in data) {
                 const categoryCard = document.createElement("div");
@@ -76,5 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 categoryCard.appendChild(categoryContent);
                 materialsContainer.appendChild(categoryCard);
             }
+        })
+        .catch(error => {
+            console.error("Error fetching materials:", error);
+            materialsContainer.innerHTML = "<p class=\"text-red-500\">Failed to load materials data.</p>";
         });
 });
