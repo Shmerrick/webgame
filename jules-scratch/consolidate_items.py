@@ -49,7 +49,7 @@ def process_armor(materials, volumes_data):
             volumes_map[piece] = {}
         volumes_map[piece][item['Component']] = float(item['Volume_cm3'])
 
-    inner_mat = materials['Leather_T2_Cowhide_Pigskin']
+    inner_mat = materials['Leather_T2_Cowhide_Pigskin_Cowhide']
     binding_mat = materials['Leather_T1_Deerskin']
 
     for piece, volumes in volumes_map.items():
@@ -80,7 +80,7 @@ def process_weapons(materials, volumes_data):
             volumes_map[weapon_type] = {}
         volumes_map[weapon_type][item['component_name']] = float(item['volume_cm3'])
 
-    handle_mat = materials['Wood_T2_Oak_Ash_Maple']
+    handle_mat = materials['Wood_T2_Oak_Ash_Maple_Oak']
 
     for type, volumes in volumes_map.items():
         if type not in ["Sword", "Axe", "Hammer", "Dagger"]: continue
