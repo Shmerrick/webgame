@@ -19,6 +19,11 @@ public:
     PlayerCharacter(Race race, PlayerStats baseStats)
         : race(race), baseStats(baseStats), chosenElement(ElementType::Fire), chosenEntropy(EntropySchool::Radiance) {
 
+        // Initialize reputation for all races to a starting value of 100
+        for (int i = static_cast<int>(ERace::Human); i <= static_cast<int>(ERace::Fae); ++i) {
+            reputation[static_cast<Race>(i)] = 100;
+        }
+
         // Initialize all AP-costing skills from the "Action Skill System" document
         skills = {
             {"ArmorTraining", 0}, {"BlockingAndShields", 0}, {"Sword", 0},
@@ -34,6 +39,23 @@ public:
     }
 
     // --- Getters and Setters ---
+    int getReputation(Race r) const {
+        if (reputation.count(r)) {
+            return reputation.at(r);
+        }
+        return 0; // Default reputation if not found (shouldn't happen)
+    }
+
+    void updateReputation(Race r, int amount) {
+        if (reputation.count(r)) {
+            reputation[r] += amount;
+            // Clamp reputation to the max value of 1000
+            if (reputation[r] > 1000) {
+                reputation[r] = 1000;
+            }
+        }
+    }
+
     bool setSkill(const std::string& skillName, int value) {
         if (!skills.count(skillName)) return false;
 
@@ -169,6 +191,7 @@ private:
     Race race;
     PlayerStats baseStats;
     std::map<std::string, int> skills;
+    std::map<Race, int> reputation;
 
     std::map<std::string, Armor> equippedArmor;
     const Weapon* equippedWeapon = nullptr;

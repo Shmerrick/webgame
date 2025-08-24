@@ -148,4 +148,10 @@ public:
 
     UFUNCTION(BlueprintPure, Category = "Formulas|Magic")
     static int32 CalculateManaCost(int32 baseCost, float rangeMultiplier, float damageMultiplier, float aoeMultiplier);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Reputation")
+    static float GetItemPriceModifier(int32 reputation);
+
+    UFUNCTION(BlueprintPure, Category = "Formulas|Reputation")
+    static float GetTaxModifier(int32 reputation);
 };

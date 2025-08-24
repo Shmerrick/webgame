@@ -27,4 +27,4 @@ def test_siege_crafting(page: Page):
     expect(page.locator("#siege-crafting-results")).to_contain_text("Required Materials", timeout=5000)
     expect(page.locator("#siege-crafting-results")).to_contain_text("Estimated Mass", timeout=5000)
 
-    page.screenshot(path="siege_crafting_verification.png")
+    page.screenshot(path="tests/test_siege_crafting_ui.png")
