@@ -36,9 +36,11 @@ bool MaterialDatabase::loadFromFile(const std::string& filepath) {
                 new_mat.offense_slash = mat_json.value("slash", 0.0);
                 new_mat.offense_pierce = mat_json.value("pierce", 0.0);
                 new_mat.offense_blunt = mat_json.value("blunt", 0.0);
-                new_mat.defense_slash = mat_json.value("slash", 0.0); // Assuming defense is same as offense for now
-                new_mat.defense_pierce = mat_json.value("pierce", 0.0);
-                new_mat.defense_blunt = mat_json.value("blunt", 0.0);
+
+                // Read dedicated defense values if present; otherwise fall back to offense values
+                new_mat.defense_slash = mat_json.value("defense_slash", new_mat.offense_slash);
+                new_mat.defense_pierce = mat_json.value("defense_pierce", new_mat.offense_pierce);
+                new_mat.defense_blunt = mat_json.value("defense_blunt", new_mat.offense_blunt);
                 new_mat.element_fire = mat_json.value("fire", 0.0);
                 new_mat.element_water = mat_json.value("water", 0.0);
                 new_mat.element_wind = mat_json.value("wind", 0.0);

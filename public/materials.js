@@ -47,9 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                 details.className = "details p-2 pl-4 text-slate-400 bg-slate-800/50 rounded-lg mt-2 break-words whitespace-normal";
                                 details.style.paddingLeft = "20px";
                                 details.innerHTML = `
-                                    <p><strong>Slash:</strong> ${material.slash}</p>
-                                    <p><strong>Pierce:</strong> ${material.pierce}</p>
-                                    <p><strong>Blunt:</strong> ${material.blunt}</p>
+                                    <p><strong>Offense Slash:</strong> ${material.slash}</p>
+                                    <p><strong>Offense Pierce:</strong> ${material.pierce}</p>
+                                    <p><strong>Offense Blunt:</strong> ${material.blunt}</p>
+                                    <p><strong>Defense Slash:</strong> ${material.defense_slash}</p>
+                                    <p><strong>Defense Pierce:</strong> ${material.defense_pierce}</p>
+                                    <p><strong>Defense Blunt:</strong> ${material.defense_blunt}</p>
                                     <p><strong>Magic:</strong> ${material.magic}</p>
                                 `;
                                 materialItem.appendChild(details);

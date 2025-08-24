@@ -379,9 +379,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const wOuter = 0.80, wInner = 0.15, wBind = 0.05;
-        const combinedSlash = (parseFloat(outerMat.slash) * wOuter) + (parseFloat(innerMat.slash) * wInner) + (parseFloat(bindingMat.slash) * wBind);
-        const combinedPierce = (parseFloat(outerMat.pierce) * wOuter) + (parseFloat(innerMat.pierce) * wInner) + (parseFloat(bindingMat.pierce) * wBind);
-        const combinedBlunt = (parseFloat(outerMat.blunt) * wOuter) + (parseFloat(innerMat.blunt) * wInner) + (parseFloat(bindingMat.blunt) * wBind);
+        const combinedSlash = (parseFloat(outerMat.defense_slash) * wOuter) + (parseFloat(innerMat.defense_slash) * wInner) + (parseFloat(bindingMat.defense_slash) * wBind);
+        const combinedPierce = (parseFloat(outerMat.defense_pierce) * wOuter) + (parseFloat(innerMat.defense_pierce) * wInner) + (parseFloat(bindingMat.defense_pierce) * wBind);
+        const combinedBlunt = (parseFloat(outerMat.defense_blunt) * wOuter) + (parseFloat(innerMat.defense_blunt) * wInner) + (parseFloat(bindingMat.defense_blunt) * wBind);
         const combinedMagic = (parseFloat(outerMat.magic) * wOuter) + (parseFloat(innerMat.magic) * wInner) + (parseFloat(bindingMat.magic) * wBind);
 
         const base = ARMOR_CLASS[armorClass];
