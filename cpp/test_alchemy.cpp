@@ -1,4 +1,5 @@
 #include "AlchemySystem.h"
+#include "Items.h"
 #include <iostream>
 #include <cassert>
 
