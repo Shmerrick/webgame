@@ -1,0 +1,88 @@
+[
+  {
+    "name": "Health Potion",
+    "type": "Potion",
+    "ingredients": ["Crimson_Petal", "Blessed_Water"],
+    "effect": "Restores 50 health.",
+    "properties": {
+      "health": 50
+    }
+  },
+  {
+    "name": "Mana Potion",
+    "type": "Potion",
+    "ingredients": ["Azure_Leaf", "Blessed_Water"],
+    "effect": "Restores 50 mana.",
+    "properties": {
+      "mana": 50
+    }
+  },
+  {
+    "name": "Stamina Potion",
+    "type": "Potion",
+    "ingredients": ["Sun_Kissed_Fern", "Blessed_Water"],
+    "effect": "Restores 50 stamina.",
+    "properties": {
+      "stamina": 50
+    }
+  },
+  {
+    "name": "Explosive",
+    "type": "Explosive",
+    "ingredients": ["Volcanic_Rock", "Firefly_Gland"],
+    "effect": "Deals 100 damage in a small area.",
+    "properties": {
+      "damage": 100,
+      "radius": 5
+    }
+  },
+  {
+    "name": "Poison",
+    "type": "Poison",
+    "ingredients": ["Spider_Venom", "Moonlit_Mushroom"],
+    "effect": "Deals 10 damage per second for 10 seconds.",
+    "properties": {
+      "damage_per_second": 10,
+      "duration": 10
+    }
+  },
+  {
+    "name": "AOE Healing Effect",
+    "type": "AOEEffect",
+    "ingredients": ["Blessed_Water", "Sun_Kissed_Fern"],
+    "effect": "Heals all allies in a small area for 50 health.",
+    "properties": {
+      "health": 50,
+      "radius": 5
+    }
+  },
+  {
+    "name": "Flammable Liquid",
+    "type": "FlammableLiquid",
+    "ingredients": ["Firefly_Gland", "Aloe_Vera"],
+    "effect": "Creates a pool of fire that burns for 10 seconds.",
+    "properties": {
+      "duration": 10,
+      "damage_per_second": 10
+    }
+  },
+  {
+    "name": "Torch",
+    "type": "Tool",
+    "ingredients": ["Stick", "Cloth_Scraps"],
+    "effect": "Provides light in dark areas.",
+    "properties": {
+      "duration": 300
+    }
+  },
+  {
+    "name": "Soothing Bandage",
+    "type": "Consumable",
+    "ingredients": ["Cloth_Scraps", "Aloe_Vera"],
+    "effect": "Heals for 10 health over 5 seconds.",
+    "properties": {
+      "health_per_second": 2,
+      "duration": 5
+    }
+  }
+]

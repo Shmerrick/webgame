@@ -18,5 +18,40 @@
     "RowName": "Moonlit_Mushroom",
     "Name": "Moonlit Mushroom",
     "Effect": "Invisibility"
+  },
+  {
+    "RowName": "Firefly_Gland",
+    "Name": "Firefly Gland",
+    "Effect": "Light"
+  },
+  {
+    "RowName": "Spider_Venom",
+    "Name": "Spider Venom",
+    "Effect": "Poison"
+  },
+  {
+    "RowName": "Volcanic_Rock",
+    "Name": "Volcanic Rock",
+    "Effect": "Explosion"
+  },
+  {
+    "RowName": "Blessed_Water",
+    "Name": "Blessed Water",
+    "Effect": "Healing"
+  },
+  {
+    "RowName": "Aloe_Vera",
+    "Name": "Aloe Vera",
+    "Effect": "Soothing"
+  },
+  {
+    "RowName": "Cloth_Scraps",
+    "Name": "Cloth Scraps",
+    "Effect": "Binding"
+  },
+  {
+    "RowName": "Stick",
+    "Name": "Stick",
+    "Effect": "Handle"
   }
 ]

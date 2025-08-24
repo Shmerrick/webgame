@@ -2,7 +2,6 @@
 #define ITEMS_H
 
 #include "DataTypes.h"
-#include "Formulas.h"
 #include <string>
 #include <vector>
 #include <map>
@@ -204,6 +203,84 @@ private:
     int tier;
     std::string modifiedSkill;
     int skillIncrease;
+};
+
+class HealthPotion : public Item {
+public:
+    HealthPotion(const std::string& name, int health) : health(health) {
+        this->name = name;
+    }
+    int getHealth() const { return health; }
+private:
+    int health;
+};
+
+class ManaPotion : public Item {
+public:
+    ManaPotion(const std::string& name, int mana) : mana(mana) {
+        this->name = name;
+    }
+    int getMana() const { return mana; }
+private:
+    int mana;
+};
+
+class StaminaPotion : public Item {
+public:
+    StaminaPotion(const std::string& name, int stamina) : stamina(stamina) {
+        this->name = name;
+    }
+    int getStamina() const { return stamina; }
+private:
+    int stamina;
+};
+
+class Explosive : public Item {
+public:
+    Explosive(const std::string& name, int damage, int radius) : damage(damage), radius(radius) {
+        this->name = name;
+    }
+    int getDamage() const { return damage; }
+    int getRadius() const { return radius; }
+private:
+    int damage;
+    int radius;
+};
+
+class Poison : public Item {
+public:
+    Poison(const std::string& name, int dps, int duration) : damage_per_second(dps), duration(duration) {
+        this->name = name;
+    }
+    int getDamagePerSecond() const { return damage_per_second; }
+    int getDuration() const { return duration; }
+private:
+    int damage_per_second;
+    int duration;
+};
+
+class AOEHealingEffect : public Item {
+public:
+    AOEHealingEffect(const std::string& name, int health, int radius) : health(health), radius(radius) {
+        this->name = name;
+    }
+    int getHealth() const { return health; }
+    int getRadius() const { return radius; }
+private:
+    int health;
+    int radius;
+};
+
+class FlammableLiquid : public Item {
+public:
+    FlammableLiquid(const std::string& name, int dps, int duration) : damage_per_second(dps), duration(duration) {
+        this->name = name;
+    }
+    int getDamagePerSecond() const { return damage_per_second; }
+    int getDuration() const { return duration; }
+private:
+    int damage_per_second;
+    int duration;
 };
 
 } // namespace Game
