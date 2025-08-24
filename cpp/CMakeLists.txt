@@ -9,6 +9,7 @@ find_package(OpenGL REQUIRED)
 
 add_executable(game_data_viewer
     game_data_viewer.cpp
+    ItemDatabase.cpp
     imgui/imgui.cpp
     imgui/imgui_draw.cpp
     imgui/imgui_tables.cpp
@@ -26,10 +27,10 @@ target_include_directories(game_data_viewer PUBLIC
 
 target_link_libraries(game_data_viewer PRIVATE SDL2::SDL2 ${OPENGL_LIBRARIES})
 
-add_executable(test_alchemy
-    test_alchemy.cpp
-)
+# add_executable(test_alchemy
+#     test_alchemy.cpp
+# )
 
-target_include_directories(test_alchemy PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}
-)
+# target_include_directories(test_alchemy PUBLIC
+#     ${CMAKE_CURRENT_SOURCE_DIR}
+# )
