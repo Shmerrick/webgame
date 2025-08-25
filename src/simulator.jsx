@@ -4,6 +4,8 @@ import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIAL
 import CharacterPanel from "./components/CharacterPanel.jsx";
 import WeaponAttackPanel from "./components/WeaponAttackPanel.jsx";
 import MaterialSelect from "./components/MaterialSelect.jsx";
+import ResultsPanel from "./components/ResultsPanel.jsx";
+import useMaterials from "./hooks/useMaterials.js";
 
 
 function Tooltip({ text, children }) {
@@ -1043,32 +1045,16 @@ function App({ DB }){
               })}
             </div>
 
-            <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-              <div className="bg-slate-800/70 rounded-xl p-3">
-                <div className="text-slate-300 font-medium">Loadout Score</div>
-                <div className="text-sm">S equals the sum of each slot’s weight factor multiplied by the numeric value of its armor class. Smax is the same calculation as if every slot were Heavy. The ratio R equals S divided by Smax and determines your category.</div>
-                <div className="text-lg tabular-nums mt-1">S = {S} / Smax = {Smax} (R = {(R*100).toFixed(1)} percent)</div>
-                <div className="text-slate-300 mt-1">Category: <span className="font-semibold">{nakedOverride ? "Naked Override (no armor equipped)" : category}</span></div>
-              </div>
-              <div className="bg-slate-800/70 rounded-xl p-3">
-                <div className="text-slate-300 font-medium">Missing Armor Penalty</div>
-                <div className="text-sm">Each missing armor piece reduces your outgoing damage by fifteen percent. If you are completely naked and unshielded, there is a special rule that sets your regeneration to the naked rate and reduces your outgoing damage by seventy-five percent.</div>
-                <div className="text-lg tabular-nums mt-1">Total outgoing damage penalty from missing pieces: -{missingPieces*15} percent</div>
-              </div>
-            </div>
-
-            <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-              <div className="bg-slate-800/70 rounded-xl p-3">
-                <div className="text-slate-300 font-medium">Stamina Regeneration</div>
-                <div className="text-2xl tabular-nums">{regenStam}</div>
-                <div className="text-sm text-slate-300 mt-1">Regeneration ticks occur every two seconds and are ten percent of the pool multiplied by your loadout multiplier and increased by up to ten percent from Armor Training.</div>
-              </div>
-              <div className="bg-slate-800/70 rounded-xl p-3">
-                <div className="text-slate-300 font-medium">Mana Regeneration</div>
-                <div className="text-2xl tabular-nums">{regenMana}</div>
-                <div className="text-sm text-slate-300 mt-1">Armor class reduces both stamina and mana regeneration using the same multipliers.</div>
-              </div>
-            </div>
+            <ResultsPanel
+              S={S}
+              Smax={Smax}
+              R={R}
+              category={category}
+              missingPieces={missingPieces}
+              regenStam={regenStam}
+              regenMana={regenMana}
+              nakedOverride={nakedOverride}
+            />
           </section>
         </div>
       </div>
@@ -1076,81 +1062,18 @@ function App({ DB }){
   );
 }
 
-async function loadMaterials() {
-  try {
-    const [db, wood, elementals, alloys, rocks] = await Promise.all([
-      getDatabaseSection('materials'),
-      getDatabaseSection('woodTypes'),
-      getDatabaseSection('elementalMetals'),
-      getDatabaseSection('metalAlloys'),
-      getDatabaseSection('rockTypes'),
-    ]);
-
-    const slug = name => name.toLowerCase().replace(/\s+/g, '_');
-    db['Wood'] = Object.fromEntries(
-      Object.entries(wood).map(([type, list]) => [
-        type,
-        list.map(name => ({ id: slug(name), name }))
-      ])
-    );
-
-    db['Rock Types'] = Object.fromEntries(
-      Object.entries(rocks).map(([type, stones]) => [
-        type,
-        Object.keys(stones).map(name => ({ id: slug(name), name }))
-      ])
-    );
-
-    const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
-    const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
-
-    db.Metals = db.Metals || {};
-    db.Metals['Elemental Metals'] = elementalMetals;
-    db.Metals['Metal Alloys'] = alloyMetals;
-
-    const assignIds = obj => {
-      for (const val of Object.values(obj)) {
-        if (Array.isArray(val)) {
-          val.forEach(m => { if (m.name && !m.id) m.id = slug(m.name); });
-        } else if (val && typeof val === 'object') {
-          assignIds(val);
-        }
-      }
-    };
-    assignIds(db);
-
-    db.Dev = [
-      {
-        id: 'dev_material',
-        name: 'Dev Material',
-        Name: 'Dev Material',
-        Density: 1,
-        factors: {
-          slash: 1,
-          pierce: 1,
-          blunt: 1,
-          defense_slash: 1,
-          defense_pierce: 1,
-          defense_blunt: 1,
-          fire: 1,
-          water: 1,
-          wind: 1,
-          earth: 1,
-        },
-      },
-    ];
-
-    ReactDOM.createRoot(document.getElementById("root")).render(
-      <React.StrictMode><App DB={db} /></React.StrictMode>
-    );
-  } catch (error) {
-    console.error('Failed to load materials data:', error);
-    const root = document.getElementById('root');
-    if (root) {
-      root.textContent = 'Failed to load material data.';
-    }
+function Root() {
+  const [DB, error] = useMaterials();
+  if (error) {
+    return <div>Failed to load material data.</div>;
   }
+  if (!DB) {
+    return <div>Loading material data...</div>;
+  }
+  return <App DB={DB} />;
 }
 
-loadMaterials();
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode><Root /></React.StrictMode>
+);
 

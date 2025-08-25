@@ -1,3 +1,5 @@
+import buildMaterialDB from '../src/utils/buildMaterialDB.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     let materialsDB = {};
     let materialsMap = new Map();
@@ -25,7 +27,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 getDatabaseSection('rockTypes')
             ]);
 
-            buildMaterialsDB(db, woods, elementals, alloys, rocks);
+            const built = buildMaterialDB(db, woods, elementals, alloys, rocks, {
+                defaultDensities: { Wood: 0.6, 'Rock Types': 2.5 }
+            });
+            built['Dev'] = {
+                Dev: [
+                    {
+                        id: 'dev_material',
+                        name: 'Dev Material',
+                        density: 1,
+                        slash: 1,
+                        pierce: 1,
+                        blunt: 1,
+                        defense_slash: 1,
+                        defense_pierce: 1,
+                        defense_blunt: 1,
+                        fire: 1,
+                        water: 1,
+                        wind: 1,
+                        earth: 1,
+                    },
+                ],
+            };
+
+            // Flatten database into map with category metadata
+            const defDensity = cat => ({ Wood: 0.6, 'Rock Types': 2.5 }[cat] || 1);
+            for (const [cat, subcats] of Object.entries(built)) {
+                const norm = Array.isArray(subcats) ? { A: subcats } : subcats;
+                for (const [sub, arr] of Object.entries(norm)) {
+                    if (!Array.isArray(arr)) continue;
+                    arr.forEach(m => {
+                        if (m.density == null) m.density = defDensity(cat);
+                        materialsMap.set(m.id, { ...m, category: cat, subCategory: sub });
+                    });
+                }
+            }
+
+            materialsDB = built;
 
             siegeVolumesList.forEach(item => {
                 if (!siegeVolumesData[item.siege_weapon_type]) {
@@ -45,78 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function buildMaterialsDB(db, woods, elementals, alloys, rocks) {
-        const slug = name => name.toLowerCase().replace(/\s+/g, '_');
-        const defDensity = cat => ({ Wood: 0.6, 'Rock Types': 2.5 }[cat] || 1);
-
-        db['Wood'] = Object.fromEntries(
-            Object.entries(woods).map(([type, list]) => [
-                type,
-                list.map(name => ({ id: slug(name), name, density: 0.6 }))
-            ])
-        );
-
-        db['Rock Types'] = Object.fromEntries(
-            Object.entries(rocks).map(([type, stones]) => [
-                type,
-                Object.keys(stones).map(name => ({ id: slug(name), name, density: 2.5 }))
-            ])
-        );
-
-        const procMetal = m => ({
-            id: slug(m.name),
-            name: m.name,
-            density: parseFloat(m.density || m.mechanical_properties?.density?.value || 7.8)
-        });
-        db['Metals'] = db['Metals'] || {};
-        db['Metals']['Elemental Metals'] = (elementals.elements || []).map(procMetal);
-        db['Metals']['Metal Alloys'] = (alloys.elements || []).map(procMetal);
-
-        db['Dev'] = {
-            Dev: [
-                {
-                    id: 'dev_material',
-                    name: 'Dev Material',
-                    density: 1,
-                    slash: 1,
-                    pierce: 1,
-                    blunt: 1,
-                    defense_slash: 1,
-                    defense_pierce: 1,
-                    defense_blunt: 1,
-                    fire: 1,
-                    water: 1,
-                    wind: 1,
-                    earth: 1,
-                },
-            ],
-        };
-
-        // Normalize categories that are stored as arrays so they behave like
-        // an object with a default "A" subcategory. This mirrors the
-        // structure used throughout the crafting calculators and prevents
-        // runtime errors when iterating below.
-        for (const [cat, subcats] of Object.entries(db)) {
-            if (Array.isArray(subcats)) {
-                db[cat] = { A: subcats };
-            }
-        }
-
-        // Flatten all materials into the map while capturing category and
-        // subcategory metadata. Guard against unexpected non-array entries.
-        for (const [cat, subcats] of Object.entries(db)) {
-            for (const [sub, arr] of Object.entries(subcats)) {
-                if (!Array.isArray(arr)) continue;
-                arr.forEach(m => {
-                    if (!m.id) m.id = slug(m.name);
-                    if (m.density == null) m.density = defDensity(cat);
-                    materialsMap.set(m.id, { ...m, category: cat, subCategory: sub });
-                });
-            }
-        }
-
-        materialsDB = db;
-    }
 
     function populateDropdowns() {
         Object.keys(siegeVolumesData).forEach(type => addOption(siegeWeaponTypeSelect, type, type));

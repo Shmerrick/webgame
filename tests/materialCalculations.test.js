@@ -16,4 +16,40 @@ describe('calculateMaterialDefenses', () => {
       });
     }
   });
+
+  it('applies feel transform when enabled', () => {
+    const materials = [
+      { name: 'Mat1', class: 'Metal', YS: 100, UTS: 200, E: 100, density: 10, k: 1, cp: 1, Tm: 1, re: 1 },
+      { name: 'Mat2', class: 'Metal', YS: 200, UTS: 400, E: 200, density: 20, k: 2, cp: 2, Tm: 2, re: 2 },
+      { name: 'Mat3', class: 'Metal', YS: 150, UTS: 300, E: 150, density: 15, k: 1.5, cp: 1.5, Tm: 1.5, re: 1.5 },
+    ];
+    const base = calculateMaterialDefenses(materials)[2];
+    const feel = calculateMaterialDefenses(materials, { feel: true })[2];
+    expect(feel.R_slash).toBeCloseTo(0.05 + 0.90 * base.R_slash);
+    expect(feel.R_fire).toBeCloseTo(0.05 + 0.90 * base.R_fire);
+  });
+
+  it('adds armor bias and thickness correctly', () => {
+    const materials = [
+      { name: 'Mat1', class: 'Metal', YS: 100, UTS: 200, E: 100, density: 10, k: 1, cp: 1, Tm: 1, re: 1 },
+      { name: 'Mat2', class: 'Metal', YS: 200, UTS: 400, E: 200, density: 20, k: 2, cp: 2, Tm: 2, re: 2 },
+      { name: 'Mat3', class: 'Metal', YS: 150, UTS: 300, E: 150, density: 15, k: 1.5, cp: 1.5, Tm: 1.5, re: 1.5 },
+    ];
+    const base = calculateMaterialDefenses(materials)[2];
+    const biased = calculateMaterialDefenses(materials, { armorBias: { slashing: 0.1 } })[2];
+    expect(biased.R_slash).toBeCloseTo(Math.min(1, base.R_slash + 0.1));
+    const thick = calculateMaterialDefenses(materials, { thickness: 1.5 })[2];
+    expect(thick.R_slash).toBeCloseTo(Math.min(1, base.R_slash * 1.5));
+  });
+
+  it('applies attunement bonuses', () => {
+    const materials = [
+      { name: 'Mat1', class: 'Metal', YS: 100, UTS: 200, E: 100, density: 10, k: 1, cp: 1, Tm: 1, re: 1 },
+      { name: 'Mat2', class: 'Metal', YS: 200, UTS: 400, E: 200, density: 20, k: 2, cp: 2, Tm: 2, re: 2 },
+      { name: 'Mat3', class: 'Metal', YS: 150, UTS: 300, E: 150, density: 15, k: 1.5, cp: 1.5, Tm: 1.5, re: 1.5 },
+    ];
+    const base = calculateMaterialDefenses(materials)[2];
+    const attuned = calculateMaterialDefenses(materials, { attunement: { fire: 0.2 } })[2];
+    expect(attuned.R_fire).toBeCloseTo(Math.min(1, base.R_fire + 0.2));
+  });
 });
