@@ -58,14 +58,50 @@
         <header class="text-center">
           <h1 class="text-4xl font-bold tracking-tight mb-4">Material Database</h1>
           <p class="text-lg text-slate-300 break-words">
-            The material database is being rebuilt. No materials are currently available.
+            Browse elemental metals and metal alloys available in the simulation tools.
           </p>
         </header>
 
-        <main id="materials-container" class="mt-10 grid grid-cols-1 gap-6">
-          <p class="text-slate-300">Please check back later for updated material information.</p>
-        </main>
+        <main id="materials-container" class="mt-10 grid grid-cols-1 gap-6"></main>
       </div>
     </div>
+    <script type="module">
+      async function loadMaterials() {
+        const container = document.getElementById('materials-container');
+        container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
+
+        try {
+          const [elementals, alloys] = await Promise.all([
+            fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
+            fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json())
+          ]);
+
+          const categories = {
+            'Elemental Metals': elementals.elements,
+            'Metal Alloys': alloys.elements
+          };
+
+          container.innerHTML = '';
+          for (const [cat, list] of Object.entries(categories)) {
+            const section = document.createElement('section');
+            section.innerHTML = `<h2 class="text-2xl font-semibold mb-2">${cat}</h2>`;
+            const ul = document.createElement('ul');
+            ul.className = 'pl-5 list-disc space-y-1';
+            list.forEach(m => {
+              const li = document.createElement('li');
+              li.textContent = m.name;
+              ul.appendChild(li);
+            });
+            section.appendChild(ul);
+            container.appendChild(section);
+          }
+        } catch (err) {
+          console.error('Failed to load materials', err);
+          container.innerHTML = '<p class="text-red-400">Failed to load materials.</p>';
+        }
+      }
+
+      loadMaterials();
+    </script>
   </body>
 </html>

@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Jewelry Crafting
     const jewelryTypeSelect = document.getElementById('jewelry-type');
     const jewelryMetalSelect = document.getElementById('jewelry-metal');
-    const jewelryTierSelect = document.getElementById('jewelry-tier');
     const jewelryResultsDiv = document.getElementById('jewelry-crafting-results');
 
     const WEAPONS = {
@@ -86,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("CRAFTING_CALCULATOR: Starting data load...");
             // Fetch all data from new JSON files
             const [
-                materialsJson,
+                elementalList,
+                alloyList,
                 armorVolumesList,
                 shieldVolumesList,
                 weaponVolumesList,
@@ -95,7 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 bannedNamesText,
                 alchemyRecipesList
             ] = await Promise.all([
-                fetch('/materials.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/Master_Elemental_Metals.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/Master_Metal_Alloys.json', { cache: 'no-cache' }).then(res => res.json()),
                 fetch('/armor_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
                 fetch('/shield_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
                 fetch('/weapon_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
@@ -108,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("CRAFTING_CALCULATOR: All files fetched.");
 
             // Process materials
-            materialsData = processMaterials(materialsJson);
+            materialsData = processMaterials(elementalList, alloyList);
             console.log("Materials processed.");
 
             // Restructure armor volumes for easy lookup
@@ -159,20 +160,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function processMaterials(data) {
+    function processMaterials(elementals, alloys) {
         const materialsMap = new Map();
-        for (const category in data) {
-            for (const tier in data[category]) {
-                for (const material of data[category][tier]) {
-                    const materialWithCategory = {
-                        ...material,
-                        Category: category,
-                        Tier: tier
-                    };
-                    materialsMap.set(material.rowName, materialWithCategory);
-                }
-            }
-        }
+        const addMaterial = (m, category) => {
+            const dens = parseFloat(m.density || m.mechanical_properties?.density?.value || 0);
+            const mat = {
+                ...m,
+                Name: m.name,
+                name: m.name,
+                rowName: m.name.replace(/\s+/g, '_'),
+                Category: category,
+                slash: 1,
+                pierce: 1,
+                blunt: 1,
+                Density: dens,
+                density: dens
+            };
+            materialsMap.set(mat.rowName, mat);
+        };
+        elementals.elements.forEach(m => addMaterial(m, 'Elemental Metal'));
+        alloys.elements.forEach(m => addMaterial(m, 'Metal Alloy'));
         return materialsMap;
     }
 
@@ -202,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [ingredient1Select, ingredient2Select].forEach(el => el.addEventListener('change', calculateAndDisplayAlchemyResults));
         [rune1Select, rune2Select].forEach(el => el.addEventListener('change', calculateAndDisplayEnchantingResults));
         roughGemstoneSelect.addEventListener('change', calculateAndDisplayRefiningResults);
-        [jewelryTypeSelect, jewelryMetalSelect, jewelryTierSelect, document.getElementById('jewelry-attribute')].forEach(el => el.addEventListener('change', calculateAndDisplayJewelryResults));
+        [jewelryTypeSelect, jewelryMetalSelect, document.getElementById('jewelry-attribute')].forEach(el => el.addEventListener('change', calculateAndDisplayJewelryResults));
     }
 
     function calculateAllResults() {
@@ -569,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateJewelryDropdowns() {
         if (!jewelryTypeSelect) return;
-        const metalMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Metals');
+        const metalMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Elemental Metal' || m.Category === 'Metal Alloy');
         populateSelectWithOptions(jewelryMetalSelect, metalMaterials);
     }
 
@@ -577,10 +584,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!jewelryTypeSelect) return;
         const itemType = jewelryTypeSelect.value;
         const metalMaterial = findMaterial(jewelryMetalSelect.value);
-        const tier = parseInt(jewelryTierSelect.value, 10);
         const attributeSelect = document.getElementById('jewelry-attribute');
 
-        if (!itemType || !metalMaterial || !tier) return;
+        if (!itemType || !metalMaterial) return;
 
         // Show/hide attribute dropdown
         if (itemType === 'Ring' || itemType === 'Earring') {
@@ -590,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const toughness = (parseFloat(metalMaterial.slash) + parseFloat(metalMaterial.pierce) + parseFloat(metalMaterial.blunt)) / 3;
-        const durability = toughness * 100 * tier;
+        const durability = toughness * 100;
 
         let attribute = '';
         let modifier = 0;
@@ -599,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (itemType === 'Ring' || itemType === 'Earring') {
             attribute = attributeSelect.value;
-            modifier = tier; // Bonus is equal to the tier
+            modifier = 1; // Default bonus
         } else if (itemType === 'Amulet') {
             const skills = [
                 "ArmorTraining", "BlockingAndShields", "Sword", "Axe", "Dagger", "Hammer", "Polesword",
@@ -608,13 +614,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Stealth", "MeleeAmbush", "RangedAmbush", "ElementalAmbush"
             ];
             skill = skills[Math.floor(Math.random() * skills.length)];
-            skillIncrease = Math.floor(Math.random() * (10 * tier)) + 1;
+            skillIncrease = Math.floor(Math.random() * 10) + 1;
         }
 
         let resultsHTML = `
             <h5 class="text-md font-semibold text-emerald-400 mt-4">Crafted ${itemType}:</h5>
-            <p><strong>Material:</strong> ${metalMaterial.Name}</p>
-            <p><strong>Tier:</strong> ${tier}</p>
+            <p><strong>Material:</strong> ${metalMaterial.name}</p>
             <p><strong>Durability:</strong> ${durability.toFixed(2)}</p>
         `;
 

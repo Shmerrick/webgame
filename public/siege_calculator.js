@@ -11,15 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // Fetch all data from new JSON files
             const [
-                materialsJson,
+                elementalList,
+                alloyList,
                 siegeVolumesList,
             ] = await Promise.all([
-                fetch('/materials.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/Master_Elemental_Metals.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/Master_Metal_Alloys.json', { cache: 'no-cache' }).then(res => res.json()),
                 fetch('/siege_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
             ]);
 
             // Process materials into a flat list
-            materialsData = processMaterials(materialsJson);
+            materialsData = processMaterials(elementalList, alloyList);
 
             // Restructure siege volumes for easy lookup
             siegeVolumesList.forEach(item => {
@@ -66,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!type || !siegeVolumesData[type]) return;
 
         const allMaterials = Array.from(materialsData.values());
-        const woodAndMetalMaterials = allMaterials.filter(m => m.Category === 'Wood' || m.Category === 'Metals');
+        const woodAndMetalMaterials = allMaterials.filter(m => m.Category === 'Wood' || m.Category === 'Elemental Metal' || m.Category === 'Metal Alloy');
 
         Object.keys(siegeVolumesData[type]).forEach(comp => {
             const id = `siege-comp-${comp.toLowerCase().replace(/ /g, '-')}`;
@@ -87,20 +89,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function processMaterials(data) {
+    function processMaterials(elementals, alloys) {
         const materialsMap = new Map();
-        for (const category in data) {
-            for (const tier in data[category]) {
-                for (const material of data[category][tier]) {
-                    const materialWithCategory = {
-                        ...material,
-                        Category: category,
-                        Tier: tier
-                    };
-                    materialsMap.set(material.rowName, materialWithCategory);
-                }
-            }
-        }
+        const addMaterial = (m, category) => {
+            const dens = parseFloat(m.density || m.mechanical_properties?.density?.value || 0);
+            const mat = {
+                ...m,
+                Name: m.name,
+                name: m.name,
+                rowName: m.name.replace(/\s+/g, '_'),
+                Category: category,
+                slash: 1,
+                pierce: 1,
+                blunt: 1,
+                Density: dens,
+                density: dens
+            };
+            materialsMap.set(mat.rowName, mat);
+        };
+        elementals.elements.forEach(m => addMaterial(m, 'Elemental Metal'));
+        alloys.elements.forEach(m => addMaterial(m, 'Metal Alloy'));
         return materialsMap;
     }
 
