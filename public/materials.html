@@ -68,18 +68,19 @@
         <main id="materials-container" class="mt-10 grid grid-cols-1 gap-6"></main>
       </div>
     </div>
-      <script type="module">
+    <script src="database.js"></script>
+    <script type="module">
         async function loadMaterials() {
           const container = document.getElementById('materials-container');
           container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
 
           try {
             const [db, woods, stones, elementals, alloys] = await Promise.all([
-              fetch('materials.json', { cache: 'no-cache' }).then(r => r.json()),
-              fetch('wood_types.json', { cache: 'no-cache' }).then(r => r.json()),
-              fetch('stone_types.json', { cache: 'no-cache' }).then(r => r.json()),
-              fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
-              fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json())
+              getDatabaseSection('materials'),
+              getDatabaseSection('woodTypes'),
+              getDatabaseSection('stoneTypes'),
+              getDatabaseSection('elementalMetals'),
+              getDatabaseSection('metalAlloys')
             ]);
 
             const slug = name => name.toLowerCase().replace(/\s+/g, '_');
@@ -136,14 +137,12 @@
                     li.textContent = item.name || item;
                     if (item.factors) {
                       const f = item.factors;
-                      const props = [
-                        `Slash: ${f.slash}`,
-                        `Pierce: ${f.pierce}`,
-                        `Blunt: ${f.blunt}`,
-                        `Defense Slash: ${f.defense_slash}`,
-                        `Defense Pierce: ${f.defense_pierce}`,
-                        `Defense Blunt: ${f.defense_blunt}`,
-                      ];
+                      const props = Object.entries(f).map(([key, val]) => {
+                        const label = key
+                          .replace(/_/g, ' ')
+                          .replace(/\b\w/g, c => c.toUpperCase());
+                        return `${label}: ${val}`;
+                      });
                       li.style.position = 'relative';
                       li.addEventListener('click', () => {
                         const existing = li.querySelector('.tooltip');
