@@ -47,19 +47,18 @@
         <div class="flex items-center justify-between flex-wrap">
           <div class="text-xl font-bold tracking-tight">Game Simulator</div>
           <div class="flex flex-wrap gap-4">
-            <a href="/" class="text-slate-300 hover:text-emerald-400">Home</a>
-            <a href="/materials" class="text-slate-300 hover:text-emerald-400">Materials</a>
-            <a href="/simulator" class="text-slate-300 hover:text-emerald-400">Simulator</a>
-            <a href="/combat" class="text-emerald-400 font-semibold">Combat</a>
-            <a href="/movement" class="text-slate-300 hover:text-emerald-400">Movement</a>
-              <a href="/magic" class="text-slate-300 hover:text-emerald-400">Magic</a>
-              <a href="/spells" class="text-slate-300 hover:text-emerald-400">Spells</a>
-            <a href="/races" class="text-slate-300 hover:text-emerald-400">Races</a>
-            <a href="/ascension" class="text-slate-300 hover:text-emerald-400">Ascension</a>
-            <a href="/spells" class="text-slate-300 hover:text-emerald-400">Spells</a>
-            <a href="/crafting" class="text-slate-300 hover:text-emerald-400">Crafting</a>
-            <a href="/siege" class="text-slate-300 hover:text-emerald-400">Siege</a>
-            <a href="/materials_guide" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
+            <a href="/" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Home</a>
+            <a href="/materials" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials</a>
+            <a href="/simulator" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Simulator</a>
+            <a href="/combat" class="px-2 py-1 bg-emerald-600 text-white rounded">Combat</a>
+            <a href="/movement" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Movement</a>
+            <a href="/races" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Races</a>
+            <a href="/ascension" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Ascension</a>
+            <a href="/magic" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Magic</a>
+            <a href="/spells" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Spells</a>
+            <a href="/crafting" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Crafting</a>
+            <a href="/siege" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Siege</a>
+            <a href="/materials_guide" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials Guide</a>
           </div>
         </div>
       </nav>
@@ -74,7 +73,7 @@
       <main class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="flex flex-col gap-8">
           <section id="core-stats" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
-            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2 mb-4">📖 Core Stats System</h2>
+        <h2 class="text-3xl font-bold border-b border-slate-700 pb-2 mb-4">Core Stats System</h2>
 
             <h3 class="text-2xl font-semibold mt-4">Attributes (Range: 0–100)</h3>
           <ul class="list-disc text-slate-300">
@@ -100,50 +99,12 @@
             <li><strong>91–100:</strong> 4 points → 1 stat</li>
           </ul>
           </section>
-          <section id="example-builds" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
-            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2 mb-4">🛠 Example Builds</h2>
-
-            <div class="mt-4">
-            <h3 class="text-2xl font-semibold">1. Warrior Build (Melee Focus)</h3>
-            <p class="text-slate-400 italic">Goal: Maximize Strength for high melee/bow damage, balanced stamina for survivability.</p>
-            <ul class="list-disc text-slate-300 mt-2">
-              <li><strong>Strength:</strong> 90 → Cost = (50 × 1) + (30 × 2) + (10 × 3) = 120 points</li>
-              <li><strong>Dexterity:</strong> 60 → Cost = (50 × 1) + (10 × 2) = 70 points (Stamina = 120)</li>
-              <li><strong>Intelligence:</strong> 30 → Cost = 30 points</li>
-              <li><strong>Psyche:</strong> 50 → Cost = 50 points (Mana = 100)</li>
-            </ul>
-            <p class="font-semibold text-emerald-400 mt-2">✅ Total Cost = 270 points</p>
-            <p class="text-slate-400 text-sm">(Fully allocated.)</p>
-          </div>
-
-          <div class="mt-6">
-            <h3 class="text-2xl font-semibold">2. Mage Build (Magic Focus)</h3>
-            <p class="text-slate-400 italic">Goal: Maximize Intelligence & Psyche for magic and mana pool.</p>
-            <ul class="list-disc text-slate-300 mt-2">
-              <li><strong>Intelligence:</strong> 90 → Cost = (50 × 1) + (30 × 2) + (10 × 3) = 120 points</li>
-              <li><strong>Psyche:</strong> 80 → Cost = (50 × 1) + (30 × 2) = 110 points (Mana = 160)</li>
-              <li><strong>Dexterity:</strong> 20 → Cost = 20 points (Stamina = 40)</li>
-              <li><strong>Strength:</strong> 20 → Cost = 20 points</li>
-            </ul>
-            <p class="font-semibold text-emerald-400 mt-2">✅ Total Cost = 270 points (fully allocated)</p>
-          </div>
-
-          <div class="mt-6">
-            <h3 class="text-2xl font-semibold">⚖️ Balanced Hybrid Build</h3>
-            <ul class="list-disc text-slate-300 mt-2">
-              <li><strong>Strength:</strong> 60 → Cost = 70 points</li>
-              <li><strong>Dexterity:</strong> 55 → Cost = 60 points (Stamina = 110)</li>
-              <li><strong>Intelligence:</strong> 75 → Cost = 100 points</li>
-              <li><strong>Psyche:</strong> 40 → Cost = 40 points (Mana = 80)</li>
-            </ul>
-            <p class="font-semibold text-emerald-400 mt-2">✅ Total Cost = 270 points (perfect allocation)</p>
-          </div>
-        </section>
+        <!-- Example builds removed for brevity -->
       </div>
 
       <div class="flex flex-col gap-8">
         <section id="combat-system" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2 mb-4">⚔️ Combat System – Summary</h2>
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2 mb-4">Combat System – Summary</h2>
 
           <h3 class="text-2xl font-semibold mt-4">0) Tunable Knobs</h3>
           <ul class="list-disc text-slate-300">
@@ -166,8 +127,7 @@
           <h3 class="text-2xl font-semibold mt-6">2) Attack Directions</h3>
           <ul class="list-disc text-slate-300">
             <li>Directions: Left, Right, Up, Down.</li>
-            <li>Each weapon has a direction table mapping attack direction → damage type(s).</li>
-            <li>Example (Sword): Left, Right, Up → Slash; Down → Pierce.</li>
+            <li>Each weapon has a direction table mapping attack direction → damage type(s). For instance, a sword uses Left, Right, Up → Slash and Down → Pierce.</li>
           </ul>
 
           <h3 class="text-2xl font-semibold mt-6">3) Special Weapons</h3>

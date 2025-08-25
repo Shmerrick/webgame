@@ -42,24 +42,24 @@
         <div class="flex items-center justify-between flex-wrap">
           <div class="text-xl font-bold tracking-tight">Game Simulator</div>
           <div class="flex flex-wrap gap-4">
-            <a href="/" class="text-slate-300 hover:text-emerald-400">Home</a>
-            <a href="/materials" class="text-slate-300 hover:text-emerald-400">Materials</a>
-            <a href="/simulator" class="text-slate-300 hover:text-emerald-400">Simulator</a>
-            <a href="/combat" class="text-slate-300 hover:text-emerald-400">Combat</a>
-            <a href="/movement" class="text-slate-300 hover:text-emerald-400">Movement</a>
-            <a href="/races" class="text-slate-300 hover:text-emerald-400">Races</a>
-            <a href="/ascension" class="text-slate-300 hover:text-emerald-400">Ascension</a>
-            <a href="/magic" class="text-slate-300 hover:text-emerald-400">Magic</a>
-              <a href="/spells" class="text-slate-300 hover:text-emerald-400">Spells</a>
-            <a href="/crafting" class="text-emerald-400 font-semibold">Crafting</a>
-            <a href="/siege" class="text-slate-300 hover:text-emerald-400">Siege</a>
-            <a href="/materials_guide" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
+            <a href="/" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Home</a>
+            <a href="/materials" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials</a>
+            <a href="/simulator" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Simulator</a>
+            <a href="/combat" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Combat</a>
+            <a href="/movement" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Movement</a>
+            <a href="/races" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Races</a>
+            <a href="/ascension" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Ascension</a>
+            <a href="/magic" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Magic</a>
+            <a href="/spells" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Spells</a>
+            <a href="/crafting" class="px-2 py-1 bg-emerald-600 text-white rounded">Crafting</a>
+            <a href="/siege" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Siege</a>
+            <a href="/materials_guide" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials Guide</a>
           </div>
         </div>
       </nav>
 
       <header class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight mb-4">🎨 Crafting Professions</h1>
+        <h1 class="text-4xl font-bold tracking-tight mb-4">Crafting Professions</h1>
         <p class="text-lg text-slate-300 break-words">
           Players may choose ONE crafting profession.
         </p>
@@ -116,16 +116,24 @@
             <dd class="mt-4">
               <div class="bg-slate-800/50 p-4 rounded-lg">
                 <h4 class="text-lg font-semibold text-emerald-300 mb-2">Weapon Crafting Calculator</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label for="weapon-type" class="block text-sm font-medium text-slate-300">Weapon Type</label>
-                    <select id="weapon-type" name="weapon-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label for="weapon-type" class="block text-sm font-medium text-slate-300">Weapon Type</label>
+                      <select id="weapon-type" name="weapon-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                    </div>
+                    <div>
+                      <label for="weapon-name" class="block text-sm font-medium text-slate-300">Weapon Name</label>
+                      <input type="text" id="weapon-name" name="weapon-name" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white" />
+                    </div>
+                    <div>
+                      <span class="block text-sm font-medium text-slate-300">Handedness</span>
+                      <div class="mt-1 flex gap-4 text-slate-300">
+                        <label><input type="radio" name="weapon-handed" value="One-Handed" checked> One-Handed</label>
+                        <label><input type="radio" name="weapon-handed" value="Two-Handed"> Two-Handed</label>
+                        <label><input type="radio" name="weapon-handed" value="N/A"> N/A</label>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <label for="weapon-name" class="block text-sm font-medium text-slate-300">Weapon Name</label>
-                    <input type="text" id="weapon-name" name="weapon-name" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white" />
-                  </div>
-                </div>
                 <div id="weapon-components" class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                   <!-- Components will be populated by JavaScript -->
                 </div>

@@ -1,7 +1,5 @@
 {
-  "Cloth": {
-    "A": []
-  },
+  "Cloth": [],
   "Leather": {
     "Reptiles": [
       { "name": "Crocodile" },
@@ -25,20 +23,18 @@
       { "name": "Chicken" }
     ]
   },
-  "Fur": {
-    "A": [
-      { "name": "Mink" },
-      { "name": "Fox" },
-      { "name": "Rabbit" },
-      { "name": "Raccoon dog" },
-      { "name": "Chinchilla" },
-      { "name": "Karakul lamb" },
-      { "name": "Beaver" },
-      { "name": "Muskrat" },
-      { "name": "Raccoon" },
-      { "name": "Coyote" }
-    ]
-  },
+  "Fur": [
+    { "name": "Mink" },
+    { "name": "Fox" },
+    { "name": "Rabbit" },
+    { "name": "Raccoon dog" },
+    { "name": "Chinchilla" },
+    { "name": "Karakul lamb" },
+    { "name": "Beaver" },
+    { "name": "Muskrat" },
+    { "name": "Raccoon" },
+    { "name": "Coyote" }
+  ],
   "Linen": {
     "Plant": [
       { "name": "cotton" },
@@ -72,35 +68,33 @@
     "Amphibians": [],
     "Fish": []
   },
-  "Herbs": {
-    "A": [
-      { "name": "Basil" },
-      { "name": "Parsley" },
-      { "name": "Cilantro" },
-      { "name": "Mint" },
-      { "name": "Dill" },
-      { "name": "Chives" },
-      { "name": "Thyme" },
-      { "name": "Rosemary" },
-      { "name": "Oregano" },
-      { "name": "Sage" },
-      { "name": "Tarragon" },
-      { "name": "Marjoram" },
-      { "name": "Bay leaf" },
-      { "name": "Chervil" },
-      { "name": "Lemongrass" },
-      { "name": "Curry leaf" },
-      { "name": "Fennel" },
-      { "name": "Sorrel" },
-      { "name": "Lovage" },
-      { "name": "Summer savory" },
-      { "name": "Makrut lime leaf" },
-      { "name": "Epazote" },
-      { "name": "Shiso" },
-      { "name": "Lemon balm" },
-      { "name": "Culantro" }
-    ]
-  },
+  "Herbs": [
+    { "name": "Basil" },
+    { "name": "Parsley" },
+    { "name": "Cilantro" },
+    { "name": "Mint" },
+    { "name": "Dill" },
+    { "name": "Chives" },
+    { "name": "Thyme" },
+    { "name": "Rosemary" },
+    { "name": "Oregano" },
+    { "name": "Sage" },
+    { "name": "Tarragon" },
+    { "name": "Marjoram" },
+    { "name": "Bay leaf" },
+    { "name": "Chervil" },
+    { "name": "Lemongrass" },
+    { "name": "Curry leaf" },
+    { "name": "Fennel" },
+    { "name": "Sorrel" },
+    { "name": "Lovage" },
+    { "name": "Summer savory" },
+    { "name": "Makrut lime leaf" },
+    { "name": "Epazote" },
+    { "name": "Shiso" },
+    { "name": "Lemon balm" },
+    { "name": "Culantro" }
+  ],
   "Carapace": {
     "Arthropod": [
       { "name": "Malacostraca Decapoda" },
@@ -148,9 +142,7 @@
     "Amphibians": []
   },
   "Wood": {},
-  "Minerals": {
-    "A": []
-  },
+  "Minerals": [],
   "Metals": {
     "Elemental Metals": [
       {

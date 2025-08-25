@@ -46,24 +46,24 @@
         <div class="flex items-center justify-between flex-wrap">
           <div class="text-xl font-bold tracking-tight">Game Simulator</div>
           <div class="flex flex-wrap gap-4">
-            <a href="/" class="text-slate-300 hover:text-emerald-400">Home</a>
-            <a href="/materials" class="text-slate-300 hover:text-emerald-400">Materials</a>
-            <a href="/simulator" class="text-slate-300 hover:text-emerald-400">Simulator</a>
-            <a href="/combat" class="text-slate-300 hover:text-emerald-400">Combat</a>
-            <a href="/movement" class="text-slate-300 hover:text-emerald-400">Movement</a>
-            <a href="/races" class="text-slate-300 hover:text-emerald-400">Races</a>
-            <a href="/ascension" class="text-slate-300 hover:text-emerald-400">Ascension</a>
-            <a href="/magic" class="text-emerald-400 font-semibold">Magic</a>
-            <a href="/spells" class="text-slate-300 hover:text-emerald-400">Spells</a>
-            <a href="/crafting" class="text-slate-300 hover:text-emerald-400">Crafting</a>
-            <a href="/siege" class="text-slate-300 hover:text-emerald-400">Siege</a>
-            <a href="/materials_guide" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
+            <a href="/" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Home</a>
+            <a href="/materials" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials</a>
+            <a href="/simulator" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Simulator</a>
+            <a href="/combat" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Combat</a>
+            <a href="/movement" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Movement</a>
+            <a href="/races" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Races</a>
+            <a href="/ascension" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Ascension</a>
+            <a href="/magic" class="px-2 py-1 bg-emerald-600 text-white rounded">Magic</a>
+            <a href="/spells" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Spells</a>
+            <a href="/crafting" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Crafting</a>
+            <a href="/siege" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Siege</a>
+            <a href="/materials_guide" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials Guide</a>
           </div>
         </div>
       </nav>
 
       <header class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight mb-4">🔮 Magic System – Complete Reference</h1>
+        <h1 class="text-4xl font-bold tracking-tight mb-4">Magic System Reference</h1>
         <p class="text-lg text-slate-300 break-words">
           This document consolidates all design decisions into one comprehensive system reference.
         </p>
@@ -95,7 +95,7 @@
             <li><strong>Wind</strong> → disrupts and knocks enemies (<em>Winded</em>)</li>
             <li><strong>Water</strong> → freezes, slows, and soaks enemies (<em>Wet</em>)</li>
           </ul>
-          <p class="text-rose-400 mt-2">⚠️ You cannot mix elements. A player is not their element; they simply wield it.</p>
+          <p class="text-rose-400 mt-2">You cannot mix elements. A player is not their element; they simply wield it.</p>
           <p class="text-slate-400 mt-2"><strong>Respec Rule:</strong> A player may change element later, but only by wiping their prior investment first.</p>
         </section>
 
@@ -103,7 +103,7 @@
           <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">3. Entropy Schools (Choose ONE)</h2>
           <p class="text-slate-300 mt-2">Mages must also align with exactly one entropy school:</p>
           <div class="mt-4">
-            <h3 class="text-2xl font-semibold">✨ Radiance (Entropy Expansion)</h3>
+            <h3 class="text-2xl font-semibold">Radiance (Entropy Expansion)</h3>
             <p class="text-slate-300">Amplifies chaos, spreads effects, volatile and destructive.</p>
             <ul class="list-disc text-slate-300 mt-2">
               <li>Bigger AoE, chain reactions, random scatter.</li>
@@ -111,7 +111,7 @@
             </ul>
           </div>
           <div class="mt-4">
-            <h3 class="text-2xl font-semibold">🌑 Void (Entropy Compression)</h3>
+            <h3 class="text-2xl font-semibold">Void (Entropy Compression)</h3>
             <p class="text-slate-300">Focuses order, condenses effects, nullifies chaos.</p>
             <ul class="list-disc text-slate-300 mt-2">
               <li>Precision strikes, piercing projectiles, mana efficiency.</li>
@@ -133,8 +133,16 @@
           </ol>
         </section>
 
+        <section id="damage-formula" class="mt-8">
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">5. Damage Calculation</h2>
+          <p class="mt-2"><code>Damage = floor(Intelligence / 2) × Range Multiplier</code></p>
+          <ul class="list-disc text-slate-300 mt-2">
+            <li>Range Multipliers: Touch 1.5, Short 1.0, Long 0.7, Ultra-Long 0.5</li>
+          </ul>
+        </section>
+
         <section id="mana-cost" class="mt-8">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">5. Mana Cost Formula</h2>
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">6. Mana Cost Formula</h2>
           <p class="mt-2"><code>Mana Cost = Base (20) × Range Multiplier × Damage Multiplier × AoE Multiplier</code></p>
           <ul class="list-disc text-slate-300 mt-2">
             <li><strong>Range Multipliers:</strong> Touch 1.0, Short 1.2, Long 1.5, Siege 2.0</li>
@@ -144,7 +152,7 @@
         </section>
 
         <section id="interactions" class="mt-8">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">6. Elemental Interaction Rules (Spells Only)</h2>
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">7. Elemental Interaction Rules (Spells Only)</h2>
           <p class="text-slate-300 mt-2">Interactions apply to spells, not players. A Fire Mage is not weak to Water attacks; only Fire spells are countered by Water spells.</p>
           <h3 class="text-xl font-semibold mt-4">Element vs Element Table</h3>
           <table>
@@ -188,7 +196,7 @@
         </section>
 
         <section id="defense" class="mt-8">
-            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">7. Magical Defense System</h2>
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">8. Magical Defense System</h2>
             <p class="text-slate-300 mt-2">Magic defense is <strong>active</strong>, unlike passive armor defense.</p>
             <ul class="list-disc text-slate-300 mt-2">
                 <li><strong>Elemental Counters</strong> → cast opposite element to weaken/erase.</li>
@@ -199,7 +207,7 @@
         </section>
 
         <section id="archetypes" class="mt-8">
-            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">8. Archetypes (8 Mage Builds)</h2>
+            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">9. Archetypes (8 Mage Builds)</h2>
             <p class="text-slate-300 mt-2">Each mage ends with one element × one entropy = 8 archetypes.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                 <div>
