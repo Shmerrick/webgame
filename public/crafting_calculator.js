@@ -99,25 +99,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 armorVolumesList,
                 shieldVolumesList,
                 weaponVolumesList,
-                ingredientsList,
+                potionHerbs,
                 runesList,
                 bannedNamesText,
                 alchemyRecipesList
             ] = await Promise.all([
-                fetch('materials.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('wood_types.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('stone_types.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('armor_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('shield_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('weapon_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('potion_ingredients.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('enchantment_runes.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('banned_names.txt', { cache: 'no-cache' }).then(res => res.text()),
-                fetch('alchemy_recipes.json', { cache: 'no-cache' }).then(res => res.json())
+                getDatabaseSection('materials'),
+                getDatabaseSection('woodTypes'),
+                getDatabaseSection('stoneTypes'),
+                getDatabaseSection('elementalMetals'),
+                getDatabaseSection('metalAlloys'),
+                getDatabaseSection('armorVolumes'),
+                getDatabaseSection('shieldVolumes'),
+                getDatabaseSection('weaponVolumes'),
+                getDatabaseSection('potionIngredients'),
+                getDatabaseSection('enchantmentRunes'),
+                getDatabaseSection('bannedNames'),
+                getDatabaseSection('alchemyRecipes')
             ]);
-            alchemyRecipesData = alchemyRecipesList;
             console.log("CRAFTING_CALCULATOR: All files fetched.");
 
             const db = buildMaterialDB(baseMaterials, woodList, stoneList, elementalList, alloyList);
@@ -164,7 +163,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             console.log("Weapon volumes processed.");
 
-            potionIngredientsData = ingredientsList;
+            potionIngredientsData = potionHerbs.map(h => ({
+                RowName: h.name.replace(/\s+/g, '_'),
+                Name: h.name,
+                factors: h.factors,
+            }));
             enchantmentRunesData = runesList;
             alchemyRecipesData = alchemyRecipesList;
             console.log("Ingredients, runes, and recipes assigned.");
@@ -677,7 +680,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const result = {
             requiredMaterials: {
-                "Stave": { name: woodMaterial.Name, units: requiredUnits }
+                "Stave": { name: woodMaterial.Name, volume, units: requiredUnits }
             },
             totalMass: mass / 1000
         };
@@ -813,6 +816,7 @@ document.addEventListener('DOMContentLoaded', () => {
             totalMass += comp.volume * density;
             requiredMaterials[name] = {
                 name: comp.material.Name,
+                volume: comp.volume,
                 units: (comp.volume * density) / 100
             };
         }

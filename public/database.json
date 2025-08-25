@@ -1,0 +1,14 @@
+{
+  "materials": "materials.json",
+  "woodTypes": "wood_types.json",
+  "stoneTypes": "stone_types.json",
+  "elementalMetals": "Master_Elemental_Metals.json",
+  "metalAlloys": "Master_Metal_Alloys.json",
+  "armorVolumes": "armor_volumes.json",
+  "shieldVolumes": "shield_volumes.json",
+  "weaponVolumes": "weapon_volumes.json",
+  "enchantmentRunes": "enchantment_runes.json",
+  "bannedNames": "banned_names.txt",
+  "alchemyRecipes": "alchemy_recipes.json",
+  "potionIngredients": { "source": "materials", "section": "Herbs" }
+}
