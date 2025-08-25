@@ -63,12 +63,11 @@ const BASE_TICK_PCT = 0.10;
 // Allowed outer categories by armor class (kept aligned to your DB families)
 const MATERIALS_FOR_CLASS = {
   None:   [],
-  Light:  ["Cloth","Leather","Scales"],
-  Medium: ["Leather","Scales","Wood"],
-  Heavy:  ["Wood","Minerals","Metals"],
+  Light:  ["Leather","Scales","Cloth","Fur"],
+  Medium: ["Leather","Scales","Chitin","Wood","Bone"],
+  Heavy:  ["Metals"],
 };
-
-const MATERIALS_FOR_INNER = ["Cloth", "Leather"];
+const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Silk", "Fur"];
 const MATERIALS_FOR_BINDING = ["Leather", "Metals"];
 const MATERIALS_FOR_JEWELRY_SETTING = ["Metals"];
 const MATERIALS_FOR_JEWELRY_GEM = ["Minerals"];
@@ -167,6 +166,22 @@ function classBasePerType(cls){
 
 function getMaterialsForCategory(DB, cat){ return DB[cat] || {}; }
 function itemsForCategory(DB, cat){
+  if (cat === 'Metals') {
+    const sources = ['Metals', 'Elemental Metals', 'Metal Alloys'];
+    let combined = [];
+    for (const src of sources) {
+      const obj = getMaterialsForCategory(DB, src);
+      if (Array.isArray(obj)) {
+        combined = combined.concat(obj);
+      } else {
+        for (const list of Object.values(obj || {})) {
+          if (Array.isArray(list)) combined = combined.concat(list);
+        }
+      }
+    }
+    return combined;
+  }
+
   const obj = getMaterialsForCategory(DB, cat);
   if (Array.isArray(obj)) return obj;
   let arr = [];
@@ -238,11 +253,13 @@ function getIconUrl(slotId, cls, shieldType, jewelryType) {
 
   if (jewelryType) {
       const jewelryIcons = {
-          'ring': `${basePath}Jewelery/ring.png`,
-          'earring': `${basePath}Jewelery/earring.png`,
+          'ring1': `${basePath}Jewelery/ring1.png`,
+          'ring2': `${basePath}Jewelery/ring2.png`,
+          'earring1': `${basePath}Jewelery/earring1.png`,
+          'earring2': `${basePath}Jewelery/earring2.png`,
           'amulet': `${basePath}Jewelery/amulet.png`,
       };
-      return jewelryIcons[jewelryType] || fallbackIcon;
+      return jewelryIcons[slotId] || fallbackIcon;
   }
 
   if (slotId === 'shield') {
@@ -688,7 +705,7 @@ function App({ DB }){
                 <div className="grid grid-cols-1 gap-3">
                   <div>
                     <label className="block text-sm mb-1">Weapon</label>
-                    <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponKey} onChange={e=>setWeaponKey(e.target.value)} disabled={armor.shield.shield === 'Sling'}>
+                    <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponKey} onChange={e=>setWeaponKey(e.target.value)}>
                       {Object.keys(WEAPONS).map(k=> <option key={k} value={k}>{k}</option>)}
                     </select>
                     {weapon?.type==='melee' && <div className="text-sm text-slate-300 mt-1">This weapon weighs approximately {weapon.massKilograms} kilograms. The stamina cost to swing is the base cost {weapon.baseCost} plus one times the rounded mass.</div>}
@@ -1254,7 +1271,15 @@ function App({ DB }){
 
 fetch('materials.json', { cache: 'no-cache' })
   .then(response => response.json())
-  .then(db => {
+  .then(async db => {
+    const [elementals, alloys] = await Promise.all([
+      fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
+      fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
+    ]);
+
+    db['Elemental Metals'] = (elementals.elements || []).map(m => ({ name: m.name }));
+    db['Metal Alloys'] = (alloys.elements || []).map(m => ({ name: m.name }));
+
     ReactDOM.createRoot(document.getElementById("root")).render(
       <React.StrictMode><App DB={db} /></React.StrictMode>
     );
