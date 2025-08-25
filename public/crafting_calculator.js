@@ -116,6 +116,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const db = buildMaterialDB(baseMaterials, woodList, stoneList, elementalList, alloyList);
             materialsData = flattenMaterialsDB(db);
+            materialsData.set('dev_material', {
+                id: 'dev_material',
+                name: 'Dev Material',
+                Name: 'Dev Material',
+                rowName: 'dev_material',
+                Category: 'Dev',
+                SubCategory: 'Dev',
+                slash: 1,
+                pierce: 1,
+                blunt: 1,
+                defense_slash: 1,
+                defense_pierce: 1,
+                defense_blunt: 1,
+                fire: 1,
+                water: 1,
+                wind: 1,
+                earth: 1,
+                Density: 1,
+            });
             console.log("Materials processed.");
 
             armorVolumesList.forEach(item => {
@@ -287,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Object.keys(armorVolumesData).forEach(piece => addOption(armorPieceSelect, piece, piece));
 
         const allMaterials = Array.from(materialsData.values());
-        const softMaterials = allMaterials.filter(m => m.Category === 'Leather' || m.Category === 'Cloth');
+        const softMaterials = allMaterials.filter(m => m.Category === 'Leather' || m.Category === 'Cloth' || m.Category === 'Dev');
 
         populateSelectWithOptions(outerMaterialSelect, allMaterials);
         populateSelectWithOptions(innerMaterialSelect, softMaterials);
@@ -376,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const select = document.createElement('select');
         select.id = id;
         select.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
-        const woodMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Wood');
+        const woodMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Wood' || m.Category === 'Dev');
         populateSelectWithOptions(select, woodMaterials);
         return select;
     }
@@ -632,7 +651,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateJewelryDropdowns() {
         if (!jewelryTypeSelect) return;
-        const metalMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Elemental Metals' || m.Category === 'Metal Alloys');
+        const metalMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Elemental Metals' || m.Category === 'Metal Alloys' || m.Category === 'Dev');
         populateSelectWithOptions(jewelryMetalSelect, metalMaterials);
     }
 
