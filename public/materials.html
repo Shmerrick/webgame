@@ -71,13 +71,48 @@
           container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
 
           try {
-            const [itemCats, elementals, alloys] = await Promise.all([
+            const [itemCats, elementals, alloys, stones] = await Promise.all([
               fetch('item_categories.json', { cache: 'no-cache' }).then(r => r.json()),
               fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
-              fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json())
+              fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
+              fetch('stone_types.json', { cache: 'no-cache' }).then(r => r.json())
             ]);
 
             container.innerHTML = '';
+
+            function renderNested(data) {
+              if (Array.isArray(data)) {
+                const ul = document.createElement('ul');
+                ul.className = 'pl-5 list-disc space-y-1';
+                data.forEach(item => {
+                  const li = document.createElement('li');
+                  li.textContent = item;
+                  ul.appendChild(li);
+                });
+                return ul;
+              } else if (data && typeof data === 'object') {
+                const ul = document.createElement('ul');
+                ul.className = 'pl-5 list-disc space-y-1';
+                Object.entries(data).forEach(([key, value]) => {
+                  const li = document.createElement('li');
+                  if (Array.isArray(value) || (value && typeof value === 'object')) {
+                    const span = document.createElement('span');
+                    span.className = 'font-medium';
+                    span.textContent = key;
+                    li.appendChild(span);
+                    li.appendChild(renderNested(value));
+                  } else {
+                    li.innerHTML = `<strong>${key}</strong>: ${value}`;
+                  }
+                  ul.appendChild(li);
+                });
+                return ul;
+              } else {
+                const span = document.createElement('span');
+                span.textContent = data;
+                return span;
+              }
+            }
 
             itemCats.forEach(cat => {
               const section = document.createElement('section');
@@ -101,6 +136,13 @@
                   });
                   subSection.appendChild(ul);
                   section.appendChild(subSection);
+                });
+              } else if (cat === 'Stone') {
+                Object.entries(stones).forEach(([category, details]) => {
+                  const div = document.createElement('div');
+                  div.innerHTML = `<h3 class="text-xl font-medium mt-2">${category}</h3>`;
+                  div.appendChild(renderNested(details));
+                  section.appendChild(div);
                 });
               } else {
                 const p = document.createElement('p');
