@@ -10,6 +10,11 @@
     "Volume_cm3": 100
   },
   {
+    "ShieldType": "Buckler",
+    "Component": "Rim",
+    "Volume_cm3": 50
+  },
+  {
     "ShieldType": "Round Shield",
     "Component": "Body",
     "Volume_cm3": 1000

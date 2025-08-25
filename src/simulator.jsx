@@ -51,6 +51,7 @@ const ARMOR_CLASS = {
 
 const OFFHAND_ITEMS = {
   None:  { class: "None",   strengthRequirement: 0, type: 'shield' },
+  Buckler: { class: "Light", strengthRequirement: 25, type: 'shield' },
   Round: { class: "Light",  strengthRequirement: 50, type: 'shield' },
   Kite:  { class: "Medium", strengthRequirement: 75, type: 'shield' },
   Tower: { class: "Heavy",  strengthRequirement: 100, type: 'shield' },
@@ -270,6 +271,7 @@ function getIconUrl(slotId, cls, shieldType, jewelryType) {
     if (!shieldType || shieldType === 'None') return fallbackIcon;
     const shieldName = shieldType.toLowerCase();
     const shieldIcons = {
+      'buckler': `${basePath}Shields/round.jpg`,
       'round': `${basePath}Shields/round.jpg`,
       'kite': `${basePath}Shields/kite.png`,
       'tower': `${basePath}Shields/tower.jpg`,
