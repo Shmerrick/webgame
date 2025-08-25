@@ -44,19 +44,18 @@
         <div class="flex items-center justify-between flex-wrap">
           <div class="text-xl font-bold tracking-tight">Game Simulator</div>
           <div class="flex flex-wrap gap-4">
-            <a href="/" class="text-slate-300 hover:text-emerald-400">Home</a>
-            <a href="/materials" class="text-slate-300 hover:text-emerald-400">Materials</a>
-            <a href="/simulator" class="text-slate-300 hover:text-emerald-400">Simulator</a>
-            <a href="/combat" class="text-slate-300 hover:text-emerald-400">Combat</a>
-            <a href="/movement" class="text-slate-300 hover:text-emerald-400">Movement</a>
-            <a href="/races" class="text-emerald-400 font-semibold">Races</a>
-            <a href="/ascension" class="text-slate-300 hover:text-emerald-400">Ascension</a>
-              <a href="/magic" class="text-slate-300 hover:text-emerald-400">Magic</a>
-              <a href="/spells" class="text-slate-300 hover:text-emerald-400">Spells</a>
-            <a href="/spells" class="text-slate-300 hover:text-emerald-400">Spells</a>
-            <a href="/crafting" class="text-slate-300 hover:text-emerald-400">Crafting</a>
-            <a href="/siege" class="text-slate-300 hover:text-emerald-400">Siege</a>
-            <a href="/materials_guide" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
+            <a href="/" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Home</a>
+            <a href="/materials" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials</a>
+            <a href="/simulator" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Simulator</a>
+            <a href="/combat" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Combat</a>
+            <a href="/movement" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Movement</a>
+            <a href="/races" class="px-2 py-1 bg-emerald-600 text-white rounded">Races</a>
+            <a href="/ascension" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Ascension</a>
+            <a href="/magic" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Magic</a>
+            <a href="/spells" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Spells</a>
+            <a href="/crafting" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Crafting</a>
+            <a href="/siege" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Siege</a>
+            <a href="/materials_guide" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials Guide</a>
           </div>
         </div>
       </nav>
@@ -71,7 +70,7 @@
       <main class="mt-10 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg break-words">
 
         <section id="core-principles">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">⚔️ Core Design Principles</h2>
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">Core Design Principles</h2>
           <ul class="list-disc text-slate-300 mt-2">
             <li>Races are proficient in one melee weapon type and one elemental magic school at the start.</li>
             <li>Proficiency begins at 50 points (out of 100) in both their weapon and magic.</li>
@@ -83,140 +82,137 @@
         </section>
 
         <section id="races" class="mt-8">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">🌍 The Races</h2>
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">The Races</h2>
 
           <div class="mt-4">
-            <h3 class="text-2xl font-semibold">👤 Humans</h3>
+            <h3 class="text-2xl font-semibold">Humans</h3>
             <ul class="list-disc text-slate-300 mt-2">
               <li><strong>Attributes:</strong> +2 Strength, +2 Intelligence, +2 Dexterity, +2 Psyche.</li>
               <li><strong>Weapon Proficiency:</strong> Swords.</li>
               <li><strong>Magic Proficiency:</strong> Fire.</li>
             </ul>
-            <blockquote class="mt-2">
-              The “baseline” race — not inherently superior in any field, but adaptable. Culturally diverse; no universal homeland or archetype. Viewed neutrally by other races: not hated or admired. Their breadth of capability often frustrates more specialized races, who see humans as “jack of all trades, master of none.”
-            </blockquote>
-          </div>
+              <blockquote class="mt-2">
+                The “baseline” race — not inherently superior in any field, but adaptable. Culturally diverse; no universal homeland or archetype. Viewed neutrally by other races: not hated or admired. Their breadth of capability often frustrates more specialized races, who see humans as “jack of all trades, master of none.”
+              </blockquote>
+              <div class="mt-4">
+                <h4 class="text-xl font-semibold">Human Cultural Subclasses</h4>
+                <ul class="list-disc text-slate-300 mt-2">
+                  <li><strong>Commerce</strong> — Driven by mercantile ambition, they establish vast trade networks that connect disparate cultures, viewing prosperity as the ultimate unifier.</li>
+                  <li><strong>Warfare</strong> — Professional soldiers and strategists who have elevated combat to a science, respected and feared for their tactical discipline.</li>
+                  <li><strong>Culture</strong> — Artists, historians, and diplomats who believe human ingenuity and expression are the keys to lasting influence and understanding.</li>
+                  <li><strong>Science</strong> — Relentless innovators and scholars who seek to unravel the mysteries of the world through empirical study and invention.</li>
+                </ul>
+              </div>
+            </div>
 
           <div class="mt-6">
-            <h3 class="text-2xl font-semibold">⛏ Dwarves</h3>
+            <h3 class="text-2xl font-semibold">Dwarves</h3>
             <ul class="list-disc text-slate-300 mt-2">
               <li><strong>Attributes:</strong> +4 Dexterity, +4 Psyche.</li>
               <li><strong>Weapon Proficiency:</strong> Hammers.</li>
               <li><strong>Magic Proficiency:</strong> Earth.</li>
             </ul>
-            <blockquote class="mt-2">
-              Hardy, reclusive, but kind and bound by a moral code. Self-sustaining societies that live within landscapes (mountains, deserts, forests, tundras). Not limited to caves or mines. Do not go out of their way to contact other races, but respectful when approached. Outcasts are exiled only when they break the social contract of respect and kindness. Their resilience is both physical and mental — a race built for endurance.
-            </blockquote>
-          </div>
+              <blockquote class="mt-2">
+                Hardy, reclusive, but kind and bound by a moral code. Self-sustaining societies that live within landscapes (mountains, deserts, forests, tundras). Not limited to caves or mines. Do not go out of their way to contact other races, but respectful when approached. Outcasts are exiled only when they break the social contract of respect and kindness. Their resilience is both physical and mental — a race built for endurance.
+              </blockquote>
+              <div class="mt-4">
+                <h4 class="text-xl font-semibold">Dwarven Cultural Subclasses</h4>
+                <ul class="list-disc text-slate-300 mt-2">
+                  <li><strong>Masonry & Metalsmithing</strong> — World-renowned artisans who view their craft as a sacred duty to shape the bones of the earth with reverence.</li>
+                  <li><strong>Prospecting & Delving</strong> — Driven by an insatiable curiosity to uncover hidden veins of ore and lost subterranean highways, viewing the underground as a library of history.</li>
+                  <li><strong>Tradition & Law</strong> — The stoic guardians of dwarven custom, who believe that adherence to their ancient moral code is the bedrock of their resilience.</li>
+                  <li><strong>Brewing & Agriculture</strong> — Masters of cultivating hardy mountain crops and brewing legendary ales, fostering community and trade through their craft.</li>
+                </ul>
+              </div>
+            </div>
 
           <div class="mt-6">
-            <h3 class="text-2xl font-semibold">🏹 Elves</h3>
+            <h3 class="text-2xl font-semibold">Elves</h3>
             <ul class="list-disc text-slate-300 mt-2">
               <li><strong>Attributes:</strong> +4 Intelligence, +4 Dexterity.</li>
               <li><strong>Weapon Proficiency:</strong> Bows.</li>
               <li><strong>Magic Proficiency:</strong> Water.</li>
             </ul>
-            <blockquote class="mt-2">
-              Naturally gifted in magic, agility, and subterfuge. Harmonize with nature, though they are often arrogant toward outsiders. Intelligent, cultured, and outwardly diplomatic — though rarely without self-interest. Isolated in their own regions, but more open to trade and interaction than dwarves. Comfortable in both melee and magic — they are not limited to “only” spellcasters.
-            </blockquote>
-          </div>
+              <blockquote class="mt-2">
+                Naturally gifted in magic, agility, and subterfuge. Harmonize with nature, though they are often arrogant toward outsiders. Intelligent, cultured, and outwardly diplomatic — though rarely without self-interest. Isolated in their own regions, but more open to trade and interaction than dwarves. Comfortable in both melee and magic — they are not limited to “only” spellcasters.
+              </blockquote>
+              <div class="mt-4">
+                <h4 class="text-xl font-semibold">Elven Cultural Subclasses</h4>
+                <ul class="list-disc text-slate-300 mt-2">
+                  <li><strong>Naturalism & Harmony</strong> — Seek to live in perfect balance with the natural world, acting as its stewards and drawing strength from its vitality.</li>
+                  <li><strong>Arcane Scholarship</strong> — Devote themselves to the mastery of magic, viewing it as the highest form of intellectual and spiritual expression.</li>
+                  <li><strong>Espionage & Subterfuge</strong> — Serve as the silent protectors of elven interests, using their natural agility and grace to navigate the shadows of diplomacy and conflict.</li>
+                  <li><strong>Artistry & Diplomacy</strong> — Shape culture and politics through their mastery of the arts, wielding beauty and eloquence as tools of influence.</li>
+                </ul>
+              </div>
+            </div>
 
           <div class="mt-6">
-            <h3 class="text-2xl font-semibold">🪓 Orcs</h3>
+            <h3 class="text-2xl font-semibold">Orcs</h3>
             <ul class="list-disc text-slate-300 mt-2">
               <li><strong>Attributes:</strong> +4 Strength, +4 Dexterity.</li>
               <li><strong>Weapon Proficiency:</strong> Axes.</li>
               <li><strong>Magic Proficiency:</strong> Wind.</li>
             </ul>
-            <blockquote class="mt-2">
-              Once a warlike race that clashed with all others, now fractured into subcultures after peace. Fiercely intelligent, but brutal and unsympathetic in how they exploit nature and resources. Strength and survival define leadership; constant tests of might from within. Modern orc societies range from warbands to industrialists, farmers, or spiritualists — all shaped by their opportunistic relationship with the natural world. Seen by others as fractured, unpredictable, but undeniably powerful.
-            </blockquote>
-          </div>
+              <blockquote class="mt-2">
+                Once a warlike race that clashed with all others, now fractured into subcultures after peace. Fiercely intelligent, but brutal and unsympathetic in how they exploit nature and resources. Strength and survival define leadership; constant tests of might from within. Modern orc societies range from warbands to industrialists, farmers, or spiritualists — all shaped by their opportunistic relationship with the natural world. Seen by others as fractured, unpredictable, but undeniably powerful.
+              </blockquote>
+              <div class="mt-4">
+                <h4 class="text-xl font-semibold">Orcish Cultural Subclasses</h4>
+                <ul class="list-disc text-slate-300 mt-2">
+                  <li><strong>Warbands & Raiding</strong> — Cling to the old ways of strength and conquest, believing that power is the only true currency in a fractured world.</li>
+                  <li><strong>Industrial Engineering</strong> — See the raw materials of the world as components for grand machines, pioneering powerful but often brutal technologies.</li>
+                  <li><strong>Shamanism & Rituals</strong> — Commune with the primal spirits of the land, seeking to harness their savage power through ancient rites and elemental bargains.</li>
+                  <li><strong>Agriculture & Husbandry</strong> — Have turned their fierce pragmatism to the land, becoming master survivors who can cultivate life in the harshest of environments.</li>
+                </ul>
+              </div>
+            </div>
 
           <div class="mt-6">
-            <h3 class="text-2xl font-semibold">🗿 Goliaths</h3>
+            <h3 class="text-2xl font-semibold">Goliaths</h3>
             <ul class="list-disc text-slate-300 mt-2">
               <li><strong>Attributes:</strong> +8 Strength, -8 Intelligence, -4 Dexterity.</li>
               <li><strong>Weapon Proficiency:</strong> Spears.</li>
               <li><strong>Magic Proficiency:</strong> Void.</li>
             </ul>
-            <blockquote class="mt-2">
-              Physically unmatched, but slow of mind and rigid in thought. Value order, discipline, and martial hierarchy above all else. Their culture mirrors the factionalism of Warhammer 40K Space Marines — divergent orders with different codes of law and methods of creating order. One subclass operates as Mercenary Orders, who fight for other races only when aligned with their worldview. Coin is accepted but not the primary motivator — they must believe their intervention creates order. They embody the antithesis of the Fae: where the Fae revel in Radiant-driven change, Goliaths ground themselves in Void-driven structure.
-            </blockquote>
-          </div>
+              <blockquote class="mt-2">
+                Physically unmatched, but slow of mind and rigid in thought. Value order, discipline, and martial hierarchy above all else. Their culture mirrors the factionalism of Warhammer 40K Space Marines — divergent orders with different codes of law and methods of creating order. One subclass operates as Mercenary Orders, who fight for other races only when aligned with their worldview. Coin is accepted but not the primary motivator — they must believe their intervention creates order. They embody the antithesis of the Fae: where the Fae revel in Radiant-driven change, Goliaths ground themselves in Void-driven structure.
+              </blockquote>
+              <div class="mt-4">
+                <h4 class="text-xl font-semibold">Goliath Cultural Subclasses</h4>
+                <ul class="list-disc text-slate-300 mt-2">
+                  <li><strong>Mercenary Orders</strong> — Martial companies who hire out only when aligned with their vision of order. Coin alone is never enough.</li>
+                  <li>Other factions mirror different orders of law, discipline, and order-keeping, much like philosophical militaries.</li>
+                  <li>Where the Fae thrive on Radiant change, the Goliaths anchor societies through Void-driven structure.</li>
+                </ul>
+              </div>
+            </div>
 
           <div class="mt-6">
-            <h3 class="text-2xl font-semibold">🧚 Fae</h3>
+            <h3 class="text-2xl font-semibold">Fae</h3>
             <ul class="list-disc text-slate-300 mt-2">
                 <li><strong>Attributes:</strong> +8 Intelligence, -8 Strength, -4 Psyche.</li>
                 <li><strong>Weapon Proficiency:</strong> Daggers.</li>
                 <li><strong>Magic Proficiency:</strong> Radiance.</li>
             </ul>
-            <blockquote class="mt-2">
-                Intrinsically bound to nature, wielding Radiance as a force of creation and enhancement. Radiance amplifies the base elements (fire, water, earth, wind) into healing, transformation, or chaos. Politically self-serving, masters of influence and manipulation, yet fragile in direct conflict. Prefer to have others fight for them rather than taking the battlefield themselves. Not destroyers, but opportunists — reshaping society when it suits them, without caring for permanence. Humans and elves are most vulnerable to their influence; dwarves and orcs are largely immune to their charms.
-            </blockquote>
-          </div>
-        </section>
+              <blockquote class="mt-2">
+                  Intrinsically bound to nature, wielding Radiance as a force of creation and enhancement. Radiance amplifies the base elements (fire, water, earth, wind) into healing, transformation, or chaos. Politically self-serving, masters of influence and manipulation, yet fragile in direct conflict. Prefer to have others fight for them rather than taking the battlefield themselves. Not destroyers, but opportunists — reshaping society when it suits them, without caring for permanence. Humans and elves are most vulnerable to their influence; dwarves and orcs are largely immune to their charms.
+              </blockquote>
+              <div class="mt-4">
+                <h4 class="text-xl font-semibold">Fae Cultural Subclasses</h4>
+                <ul class="list-disc text-slate-300 mt-2">
+                  <li><strong>The Bloomtide</strong> — Life cycles and Radiance-nature synergy. Masters of agriculture, medicine, and “natural shaping.”</li>
+                  <li><strong>The Ember Masque</strong> — Passion, decadence, and cultural upheaval. Use art, philosophy, and indulgence to spark social transformation.</li>
+                  <li><strong>The Luminarchs</strong> — Radiance as pure creation. They see the world as unfinished and constantly seek to “complete” it, often overriding others’ intentions.</li>
+                  <li><strong>The Veilbound</strong> — Subtle manipulators. Political kingmakers who rarely rule directly but engineer power shifts behind the scenes.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
 
-        <section id="subclasses" class="mt-8">
-            <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">Cultural Subclasses</h2>
-            <div class="mt-4">
-                <h4 class="text-xl font-semibold">⛏ Dwarven Cultural Subclasses</h4>
-                <ul class="list-disc text-slate-300 mt-2">
-                    <li><strong>Masonry & Metalsmithing</strong> — World-renowned artisans who view their craft as a sacred duty to shape the bones of the earth with reverence.</li>
-                    <li><strong>Prospecting & Delving</strong> — Driven by an insatiable curiosity to uncover hidden veins of ore and lost subterranean highways, viewing the underground as a library of history.</li>
-                    <li><strong>Tradition & Law</strong> — The stoic guardians of dwarven custom, who believe that adherence to their ancient moral code is the bedrock of their resilience.</li>
-                    <li><strong>Brewing & Agriculture</strong> — Masters of cultivating hardy mountain crops and brewing legendary ales, fostering community and trade through their craft.</li>
-                </ul>
-            </div>
-            <div class="mt-4">
-                <h4 class="text-xl font-semibold">🏹 Elven Cultural Subclasses</h4>
-                <ul class="list-disc text-slate-300 mt-2">
-                    <li><strong>Naturalism & Harmony</strong> — Seek to live in perfect balance with the natural world, acting as its stewards and drawing strength from its vitality.</li>
-                    <li><strong>Arcane Scholarship</strong> — Devote themselves to the mastery of magic, viewing it as the highest form of intellectual and spiritual expression.</li>
-                    <li><strong>Espionage & Subterfuge</strong> — Serve as the silent protectors of elven interests, using their natural agility and grace to navigate the shadows of diplomacy and conflict.</li>
-                    <li><strong>Artistry & Diplomacy</strong> — Shape culture and politics through their mastery of the arts, wielding beauty and eloquence as tools of influence.</li>
-                </ul>
-            </div>
-            <div class="mt-4">
-                <h4 class="text-xl font-semibold">🌌 Fae Cultural Subclasses</h4>
-                <ul class="list-disc text-slate-300 mt-2">
-                    <li><strong>The Bloomtide</strong> — Life cycles and Radiance-nature synergy. Masters of agriculture, medicine, and “natural shaping.”</li>
-                    <li><strong>The Ember Masque</strong> — Passion, decadence, and cultural upheaval. Use art, philosophy, and indulgence to spark social transformation.</li>
-                    <li><strong>The Luminarchs</strong> — Radiance as pure creation. They see the world as unfinished and constantly seek to “complete” it, often overriding others’ intentions.</li>
-                    <li><strong>The Veilbound</strong> — Subtle manipulators. Political kingmakers who rarely rule directly but engineer power shifts behind the scenes.</li>
-                </ul>
-            </div>
-            <div class="mt-4">
-                <h4 class="text-xl font-semibold">⚔️ Goliath Cultural Subclasses</h4>
-                <ul class="list-disc text-slate-300 mt-2">
-                    <li><strong>Mercenary Orders</strong> — Martial companies who hire out only when aligned with their vision of order. Coin alone is never enough.</li>
-                    <li>Other factions mirror different orders of law, discipline, and order-keeping, much like philosophical militaries.</li>
-                    <li>Where the Fae thrive on Radiant change, the Goliaths anchor societies through Void-driven structure.</li>
-                </ul>
-            </div>
-            <div class="mt-4">
-                <h4 class="text-xl font-semibold">👤 Human Cultural Subclasses</h4>
-                <ul class="list-disc text-slate-300 mt-2">
-                    <li><strong>Commerce</strong> — Driven by mercantile ambition, they establish vast trade networks that connect disparate cultures, viewing prosperity as the ultimate unifier.</li>
-                    <li><strong>Warfare</strong> — Professional soldiers and strategists who have elevated combat to a science, respected and feared for their tactical discipline.</li>
-                    <li><strong>Culture</strong> — Artists, historians, and diplomats who believe human ingenuity and expression are the keys to lasting influence and understanding.</li>
-                    <li><strong>Science</strong> — Relentless innovators and scholars who seek to unravel the mysteries of the world through empirical study and invention.</li>
-                </ul>
-            </div>
-            <div class="mt-4">
-                <h4 class="text-xl font-semibold">🪓 Orcish Cultural Subclasses</h4>
-                <ul class="list-disc text-slate-300 mt-2">
-                    <li><strong>Warbands & Raiding</strong> — Cling to the old ways of strength and conquest, believing that power is the only true currency in a fractured world.</li>
-                    <li><strong>Industrial Engineering</strong> — See the raw materials of the world as components for grand machines, pioneering powerful but often brutal technologies.</li>
-                    <li><strong>Shamanism & Rituals</strong> — Commune with the primal spirits of the land, seeking to harness their savage power through ancient rites and elemental bargains.</li>
-                    <li><strong>Agriculture & Husbandry</strong> — Have turned their fierce pragmatism to the land, becoming master survivors who can cultivate life in the harshest of environments.</li>
-                </ul>
-            </div>
-        </section>
 
         <section id="race-dynamics" class="mt-8">
-          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">🌐 General Race Dynamics</h2>
+          <h2 class="text-3xl font-bold border-b border-slate-700 pb-2">General Race Dynamics</h2>
           <ul class="list-disc text-slate-300 mt-2">
             <li>No race is inherently good or evil. Each is self-interested, working for its own survival and influence.</li>
             <li>The current era is peaceful, but political maneuvering, fractured cultures, and opportunism define inter-racial relations.</li>

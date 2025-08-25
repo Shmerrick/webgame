@@ -439,6 +439,7 @@ function App({ DB }){
 
   // Weapon & attack
   const [weaponKey, setWeaponKey] = useState("Sword");
+  const [rangedWeaponKey, setRangedWeaponKey] = useState("None");
   const [direction, setDirection] = useState("Left");
   const [charge, setCharge]       = useState(1.0); // up to 1.5 (heavy at 1.5)
   const [swing, setSwing]         = useState(1.0);
@@ -723,6 +724,12 @@ function App({ DB }){
                       {Object.keys(WEAPONS).map(k=> <option key={k} value={k}>{k}</option>)}
                     </select>
                     {weapon?.type==='melee' && <div className="text-sm text-slate-300 mt-1">This weapon weighs approximately {weapon.massKilograms} kilograms. The stamina cost to swing is the base cost {weapon.baseCost} plus one times the rounded mass.</div>}
+                  </div>
+                  <div>
+                    <label className="block text-sm mb-1">Ranged Weapon</label>
+                    <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={rangedWeaponKey} onChange={e=>setRangedWeaponKey(e.target.value)}>
+                      {['None','Bow','Crossbow','Sling','Throwing'].map(k=> <option key={k} value={k}>{k}</option>)}
+                    </select>
                   </div>
 
                   {weaponKey === 'Bow' ? (
@@ -1014,8 +1021,7 @@ function App({ DB }){
                 <div className="text-sm font-medium">Ranged Weapon</div>
                 <div className="slot-box mt-2 rounded-lg border border-slate-700 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-sm">{weaponKey==='Bow'||weaponKey==='Crossbow'||weaponKey==='Sling'||weaponKey==='Throwing'? weaponKey : 'Not Equipped'}</div>
-                    <div className="text-xs text-slate-400">{weaponKey==='Bow'||weaponKey==='Crossbow'||weaponKey==='Sling'||weaponKey==='Throwing'? (weaponComps.head.material+' head') : ''}</div>
+                    <div className="text-sm">{rangedWeaponKey !== 'None' ? rangedWeaponKey : 'Not Equipped'}</div>
                   </div>
                 </div>
               </div>
@@ -1205,7 +1211,7 @@ async function loadMaterials() {
       })(obj);
       return [...new Set(names)];
     };
-    db['Minerals'] = { A: collectMinerals(stone).map(name => ({ id: slug(name), name })) };
+    db['Minerals'] = collectMinerals(stone).map(name => ({ id: slug(name), name }));
 
     const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
     const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));

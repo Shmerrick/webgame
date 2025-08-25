@@ -5,6 +5,12 @@
     "Long": 0.7,
     "Ultra-Long": 0.5
   },
+  "range_mana_costs": {
+    "Touch": 5,
+    "Short": 10,
+    "Long": 15,
+    "Ultra-Long": 25
+  },
   "elements": {
     "Fire": {
       "Touch": { "description": "Placeholder touch fire spell." },

@@ -1,7 +1,7 @@
 console.log("CRAFTING_CALCULATOR: Script loaded.");
 document.addEventListener('DOMContentLoaded', () => {
     // Common
-    let materialsData = [];
+    let materialsData = new Map();
     let bannedNames = [];
 
     const ARMOR_CLASS = {
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Weapon
     const weaponTypeSelect = document.getElementById('weapon-type');
     const weaponNameInput = document.getElementById('weapon-name');
+    const weaponHandedRadios = document.querySelectorAll('input[name="weapon-handed"]');
     const weaponComponentsDiv = document.getElementById('weapon-components');
     const weaponResultsDiv = document.getElementById('weapon-crafting-results');
     let weaponVolumesData = {};
@@ -83,8 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("CRAFTING_CALCULATOR: loadData function started.");
         try {
             console.log("CRAFTING_CALCULATOR: Starting data load...");
-            // Fetch all data from new JSON files
             const [
+                baseMaterials,
+                woodList,
+                stoneList,
                 elementalList,
                 alloyList,
                 armorVolumesList,
@@ -95,6 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 bannedNamesText,
                 alchemyRecipesList
             ] = await Promise.all([
+                fetch('/materials.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/wood_types.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/stone_types.json', { cache: 'no-cache' }).then(res => res.json()),
                 fetch('/Master_Elemental_Metals.json', { cache: 'no-cache' }).then(res => res.json()),
                 fetch('/Master_Metal_Alloys.json', { cache: 'no-cache' }).then(res => res.json()),
                 fetch('/armor_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
@@ -108,11 +114,10 @@ document.addEventListener('DOMContentLoaded', () => {
             alchemyRecipesData = alchemyRecipesList;
             console.log("CRAFTING_CALCULATOR: All files fetched.");
 
-            // Process materials
-            materialsData = processMaterials(elementalList, alloyList);
+            const db = buildMaterialDB(baseMaterials, woodList, stoneList, elementalList, alloyList);
+            materialsData = flattenMaterialsDB(db);
             console.log("Materials processed.");
 
-            // Restructure armor volumes for easy lookup
             armorVolumesList.forEach(item => {
                 if (!armorVolumesData[item.ArmorPiece]) {
                     armorVolumesData[item.ArmorPiece] = {};
@@ -121,21 +126,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             console.log("Armor volumes processed.");
 
-            // Restructure shield volumes for easy lookup
             shieldVolumesList.forEach(item => {
                 if (!shieldVolumesData[item.ShieldType]) shieldVolumesData[item.ShieldType] = {};
                 shieldVolumesData[item.ShieldType][item.Component] = parseFloat(item.Volume_cm3);
             });
             console.log("Shield volumes processed.");
 
-            // Restructure weapon volumes for easy lookup
             weaponVolumesList.forEach(item => {
                 if (!weaponVolumesData[item.weapon_type]) weaponVolumesData[item.weapon_type] = {};
                 weaponVolumesData[item.weapon_type][item.component_name] = parseFloat(item.volume_cm3);
             });
             console.log("Weapon volumes processed.");
 
-            // Assign other data
             potionIngredientsData = ingredientsList;
             enchantmentRunesData = runesList;
             alchemyRecipesData = alchemyRecipesList;
@@ -160,30 +162,76 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function processMaterials(elementals, alloys) {
-        const materialsMap = new Map();
+    function buildMaterialDB(db, wood, stone, elementals, alloys) {
         const slug = name => name.toLowerCase().replace(/\s+/g, '_');
-        const addMaterial = (m, category) => {
-            const dens = parseFloat(m.density || m.mechanical_properties?.density?.value || 0);
-            const id = slug(m.name);
-            const mat = {
-                ...m,
-                id,
-                Name: m.name,
-                name: m.name,
-                rowName: id,
-                Category: category,
-                slash: 1,
-                pierce: 1,
-                blunt: 1,
-                Density: dens,
-                density: dens
-            };
-            materialsMap.set(id, mat);
+        db['Wood'] = Object.fromEntries(
+            Object.entries(wood).map(([type, list]) => [
+                type,
+                list.map(name => ({ id: slug(name), name }))
+            ])
+        );
+
+        const collectMinerals = (obj) => {
+            const names = [];
+            (function traverse(node) {
+                if (Array.isArray(node)) {
+                    names.push(...node);
+                } else if (node && typeof node === 'object') {
+                    Object.values(node).forEach(traverse);
+                }
+            })(obj);
+            return [...new Set(names)];
         };
-        elementals.elements.forEach(m => addMaterial(m, 'Elemental Metals'));
-        alloys.elements.forEach(m => addMaterial(m, 'Metal Alloys'));
-        return materialsMap;
+        db['Minerals'] = collectMinerals(stone).map(name => ({ id: slug(name), name }));
+
+        const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name, factors: m.factors || {} }));
+        const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name, factors: m.factors || {} }));
+
+        db.Metals = db.Metals || {};
+        db.Metals['Elemental Metals'] = elementalMetals;
+        db.Metals['Metal Alloys'] = alloyMetals;
+
+        const assignIds = obj => {
+            for (const val of Object.values(obj)) {
+                if (Array.isArray(val)) {
+                    val.forEach(m => { if (m.name && !m.id) m.id = slug(m.name); });
+                } else if (val && typeof val === 'object') {
+                    assignIds(val);
+                }
+            }
+        };
+        assignIds(db);
+        return db;
+    }
+
+    function flattenMaterialsDB(db) {
+        const map = new Map();
+        const expandFactors = (m) => {
+            if (!m.factors) return {};
+            const f = m.factors;
+            return {
+                slash: f.slash,
+                pierce: f.pierce,
+                blunt: f.blunt,
+                defense_slash: f.defense_slash,
+                defense_pierce: f.defense_pierce,
+                defense_blunt: f.defense_blunt,
+                fire: f.fire,
+                water: f.water,
+                wind: f.wind,
+                earth: f.earth
+            };
+        };
+        for (const [category, val] of Object.entries(db)) {
+            if (Array.isArray(val)) {
+                val.forEach(m => map.set(m.id, { ...m, ...expandFactors(m), rowName: m.id, Category: category }));
+            } else {
+                for (const [sub, arr] of Object.entries(val)) {
+                    arr.forEach(m => map.set(m.id, { ...m, ...expandFactors(m), rowName: m.id, Category: category, SubCategory: sub }));
+                }
+            }
+        }
+        return map;
     }
 
     function populateAllDropdowns() {
@@ -205,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
             calculateAndDisplayWeaponResults();
         });
         weaponNameInput.addEventListener('change', calculateAndDisplayWeaponResults);
+        weaponHandedRadios.forEach(r => r.addEventListener('change', calculateAndDisplayWeaponResults));
         bowTypeSelect.addEventListener('change', () => {
             populateBowComponents();
             calculateAndDisplayBowResults();
@@ -428,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
         shieldResultsDiv.innerHTML = formatResults(result);
     }
 
-    function formatWeaponResults({ requiredMaterials, totalMass, damageMod, weaponInfo, type, name }) {
+    function formatWeaponResults({ requiredMaterials, totalMass, damageMod, weaponInfo, type, name, handedness }) {
         let materialsList = '';
         for (const matName in requiredMaterials) {
             materialsList += `<li>${matName}: ${requiredMaterials[matName].units.toFixed(2)} units of ${requiredMaterials[matName].name}</li>`;
@@ -456,6 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <h5 class="text-md font-semibold text-emerald-400 mt-2">Item Stats:</h5>
             <p>Estimated Mass: ${totalMass.toFixed(2)} kg</p>
+            <p>Handedness: ${handedness}</p>
         `;
     }
 
@@ -483,12 +533,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const weaponInfo = WEAPONS[type];
 
+        const handedness = document.querySelector('input[name="weapon-handed"]:checked').value;
+
         weaponResultsDiv.innerHTML = formatWeaponResults({
             ...result,
             damageMod,
             weaponInfo,
             type,
             name: weaponName,
+            handedness,
         });
     }
 
