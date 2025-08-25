@@ -197,27 +197,33 @@ function firstMaterial(DB, cat, subCat){
 }
 function factorsFor(DB, cat, materialName){
   const items = itemsForCategory(DB, cat);
-  for (const m of items){ if (m.name === materialName) return m; }
+  for (const m of items){
+    if (m.name === materialName){
+      return m.factors || m;
+    }
+  }
   return null;
 }
 
 // Weighted 80% outer, 15% inner, 5% binding; multiplied by armor-class base DRs
 function effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory, innerMaterialName, bindingCategory, bindingMaterialName, isShield=false){
   const base = classBasePerType(cls);
+  const zero = { slash:0, pierce:0, blunt:0, defense_slash:0, defense_pierce:0, defense_blunt:0, fire:0, water:0, wind:0, earth:0 };
   let outerFac = null;
   if (isShield){
     const anyWood = itemsForCategory(DB, "Wood")[0] || null;
-    outerFac = anyWood ? anyWood : { slash:0, pierce:0, blunt:0, defense_slash:0, defense_pierce:0, defense_blunt:0, fire:0, water:0, wind:0, earth:0 };
+    outerFac = anyWood?.factors || zero;
   } else {
-    outerFac = factorsFor(DB, outerCategory, materialName) || { slash:0, pierce:0, blunt:0, defense_slash:0, defense_pierce:0, defense_blunt:0, fire:0, water:0, wind:0, earth:0 };
+    outerFac = factorsFor(DB, outerCategory, materialName) || zero;
   }
-  const innerFac = factorsFor(DB, innerCategory, innerMaterialName) || { slash:0, pierce:0, blunt:0, defense_slash:0, defense_pierce:0, defense_blunt:0, fire:0, water:0, wind:0, earth:0 };
-  const bindFac  = factorsFor(DB, bindingCategory, bindingMaterialName) || { slash:0, pierce:0, blunt:0, defense_slash:0, defense_pierce:0, defense_blunt:0, fire:0, water:0, wind:0, earth:0 };
+  const innerFac = factorsFor(DB, innerCategory, innerMaterialName) || zero;
+  const bindFac  = factorsFor(DB, bindingCategory, bindingMaterialName) || zero;
   const wOuter=0.80, wInner=0.15, wBind=0.05;
+  const physMul = (f, type) => (f?.[type] || 0) * (f?.[`defense_${type}`] || 0);
   const comb = {
-    blunt: outerFac.defense_blunt*wOuter + innerFac.defense_blunt*wInner + bindFac.defense_blunt*wBind,
-    slash: outerFac.defense_slash*wOuter + innerFac.defense_slash*wInner + bindFac.defense_slash*wBind,
-    pierce: outerFac.defense_pierce*wOuter + innerFac.defense_pierce*wInner + bindFac.defense_pierce*wBind,
+    blunt: physMul(outerFac,'blunt')*wOuter + physMul(innerFac,'blunt')*wInner + physMul(bindFac,'blunt')*wBind,
+    slash: physMul(outerFac,'slash')*wOuter + physMul(innerFac,'slash')*wInner + physMul(bindFac,'slash')*wBind,
+    pierce: physMul(outerFac,'pierce')*wOuter + physMul(innerFac,'pierce')*wInner + physMul(bindFac,'pierce')*wBind,
     fire: (outerFac.fire||0)*wOuter + (innerFac.fire||0)*wInner + (bindFac.fire||0)*wBind,
     water: (outerFac.water||0)*wOuter + (innerFac.water||0)*wInner + (bindFac.water||0)*wBind,
     wind: (outerFac.wind||0)*wOuter + (innerFac.wind||0)*wInner + (bindFac.wind||0)*wBind,
