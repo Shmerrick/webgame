@@ -1,7 +1,99 @@
 {
   "Cloth": {},
-  "Leather": {},
-  "Scales": {},
+  "Leather": {
+    "Reptile": [
+      { "name": "Crocodile" },
+      { "name": "Alligator" },
+      { "name": "Caiman" },
+      { "name": "Lizard" },
+      { "name": "Python" }
+    ],
+    "Mammal": [
+      { "name": "Cow" },
+      { "name": "Sheep" },
+      { "name": "Goat" },
+      { "name": "Pig" },
+      { "name": "Deer" }
+    ],
+    "Avian": [
+      { "name": "Ostrich" },
+      { "name": "Emu" },
+      { "name": "Rhea" },
+      { "name": "Turkey" },
+      { "name": "Chicken" }
+    ]
+  },
+  "Herbs": [
+    { "name": "Basil" },
+    { "name": "Parsley" },
+    { "name": "Cilantro" },
+    { "name": "Mint" },
+    { "name": "Dill" },
+    { "name": "Chives" },
+    { "name": "Thyme" },
+    { "name": "Rosemary" },
+    { "name": "Oregano" },
+    { "name": "Sage" },
+    { "name": "Tarragon" },
+    { "name": "Marjoram" },
+    { "name": "Bay leaf" },
+    { "name": "Chervil" },
+    { "name": "Lemongrass" },
+    { "name": "Curry leaf" },
+    { "name": "Fennel" },
+    { "name": "Sorrel" },
+    { "name": "Lovage" },
+    { "name": "Summer savory" },
+    { "name": "Makrut lime leaf" },
+    { "name": "Epazote" },
+    { "name": "Shiso" },
+    { "name": "Lemon balm" },
+    { "name": "Culantro" }
+  ],
+  "Carapace": {
+    "Arthropod": [
+      { "name": "Malacostraca Decapoda" },
+      { "name": "Insecta" },
+      { "name": "Chelicerata" },
+      { "name": "Cirripedia" }
+    ],
+    "Reptile": [
+      { "name": "Testudines" },
+      { "name": "Crocodylia" }
+    ],
+    "Mollusk": [
+      { "name": "Bivalvia" },
+      { "name": "Polyplacophora" },
+      { "name": "Cephalopoda" }
+    ],
+    "Echinoderm": [
+      { "name": "Echinoidea" }
+    ],
+    "Mammal": [
+      { "name": "Cingulata" }
+    ],
+    "Fish": [
+      { "name": "Actinopterygii" }
+    ]
+  },
+  "Scales": {
+    "Fish": [
+      { "name": "Placoid" },
+      { "name": "Ganoid" },
+      { "name": "Cycloid" },
+      { "name": "Ctenoid" },
+      { "name": "Cosmoid" }
+    ],
+    "Reptile": [
+      { "name": "Imbricate" },
+      { "name": "Keeled" },
+      { "name": "Granular" }
+    ],
+    "Bird": [
+      { "name": "Scutate" },
+      { "name": "Reticulate" }
+    ]
+  },
   "Wood": {},
   "Minerals": {},
   "Metals": {
