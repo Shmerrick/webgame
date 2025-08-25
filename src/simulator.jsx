@@ -103,6 +103,7 @@ const MATERIALS_FOR_HANDLE_CORE = ["Wood", "Metals", "Dev"];
 const MATERIALS_FOR_HANDLE_GRIP = ["Cloth", "Leather", "Dev"];
 const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Minerals", "Dev"];
 const MATERIALS_FOR_HEAD = ["Metals", "Minerals", "Wood", "Dev"];
+const BANNED_WEAPON_HEAD_MATERIALS = ["Carapace", "Cloth", "Fur", "Herbs", "Leather", "Linen", "Scales"];
 
 const DIRECTIONS = ["Left","Right","Up","Down"];
 
@@ -645,10 +646,11 @@ function App({ DB }){
 
   const setSkill = (name, val)=> setSkillBound(name, val);
 
-  function MaterialSelect({ allowed, value, onChange, disabled=false }) {
+  function MaterialSelect({ allowed, value, onChange, disabled=false, exclude=[] }) {
     const categories = allowed.slice().sort();
     const subCats = subcategoriesFor(DB, value.category);
-    const materials = itemsForCategory(DB, value.category, value.subCategory);
+    const materials = itemsForCategory(DB, value.category, value.subCategory)
+      .filter(m => !exclude.includes(m.name));
     return (
       <div className="grid grid-cols-1 gap-2">
         <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={value.category} onChange={e=>{
@@ -767,7 +769,7 @@ function App({ DB }){
                       </div>
                       <div>
                         <label className="block text-sm mb-1">Weapon Head Material</label>
-                        <MaterialSelect allowed={MATERIALS_FOR_HEAD} value={weaponComps.head} onChange={val=>setWeaponComp('head', val)} />
+                        <MaterialSelect allowed={MATERIALS_FOR_HEAD} exclude={BANNED_WEAPON_HEAD_MATERIALS} value={weaponComps.head} onChange={val=>setWeaponComp('head', val)} />
                       </div>
                     </div>
                   )}

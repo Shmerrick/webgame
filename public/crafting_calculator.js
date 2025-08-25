@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
         Medium: { physical: 0.65, magical: 0.65 },
         Heavy:  { physical: 0.85, magical: 0.85 },
     };
+    const MATERIALS_FOR_CLASS = {
+        None:   [],
+        Light:  ["Leather","Scales","Cloth","Fur","Dev"],
+        Medium: ["Leather","Scales","Carapace","Wood","Bone","Dev"],
+        Heavy:  ["Metals","Dev"],
+    };
+    const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Silk", "Fur", "Dev"];
+    const MATERIALS_FOR_BINDING = ["Leather", "Metals", "Dev"];
+    const MATERIALS_FOR_JEWELRY_SETTING = ["Metals", "Dev"];
+    const MATERIALS_FOR_JEWELRY_GEM = ["Minerals", "Dev"];
 
     // Armor
     const armorPieceSelect = document.getElementById('armor-piece');
@@ -84,6 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
         Polesword: { type: "melee", massKilograms: 5, baseCost: 35, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.25 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Slash" } },
         Poleaxe: { type: "melee", massKilograms: 6, baseCost: 40, head: { Blunt: 0.25, Slash: 0.30, Pierce: 0.15 }, direction: { Left: "Slash", Right: "Blunt", Up: "Pierce", Down: "Slash" } },
     };
+
+    const MATERIALS_FOR_HANDLE_CORE = ["Wood", "Metals", "Dev"];
+    const MATERIALS_FOR_HANDLE_GRIP = ["Cloth", "Leather", "Dev"];
+    const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Minerals", "Dev"];
+    const MATERIALS_FOR_HEAD = ["Metals", "Minerals", "Wood", "Dev"];
+    const BANNED_WEAPON_HEAD_MATERIALS = ["Carapace", "Cloth", "Fur", "Herbs", "Leather", "Linen", "Scales"];
 
     // Fetch and process data
     async function loadData() {
@@ -336,20 +352,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const allMaterials = Array.from(materialsData.values());
         const allCategories = [...new Set(allMaterials.map(m => m.Category))].sort();
-        allCategories.forEach(cat => addOption(outerCategorySelect, cat, cat));
 
-        const softCategories = ['Leather','Cloth','Dev'];
-        softCategories.forEach(cat => { if(allCategories.includes(cat)) addOption(innerCategorySelect, cat, cat); });
-        softCategories.forEach(cat => { if(allCategories.includes(cat)) addOption(bindingCategorySelect, cat, cat); });
+        const updateOuterCategories = () => {
+            outerCategorySelect.innerHTML = '';
+            const allowed = MATERIALS_FOR_CLASS[armorClassSelect.value] || [];
+            allowed.forEach(cat => { if(allCategories.includes(cat)) addOption(outerCategorySelect, cat, cat); });
+            const mats = allMaterials.filter(m => m.Category === outerCategorySelect.value);
+            populateSelectWithOptions(outerMaterialSelect, mats);
+        };
+
+        MATERIALS_FOR_INNER.forEach(cat => { if(allCategories.includes(cat)) addOption(innerCategorySelect, cat, cat); });
+        MATERIALS_FOR_BINDING.forEach(cat => { if(allCategories.includes(cat)) addOption(bindingCategorySelect, cat, cat); });
 
         const populateByCat = (catSel, matSel) => {
             const mats = allMaterials.filter(m => m.Category === catSel.value);
             populateSelectWithOptions(matSel, mats);
         };
 
-        populateByCat(outerCategorySelect, outerMaterialSelect);
+        updateOuterCategories();
         populateByCat(innerCategorySelect, innerMaterialSelect);
         populateByCat(bindingCategorySelect, bindingMaterialSelect);
+
+        armorClassSelect.addEventListener('change', () => {
+            updateOuterCategories();
+            calculateAndDisplayArmorResults();
+        });
     }
 
     function populateShieldDropdowns() {
@@ -434,23 +461,39 @@ document.addEventListener('DOMContentLoaded', () => {
         const allMaterials = Array.from(materialsData.values());
         const allCategories = [...new Set(allMaterials.map(m => m.Category))].sort();
 
+        const isHeadComponent = name => {
+            const l = name.toLowerCase();
+            return ['head','blade','pouch','bow'].some(k => l.includes(k));
+        };
+        const allowedCategoriesFor = name => {
+            const l = name.toLowerCase();
+            if (['handle','shaft','stock'].some(k => l.includes(k))) return MATERIALS_FOR_HANDLE_CORE;
+            if (['grip','cord','string'].some(k => l.includes(k))) return MATERIALS_FOR_HANDLE_GRIP;
+            if (['guard','pommel','butt'].some(k => l.includes(k))) return MATERIALS_FOR_HANDLE_FITTING;
+            if (isHeadComponent(name)) return MATERIALS_FOR_HEAD;
+            return allCategories;
+        };
+
         Object.keys(weaponVolumesData[type]).forEach(comp => {
             const slug = comp.toLowerCase().replace(' ', '-');
             const catId = `weapon-comp-${slug}-category`;
             const matId = `weapon-comp-${slug}-material`;
+            const headComp = isHeadComponent(comp);
+            const allowedCats = allowedCategoriesFor(comp);
 
             const catLabel = createLabel(`${comp} Category`, catId);
             const catSelect = document.createElement('select');
             catSelect.id = catId;
             catSelect.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
-            allCategories.forEach(cat => addOption(catSelect, cat, cat));
+            allowedCats.forEach(cat => addOption(catSelect, cat, cat));
 
             const matLabel = createLabel(comp, matId);
-            const initialMats = allMaterials.filter(m => m.Category === catSelect.value);
+            const initialMats = allMaterials.filter(m => m.Category === catSelect.value && (!headComp || !BANNED_WEAPON_HEAD_MATERIALS.includes(m.name)));
             const matSelect = createMaterialSelect(matId, initialMats);
 
             catSelect.addEventListener('change', () => {
-                const mats = allMaterials.filter(m => m.Category === catSelect.value);
+                let mats = allMaterials.filter(m => m.Category === catSelect.value);
+                if (headComp) mats = mats.filter(m => !BANNED_WEAPON_HEAD_MATERIALS.includes(m.name));
                 populateSelectWithOptions(matSelect, mats);
                 calculateAndDisplayWeaponResults();
             });
