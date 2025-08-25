@@ -14,8 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const armorPieceSelect = document.getElementById('armor-piece');
     const armorClassSelect = document.getElementById('armor-class');
     const armorNameInput = document.getElementById('armor-name');
+    const outerCategorySelect = document.getElementById('outer-category');
     const outerMaterialSelect = document.getElementById('outer-material');
+    const innerCategorySelect = document.getElementById('inner-category');
     const innerMaterialSelect = document.getElementById('inner-material');
+    const bindingCategorySelect = document.getElementById('binding-category');
     const bindingMaterialSelect = document.getElementById('binding-material');
     const armorResultsDiv = document.getElementById('crafting-results');
     let armorVolumesData = {};
@@ -266,7 +269,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupAllEventListeners() {
-        [armorPieceSelect, armorClassSelect, outerMaterialSelect, innerMaterialSelect, bindingMaterialSelect, armorNameInput].forEach(el => el.addEventListener('change', calculateAndDisplayArmorResults));
+        [armorPieceSelect, armorClassSelect, outerMaterialSelect, innerMaterialSelect, bindingMaterialSelect, armorNameInput, outerCategorySelect, innerCategorySelect, bindingCategorySelect].forEach(el => el.addEventListener('change', () => {
+            if (el === outerCategorySelect) {
+                const mats = Array.from(materialsData.values()).filter(m => m.Category === outerCategorySelect.value);
+                populateSelectWithOptions(outerMaterialSelect, mats);
+            }
+            if (el === innerCategorySelect) {
+                const mats = Array.from(materialsData.values()).filter(m => m.Category === innerCategorySelect.value);
+                populateSelectWithOptions(innerMaterialSelect, mats);
+            }
+            if (el === bindingCategorySelect) {
+                const mats = Array.from(materialsData.values()).filter(m => m.Category === bindingCategorySelect.value);
+                populateSelectWithOptions(bindingMaterialSelect, mats);
+            }
+            calculateAndDisplayArmorResults();
+        }));
         [shieldTypeSelect, shieldBodyMaterialSelect, shieldBossMaterialSelect, shieldRimMaterialSelect].forEach(el => el.addEventListener('change', calculateAndDisplayShieldResults));
         weaponTypeSelect.addEventListener('change', () => {
             populateWeaponComponents();
@@ -304,14 +321,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function populateArmorDropdowns() {
+        armorPieceSelect.innerHTML = '';
+        outerCategorySelect.innerHTML = '';
+        innerCategorySelect.innerHTML = '';
+        bindingCategorySelect.innerHTML = '';
+
         Object.keys(armorVolumesData).forEach(piece => addOption(armorPieceSelect, piece, piece));
 
         const allMaterials = Array.from(materialsData.values());
-        const softMaterials = allMaterials.filter(m => m.Category === 'Leather' || m.Category === 'Cloth' || m.Category === 'Dev');
+        const allCategories = [...new Set(allMaterials.map(m => m.Category))].sort();
+        allCategories.forEach(cat => addOption(outerCategorySelect, cat, cat));
 
-        populateSelectWithOptions(outerMaterialSelect, allMaterials);
-        populateSelectWithOptions(innerMaterialSelect, softMaterials);
-        populateSelectWithOptions(bindingMaterialSelect, softMaterials);
+        const softCategories = ['Leather','Cloth','Dev'];
+        softCategories.forEach(cat => { if(allCategories.includes(cat)) addOption(innerCategorySelect, cat, cat); });
+        softCategories.forEach(cat => { if(allCategories.includes(cat)) addOption(bindingCategorySelect, cat, cat); });
+
+        const populateByCat = (catSel, matSel) => {
+            const mats = allMaterials.filter(m => m.Category === catSel.value);
+            populateSelectWithOptions(matSel, mats);
+        };
+
+        populateByCat(outerCategorySelect, outerMaterialSelect);
+        populateByCat(innerCategorySelect, innerMaterialSelect);
+        populateByCat(bindingCategorySelect, bindingMaterialSelect);
     }
 
     function populateShieldDropdowns() {
@@ -458,10 +490,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const wOuter = 0.80, wInner = 0.15, wBind = 0.05;
-        const combinedSlash = (parseFloat(outerMat.defense_slash) * wOuter) + (parseFloat(innerMat.defense_slash) * wInner) + (parseFloat(bindingMat.defense_slash) * wBind);
-        const combinedPierce = (parseFloat(outerMat.defense_pierce) * wOuter) + (parseFloat(innerMat.defense_pierce) * wInner) + (parseFloat(bindingMat.defense_pierce) * wBind);
-        const combinedBlunt = (parseFloat(outerMat.defense_blunt) * wOuter) + (parseFloat(innerMat.defense_blunt) * wInner) + (parseFloat(bindingMat.defense_blunt) * wBind);
-        const combinedMagic = (parseFloat(outerMat.magic) * wOuter) + (parseFloat(innerMat.magic) * wInner) + (parseFloat(bindingMat.magic) * wBind);
+        const physMul = (m, type) => (parseFloat(m[type]) || 0) * (parseFloat(m[`defense_${type}`]) || 0);
+        const outerPhys = { slash: physMul(outerMat,'slash'), pierce: physMul(outerMat,'pierce'), blunt: physMul(outerMat,'blunt') };
+        const innerPhys = { slash: physMul(innerMat,'slash'), pierce: physMul(innerMat,'pierce'), blunt: physMul(innerMat,'blunt') };
+        const bindPhys  = { slash: physMul(bindingMat,'slash'), pierce: physMul(bindingMat,'pierce'), blunt: physMul(bindingMat,'blunt') };
+        const avgMagic = m => ((parseFloat(m.fire)||0)+(parseFloat(m.water)||0)+(parseFloat(m.wind)||0)+(parseFloat(m.earth)||0))/4;
+        const combinedSlash = (outerPhys.slash * wOuter) + (innerPhys.slash * wInner) + (bindPhys.slash * wBind);
+        const combinedPierce = (outerPhys.pierce * wOuter) + (innerPhys.pierce * wInner) + (bindPhys.pierce * wBind);
+        const combinedBlunt = (outerPhys.blunt * wOuter) + (innerPhys.blunt * wInner) + (bindPhys.blunt * wBind);
+        const combinedMagic = (avgMagic(outerMat) * wOuter) + (avgMagic(innerMat) * wInner) + (avgMagic(bindingMat) * wBind);
 
         const base = ARMOR_CLASS[armorClass];
         const defenses = {
