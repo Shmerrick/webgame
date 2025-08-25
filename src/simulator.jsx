@@ -1190,10 +1190,9 @@ function App({ DB }){
 
 async function loadMaterials() {
   try {
-    const [db, wood, stone, elementals, alloys] = await Promise.all([
+    const [db, wood, elementals, alloys] = await Promise.all([
       getDatabaseSection('materials'),
       getDatabaseSection('woodTypes'),
-      getDatabaseSection('stoneTypes'),
       getDatabaseSection('elementalMetals'),
       getDatabaseSection('metalAlloys'),
     ]);
@@ -1206,18 +1205,29 @@ async function loadMaterials() {
       ])
     );
 
-    const collectMinerals = (obj) => {
-      const names = [];
-      (function traverse(node) {
-        if (Array.isArray(node)) {
-          names.push(...node);
-        } else if (node && typeof node === 'object') {
-          Object.values(node).forEach(traverse);
-        }
-      })(obj);
-      return [...new Set(names)];
+    const silicateMinerals = [
+      'Amphibole',
+      'Biotite',
+      'Feldspar',
+      'Hornblende',
+      'Mica',
+      'Olivine',
+      'Plagioclase',
+      'Pyroxene',
+      'Quartz',
+      'Clay Minerals'
+    ];
+    const nonSilicateMinerals = [
+      'Aragonite',
+      'Calcite',
+      'Dolomite',
+      'Chert',
+      'Silica'
+    ];
+    db['Minerals'] = {
+      'Silicate Minerals': silicateMinerals.map(name => ({ id: slug(name), name })),
+      'Non-Silicate Minerals': nonSilicateMinerals.map(name => ({ id: slug(name), name }))
     };
-    db['Minerals'] = collectMinerals(stone).map(name => ({ id: slug(name), name }));
 
     const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
     const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
