@@ -949,67 +949,67 @@
       "electronegativity_pauling": 1.83,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 370,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 170,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 211,
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 4,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 490,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 608,
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 7.874,
           "units": "g/cm³"
         },
         "melting_point": {
-          "value": null,
+          "value": 1538,
           "units": "°C"
         },
         "boiling_point": {
-          "value": null,
+          "value": 2862,
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 80.4,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
-          "value": null,
+          "value": 11.8,
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0.449,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
-          "value": null,
+          "value": 13.81,
           "units": "kJ/mol"
         },
         "heat_of_vaporization": {
-          "value": null,
+          "value": 340,
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 96.1,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
-          "value": null,
+          "value": 0.001,
           "units": "cm³/mol"
         }
       }
