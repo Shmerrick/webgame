@@ -81,18 +81,15 @@
 
             container.innerHTML = '';
 
-            function firstWord(str) {
-              return str.split(/[\s(]/)[0];
-            }
+            // Each material entry should use a single canonical name with no parentheses or slashes.
 
-            function renderNested(data, singleName = false) {
+            function renderNested(data) {
               if (Array.isArray(data)) {
                 const ul = document.createElement('ul');
                 ul.className = 'pl-5 list-disc space-y-1';
                 data.forEach(item => {
                   const li = document.createElement('li');
-                  const text = singleName && typeof item === 'string' ? firstWord(item) : item;
-                  li.textContent = text;
+                  li.textContent = item;
                   ul.appendChild(li);
                 });
                 return ul;
@@ -101,15 +98,14 @@
                 ul.className = 'pl-5 list-disc space-y-1';
                 Object.entries(data).forEach(([key, value]) => {
                   const li = document.createElement('li');
-                  const displayKey = singleName ? firstWord(key) : key;
                   if (Array.isArray(value) || (value && typeof value === 'object')) {
                     const span = document.createElement('span');
                     span.className = 'font-medium';
-                    span.textContent = displayKey;
+                    span.textContent = key;
                     li.appendChild(span);
-                    li.appendChild(renderNested(value, singleName));
+                    li.appendChild(renderNested(value));
                   } else {
-                    li.innerHTML = `<strong>${displayKey}</strong>: ${value}`;
+                    li.innerHTML = `<strong>${key}</strong>: ${value}`;
                   }
                   ul.appendChild(li);
                 });
@@ -152,9 +148,9 @@
                   const detailsEl = document.createElement('details');
                   const summary = document.createElement('summary');
                   summary.className = 'text-xl font-medium mt-2 cursor-pointer';
-                  summary.textContent = firstWord(category);
+                  summary.textContent = category;
                   detailsEl.appendChild(summary);
-                  detailsEl.appendChild(renderNested(details, true));
+                  detailsEl.appendChild(renderNested(details));
                   section.appendChild(detailsEl);
                 });
               } else if (cat === 'Wood') {
