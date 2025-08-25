@@ -1,7 +1,7 @@
 {
   "materials": "materials.json",
   "woodTypes": "wood_types.json",
-  "stoneTypes": "stone_types.json",
+  "rockTypes": "rock_types.json",
   "elementalMetals": "Master_Elemental_Metals.json",
   "metalAlloys": "Master_Metal_Alloys.json",
   "armorVolumes": "armor_volumes.json",

@@ -75,11 +75,12 @@
           container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
 
           try {
-            const [db, woods, elementals, alloys] = await Promise.all([
+            const [db, woods, elementals, alloys, rocks] = await Promise.all([
               getDatabaseSection('materials'),
               getDatabaseSection('woodTypes'),
               getDatabaseSection('elementalMetals'),
-              getDatabaseSection('metalAlloys')
+              getDatabaseSection('metalAlloys'),
+              getDatabaseSection('rockTypes')
             ]);
 
             const slug = name => name.toLowerCase().replace(/\s+/g, '_');
@@ -92,29 +93,7 @@
               ])
             );
 
-            const silicateMinerals = [
-              'Amphibole',
-              'Biotite',
-              'Feldspar',
-              'Hornblende',
-              'Mica',
-              'Olivine',
-              'Plagioclase',
-              'Pyroxene',
-              'Quartz',
-              'Clay Minerals'
-            ];
-            const nonSilicateMinerals = [
-              'Aragonite',
-              'Calcite',
-              'Dolomite',
-              'Chert',
-              'Silica'
-            ];
-            db['Minerals'] = {
-              'Silicate Minerals': silicateMinerals.map(name => ({ id: slug(name), name })),
-              'Non-Silicate Minerals': nonSilicateMinerals.map(name => ({ id: slug(name), name }))
-            };
+            db['Rock Types'] = rocks;
             const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
             const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
             db.Metals = db.Metals || {};
@@ -207,32 +186,35 @@
             Object.keys(db)
               .sort()
               .forEach(cat => {
-                const section = document.createElement('section');
-                section.innerHTML = `<h2 class="text-2xl font-semibold mb-2">${cat}</h2>`;
+                const details = document.createElement('details');
+                const summary = document.createElement('summary');
+                summary.className = 'text-2xl font-semibold mb-2 cursor-pointer';
+                summary.textContent = cat;
+                details.appendChild(summary);
                 const data = db[cat];
 
                 if (Array.isArray(data)) {
-                  section.appendChild(renderNested(data));
+                  details.appendChild(renderNested(data));
                 } else if (data && typeof data === 'object') {
                   Object.keys(data)
                     .sort()
                     .forEach(sub => {
-                      const detailsEl = document.createElement('details');
-                      const summary = document.createElement('summary');
-                      summary.className = 'text-xl font-medium mt-2 cursor-pointer';
-                      summary.textContent = sub;
-                      detailsEl.appendChild(summary);
-                      detailsEl.appendChild(renderNested(data[sub]));
-                      section.appendChild(detailsEl);
+                      const subDetails = document.createElement('details');
+                      const subSummary = document.createElement('summary');
+                      subSummary.className = 'text-xl font-medium mt-2 cursor-pointer';
+                      subSummary.textContent = sub;
+                      subDetails.appendChild(subSummary);
+                      subDetails.appendChild(renderNested(data[sub]));
+                      details.appendChild(subDetails);
                     });
                 } else {
                   const p = document.createElement('p');
                   p.className = 'text-slate-400';
                   p.textContent = 'No materials listed.';
-                  section.appendChild(p);
+                  details.appendChild(p);
                 }
 
-                container.appendChild(section);
+                container.appendChild(details);
               });
           } catch (err) {
             console.error('Failed to load materials', err);

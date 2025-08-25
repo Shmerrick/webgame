@@ -70,10 +70,10 @@ const MATERIALS_FOR_CLASS = {
   Medium: ["Leather","Scales","Carapace","Wood","Bone","Dev"],
   Heavy:  ["Metals","Dev"],
 };
-const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Silk", "Fur", "Dev"];
-const MATERIALS_FOR_BINDING = ["Leather", "Metals", "Dev"];
+const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Fur", "Dev"];
+const MATERIALS_FOR_BINDING = ["Leather", "Dev"];
 const MATERIALS_FOR_JEWELRY_SETTING = ["Metals", "Dev"];
-const MATERIALS_FOR_JEWELRY_GEM = ["Minerals", "Dev"];
+const MATERIALS_FOR_JEWELRY_GEM = ["Rock Types", "Dev"];
 
 // Weapons
 const WEAPONS = {
@@ -101,8 +101,8 @@ const BOW_TYPES = {
 
 const MATERIALS_FOR_HANDLE_CORE = ["Wood", "Metals", "Dev"];
 const MATERIALS_FOR_HANDLE_GRIP = ["Cloth", "Leather", "Dev"];
-const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Minerals", "Dev"];
-const MATERIALS_FOR_HEAD = ["Metals", "Minerals", "Wood", "Dev"];
+const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Rock Types", "Dev"];
+const MATERIALS_FOR_HEAD = ["Metals", "Rock Types", "Wood", "Dev"];
 const BANNED_WEAPON_HEAD_MATERIALS = ["Carapace", "Cloth", "Fur", "Herbs", "Leather", "Linen", "Scales"];
 
 const DIRECTIONS = ["Left","Right","Up","Down"];
@@ -315,6 +315,18 @@ function getIconUrl(slotId, cls, shieldType, jewelryType) {
   }
 }
 
+function getRangedWeaponIcon(weaponKey) {
+  const basePath = 'Art/Icons/';
+  const fallbackIcon = `${basePath}404.png`;
+  const icons = {
+    Bow: `${basePath}404.png`,
+    Crossbow: `${basePath}404.png`,
+    Sling: `${basePath}404.png`,
+    Throwing: `${basePath}404.png`,
+  };
+  return icons[weaponKey] || fallbackIcon;
+}
+
 function App({ DB }){
   // Character
   const [raceId, setRaceId] = useState("human");
@@ -426,11 +438,11 @@ function App({ DB }){
     torso:  { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Cloth", innerSubCategory:firstSubCat("Cloth"), innerMaterial:firstMat("Cloth", firstSubCat("Cloth")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
     legs:   { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Cloth", innerSubCategory:firstSubCat("Cloth"), innerMaterial:firstMat("Cloth", firstSubCat("Cloth")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
     shield: { shield:"None" },
-    ring1: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Minerals", gemSubCategory:firstSubCat("Minerals"), gemMaterial:firstMat("Minerals", firstSubCat("Minerals")), bonus: 1, attribute: 'Strength' },
-    ring2: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Minerals", gemSubCategory:firstSubCat("Minerals"), gemMaterial:firstMat("Minerals", firstSubCat("Minerals")), bonus: 1, attribute: 'Strength' },
-    earring1: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Minerals", gemSubCategory:firstSubCat("Minerals"), gemMaterial:firstMat("Minerals", firstSubCat("Minerals")), bonus: 1, attribute: 'Dexterity' },
-    earring2: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Minerals", gemSubCategory:firstSubCat("Minerals"), gemMaterial:firstMat("Minerals", firstSubCat("Minerals")), bonus: 1, attribute: 'Dexterity' },
-    amulet: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Minerals", gemSubCategory:firstSubCat("Minerals"), gemMaterial:firstMat("Minerals", firstSubCat("Minerals")), bonus: 1, attribute: 'Intelligence' },
+    ring1: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1, attribute: 'Strength' },
+    ring2: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1, attribute: 'Strength' },
+    earring1: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1, attribute: 'Dexterity' },
+    earring2: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1, attribute: 'Dexterity' },
+    amulet: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1 },
   });
 
   // Target armor (for “damage against armor”)
@@ -475,11 +487,13 @@ function App({ DB }){
 
   // Effective stats with racial modifiers
   const race = races.find(r=> r.id===raceId) || races[0];
-  const effective = useMemo(()=> {
+  const { effective, jewelryBonus } = useMemo(()=> {
       let statsWithJewelry = { ...stats };
-      ["ring1", "ring2", "earring1", "earring2", "amulet"].forEach(slotId => {
+      let bonus = { STR:0, DEX:0, INT:0, PSY:0 };
+      ["ring1", "ring2", "earring1", "earring2"].forEach(slotId => {
           const item = armor[slotId];
           if (item && item.isEquipped && item.attribute && item.bonus) {
+              bonus[item.attribute] += item.bonus;
               statsWithJewelry[item.attribute] += item.bonus;
           }
       });
@@ -489,12 +503,13 @@ function App({ DB }){
       statsWithJewelry.INT = Math.min(100, statsWithJewelry.INT);
       statsWithJewelry.PSY = Math.min(100, statsWithJewelry.PSY);
 
-      return {
-        STR: Math.max(0, statsWithJewelry.STR + (race.modifier.STR||0)),
-        DEX: Math.max(0, statsWithJewelry.DEX + (race.modifier.DEX||0)),
-        INT: Math.max(0, statsWithJewelry.INT + (race.modifier.INT||0)),
-        PSY: Math.max(0, statsWithJewelry.PSY + (race.modifier.PSY||0)),
+      const eff = {
+        STR: Math.min(100, Math.max(0, statsWithJewelry.STR + (race.modifier.STR||0))),
+        DEX: Math.min(100, Math.max(0, statsWithJewelry.DEX + (race.modifier.DEX||0))),
+        INT: Math.min(100, Math.max(0, statsWithJewelry.INT + (race.modifier.INT||0))),
+        PSY: Math.min(100, Math.max(0, statsWithJewelry.PSY + (race.modifier.PSY||0))),
       };
+      return { effective: eff, jewelryBonus: bonus };
   }, [stats, race, armor]);
 
   const spent  = sumCost(stats);
@@ -707,7 +722,11 @@ function App({ DB }){
                   <div key={k} className="mb-3">
                     <div className="flex items-center justify-between text-sm">
                       <span>{k}</span>
-                      <span className="tabular-nums">{stats[k]} <span className="text-slate-500">(effective {effective[k]})</span></span>
+                      <span className="tabular-nums">
+                        {stats[k]} 
+                        <span className="text-green-400">(effective {effective[k]})</span>
+                        {jewelryBonus[k] > 0 && <span className="text-yellow-400"> (+{jewelryBonus[k]})</span>}
+                      </span>
                     </div>
                     <input type="range" min={0} max={100} value={stats[k]} onChange={e=>setStat(k, parseInt(e.target.value))} className="w-full" />
                   </div>
@@ -956,7 +975,7 @@ function App({ DB }){
                     <MaterialSelect allowed={MATERIALS_FOR_INNER} value={{category:targetArmor.innerCategory, subCategory:targetArmor.innerSubCategory, material:targetArmor.innerMaterial}} onChange={val=> setTargetArmor(t=> ({...t, innerCategory:val.category, innerSubCategory:val.subCategory, innerMaterial:val.material}))} />
                   </div>
                   <div>
-                    <label className="block text-sm mt-3">Thread and Binding</label>
+                    <label className="block text-sm mt-3">Binding</label>
                     <MaterialSelect allowed={MATERIALS_FOR_BINDING} value={{category:targetArmor.bindingCategory, subCategory:targetArmor.bindingSubCategory, material:targetArmor.bindingMaterial}} onChange={val=> setTargetArmor(t=> ({...t, bindingCategory:val.category, bindingSubCategory:val.subCategory, bindingMaterial:val.material}))} />
                   </div>
                 </div>
@@ -1027,11 +1046,10 @@ function App({ DB }){
               })}
               <div className="rounded-xl border border-slate-800 p-3 bg-slate-800/50">
                 <div className="text-sm font-medium">Ranged Weapon</div>
-                <div className="slot-box mt-2 rounded-lg border border-slate-700 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-sm">{rangedWeaponKey !== 'None' ? rangedWeaponKey : 'Not Equipped'}</div>
-                  </div>
+                <div className="slot-box mt-2 rounded-lg flex items-center justify-center">
+                  <img src={getRangedWeaponIcon(rangedWeaponKey)} alt="Ranged Weapon" className="w-20 h-20 object-contain rounded-lg border-4 border-slate-700" />
                 </div>
+                <div className="text-center text-sm mt-1">{rangedWeaponKey !== 'None' ? rangedWeaponKey : 'Not Equipped'}</div>
               </div>
             </div>
           </section>
@@ -1077,15 +1095,29 @@ function App({ DB }){
                             <input type="range" min="1" max="5" value={entry.bonus || 1} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], bonus: parseInt(e.target.value, 10)}}))} className="w-full" />
                             <div className="text-center text-sm">{entry.bonus || 1}</div>
                           </div>
-                          <div className="mt-3">
-                            <label className="block text-sm">Attribute Bonus</label>
-                            <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.attribute || 'Strength'} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], attribute: e.target.value}}))}>
-                              <option value="STR">Strength</option>
-                              <option value="DEX">Dexterity</option>
-                              <option value="INT">Intelligence</option>
-                              <option value="PSY">Psyche</option>
-                            </select>
-                          </div>
+                          {slot.type !== 'amulet' && (
+                            <div className="mt-3">
+                              <label className="block text-sm">Attribute Bonus</label>
+                              <select
+                                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2"
+                                value={entry.attribute || (slot.type === 'ring' ? 'STR' : 'DEX')}
+                                onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], attribute: e.target.value}}))}
+                              >
+                                {slot.type === 'ring' && (
+                                  <>
+                                    <option value="STR">Strength</option>
+                                    <option value="INT">Intelligence</option>
+                                  </>
+                                )}
+                                {slot.type === 'earring' && (
+                                  <>
+                                    <option value="DEX">Dexterity</option>
+                                    <option value="PSY">Psyche</option>
+                                  </>
+                                )}
+                              </select>
+                            </div>
+                          )}
                           <button onClick={() => setArmor(p => ({...p, [slot.id]: {...p[slot.id], isEquipped: false}}))} className="mt-3 w-full bg-rose-500/20 text-rose-300 border border-rose-500 rounded-lg py-2 hover:bg-rose-500/40">Unequip</button>
                         </>
                       ) : (
@@ -1104,7 +1136,7 @@ function App({ DB }){
                         <label className="block text-sm mt-3">Inner Layer Material</label>
                         <MaterialSelect allowed={MATERIALS_FOR_INNER} value={{category: innerCategory, subCategory: entry.innerSubCategory, material: innerMaterial}} onChange={val=> setArmorInner(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
-                        <label className="block text-sm mt-3">Thread and Binding</label>
+                        <label className="block text-sm mt-3">Binding</label>
                         <MaterialSelect allowed={MATERIALS_FOR_BINDING} value={{category: bindingCategory, subCategory: entry.bindingSubCategory, material: bindingMaterial}} onChange={val=> setArmorBinding(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
                         {(entry.class||"None")!=="None" && matObj && (
@@ -1190,11 +1222,12 @@ function App({ DB }){
 
 async function loadMaterials() {
   try {
-    const [db, wood, elementals, alloys] = await Promise.all([
+    const [db, wood, elementals, alloys, rocks] = await Promise.all([
       getDatabaseSection('materials'),
       getDatabaseSection('woodTypes'),
       getDatabaseSection('elementalMetals'),
       getDatabaseSection('metalAlloys'),
+      getDatabaseSection('rockTypes'),
     ]);
 
     const slug = name => name.toLowerCase().replace(/\s+/g, '_');
@@ -1205,29 +1238,12 @@ async function loadMaterials() {
       ])
     );
 
-    const silicateMinerals = [
-      'Amphibole',
-      'Biotite',
-      'Feldspar',
-      'Hornblende',
-      'Mica',
-      'Olivine',
-      'Plagioclase',
-      'Pyroxene',
-      'Quartz',
-      'Clay Minerals'
-    ];
-    const nonSilicateMinerals = [
-      'Aragonite',
-      'Calcite',
-      'Dolomite',
-      'Chert',
-      'Silica'
-    ];
-    db['Minerals'] = {
-      'Silicate Minerals': silicateMinerals.map(name => ({ id: slug(name), name })),
-      'Non-Silicate Minerals': nonSilicateMinerals.map(name => ({ id: slug(name), name }))
-    };
+    db['Rock Types'] = Object.fromEntries(
+      Object.entries(rocks).map(([type, stones]) => [
+        type,
+        Object.keys(stones).map(name => ({ id: slug(name), name }))
+      ])
+    );
 
     const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
     const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
