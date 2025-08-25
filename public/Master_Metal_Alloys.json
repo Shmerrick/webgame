@@ -18,7 +18,7 @@
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 530.0
+          "value": 530
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -42,7 +42,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 556.0
+          "value": 556
         },
         "boiling_point": {
           "units": "degC",
@@ -73,7 +73,7 @@
           "value": 51.5
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -88,6 +88,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.29419999999999996,
+        "pierce": 0.5257510729613734,
+        "blunt": 0.06904176904176904,
+        "defense_slash": 0.5435897435897435,
+        "defense_pierce": 0.29419999999999996,
+        "defense_blunt": 0.06904176904176904,
+        "fire": 0,
+        "water": 0.9309582309582309,
+        "wind": 0,
+        "earth": 0.06904176904176904
       }
     },
     {
@@ -128,7 +140,7 @@
         },
         "density": {
           "units": "g/cm3",
-          "value": 8.0
+          "value": 8
         },
         "melting_point": {
           "units": "degC",
@@ -144,7 +156,7 @@
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": 16.0
+          "value": 16
         },
         "specific_heat": {
           "units": "J/g*K",
@@ -160,10 +172,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 740.0
+          "value": 740
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -178,6 +190,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.39672363636363633,
+        "pierce": 0.4871244635193133,
+        "blunt": 0.19656019656019655,
+        "defense_slash": 0.25384615384615383,
+        "defense_pierce": 0.39672363636363633,
+        "defense_blunt": 0.19656019656019655,
+        "fire": 0,
+        "water": 0.8034398034398035,
+        "wind": 0,
+        "earth": 0.19656019656019655
       }
     },
     {
@@ -194,7 +218,7 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 550.0
+          "value": 550
         },
         "yield_strength": {
           "units": "MPa",
@@ -234,7 +258,7 @@
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": 12.0
+          "value": 12
         },
         "specific_heat": {
           "units": "J/g*K",
@@ -250,10 +274,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 167.0
+          "value": 167
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -268,6 +292,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.3209454545454546,
+        "pierce": 0.4721030042918455,
+        "blunt": 0.19287469287469286,
+        "defense_slash": 0.43333333333333335,
+        "defense_pierce": 0.3209454545454546,
+        "defense_blunt": 0.19287469287469286,
+        "fire": 0,
+        "water": 0.8071253071253072,
+        "wind": 0,
+        "earth": 0.19287469287469286
       }
     },
     {
@@ -284,11 +320,11 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 925.0
+          "value": 925
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 750.0
+          "value": 750
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -324,7 +360,7 @@
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": 12.0
+          "value": 12
         },
         "specific_heat": {
           "units": "J/g*K",
@@ -340,10 +376,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 248.0
+          "value": 248
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -358,6 +394,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.5170781818181818,
+        "pierce": 0.7939914163090128,
+        "blunt": 0.19287469287469286,
+        "defense_slash": 0.7692307692307693,
+        "defense_pierce": 0.5170781818181818,
+        "defense_blunt": 0.19287469287469286,
+        "fire": 0,
+        "water": 0.8071253071253072,
+        "wind": 0,
+        "earth": 0.19287469287469286
       }
     },
     {
@@ -374,15 +422,15 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 230.0
+          "value": 230
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 85.0
+          "value": 85
         },
         "youngs_modulus": {
           "units": "GPa",
-          "value": 119.0
+          "value": 119
         },
         "mohs_hardness": {
           "units": "Mohs",
@@ -433,7 +481,7 @@
           "value": 17.2
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -448,6 +496,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.10698181818181816,
+        "pierce": 0.19742489270386265,
+        "blunt": 0.21965601965601964,
+        "defense_slash": 0.08717948717948718,
+        "defense_pierce": 0.10698181818181816,
+        "defense_blunt": 0.21965601965601964,
+        "fire": 0,
+        "water": 0.7803439803439803,
+        "wind": 0,
+        "earth": 0.21965601965601964
       }
     },
     {
@@ -464,11 +524,11 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 425.0
+          "value": 425
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 300.0
+          "value": 300
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -492,7 +552,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 895.0
+          "value": 895
         },
         "boiling_point": {
           "units": "degC",
@@ -523,7 +583,7 @@
           "value": 64.9
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -538,6 +598,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.17830181818181817,
+        "pierce": 0.3648068669527897,
+        "blunt": 0.20810810810810812,
+        "defense_slash": 0.3076923076923077,
+        "defense_pierce": 0.17830181818181817,
+        "defense_blunt": 0.20810810810810812,
+        "fire": 0,
+        "water": 0.7918918918918919,
+        "wind": 0,
+        "earth": 0.20810810810810812
       }
     },
     {
@@ -554,11 +626,11 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 500.0
+          "value": 500
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 260.0
+          "value": 260
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -594,7 +666,7 @@
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": 18.0
+          "value": 18
         },
         "specific_heat": {
           "units": "J/g*K",
@@ -610,10 +682,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 135.0
+          "value": 135
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -628,6 +700,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.24962363636363635,
+        "pierce": 0.4291845493562232,
+        "blunt": 0.21621621621621623,
+        "defense_slash": 0.26666666666666666,
+        "defense_pierce": 0.24962363636363635,
+        "defense_blunt": 0.21621621621621623,
+        "fire": 0,
+        "water": 0.7837837837837838,
+        "wind": 0,
+        "earth": 0.21621621621621623
       }
     },
     {
@@ -644,11 +728,11 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 930.0
+          "value": 930
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 467.0
+          "value": 467
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -672,7 +756,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 1320.0
+          "value": 1320
         },
         "boiling_point": {
           "units": "degC",
@@ -700,10 +784,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 1020.0
+          "value": 1020
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -718,6 +802,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.39672363636363633,
+        "pierce": 0.7982832618025751,
+        "blunt": 0.20737100737100733,
+        "defense_slash": 0.47897435897435897,
+        "defense_pierce": 0.39672363636363633,
+        "defense_blunt": 0.20737100737100733,
+        "fire": 0,
+        "water": 0.7926289926289927,
+        "wind": 0,
+        "earth": 0.20737100737100733
       }
     },
     {
@@ -734,11 +830,11 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 1080.0
+          "value": 1080
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 790.0
+          "value": 790
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -762,7 +858,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 1300.0
+          "value": 1300
         },
         "boiling_point": {
           "units": "degC",
@@ -790,10 +886,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 862.0
+          "value": 862
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -808,6 +904,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.5081636363636364,
+        "pierce": 0.927038626609442,
+        "blunt": 0.2012285012285012,
+        "defense_slash": 0.8102564102564103,
+        "defense_pierce": 0.5081636363636364,
+        "defense_blunt": 0.2012285012285012,
+        "fire": 0,
+        "water": 0.7987714987714988,
+        "wind": 0,
+        "earth": 0.2012285012285012
       }
     },
     {
@@ -824,15 +932,15 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 550.0
+          "value": 550
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 190.0
+          "value": 190
         },
         "youngs_modulus": {
           "units": "GPa",
-          "value": 185.0
+          "value": 185
         },
         "mohs_hardness": {
           "units": "Mohs",
@@ -852,7 +960,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 1325.0
+          "value": 1325
         },
         "boiling_point": {
           "units": "degC",
@@ -880,10 +988,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 455.0
+          "value": 455
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -898,6 +1006,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.3120290909090909,
+        "pierce": 0.4721030042918455,
+        "blunt": 0.21621621621621623,
+        "defense_slash": 0.19487179487179487,
+        "defense_pierce": 0.3120290909090909,
+        "defense_blunt": 0.21621621621621623,
+        "fire": 0,
+        "water": 0.7837837837837838,
+        "wind": 0,
+        "earth": 0.21621621621621623
       }
     },
     {
@@ -914,7 +1034,7 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 740.0
+          "value": 740
         },
         "yield_strength": {
           "units": "MPa",
@@ -970,10 +1090,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 909.0
+          "value": 909
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -988,6 +1108,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.4011818181818182,
+        "pierce": 0.6351931330472103,
+        "blunt": 0.21842751842751842,
+        "defense_slash": 0.33589743589743587,
+        "defense_pierce": 0.4011818181818182,
+        "defense_blunt": 0.21842751842751842,
+        "fire": 0,
+        "water": 0.7815724815724816,
+        "wind": 0,
+        "earth": 0.21842751842751842
       }
     },
     {
@@ -1004,11 +1136,11 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 265.0
+          "value": 265
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 160.0
+          "value": 160
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -1032,7 +1164,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 635.0
+          "value": 635
         },
         "boiling_point": {
           "units": "degC",
@@ -1060,10 +1192,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 455.0
+          "value": 455
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -1078,6 +1210,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.11143999999999998,
+        "pierce": 0.22746781115879827,
+        "blunt": 0.04373464373464373,
+        "defense_slash": 0.1641025641025641,
+        "defense_pierce": 0.11143999999999998,
+        "defense_blunt": 0.04373464373464373,
+        "fire": 0,
+        "water": 0.9562653562653562,
+        "wind": 0,
+        "earth": 0.04373464373464373
       }
     },
     {
@@ -1098,7 +1242,7 @@
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 245.0
+          "value": 245
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -1122,7 +1266,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 1425.0
+          "value": 1425
         },
         "boiling_point": {
           "units": "degC",
@@ -1150,10 +1294,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 690.0
+          "value": 690
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -1168,6 +1312,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.32986,
+        "pierce": 0.5429184549356223,
+        "blunt": 0.19484029484029483,
+        "defense_slash": 0.2512820512820513,
+        "defense_pierce": 0.32986,
+        "defense_blunt": 0.19484029484029483,
+        "fire": 0,
+        "water": 0.8051597051597051,
+        "wind": 0,
+        "earth": 0.19484029484029483
       }
     },
     {
@@ -1184,7 +1340,7 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 495.0
+          "value": 495
         },
         "yield_strength": {
           "units": "MPa",
@@ -1212,7 +1368,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 570.0
+          "value": 570
         },
         "boiling_point": {
           "units": "degC",
@@ -1243,7 +1399,7 @@
           "value": 58.1
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -1258,6 +1414,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.2540818181818182,
+        "pierce": 0.4248927038626609,
+        "blunt": 0.06830466830466829,
+        "defense_slash": 0.3769230769230769,
+        "defense_pierce": 0.2540818181818182,
+        "defense_blunt": 0.06830466830466829,
+        "fire": 0,
+        "water": 0.9316953316953317,
+        "wind": 0,
+        "earth": 0.06830466830466829
       }
     },
     {
@@ -1274,11 +1442,11 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 1165.0
+          "value": 1165
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 975.0
+          "value": 975
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -1302,7 +1470,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 1425.0
+          "value": 1425
         },
         "boiling_point": {
           "units": "degC",
@@ -1330,10 +1498,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 833.0
+          "value": 833
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -1348,6 +1516,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.6686345454545454,
+        "pierce": 1,
+        "blunt": 0.1904176904176904,
+        "defense_slash": 1,
+        "defense_pierce": 0.6686345454545454,
+        "defense_blunt": 0.1904176904176904,
+        "fire": 0,
+        "water": 0.8095823095823096,
+        "wind": 0,
+        "earth": 0.1904176904176904
       }
     },
     {
@@ -1364,15 +1544,15 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 345.0
+          "value": 345
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 185.0
+          "value": 185
         },
         "youngs_modulus": {
           "units": "GPa",
-          "value": 105.0
+          "value": 105
         },
         "mohs_hardness": {
           "units": "Mohs",
@@ -1392,7 +1572,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 975.0
+          "value": 975
         },
         "boiling_point": {
           "units": "degC",
@@ -1404,7 +1584,7 @@
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": 18.0
+          "value": 18
         },
         "specific_heat": {
           "units": "J/g*K",
@@ -1420,10 +1600,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 150.0
+          "value": 150
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -1438,6 +1618,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.17384545454545453,
+        "pierce": 0.296137339055794,
+        "blunt": 0.21867321867321868,
+        "defense_slash": 0.18974358974358974,
+        "defense_pierce": 0.17384545454545453,
+        "defense_blunt": 0.21867321867321868,
+        "fire": 0,
+        "water": 0.7813267813267813,
+        "wind": 0,
+        "earth": 0.21867321867321868
       }
     },
     {
@@ -1454,11 +1646,11 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 280.0
+          "value": 280
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 155.0
+          "value": 155
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -1482,7 +1674,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 581.0
+          "value": 581
         },
         "boiling_point": {
           "units": "degC",
@@ -1513,7 +1705,7 @@
           "value": 58.1
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -1528,6 +1720,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.15601454545454546,
+        "pierce": 0.24034334763948498,
+        "blunt": 0.06535626535626536,
+        "defense_slash": 0.15897435897435896,
+        "defense_pierce": 0.15601454545454546,
+        "defense_blunt": 0.06535626535626536,
+        "fire": 0,
+        "water": 0.9346437346437346,
+        "wind": 0,
+        "earth": 0.06535626535626536
       }
     },
     {
@@ -1544,7 +1748,7 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 515.0
+          "value": 515
         },
         "yield_strength": {
           "units": "MPa",
@@ -1603,7 +1807,7 @@
           "value": 58.1
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -1618,6 +1822,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.25853818181818183,
+        "pierce": 0.44206008583690987,
+        "blunt": 0.06977886977886977,
+        "defense_slash": 0.3871794871794872,
+        "defense_pierce": 0.25853818181818183,
+        "defense_blunt": 0.06977886977886977,
+        "fire": 0,
+        "water": 0.9302211302211303,
+        "wind": 0,
+        "earth": 0.06977886977886977
       }
     },
     {
@@ -1634,11 +1850,11 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 165.0
+          "value": 165
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 75.0
+          "value": 75
         },
         "youngs_modulus": {
           "units": "GPa",
@@ -1693,7 +1909,7 @@
           "value": 42.7
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -1708,6 +1924,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.08915090909090909,
+        "pierce": 0.14163090128755365,
+        "blunt": 0.06707616707616706,
+        "defense_slash": 0.07692307692307693,
+        "defense_pierce": 0.08915090909090909,
+        "defense_blunt": 0.06707616707616706,
+        "fire": 0,
+        "water": 0.932923832923833,
+        "wind": 0,
+        "earth": 0.06707616707616706
       }
     },
     {
@@ -1724,15 +1952,15 @@
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "units": "MPa",
-          "value": 975.0
+          "value": 975
         },
         "yield_strength": {
           "units": "MPa",
-          "value": 725.0
+          "value": 725
         },
         "youngs_modulus": {
           "units": "GPa",
-          "value": 245.0
+          "value": 245
         },
         "mohs_hardness": {
           "units": "Mohs",
@@ -1752,7 +1980,7 @@
         },
         "melting_point": {
           "units": "degC",
-          "value": 1485.0
+          "value": 1485
         },
         "boiling_point": {
           "units": "degC",
@@ -1780,10 +2008,10 @@
         },
         "electrical_resistivity": {
           "units": "nOhm*m",
-          "value": 500.0
+          "value": 500
         },
         "magnetic_susceptibility": {
-          "units": "cm\u00b3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         },
         "hardness_brinell": {
@@ -1798,6 +2026,18 @@
           "units": "J/g*K",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0.6329745454545455,
+        "pierce": 0.8369098712446352,
+        "blunt": 0.20393120393120392,
+        "defense_slash": 0.7435897435897436,
+        "defense_pierce": 0.6329745454545455,
+        "defense_blunt": 0.20393120393120392,
+        "fire": 0,
+        "water": 0.7960687960687961,
+        "wind": 0,
+        "earth": 0.20393120393120392
       }
     },
     {
@@ -1876,6 +2116,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1954,6 +2206,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2032,6 +2296,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2110,6 +2386,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2188,6 +2476,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2266,6 +2566,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2344,6 +2656,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2422,6 +2746,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2500,6 +2836,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2578,6 +2926,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2656,6 +3016,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2734,6 +3106,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2812,6 +3196,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2890,6 +3286,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2968,6 +3376,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3046,6 +3466,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3124,6 +3556,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3202,6 +3646,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3280,6 +3736,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3358,6 +3826,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3436,6 +3916,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3514,6 +4006,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3592,6 +4096,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3670,6 +4186,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3748,6 +4276,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3826,6 +4366,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3904,6 +4456,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3982,6 +4546,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4060,6 +4636,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4138,6 +4726,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4216,6 +4816,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4294,6 +4906,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4372,6 +4996,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4450,6 +5086,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4528,6 +5176,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4606,6 +5266,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4684,6 +5356,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4762,6 +5446,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4840,6 +5536,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4918,6 +5626,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4996,6 +5716,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5074,6 +5806,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5152,6 +5896,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5230,6 +5986,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5308,6 +6076,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5386,6 +6166,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5464,6 +6256,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5542,6 +6346,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5620,6 +6436,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5698,6 +6526,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5776,6 +6616,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5854,6 +6706,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5932,6 +6796,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6010,6 +6886,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6088,6 +6976,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6166,6 +7066,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6244,6 +7156,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6322,6 +7246,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6400,6 +7336,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6478,6 +7426,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6556,6 +7516,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6634,6 +7606,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6712,6 +7696,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6790,6 +7786,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6868,6 +7876,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6946,6 +7966,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -7024,6 +8056,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -7102,6 +8146,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -7180,6 +8236,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -7258,6 +8326,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -7336,6 +8416,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -7414,6 +8506,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -7492,6 +8596,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -7570,6 +8686,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -7648,6 +8776,18 @@
           "units": "cm3/mol",
           "value": "N/A"
         }
+      },
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 1,
+        "wind": 0,
+        "earth": 0
       }
     }
   ]
