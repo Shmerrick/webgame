@@ -433,6 +433,8 @@ function App({ DB }){
   useEffect(() => {
       if (["Polesword", "Poleaxe", "Lance"].includes(weaponKey)) {
           setTwoHanded(true);
+      } else {
+          setTwoHanded(false);
       }
   }, [weaponKey]);
 
