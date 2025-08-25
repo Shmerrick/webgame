@@ -66,14 +66,14 @@ const MIN_DEFENSE_FLOOR = 0.01;
 // Allowed outer categories by armor class (kept aligned to your DB families)
 const MATERIALS_FOR_CLASS = {
   None:   [],
-  Light:  ["Leather","Scales","Cloth","Fur"],
-  Medium: ["Leather","Scales","Carapace","Wood","Bone"],
-  Heavy:  ["Metals"],
+  Light:  ["Leather","Scales","Cloth","Fur","Dev"],
+  Medium: ["Leather","Scales","Carapace","Wood","Bone","Dev"],
+  Heavy:  ["Metals","Dev"],
 };
-const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Silk", "Fur"];
-const MATERIALS_FOR_BINDING = ["Leather", "Metals"];
-const MATERIALS_FOR_JEWELRY_SETTING = ["Metals"];
-const MATERIALS_FOR_JEWELRY_GEM = ["Minerals"];
+const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Silk", "Fur", "Dev"];
+const MATERIALS_FOR_BINDING = ["Leather", "Metals", "Dev"];
+const MATERIALS_FOR_JEWELRY_SETTING = ["Metals", "Dev"];
+const MATERIALS_FOR_JEWELRY_GEM = ["Minerals", "Dev"];
 
 // Weapons
 const WEAPONS = {
@@ -99,10 +99,10 @@ const BOW_TYPES = {
   Flat:    { drawWeight: 40, massKilograms: 0.9 },
 };
 
-const MATERIALS_FOR_HANDLE_CORE = ["Wood", "Metals"];
-const MATERIALS_FOR_HANDLE_GRIP = ["Cloth", "Leather"];
-const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Minerals"];
-const MATERIALS_FOR_HEAD = ["Metals", "Minerals", "Wood"];
+const MATERIALS_FOR_HANDLE_CORE = ["Wood", "Metals", "Dev"];
+const MATERIALS_FOR_HANDLE_GRIP = ["Cloth", "Leather", "Dev"];
+const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Minerals", "Dev"];
+const MATERIALS_FOR_HEAD = ["Metals", "Minerals", "Wood", "Dev"];
 
 const DIRECTIONS = ["Left","Right","Up","Down"];
 
@@ -1244,6 +1244,25 @@ async function loadMaterials() {
       }
     };
     assignIds(db);
+
+    db.Dev = [
+      {
+        id: 'dev_material',
+        name: 'Dev Material',
+        factors: {
+          slash: 1,
+          pierce: 1,
+          blunt: 1,
+          defense_slash: 1,
+          defense_pierce: 1,
+          defense_blunt: 1,
+          fire: 1,
+          water: 1,
+          wind: 1,
+          earth: 1,
+        },
+      },
+    ];
 
     ReactDOM.createRoot(document.getElementById("root")).render(
       <React.StrictMode><App DB={db} /></React.StrictMode>
