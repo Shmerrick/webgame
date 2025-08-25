@@ -105,30 +105,50 @@ export function calculateMaterialDefenses(materials, options = {}) {
     return { ...mat, YS, UTS, E, density, k, cp, Tm, re, H_MP, SS };
   });
 
-  // Normalization bounds
+  // Normalization bounds scoped by material class
   const normProps = ["H_MP", "YS", "UTS", "E", "density", "SS", "k", "cp", "Tm", "re"];
-  const bounds = {};
-  for (const p of normProps) {
-    const values = enriched
-      .map((m) => m[p])
-      .filter((v) => v != null)
-      .sort((a, b) => a - b);
-    let a, b;
-    if (values.length < 20) {
-      a = values[0];
-      b = values[values.length - 1];
-    } else {
-      const idx5 = Math.floor(0.05 * (values.length - 1));
-      const idx95 = Math.ceil(0.95 * (values.length - 1));
-      a = values[idx5];
-      b = values[idx95];
+  const buildBounds = (values) => {
+    const v = values.slice().sort((a, b) => a - b);
+    if (!v.length) return { a: 0, b: 1 };
+    if (v.length < 20) return { a: v[0], b: v[v.length - 1] };
+    const idx5 = Math.floor(0.05 * (v.length - 1));
+    const idx95 = Math.ceil(0.95 * (v.length - 1));
+    return { a: v[idx5], b: v[idx95] };
+  };
+
+  const classBuckets = {};
+  const globalBuckets = {};
+  for (const m of enriched) {
+    const cls = m.class || "global";
+    if (!classBuckets[cls]) classBuckets[cls] = {};
+    for (const p of normProps) {
+      const val = m[p];
+      if (val != null) {
+        (globalBuckets[p] ||= []).push(val);
+        (classBuckets[cls][p] ||= []).push(val);
+      }
     }
-    bounds[p] = { a, b };
+  }
+
+  const globalBounds = {};
+  for (const p of normProps) {
+    globalBounds[p] = buildBounds(globalBuckets[p] || []);
+  }
+
+  const boundsByClass = {};
+  for (const [cls, props] of Object.entries(classBuckets)) {
+    boundsByClass[cls] = {};
+    for (const p of normProps) {
+      const arr = props[p] && props[p].length ? props[p] : globalBuckets[p] || [];
+      boundsByClass[cls][p] = buildBounds(arr);
+    }
   }
 
   // Compute defenses
   const withDefenses = enriched.map((mat) => {
-    const n = (p) => normalize(mat[p], bounds[p].a, bounds[p].b);
+    const cls = mat.class || "global";
+    const b = boundsByClass[cls] || globalBounds;
+    const n = (p) => normalize(mat[p], b[p].a, b[p].b);
     const Hn = n("H_MP");
     const YSn = n("YS");
     const UTSn = n("UTS");
