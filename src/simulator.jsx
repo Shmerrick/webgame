@@ -1190,15 +1190,12 @@ function App({ DB }){
 
 async function loadMaterials() {
   try {
-    const response = await fetch('materials.json', { cache: 'no-cache' });
-    const db = await response.json();
-
-
-    const [wood, stone, elementals, alloys] = await Promise.all([
-      fetch('wood_types.json', { cache: 'no-cache' }).then(r => r.json()),
-      fetch('stone_types.json', { cache: 'no-cache' }).then(r => r.json()),
-      fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
-      fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
+    const [db, wood, stone, elementals, alloys] = await Promise.all([
+      getDatabaseSection('materials'),
+      getDatabaseSection('woodTypes'),
+      getDatabaseSection('stoneTypes'),
+      getDatabaseSection('elementalMetals'),
+      getDatabaseSection('metalAlloys'),
     ]);
 
     const slug = name => name.toLowerCase().replace(/\s+/g, '_');

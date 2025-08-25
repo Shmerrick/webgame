@@ -10,5 +10,7 @@
   "enchantmentRunes": "enchantment_runes.json",
   "bannedNames": "banned_names.txt",
   "alchemyRecipes": "alchemy_recipes.json",
+  "spells": "spells.json",
+  "siegeVolumes": "siege_volumes.json",
   "potionIngredients": { "source": "materials", "section": "Herbs" }
 }
