@@ -1,5 +1,9 @@
 import React, { useState, useMemo, useEffect } from "react";
 import ReactDOM from "react-dom/client";
+import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS } from "./constants/weapons.js";
+import CharacterPanel from "./components/CharacterPanel.jsx";
+import WeaponAttackPanel from "./components/WeaponAttackPanel.jsx";
+import MaterialSelect from "./components/MaterialSelect.jsx";
 
 
 function Tooltip({ text, children }) {
@@ -76,21 +80,6 @@ const MATERIALS_FOR_JEWELRY_SETTING = ["Metals", "Dev"];
 const MATERIALS_FOR_JEWELRY_GEM = ["Rock Types", "Dev"];
 
 // Weapons
-const WEAPONS = {
-  Sword:   { type: "melee",   massKilograms: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.20 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
-  Axe:     { type: "melee",   massKilograms: 4, baseCost: 40, head: { Blunt: 0.20, Slash: 0.45, Pierce: 0.10 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Blunt" } },
-  Hammer:  { type: "melee",   massKilograms: 6, baseCost: 40, head: { Blunt: 0.60, Slash: 0.10, Pierce: 0.10 }, direction: { Left: "Blunt", Right: "Blunt", Up: "Blunt", Down: "Blunt" } },
-  Spear:   { type: "melee",   massKilograms: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.15, Pierce: 0.45 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Pierce" } },
-  Dagger:  { type: "melee",   massKilograms: 1, baseCost: 20, head: { Blunt: 0.05, Slash: 0.20, Pierce: 0.30 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
-  Bow:     { type: "ranged",  drawWeight: 50, head: { Pierce: 0.40 } },
-  Crossbow:{ type: "ranged",  drawWeight: 35, head: { Pierce: 0.30 } },
-  Sling:   { type: "ranged",  drawWeight: 15, head: { Blunt: 0.20 } },
-  Throwing:{ type: "ranged",  drawWeight: 20, head: { Pierce: 0.25 } },
-  Lance:   { type: "mounted", massKilograms: 5, head: { Blunt: 0.20, Pierce: 0.50 }, speed: { Walk: 0.5, Trot: 0.9, Canter: 1.2, Gallop: 1.6 } },
-  Polesword: { type: "melee", massKilograms: 5, baseCost: 35, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.25 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Slash" } },
-  Poleaxe: { type: "melee", massKilograms: 6, baseCost: 40, head: { Blunt: 0.25, Slash: 0.30, Pierce: 0.15 }, direction: { Left: "Slash", Right: "Blunt", Up: "Pierce", Down: "Slash" } },
-};
-
 const BOW_TYPES = {
   Long:    { drawWeight: 60, massKilograms: 1.2 },
   Recurve: { drawWeight: 50, massKilograms: 1.0 },
@@ -98,12 +87,6 @@ const BOW_TYPES = {
   Horse:   { drawWeight: 45, massKilograms: 0.8 },
   Flat:    { drawWeight: 40, massKilograms: 0.9 },
 };
-
-const MATERIALS_FOR_HANDLE_CORE = ["Wood", "Metals", "Dev"];
-const MATERIALS_FOR_HANDLE_GRIP = ["Cloth", "Leather", "Dev"];
-const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Rock Types", "Dev"];
-const MATERIALS_FOR_HEAD = ["Metals", "Rock Types", "Wood", "Dev"];
-const BANNED_WEAPON_HEAD_MATERIALS = ["Carapace", "Cloth", "Fur", "Herbs", "Leather", "Linen", "Scales"];
 
 const DIRECTIONS = ["Left","Right","Up","Down"];
 
@@ -661,36 +644,7 @@ function App({ DB }){
 
   const setSkill = (name, val)=> setSkillBound(name, val);
 
-  function MaterialSelect({ allowed, value, onChange, disabled=false, exclude=[] }) {
-    const categories = allowed.slice().sort();
-    const subCats = subcategoriesFor(DB, value.category);
-    const materials = itemsForCategory(DB, value.category, value.subCategory)
-      .filter(m => !exclude.includes(m.name));
-    return (
-      <div className="grid grid-cols-1 gap-2">
-        <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={value.category} onChange={e=>{
-            const category = e.target.value;
-            const subCategory = firstSubCat(category);
-            const material = firstMat(category, subCategory);
-            onChange({ category, subCategory, material });
-          }} disabled={disabled}>
-          {categories.map(c=> <option key={c} value={c}>{c}</option>)}
-        </select>
-        {subCats.length > 0 && (
-          <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={value.subCategory} onChange={e=>{
-              const subCategory = e.target.value;
-              const material = firstMat(value.category, subCategory);
-              onChange({ ...value, subCategory, material });
-            }} disabled={disabled}>
-            {subCats.map(s=> <option key={s} value={s}>{s}</option>)}
-          </select>
-        )}
-        <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={value.material} onChange={e=> onChange({ ...value, material:e.target.value })} disabled={disabled}>
-          {materials.map(m=> <option key={m.name} value={m.name}>{m.name}</option>)}
-        </select>
-      </div>
-    );
-  }
+  // MaterialSelect component now imported
 
   /* ============================== UI ============================== */
   return (
@@ -706,147 +660,51 @@ function App({ DB }){
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6 break-words">
             {/* Left */}
             <div className="flex flex-col gap-6">
-              <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
-                <h2 className="text-lg font-semibold mb-3">Character</h2>
-                <div className="mb-4">
-                  <label className="block text-sm mb-1">Race</label>
-                  <select className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2" value={raceId} onChange={e=>setRaceId(e.target.value)}>
-                    {races.map(r=> <option key={r.id} value={r.id}>{r.name}</option>)}
-                  </select>
-                  <div className="text-sm text-slate-300 mt-2">
-                    The chosen race applies the following adjustments to your base attributes:
-                    Strength {race.modifier.STR>=0?"+":""}{race.modifier.STR}, Dexterity {race.modifier.DEX>=0?"+":""}{race.modifier.DEX}, Intelligence {race.modifier.INT>=0?"+":""}{race.modifier.INT}, Psyche {race.modifier.PSY>=0?"+":""}{race.modifier.PSY}.
-                  </div>
-                </div>
-                {["STR","DEX","INT","PSY"].map(k=> (
-                  <div key={k} className="mb-3">
-                    <div className="flex items-center justify-between text-sm">
-                      <span>{k}</span>
-                      <span className="tabular-nums">
-                        {stats[k]} 
-                        <span className="text-green-400">(effective {effective[k]})</span>
-                        {jewelryBonus[k] > 0 && <span className="text-yellow-400"> (+{jewelryBonus[k]})</span>}
-                      </span>
-                    </div>
-                    <input type="range" min={0} max={100} value={stats[k]} onChange={e=>setStat(k, parseInt(e.target.value))} className="w-full" />
-                  </div>
-                ))}
-                <div className="flex items-center justify-between text-sm mt-2">
-                  <div>Attribute points spent</div>
-                  <div className={`tabular-nums ${remain<0?"text-rose-400":""}`}>{spent} / {STAT_POOL} <span className="text-slate-500">(remaining {Math.max(0, remain)})</span></div>
-                </div>
-                <div className="grid grid-cols-3 gap-3 mt-4 text-sm">
-                  <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Health</div><div className="text-xl tabular-nums">{HEALTH_FIXED}</div></div>
-                  <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Stamina</div><div className="text-xl tabular-nums">{stamPool}</div></div>
-                  <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Mana</div><div className="text-xl tabular-nums">{manaPoolV}</div></div>
-                </div>
-              </section>
+              <CharacterPanel
+                races={races}
+                raceId={raceId}
+                setRaceId={setRaceId}
+                stats={stats}
+                setStat={setStat}
+                effective={effective}
+                jewelryBonus={jewelryBonus}
+                spent={spent}
+                remain={remain}
+                stamPool={stamPool}
+                manaPoolV={manaPoolV}
+                STAT_POOL={STAT_POOL}
+                HEALTH_FIXED={HEALTH_FIXED}
+              />
 
-              <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
-                <h2 className="text-lg font-semibold mb-3">Weapons and Attack</h2>
-                <div className="grid grid-cols-1 gap-3">
-                  <div>
-                    <label className="block text-sm mb-1">Weapon</label>
-                    <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponKey} onChange={e=>setWeaponKey(e.target.value)}>
-                      {Object.keys(WEAPONS).map(k=> <option key={k} value={k}>{k}</option>)}
-                    </select>
-                    {weapon?.type==='melee' && <div className="text-sm text-slate-300 mt-1">This weapon weighs approximately {weapon.massKilograms} kilograms. The stamina cost to swing is the base cost {weapon.baseCost} plus one times the rounded mass.</div>}
-                  </div>
-                  <div>
-                    <label className="block text-sm mb-1">Ranged Weapon</label>
-                    <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={rangedWeaponKey} onChange={e=>setRangedWeaponKey(e.target.value)}>
-                      {['None','Bow','Crossbow','Sling','Throwing'].map(k=> <option key={k} value={k}>{k}</option>)}
-                    </select>
-                  </div>
-
-                  {weaponKey === 'Bow' ? (
-                    <div className="grid grid-cols-1 gap-3">
-                      <div>
-                        <label className="block text-sm mb-1">Bow Type</label>
-                        <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={bowType} onChange={e=>setBowType(e.target.value)}>
-                          {Object.keys(BOW_TYPES).map(k=> <option key={k} value={k}>{k}</option>)}
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block text-sm mb-1">Wood Material</label>
-                        <MaterialSelect allowed={["Wood"]} value={bowWood} onChange={setBowWood} />
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-1 gap-3">
-                      <div>
-                        <label className="block text-sm mb-1">Handle or Core Material</label>
-                        <MaterialSelect allowed={MATERIALS_FOR_HANDLE_CORE} value={weaponComps.core} onChange={val=>setWeaponComp('core', val)} />
-                      </div>
-                      <div>
-                        <label className="block text-sm mb-1">Grip or Wrap Material</label>
-                        <MaterialSelect allowed={MATERIALS_FOR_HANDLE_GRIP} value={weaponComps.grip} onChange={val=>setWeaponComp('grip', val)} />
-                      </div>
-                      <div>
-                        <label className="block text-sm mb-1">Guard or Pommel Fittings</label>
-                        <MaterialSelect allowed={MATERIALS_FOR_HANDLE_FITTING} value={weaponComps.fitting} onChange={val=>setWeaponComp('fitting', val)} />
-                      </div>
-                      <div>
-                        <label className="block text-sm mb-1">Weapon Head Material</label>
-                        <MaterialSelect allowed={MATERIALS_FOR_HEAD} exclude={BANNED_WEAPON_HEAD_MATERIALS} value={weaponComps.head} onChange={val=>setWeaponComp('head', val)} />
-                      </div>
-                    </div>
-                  )}
-
-                  {["Sword", "Axe", "Hammer", "Spear"].includes(weaponKey) && (
-                      <div>
-                          <label className="block text-sm mb-1">
-                          <input type="checkbox" checked={isTwoHanded} onChange={e => setTwoHanded(e.target.checked)} disabled={armor.shield.shield !== 'None'} />
-                          Two-Handed
-                          </label>
-                      </div>
-                  )}
-                  {weapon?.type==='melee' && (
-                    <div>
-                      <label className="block text-sm mb-1">Attack Direction</label>
-                      <div className="grid grid-cols-1 gap-2">
-                        {DIRECTIONS.map(d=> (
-                          <button key={d} onClick={() => setDirection(d)} className={`w-full px-3 py-2 text-sm rounded-lg border ${direction===d ? "border-emerald-400 bg-emerald-400/10" : "border-slate-700"}`}>
-                            {d}
-                          </button>
-                        ))}
-                      </div>
-                      <div className="text-sm text-slate-300 mt-1">Each direction selects a different type of damage for your weapon. For example, the downward direction with a sword is a piercing thrust.</div>
-                    </div>
-                  )}
-
-                  {weapon?.type==='mounted' && (
-                    <div>
-                      <label className="block text-sm mb-1">Mount Speed</label>
-                      <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={mountedSpeed} onChange={e=>setMountedSpeed(e.target.value)}>
-                        {Object.keys(WEAPONS.Lance.speed).map(k=> <option key={k} value={k}>{k}</option>)}
-                      </select>
-                      <div className="text-sm text-slate-300 mt-1">Lance attacks do not use charge time or swing completion. Damage scales with the speed of the mount.</div>
-                    </div>
-                  )}
-
-                  {weapon && weapon.type!=='mounted' && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div>
-                        <div className="flex items-center justify-between text-sm">
-                          <span>Charge Time</span>
-                          <span className="tabular-nums">{charge.toFixed(2)} seconds</span>
-                        </div>
-                        <input type="range" min={0} max={1.5} step={0.01} value={charge} onChange={e=>setCharge(parseFloat(e.target.value))} className="w-full" />
-                        <div className="text-sm text-slate-300 mt-1">If your charge time is one and a half seconds, the attack is a heavy attack and costs twice as much stamina.</div>
-                      </div>
-                      <div>
-                        <div className="flex items-center justify-between text-sm">
-                          <span>Swing Completion</span>
-                          <span className="tabular-nums">{(swing*100).toFixed(0)}%</span>
-                        </div>
-                        <input type="range" min={0} max={1} step={0.01} value={swing} onChange={e=>setSwing(parseFloat(e.target.value))} className="w-full" />
-                        <div className="text-sm text-slate-300 mt-1">If your swing completion is below sixty percent, your attack does no damage. Otherwise damage scales with completion.</div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </section>
+              <WeaponAttackPanel
+                weaponKey={weaponKey}
+                setWeaponKey={setWeaponKey}
+                weapon={weapon}
+                rangedWeaponKey={rangedWeaponKey}
+                setRangedWeaponKey={setRangedWeaponKey}
+                bowType={bowType}
+                setBowType={setBowType}
+                bowWood={bowWood}
+                setBowWood={setBowWood}
+                weaponComps={weaponComps}
+                setWeaponComp={setWeaponComp}
+                isTwoHanded={isTwoHanded}
+                setTwoHanded={setTwoHanded}
+                direction={direction}
+                setDirection={setDirection}
+                charge={charge}
+                setCharge={setCharge}
+                swing={swing}
+                setSwing={setSwing}
+                mountedSpeed={mountedSpeed}
+                setMountedSpeed={setMountedSpeed}
+                armor={armor}
+                DB={DB}
+                subcategoriesFor={subcategoriesFor}
+                itemsForCategory={itemsForCategory}
+                firstSubCat={firstSubCat}
+                firstMat={firstMat}
+              />
             </div>
 
             {/* Center column: Skills */}
@@ -968,15 +826,15 @@ function App({ DB }){
                   </div>
                   <div>
                     <label className="block text-sm">Outer Material Category, which is eighty percent of the weighting</label>
-                    <MaterialSelect allowed={MATERIALS_FOR_CLASS[targetArmor.class]||[]} value={{category:targetArmor.category, subCategory:targetArmor.subCategory, material:targetArmor.material}} onChange={val=> setTargetArmor(t=> ({...t, category:val.category, subCategory:val.subCategory, material:val.material}))} />
+                    <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_CLASS[targetArmor.class]||[]} value={{category:targetArmor.category, subCategory:targetArmor.subCategory, material:targetArmor.material}} onChange={val=> setTargetArmor(t=> ({...t, category:val.category, subCategory:val.subCategory, material:val.material}))} />
                   </div>
                   <div>
                     <label className="block text-sm mt-3">Inner Layer Material</label>
-                    <MaterialSelect allowed={MATERIALS_FOR_INNER} value={{category:targetArmor.innerCategory, subCategory:targetArmor.innerSubCategory, material:targetArmor.innerMaterial}} onChange={val=> setTargetArmor(t=> ({...t, innerCategory:val.category, innerSubCategory:val.subCategory, innerMaterial:val.material}))} />
+                    <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_INNER} value={{category:targetArmor.innerCategory, subCategory:targetArmor.innerSubCategory, material:targetArmor.innerMaterial}} onChange={val=> setTargetArmor(t=> ({...t, innerCategory:val.category, innerSubCategory:val.subCategory, innerMaterial:val.material}))} />
                   </div>
                   <div>
                     <label className="block text-sm mt-3">Binding</label>
-                    <MaterialSelect allowed={MATERIALS_FOR_BINDING} value={{category:targetArmor.bindingCategory, subCategory:targetArmor.bindingSubCategory, material:targetArmor.bindingMaterial}} onChange={val=> setTargetArmor(t=> ({...t, bindingCategory:val.category, bindingSubCategory:val.subCategory, bindingMaterial:val.material}))} />
+                    <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_BINDING} value={{category:targetArmor.bindingCategory, subCategory:targetArmor.bindingSubCategory, material:targetArmor.bindingMaterial}} onChange={val=> setTargetArmor(t=> ({...t, bindingCategory:val.category, bindingSubCategory:val.subCategory, bindingMaterial:val.material}))} />
                   </div>
                 </div>
               </section>
@@ -1086,10 +944,10 @@ function App({ DB }){
                       entry.isEquipped ? (
                         <>
                           <label className="block text-sm mt-3">Setting Material</label>
-                          <MaterialSelect allowed={MATERIALS_FOR_JEWELRY_SETTING} value={{category: entry.settingCategory, subCategory: entry.settingSubCategory, material: entry.settingMaterial}} onChange={val=> setJewelrySetting(slot.id, val)} />
+                          <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_JEWELRY_SETTING} value={{category: entry.settingCategory, subCategory: entry.settingSubCategory, material: entry.settingMaterial}} onChange={val=> setJewelrySetting(slot.id, val)} />
 
                           <label className="block text-sm mt-3">Gem</label>
-                          <MaterialSelect allowed={MATERIALS_FOR_JEWELRY_GEM} value={{category: entry.gemCategory, subCategory: entry.gemSubCategory, material: entry.gemMaterial}} onChange={val=> setJewelryGem(slot.id, val)} />
+                          <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_JEWELRY_GEM} value={{category: entry.gemCategory, subCategory: entry.gemSubCategory, material: entry.gemMaterial}} onChange={val=> setJewelryGem(slot.id, val)} />
                           <div className="mt-3">
                             <label className="block text-sm">Bonus</label>
                             <input type="range" min="1" max="5" value={entry.bonus || 1} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], bonus: parseInt(e.target.value, 10)}}))} className="w-full" />
@@ -1131,13 +989,13 @@ function App({ DB }){
                         </select>
 
                         <label className="block text-sm mt-3">Outer Material</label>
-                        <MaterialSelect allowed={allowedCats} value={{category, subCategory: entry.subCategory, material}} onChange={val=> setArmorOuter(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+                        <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={allowedCats} value={{category, subCategory: entry.subCategory, material}} onChange={val=> setArmorOuter(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
                         <label className="block text-sm mt-3">Inner Layer Material</label>
-                        <MaterialSelect allowed={MATERIALS_FOR_INNER} value={{category: innerCategory, subCategory: entry.innerSubCategory, material: innerMaterial}} onChange={val=> setArmorInner(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+                        <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_INNER} value={{category: innerCategory, subCategory: entry.innerSubCategory, material: innerMaterial}} onChange={val=> setArmorInner(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
                         <label className="block text-sm mt-3">Binding</label>
-                        <MaterialSelect allowed={MATERIALS_FOR_BINDING} value={{category: bindingCategory, subCategory: entry.bindingSubCategory, material: bindingMaterial}} onChange={val=> setArmorBinding(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+                        <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_BINDING} value={{category: bindingCategory, subCategory: entry.bindingSubCategory, material: bindingMaterial}} onChange={val=> setArmorBinding(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
                         {(entry.class||"None")!=="None" && matObj && (
                           <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
