@@ -29,7 +29,7 @@
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -78,16 +78,16 @@
         }
       },
       "factors": {
-        "slash": 0.163154760448023,
-        "pierce": 0,
+        "slash": 0.15306122448979592,
+        "pierce": 0.0012875536480686696,
         "blunt": 0.0598434004474273,
-        "defense_slash": 0.11572,
-        "defense_pierce": 0.07342,
-        "defense_blunt": 0.02393,
+        "defense_slash": 0.11114,
+        "defense_pierce": 0.06967,
+        "defense_blunt": 0.02447,
         "fire": 0.56285,
-        "water": 0.35046,
-        "wind": 0.10018,
-        "earth": 0.09867
+        "water": 0.34794,
+        "wind": 0.09716,
+        "earth": 0.09362
       }
     },
     {
@@ -168,16 +168,16 @@
         }
       },
       "factors": {
-        "slash": 0.4541140832469973,
-        "pierce": 0,
+        "slash": 0.4260204081632653,
+        "pierce": 0.296137339055794,
         "blunt": 0.20671140939597318,
-        "defense_slash": 2.22706,
-        "defense_pierce": 0.20435,
-        "defense_blunt": 0.41201,
+        "defense_slash": 2.31916,
+        "defense_pierce": 0.37478,
+        "defense_blunt": 0.53586,
         "fire": 0.47365,
-        "water": 0.28657,
-        "wind": 0.548,
-        "earth": 0.5684
+        "water": 0.27955,
+        "wind": 0.53957,
+        "earth": 0.55435
       }
     },
     {
@@ -258,15 +258,15 @@
         }
       },
       "factors": {
-        "slash": 0.0001876279745152264,
+        "slash": 0.0001760204081632653,
         "pierce": 0,
         "blunt": 0.10827740492170022,
-        "defense_slash": 0.06978,
+        "defense_slash": 0.06977,
         "defense_pierce": 0.00008,
         "defense_blunt": 0.04468,
         "fire": 0.29594,
         "water": 0.17009,
-        "wind": 0.04049,
+        "wind": 0.04048,
         "earth": 0.0322
       }
     },
@@ -295,15 +295,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 2.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 260,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 260,
           "units": "MPa"
         },
         "density": {
@@ -348,16 +348,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.0663265306122449,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.03316,
+        "defense_pierce": 0.02985,
         "defense_blunt": 0,
         "fire": 0.31241,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.16658,
+        "wind": 0.0199,
+        "earth": 0.03316
       }
     },
     {
@@ -385,15 +385,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 2.75,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 245,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 167,
           "units": "MPa"
         },
         "density": {
@@ -438,16 +438,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.04260204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.0213,
+        "defense_pierce": 0.01917,
         "defense_blunt": 0,
         "fire": 0.31368,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.16065,
+        "wind": 0.01278,
+        "earth": 0.0213
       }
     },
     {
@@ -475,15 +475,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0.4,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0.363,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 0.363,
           "units": "MPa"
         },
         "density": {
@@ -528,16 +528,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.00009260204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.00005,
+        "defense_pierce": 0.00004,
         "defense_blunt": 0,
         "fire": 0.24101,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.15002,
+        "wind": 0.00003,
+        "earth": 0.00005
       }
     },
     {
@@ -565,15 +565,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 1.75,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 167,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 167,
           "units": "MPa"
         },
         "density": {
@@ -618,16 +618,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.04260204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.0213,
+        "defense_pierce": 0.01917,
         "defense_blunt": 0,
         "fire": 0.33579,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.16065,
+        "wind": 0.01278,
+        "earth": 0.0213
       }
     },
     {
@@ -655,15 +655,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 750,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 750,
           "units": "MPa"
         },
         "density": {
@@ -708,16 +708,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.1913265306122449,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.09566,
+        "defense_pierce": 0.0861,
         "defense_blunt": 0,
         "fire": 0.42092,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.19783,
+        "wind": 0.0574,
+        "earth": 0.09566
       }
     },
     {
@@ -745,15 +745,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 6,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 715,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 970,
           "units": "MPa"
         },
         "density": {
@@ -798,16 +798,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.24744897959183673,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.12372,
+        "defense_pierce": 0.11135,
         "defense_blunt": 0,
         "fire": 0.43639,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.21186,
+        "wind": 0.07423,
+        "earth": 0.12372
       }
     },
     {
@@ -835,15 +835,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 7,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 628,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 628,
           "units": "MPa"
         },
         "density": {
@@ -888,16 +888,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.16020408163265307,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.0801,
+        "defense_pierce": 0.07209,
         "defense_blunt": 0,
         "fire": 0.46586,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.19005,
+        "wind": 0.04806,
+        "earth": 0.0801
       }
     },
     {
@@ -925,15 +925,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 8.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 1120,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1060,
           "units": "MPa"
         },
         "density": {
@@ -978,16 +978,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.27040816326530615,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.1352,
+        "defense_pierce": 0.12168,
         "defense_blunt": 0,
         "fire": 0.46549,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.2176,
+        "wind": 0.08112,
+        "earth": 0.1352
       }
     },
     {
@@ -1015,15 +1015,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 6,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 196,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 196,
           "units": "MPa"
         },
         "density": {
@@ -1068,16 +1068,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.05,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.025,
+        "defense_pierce": 0.0225,
         "defense_blunt": 0,
         "fire": 0.38499,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.1625,
+        "wind": 0.015,
+        "earth": 0.025
       }
     },
     {
@@ -1158,16 +1158,16 @@
         }
       },
       "factors": {
-        "slash": 0.16533015725399663,
+        "slash": 0.15510204081632653,
         "pierce": 0.31759656652360513,
         "blunt": 0.8807606263982103,
-        "defense_slash": 1.60536,
-        "defense_pierce": 0.19894,
+        "defense_slash": 1.60024,
+        "defense_pierce": 0.19434,
         "defense_blunt": 0.58257,
         "fire": 0.42447,
-        "water": 0.22252,
-        "wind": 0.14688,
-        "earth": 0.47937
+        "water": 0.21996,
+        "wind": 0.14381,
+        "earth": 0.47426
       }
     },
     {
@@ -1195,15 +1195,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 700,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1043,
           "units": "MPa"
         },
         "density": {
@@ -1248,16 +1248,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.26607142857142857,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.13304,
+        "defense_pierce": 0.11973,
         "defense_blunt": 0,
         "fire": 0.41532,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.21652,
+        "wind": 0.07982,
+        "earth": 0.13304
       }
     },
     {
@@ -1285,15 +1285,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 4,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 700,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 638,
           "units": "MPa"
         },
         "density": {
@@ -1338,16 +1338,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.16275510204081634,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.08138,
+        "defense_pierce": 0.07324,
         "defense_blunt": 0,
         "fire": 0.41045,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.19069,
+        "wind": 0.04883,
+        "earth": 0.08138
       }
     },
     {
@@ -1379,11 +1379,11 @@
           "units": null
         },
         "brinell_hardness": {
-          "value": 250,
+          "value": 874,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 350,
+          "value": 369,
           "units": "MPa"
         },
         "density": {
@@ -1428,16 +1428,16 @@
         }
       },
       "factors": {
-        "slash": 0.09517361026134674,
+        "slash": 0.0941326530612245,
         "pierce": 0.18025751072961374,
         "blunt": 0.9977628635346757,
-        "defense_slash": 0.89398,
-        "defense_pierce": 0.09073,
+        "defense_slash": 0.89346,
+        "defense_pierce": 0.09026,
         "defense_blunt": 0.45752,
         "fire": 0.20261,
-        "water": 0.04717,
-        "wind": 0.06814,
-        "earth": 0.37257
+        "water": 0.04691,
+        "wind": 0.06783,
+        "earth": 0.37205
       }
     },
     {
@@ -1465,15 +1465,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 2.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 412,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 412,
           "units": "MPa"
         },
         "density": {
@@ -1518,16 +1518,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.10510204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.05255,
+        "defense_pierce": 0.0473,
         "defense_blunt": 0,
         "fire": 0.28436,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.17628,
+        "wind": 0.03153,
+        "earth": 0.05255
       }
     },
     {
@@ -1555,15 +1555,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 1.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 60,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 60,
           "units": "MPa"
         },
         "density": {
@@ -1608,16 +1608,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.015306122448979591,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.00765,
+        "defense_pierce": 0.00689,
         "defense_blunt": 0,
         "fire": 0.23689,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.15383,
+        "wind": 0.00459,
+        "earth": 0.00765
       }
     },
     {
@@ -1645,15 +1645,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0.3,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0.216,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 0.216,
           "units": "MPa"
         },
         "density": {
@@ -1698,16 +1698,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.00005510204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.00003,
+        "defense_pierce": 0.00002,
         "defense_blunt": 0,
         "fire": 0.23805,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.15001,
+        "wind": 0.00002,
+        "earth": 0.00003
       }
     },
     {
@@ -1735,15 +1735,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 1.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1500,
           "units": "MPa"
         },
         "density": {
@@ -1788,16 +1788,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.3826530612244898,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.19133,
+        "defense_pierce": 0.17219,
         "defense_blunt": 0,
         "fire": 0.32788,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.24566,
+        "wind": 0.1148,
+        "earth": 0.19133
       }
     },
     {
@@ -1825,15 +1825,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 588,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 588,
           "units": "MPa"
         },
         "density": {
@@ -1878,16 +1878,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.15,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.075,
+        "defense_pierce": 0.0675,
         "defense_blunt": 0,
         "fire": 0.41909,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.1875,
+        "wind": 0.045,
+        "earth": 0.075
       }
     },
     {
@@ -1915,15 +1915,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 650,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 904,
           "units": "MPa"
         },
         "density": {
@@ -1968,16 +1968,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.23061224489795917,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.11531,
+        "defense_pierce": 0.10378,
         "defense_blunt": 0,
         "fire": 0.45916,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.20765,
+        "wind": 0.06918,
+        "earth": 0.11531
       }
     },
     {
@@ -2005,15 +2005,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 6,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 736,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1320,
           "units": "MPa"
         },
         "density": {
@@ -2058,16 +2058,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.336734693877551,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.16837,
+        "defense_pierce": 0.15153,
         "defense_blunt": 0,
         "fire": 0.53491,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.23418,
+        "wind": 0.10102,
+        "earth": 0.16837
       }
     },
     {
@@ -2095,15 +2095,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 5.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 1500,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1530,
           "units": "MPa"
         },
         "density": {
@@ -2148,16 +2148,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.3903061224489796,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.19515,
+        "defense_pierce": 0.17564,
         "defense_blunt": 0,
         "fire": 0.55269,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.24758,
+        "wind": 0.11709,
+        "earth": 0.19515
       }
     },
     {
@@ -2185,11 +2185,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -2275,15 +2275,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 6.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 2160,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 2160,
           "units": "MPa"
         },
         "density": {
@@ -2328,16 +2328,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.5510204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.27551,
+        "defense_pierce": 0.24796,
         "defense_blunt": 0,
         "fire": 0.5175,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.28776,
+        "wind": 0.16531,
+        "earth": 0.27551
       }
     },
     {
@@ -2365,15 +2365,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 6,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 1100,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1246,
           "units": "MPa"
         },
         "density": {
@@ -2418,16 +2418,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.31785714285714284,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.15893,
+        "defense_pierce": 0.14304,
         "defense_blunt": 0,
         "fire": 0.47244,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.22946,
+        "wind": 0.09536,
+        "earth": 0.15893
       }
     },
     {
@@ -2455,15 +2455,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 4.75,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 37.2,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 461,
           "units": "MPa"
         },
         "density": {
@@ -2508,16 +2508,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.11760204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.0588,
+        "defense_pierce": 0.05292,
         "defense_blunt": 0,
         "fire": 0.42263,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.1794,
+        "wind": 0.03528,
+        "earth": 0.0588
       }
     },
     {
@@ -2545,15 +2545,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 2.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 24.5,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 251,
           "units": "MPa"
         },
         "density": {
@@ -2598,16 +2598,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.06403061224489796,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.03202,
+        "defense_pierce": 0.02881,
         "defense_blunt": 0,
         "fire": 0.3504,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.16601,
+        "wind": 0.01921,
+        "earth": 0.03202
       }
     },
     {
@@ -2635,15 +2635,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 2,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 203,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 203,
           "units": "MPa"
         },
         "density": {
@@ -2688,16 +2688,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.05178571428571429,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.02589,
+        "defense_pierce": 0.0233,
         "defense_blunt": 0,
         "fire": 0.27237,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.16295,
+        "wind": 0.01554,
+        "earth": 0.02589
       }
     },
     {
@@ -2725,15 +2725,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 1.2,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 8.83,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 8.83,
           "units": "MPa"
         },
         "density": {
@@ -2778,16 +2778,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.002252551020408163,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.00113,
+        "defense_pierce": 0.00101,
         "defense_blunt": 0,
         "fire": 0.25234,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.15056,
+        "wind": 0.00068,
+        "earth": 0.00113
       }
     },
     {
@@ -2815,15 +2815,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 1.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 51,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 51,
           "units": "MPa"
         },
         "density": {
@@ -2868,16 +2868,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.013010204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.00651,
+        "defense_pierce": 0.00585,
         "defense_blunt": 0,
         "fire": 0.26151,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.15325,
+        "wind": 0.0039,
+        "earth": 0.00651
       }
     },
     {
@@ -2905,15 +2905,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0.2,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0.14,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 0.14,
           "units": "MPa"
         },
         "density": {
@@ -2958,16 +2958,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.00003571428571428572,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.00002,
+        "defense_pierce": 0.00002,
         "defense_blunt": 0,
         "fire": 0.23674,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.15001,
+        "wind": 0.00001,
+        "earth": 0.00002
       }
     },
     {
@@ -2995,15 +2995,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 1.25,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1250,
           "units": "MPa"
         },
         "density": {
@@ -3048,16 +3048,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.31887755102040816,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.15944,
+        "defense_pierce": 0.14349,
         "defense_blunt": 0,
         "fire": 0.32179,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.22972,
+        "wind": 0.09566,
+        "earth": 0.15944
       }
     },
     {
@@ -3085,15 +3085,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 2.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 363,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 491,
           "units": "MPa"
         },
         "density": {
@@ -3138,16 +3138,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.12525510204081633,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.06263,
+        "defense_pierce": 0.05636,
         "defense_blunt": 0,
         "fire": 0.34529,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.18131,
+        "wind": 0.03758,
+        "earth": 0.06263
       }
     },
     {
@@ -3175,15 +3175,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 2.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 412,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 270,
           "units": "MPa"
         },
         "density": {
@@ -3228,16 +3228,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.06887755102040816,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.03444,
+        "defense_pierce": 0.03099,
         "defense_blunt": 0,
         "fire": 0.33007,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.16722,
+        "wind": 0.02066,
+        "earth": 0.03444
       }
     },
     {
@@ -3265,15 +3265,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 481,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 400,
           "units": "MPa"
         },
         "density": {
@@ -3318,16 +3318,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.10204081632653061,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.05102,
+        "defense_pierce": 0.04592,
         "defense_blunt": 0,
         "fire": 0.34712,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.17551,
+        "wind": 0.03061,
+        "earth": 0.05102
       }
     },
     {
@@ -3355,15 +3355,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 265,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 343,
           "units": "MPa"
         },
         "density": {
@@ -3408,16 +3408,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.0875,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.04375,
+        "defense_pierce": 0.03938,
         "defense_blunt": 0,
         "fire": 0.35796,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.17188,
+        "wind": 0.02625,
+        "earth": 0.04375
       }
     },
     {
@@ -3445,11 +3445,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -3535,15 +3535,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 441,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 412,
           "units": "MPa"
         },
         "density": {
@@ -3588,16 +3588,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.10510204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.05255,
+        "defense_pierce": 0.0473,
         "defense_blunt": 0,
         "fire": 0.3638,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.17628,
+        "wind": 0.03153,
+        "earth": 0.05255
       }
     },
     {
@@ -3625,15 +3625,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 167,
           "units": "MPa"
         },
         "density": {
@@ -3678,16 +3678,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.04260204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.0213,
+        "defense_pierce": 0.01917,
         "defense_blunt": 0,
         "fire": 0.33384,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.16065,
+        "wind": 0.01278,
+        "earth": 0.0213
       }
     },
     {
@@ -3715,15 +3715,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 570,
           "units": "MPa"
         },
         "density": {
@@ -3768,16 +3768,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.14540816326530612,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.0727,
+        "defense_pierce": 0.06543,
         "defense_blunt": 0,
         "fire": 0.39303,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.18635,
+        "wind": 0.04362,
+        "earth": 0.0727
       }
     },
     {
@@ -3805,15 +3805,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 677,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 863,
           "units": "MPa"
         },
         "density": {
@@ -3858,16 +3858,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.2201530612244898,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.11008,
+        "defense_pierce": 0.09907,
         "defense_blunt": 0,
         "fire": 0.39839,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.20504,
+        "wind": 0.06605,
+        "earth": 0.11008
       }
     },
     {
@@ -3895,15 +3895,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 500,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 540,
           "units": "MPa"
         },
         "density": {
@@ -3948,16 +3948,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.1377551020408163,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.06888,
+        "defense_pierce": 0.06199,
         "defense_blunt": 0,
         "fire": 0.4046,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.18444,
+        "wind": 0.04133,
+        "earth": 0.06888
       }
     },
     {
@@ -3985,15 +3985,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 746,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 481,
           "units": "MPa"
         },
         "density": {
@@ -4038,16 +4038,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.12270408163265306,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.06135,
+        "defense_pierce": 0.05522,
         "defense_blunt": 0,
         "fire": 0.41118,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.18068,
+        "wind": 0.03681,
+        "earth": 0.06135
       }
     },
     {
@@ -4075,15 +4075,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 814,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 588,
           "units": "MPa"
         },
         "density": {
@@ -4128,16 +4128,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.15,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.075,
+        "defense_pierce": 0.0675,
         "defense_blunt": 0,
         "fire": 0.41946,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.1875,
+        "wind": 0.045,
+        "earth": 0.075
       }
     },
     {
@@ -4165,15 +4165,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 471,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 520,
           "units": "MPa"
         },
         "density": {
@@ -4218,16 +4218,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.1326530612244898,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.06633,
+        "defense_pierce": 0.05969,
         "defense_blunt": 0,
         "fire": 0.42141,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.18316,
+        "wind": 0.0398,
+        "earth": 0.06633
       }
     },
     {
@@ -4255,15 +4255,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 343,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 206,
           "units": "MPa"
         },
         "density": {
@@ -4308,16 +4308,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.052551020408163264,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.02628,
+        "defense_pierce": 0.02365,
         "defense_blunt": 0,
         "fire": 0.3336,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.16314,
+        "wind": 0.01577,
+        "earth": 0.02628
       }
     },
     {
@@ -4345,15 +4345,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 893,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1160,
           "units": "MPa"
         },
         "density": {
@@ -4398,16 +4398,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.29591836734693877,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.14796,
+        "defense_pierce": 0.13316,
         "defense_blunt": 0,
         "fire": 0.43444,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.22398,
+        "wind": 0.08878,
+        "earth": 0.14796
       }
     },
     {
@@ -4435,15 +4435,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 5.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 1700,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1760,
           "units": "MPa"
         },
         "density": {
@@ -4488,16 +4488,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.4489795918367347,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.22449,
+        "defense_pierce": 0.20204,
         "defense_blunt": 0,
         "fire": 0.5052,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.26224,
+        "wind": 0.13469,
+        "earth": 0.22449
       }
     },
     {
@@ -4525,15 +4525,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 6.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 800,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 873,
           "units": "MPa"
         },
         "density": {
@@ -4578,16 +4578,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.22270408163265307,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.11135,
+        "defense_pierce": 0.10022,
         "defense_blunt": 0,
         "fire": 0.60068,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.20568,
+        "wind": 0.06681,
+        "earth": 0.11135
       }
     },
     {
@@ -4615,15 +4615,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 7.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 2570,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 3430,
           "units": "MPa"
         },
         "density": {
@@ -4668,16 +4668,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.875,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.4375,
+        "defense_pierce": 0.39375,
         "defense_blunt": 0,
         "fire": 0.65,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.36875,
+        "wind": 0.2625,
+        "earth": 0.4375
       }
     },
     {
@@ -4705,15 +4705,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 7,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 1320,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 2450,
           "units": "MPa"
         },
         "density": {
@@ -4758,16 +4758,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.625,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.3125,
+        "defense_pierce": 0.28125,
         "defense_blunt": 0,
         "fire": 0.62126,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.30625,
+        "wind": 0.1875,
+        "earth": 0.3125
       }
     },
     {
@@ -4795,15 +4795,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 7,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 3920,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 3920,
           "units": "MPa"
         },
         "density": {
@@ -4848,16 +4848,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 1,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.5,
+        "defense_pierce": 0.45,
         "defense_blunt": 0,
         "fire": 0.60263,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.4,
+        "wind": 0.3,
+        "earth": 0.5
       }
     },
     {
@@ -4885,15 +4885,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 6.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 1670,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1760,
           "units": "MPa"
         },
         "density": {
@@ -4938,16 +4938,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.4489795918367347,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.22449,
+        "defense_pierce": 0.20204,
         "defense_blunt": 0,
         "fire": 0.53114,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.26224,
+        "wind": 0.13469,
+        "earth": 0.22449
       }
     },
     {
@@ -4975,15 +4975,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 3.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 392,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 549,
           "units": "MPa"
         },
         "density": {
@@ -5028,16 +5028,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.14005102040816325,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.07003,
+        "defense_pierce": 0.06302,
         "defense_blunt": 0,
         "fire": 0.44861,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.18501,
+        "wind": 0.04202,
+        "earth": 0.07003
       }
     },
     {
@@ -5065,15 +5065,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 2.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 2450,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 216,
           "units": "MPa"
         },
         "density": {
@@ -5118,16 +5118,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.05510204081632653,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.02755,
+        "defense_pierce": 0.0248,
         "defense_blunt": 0,
         "fire": 0.36287,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.16378,
+        "wind": 0.01653,
+        "earth": 0.02755
       }
     },
     {
@@ -5155,11 +5155,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -5245,15 +5245,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 1.2,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 26.4,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 26.4,
           "units": "MPa"
         },
         "density": {
@@ -5298,16 +5298,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.00673469387755102,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.00337,
+        "defense_pierce": 0.00303,
         "defense_blunt": 0,
         "fire": 0.27027,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.15168,
+        "wind": 0.00202,
+        "earth": 0.00337
       }
     },
     {
@@ -5335,15 +5335,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 1.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 38.3,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 38.3,
           "units": "MPa"
         },
         "density": {
@@ -5388,16 +5388,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.009770408163265305,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.00489,
+        "defense_pierce": 0.0044,
         "defense_blunt": 0,
         "fire": 0.27315,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.15244,
+        "wind": 0.00293,
+        "earth": 0.00489
       }
     },
     {
@@ -5425,15 +5425,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 2.25,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 94.2,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 94.2,
           "units": "MPa"
         },
         "density": {
@@ -5478,16 +5478,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.02403061224489796,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.01202,
+        "defense_pierce": 0.01081,
         "defense_blunt": 0,
         "fire": 0.26634,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.15601,
+        "wind": 0.00721,
+        "earth": 0.01202
       }
     },
     {
@@ -5515,11 +5515,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -5605,11 +5605,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -5695,11 +5695,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -5785,11 +5785,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -5875,15 +5875,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 3,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 400,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 350,
           "units": "MPa"
         },
         "density": {
@@ -5928,16 +5928,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.08928571428571429,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.04464,
+        "defense_pierce": 0.04018,
         "defense_blunt": 0,
         "fire": 0.44637,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.17232,
+        "wind": 0.02679,
+        "earth": 0.04464
       }
     },
     {
@@ -5965,11 +5965,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -6055,15 +6055,15 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 6,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 2400,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1960,
           "units": "MPa"
         },
         "density": {
@@ -6108,16 +6108,16 @@
         }
       },
       "factors": {
-        "slash": 0,
+        "slash": 0.5,
         "pierce": 0,
         "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
+        "defense_slash": 0.25,
+        "defense_pierce": 0.225,
         "defense_blunt": 0,
         "fire": 0.37115,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "water": 0.275,
+        "wind": 0.15,
+        "earth": 0.25
       }
     },
     {
@@ -6145,11 +6145,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -6235,11 +6235,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -6325,11 +6325,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -6415,11 +6415,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -6505,11 +6505,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -6595,11 +6595,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -6685,11 +6685,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -6775,11 +6775,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -6865,11 +6865,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -6955,11 +6955,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7045,11 +7045,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7135,11 +7135,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7225,11 +7225,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7315,11 +7315,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7405,11 +7405,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7495,11 +7495,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7585,11 +7585,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7675,11 +7675,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7765,11 +7765,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7855,11 +7855,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -7945,11 +7945,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -8035,11 +8035,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -8125,11 +8125,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -8215,11 +8215,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -8305,11 +8305,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "vickers_hardness": {
