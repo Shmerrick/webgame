@@ -144,7 +144,25 @@
                         `Defense Pierce: ${f.defense_pierce}`,
                         `Defense Blunt: ${f.defense_blunt}`,
                       ];
-                      li.title = props.join(', ');
+                      li.style.position = 'relative';
+                      li.addEventListener('click', () => {
+                        const existing = li.querySelector('.tooltip');
+                        if (existing) {
+                          existing.remove();
+                          return;
+                        }
+                        const tooltip = document.createElement('div');
+                        tooltip.className = 'tooltip absolute left-full top-0 ml-2 p-2 bg-slate-800 border border-slate-700 rounded shadow-lg text-xs';
+                        tooltip.innerHTML = props.map(p => `<div>${p}</div>`).join('');
+                        li.appendChild(tooltip);
+                        const hide = () => {
+                          tooltip.remove();
+                          li.removeEventListener('mouseleave', hide);
+                          window.removeEventListener('scroll', hide);
+                        };
+                        li.addEventListener('mouseleave', hide, { once: true });
+                        window.addEventListener('scroll', hide, { once: true });
+                      });
                     }
                     ul.appendChild(li);
                   });

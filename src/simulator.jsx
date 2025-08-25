@@ -594,16 +594,13 @@ function App({ DB }){
     const scaledWithSkill = {};
     for (const [k,v] of Object.entries(parts)) scaledWithSkill[k] = (v||0) * (total/partsSum0);
 
-    const outMult = (nakedOverride ? 0.25 : 1) * Math.max(0, 1 - 0.15*missingPieces);
+    const damageMult = isTwoHanded ? 2 : 1;
+    const outMult = (nakedOverride ? 0.25 : 1) * Math.max(0, 1 - 0.15*missingPieces) * damageMult;
     total = Math.floor(total * outMult);
 
     const partsSum = Object.values(scaledWithSkill).reduce((a,b)=> a+(b||0), 0) || 1;
     const finalParts = {};
     for (const [k,v] of Object.entries(scaledWithSkill)) finalParts[k] = Math.floor(total * (v||0) / partsSum);
-
-    if (isTwoHanded) {
-      total *= 2;
-    }
     const isHeavy = (weapon.type!=='mounted') && (charge >= 1.5 - 1e-6);
     const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1));
     return { total, parts: finalParts, staminaCost: staminaCostFinal, isHeavy };
@@ -1194,10 +1191,6 @@ async function loadMaterials() {
     const response = await fetch('materials.json', { cache: 'no-cache' });
     const db = await response.json();
 
-    const woodDefaults = db.Wood && db.Wood.Defaults ? db.Wood.Defaults : [];
-    const mineralDefaults = Array.isArray(db.Minerals)
-      ? db.Minerals.filter(m => m.name && /MinResource|MaxResource$/.test(m.name))
-      : [];
 
     const [wood, stone, elementals, alloys] = await Promise.all([
       fetch('wood_types.json', { cache: 'no-cache' }).then(r => r.json()),
@@ -1213,9 +1206,6 @@ async function loadMaterials() {
         list.map(name => ({ id: slug(name), name }))
       ])
     );
-    if (woodDefaults.length) {
-      db.Wood.Defaults = woodDefaults;
-    }
 
     const collectMinerals = (obj) => {
       const names = [];
@@ -1229,9 +1219,6 @@ async function loadMaterials() {
       return [...new Set(names)];
     };
     db['Minerals'] = collectMinerals(stone).map(name => ({ id: slug(name), name }));
-    if (mineralDefaults.length) {
-      db['Minerals'] = [...mineralDefaults, ...db['Minerals']];
-    }
 
     const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
     const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
