@@ -13,11 +13,11 @@
       "electronegativity_pauling": 0.98,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 1.5,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 1.5,
           "units": "MPa"
         },
         "youngs_modulus": {
@@ -103,11 +103,11 @@
       "electronegativity_pauling": 1.57,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 345,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 345,
           "units": "MPa"
         },
         "youngs_modulus": {
