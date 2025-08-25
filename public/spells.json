@@ -1,280 +1,34 @@
 {
-  "spells": [
-    {
-      "name": "Flame Lash",
-      "school": "Fire",
-      "base_damage": 10,
-      "base_mana_cost": 5,
-      "description": "A basic whip of fire.",
-      "ranges": {
-        "Touch": {
-          "effect": "Applies a 'burning' status effect, dealing 2 damage per second for 3 seconds.",
-          "damage_multiplier": 1.5,
-          "cost_multiplier": 0.8
-        },
-        "Short": {
-          "effect": "Creates a cone of fire, hitting up to 3 targets.",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Long": {
-          "effect": "A single projectile of fire.",
-          "damage_multiplier": 0.7,
-          "cost_multiplier": 1.5
-        },
-        "Ultra-Long": {
-          "effect": "A slow-moving, arcing projectile that explodes on impact.",
-          "damage_multiplier": 0.5,
-          "cost_multiplier": 2.5
-        }
-      },
-      "modifiers": {
-        "None": {
-          "effect": "",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Void": {
-          "effect": "Adds a life-leech effect, healing the caster for 25% of the damage dealt.",
-          "damage_multiplier": 0.8,
-          "cost_multiplier": 1.5
-        },
-        "Radiance": {
-          "effect": "Adds a healing-over-time effect to the caster.",
-          "damage_multiplier": 0.8,
-          "cost_multiplier": 1.5
-        }
-      }
+  "range_multipliers": {
+    "Touch": 1.5,
+    "Short": 1.0,
+    "Long": 0.7,
+    "Ultra-Long": 0.5
+  },
+  "elements": {
+    "Fire": {
+      "Touch": { "description": "Placeholder touch fire spell." },
+      "Short": { "description": "Placeholder short-range fire spell." },
+      "Long": { "description": "Placeholder long-range fire projectile." },
+      "Ultra-Long": { "description": "Placeholder ultra-long fire mortar." }
     },
-    {
-      "name": "Ice Spike",
-      "school": "Water",
-      "base_damage": 8,
-      "base_mana_cost": 6,
-      "description": "A spike of ice.",
-      "ranges": {
-        "Touch": {
-          "effect": "Freezes the target in place for 1 second.",
-          "damage_multiplier": 1.5,
-          "cost_multiplier": 0.8
-        },
-        "Short": {
-          "effect": "Creates a burst of ice shards, slowing up to 5 targets.",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Long": {
-          "effect": "A single projectile of ice.",
-          "damage_multiplier": 0.7,
-          "cost_multiplier": 1.5
-        },
-        "Ultra-Long": {
-          "effect": "Calls down a hail of ice shards in an area.",
-          "damage_multiplier": 0.5,
-          "cost_multiplier": 2.5
-        }
-      },
-      "modifiers": {
-        "None": {
-          "effect": "",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Void": {
-          "effect": "The ice spike shatters on impact, causing bleeding damage.",
-          "damage_multiplier": 1.2,
-          "cost_multiplier": 1.5
-        },
-        "Radiance": {
-          "effect": "The ice spike encases the target in a temporary shield of ice that absorbs damage.",
-          "damage_multiplier": 0.5,
-          "cost_multiplier": 1.5
-        }
-      }
+    "Water": {
+      "Touch": { "description": "Placeholder touch water spell." },
+      "Short": { "description": "Placeholder short-range water spell." },
+      "Long": { "description": "Placeholder long-range water projectile." },
+      "Ultra-Long": { "description": "Placeholder ultra-long water mortar." }
     },
-    {
-      "name": "Stonefist",
-      "school": "Earth",
-      "base_damage": 12,
-      "base_mana_cost": 8,
-      "description": "A fist of rock smashes the target.",
-      "ranges": {
-        "Touch": {
-          "effect": "High damage, stuns for a short duration.",
-          "damage_multiplier": 1.5,
-          "cost_multiplier": 0.8
-        },
-        "Short": {
-          "effect": "Area of effect, knocks targets back.",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Long": {
-          "effect": "A single target projectile.",
-          "damage_multiplier": 0.7,
-          "cost_multiplier": 1.5
-        },
-        "Ultra-Long": {
-          "effect": "Creates a fissure in the ground, dealing damage over time to enemies within.",
-          "damage_multiplier": 0.5,
-          "cost_multiplier": 2.5
-        }
-      },
-      "modifiers": {
-        "None": {
-          "effect": "",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Fire": {
-          "effect": "Adds a magma effect, leaving a burning area on the ground.",
-          "damage_multiplier": 1.1,
-          "cost_multiplier": 1.5
-        },
-        "Water": {
-          "effect": "Turns the rock to mud, slowing the target's movement speed.",
-          "damage_multiplier": 0.9,
-          "cost_multiplier": 1.5
-        }
-      }
+    "Wind": {
+      "Touch": { "description": "Placeholder touch wind spell." },
+      "Short": { "description": "Placeholder short-range wind spell." },
+      "Long": { "description": "Placeholder long-range wind projectile." },
+      "Ultra-Long": { "description": "Placeholder ultra-long wind mortar." }
     },
-    {
-      "name": "Razor Gale",
-      "school": "Wind",
-      "base_damage": 7,
-      "base_mana_cost": 4,
-      "description": "A sharp gust of wind that cuts targets.",
-      "ranges": {
-        "Touch": {
-          "effect": "A small, fast cone that causes bleeding.",
-          "damage_multiplier": 1.5,
-          "cost_multiplier": 0.8
-        },
-        "Short": {
-          "effect": "A wider cone that can hit multiple targets.",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Long": {
-          "effect": "A fast-moving projectile that ignores some armor.",
-          "damage_multiplier": 0.7,
-          "cost_multiplier": 1.5
-        },
-        "Ultra-Long": {
-          "effect": "A tornado that moves and damages targets in its path.",
-          "damage_multiplier": 0.5,
-          "cost_multiplier": 2.5
-        }
-      },
-      "modifiers": {
-        "None": {
-          "effect": "",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Earth": {
-          "effect": "Adds dust to the wind, causing a blind effect on targets.",
-          "damage_multiplier": 0.8,
-          "cost_multiplier": 1.5
-        },
-        "Fire": {
-          "effect": "Creates a firestorm, dealing area damage over time.",
-          "damage_multiplier": 1.2,
-          "cost_multiplier": 1.5
-        }
-      }
-    },
-    {
-      "name": "Sunbeam",
-      "school": "Radiance",
-      "base_damage": 9,
-      "base_mana_cost": 7,
-      "description": "A beam of pure light that can harm or heal.",
-      "ranges": {
-        "Touch": {
-          "effect": "Heals an ally or damages an undead target.",
-          "damage_multiplier": 1.5,
-          "cost_multiplier": 0.8
-        },
-        "Short": {
-          "effect": "A beam that can be swept across an area.",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Long": {
-          "effect": "A concentrated beam of damaging light.",
-          "damage_multiplier": 0.7,
-          "cost_multiplier": 1.5
-        },
-        "Ultra-Long": {
-          "effect": "Calls a pillar of light from the sky for massive area damage.",
-          "damage_multiplier": 0.5,
-          "cost_multiplier": 2.5
-        }
-      },
-      "modifiers": {
-        "None": {
-          "effect": "",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Water": {
-          "effect": "The beam also cleanses negative status effects from the target.",
-          "damage_multiplier": 0.7,
-          "cost_multiplier": 1.5
-        },
-        "Void": {
-          "effect": "The beam silences enemies, preventing them from casting spells for a short duration.",
-          "damage_multiplier": 0.9,
-          "cost_multiplier": 1.5
-        }
-      }
-    },
-    {
-      "name": "Entropy Orb",
-      "school": "Void",
-      "base_damage": 6,
-      "base_mana_cost": 10,
-      "description": "An orb of chaotic energy that drains life and mana.",
-      "ranges": {
-        "Touch": {
-          "effect": "Drains health from the target.",
-          "damage_multiplier": 1.5,
-          "cost_multiplier": 0.8
-        },
-        "Short": {
-          "effect": "An orb that explodes, draining stamina from nearby enemies.",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Long": {
-          "effect": "A slow-moving orb that seeks targets and drains mana.",
-          "damage_multiplier": 0.7,
-          "cost_multiplier": 1.5
-        },
-        "Ultra-Long": {
-          "effect": "Creates a zone of entropy where all regeneration is stopped for a duration.",
-          "damage_multiplier": 0.5,
-          "cost_multiplier": 2.5
-        }
-      },
-      "modifiers": {
-        "None": {
-          "effect": "",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.0
-        },
-        "Radiance": {
-          "effect": "A portion of the drained life is given to the caster.",
-          "damage_multiplier": 1.0,
-          "cost_multiplier": 1.5
-        },
-        "Wind": {
-          "effect": "The orb can be pushed by wind effects, increasing its speed and range.",
-          "damage_multiplier": 1.1,
-          "cost_multiplier": 1.5
-        }
-      }
+    "Earth": {
+      "Touch": { "description": "Placeholder touch earth spell." },
+      "Short": { "description": "Placeholder short-range earth spell." },
+      "Long": { "description": "Placeholder long-range earth projectile." },
+      "Ultra-Long": { "description": "Placeholder ultra-long earth mortar." }
     }
-  ]
+  }
 }

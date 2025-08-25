@@ -1,5 +1,5 @@
 {
-  "Hardwoods": [
+  "Hardwood": [
     "White Oak",
     "Red Oak",
     "Maple",
@@ -8,10 +8,11 @@
     "White Ash",
     "American Beech",
     "Yellow Birch",
-    "Mahogany"
+    "Mahogany",
+    "Hickory"
   ],
-  "Softwoods": [
-    "Douglas-fir",
+  "Softwood": [
+    "Douglas Fir",
     "Eastern White Pine",
     "Loblolly Pine",
     "Sitka Spruce",

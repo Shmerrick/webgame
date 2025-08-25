@@ -1,5 +1,23 @@
 {
-  "Igneous": ["Granite", "Basalt", "Obsidian", "Diorite", "Andesite"],
-  "Sedimentary": ["Sandstone", "Shale", "Limestone", "Conglomerate", "Chalk"],
-  "Metamorphic": ["Marble", "Slate", "Schist", "Gneiss", "Quartzite"]
+  "Igneous": {
+    "Granite": ["Quartz", "Feldspar", "Mica"],
+    "Basalt": ["Pyroxene", "Olivine", "Plagioclase"],
+    "Obsidian": ["Silica"],
+    "Diorite": ["Plagioclase", "Hornblende", "Biotite"],
+    "Andesite": ["Plagioclase", "Pyroxene", "Amphibole"]
+  },
+  "Sedimentary": {
+    "Sandstone": ["Quartz", "Feldspar"],
+    "Shale": ["Clay Minerals", "Quartz"],
+    "Limestone": ["Calcite", "Aragonite"],
+    "Conglomerate": ["Quartz", "Chert", "Feldspar"],
+    "Chalk": ["Calcite"]
+  },
+  "Metamorphic": {
+    "Marble": ["Calcite", "Dolomite"],
+    "Slate": ["Clay Minerals", "Mica"],
+    "Schist": ["Mica", "Quartz", "Feldspar"],
+    "Gneiss": ["Quartz", "Feldspar", "Mica"],
+    "Quartzite": ["Quartz"]
+  }
 }

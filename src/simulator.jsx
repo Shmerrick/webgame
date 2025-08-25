@@ -169,7 +169,9 @@ function getMaterialsForCategory(DB, cat){
 }
 function subcategoriesFor(DB, cat){
   const obj = getMaterialsForCategory(DB, cat);
-  return Array.isArray(obj) ? [] : Object.keys(obj || {}).sort();
+  if (Array.isArray(obj)) return [];
+  const keys = Object.keys(obj || {}).sort();
+  return (keys.length === 1 && keys[0] === 'A') ? [] : keys;
 }
 function itemsForCategory(DB, cat, subCat){
   const obj = getMaterialsForCategory(DB, cat);
@@ -281,7 +283,7 @@ function getIconUrl(slotId, cls, shieldType, jewelryType) {
         'helmet': 'heavy_helmet.png', 'legs': 'heavy_legs.png', 'torso': 'heavy_torso.png',
     }
     const medium_slot_map = {
-        'boots': 'medium_boots.png', 'gloves': 'medium_gauntlets.png',
+        'boots': 'medium_boots.png', 'gloves': 'medium_gloves.png',
         'helmet': 'medium_helmet.png', 'legs': 'medium_legs.png', 'torso': 'medium_torso.png',
     }
     const light_slot_map = {
@@ -1185,9 +1187,25 @@ async function loadMaterials() {
     ]);
 
     const slug = name => name.toLowerCase().replace(/\s+/g, '_');
+    db['Wood'] = Object.fromEntries(
+      Object.entries(wood).map(([type, list]) => [
+        type,
+        list.map(name => ({ id: slug(name), name }))
+      ])
+    );
 
-    db['Wood'] = Object.values(wood).flat().map(name => ({ id: slug(name), name }));
-    db['Minerals'] = Object.values(stone).flat().map(name => ({ id: slug(name), name }));
+    const collectMinerals = (obj) => {
+      const names = [];
+      (function traverse(node) {
+        if (Array.isArray(node)) {
+          names.push(...node);
+        } else if (node && typeof node === 'object') {
+          Object.values(node).forEach(traverse);
+        }
+      })(obj);
+      return [...new Set(names)];
+    };
+    db['Minerals'] = { A: collectMinerals(stone).map(name => ({ id: slug(name), name })) };
 
     const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
     const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));

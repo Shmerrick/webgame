@@ -56,125 +56,36 @@
     </div>
 
     <script type="text/babel">
-      const { useState, useEffect, useMemo } = React;
+      const { useState } = React;
 
-      function Tooltip({ spell, onClose }) {
-        if (!spell) return null;
-        return (
-          <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50" onClick={onClose}>
-            <div className="bg-slate-900 border border-slate-700 rounded-2xl p-6 shadow-2xl max-w-lg w-full" onClick={e => e.stopPropagation()}>
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-emerald-400">{spell.name}</h3>
-                  <div className="text-sm text-slate-400">{spell.school} - {spell.range} ({spell.modifier})</div>
-                </div>
-                <button onClick={onClose} className="text-slate-400 hover:text-white">&times;</button>
-              </div>
-              <div className="space-y-3">
-                <div><span className="font-semibold text-slate-300">Damage:</span> {spell.damage}</div>
-                <div><span className="font-semibold text-slate-300">Mana Cost:</span> {spell.mana_cost}</div>
-                <p className="text-slate-300"><span className="font-semibold text-slate-300">Description:</span> {spell.description}</p>
-                <p className="text-slate-300"><span className="font-semibold text-slate-300">Range Effect:</span> {spell.range_effect}</p>
-                {spell.modifier_effect && <p className="text-slate-300"><span className="font-semibold text-slate-300">Modifier Effect:</span> {spell.modifier_effect}</p>}
-              </div>
-            </div>
-          </div>
-        );
-      }
-
-      function SpellsPage({ spells }) {
-        const [selectedSpell, setSelectedSpell] = useState(null);
-
-        const processedSpells = useMemo(() => {
-          const allSpells = [];
-          spells
-            .filter(baseSpell => baseSpell.school !== "Radiance" && baseSpell.school !== "Void")
-            .forEach(baseSpell => {
-            Object.keys(baseSpell.ranges).forEach(range => {
-              Object.keys(baseSpell.modifiers).forEach(modifier => {
-                const rangeData = baseSpell.ranges[range];
-                const modData = baseSpell.modifiers[modifier];
-
-                const finalDamage = Math.round(baseSpell.base_damage * rangeData.damage_multiplier * modData.damage_multiplier);
-                const finalCost = Math.round(baseSpell.base_mana_cost * rangeData.cost_multiplier * modData.cost_multiplier);
-
-                allSpells.push({
-                  name: baseSpell.name,
-                  school: baseSpell.school,
-                  range: range,
-                  modifier: modifier,
-                  damage: finalDamage,
-                  mana_cost: finalCost,
-                  description: baseSpell.description,
-                  range_effect: rangeData.effect,
-                  modifier_effect: modData.effect,
-                });
-              });
-            });
-          });
-          return allSpells;
-        }, [spells]);
-
-        const groupedSpells = useMemo(() => {
-          const groups = {};
-          processedSpells.forEach(spell => {
-            if (!groups[spell.school]) {
-              groups[spell.school] = {};
-            }
-            if (!groups[spell.school][spell.name]) {
-              groups[spell.school][spell.name] = [];
-            }
-            groups[spell.school][spell.name].push(spell);
-          });
-          return groups;
-        }, [processedSpells]);
-
-        const schools = ["Fire", "Water", "Earth", "Wind", "Radiance", "Void"];
+      function SpellsPage({ data }) {
+        const [intelligence, setIntelligence] = useState(50);
         const ranges = ["Touch", "Short", "Long", "Ultra-Long"];
 
         return (
           <div>
             <h1 className="text-3xl font-bold mb-6">Magical Spells</h1>
-            <p className="text-slate-300 mb-6">Click on a spell variation to see its details. The number in the button represents the calculated damage.</p>
-            {selectedSpell && <Tooltip spell={selectedSpell} onClose={() => setSelectedSpell(null)} />}
-            {Object.entries(groupedSpells).map(([school, schoolSpells]) => (
-              <div key={school} className="mb-8 overflow-x-auto">
-                <h2 className="text-2xl font-semibold mb-4 border-b-2 border-slate-700 pb-2">{school}</h2>
+            <div className="mb-6">
+              <label className="block mb-2 font-semibold">Intelligence: {intelligence}</label>
+              <input type="range" min="0" max="100" value={intelligence} onChange={e => setIntelligence(parseInt(e.target.value))} className="w-full" />
+            </div>
+            {Object.entries(data.elements).map(([element, spells]) => (
+              <div key={element} className="mb-8 overflow-x-auto">
+                <h2 className="text-2xl font-semibold mb-4 border-b-2 border-slate-700 pb-2">{element}</h2>
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-slate-800/60">
-                      <th className="p-3">Spell</th>
-                      {ranges.map(r => <th key={r} className="p-3">{r}</th>)}
+                      <th className="p-3">Range</th>
+                      <th className="p-3">Damage</th>
+                      <th className="p-3">Description</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {Object.entries(schoolSpells).map(([spellName, spellVariations]) => (
-                      <tr key={spellName} className="border-b border-slate-800">
-                        <td className="p-3 font-semibold text-emerald-400">{spellName}</td>
-                        {ranges.map(range => {
-                          const spellsForRange = spellVariations.filter(s => s.range === range);
-                          return (
-                            <td key={range} className="p-3 align-top">
-                              <div className="flex flex-col gap-2">
-                                {spellsForRange.map(spell => (
-                                  <button
-                                    key={spell.modifier}
-                                    onClick={() => setSelectedSpell(spell)}
-                                    className={`w-full text-left px-3 py-2 rounded-lg border text-sm
-                                      ${spell.modifier === "None" ? "border-slate-600 hover:bg-slate-700" : ""}
-                                      ${spell.modifier === "Void" ? "border-purple-500 bg-purple-500/10 hover:bg-purple-500/20" : ""}
-                                      ${spell.modifier === "Radiance" ? "border-yellow-500 bg-yellow-500/10 hover:bg-yellow-500/20" : ""}`}
-                                  >
-                                    <div className="flex justify-between items-center">
-                                      <span>{spell.modifier}</span>
-                                      <span className="font-bold">{spell.damage}</span>
-                                    </div>
-                                  </button>
-                                ))}
-                              </div>
-                            </td>
-                          );
-                        })}
+                    {ranges.map(range => (
+                      <tr key={range} className="border-b border-slate-800">
+                        <td className="p-3 font-semibold text-emerald-400">{range}</td>
+                        <td className="p-3">{Math.round(intelligence * data.range_multipliers[range])}</td>
+                        <td className="p-3 text-slate-300">{spells[range].description}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -189,7 +100,7 @@
         .then(response => response.json())
         .then(data => {
           ReactDOM.createRoot(document.getElementById("root")).render(
-            <React.StrictMode><SpellsPage spells={data.spells} /></React.StrictMode>
+            <React.StrictMode><SpellsPage data={data} /></React.StrictMode>
           );
         })
         .catch(error => console.error('Error loading spells:', error));

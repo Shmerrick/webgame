@@ -15,32 +15,32 @@
     "Volume_cm3": 350
   },
   {
-    "ArmorPiece": "Chestplate",
+    "ArmorPiece": "Torso",
     "Component": "Outer",
     "Volume_cm3": 6000
   },
   {
-    "ArmorPiece": "Chestplate",
+    "ArmorPiece": "Torso",
     "Component": "Inner",
     "Volume_cm3": 3000
   },
   {
-    "ArmorPiece": "Chestplate",
+    "ArmorPiece": "Torso",
     "Component": "Binding",
     "Volume_cm3": 1000
   },
   {
-    "ArmorPiece": "Greaves",
+    "ArmorPiece": "Legs",
     "Component": "Outer",
     "Volume_cm3": 1200
   },
   {
-    "ArmorPiece": "Greaves",
+    "ArmorPiece": "Legs",
     "Component": "Inner",
     "Volume_cm3": 600
   },
   {
-    "ArmorPiece": "Greaves",
+    "ArmorPiece": "Legs",
     "Component": "Binding",
     "Volume_cm3": 200
   },
@@ -60,17 +60,17 @@
     "Volume_cm3": 300
   },
   {
-    "ArmorPiece": "Gauntlets",
+    "ArmorPiece": "Gloves",
     "Component": "Outer",
     "Volume_cm3": 900
   },
   {
-    "ArmorPiece": "Gauntlets",
+    "ArmorPiece": "Gloves",
     "Component": "Inner",
     "Volume_cm3": 450
   },
   {
-    "ArmorPiece": "Gauntlets",
+    "ArmorPiece": "Gloves",
     "Component": "Binding",
     "Volume_cm3": 150
   }
