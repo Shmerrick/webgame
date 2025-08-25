@@ -12,20 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const [
                 db,
                 woods,
-                stones,
                 elementals,
                 alloys,
                 siegeVolumesList
             ] = await Promise.all([
                 getDatabaseSection('materials'),
                 getDatabaseSection('woodTypes'),
-                getDatabaseSection('stoneTypes'),
                 getDatabaseSection('elementalMetals'),
                 getDatabaseSection('metalAlloys'),
                 getDatabaseSection('siegeVolumes')
             ]);
 
-            buildMaterialsDB(db, woods, stones, elementals, alloys);
+            buildMaterialsDB(db, woods, elementals, alloys);
 
             siegeVolumesList.forEach(item => {
                 if (!siegeVolumesData[item.siege_weapon_type]) {
@@ -45,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function buildMaterialsDB(db, woods, stones, elementals, alloys) {
+    function buildMaterialsDB(db, woods, elementals, alloys) {
         const slug = name => name.toLowerCase().replace(/\s+/g, '_');
         const defDensity = cat => ({ Wood: 0.6, Minerals: 2.5 }[cat] || 1);
 
@@ -56,19 +54,29 @@ document.addEventListener('DOMContentLoaded', () => {
             ])
         );
 
-        const collectMinerals = obj => {
-            const names = [];
-            (function trav(node) {
-                if (Array.isArray(node)) {
-                    names.push(...node);
-                } else if (node && typeof node === 'object') {
-                    Object.values(node).forEach(trav);
-                }
-            })(obj);
-            return [...new Set(names)];
-        };
+        const silicateMinerals = [
+            'Amphibole',
+            'Biotite',
+            'Feldspar',
+            'Hornblende',
+            'Mica',
+            'Olivine',
+            'Plagioclase',
+            'Pyroxene',
+            'Quartz',
+            'Clay Minerals'
+        ];
+        const nonSilicateMinerals = [
+            'Aragonite',
+            'Calcite',
+            'Dolomite',
+            'Chert',
+            'Silica'
+        ];
+        const mapMineral = name => ({ id: slug(name), name, density: 2.5 });
         db['Minerals'] = {
-            A: collectMinerals(stones).map(name => ({ id: slug(name), name, density: 2.5 }))
+            'Silicate Minerals': silicateMinerals.map(mapMineral),
+            'Non-Silicate Minerals': nonSilicateMinerals.map(mapMineral)
         };
 
         const procMetal = m => ({
