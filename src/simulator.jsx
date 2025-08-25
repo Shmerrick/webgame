@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS } from "./constants/weapons.js";
 import CharacterPanel from "./components/CharacterPanel.jsx";
 import WeaponAttackPanel from "./components/WeaponAttackPanel.jsx";
+import AttackDirectionPanel from "./components/AttackDirectionPanel.jsx";
 import RangedWeaponPanel from "./components/RangedWeaponPanel.jsx";
 import MaterialSelect from "./components/MaterialSelect.jsx";
 import ResultsPanel from "./components/ResultsPanel.jsx";
@@ -678,6 +679,15 @@ function App({ DB }){
                 STAT_POOL={STAT_POOL}
                 HEALTH_FIXED={HEALTH_FIXED}
               />
+              <AttackDirectionPanel
+                weapon={weapon}
+                direction={direction}
+                setDirection={setDirection}
+                charge={charge}
+                setCharge={setCharge}
+                swing={swing}
+                setSwing={setSwing}
+              />
             </div>
 
             {/* Center column: Skills */}
@@ -789,12 +799,6 @@ function App({ DB }){
                 setWeaponComp={setWeaponComp}
                 isTwoHanded={isTwoHanded}
                 setTwoHanded={setTwoHanded}
-                direction={direction}
-                setDirection={setDirection}
-                charge={charge}
-                setCharge={setCharge}
-                swing={swing}
-                setSwing={setSwing}
                 mountedSpeed={mountedSpeed}
                 setMountedSpeed={setMountedSpeed}
                 armor={armor}
