@@ -1,0 +1,7258 @@
+{
+  "elements": [
+    {
+      "name": "Lithium",
+      "atomic_mass": 6.94,
+      "boil": 1603,
+      "category": "alkali metal",
+      "density": 0.534,
+      "melt": 453.65,
+      "molar_heat": 24.86,
+      "symbol": "Li",
+      "electron_affinity": 59.6326,
+      "electronegativity_pauling": 0.98,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Beryllium",
+      "atomic_mass": 9.01218315,
+      "boil": 2742,
+      "category": "alkaline earth metal",
+      "density": 1.85,
+      "melt": 1560,
+      "molar_heat": 16.443,
+      "symbol": "Be",
+      "electron_affinity": -48,
+      "electronegativity_pauling": 1.57,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Sodium",
+      "atomic_mass": 22.989769282,
+      "boil": 1156.09,
+      "category": "alkali metal",
+      "density": 0.968,
+      "melt": 370.944,
+      "molar_heat": 28.23,
+      "symbol": "Na",
+      "electron_affinity": 52.867,
+      "electronegativity_pauling": 0.93,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Magnesium",
+      "atomic_mass": 24.305,
+      "boil": 1363,
+      "category": "alkaline earth metal",
+      "density": 1.738,
+      "melt": 923,
+      "molar_heat": 24.869,
+      "symbol": "Mg",
+      "electron_affinity": -40,
+      "electronegativity_pauling": 1.31,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Aluminium",
+      "atomic_mass": 26.98153857,
+      "boil": 2743,
+      "category": "post-transition metal",
+      "density": 2.7,
+      "melt": 933.47,
+      "molar_heat": 24.2,
+      "symbol": "Al",
+      "electron_affinity": 41.762,
+      "electronegativity_pauling": 1.61,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Potassium",
+      "atomic_mass": 39.09831,
+      "boil": 1032,
+      "category": "alkali metal",
+      "density": 0.862,
+      "melt": 336.7,
+      "molar_heat": 29.6,
+      "symbol": "K",
+      "electron_affinity": 48.383,
+      "electronegativity_pauling": 0.82,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Calcium",
+      "atomic_mass": 40.0784,
+      "boil": 1757,
+      "category": "alkaline earth metal",
+      "density": 1.55,
+      "melt": 1115,
+      "molar_heat": 25.929,
+      "symbol": "Ca",
+      "electron_affinity": 2.37,
+      "electronegativity_pauling": 1,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Scandium",
+      "atomic_mass": 44.9559085,
+      "boil": 3109,
+      "category": "transition metal",
+      "density": 2.985,
+      "melt": 1814,
+      "molar_heat": 25.52,
+      "symbol": "Sc",
+      "electron_affinity": 18,
+      "electronegativity_pauling": 1.36,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Titanium",
+      "atomic_mass": 47.8671,
+      "boil": 3560,
+      "category": "transition metal",
+      "density": 4.506,
+      "melt": 1941,
+      "molar_heat": 25.06,
+      "symbol": "Ti",
+      "electron_affinity": 7.289,
+      "electronegativity_pauling": 1.54,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Vanadium",
+      "atomic_mass": 50.94151,
+      "boil": 3680,
+      "category": "transition metal",
+      "density": 6,
+      "melt": 2183,
+      "molar_heat": 24.89,
+      "symbol": "V",
+      "electron_affinity": 50.911,
+      "electronegativity_pauling": 1.63,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Chromium",
+      "atomic_mass": 51.99616,
+      "boil": 2944,
+      "category": "transition metal",
+      "density": 7.19,
+      "melt": 2180,
+      "molar_heat": 23.35,
+      "symbol": "Cr",
+      "electron_affinity": 65.21,
+      "electronegativity_pauling": 1.66,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Manganese",
+      "atomic_mass": 54.9380443,
+      "boil": 2334,
+      "category": "transition metal",
+      "density": 7.21,
+      "melt": 1519,
+      "molar_heat": 26.32,
+      "symbol": "Mn",
+      "electron_affinity": -50,
+      "electronegativity_pauling": 1.55,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Iron",
+      "atomic_mass": 55.8452,
+      "boil": 3134,
+      "category": "transition metal",
+      "density": 7.874,
+      "melt": 1811,
+      "molar_heat": 25.1,
+      "symbol": "Fe",
+      "electron_affinity": 14.785,
+      "electronegativity_pauling": 1.83,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Cobalt",
+      "atomic_mass": 58.9331944,
+      "boil": 3200,
+      "category": "transition metal",
+      "density": 8.9,
+      "melt": 1768,
+      "molar_heat": 24.81,
+      "symbol": "Co",
+      "electron_affinity": 63.898,
+      "electronegativity_pauling": 1.88,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Nickel",
+      "atomic_mass": 58.69344,
+      "boil": 3003,
+      "category": "transition metal",
+      "density": 8.908,
+      "melt": 1728,
+      "molar_heat": 26.07,
+      "symbol": "Ni",
+      "electron_affinity": 111.65,
+      "electronegativity_pauling": 1.91,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Copper",
+      "atomic_mass": 63.5463,
+      "boil": 2835,
+      "category": "transition metal",
+      "density": 8.96,
+      "melt": 1357.77,
+      "molar_heat": 24.44,
+      "symbol": "Cu",
+      "electron_affinity": 119.235,
+      "electronegativity_pauling": 1.9,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": 210.0,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": 33.0,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": 120.0,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": 3.0,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": 250.0,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": 350.0,
+          "units": "MPa"
+        },
+        "density": {
+          "value": 8.92,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": 1084.62,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": 2562.0,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": 401.0,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": 16.5,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": 0.38,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": 13.05,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": 300.3,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": 16.8,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": -5.46e-06,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Zinc",
+      "atomic_mass": 65.382,
+      "boil": 1180,
+      "category": "transition metal",
+      "density": 7.14,
+      "melt": 692.68,
+      "molar_heat": 25.47,
+      "symbol": "Zn",
+      "electron_affinity": -58,
+      "electronegativity_pauling": 1.65,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Gallium",
+      "atomic_mass": 69.7231,
+      "boil": 2673,
+      "category": "post-transition metal",
+      "density": 5.91,
+      "melt": 302.9146,
+      "molar_heat": 25.86,
+      "symbol": "Ga",
+      "electron_affinity": 41,
+      "electronegativity_pauling": 1.81,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Rubidium",
+      "atomic_mass": 85.46783,
+      "boil": 961,
+      "category": "alkali metal",
+      "density": 1.532,
+      "melt": 312.45,
+      "molar_heat": 31.06,
+      "symbol": "Rb",
+      "electron_affinity": 46.884,
+      "electronegativity_pauling": 0.82,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Strontium",
+      "atomic_mass": 87.621,
+      "boil": 1650,
+      "category": "alkaline earth metal",
+      "density": 2.64,
+      "melt": 1050,
+      "molar_heat": 26.4,
+      "symbol": "Sr",
+      "electron_affinity": 5.023,
+      "electronegativity_pauling": 0.95,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Yttrium",
+      "atomic_mass": 88.905842,
+      "boil": 3203,
+      "category": "transition metal",
+      "density": 4.472,
+      "melt": 1799,
+      "molar_heat": 26.53,
+      "symbol": "Y",
+      "electron_affinity": 29.6,
+      "electronegativity_pauling": 1.22,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Zirconium",
+      "atomic_mass": 91.2242,
+      "boil": 4650,
+      "category": "transition metal",
+      "density": 6.52,
+      "melt": 2128,
+      "molar_heat": 25.36,
+      "symbol": "Zr",
+      "electron_affinity": 41.806,
+      "electronegativity_pauling": 1.33,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Niobium",
+      "atomic_mass": 92.906372,
+      "boil": 5017,
+      "category": "transition metal",
+      "density": 8.57,
+      "melt": 2750,
+      "molar_heat": 24.6,
+      "symbol": "Nb",
+      "electron_affinity": 88.516,
+      "electronegativity_pauling": 1.6,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Molybdenum",
+      "atomic_mass": 95.951,
+      "boil": 4912,
+      "category": "transition metal",
+      "density": 10.28,
+      "melt": 2896,
+      "molar_heat": 24.06,
+      "symbol": "Mo",
+      "electron_affinity": 72.1,
+      "electronegativity_pauling": 2.16,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Technetium",
+      "atomic_mass": 98,
+      "boil": 4538,
+      "category": "transition metal",
+      "density": 11,
+      "melt": 2430,
+      "molar_heat": 24.27,
+      "symbol": "Tc",
+      "electron_affinity": 53,
+      "electronegativity_pauling": 1.9,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Ruthenium",
+      "atomic_mass": 101.072,
+      "boil": 4423,
+      "category": "transition metal",
+      "density": 12.45,
+      "melt": 2607,
+      "molar_heat": 24.06,
+      "symbol": "Ru",
+      "electron_affinity": 100.96,
+      "electronegativity_pauling": 2.2,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Rhodium",
+      "atomic_mass": 102.905502,
+      "boil": 3968,
+      "category": "transition metal",
+      "density": 12.41,
+      "melt": 2237,
+      "molar_heat": 24.98,
+      "symbol": "Rh",
+      "electron_affinity": 110.27,
+      "electronegativity_pauling": 2.28,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Palladium",
+      "atomic_mass": 106.421,
+      "boil": 3236,
+      "category": "transition metal",
+      "density": 12.023,
+      "melt": 1828.05,
+      "molar_heat": 25.98,
+      "symbol": "Pd",
+      "electron_affinity": 54.24,
+      "electronegativity_pauling": 2.2,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Silver",
+      "atomic_mass": 107.86822,
+      "boil": 2435,
+      "category": "transition metal",
+      "density": 10.49,
+      "melt": 1234.93,
+      "molar_heat": 25.35,
+      "symbol": "Ag",
+      "electron_affinity": 125.862,
+      "electronegativity_pauling": 1.93,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Cadmium",
+      "atomic_mass": 112.4144,
+      "boil": 1040,
+      "category": "transition metal",
+      "density": 8.65,
+      "melt": 594.22,
+      "molar_heat": 26.02,
+      "symbol": "Cd",
+      "electron_affinity": -68,
+      "electronegativity_pauling": 1.69,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Indium",
+      "atomic_mass": 114.8181,
+      "boil": 2345,
+      "category": "post-transition metal",
+      "density": 7.31,
+      "melt": 429.7485,
+      "molar_heat": 26.74,
+      "symbol": "In",
+      "electron_affinity": 37.043,
+      "electronegativity_pauling": 1.78,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Tin",
+      "atomic_mass": 118.7107,
+      "boil": 2875,
+      "category": "post-transition metal",
+      "density": 7.365,
+      "melt": 505.08,
+      "molar_heat": 27.112,
+      "symbol": "Sn",
+      "electron_affinity": 107.2984,
+      "electronegativity_pauling": 1.96,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Cesium",
+      "atomic_mass": 132.905451966,
+      "boil": 944,
+      "category": "alkali metal",
+      "density": 1.93,
+      "melt": 301.7,
+      "molar_heat": 32.21,
+      "symbol": "Cs",
+      "electron_affinity": 45.505,
+      "electronegativity_pauling": 0.79,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Barium",
+      "atomic_mass": 137.3277,
+      "boil": 2118,
+      "category": "alkaline earth metal",
+      "density": 3.51,
+      "melt": 1000,
+      "molar_heat": 28.07,
+      "symbol": "Ba",
+      "electron_affinity": 13.954,
+      "electronegativity_pauling": 0.89,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Lanthanum",
+      "atomic_mass": 138.905477,
+      "boil": 3737,
+      "category": "lanthanide",
+      "density": 6.162,
+      "melt": 1193,
+      "molar_heat": 27.11,
+      "symbol": "La",
+      "electron_affinity": 53,
+      "electronegativity_pauling": 1.1,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Cerium",
+      "atomic_mass": 140.1161,
+      "boil": 3716,
+      "category": "lanthanide",
+      "density": 6.77,
+      "melt": 1068,
+      "molar_heat": 26.94,
+      "symbol": "Ce",
+      "electron_affinity": 55,
+      "electronegativity_pauling": 1.12,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Praseodymium",
+      "atomic_mass": 140.907662,
+      "boil": 3403,
+      "category": "lanthanide",
+      "density": 6.77,
+      "melt": 1208,
+      "molar_heat": 27.2,
+      "symbol": "Pr",
+      "electron_affinity": 93,
+      "electronegativity_pauling": 1.13,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Neodymium",
+      "atomic_mass": 144.2423,
+      "boil": 3347,
+      "category": "lanthanide",
+      "density": 7.01,
+      "melt": 1297,
+      "molar_heat": 27.45,
+      "symbol": "Nd",
+      "electron_affinity": 184.87,
+      "electronegativity_pauling": 1.14,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Promethium",
+      "atomic_mass": 145,
+      "boil": 3273,
+      "category": "lanthanide",
+      "density": 7.26,
+      "melt": 1315,
+      "molar_heat": null,
+      "symbol": "Pm",
+      "electron_affinity": 12.45,
+      "electronegativity_pauling": 1.13,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Samarium",
+      "atomic_mass": 150.362,
+      "boil": 2173,
+      "category": "lanthanide",
+      "density": 7.52,
+      "melt": 1345,
+      "molar_heat": 29.54,
+      "symbol": "Sm",
+      "electron_affinity": 15.63,
+      "electronegativity_pauling": 1.17,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Europium",
+      "atomic_mass": 151.9641,
+      "boil": 1802,
+      "category": "lanthanide",
+      "density": 5.264,
+      "melt": 1099,
+      "molar_heat": 27.66,
+      "symbol": "Eu",
+      "electron_affinity": 11.2,
+      "electronegativity_pauling": 1.2,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Gadolinium",
+      "atomic_mass": 157.253,
+      "boil": 3273,
+      "category": "lanthanide",
+      "density": 7.9,
+      "melt": 1585,
+      "molar_heat": 37.03,
+      "symbol": "Gd",
+      "electron_affinity": 13.22,
+      "electronegativity_pauling": 1.2,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Terbium",
+      "atomic_mass": 158.925352,
+      "boil": 3396,
+      "category": "lanthanide",
+      "density": 8.23,
+      "melt": 1629,
+      "molar_heat": 28.91,
+      "symbol": "Tb",
+      "electron_affinity": 112.4,
+      "electronegativity_pauling": 1.1,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Dysprosium",
+      "atomic_mass": 162.5001,
+      "boil": 2840,
+      "category": "lanthanide",
+      "density": 8.54,
+      "melt": 1680,
+      "molar_heat": 27.7,
+      "symbol": "Dy",
+      "electron_affinity": 33.96,
+      "electronegativity_pauling": 1.22,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Holmium",
+      "atomic_mass": 164.930332,
+      "boil": 2873,
+      "category": "lanthanide",
+      "density": 8.79,
+      "melt": 1734,
+      "molar_heat": 27.15,
+      "symbol": "Ho",
+      "electron_affinity": 32.61,
+      "electronegativity_pauling": 1.23,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Erbium",
+      "atomic_mass": 167.2593,
+      "boil": 3141,
+      "category": "lanthanide",
+      "density": 9.066,
+      "melt": 1802,
+      "molar_heat": 28.12,
+      "symbol": "Er",
+      "electron_affinity": 30.1,
+      "electronegativity_pauling": 1.24,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Thulium",
+      "atomic_mass": 168.934222,
+      "boil": 2223,
+      "category": "lanthanide",
+      "density": 9.32,
+      "melt": 1818,
+      "molar_heat": 27.03,
+      "symbol": "Tm",
+      "electron_affinity": 99,
+      "electronegativity_pauling": 1.25,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Ytterbium",
+      "atomic_mass": 173.0451,
+      "boil": 1469,
+      "category": "lanthanide",
+      "density": 6.9,
+      "melt": 1097,
+      "molar_heat": 26.74,
+      "symbol": "Yb",
+      "electron_affinity": -1.93,
+      "electronegativity_pauling": 1.1,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Lutetium",
+      "atomic_mass": 174.96681,
+      "boil": 3675,
+      "category": "lanthanide",
+      "density": 9.841,
+      "melt": 1925,
+      "molar_heat": 26.86,
+      "symbol": "Lu",
+      "electron_affinity": 33.4,
+      "electronegativity_pauling": 1.27,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Hafnium",
+      "atomic_mass": 178.492,
+      "boil": 4876,
+      "category": "transition metal",
+      "density": 13.31,
+      "melt": 2506,
+      "molar_heat": 25.73,
+      "symbol": "Hf",
+      "electron_affinity": 17.18,
+      "electronegativity_pauling": 1.3,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Tantalum",
+      "atomic_mass": 180.947882,
+      "boil": 5731,
+      "category": "transition metal",
+      "density": 16.69,
+      "melt": 3290,
+      "molar_heat": 25.36,
+      "symbol": "Ta",
+      "electron_affinity": 31,
+      "electronegativity_pauling": 1.5,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Tungsten",
+      "atomic_mass": 183.841,
+      "boil": 6203,
+      "category": "transition metal",
+      "density": 19.25,
+      "melt": 3695,
+      "molar_heat": 24.27,
+      "symbol": "W",
+      "electron_affinity": 78.76,
+      "electronegativity_pauling": 2.36,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Rhenium",
+      "atomic_mass": 186.2071,
+      "boil": 5869,
+      "category": "transition metal",
+      "density": 21.02,
+      "melt": 3459,
+      "molar_heat": 25.48,
+      "symbol": "Re",
+      "electron_affinity": 5.8273,
+      "electronegativity_pauling": 1.9,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Osmium",
+      "atomic_mass": 190.233,
+      "boil": 5285,
+      "category": "transition metal",
+      "density": 22.59,
+      "melt": 3306,
+      "molar_heat": 24.7,
+      "symbol": "Os",
+      "electron_affinity": 103.99,
+      "electronegativity_pauling": 2.2,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Iridium",
+      "atomic_mass": 192.2173,
+      "boil": 4403,
+      "category": "transition metal",
+      "density": 22.56,
+      "melt": 2719,
+      "molar_heat": 25.1,
+      "symbol": "Ir",
+      "electron_affinity": 150.94,
+      "electronegativity_pauling": 2.2,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Platinum",
+      "atomic_mass": 195.0849,
+      "boil": 4098,
+      "category": "transition metal",
+      "density": 21.45,
+      "melt": 2041.4,
+      "molar_heat": 25.86,
+      "symbol": "Pt",
+      "electron_affinity": 205.041,
+      "electronegativity_pauling": 2.28,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Gold",
+      "atomic_mass": 196.9665695,
+      "boil": 3243,
+      "category": "transition metal",
+      "density": 19.3,
+      "melt": 1337.33,
+      "molar_heat": 25.418,
+      "symbol": "Au",
+      "electron_affinity": 222.747,
+      "electronegativity_pauling": 2.54,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Mercury",
+      "atomic_mass": 200.5923,
+      "boil": 629.88,
+      "category": "transition metal",
+      "density": 13.534,
+      "melt": 234.321,
+      "molar_heat": 27.983,
+      "symbol": "Hg",
+      "electron_affinity": -48,
+      "electronegativity_pauling": 2,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Thallium",
+      "atomic_mass": 204.38,
+      "boil": 1746,
+      "category": "post-transition metal",
+      "density": 11.85,
+      "melt": 577,
+      "molar_heat": 26.32,
+      "symbol": "Tl",
+      "electron_affinity": 36.4,
+      "electronegativity_pauling": 1.62,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Lead",
+      "atomic_mass": 207.21,
+      "boil": 2022,
+      "category": "post-transition metal",
+      "density": 11.34,
+      "melt": 600.61,
+      "molar_heat": 26.65,
+      "symbol": "Pb",
+      "electron_affinity": 34.4204,
+      "electronegativity_pauling": 1.87,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Bismuth",
+      "atomic_mass": 208.980401,
+      "boil": 1837,
+      "category": "post-transition metal",
+      "density": 9.78,
+      "melt": 544.7,
+      "molar_heat": 25.52,
+      "symbol": "Bi",
+      "electron_affinity": 90.924,
+      "electronegativity_pauling": 2.02,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Polonium",
+      "atomic_mass": 209,
+      "boil": 1235,
+      "category": "post-transition metal",
+      "density": 9.196,
+      "melt": 527,
+      "molar_heat": 26.4,
+      "symbol": "Po",
+      "electron_affinity": 136,
+      "electronegativity_pauling": 2,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Francium",
+      "atomic_mass": 223,
+      "boil": 950,
+      "category": "alkali metal",
+      "density": 1.87,
+      "melt": 300,
+      "molar_heat": null,
+      "symbol": "Fr",
+      "electron_affinity": 46.89,
+      "electronegativity_pauling": 0.79,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Radium",
+      "atomic_mass": 226,
+      "boil": 2010,
+      "category": "alkaline earth metal",
+      "density": 5.5,
+      "melt": 1233,
+      "molar_heat": null,
+      "symbol": "Ra",
+      "electron_affinity": 9.6485,
+      "electronegativity_pauling": 0.9,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Actinium",
+      "atomic_mass": 227,
+      "boil": 3500,
+      "category": "actinide",
+      "density": 10,
+      "melt": 1500,
+      "molar_heat": 27.2,
+      "symbol": "Ac",
+      "electron_affinity": 33.77,
+      "electronegativity_pauling": 1.1,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Thorium",
+      "atomic_mass": 232.03774,
+      "boil": 5061,
+      "category": "actinide",
+      "density": 11.724,
+      "melt": 2023,
+      "molar_heat": 26.23,
+      "symbol": "Th",
+      "electron_affinity": 112.72,
+      "electronegativity_pauling": 1.3,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Protactinium",
+      "atomic_mass": 231.035882,
+      "boil": 4300,
+      "category": "actinide",
+      "density": 15.37,
+      "melt": 1841,
+      "molar_heat": null,
+      "symbol": "Pa",
+      "electron_affinity": 53.03,
+      "electronegativity_pauling": 1.5,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Uranium",
+      "atomic_mass": 238.028913,
+      "boil": 4404,
+      "category": "actinide",
+      "density": 19.1,
+      "melt": 1405.3,
+      "molar_heat": 27.665,
+      "symbol": "U",
+      "electron_affinity": 50.94,
+      "electronegativity_pauling": 1.38,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Neptunium",
+      "atomic_mass": 237,
+      "boil": 4447,
+      "category": "actinide",
+      "density": 20.45,
+      "melt": 912,
+      "molar_heat": 29.46,
+      "symbol": "Np",
+      "electron_affinity": 45.85,
+      "electronegativity_pauling": 1.36,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Plutonium",
+      "atomic_mass": 244,
+      "boil": 3505,
+      "category": "actinide",
+      "density": 19.816,
+      "melt": 912.5,
+      "molar_heat": 35.5,
+      "symbol": "Pu",
+      "electron_affinity": -48.33,
+      "electronegativity_pauling": 1.28,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Americium",
+      "atomic_mass": 243,
+      "boil": 2880,
+      "category": "actinide",
+      "density": 12,
+      "melt": 1449,
+      "molar_heat": 62.7,
+      "symbol": "Am",
+      "electron_affinity": 9.93,
+      "electronegativity_pauling": 1.13,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Curium",
+      "atomic_mass": 247,
+      "boil": 3383,
+      "category": "actinide",
+      "density": 13.51,
+      "melt": 1613,
+      "molar_heat": null,
+      "symbol": "Cm",
+      "electron_affinity": 27.17,
+      "electronegativity_pauling": 1.28,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Berkelium",
+      "atomic_mass": 247,
+      "boil": 2900,
+      "category": "actinide",
+      "density": 14.78,
+      "melt": 1259,
+      "molar_heat": null,
+      "symbol": "Bk",
+      "electron_affinity": -165.24,
+      "electronegativity_pauling": 1.3,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Californium",
+      "atomic_mass": 251,
+      "boil": 1743,
+      "category": "actinide",
+      "density": 15.1,
+      "melt": 1173,
+      "molar_heat": null,
+      "symbol": "Cf",
+      "electron_affinity": -97.31,
+      "electronegativity_pauling": 1.3,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Einsteinium",
+      "atomic_mass": 252,
+      "boil": 1269,
+      "category": "actinide",
+      "density": 8.84,
+      "melt": 1133,
+      "molar_heat": null,
+      "symbol": "Es",
+      "electron_affinity": -28.6,
+      "electronegativity_pauling": 1.3,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Fermium",
+      "atomic_mass": 257,
+      "boil": null,
+      "category": "actinide",
+      "density": null,
+      "melt": 1800,
+      "molar_heat": null,
+      "symbol": "Fm",
+      "electron_affinity": 33.96,
+      "electronegativity_pauling": 1.3,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Mendelevium",
+      "atomic_mass": 258,
+      "boil": null,
+      "category": "actinide",
+      "density": null,
+      "melt": 1100,
+      "molar_heat": null,
+      "symbol": "Md",
+      "electron_affinity": 93.91,
+      "electronegativity_pauling": 1.3,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Nobelium",
+      "atomic_mass": 259,
+      "boil": null,
+      "category": "actinide",
+      "density": null,
+      "melt": 1100,
+      "molar_heat": null,
+      "symbol": "No",
+      "electron_affinity": -223.22,
+      "electronegativity_pauling": 1.3,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Lawrencium",
+      "atomic_mass": 266,
+      "boil": null,
+      "category": "actinide",
+      "density": null,
+      "melt": 1900,
+      "molar_heat": null,
+      "symbol": "Lr",
+      "electron_affinity": -30.04,
+      "electronegativity_pauling": 1.3,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Rutherfordium",
+      "atomic_mass": 267,
+      "boil": 5800,
+      "category": "transition metal",
+      "density": 23.2,
+      "melt": 2400,
+      "molar_heat": null,
+      "symbol": "Rf",
+      "electron_affinity": null,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Dubnium",
+      "atomic_mass": 268,
+      "boil": null,
+      "category": "transition metal",
+      "density": 29.3,
+      "melt": null,
+      "molar_heat": null,
+      "symbol": "Db",
+      "electron_affinity": null,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Seaborgium",
+      "atomic_mass": 269,
+      "boil": null,
+      "category": "transition metal",
+      "density": 35,
+      "melt": null,
+      "molar_heat": null,
+      "symbol": "Sg",
+      "electron_affinity": null,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Bohrium",
+      "atomic_mass": 270,
+      "boil": null,
+      "category": "transition metal",
+      "density": 37.1,
+      "melt": null,
+      "molar_heat": null,
+      "symbol": "Bh",
+      "electron_affinity": null,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Hassium",
+      "atomic_mass": 269,
+      "boil": null,
+      "category": "transition metal",
+      "density": 40.7,
+      "melt": 126,
+      "molar_heat": null,
+      "symbol": "Hs",
+      "electron_affinity": null,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Meitnerium",
+      "atomic_mass": 278,
+      "boil": null,
+      "category": "unknown, probably transition metal",
+      "density": 37.4,
+      "melt": null,
+      "molar_heat": null,
+      "symbol": "Mt",
+      "electron_affinity": null,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Darmstadtium",
+      "atomic_mass": 281,
+      "boil": null,
+      "category": "unknown, probably transition metal",
+      "density": 34.8,
+      "melt": null,
+      "molar_heat": null,
+      "symbol": "Ds",
+      "electron_affinity": null,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Roentgenium",
+      "atomic_mass": 282,
+      "boil": null,
+      "category": "unknown, probably transition metal",
+      "density": 28.7,
+      "melt": null,
+      "molar_heat": null,
+      "symbol": "Rg",
+      "electron_affinity": 151,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Copernicium",
+      "atomic_mass": 285,
+      "boil": 3570,
+      "category": "transition metal",
+      "density": 14.0,
+      "melt": null,
+      "molar_heat": null,
+      "symbol": "Cn",
+      "electron_affinity": null,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Nihonium",
+      "atomic_mass": 286,
+      "boil": 1430,
+      "category": "unknown, probably transition metal",
+      "density": 16,
+      "melt": 700,
+      "molar_heat": null,
+      "symbol": "Nh",
+      "electron_affinity": 66.6,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Flerovium",
+      "atomic_mass": 289,
+      "boil": 420,
+      "category": "post-transition metal",
+      "density": 14,
+      "melt": 340,
+      "molar_heat": null,
+      "symbol": "Fl",
+      "electron_affinity": null,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Moscovium",
+      "atomic_mass": 289,
+      "boil": 1400,
+      "category": "unknown, probably post-transition metal",
+      "density": 13.5,
+      "melt": 670,
+      "molar_heat": null,
+      "symbol": "Mc",
+      "electron_affinity": 35.3,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Livermorium",
+      "atomic_mass": 293,
+      "boil": 1085,
+      "category": "unknown, probably post-transition metal",
+      "density": 12.9,
+      "melt": 709,
+      "molar_heat": null,
+      "symbol": "Lv",
+      "electron_affinity": 74.9,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    },
+    {
+      "name": "Ununennium",
+      "atomic_mass": 315,
+      "boil": 630,
+      "category": "unknown, but predicted to be an alkali metal",
+      "density": 3,
+      "melt": null,
+      "molar_heat": null,
+      "symbol": "Uue",
+      "electron_affinity": 63.87,
+      "electronegativity_pauling": null,
+      "mechanical_properties": {
+        "ultimate_tensile_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "yield_strength": {
+          "value": null,
+          "units": "MPa"
+        },
+        "youngs_modulus": {
+          "value": null,
+          "units": "GPa"
+        },
+        "mohs_hardness": {
+          "value": null,
+          "units": null
+        },
+        "brinell_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "vickers_hardness": {
+          "value": null,
+          "units": "MPa"
+        },
+        "density": {
+          "value": null,
+          "units": "g/cm³"
+        },
+        "melting_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "boiling_point": {
+          "value": null,
+          "units": "°C"
+        },
+        "thermal_conductivity": {
+          "value": null,
+          "units": "W/m·K"
+        },
+        "thermal_expansion_coefficient": {
+          "value": null,
+          "units": "µm/m·K"
+        },
+        "specific_heat": {
+          "value": null,
+          "units": "J/g·K"
+        },
+        "heat_of_fusion": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "heat_of_vaporization": {
+          "value": null,
+          "units": "kJ/mol"
+        },
+        "electrical_resistivity": {
+          "value": null,
+          "units": "nΩ·m"
+        },
+        "magnetic_susceptibility": {
+          "value": null,
+          "units": "cm³/mol"
+        }
+      }
+    }
+  ]
+}
