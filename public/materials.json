@@ -2,63 +2,693 @@
   "Cloth": [],
   "Leather": {
     "Reptiles": [
-      { "name": "Crocodile" },
-      { "name": "Alligator" },
-      { "name": "Caiman" },
-      { "name": "Lizard" },
-      { "name": "Python" }
+      {
+        "name": "Crocodile",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Alligator",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Caiman",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Lizard",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Python",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Mammals": [
-      { "name": "Cow" },
-      { "name": "Sheep" },
-      { "name": "Goat" },
-      { "name": "Pig" },
-      { "name": "Deer" }
+      {
+        "name": "Cow",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Sheep",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Goat",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Pig",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Deer",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Birds": [
-      { "name": "Ostrich" },
-      { "name": "Emu" },
-      { "name": "Rhea" },
-      { "name": "Turkey" },
-      { "name": "Chicken" }
+      {
+        "name": "Ostrich",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Emu",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Rhea",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Turkey",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Chicken",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ]
   },
   "Fur": [
-    { "name": "Mink" },
-    { "name": "Fox" },
-    { "name": "Rabbit" },
-    { "name": "Raccoon dog" },
-    { "name": "Chinchilla" },
-    { "name": "Karakul lamb" },
-    { "name": "Beaver" },
-    { "name": "Muskrat" },
-    { "name": "Raccoon" },
-    { "name": "Coyote" }
+    {
+      "name": "Mink",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Fox",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Rabbit",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Raccoon dog",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Chinchilla",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Karakul lamb",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Beaver",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Muskrat",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Raccoon",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Coyote",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    }
   ],
   "Linen": {
     "Plant": [
-      { "name": "cotton" },
-      { "name": "flax" },
-      { "name": "hemp" },
-      { "name": "jute" },
-      { "name": "ramie" },
-      { "name": "bamboo" },
-      { "name": "abaca" },
-      { "name": "sisal" },
-      { "name": "kenaf" },
-      { "name": "banana-fiber" }
+      {
+        "name": "cotton",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "flax",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "hemp",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "jute",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "ramie",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "bamboo",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "abaca",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "sisal",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "kenaf",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "banana-fiber",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Animal": [
-      { "name": "sheep-wool" },
-      { "name": "silk" },
-      { "name": "cashmere" },
-      { "name": "mohair" },
-      { "name": "alpaca" },
-      { "name": "camelhair" },
-      { "name": "angora-rabbit" },
-      { "name": "yak" },
-      { "name": "llama" },
-      { "name": "horsehair" }
+      {
+        "name": "sheep-wool",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "silk",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "cashmere",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "mohair",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "alpaca",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "camelhair",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "angora-rabbit",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "yak",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "llama",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "horsehair",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ]
   },
   "Bone": {
@@ -69,74 +699,732 @@
     "Fish": []
   },
   "Herbs": [
-    { "name": "Basil" },
-    { "name": "Parsley" },
-    { "name": "Cilantro" },
-    { "name": "Mint" },
-    { "name": "Dill" },
-    { "name": "Chives" },
-    { "name": "Thyme" },
-    { "name": "Rosemary" },
-    { "name": "Oregano" },
-    { "name": "Sage" },
-    { "name": "Tarragon" },
-    { "name": "Marjoram" },
-    { "name": "Bay leaf" },
-    { "name": "Chervil" },
-    { "name": "Lemongrass" },
-    { "name": "Curry leaf" },
-    { "name": "Fennel" },
-    { "name": "Sorrel" },
-    { "name": "Lovage" },
-    { "name": "Summer savory" },
-    { "name": "Makrut lime leaf" },
-    { "name": "Epazote" },
-    { "name": "Shiso" },
-    { "name": "Lemon balm" },
-    { "name": "Culantro" }
+    {
+      "name": "Basil",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Parsley",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Cilantro",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Mint",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Dill",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Chives",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Thyme",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Rosemary",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Oregano",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Sage",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Tarragon",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Marjoram",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Bay leaf",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Chervil",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Lemongrass",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Curry leaf",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Fennel",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Sorrel",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Lovage",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Summer savory",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Makrut lime leaf",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Epazote",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Shiso",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Lemon balm",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    },
+    {
+      "name": "Culantro",
+      "factors": {
+        "slash": 0,
+        "pierce": 0,
+        "blunt": 0,
+        "defense_slash": 0,
+        "defense_pierce": 0,
+        "defense_blunt": 0,
+        "fire": 0,
+        "water": 0,
+        "wind": 0,
+        "earth": 0
+      }
+    }
   ],
   "Carapace": {
     "Arthropod": [
-      { "name": "Malacostraca Decapoda" },
-      { "name": "Insecta" },
-      { "name": "Chelicerata" },
-      { "name": "Cirripedia" }
+      {
+        "name": "Malacostraca Decapoda",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Insecta",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Chelicerata",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Cirripedia",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Reptiles": [
-      { "name": "Testudines" },
-      { "name": "Crocodylia" }
+      {
+        "name": "Testudines",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Crocodylia",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Mollusk": [
-      { "name": "Bivalvia" },
-      { "name": "Polyplacophora" },
-      { "name": "Cephalopoda" }
+      {
+        "name": "Bivalvia",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Polyplacophora",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Cephalopoda",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Echinoderm": [
-      { "name": "Echinoidea" }
+      {
+        "name": "Echinoidea",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Mammals": [
-      { "name": "Cingulata" }
+      {
+        "name": "Cingulata",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Fish": [
-      { "name": "Actinopterygii" }
+      {
+        "name": "Actinopterygii",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ]
   },
   "Scales": {
     "Fish": [
-      { "name": "Placoid" },
-      { "name": "Ganoid" },
-      { "name": "Cycloid" },
-      { "name": "Ctenoid" },
-      { "name": "Cosmoid" }
+      {
+        "name": "Placoid",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Ganoid",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Cycloid",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Ctenoid",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Cosmoid",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Reptiles": [
-      { "name": "Imbricate" },
-      { "name": "Keeled" },
-      { "name": "Granular" }
+      {
+        "name": "Imbricate",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Keeled",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Granular",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Birds": [
-      { "name": "Scutate" },
-      { "name": "Reticulate" }
+      {
+        "name": "Scutate",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      },
+      {
+        "name": "Reticulate",
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
+      }
     ],
     "Mammals": [],
     "Amphibians": []
@@ -147,7 +1435,18 @@
     "Elemental Metals": [
       {
         "name": "Iron",
-        "factors": {"slash":0,"pierce":0,"blunt":0,"defense_slash":0,"defense_pierce":0,"defense_blunt":0,"fire":0,"water":0,"wind":0,"earth":0}
+        "factors": {
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
+        }
       }
     ],
     "Metal Alloys": []
