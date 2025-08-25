@@ -21,16 +21,10 @@
       { "name": "Rhea" },
       { "name": "Turkey" },
       { "name": "Chicken" }
-    ],
-    "Amphibians": [],
-    "Fish": []
+    ]
   },
   "Fur": {
-    "Mammals": [],
-    "Reptiles": [],
-    "Birds": [],
-    "Amphibians": [],
-    "Fish": []
+    "Mammals": []
   },
   "Bone": {
     "Mammals": [],
@@ -90,9 +84,7 @@
     ],
     "Fish": [
       { "name": "Actinopterygii" }
-    ],
-    "Birds": [],
-    "Amphibians": []
+    ]
   },
   "Scales": {
     "Fish": [
@@ -117,15 +109,12 @@
   "Wood": {},
   "Minerals": {},
   "Metals": {
-    "T1": [
+    "Elemental Metals": [
       {
         "name": "Iron",
         "factors": {"slash":0,"pierce":0,"blunt":0,"defense_slash":0,"defense_pierce":0,"defense_blunt":0,"fire":0,"water":0,"wind":0,"earth":0}
       }
     ],
-    "T2": [],
-    "T3": [],
-    "T4": [],
-    "T5": []
+    "Metal Alloys": []
   }
 }
