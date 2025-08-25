@@ -65,43 +65,59 @@
         <main id="materials-container" class="mt-10 grid grid-cols-1 gap-6"></main>
       </div>
     </div>
-    <script type="module">
-      async function loadMaterials() {
-        const container = document.getElementById('materials-container');
-        container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
+      <script type="module">
+        async function loadMaterials() {
+          const container = document.getElementById('materials-container');
+          container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
 
-        try {
-          const [elementals, alloys] = await Promise.all([
-            fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
-            fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json())
-          ]);
+          try {
+            const [itemCats, elementals, alloys] = await Promise.all([
+              fetch('item_categories.json', { cache: 'no-cache' }).then(r => r.json()),
+              fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
+              fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json())
+            ]);
 
-          const categories = {
-            'Elemental Metals': elementals.elements,
-            'Metal Alloys': alloys.elements
-          };
+            container.innerHTML = '';
 
-          container.innerHTML = '';
-          for (const [cat, list] of Object.entries(categories)) {
-            const section = document.createElement('section');
-            section.innerHTML = `<h2 class="text-2xl font-semibold mb-2">${cat}</h2>`;
-            const ul = document.createElement('ul');
-            ul.className = 'pl-5 list-disc space-y-1';
-            list.forEach(m => {
-              const li = document.createElement('li');
-              li.textContent = m.name;
-              ul.appendChild(li);
+            itemCats.forEach(cat => {
+              const section = document.createElement('section');
+              section.innerHTML = `<h2 class="text-2xl font-semibold mb-2">${cat}</h2>`;
+
+              if (cat === 'Metal') {
+                const metals = {
+                  'Elemental Metals': elementals.elements,
+                  'Metal Alloys': alloys.elements
+                };
+
+                Object.entries(metals).forEach(([sub, list]) => {
+                  const subSection = document.createElement('div');
+                  subSection.innerHTML = `<h3 class="text-xl font-medium mt-2">${sub}</h3>`;
+                  const ul = document.createElement('ul');
+                  ul.className = 'pl-5 list-disc space-y-1';
+                  list.forEach(m => {
+                    const li = document.createElement('li');
+                    li.textContent = m.name;
+                    ul.appendChild(li);
+                  });
+                  subSection.appendChild(ul);
+                  section.appendChild(subSection);
+                });
+              } else {
+                const p = document.createElement('p');
+                p.className = 'text-slate-400';
+                p.textContent = 'No materials listed.';
+                section.appendChild(p);
+              }
+
+              container.appendChild(section);
             });
-            section.appendChild(ul);
-            container.appendChild(section);
+          } catch (err) {
+            console.error('Failed to load materials', err);
+            container.innerHTML = '<p class="text-red-400">Failed to load materials.</p>';
           }
-        } catch (err) {
-          console.error('Failed to load materials', err);
-          container.innerHTML = '<p class="text-red-400">Failed to load materials.</p>';
         }
-      }
 
-      loadMaterials();
-    </script>
+        loadMaterials();
+      </script>
   </body>
 </html>
