@@ -100,8 +100,21 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
         };
 
+        // Normalize categories that are stored as arrays so they behave like
+        // an object with a default "A" subcategory. This mirrors the
+        // structure used throughout the crafting calculators and prevents
+        // runtime errors when iterating below.
+        for (const [cat, subcats] of Object.entries(db)) {
+            if (Array.isArray(subcats)) {
+                db[cat] = { A: subcats };
+            }
+        }
+
+        // Flatten all materials into the map while capturing category and
+        // subcategory metadata. Guard against unexpected non-array entries.
         for (const [cat, subcats] of Object.entries(db)) {
             for (const [sub, arr] of Object.entries(subcats)) {
+                if (!Array.isArray(arr)) continue;
                 arr.forEach(m => {
                     if (!m.id) m.id = slug(m.name);
                     if (m.density == null) m.density = defDensity(cat);
