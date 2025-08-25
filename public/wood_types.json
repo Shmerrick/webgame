@@ -1,0 +1,26 @@
+{
+  "Hardwoods": [
+    "White Oak",
+    "Red Oak",
+    "Maple (Hard/Sugar)",
+    "Maple (Soft/Red)",
+    "Black Walnut",
+    "Cherry (Black Cherry)",
+    "White Ash",
+    "American Beech",
+    "Yellow Birch",
+    "Mahogany (Genuine)"
+  ],
+  "Softwoods": [
+    "Douglas-fir",
+    "Eastern White Pine",
+    "Loblolly Pine",
+    "Sitka Spruce",
+    "Norway Spruce",
+    "Western Red Cedar",
+    "Eastern Red Cedar",
+    "Western Hemlock",
+    "European Larch",
+    "Coast Redwood"
+  ]
+}

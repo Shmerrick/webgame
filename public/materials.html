@@ -71,11 +71,12 @@
           container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
 
           try {
-            const [itemCats, elementals, alloys, stones] = await Promise.all([
+            const [itemCats, elementals, alloys, stones, woods] = await Promise.all([
               fetch('item_categories.json', { cache: 'no-cache' }).then(r => r.json()),
               fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
               fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
-              fetch('stone_types.json', { cache: 'no-cache' }).then(r => r.json())
+              fetch('stone_types.json', { cache: 'no-cache' }).then(r => r.json()),
+              fetch('wood_types.json', { cache: 'no-cache' }).then(r => r.json())
             ]);
 
             container.innerHTML = '';
@@ -154,6 +155,23 @@
                   summary.textContent = firstWord(category);
                   detailsEl.appendChild(summary);
                   detailsEl.appendChild(renderNested(details, true));
+                  section.appendChild(detailsEl);
+                });
+              } else if (cat === 'Wood') {
+                Object.entries(woods).forEach(([category, list]) => {
+                  const detailsEl = document.createElement('details');
+                  const summary = document.createElement('summary');
+                  summary.className = 'text-xl font-medium mt-2 cursor-pointer';
+                  summary.textContent = category;
+                  detailsEl.appendChild(summary);
+                  const ul = document.createElement('ul');
+                  ul.className = 'pl-5 list-disc space-y-1';
+                  list.forEach(w => {
+                    const li = document.createElement('li');
+                    li.textContent = w;
+                    ul.appendChild(li);
+                  });
+                  detailsEl.appendChild(ul);
                   section.appendChild(detailsEl);
                 });
               } else {

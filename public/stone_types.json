@@ -1,11 +1,11 @@
 {
   "Igneous (frozen from melt)": {
-    "By where they solidify": {
+    "Where they solidify": {
       "Intrusive (plutonic) - cool slowly underground \u2192 coarse-grained": ["Granite", "granodiorite", "tonalite", "diorite", "monzonite", "syenite", "gabbro", "anorthosite", "peridotite"],
       "Extrusive (volcanic) - cool quickly at/near surface \u2192 fine-grained": ["Rhyolite", "dacite", "andesite", "basalt", "komatiite (rare/ancient)"],
       "Hypabyssal (shallow intrusions) - often porphyritic": ["Microdiorite", "dolerite/diabase", "microgranite"]
     },
-    "By composition (silica & alkalis)": {
+    "Composition (silica & alkalis)": {
       "Felsic": ["rhyolite \u2194 granite (quartz + K-feldspar rich)"],
       "Intermediate": ["andesite \u2194 diorite"],
       "Mafic": ["basalt \u2194 gabbro (pyroxene + Ca-plagioclase)"],
@@ -13,7 +13,7 @@
       "Alkaline series": ["trachyte \u2194 syenite", "phonolite \u2194 nepheline syenite"],
       "Ultrapotassic & exotic": ["lamprophyre", "lamproite", "kimberlite", "carbonatite"]
     },
-    "By texture": {
+    "Texture": {
       "Phaneritic (coarse)": [],
       "Aphanitic (fine)": [],
       "Porphyritic": [],
@@ -31,7 +31,7 @@
     }
   },
   "Sedimentary (made from pre-existing material or precipitates)": {
-    "By how they form": {
+    "How they form": {
       "Clastic (siliciclastic)": {
         "Gravel-sized": ["conglomerate (rounded)", "breccia (angular)"],
         "Sand-sized": ["sandstone (quartz arenite, arkose, lithic sandstone; subarkose/sub-litharenite)"],
@@ -55,11 +55,11 @@
     }
   },
   "Metamorphic (changed by heat, pressure, fluids)": {
-    "By fabric": {
+    "Fabric": {
       "Foliated": ["Slate \u2192 phyllite \u2192 schist \u2192 gneiss (increasing grade)", "Migmatite (partially melted, mixed igneous\u2013metamorphic)"],
       "Non-foliated": ["Marble (from limestone/dolostone)", "Quartzite (from sandstone)", "Hornfels (contact metamorphism)", "Amphibolite (from mafic rocks)", "Serpentinite (from ultramafics)", "Eclogite", "blueschist", "greenschist (often listed by facies name)"]
     },
-    "By metamorphic process/environment": {
+    "Metamorphic process/environment": {
       "Regional (mountain belts)": ["greenschist \u2192 amphibolite \u2192 granulite facies"],
       "High-pressure/low-T": ["blueschist", "eclogite (subduction)"],
       "Contact/thermal": ["hornfels", "spotted rock", "sanidinite facies"],
