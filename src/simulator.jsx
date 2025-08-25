@@ -59,6 +59,8 @@ const OFFHAND_ITEMS = {
 
 const REGEN_MULT = { Naked: 1.0, Light: 0.75, Medium: 0.50, Heavy: 0.25 };
 const BASE_TICK_PCT = 0.10;
+// Floor for displaying extremely small defense values
+const MIN_DEFENSE_FLOOR = 0.01;
 
 // Allowed outer categories by armor class (kept aligned to your DB families)
 const MATERIALS_FOR_CLASS = {
@@ -142,13 +144,12 @@ function loadoutCategory(equipped, STR){
   const category = R <= 0.4 ? "Light" : (R < 0.8 ? "Medium" : "Heavy");
   const noArmor = armorSlots.every(s=> s.id==="shield" || (equipped[s.id]?.class||"None")==="None");
   const shieldSubtype = equipped.shield?.shield || "None";
-  const hasShield = (OFFHAND_ITEMS[shieldSubtype]?.class||"None")!=="None" && STR >= (OFFHAND_ITEMS[shieldSubtype]?.strReq||0);
+  const hasShield = (OFFHAND_ITEMS[shieldSubtype]?.class||"None")!=="None" && STR >= (OFFHAND_ITEMS[shieldSubtype]?.strengthRequirement||0);
   const nakedOverride = noArmor && !hasShield;
   return { S,Smax,R,category,missingPieces,nakedOverride };
 }
 
 function regenPerTick(pool, category, nakedOverride, armorTraining=0){
-  const REGEN_MULT = { Naked: 1.0, Light: 0.75, Medium: 0.50, Heavy: 0.25 };
   const mult = nakedOverride ? REGEN_MULT.Naked : (REGEN_MULT[category]||1);
   const skillBonus = 1 + 0.10 * (armorTraining/100);
   return Math.ceil(BASE_TICK_PCT * pool * mult * skillBonus);
@@ -234,10 +235,10 @@ function effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory,
 
   const fallbackFlags = {};
   for (const key in defenses) {
-      // If the calculated defense value is so low that it would display as 0%,
-      // apply the fallback value to ensure a minimum level of defense is shown.
-      if (defenses[key] < 0.005) {
-          defenses[key] = 0.1; // Fallback to 10%
+      // If the defense is positive but extremely low, floor it to a small minimum
+      // value so it doesn't display as 0%.
+      if (defenses[key] > 0 && defenses[key] < MIN_DEFENSE_FLOOR) {
+          defenses[key] = MIN_DEFENSE_FLOOR; // Fallback to 1%
           fallbackFlags[key] = true;
       } else {
           fallbackFlags[key] = false;
@@ -1009,7 +1010,7 @@ function App({ DB }){
                 const borderColor = cls==="None" ? "border-slate-700" : (cls==="Light" ? "border-emerald-500" : (cls==="Medium" ? "border-amber-500" : "border-rose-500"));
 
                 return (
-                  <div key={slotId} className="rounded-xl border border-slate-800 p-3 bg-slate-800/50">
+                  <div key={slotId.id} className="rounded-xl border border-slate-800 p-3 bg-slate-800/50">
                     <div className="text-sm font-medium">{label}</div>
                     <div className="slot-box mt-2 rounded-lg flex items-center justify-center">
                       <img src={iconUrl} alt={label} className={`w-20 h-20 object-contain rounded-lg border-4 ${borderColor}`} />
@@ -1185,6 +1186,11 @@ async function loadMaterials() {
     const response = await fetch('materials.json', { cache: 'no-cache' });
     const db = await response.json();
 
+    const woodDefaults = db.Wood && db.Wood.Defaults ? db.Wood.Defaults : [];
+    const mineralDefaults = Array.isArray(db.Minerals)
+      ? db.Minerals.filter(m => m.name && /MinResource|MaxResource$/.test(m.name))
+      : [];
+
     const [wood, stone, elementals, alloys] = await Promise.all([
       fetch('wood_types.json', { cache: 'no-cache' }).then(r => r.json()),
       fetch('stone_types.json', { cache: 'no-cache' }).then(r => r.json()),
@@ -1199,6 +1205,9 @@ async function loadMaterials() {
         list.map(name => ({ id: slug(name), name }))
       ])
     );
+    if (woodDefaults.length) {
+      db.Wood.Defaults = woodDefaults;
+    }
 
     const collectMinerals = (obj) => {
       const names = [];
@@ -1212,6 +1221,9 @@ async function loadMaterials() {
       return [...new Set(names)];
     };
     db['Minerals'] = collectMinerals(stone).map(name => ({ id: slug(name), name }));
+    if (mineralDefaults.length) {
+      db['Minerals'] = [...mineralDefaults, ...db['Minerals']];
+    }
 
     const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
     const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));

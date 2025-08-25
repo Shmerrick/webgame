@@ -1,5 +1,36 @@
 {
-  "Cloth": [],
+  "Cloth": [
+    {
+      "name": "ClothMinResource",
+      "factors": {
+        "slash": 0.05,
+        "pierce": 0.05,
+        "blunt": 0.05,
+        "defense_slash": 0.05,
+        "defense_pierce": 0.05,
+        "defense_blunt": 0.05,
+        "fire": 0.05,
+        "water": 0.05,
+        "wind": 0.05,
+        "earth": 0.05
+      }
+    },
+    {
+      "name": "ClothMaxResource",
+      "factors": {
+        "slash": 0.95,
+        "pierce": 0.95,
+        "blunt": 0.95,
+        "defense_slash": 0.95,
+        "defense_pierce": 0.95,
+        "defense_blunt": 0.95,
+        "fire": 0.95,
+        "water": 0.95,
+        "wind": 0.95,
+        "earth": 0.95
+      }
+    }
+  ],
   "Leather": {
     "Reptiles": [
       {
@@ -231,9 +262,71 @@
           "earth": 0
         }
       }
+    ],
+    "Defaults": [
+      {
+        "name": "LeatherMinResource",
+        "factors": {
+          "slash": 0.05,
+          "pierce": 0.05,
+          "blunt": 0.05,
+          "defense_slash": 0.05,
+          "defense_pierce": 0.05,
+          "defense_blunt": 0.05,
+          "fire": 0.05,
+          "water": 0.05,
+          "wind": 0.05,
+          "earth": 0.05
+        }
+      },
+      {
+        "name": "LeatherMaxResource",
+        "factors": {
+          "slash": 0.95,
+          "pierce": 0.95,
+          "blunt": 0.95,
+          "defense_slash": 0.95,
+          "defense_pierce": 0.95,
+          "defense_blunt": 0.95,
+          "fire": 0.95,
+          "water": 0.95,
+          "wind": 0.95,
+          "earth": 0.95
+        }
+      }
     ]
   },
   "Fur": [
+    {
+      "name": "FurMinResource",
+      "factors": {
+        "slash": 0.05,
+        "pierce": 0.05,
+        "blunt": 0.05,
+        "defense_slash": 0.05,
+        "defense_pierce": 0.05,
+        "defense_blunt": 0.05,
+        "fire": 0.05,
+        "water": 0.05,
+        "wind": 0.05,
+        "earth": 0.05
+      }
+    },
+    {
+      "name": "FurMaxResource",
+      "factors": {
+        "slash": 0.95,
+        "pierce": 0.95,
+        "blunt": 0.95,
+        "defense_slash": 0.95,
+        "defense_pierce": 0.95,
+        "defense_blunt": 0.95,
+        "fire": 0.95,
+        "water": 0.95,
+        "wind": 0.95,
+        "earth": 0.95
+      }
+    },
     {
       "name": "Mink",
       "factors": {
@@ -689,6 +782,38 @@
           "earth": 0
         }
       }
+    ],
+    "Defaults": [
+      {
+        "name": "LinenMinResource",
+        "factors": {
+          "slash": 0.05,
+          "pierce": 0.05,
+          "blunt": 0.05,
+          "defense_slash": 0.05,
+          "defense_pierce": 0.05,
+          "defense_blunt": 0.05,
+          "fire": 0.05,
+          "water": 0.05,
+          "wind": 0.05,
+          "earth": 0.05
+        }
+      },
+      {
+        "name": "LinenMaxResource",
+        "factors": {
+          "slash": 0.95,
+          "pierce": 0.95,
+          "blunt": 0.95,
+          "defense_slash": 0.95,
+          "defense_pierce": 0.95,
+          "defense_blunt": 0.95,
+          "fire": 0.95,
+          "water": 0.95,
+          "wind": 0.95,
+          "earth": 0.95
+        }
+      }
     ]
   },
   "Bone": {
@@ -696,9 +821,71 @@
     "Reptiles": [],
     "Birds": [],
     "Amphibians": [],
-    "Fish": []
+    "Fish": [],
+    "Defaults": [
+      {
+        "name": "BoneMinResource",
+        "factors": {
+          "slash": 0.05,
+          "pierce": 0.05,
+          "blunt": 0.05,
+          "defense_slash": 0.05,
+          "defense_pierce": 0.05,
+          "defense_blunt": 0.05,
+          "fire": 0.05,
+          "water": 0.05,
+          "wind": 0.05,
+          "earth": 0.05
+        }
+      },
+      {
+        "name": "BoneMaxResource",
+        "factors": {
+          "slash": 0.95,
+          "pierce": 0.95,
+          "blunt": 0.95,
+          "defense_slash": 0.95,
+          "defense_pierce": 0.95,
+          "defense_blunt": 0.95,
+          "fire": 0.95,
+          "water": 0.95,
+          "wind": 0.95,
+          "earth": 0.95
+        }
+      }
+    ]
   },
   "Herbs": [
+    {
+      "name": "HerbsMinResource",
+      "factors": {
+        "slash": 0.05,
+        "pierce": 0.05,
+        "blunt": 0.05,
+        "defense_slash": 0.05,
+        "defense_pierce": 0.05,
+        "defense_blunt": 0.05,
+        "fire": 0.05,
+        "water": 0.05,
+        "wind": 0.05,
+        "earth": 0.05
+      }
+    },
+    {
+      "name": "HerbsMaxResource",
+      "factors": {
+        "slash": 0.95,
+        "pierce": 0.95,
+        "blunt": 0.95,
+        "defense_slash": 0.95,
+        "defense_pierce": 0.95,
+        "defense_blunt": 0.95,
+        "fire": 0.95,
+        "water": 0.95,
+        "wind": 0.95,
+        "earth": 0.95
+      }
+    },
     {
       "name": "Basil",
       "factors": {
@@ -1267,6 +1454,38 @@
           "earth": 0
         }
       }
+    ],
+    "Defaults": [
+      {
+        "name": "CarapaceMinResource",
+        "factors": {
+          "slash": 0.05,
+          "pierce": 0.05,
+          "blunt": 0.05,
+          "defense_slash": 0.05,
+          "defense_pierce": 0.05,
+          "defense_blunt": 0.05,
+          "fire": 0.05,
+          "water": 0.05,
+          "wind": 0.05,
+          "earth": 0.05
+        }
+      },
+      {
+        "name": "CarapaceMaxResource",
+        "factors": {
+          "slash": 0.95,
+          "pierce": 0.95,
+          "blunt": 0.95,
+          "defense_slash": 0.95,
+          "defense_pierce": 0.95,
+          "defense_blunt": 0.95,
+          "fire": 0.95,
+          "water": 0.95,
+          "wind": 0.95,
+          "earth": 0.95
+        }
+      }
     ]
   },
   "Scales": {
@@ -1427,10 +1646,106 @@
       }
     ],
     "Mammals": [],
-    "Amphibians": []
+    "Amphibians": [],
+    "Defaults": [
+      {
+        "name": "ScalesMinResource",
+        "factors": {
+          "slash": 0.05,
+          "pierce": 0.05,
+          "blunt": 0.05,
+          "defense_slash": 0.05,
+          "defense_pierce": 0.05,
+          "defense_blunt": 0.05,
+          "fire": 0.05,
+          "water": 0.05,
+          "wind": 0.05,
+          "earth": 0.05
+        }
+      },
+      {
+        "name": "ScalesMaxResource",
+        "factors": {
+          "slash": 0.95,
+          "pierce": 0.95,
+          "blunt": 0.95,
+          "defense_slash": 0.95,
+          "defense_pierce": 0.95,
+          "defense_blunt": 0.95,
+          "fire": 0.95,
+          "water": 0.95,
+          "wind": 0.95,
+          "earth": 0.95
+        }
+      }
+    ]
   },
-  "Wood": {},
-  "Minerals": [],
+  "Wood": {
+    "Defaults": [
+      {
+        "name": "WoodMinResource",
+        "factors": {
+          "slash": 0.05,
+          "pierce": 0.05,
+          "blunt": 0.05,
+          "defense_slash": 0.05,
+          "defense_pierce": 0.05,
+          "defense_blunt": 0.05,
+          "fire": 0.05,
+          "water": 0.05,
+          "wind": 0.05,
+          "earth": 0.05
+        }
+      },
+      {
+        "name": "WoodMaxResource",
+        "factors": {
+          "slash": 0.95,
+          "pierce": 0.95,
+          "blunt": 0.95,
+          "defense_slash": 0.95,
+          "defense_pierce": 0.95,
+          "defense_blunt": 0.95,
+          "fire": 0.95,
+          "water": 0.95,
+          "wind": 0.95,
+          "earth": 0.95
+        }
+      }
+    ]
+  },
+  "Minerals": [
+    {
+      "name": "MineralsMinResource",
+      "factors": {
+        "slash": 0.05,
+        "pierce": 0.05,
+        "blunt": 0.05,
+        "defense_slash": 0.05,
+        "defense_pierce": 0.05,
+        "defense_blunt": 0.05,
+        "fire": 0.05,
+        "water": 0.05,
+        "wind": 0.05,
+        "earth": 0.05
+      }
+    },
+    {
+      "name": "MineralsMaxResource",
+      "factors": {
+        "slash": 0.95,
+        "pierce": 0.95,
+        "blunt": 0.95,
+        "defense_slash": 0.95,
+        "defense_pierce": 0.95,
+        "defense_blunt": 0.95,
+        "fire": 0.95,
+        "water": 0.95,
+        "wind": 0.95,
+        "earth": 0.95
+      }
+    }
+  ],
   "Metals": {
     "Elemental Metals": [
       {

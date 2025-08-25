@@ -98,7 +98,7 @@ export function calculateMaterialDefenses(materials, options = {}) {
     if (vickersMPa != null) candidates.push(vickersMPa);
     if (YS != null) candidates.push(YS * 3);
     if (UTS != null) candidates.push(UTS * 2);
-    const H_MP = Math.max(...candidates);
+    const H_MP = candidates.length ? Math.max(...candidates) : undefined;
 
     const SS = (E != null && density != null) ? E / density : medianSS;
 
