@@ -5,6 +5,7 @@ const files = [
   'public/Master_Metal_Alloys.json'
 ];
 
+const hardnessData = JSON.parse(fs.readFileSync('public/metal_hardness.json', 'utf8'));
 function readJSON(path){
   return JSON.parse(fs.readFileSync(path,'utf8'));
 }
@@ -54,6 +55,13 @@ const datasets = files.map(readJSON);
 const elements = datasets.flatMap(d => d.elements);
 
 for(const el of elements){
+  const h = hardnessData[el.name];
+  if(h){
+    el.mechanical_properties = el.mechanical_properties || {};
+    el.mechanical_properties.mohs_hardness = { value: h.mohs, units: null };
+    el.mechanical_properties.brinell_hardness = { value: h.brinell, units: 'MPa' };
+    el.mechanical_properties.vickers_hardness = { value: h.vickers, units: 'MPa' };
+  }
   el.mechanical_properties = ensureMechanicalProps(el.mechanical_properties || {});
 }
 
