@@ -65,7 +65,7 @@ const MATERIALS_FOR_CLASS = {
   None:   [],
   Light:  ["Leather","Scales","Cloth","Fur"],
   Medium: ["Leather","Scales","Carapace","Wood","Bone"],
-  Heavy:  ["Metal"],
+  Heavy:  ["Metals"],
 };
 const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Silk", "Fur"];
 const MATERIALS_FOR_BINDING = ["Leather", "Metals"];
@@ -165,7 +165,6 @@ function classBasePerType(cls){
 }
 
 function getMaterialsForCategory(DB, cat){
-  if (cat === "Metal") cat = "Metals";
   return DB[cat] || {};
 }
 function subcategoriesFor(DB, cat){
@@ -425,9 +424,9 @@ function App({ DB }){
   // Target armor (for “damage against armor”)
     const [targetArmor, setTargetArmor] = useState({
       class: "Heavy",
-      category: "Metal",
-      subCategory: firstSubCat("Metal"),
-      material: firstMat("Metal", firstSubCat("Metal")),
+      category: "Metals",
+      subCategory: firstSubCat("Metals"),
+      material: firstMat("Metals", firstSubCat("Metals")),
       innerCategory:"Cloth",
       innerSubCategory:firstSubCat("Cloth"),
       innerMaterial:firstMat("Cloth", firstSubCat("Cloth")),
@@ -1185,24 +1184,28 @@ async function loadMaterials() {
       fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
     ]);
 
-    const woods = Object.values(wood).flat().map(name => ({ name }));
-    const stones = Object.values(stone).flat().map(name => ({ name }));
-    const elementalMetals = (elementals.elements || []).map(m => ({ name: m.name }));
-    const alloyMetals = (alloys.elements || []).map(m => ({ name: m.name }));
+    const slug = name => name.toLowerCase().replace(/\s+/g, '_');
 
-    db['Wood'] = woods;
-    db['Minerals'] = stones;
-    db['Elemental Metals'] = elementalMetals;
-    db['Metal Alloys'] = alloyMetals;
+    db['Wood'] = Object.values(wood).flat().map(name => ({ id: slug(name), name }));
+    db['Minerals'] = Object.values(stone).flat().map(name => ({ id: slug(name), name }));
 
-    if (!db.Metals) db.Metals = { T1: [], T2: [], T3: [], T4: [], T5: [] };
-    const existing = new Set((db.Metals.T1 || []).map(m => m.name));
-    for (const m of [...elementalMetals, ...alloyMetals]) {
-      if (!existing.has(m.name)) {
-        db.Metals.T1.push(m);
-        existing.add(m.name);
+    const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
+    const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
+
+    db.Metals = db.Metals || {};
+    db.Metals['Elemental Metals'] = elementalMetals;
+    db.Metals['Metal Alloys'] = alloyMetals;
+
+    const assignIds = obj => {
+      for (const val of Object.values(obj)) {
+        if (Array.isArray(val)) {
+          val.forEach(m => { if (m.name && !m.id) m.id = slug(m.name); });
+        } else if (val && typeof val === 'object') {
+          assignIds(val);
+        }
       }
-    }
+    };
+    assignIds(db);
 
     ReactDOM.createRoot(document.getElementById("root")).render(
       <React.StrictMode><App DB={db} /></React.StrictMode>

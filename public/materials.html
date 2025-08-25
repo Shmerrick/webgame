@@ -79,26 +79,31 @@
               fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json())
             ]);
 
-            // Merge external lists into the DB
-            db['Wood'] = Object.fromEntries(
-              Object.entries(woods).map(([k, list]) => [k, list.map(name => ({ name }))])
-            );
-            db['Stone'] = Object.fromEntries(
-              Object.entries(stones).map(([k, list]) => [k, list.map(name => ({ name }))])
-            );
-            const elementalMetals = (elementals.elements || []).map(m => ({ name: m.name }));
-            const alloyMetals = (alloys.elements || []).map(m => ({ name: m.name }));
-            db['Elemental Metals'] = elementalMetals;
-            db['Metal Alloys'] = alloyMetals;
+            const slug = name => name.toLowerCase().replace(/\s+/g, '_');
 
-            if (!db.Metals) db.Metals = { T1: [], T2: [], T3: [], T4: [], T5: [] };
-            const existing = new Set((db.Metals.T1 || []).map(m => m.name));
-            for (const m of [...elementalMetals, ...alloyMetals]) {
-              if (!existing.has(m.name)) {
-                db.Metals.T1.push(m);
-                existing.add(m.name);
+            // Merge external lists into the DB
+            db['Wood'] = Object.values(woods)
+              .flat()
+              .map(name => ({ id: slug(name), name }));
+            db['Minerals'] = Object.values(stones)
+              .flat()
+              .map(name => ({ id: slug(name), name }));
+            const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
+            const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
+            db.Metals = db.Metals || {};
+            db.Metals['Elemental Metals'] = elementalMetals;
+            db.Metals['Metal Alloys'] = alloyMetals;
+
+            const assignIds = obj => {
+              for (const val of Object.values(obj)) {
+                if (Array.isArray(val)) {
+                  val.forEach(m => { if (m.name && !m.id) m.id = slug(m.name); });
+                } else if (val && typeof val === 'object') {
+                  assignIds(val);
+                }
               }
-            }
+            };
+            assignIds(db);
 
             container.innerHTML = '';
 

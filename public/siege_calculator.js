@@ -68,7 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!type || !siegeVolumesData[type]) return;
 
         const allMaterials = Array.from(materialsData.values());
-        const woodAndMetalMaterials = allMaterials.filter(m => m.Category === 'Wood' || m.Category === 'Elemental Metal' || m.Category === 'Metal Alloy');
+        const woodAndMetalMaterials = allMaterials.filter(
+            m => m.Category === 'Wood' || m.Category === 'Elemental Metals' || m.Category === 'Metal Alloys'
+        );
 
         Object.keys(siegeVolumesData[type]).forEach(comp => {
             const id = `siege-comp-${comp.toLowerCase().replace(/ /g, '-')}`;
@@ -91,13 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function processMaterials(elementals, alloys) {
         const materialsMap = new Map();
+        const slug = name => name.toLowerCase().replace(/\s+/g, '_');
         const addMaterial = (m, category) => {
             const dens = parseFloat(m.density || m.mechanical_properties?.density?.value || 0);
+            const id = slug(m.name);
             const mat = {
                 ...m,
+                id,
                 Name: m.name,
                 name: m.name,
-                rowName: m.name.replace(/\s+/g, '_'),
+                rowName: id,
                 Category: category,
                 slash: 1,
                 pierce: 1,
@@ -105,10 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 Density: dens,
                 density: dens
             };
-            materialsMap.set(mat.rowName, mat);
+            materialsMap.set(id, mat);
         };
-        elementals.elements.forEach(m => addMaterial(m, 'Elemental Metal'));
-        alloys.elements.forEach(m => addMaterial(m, 'Metal Alloy'));
+        elementals.elements.forEach(m => addMaterial(m, 'Elemental Metals'));
+        alloys.elements.forEach(m => addMaterial(m, 'Metal Alloys'));
         return materialsMap;
     }
 
