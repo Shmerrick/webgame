@@ -1,4 +1,15 @@
-const dbIndexPromise = fetch('database.json', { cache: 'no-cache' }).then(res => res.json());
+const dbIndexPromise = (async () => {
+    try {
+        const res = await fetch('database.json', { cache: 'no-cache' });
+        if (!res.ok) {
+            throw new Error(`Failed to load database index: ${res.status} ${res.statusText}`);
+        }
+        return await res.json();
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+})();
 const dbCache = {};
 
 async function getDatabaseSection(key) {
@@ -7,12 +18,20 @@ async function getDatabaseSection(key) {
         const entry = index[key];
         if (!entry) throw new Error(`Database key not found: ${key}`);
         if (typeof entry === 'string') {
-            dbCache[key] = fetch(entry, { cache: 'no-cache' }).then(res => {
-                if (entry.endsWith('.txt')) {
-                    return res.text();
+            dbCache[key] = (async () => {
+                try {
+                    const res = await fetch(entry, { cache: 'no-cache' });
+                    if (!res.ok) {
+                        throw new Error(`Failed to fetch ${entry}: ${res.status} ${res.statusText}`);
+                    }
+                    if (entry.endsWith('.txt')) {
+                        return await res.text();
+                    }
+                    return await res.json();
+                } catch (err) {
+                    throw new Error(`Error loading ${entry}: ${err.message}`);
                 }
-                return res.json();
-            });
+            })();
         } else if (entry.source && entry.section) {
             dbCache[key] = getDatabaseSection(entry.source).then(data => data[entry.section]);
         } else {

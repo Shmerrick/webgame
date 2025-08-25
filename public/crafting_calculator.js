@@ -1,4 +1,8 @@
-console.log("CRAFTING_CALCULATOR: Script loaded.");
+import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS } from '../src/constants/weapons.js';
+
+const DEBUG = false;
+const debugLog = (...args) => { if (DEBUG) console.log(...args); };
+
 document.addEventListener('DOMContentLoaded', () => {
     // Common
     let materialsData = new Map();
@@ -80,32 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const jewelryMetalSelect = document.getElementById('jewelry-metal');
     const jewelryResultsDiv = document.getElementById('jewelry-crafting-results');
 
-    const WEAPONS = {
-        Sword:   { type: "melee",   massKilograms: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.20 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
-        Axe:     { type: "melee",   massKilograms: 4, baseCost: 40, head: { Blunt: 0.20, Slash: 0.45, Pierce: 0.10 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Blunt" } },
-        Hammer:  { type: "melee",   massKilograms: 6, baseCost: 40, head: { Blunt: 0.60, Slash: 0.10, Pierce: 0.10 }, direction: { Left: "Blunt", Right: "Blunt", Up: "Blunt", Down: "Blunt" } },
-        Spear:   { type: "melee",   massKilograms: 3, baseCost: 30, head: { Blunt: 0.10, Slash: 0.15, Pierce: 0.45 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Pierce" } },
-        Dagger:  { type: "melee",   massKilograms: 1, baseCost: 20, head: { Blunt: 0.05, Slash: 0.20, Pierce: 0.30 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
-        Bow:     { type: "ranged",  drawWeight: 50, head: { Pierce: 0.40 } },
-        Crossbow:{ type: "ranged",  drawWeight: 35, head: { Pierce: 0.30 } },
-        Sling:   { type: "ranged",  drawWeight: 15, head: { Blunt: 0.20 } },
-        Throwing:{ type: "ranged",  drawWeight: 20, head: { Pierce: 0.25 } },
-        Lance:   { type: "mounted", massKilograms: 5, head: { Blunt: 0.20, Pierce: 0.50 }, speed: { Walk: 0.5, Trot: 0.9, Canter: 1.2, Gallop: 1.6 } },
-        Polesword: { type: "melee", massKilograms: 5, baseCost: 35, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.25 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Slash" } },
-        Poleaxe: { type: "melee", massKilograms: 6, baseCost: 40, head: { Blunt: 0.25, Slash: 0.30, Pierce: 0.15 }, direction: { Left: "Slash", Right: "Blunt", Up: "Pierce", Down: "Slash" } },
-    };
-
-    const MATERIALS_FOR_HANDLE_CORE = ["Wood", "Metals", "Dev"];
-    const MATERIALS_FOR_HANDLE_GRIP = ["Cloth", "Leather", "Dev"];
-    const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Rock Types", "Dev"];
-    const MATERIALS_FOR_HEAD = ["Metals", "Rock Types", "Wood", "Dev"];
-    const BANNED_WEAPON_HEAD_MATERIALS = ["Carapace", "Cloth", "Fur", "Herbs", "Leather", "Linen", "Scales"];
 
     // Fetch and process data
     async function loadData() {
-        console.log("CRAFTING_CALCULATOR: loadData function started.");
+        debugLog("CRAFTING_CALCULATOR: loadData function started.");
         try {
-            console.log("CRAFTING_CALCULATOR: Starting data load...");
+            debugLog("CRAFTING_CALCULATOR: Starting data load...");
             const [
                 baseMaterials,
                 woodList,
@@ -133,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 getDatabaseSection('bannedNames'),
                 getDatabaseSection('alchemyRecipes')
             ]);
-            console.log("CRAFTING_CALCULATOR: All files fetched.");
+            debugLog("CRAFTING_CALCULATOR: All files fetched.");
 
             const db = buildMaterialDB(baseMaterials, woodList, elementalList, alloyList, rockTypes);
             db.Dev = [
@@ -157,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
             ];
             materialsData = flattenMaterialsDB(db);
-            console.log("Materials processed.");
+            debugLog("Materials processed.");
 
             armorVolumesList.forEach(item => {
                 if (!armorVolumesData[item.ArmorPiece]) {
@@ -165,19 +149,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 armorVolumesData[item.ArmorPiece][item.Component] = parseFloat(item.Volume_cm3);
             });
-            console.log("Armor volumes processed.");
+            debugLog("Armor volumes processed.");
 
             shieldVolumesList.forEach(item => {
                 if (!shieldVolumesData[item.ShieldType]) shieldVolumesData[item.ShieldType] = {};
                 shieldVolumesData[item.ShieldType][item.Component] = parseFloat(item.Volume_cm3);
             });
-            console.log("Shield volumes processed.");
+            debugLog("Shield volumes processed.");
 
             weaponVolumesList.forEach(item => {
                 if (!weaponVolumesData[item.weapon_type]) weaponVolumesData[item.weapon_type] = {};
                 weaponVolumesData[item.weapon_type][item.component_name] = parseFloat(item.volume_cm3);
             });
-            console.log("Weapon volumes processed.");
+            debugLog("Weapon volumes processed.");
 
             potionIngredientsData = potionIngredientsList.map(h => ({
                 RowName: h.name.replace(/\s+/g, '_'),
@@ -186,17 +170,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }));
             enchantmentRunesData = enchantmentRunesList;
             alchemyRecipesData = alchemyRecipesList;
-            console.log("Ingredients, runes, and recipes assigned.");
+            debugLog("Ingredients, runes, and recipes assigned.");
 
             bannedNames = bannedNamesText.split('\n').filter(name => name.trim() !== '').map(name => name.toLowerCase());
-            console.log("Banned names processed.");
+            debugLog("Banned names processed.");
 
             populateAllDropdowns();
-            console.log("Dropdowns populated.");
+            debugLog("Dropdowns populated.");
             setupAllEventListeners();
-            console.log("Event listeners set up.");
+            debugLog("Event listeners set up.");
             calculateAllResults();
-            console.log("Initial results calculated. Load complete.");
+            debugLog("Initial results calculated. Load complete.");
 
         } catch (error) {
             console.error("Failed to load crafting data:", error);
@@ -432,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function populateAlchemyDropdowns() {
-        console.log("Populating alchemy dropdowns with:", potionIngredientsData);
+        debugLog("Populating alchemy dropdowns with:", potionIngredientsData);
         potionIngredientsData.forEach(i => addOption(ingredient1Select, i.Name, i.RowName));
         potionIngredientsData.forEach(i => addOption(ingredient2Select, i.Name, i.RowName));
     }
