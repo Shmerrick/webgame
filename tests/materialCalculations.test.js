@@ -4,8 +4,8 @@ import { calculateMaterialDefenses } from '../src/materialCalculations.js';
 describe('calculateMaterialDefenses', () => {
   it('computes defense ratings within [0,1]', () => {
     const materials = [
-      { name: 'TestIron', class: 'Metal', YS: 200, UTS: 400, E: 210000, density: 7.8 },
-      { name: 'TestWood', class: 'Wood', YS: 40, UTS: 80, E: 10000, density: 0.6 },
+      { name: 'TestIron', class: 'Metal', yieldStrength: 200, tensileStrength: 400, elasticModulus: 210000, density: 7.8 },
+      { name: 'TestWood', class: 'Wood', yieldStrength: 40, tensileStrength: 80, elasticModulus: 10000, density: 0.6 },
     ];
     const result = calculateMaterialDefenses(materials);
     expect(result).toHaveLength(2);
@@ -19,9 +19,9 @@ describe('calculateMaterialDefenses', () => {
 
   it('applies feel transform when enabled', () => {
     const materials = [
-      { name: 'Mat1', class: 'Metal', YS: 100, UTS: 200, E: 100, density: 10, k: 1, cp: 1, Tm: 1, re: 1 },
-      { name: 'Mat2', class: 'Metal', YS: 200, UTS: 400, E: 200, density: 20, k: 2, cp: 2, Tm: 2, re: 2 },
-      { name: 'Mat3', class: 'Metal', YS: 150, UTS: 300, E: 150, density: 15, k: 1.5, cp: 1.5, Tm: 1.5, re: 1.5 },
+      { name: 'Mat1', class: 'Metal', yieldStrength: 100, tensileStrength: 200, elasticModulus: 100, density: 10, thermalConductivity: 1, specificHeat: 1, meltingPoint: 1, electricalResistivity: 1 },
+      { name: 'Mat2', class: 'Metal', yieldStrength: 200, tensileStrength: 400, elasticModulus: 200, density: 20, thermalConductivity: 2, specificHeat: 2, meltingPoint: 2, electricalResistivity: 2 },
+      { name: 'Mat3', class: 'Metal', yieldStrength: 150, tensileStrength: 300, elasticModulus: 150, density: 15, thermalConductivity: 1.5, specificHeat: 1.5, meltingPoint: 1.5, electricalResistivity: 1.5 },
     ];
     const base = calculateMaterialDefenses(materials)[2];
     const feel = calculateMaterialDefenses(materials, { feel: true })[2];
@@ -31,9 +31,9 @@ describe('calculateMaterialDefenses', () => {
 
   it('adds armor bias and thickness correctly', () => {
     const materials = [
-      { name: 'Mat1', class: 'Metal', YS: 100, UTS: 200, E: 100, density: 10, k: 1, cp: 1, Tm: 1, re: 1 },
-      { name: 'Mat2', class: 'Metal', YS: 200, UTS: 400, E: 200, density: 20, k: 2, cp: 2, Tm: 2, re: 2 },
-      { name: 'Mat3', class: 'Metal', YS: 150, UTS: 300, E: 150, density: 15, k: 1.5, cp: 1.5, Tm: 1.5, re: 1.5 },
+      { name: 'Mat1', class: 'Metal', yieldStrength: 100, tensileStrength: 200, elasticModulus: 100, density: 10, thermalConductivity: 1, specificHeat: 1, meltingPoint: 1, electricalResistivity: 1 },
+      { name: 'Mat2', class: 'Metal', yieldStrength: 200, tensileStrength: 400, elasticModulus: 200, density: 20, thermalConductivity: 2, specificHeat: 2, meltingPoint: 2, electricalResistivity: 2 },
+      { name: 'Mat3', class: 'Metal', yieldStrength: 150, tensileStrength: 300, elasticModulus: 150, density: 15, thermalConductivity: 1.5, specificHeat: 1.5, meltingPoint: 1.5, electricalResistivity: 1.5 },
     ];
     const base = calculateMaterialDefenses(materials)[2];
     const biased = calculateMaterialDefenses(materials, { armorBias: { slashing: 0.1 } })[2];
@@ -44,9 +44,9 @@ describe('calculateMaterialDefenses', () => {
 
   it('applies attunement bonuses', () => {
     const materials = [
-      { name: 'Mat1', class: 'Metal', YS: 100, UTS: 200, E: 100, density: 10, k: 1, cp: 1, Tm: 1, re: 1 },
-      { name: 'Mat2', class: 'Metal', YS: 200, UTS: 400, E: 200, density: 20, k: 2, cp: 2, Tm: 2, re: 2 },
-      { name: 'Mat3', class: 'Metal', YS: 150, UTS: 300, E: 150, density: 15, k: 1.5, cp: 1.5, Tm: 1.5, re: 1.5 },
+      { name: 'Mat1', class: 'Metal', yieldStrength: 100, tensileStrength: 200, elasticModulus: 100, density: 10, thermalConductivity: 1, specificHeat: 1, meltingPoint: 1, electricalResistivity: 1 },
+      { name: 'Mat2', class: 'Metal', yieldStrength: 200, tensileStrength: 400, elasticModulus: 200, density: 20, thermalConductivity: 2, specificHeat: 2, meltingPoint: 2, electricalResistivity: 2 },
+      { name: 'Mat3', class: 'Metal', yieldStrength: 150, tensileStrength: 300, elasticModulus: 150, density: 15, thermalConductivity: 1.5, specificHeat: 1.5, meltingPoint: 1.5, electricalResistivity: 1.5 },
     ];
     const base = calculateMaterialDefenses(materials)[2];
     const attuned = calculateMaterialDefenses(materials, { attunement: { fire: 0.2 } })[2];
