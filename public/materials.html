@@ -81,13 +81,27 @@
 
             const slug = name => name.toLowerCase().replace(/\s+/g, '_');
 
-            // Merge external lists into the DB
-            db['Wood'] = Object.values(woods)
-              .flat()
-              .map(name => ({ id: slug(name), name }));
-            db['Minerals'] = Object.values(stones)
-              .flat()
-              .map(name => ({ id: slug(name), name }));
+            // Merge wood types by subcategory
+            db['Wood'] = Object.fromEntries(
+              Object.entries(woods).map(([type, list]) => [
+                type,
+                list.map(name => ({ id: slug(name), name }))
+              ])
+            );
+
+            const collectMinerals = (obj) => {
+              const names = [];
+              (function traverse(node) {
+                if (Array.isArray(node)) {
+                  names.push(...node);
+                } else if (node && typeof node === 'object') {
+                  Object.values(node).forEach(traverse);
+                }
+              })(obj);
+              return [...new Set(names)];
+            };
+            db['Minerals'] = { A: collectMinerals(stones)
+              .map(name => ({ id: slug(name), name })) };
             const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
             const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
             db.Metals = db.Metals || {};
@@ -121,24 +135,26 @@
                   });
                 return ul;
               } else if (data && typeof data === 'object') {
+                const keys = Object.keys(data).sort();
+                if (keys.length === 1 && keys[0] === 'A') {
+                  return renderNested(data['A']);
+                }
                 const ul = document.createElement('ul');
                 ul.className = 'pl-5 list-disc space-y-1';
-                Object.keys(data)
-                  .sort()
-                  .forEach(key => {
-                    const value = data[key];
-                    const li = document.createElement('li');
-                    if (Array.isArray(value) || (value && typeof value === 'object')) {
-                      const span = document.createElement('span');
-                      span.className = 'font-medium';
-                      span.textContent = key;
-                      li.appendChild(span);
-                      li.appendChild(renderNested(value));
-                    } else {
-                      li.innerHTML = `<strong>${key}</strong>: ${value}`;
-                    }
-                    ul.appendChild(li);
-                  });
+                keys.forEach(key => {
+                  const value = data[key];
+                  const li = document.createElement('li');
+                  if (Array.isArray(value) || (value && typeof value === 'object')) {
+                    const span = document.createElement('span');
+                    span.className = 'font-medium';
+                    span.textContent = key;
+                    li.appendChild(span);
+                    li.appendChild(renderNested(value));
+                  } else {
+                    li.innerHTML = `<strong>${key}</strong>: ${value}`;
+                  }
+                  ul.appendChild(li);
+                });
                 return ul;
               } else {
                 const span = document.createElement('span');

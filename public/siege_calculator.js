@@ -1,29 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let materialsData = [];
+    let materialsDB = {};
+    let materialsMap = new Map();
     let siegeVolumesData = {};
 
     const siegeWeaponTypeSelect = document.getElementById('siege-weapon-type');
     const siegeWeaponComponentsDiv = document.getElementById('siege-weapon-components');
     const siegeResultsDiv = document.getElementById('siege-crafting-results');
 
-    // Fetch and process data
     async function loadData() {
         try {
-            // Fetch all data from new JSON files
             const [
-                elementalList,
-                alloyList,
-                siegeVolumesList,
+                db,
+                woods,
+                stones,
+                elementals,
+                alloys,
+                siegeVolumesList
             ] = await Promise.all([
-                fetch('/Master_Elemental_Metals.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/Master_Metal_Alloys.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/siege_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('/materials.json', { cache: 'no-cache' }).then(r => r.json()),
+                fetch('/wood_types.json', { cache: 'no-cache' }).then(r => r.json()),
+                fetch('/stone_types.json', { cache: 'no-cache' }).then(r => r.json()),
+                fetch('/Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
+                fetch('/Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
+                fetch('/siege_volumes.json', { cache: 'no-cache' }).then(r => r.json())
             ]);
 
-            // Process materials into a flat list
-            materialsData = processMaterials(elementalList, alloyList);
+            buildMaterialsDB(db, woods, stones, elementals, alloys);
 
-            // Restructure siege volumes for easy lookup
             siegeVolumesList.forEach(item => {
                 if (!siegeVolumesData[item.siege_weapon_type]) {
                     siegeVolumesData[item.siege_weapon_type] = {};
@@ -34,11 +37,60 @@ document.addEventListener('DOMContentLoaded', () => {
             populateDropdowns();
             setupEventListeners();
             calculateResults();
-
-        } catch (error) {
-            console.error("Failed to load siege crafting data:", error);
-            if(siegeResultsDiv) siegeResultsDiv.innerHTML = `<p class="text-red-400">Error loading crafting data. Please try again later.</p>`;
+        } catch (err) {
+            console.error('Failed to load siege crafting data:', err);
+            if (siegeResultsDiv) {
+                siegeResultsDiv.innerHTML = '<p class="text-red-400">Error loading crafting data. Please try again later.</p>';
+            }
         }
+    }
+
+    function buildMaterialsDB(db, woods, stones, elementals, alloys) {
+        const slug = name => name.toLowerCase().replace(/\s+/g, '_');
+        const defDensity = cat => ({ Wood: 0.6, Minerals: 2.5 }[cat] || 1);
+
+        db['Wood'] = Object.fromEntries(
+            Object.entries(woods).map(([type, list]) => [
+                type,
+                list.map(name => ({ id: slug(name), name, density: 0.6 }))
+            ])
+        );
+
+        const collectMinerals = obj => {
+            const names = [];
+            (function trav(node) {
+                if (Array.isArray(node)) {
+                    names.push(...node);
+                } else if (node && typeof node === 'object') {
+                    Object.values(node).forEach(trav);
+                }
+            })(obj);
+            return [...new Set(names)];
+        };
+        db['Minerals'] = {
+            A: collectMinerals(stones).map(name => ({ id: slug(name), name, density: 2.5 }))
+        };
+
+        const procMetal = m => ({
+            id: slug(m.name),
+            name: m.name,
+            density: parseFloat(m.density || m.mechanical_properties?.density?.value || 7.8)
+        });
+        db['Metals'] = db['Metals'] || {};
+        db['Metals']['Elemental Metals'] = (elementals.elements || []).map(procMetal);
+        db['Metals']['Metal Alloys'] = (alloys.elements || []).map(procMetal);
+
+        for (const [cat, subcats] of Object.entries(db)) {
+            for (const [sub, arr] of Object.entries(subcats)) {
+                arr.forEach(m => {
+                    if (!m.id) m.id = slug(m.name);
+                    if (m.density == null) m.density = defDensity(cat);
+                    materialsMap.set(m.id, { ...m, category: cat, subCategory: sub });
+                });
+            }
+        }
+
+        materialsDB = db;
     }
 
     function populateDropdowns() {
@@ -48,18 +100,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function setupEventListeners() {
         siegeWeaponTypeSelect.addEventListener('change', () => {
             populateSiegeWeaponComponents();
-            calculateResults();
+            calculateAndDisplaySiegeResults();
         });
     }
 
     function calculateResults() {
-        populateSiegeWeaponComponents(); // Initial population
+        populateSiegeWeaponComponents();
         calculateAndDisplaySiegeResults();
     }
 
-    function populateSelectWithOptions(selectElement, options) {
-        selectElement.innerHTML = '';
-        options.forEach(option => addOption(selectElement, option.name, option.rowName));
+    function subcategoriesFor(category) {
+        return Object.keys(materialsDB[category] || {}).filter(s => s !== 'A');
+    }
+
+    function itemsForCategory(category, subCategory) {
+        const cat = materialsDB[category] || {};
+        if (cat[subCategory]) return cat[subCategory];
+        if (cat['A']) return cat['A'];
+        return [];
+    }
+
+    function allowedCategories(type, comp) {
+        if (type === 'Ammunition') return ['Metals', 'Minerals', 'Wood'];
+        if (comp === 'frame' || comp === 'head') return ['Wood', 'Metals'];
+        return Object.keys(materialsDB).sort();
     }
 
     function populateSiegeWeaponComponents() {
@@ -67,72 +131,99 @@ document.addEventListener('DOMContentLoaded', () => {
         siegeWeaponComponentsDiv.innerHTML = '';
         if (!type || !siegeVolumesData[type]) return;
 
-        const allMaterials = Array.from(materialsData.values());
-        const woodAndMetalMaterials = allMaterials.filter(
-            m => m.Category === 'Wood' || m.Category === 'Elemental Metals' || m.Category === 'Metal Alloys'
-        );
-
         Object.keys(siegeVolumesData[type]).forEach(comp => {
-            const id = `siege-comp-${comp.toLowerCase().replace(/ /g, '-')}`;
-            const label = createLabel(comp, id);
-            const select = createMaterialSelect(id);
-            select.addEventListener('change', calculateAndDisplaySiegeResults);
-
-            if (comp.toLowerCase() === 'frame' || comp.toLowerCase() === 'head') {
-                populateSelectWithOptions(select, woodAndMetalMaterials);
-            } else {
-                populateSelectWithOptions(select, allMaterials);
-            }
-
+            const idBase = `siege-comp-${comp.toLowerCase().replace(/ /g, '-')}`;
+            const label = createLabel(comp, idBase + '-category');
             const container = document.createElement('div');
+            container.dataset.comp = comp;
+
+            const cats = allowedCategories(type, comp.toLowerCase());
+            const { categorySelect, subSelect, materialSelect } = buildMaterialSelector(idBase, cats);
+
+            categorySelect.addEventListener('change', () => {
+                updateSubSelect(categorySelect, subSelect);
+                updateMaterialSelect(categorySelect, subSelect, materialSelect);
+                calculateAndDisplaySiegeResults();
+            });
+            subSelect.addEventListener('change', () => {
+                updateMaterialSelect(categorySelect, subSelect, materialSelect);
+                calculateAndDisplaySiegeResults();
+            });
+            materialSelect.addEventListener('change', calculateAndDisplaySiegeResults);
+
+            updateSubSelect(categorySelect, subSelect);
+            updateMaterialSelect(categorySelect, subSelect, materialSelect);
+
             container.appendChild(label);
-            container.appendChild(select);
+            container.appendChild(categorySelect);
+            if (subSelect.style.display !== 'none') container.appendChild(subSelect);
+            container.appendChild(materialSelect);
             siegeWeaponComponentsDiv.appendChild(container);
         });
     }
 
-    function processMaterials(elementals, alloys) {
-        const materialsMap = new Map();
-        const slug = name => name.toLowerCase().replace(/\s+/g, '_');
-        const addMaterial = (m, category) => {
-            const dens = parseFloat(m.density || m.mechanical_properties?.density?.value || 0);
-            const id = slug(m.name);
-            const mat = {
-                ...m,
-                id,
-                Name: m.name,
-                name: m.name,
-                rowName: id,
-                Category: category,
-                slash: 1,
-                pierce: 1,
-                blunt: 1,
-                Density: dens,
-                density: dens
-            };
-            materialsMap.set(id, mat);
-        };
-        elementals.elements.forEach(m => addMaterial(m, 'Elemental Metals'));
-        alloys.elements.forEach(m => addMaterial(m, 'Metal Alloys'));
-        return materialsMap;
+    function buildMaterialSelector(idBase, cats) {
+        const categorySelect = createSelect(idBase + '-category');
+        cats.forEach(c => addOption(categorySelect, c, c));
+
+        const subSelect = createSelect(idBase + '-subcategory');
+        const materialSelect = createSelect(idBase + '-material');
+
+        return { categorySelect, subSelect, materialSelect };
+    }
+
+    function updateSubSelect(categorySelect, subSelect) {
+        const subs = subcategoriesFor(categorySelect.value);
+        subSelect.innerHTML = '';
+        if (subs.length) {
+            subs.forEach(s => addOption(subSelect, s, s));
+            subSelect.style.display = '';
+        } else {
+            addOption(subSelect, 'A', 'A');
+            subSelect.style.display = 'none';
+        }
+    }
+
+    function updateMaterialSelect(categorySelect, subSelect, materialSelect) {
+        const sub = subSelect.style.display === 'none' ? 'A' : subSelect.value;
+        const items = itemsForCategory(categorySelect.value, sub);
+        materialSelect.innerHTML = '';
+        items.forEach(m => addOption(materialSelect, m.name, m.id));
     }
 
     function calculateAndDisplaySiegeResults() {
         const type = siegeWeaponTypeSelect.value;
         if (!type || !siegeVolumesData[type]) return;
 
-        const components = getComponentData(siegeWeaponComponentsDiv, 'siege-comp-');
-        if(!components) return;
+        const components = getComponentData();
+        if (!components) return;
 
         const result = calculatePhysicalItemStats(components);
         siegeResultsDiv.innerHTML = formatResults(result);
     }
 
+    function getComponentData() {
+        const components = {};
+        const compContainers = siegeWeaponComponentsDiv.querySelectorAll('[data-comp]');
+        for (const container of compContainers) {
+            const compName = container.dataset.comp;
+            const category = container.querySelector('select[id$="-category"]').value;
+            const subSel = container.querySelector('select[id$="-subcategory"]');
+            const subCategory = subSel.style.display === 'none' ? 'A' : subSel.value;
+            const materialId = container.querySelector('select[id$="-material"]').value;
+            const material = materialsMap.get(materialId);
+            if (!material) return null;
+            const type = siegeWeaponTypeSelect.value;
+            const volume = siegeVolumesData[type][compName];
+            components[compName] = { material, volume };
+        }
+        return components;
+    }
+
     function calculatePhysicalItemStats(components) {
         let totalMass = 0;
         const requiredMaterials = {};
-
-        for(const name in components) {
+        for (const name in components) {
             const comp = components[name];
             const density = parseFloat(comp.material.density);
             totalMass += comp.volume * density;
@@ -141,52 +232,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 units: (comp.volume * density) / 100
             };
         }
-
         return { requiredMaterials, totalMass: totalMass / 1000 };
     }
 
-    // --- Helpers ---
+    // Helpers
     function addOption(select, text, value) {
-        const option = document.createElement('option');
-        option.textContent = text;
-        option.value = value;
-        select.appendChild(option);
+        const opt = document.createElement('option');
+        opt.textContent = text;
+        opt.value = value;
+        select.appendChild(opt);
+    }
+
+    function createSelect(id) {
+        const select = document.createElement('select');
+        select.id = id;
+        select.name = id;
+        select.className = 'mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white';
+        return select;
     }
 
     function createLabel(text, forId) {
         const label = document.createElement('label');
         label.htmlFor = forId;
-        label.className = "block text-sm font-medium text-slate-300";
+        label.className = 'block text-sm font-medium text-slate-300';
         label.textContent = text.charAt(0).toUpperCase() + text.slice(1);
         return label;
-    }
-
-    function createMaterialSelect(id) {
-        const select = document.createElement('select');
-        select.id = id;
-        select.name = id;
-        select.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
-        populateSelectWithOptions(select, Array.from(materialsData.values()));
-        return select;
-    }
-
-    function findMaterial(rowName) { return materialsData.get(rowName); }
-
-    function getComponentData(container, prefix) {
-        const components = {};
-        const selects = container.querySelectorAll('select');
-        for (const select of selects) {
-            const compName = select.id.replace(prefix, '').replace(/-/g, ' ');
-            const material = findMaterial(select.value);
-            if(!material) return null; // Incomplete selection
-
-            const type = siegeWeaponTypeSelect.value;
-            const volume = siegeVolumesData[type][
-                Object.keys(siegeVolumesData[type]).find(k => k.toLowerCase() === compName)
-            ];
-            components[compName.charAt(0).toUpperCase() + compName.slice(1)] = { material, volume };
-        }
-        return components;
     }
 
     function formatResults({ requiredMaterials, totalMass }) {
@@ -194,7 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const name in requiredMaterials) {
             materialsList += `<li>${name}: ${requiredMaterials[name].units.toFixed(2)} units of ${requiredMaterials[name].name}</li>`;
         }
-
         return `
             <h5 class="text-md font-semibold text-emerald-400 mt-4">Required Materials:</h5>
             <ul class="list-disc list-inside">${materialsList}</ul>
@@ -205,3 +274,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadData();
 });
+
