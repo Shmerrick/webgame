@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 alloys,
                 siegeVolumesList
             ] = await Promise.all([
-                fetch('materials.json', { cache: 'no-cache' }).then(r => r.json()),
-                fetch('wood_types.json', { cache: 'no-cache' }).then(r => r.json()),
-                fetch('stone_types.json', { cache: 'no-cache' }).then(r => r.json()),
-                fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
-                fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
-                fetch('siege_volumes.json', { cache: 'no-cache' }).then(r => r.json())
+                getDatabaseSection('materials'),
+                getDatabaseSection('woodTypes'),
+                getDatabaseSection('stoneTypes'),
+                getDatabaseSection('elementalMetals'),
+                getDatabaseSection('metalAlloys'),
+                getDatabaseSection('siegeVolumes')
             ]);
 
             buildMaterialsDB(db, woods, stones, elementals, alloys);
