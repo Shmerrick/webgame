@@ -111,19 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 woodList,
                 elementalList,
                 alloyList,
-                armorVolumesList,
-                shieldVolumesList,
-                weaponVolumesList,
-                potionHerbs,
-                runesList,
-                bannedNamesText,
                 rockTypes,
                 armorVolumesList,
                 shieldVolumesList,
                 weaponVolumesList,
                 potionIngredientsList,
                 enchantmentRunesList,
-                bannedNamesList,
+                bannedNamesText,
                 alchemyRecipesList
             ] = await Promise.all([
                 getDatabaseSection('materials'),
@@ -185,12 +179,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             console.log("Weapon volumes processed.");
 
-            potionIngredientsData = potionHerbs.map(h => ({
+            potionIngredientsData = potionIngredientsList.map(h => ({
                 RowName: h.name.replace(/\s+/g, '_'),
                 Name: h.name,
                 factors: h.factors,
             }));
-            enchantmentRunesData = runesList;
+            enchantmentRunesData = enchantmentRunesList;
             alchemyRecipesData = alchemyRecipesList;
             console.log("Ingredients, runes, and recipes assigned.");
 

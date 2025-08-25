@@ -1,0 +1,14 @@
+{
+  "hardness": {
+    "max": 3677.49,
+    "units": "MPa"
+  },
+  "elasticModulus": {
+    "max": 287,
+    "units": "GPa"
+  },
+  "yieldStrength": {
+    "max": 975,
+    "units": "MPa"
+  }
+}
