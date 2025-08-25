@@ -1268,9 +1268,11 @@ function App({ DB }){
   );
 }
 
-fetch('materials.json', { cache: 'no-cache' })
-  .then(response => response.json())
-  .then(async db => {
+async function loadMaterials() {
+  try {
+    const response = await fetch('materials.json', { cache: 'no-cache' });
+    const db = await response.json();
+
     const [elementals, alloys] = await Promise.all([
       fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
       fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
@@ -1294,7 +1296,16 @@ fetch('materials.json', { cache: 'no-cache' })
     ReactDOM.createRoot(document.getElementById("root")).render(
       <React.StrictMode><App DB={db} /></React.StrictMode>
     );
-  });
+  } catch (error) {
+    console.error('Failed to load materials data:', error);
+    const root = document.getElementById('root');
+    if (root) {
+      root.textContent = 'Failed to load material data.';
+    }
+  }
+}
+
+loadMaterials();
 
 const versionDisplay = document.getElementById('version-display');
 if (versionDisplay) {
