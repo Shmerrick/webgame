@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 alloys,
                 siegeVolumesList
             ] = await Promise.all([
-                fetch('/materials.json', { cache: 'no-cache' }).then(r => r.json()),
-                fetch('/wood_types.json', { cache: 'no-cache' }).then(r => r.json()),
-                fetch('/stone_types.json', { cache: 'no-cache' }).then(r => r.json()),
-                fetch('/Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
-                fetch('/Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
-                fetch('/siege_volumes.json', { cache: 'no-cache' }).then(r => r.json())
+                fetch('materials.json', { cache: 'no-cache' }).then(r => r.json()),
+                fetch('wood_types.json', { cache: 'no-cache' }).then(r => r.json()),
+                fetch('stone_types.json', { cache: 'no-cache' }).then(r => r.json()),
+                fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
+                fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
+                fetch('siege_volumes.json', { cache: 'no-cache' }).then(r => r.json())
             ]);
 
             buildMaterialsDB(db, woods, stones, elementals, alloys);
@@ -80,6 +80,26 @@ document.addEventListener('DOMContentLoaded', () => {
         db['Metals']['Elemental Metals'] = (elementals.elements || []).map(procMetal);
         db['Metals']['Metal Alloys'] = (alloys.elements || []).map(procMetal);
 
+        db['Dev'] = {
+            Dev: [
+                {
+                    id: 'dev_material',
+                    name: 'Dev Material',
+                    density: 1,
+                    slash: 1,
+                    pierce: 1,
+                    blunt: 1,
+                    defense_slash: 1,
+                    defense_pierce: 1,
+                    defense_blunt: 1,
+                    fire: 1,
+                    water: 1,
+                    wind: 1,
+                    earth: 1,
+                },
+            ],
+        };
+
         for (const [cat, subcats] of Object.entries(db)) {
             for (const [sub, arr] of Object.entries(subcats)) {
                 arr.forEach(m => {
@@ -121,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function allowedCategories(type, comp) {
-        if (type === 'Ammunition') return ['Metals', 'Minerals', 'Wood'];
-        if (comp === 'frame' || comp === 'head') return ['Wood', 'Metals'];
+        if (type === 'Ammunition') return ['Metals', 'Minerals', 'Wood', 'Dev'];
+        if (comp === 'frame' || comp === 'head') return ['Wood', 'Metals', 'Dev'];
         return Object.keys(materialsDB).sort();
     }
 

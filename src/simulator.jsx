@@ -1249,6 +1249,8 @@ async function loadMaterials() {
       {
         id: 'dev_material',
         name: 'Dev Material',
+        Name: 'Dev Material',
+        Density: 1,
         factors: {
           slash: 1,
           pierce: 1,

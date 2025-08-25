@@ -98,43 +98,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 bannedNamesText,
                 alchemyRecipesList
             ] = await Promise.all([
-                fetch('/materials.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/wood_types.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/stone_types.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/Master_Elemental_Metals.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/Master_Metal_Alloys.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/armor_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/shield_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/weapon_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/potion_ingredients.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/enchantment_runes.json', { cache: 'no-cache' }).then(res => res.json()),
-                fetch('/banned_names.txt', { cache: 'no-cache' }).then(res => res.text()),
-                fetch('/alchemy_recipes.json', { cache: 'no-cache' }).then(res => res.json())
+                fetch('materials.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('wood_types.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('stone_types.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('armor_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('shield_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('weapon_volumes.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('potion_ingredients.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('enchantment_runes.json', { cache: 'no-cache' }).then(res => res.json()),
+                fetch('banned_names.txt', { cache: 'no-cache' }).then(res => res.text()),
+                fetch('alchemy_recipes.json', { cache: 'no-cache' }).then(res => res.json())
             ]);
             alchemyRecipesData = alchemyRecipesList;
             console.log("CRAFTING_CALCULATOR: All files fetched.");
 
             const db = buildMaterialDB(baseMaterials, woodList, stoneList, elementalList, alloyList);
+            db.Dev = [
+                {
+                    id: 'dev_material',
+                    name: 'Dev Material',
+                    Name: 'Dev Material',
+                    Density: 1,
+                    factors: {
+                        slash: 1,
+                        pierce: 1,
+                        blunt: 1,
+                        defense_slash: 1,
+                        defense_pierce: 1,
+                        defense_blunt: 1,
+                        fire: 1,
+                        water: 1,
+                        wind: 1,
+                        earth: 1,
+                    },
+                },
+            ];
             materialsData = flattenMaterialsDB(db);
-            materialsData.set('dev_material', {
-                id: 'dev_material',
-                name: 'Dev Material',
-                Name: 'Dev Material',
-                rowName: 'dev_material',
-                Category: 'Dev',
-                SubCategory: 'Dev',
-                slash: 1,
-                pierce: 1,
-                blunt: 1,
-                defense_slash: 1,
-                defense_pierce: 1,
-                defense_blunt: 1,
-                fire: 1,
-                water: 1,
-                wind: 1,
-                earth: 1,
-                Density: 1,
-            });
             console.log("Materials processed.");
 
             armorVolumesList.forEach(item => {
