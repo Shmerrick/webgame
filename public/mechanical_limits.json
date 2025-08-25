@@ -10,5 +10,33 @@
   "yieldStrength": {
     "max": 975,
     "units": "MPa"
+  },
+  "tensileStrength": {
+    "max": 1165,
+    "units": "MPa"
+  },
+  "density": {
+    "max": 8.94,
+    "units": "g/cm³"
+  },
+  "meltingPoint": {
+    "max": 3695,
+    "units": "K"
+  },
+  "specificHeat": {
+    "max": 3.57,
+    "units": "J/g·K"
+  },
+  "thermalConductivity": {
+    "max": 401,
+    "units": "W/m·K"
+  },
+  "electricalResistivity": {
+    "max": 1020,
+    "units": "nΩ·m"
+  },
+  "specificStiffness": {
+    "max": 155.30303030303028,
+    "units": "GPa·cm³/g"
   }
 }

@@ -13,7 +13,7 @@
       "electronegativity_pauling": 0.98,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -80,14 +80,14 @@
       "factors": {
         "slash": 0.163154760448023,
         "pierce": 0,
-        "blunt": 0.013144963144963145,
-        "defense_slash": 0,
-        "defense_pierce": 0.163154760448023,
-        "defense_blunt": 0.013144963144963145,
-        "fire": 0.12277401894451961,
-        "water": 0.9868550368550368,
-        "wind": 0.2677144922266068,
-        "earth": 0.013144963144963145
+        "blunt": 0.0598434004474273,
+        "defense_slash": 0.11572,
+        "defense_pierce": 0.07342,
+        "defense_blunt": 0.02393,
+        "fire": 0.56285,
+        "water": 0.35046,
+        "wind": 0.10018,
+        "earth": 0.09867
       }
     },
     {
@@ -103,7 +103,7 @@
       "electronegativity_pauling": 1.57,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -170,14 +170,14 @@
       "factors": {
         "slash": 0.4541140832469973,
         "pierce": 0,
-        "blunt": 0.04540540540540541,
-        "defense_slash": 0,
-        "defense_pierce": 0.4541140832469973,
-        "defense_blunt": 0.04540540540540541,
-        "fire": 0.42219215155615697,
-        "water": 0.9545945945945946,
-        "wind": -0.21549111772549123,
-        "earth": 0.04540540540540541
+        "blunt": 0.20671140939597318,
+        "defense_slash": 2.22706,
+        "defense_pierce": 0.20435,
+        "defense_blunt": 0.41201,
+        "fire": 0.47365,
+        "water": 0.28657,
+        "wind": 0.548,
+        "earth": 0.5684
       }
     },
     {
@@ -193,7 +193,7 @@
       "electronegativity_pauling": 0.93,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -260,14 +260,14 @@
       "factors": {
         "slash": 0.0001876279745152264,
         "pierce": 0,
-        "blunt": 0.02378378378378378,
-        "defense_slash": 0,
-        "defense_pierce": 0.0001876279745152264,
-        "defense_blunt": 0.02378378378378378,
-        "fire": 0.10039079837618403,
-        "water": 0.9762162162162162,
-        "wind": 0.23734101918319886,
-        "earth": 0.02378378378378378
+        "blunt": 0.10827740492170022,
+        "defense_slash": 0.06978,
+        "defense_pierce": 0.00008,
+        "defense_blunt": 0.04468,
+        "fire": 0.29594,
+        "water": 0.17009,
+        "wind": 0.04049,
+        "earth": 0.0322
       }
     },
     {
@@ -283,7 +283,7 @@
       "electronegativity_pauling": 1.31,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -307,7 +307,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -319,7 +319,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -327,7 +327,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -339,7 +339,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -350,14 +350,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.0427027027027027,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.0427027027027027,
-        "fire": 0.24979702300405954,
-        "water": 0.9572972972972973,
-        "wind": -0.17957593143790937,
-        "earth": 0.0427027027027027
+        "defense_blunt": 0,
+        "fire": 0.31241,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -373,7 +373,7 @@
       "electronegativity_pauling": 1.61,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -397,7 +397,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -409,7 +409,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -417,7 +417,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -429,7 +429,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -440,14 +440,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.06633906633906633,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.06633906633906633,
-        "fire": 0.25263058186738835,
-        "water": 0.9336609336609336,
-        "wind": 0.18748625121774928,
-        "earth": 0.06633906633906633
+        "defense_blunt": 0,
+        "fire": 0.31368,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -463,7 +463,7 @@
       "electronegativity_pauling": 0.82,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -487,7 +487,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -499,7 +499,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -507,7 +507,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -519,7 +519,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -530,14 +530,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.021179361179361176,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.021179361179361176,
-        "fire": 0.09112313937753722,
-        "water": 0.9788206388206389,
-        "wind": 0.21721055726900923,
-        "earth": 0.021179361179361176
+        "defense_blunt": 0,
+        "fire": 0.24101,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -553,7 +553,7 @@
       "electronegativity_pauling": 1,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -577,7 +577,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -589,7 +589,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -597,7 +597,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -609,7 +609,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -620,14 +620,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.03808353808353808,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.03808353808353808,
-        "fire": 0.3017591339648173,
-        "water": 0.961916461916462,
-        "wind": 0.01063987393769613,
-        "earth": 0.03808353808353808
+        "defense_blunt": 0,
+        "fire": 0.33579,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -643,7 +643,7 @@
       "electronegativity_pauling": 1.36,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -667,7 +667,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -679,7 +679,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -687,7 +687,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -699,7 +699,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -710,14 +710,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.07334152334152333,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.07334152334152333,
-        "fire": 0.4909336941813261,
-        "water": 0.9266584766584767,
-        "wind": 0.08080916914705921,
-        "earth": 0.07334152334152333
+        "defense_blunt": 0,
+        "fire": 0.42092,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -733,7 +733,7 @@
       "electronegativity_pauling": 1.54,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -757,7 +757,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -769,7 +769,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -777,7 +777,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -789,7 +789,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -800,14 +800,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.1107125307125307,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.1107125307125307,
-        "fire": 0.5253044654939107,
-        "water": 0.8892874692874693,
-        "wind": 0.032723224106273034,
-        "earth": 0.1107125307125307
+        "defense_blunt": 0,
+        "fire": 0.43639,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -823,7 +823,7 @@
       "electronegativity_pauling": 1.63,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -847,7 +847,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -859,7 +859,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -867,7 +867,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -879,7 +879,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -890,14 +890,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.14742014742014742,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.14742014742014742,
-        "fire": 0.5907983761840325,
-        "water": 0.8525798525798526,
-        "wind": 0.2285597561358851,
-        "earth": 0.14742014742014742
+        "defense_blunt": 0,
+        "fire": 0.46586,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -913,7 +913,7 @@
       "electronegativity_pauling": 1.66,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -937,7 +937,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -949,7 +949,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -957,7 +957,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -969,7 +969,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -980,14 +980,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.17665847665847664,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.17665847665847664,
-        "fire": 0.5899864682002707,
-        "water": 0.8233415233415233,
-        "wind": 0.2927536622266517,
-        "earth": 0.17665847665847664
+        "defense_blunt": 0,
+        "fire": 0.46549,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1003,7 +1003,7 @@
       "electronegativity_pauling": 1.55,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -1027,7 +1027,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -1039,7 +1039,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -1047,7 +1047,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -1059,7 +1059,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -1070,14 +1070,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.17714987714987715,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.17714987714987715,
-        "fire": 0.4110960757780785,
-        "water": 0.8228501228501228,
-        "wind": -0.22446991429738672,
-        "earth": 0.17714987714987715
+        "defense_blunt": 0,
+        "fire": 0.38499,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1160,14 +1160,14 @@
       "factors": {
         "slash": 0.16533015725399663,
         "pierce": 0.31759656652360513,
-        "blunt": 0.19346437346437345,
-        "defense_slash": 0.17435897435897435,
-        "defense_pierce": 0.16533015725399663,
-        "defense_blunt": 0.19346437346437345,
-        "fire": 0.4901217861975643,
-        "water": 0.8065356265356265,
-        "wind": 0.06637575365773725,
-        "earth": 0.19346437346437345
+        "blunt": 0.8807606263982103,
+        "defense_slash": 1.60536,
+        "defense_pierce": 0.19894,
+        "defense_blunt": 0.58257,
+        "fire": 0.42447,
+        "water": 0.22252,
+        "wind": 0.14688,
+        "earth": 0.47937
       }
     },
     {
@@ -1183,7 +1183,7 @@
       "electronegativity_pauling": 1.88,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -1207,7 +1207,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -1219,7 +1219,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -1227,7 +1227,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -1239,7 +1239,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -1250,14 +1250,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.21867321867321868,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.21867321867321868,
-        "fire": 0.47848443843031124,
-        "water": 0.7813267813267813,
-        "wind": 0.2868635716754883,
-        "earth": 0.21867321867321868
+        "defense_blunt": 0,
+        "fire": 0.41532,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1273,7 +1273,7 @@
       "electronegativity_pauling": 1.91,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -1297,7 +1297,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -1309,7 +1309,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -1317,7 +1317,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -1329,7 +1329,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -1340,14 +1340,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.21886977886977885,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.21886977886977885,
-        "fire": 0.46765899864682003,
-        "water": 0.7811302211302211,
-        "wind": 0.5012413186260646,
-        "earth": 0.21886977886977885
+        "defense_blunt": 0,
+        "fire": 0.41045,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1430,14 +1430,14 @@
       "factors": {
         "slash": 0.09517361026134674,
         "pierce": 0.18025751072961374,
-        "blunt": 0.21916461916461916,
-        "defense_slash": 0.033846153846153845,
-        "defense_pierce": 0.09517361026134674,
-        "defense_blunt": 0.21916461916461916,
-        "fire": 0.36746143437077133,
-        "water": 0.7808353808353808,
-        "wind": 0.5352934046249781,
-        "earth": 0.21916461916461916
+        "blunt": 0.9977628635346757,
+        "defense_slash": 0.89398,
+        "defense_pierce": 0.09073,
+        "defense_blunt": 0.45752,
+        "fire": 0.20261,
+        "water": 0.04717,
+        "wind": 0.06814,
+        "earth": 0.37257
       }
     },
     {
@@ -1453,7 +1453,7 @@
       "electronegativity_pauling": 1.65,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -1477,7 +1477,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -1489,7 +1489,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -1497,7 +1497,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -1509,7 +1509,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -1520,14 +1520,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.1754299754299754,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.1754299754299754,
-        "fire": 0.18746414073071718,
-        "water": 0.8245700245700246,
-        "wind": -0.26038510058496855,
-        "earth": 0.1754299754299754
+        "defense_blunt": 0,
+        "fire": 0.28436,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1543,7 +1543,7 @@
       "electronegativity_pauling": 1.81,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -1567,7 +1567,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -1579,7 +1579,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -1587,7 +1587,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -1599,7 +1599,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -1610,14 +1610,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.1452088452088452,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.1452088452088452,
-        "fire": 0.08197959404600812,
-        "water": 0.8547911547911549,
-        "wind": 0.1840653297238571,
-        "earth": 0.1452088452088452
+        "defense_blunt": 0,
+        "fire": 0.23689,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1633,7 +1633,7 @@
       "electronegativity_pauling": 0.82,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -1657,7 +1657,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -1669,7 +1669,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -1677,7 +1677,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -1689,7 +1689,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -1700,14 +1700,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.037641277641277636,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.037641277641277636,
-        "fire": 0.08456021650879567,
-        "water": 0.9623587223587223,
-        "wind": 0.21048094923837357,
-        "earth": 0.037641277641277636
+        "defense_blunt": 0,
+        "fire": 0.23805,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1723,7 +1723,7 @@
       "electronegativity_pauling": 0.95,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -1747,7 +1747,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -1759,7 +1759,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -1767,7 +1767,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -1779,7 +1779,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -1790,14 +1790,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.06486486486486487,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.06486486486486487,
-        "fire": 0.28416779431664413,
-        "water": 0.9351351351351351,
-        "wind": 0.022550247590315466,
-        "earth": 0.06486486486486487
+        "defense_blunt": 0,
+        "fire": 0.32788,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1813,7 +1813,7 @@
       "electronegativity_pauling": 1.22,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -1837,7 +1837,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -1849,7 +1849,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -1857,7 +1857,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -1869,7 +1869,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -1880,14 +1880,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.10987714987714987,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.10987714987714987,
-        "fire": 0.4868741542625169,
-        "water": 0.8901228501228501,
-        "wind": 0.13288618926405293,
-        "earth": 0.10987714987714987
+        "defense_blunt": 0,
+        "fire": 0.41909,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1903,7 +1903,7 @@
       "electronegativity_pauling": 1.33,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -1927,7 +1927,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -1939,7 +1939,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -1947,7 +1947,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -1959,7 +1959,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -1970,14 +1970,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.16019656019656017,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.16019656019656017,
-        "fire": 0.5759133964817321,
-        "water": 0.8398034398034399,
-        "wind": 0.18768378474233097,
-        "earth": 0.16019656019656017
+        "defense_blunt": 0,
+        "fire": 0.45916,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -1993,7 +1993,7 @@
       "electronegativity_pauling": 1.6,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2017,7 +2017,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2029,7 +2029,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2037,7 +2037,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2049,7 +2049,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2060,14 +2060,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.21056511056511057,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.21056511056511057,
-        "fire": 0.7442489851150202,
-        "water": 0.7894348894348895,
-        "wind": 0.39738357867894963,
-        "earth": 0.21056511056511057
+        "defense_blunt": 0,
+        "fire": 0.53491,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2083,7 +2083,7 @@
       "electronegativity_pauling": 2.16,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2107,7 +2107,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2119,7 +2119,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2127,7 +2127,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2139,7 +2139,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2150,14 +2150,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.25257985257985255,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.25257985257985255,
-        "fire": 0.7837618403247631,
-        "water": 0.7474201474201474,
-        "wind": 0.3236856164168316,
-        "earth": 0.25257985257985255
+        "defense_blunt": 0,
+        "fire": 0.55269,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2173,7 +2173,7 @@
       "electronegativity_pauling": 1.9,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2197,7 +2197,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2209,7 +2209,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2217,7 +2217,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2229,7 +2229,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2240,14 +2240,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.27027027027027023,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.27027027027027023,
-        "fire": 0.6576454668470907,
-        "water": 0.7297297297297298,
-        "wind": 0.23793810915522992,
-        "earth": 0.27027027027027023
+        "defense_blunt": 0,
+        "fire": 0.49594,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2263,7 +2263,7 @@
       "electronegativity_pauling": 2.2,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2287,7 +2287,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2299,7 +2299,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2307,7 +2307,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2319,7 +2319,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2330,14 +2330,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.30589680589680585,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.30589680589680585,
-        "fire": 0.7055480378890392,
-        "water": 0.6941031941031941,
-        "wind": 0.4532496509492832,
-        "earth": 0.30589680589680585
+        "defense_blunt": 0,
+        "fire": 0.5175,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2353,7 +2353,7 @@
       "electronegativity_pauling": 2.28,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2377,7 +2377,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2389,7 +2389,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2397,7 +2397,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2409,7 +2409,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2420,14 +2420,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.3049140049140049,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.3049140049140049,
-        "fire": 0.6054127198917456,
-        "water": 0.6950859950859951,
-        "wind": 0.49504594899145665,
-        "earth": 0.3049140049140049
+        "defense_blunt": 0,
+        "fire": 0.47244,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2443,7 +2443,7 @@
       "electronegativity_pauling": 2.2,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2467,7 +2467,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2479,7 +2479,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2487,7 +2487,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2499,7 +2499,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2510,14 +2510,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.2954054054054054,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.2954054054054054,
-        "fire": 0.4947361299052774,
-        "water": 0.7045945945945946,
-        "wind": 0.24350496302980512,
-        "earth": 0.2954054054054054
+        "defense_blunt": 0,
+        "fire": 0.42263,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2533,7 +2533,7 @@
       "electronegativity_pauling": 1.93,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2557,7 +2557,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2569,7 +2569,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2577,7 +2577,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2589,7 +2589,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2600,14 +2600,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.2577395577395577,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.2577395577395577,
-        "fire": 0.33421650879566983,
-        "water": 0.7422604422604423,
-        "wind": 0.5650446470659537,
-        "earth": 0.2577395577395577
+        "defense_blunt": 0,
+        "fire": 0.3504,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2623,7 +2623,7 @@
       "electronegativity_pauling": 1.69,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2647,7 +2647,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2659,7 +2659,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2667,7 +2667,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2679,7 +2679,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2690,14 +2690,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.2125307125307125,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.2125307125307125,
-        "fire": 0.1608173207036536,
-        "water": 0.7874692874692875,
-        "wind": -0.30527908344444593,
-        "earth": 0.2125307125307125
+        "defense_blunt": 0,
+        "fire": 0.27237,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2713,7 +2713,7 @@
       "electronegativity_pauling": 1.78,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2737,7 +2737,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2749,7 +2749,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2757,7 +2757,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2769,7 +2769,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2780,14 +2780,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.17960687960687957,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.17960687960687957,
-        "fire": 0.11630541271989174,
-        "water": 0.8203931203931204,
-        "wind": 0.16630078070636192,
-        "earth": 0.17960687960687957
+        "defense_blunt": 0,
+        "fire": 0.25234,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2803,7 +2803,7 @@
       "electronegativity_pauling": 1.96,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2827,7 +2827,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2839,7 +2839,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2847,7 +2847,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2859,7 +2859,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2870,14 +2870,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.18095823095823096,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.18095823095823096,
-        "fire": 0.13669282814614342,
-        "water": 0.8190417690417691,
-        "wind": 0.48170525304493433,
-        "earth": 0.18095823095823096
+        "defense_blunt": 0,
+        "fire": 0.26151,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2893,7 +2893,7 @@
       "electronegativity_pauling": 0.79,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -2917,7 +2917,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -2929,7 +2929,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -2937,7 +2937,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -2949,7 +2949,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -2960,14 +2960,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.04742014742014741,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.04742014742014741,
-        "fire": 0.0816508795669824,
-        "water": 0.9525798525798526,
-        "wind": 0.20429006900205166,
-        "earth": 0.04742014742014741
+        "defense_blunt": 0,
+        "fire": 0.23674,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -2983,7 +2983,7 @@
       "electronegativity_pauling": 0.89,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3007,7 +3007,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3019,7 +3019,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3027,7 +3027,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3039,7 +3039,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3050,14 +3050,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.08624078624078622,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.08624078624078622,
-        "fire": 0.2706359945872801,
-        "water": 0.9137592137592138,
-        "wind": 0.06264506368211469,
-        "earth": 0.08624078624078622
+        "defense_blunt": 0,
+        "fire": 0.32179,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3073,7 +3073,7 @@
       "electronegativity_pauling": 1.1,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3097,7 +3097,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3109,7 +3109,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3117,7 +3117,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3129,7 +3129,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3140,14 +3140,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.1514004914004914,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.1514004914004914,
-        "fire": 0.3228687415426252,
-        "water": 0.8485995085995086,
-        "wind": 0.23793810915522992,
-        "earth": 0.1514004914004914
+        "defense_blunt": 0,
+        "fire": 0.34529,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3163,7 +3163,7 @@
       "electronegativity_pauling": 1.12,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3187,7 +3187,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3199,7 +3199,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3207,7 +3207,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3219,7 +3219,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3230,14 +3230,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.1663390663390663,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.1663390663390663,
-        "fire": 0.2890392422192152,
-        "water": 0.8336609336609337,
-        "wind": 0.24691690572712538,
-        "earth": 0.1663390663390663
+        "defense_blunt": 0,
+        "fire": 0.33007,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3253,7 +3253,7 @@
       "electronegativity_pauling": 1.13,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3277,7 +3277,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3289,7 +3289,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3297,7 +3297,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3309,7 +3309,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3320,14 +3320,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.1663390663390663,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.1663390663390663,
-        "fire": 0.3269282814614344,
-        "water": 0.8336609336609337,
-        "wind": 0.4175140405931393,
-        "earth": 0.1663390663390663
+        "defense_blunt": 0,
+        "fire": 0.34712,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3343,7 +3343,7 @@
       "electronegativity_pauling": 1.14,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3367,7 +3367,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3379,7 +3379,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3387,7 +3387,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3399,7 +3399,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3410,14 +3410,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.17223587223587222,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.17223587223587222,
-        "fire": 0.3510148849797023,
-        "water": 0.8277641277641278,
-        "wind": 0.8299550611231576,
-        "earth": 0.17223587223587222
+        "defense_blunt": 0,
+        "fire": 0.35796,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3433,7 +3433,7 @@
       "electronegativity_pauling": 1.13,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3457,7 +3457,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3469,7 +3469,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3477,7 +3477,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3489,7 +3489,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3500,14 +3500,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.17837837837837836,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.17837837837837836,
-        "fire": 0.35588633288227334,
-        "water": 0.8216216216216217,
-        "wind": 0.05589300866004929,
-        "earth": 0.17837837837837836
+        "defense_blunt": 0,
+        "fire": 0.36015,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3523,7 +3523,7 @@
       "electronegativity_pauling": 1.17,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3547,7 +3547,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3559,7 +3559,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3567,7 +3567,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3579,7 +3579,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3590,14 +3590,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.18476658476658475,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.18476658476658475,
-        "fire": 0.36400541271989173,
-        "water": 0.8152334152334153,
-        "wind": 0.07016929520936309,
-        "earth": 0.18476658476658475
+        "defense_blunt": 0,
+        "fire": 0.3638,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3613,7 +3613,7 @@
       "electronegativity_pauling": 1.2,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3637,7 +3637,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3649,7 +3649,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3657,7 +3657,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3669,7 +3669,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3680,14 +3680,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.12933660933660934,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.12933660933660934,
-        "fire": 0.29742895805142083,
-        "water": 0.8706633906633907,
-        "wind": 0.05028126080261462,
-        "earth": 0.12933660933660934
+        "defense_blunt": 0,
+        "fire": 0.33384,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3703,7 +3703,7 @@
       "electronegativity_pauling": 1.2,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3727,7 +3727,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3739,7 +3739,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3747,7 +3747,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3759,7 +3759,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3770,14 +3770,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.1941031941031941,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.1941031941031941,
-        "fire": 0.428958051420839,
-        "water": 0.8058968058968059,
-        "wind": 0.05934984534022905,
-        "earth": 0.1941031941031941
+        "defense_blunt": 0,
+        "fire": 0.39303,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3793,7 +3793,7 @@
       "electronegativity_pauling": 1.1,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3817,7 +3817,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3829,7 +3829,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3837,7 +3837,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3849,7 +3849,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3860,14 +3860,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.2022113022113022,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.2022113022113022,
-        "fire": 0.4408660351826793,
-        "water": 0.7977886977886978,
-        "wind": 0.5046083673405254,
-        "earth": 0.2022113022113022
+        "defense_blunt": 0,
+        "fire": 0.39839,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3883,7 +3883,7 @@
       "electronegativity_pauling": 1.22,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3907,7 +3907,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -3919,7 +3919,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -3927,7 +3927,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -3939,7 +3939,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -3950,14 +3950,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.20982800982800978,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.20982800982800978,
-        "fire": 0.4546684709066306,
-        "water": 0.7901719901719902,
-        "wind": 0.15245996579078505,
-        "earth": 0.20982800982800978
+        "defense_blunt": 0,
+        "fire": 0.4046,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -3973,7 +3973,7 @@
       "electronegativity_pauling": 1.23,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -3997,7 +3997,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4009,7 +4009,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4017,7 +4017,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4029,7 +4029,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4040,14 +4040,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.21597051597051595,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.21597051597051595,
-        "fire": 0.46928281461434374,
-        "water": 0.784029484029484,
-        "wind": 0.14639927810475561,
-        "earth": 0.21597051597051595
+        "defense_blunt": 0,
+        "fire": 0.41118,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4063,7 +4063,7 @@
       "electronegativity_pauling": 1.24,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4087,7 +4087,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4099,7 +4099,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4107,7 +4107,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4119,7 +4119,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4130,14 +4130,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.22275184275184276,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.22275184275184276,
-        "fire": 0.48768606224627875,
-        "water": 0.7772481572481572,
-        "wind": 0.1351308884070268,
-        "earth": 0.22275184275184276
+        "defense_blunt": 0,
+        "fire": 0.41946,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4153,7 +4153,7 @@
       "electronegativity_pauling": 1.25,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4177,7 +4177,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4189,7 +4189,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4197,7 +4197,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4209,7 +4209,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4220,14 +4220,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.22899262899262898,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.22899262899262898,
-        "fire": 0.4920162381596752,
-        "water": 0.771007371007371,
-        "wind": 0.4444504303088257,
-        "earth": 0.22899262899262898
+        "defense_blunt": 0,
+        "fire": 0.42141,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4243,7 +4243,7 @@
       "electronegativity_pauling": 1.1,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4267,7 +4267,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4279,7 +4279,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4287,7 +4287,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4299,7 +4299,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4310,14 +4310,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.16953316953316952,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.16953316953316952,
-        "fire": 0.2968876860622463,
-        "water": 0.8304668304668305,
-        "wind": -0.008664538691879126,
-        "earth": 0.16953316953316952
+        "defense_blunt": 0,
+        "fire": 0.3336,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4333,7 +4333,7 @@
       "electronegativity_pauling": 1.27,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4357,7 +4357,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4369,7 +4369,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4377,7 +4377,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4389,7 +4389,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4400,14 +4400,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.24179361179361175,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.24179361179361175,
-        "fire": 0.5209742895805142,
-        "water": 0.7582063882063883,
-        "wind": 0.1499459027506543,
-        "earth": 0.24179361179361175
+        "defense_blunt": 0,
+        "fire": 0.43444,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4423,7 +4423,7 @@
       "electronegativity_pauling": 1.3,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4447,7 +4447,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4459,7 +4459,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4467,7 +4467,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4479,7 +4479,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4490,14 +4490,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.327027027027027,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.327027027027027,
-        "fire": 0.6782138024357239,
-        "water": 0.672972972972973,
-        "wind": 0.07712786255258207,
-        "earth": 0.327027027027027
+        "defense_blunt": 0,
+        "fire": 0.5052,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4513,7 +4513,7 @@
       "electronegativity_pauling": 1.5,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4537,7 +4537,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4549,7 +4549,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4557,7 +4557,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4569,7 +4569,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4580,14 +4580,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.4100737100737101,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.4100737100737101,
-        "fire": 0.8903924221921515,
-        "water": 0.5899262899262899,
-        "wind": 0.13917134686437976,
-        "earth": 0.4100737100737101
+        "defense_blunt": 0,
+        "fire": 0.60068,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4603,7 +4603,7 @@
       "electronegativity_pauling": 2.36,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4627,7 +4627,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4639,7 +4639,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4647,7 +4647,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4659,7 +4659,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4670,14 +4670,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.4729729729729729,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.4729729729729729,
-        "fire": 1,
-        "water": 0.5270270270270271,
-        "wind": 0.35358500900124357,
-        "earth": 0.4729729729729729
+        "defense_blunt": 0,
+        "fire": 0.65,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4693,7 +4693,7 @@
       "electronegativity_pauling": 1.9,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4717,7 +4717,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4729,7 +4729,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4737,7 +4737,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4749,7 +4749,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4760,14 +4760,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.5164619164619164,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.5164619164619164,
-        "fire": 0.9361299052774019,
-        "water": 0.4835380835380836,
-        "wind": 0.026161070631703233,
-        "earth": 0.5164619164619164
+        "defense_blunt": 0,
+        "fire": 0.62126,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4783,7 +4783,7 @@
       "electronegativity_pauling": 2.2,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4807,7 +4807,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4819,7 +4819,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4827,7 +4827,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4839,7 +4839,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4850,14 +4850,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.555036855036855,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.555036855036855,
-        "fire": 0.894722598105548,
-        "water": 0.44496314496314504,
-        "wind": 0.46685252775570485,
-        "earth": 0.555036855036855
+        "defense_blunt": 0,
+        "fire": 0.60263,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4873,7 +4873,7 @@
       "electronegativity_pauling": 2.2,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4897,7 +4897,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4909,7 +4909,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -4917,7 +4917,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -4929,7 +4929,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -4940,14 +4940,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.5542997542997542,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.5542997542997542,
-        "fire": 0.7358592692828146,
-        "water": 0.4457002457002458,
-        "wind": 0.677629777280951,
-        "earth": 0.5542997542997542
+        "defense_blunt": 0,
+        "fire": 0.53114,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -4963,7 +4963,7 @@
       "electronegativity_pauling": 2.28,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -4987,7 +4987,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -4999,7 +4999,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5007,7 +5007,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5019,7 +5019,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5030,14 +5030,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.527027027027027,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.527027027027027,
-        "fire": 0.5524763193504736,
-        "water": 0.472972972972973,
-        "wind": 0.9205107139490093,
-        "earth": 0.527027027027027
+        "defense_blunt": 0,
+        "fire": 0.44861,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5053,7 +5053,7 @@
       "electronegativity_pauling": 2.54,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5077,7 +5077,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5089,7 +5089,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5097,7 +5097,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5109,7 +5109,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5120,14 +5120,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.4742014742014742,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.4742014742014742,
-        "fire": 0.36192963464140726,
-        "water": 0.5257985257985258,
-        "wind": 1,
-        "earth": 0.4742014742014742
+        "defense_blunt": 0,
+        "fire": 0.36287,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5143,7 +5143,7 @@
       "electronegativity_pauling": 2,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5167,7 +5167,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5179,7 +5179,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5187,7 +5187,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5199,7 +5199,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5210,14 +5210,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.33253071253071254,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.33253071253071254,
-        "fire": 0.06341569688768606,
-        "water": 0.6674692874692875,
-        "wind": -0.21549111772549123,
-        "earth": 0.33253071253071254
+        "defense_blunt": 0,
+        "fire": 0.22854,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5233,7 +5233,7 @@
       "electronegativity_pauling": 1.62,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5257,7 +5257,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5269,7 +5269,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5277,7 +5277,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5289,7 +5289,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5300,14 +5300,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.29115479115479115,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.29115479115479115,
-        "fire": 0.15615696887686062,
-        "water": 0.7088452088452089,
-        "wind": 0.1634140976084975,
-        "earth": 0.29115479115479115
+        "defense_blunt": 0,
+        "fire": 0.27027,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5323,7 +5323,7 @@
       "electronegativity_pauling": 1.87,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5347,7 +5347,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5359,7 +5359,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5367,7 +5367,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5379,7 +5379,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5390,14 +5390,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.2786240786240786,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.2786240786240786,
-        "fire": 0.1625466847090663,
-        "water": 0.7213759213759214,
-        "wind": 0.1545268847616354,
-        "earth": 0.2786240786240786
+        "defense_blunt": 0,
+        "fire": 0.27315,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5413,7 +5413,7 @@
       "electronegativity_pauling": 2.02,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5437,7 +5437,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5449,7 +5449,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5457,7 +5457,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5469,7 +5469,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5480,14 +5480,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.24029484029484027,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.24029484029484027,
-        "fire": 0.1474154262516915,
-        "water": 0.7597051597051597,
-        "wind": 0.4081940497515118,
-        "earth": 0.24029484029484027
+        "defense_blunt": 0,
+        "fire": 0.26634,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5503,7 +5503,7 @@
       "electronegativity_pauling": 2,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5527,7 +5527,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5539,7 +5539,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5547,7 +5547,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5559,7 +5559,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5570,14 +5570,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.22594594594594591,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.22594594594594591,
-        "fire": 0.14262516914749662,
-        "water": 0.7740540540540541,
-        "wind": 0.6105581668888919,
-        "earth": 0.22594594594594591
+        "defense_blunt": 0,
+        "fire": 0.26418,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5593,7 +5593,7 @@
       "electronegativity_pauling": 0.79,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5617,7 +5617,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5629,7 +5629,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5637,7 +5637,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5649,7 +5649,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5660,14 +5660,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.04594594594594595,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.04594594594594595,
-        "fire": 0.08119079837618404,
-        "water": 0.9540540540540541,
-        "wind": 0.21050788562808925,
-        "earth": 0.04594594594594595
+        "defense_blunt": 0,
+        "fire": 0.23654,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5683,7 +5683,7 @@
       "electronegativity_pauling": 0.9,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5707,7 +5707,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5719,7 +5719,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5727,7 +5727,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5739,7 +5739,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5750,14 +5750,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.13513513513513511,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.13513513513513511,
-        "fire": 0.3336941813261164,
-        "water": 0.8648648648648649,
-        "wind": 0.043315959361966715,
-        "earth": 0.13513513513513511
+        "defense_blunt": 0,
+        "fire": 0.35016,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5773,7 +5773,7 @@
       "electronegativity_pauling": 1.1,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5797,7 +5797,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5809,7 +5809,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5817,7 +5817,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5829,7 +5829,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5840,14 +5840,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.24570024570024568,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.24570024570024568,
-        "fire": 0.4059539918809202,
-        "water": 0.7542997542997543,
-        "wind": 0.151606980116455,
-        "earth": 0.24570024570024568
+        "defense_blunt": 0,
+        "fire": 0.38268,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5863,7 +5863,7 @@
       "electronegativity_pauling": 1.3,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5887,7 +5887,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5899,7 +5899,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5907,7 +5907,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -5919,7 +5919,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -5930,14 +5930,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.288058968058968,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.288058968058968,
-        "fire": 0.5474966170500677,
-        "water": 0.711941031941032,
-        "wind": 0.5060449747920286,
-        "earth": 0.288058968058968
+        "defense_blunt": 0,
+        "fire": 0.44637,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -5953,7 +5953,7 @@
       "electronegativity_pauling": 1.5,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -5977,7 +5977,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -5989,7 +5989,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -5997,7 +5997,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6009,7 +6009,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6020,14 +6020,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.3776412776412776,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.3776412776412776,
-        "fire": 0.4982408660351827,
-        "water": 0.6223587223587224,
-        "wind": 0.23807279110380836,
-        "earth": 0.3776412776412776
+        "defense_blunt": 0,
+        "fire": 0.42421,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6043,7 +6043,7 @@
       "electronegativity_pauling": 1.38,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6067,7 +6067,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6079,7 +6079,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6087,7 +6087,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6099,7 +6099,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6110,14 +6110,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.4692874692874693,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.4692874692874693,
-        "fire": 0.3803247631935047,
-        "water": 0.5307125307125307,
-        "wind": 0.22868994868617756,
-        "earth": 0.4692874692874693
+        "defense_blunt": 0,
+        "fire": 0.37115,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6133,7 +6133,7 @@
       "electronegativity_pauling": 1.36,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6157,7 +6157,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6169,7 +6169,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6177,7 +6177,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6189,7 +6189,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6200,14 +6200,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.5024570024570024,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.5024570024570024,
-        "fire": 0.24682002706359946,
-        "water": 0.4975429975429976,
-        "wind": 0.20583891141070362,
-        "earth": 0.5024570024570024
+        "defense_blunt": 0,
+        "fire": 0.31107,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6223,7 +6223,7 @@
       "electronegativity_pauling": 1.28,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6247,7 +6247,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6259,7 +6259,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6267,7 +6267,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6279,7 +6279,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6290,14 +6290,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.4868796068796068,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.4868796068796068,
-        "fire": 0.2469553450608931,
-        "water": 0.5131203931203931,
-        "wind": -0.216972619159854,
-        "earth": 0.4868796068796068
+        "defense_blunt": 0,
+        "fire": 0.31113,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6313,7 +6313,7 @@
       "electronegativity_pauling": 1.13,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6337,7 +6337,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6349,7 +6349,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6357,7 +6357,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6369,7 +6369,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6380,14 +6380,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.29484029484029484,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.29484029484029484,
-        "fire": 0.3921515561569689,
-        "water": 0.7051597051597052,
-        "wind": 0.044579724979461,
-        "earth": 0.29484029484029484
+        "defense_blunt": 0,
+        "fire": 0.37647,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6403,7 +6403,7 @@
       "electronegativity_pauling": 1.28,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6427,7 +6427,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6439,7 +6439,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6447,7 +6447,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6459,7 +6459,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6470,14 +6470,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.3319410319410319,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.3319410319410319,
-        "fire": 0.4365358592692828,
-        "water": 0.6680589680589681,
-        "wind": 0.12197695142919994,
-        "earth": 0.3319410319410319
+        "defense_blunt": 0,
+        "fire": 0.39644,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6493,7 +6493,7 @@
       "electronegativity_pauling": 1.3,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6517,7 +6517,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6529,7 +6529,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6537,7 +6537,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6549,7 +6549,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6560,14 +6560,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.3631449631449631,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.3631449631449631,
-        "fire": 0.34073071718538567,
-        "water": 0.636855036855037,
-        "wind": -0.7418281727700037,
-        "earth": 0.3631449631449631
+        "defense_blunt": 0,
+        "fire": 0.35333,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6583,7 +6583,7 @@
       "electronegativity_pauling": 1.3,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6607,7 +6607,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6619,7 +6619,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6627,7 +6627,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6639,7 +6639,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6650,14 +6650,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.37100737100737097,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.37100737100737097,
-        "fire": 0.31745602165087955,
-        "water": 0.6289926289926291,
-        "wind": -0.436863347205574,
-        "earth": 0.37100737100737097
+        "defense_blunt": 0,
+        "fire": 0.34286,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6673,7 +6673,7 @@
       "electronegativity_pauling": 1.3,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6697,7 +6697,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6709,7 +6709,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6717,7 +6717,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6729,7 +6729,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6740,14 +6740,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.21719901719901719,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.21719901719901719,
-        "fire": 0.30663058186738834,
-        "water": 0.7828009828009828,
-        "wind": -0.1283967909781052,
-        "earth": 0.21719901719901719
+        "defense_blunt": 0,
+        "fire": 0.33798,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -6763,7 +6763,7 @@
       "electronegativity_pauling": 1.3,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6787,7 +6787,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6799,7 +6799,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6807,7 +6807,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6819,7 +6819,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6834,9 +6834,9 @@
         "defense_slash": 0,
         "defense_pierce": 0,
         "defense_blunt": 0,
-        "fire": 0.4871447902571042,
-        "water": 1,
-        "wind": 0.15245996579078505,
+        "fire": 0.41922,
+        "water": 0.15,
+        "wind": 0,
         "earth": 0
       }
     },
@@ -6853,7 +6853,7 @@
       "electronegativity_pauling": 1.3,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6877,7 +6877,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6889,7 +6889,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6897,7 +6897,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6909,7 +6909,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -6924,9 +6924,9 @@
         "defense_slash": 0,
         "defense_pierce": 0,
         "defense_blunt": 0,
-        "fire": 0.2976995940460081,
-        "water": 1,
-        "wind": 0.4215993930333517,
+        "fire": 0.33396,
+        "water": 0.15,
+        "wind": 0,
         "earth": 0
       }
     },
@@ -6943,7 +6943,7 @@
       "electronegativity_pauling": 1.3,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -6967,7 +6967,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -6979,7 +6979,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -6987,7 +6987,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -6999,7 +6999,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7014,9 +7014,9 @@
         "defense_slash": 0,
         "defense_pierce": 0,
         "defense_blunt": 0,
-        "fire": 0.2976995940460081,
-        "water": 1,
-        "wind": -1.002123485389253,
+        "fire": 0.33396,
+        "water": 0.15,
+        "wind": 0,
         "earth": 0
       }
     },
@@ -7033,7 +7033,7 @@
       "electronegativity_pauling": 1.3,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7057,7 +7057,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7069,7 +7069,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7077,7 +7077,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7089,7 +7089,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7104,9 +7104,9 @@
         "defense_slash": 0,
         "defense_pierce": 0,
         "defense_blunt": 0,
-        "fire": 0.5142083897158322,
-        "water": 1,
-        "wind": -0.13486152450986993,
+        "fire": 0.43139,
+        "water": 0.15,
+        "wind": 0,
         "earth": 0
       }
     },
@@ -7123,7 +7123,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7147,7 +7147,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7159,7 +7159,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7167,7 +7167,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7179,7 +7179,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7190,14 +7190,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.57002457002457,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.57002457002457,
-        "fire": 0.6495263870094723,
-        "water": 0.42997542997543003,
+        "defense_blunt": 0,
+        "fire": 0.49229,
+        "water": 0.15,
         "wind": 0,
-        "earth": 0.57002457002457
+        "earth": 0
       }
     },
     {
@@ -7213,7 +7213,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7237,7 +7237,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7249,7 +7249,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7257,7 +7257,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7269,7 +7269,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7280,14 +7280,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.7199017199017199,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.7199017199017199,
-        "fire": 0,
-        "water": 0.2800982800982801,
+        "defense_blunt": 0,
+        "fire": 0.2,
+        "water": 0.15,
         "wind": 0,
-        "earth": 0.7199017199017199
+        "earth": 0
       }
     },
     {
@@ -7303,7 +7303,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7327,7 +7327,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7339,7 +7339,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7347,7 +7347,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7359,7 +7359,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7370,14 +7370,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.8599508599508598,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.8599508599508598,
-        "fire": 0,
-        "water": 0.14004914004914015,
+        "defense_blunt": 0,
+        "fire": 0.2,
+        "water": 0.15,
         "wind": 0,
-        "earth": 0.8599508599508598
+        "earth": 0
       }
     },
     {
@@ -7393,7 +7393,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7417,7 +7417,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7429,7 +7429,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7437,7 +7437,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7449,7 +7449,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7460,14 +7460,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.9115479115479115,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.9115479115479115,
-        "fire": 0,
-        "water": 0.08845208845208852,
+        "defense_blunt": 0,
+        "fire": 0.2,
+        "water": 0.15,
         "wind": 0,
-        "earth": 0.9115479115479115
+        "earth": 0
       }
     },
     {
@@ -7483,7 +7483,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7507,7 +7507,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7519,7 +7519,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7527,7 +7527,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7539,7 +7539,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7550,14 +7550,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 1,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 1,
-        "fire": 0.03410013531799729,
-        "water": 0,
+        "defense_blunt": 0,
+        "fire": 0.21535,
+        "water": 0.15,
         "wind": 0,
-        "earth": 1
+        "earth": 0
       }
     },
     {
@@ -7573,7 +7573,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7597,7 +7597,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7609,7 +7609,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7617,7 +7617,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7629,7 +7629,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7640,14 +7640,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.9189189189189189,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.9189189189189189,
-        "fire": 0,
-        "water": 0.08108108108108114,
+        "defense_blunt": 0,
+        "fire": 0.2,
+        "water": 0.15,
         "wind": 0,
-        "earth": 0.9189189189189189
+        "earth": 0
       }
     },
     {
@@ -7663,7 +7663,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7687,7 +7687,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7699,7 +7699,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7707,7 +7707,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7719,7 +7719,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7730,14 +7730,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.8550368550368549,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.8550368550368549,
-        "fire": 0,
-        "water": 0.1449631449631451,
+        "defense_blunt": 0,
+        "fire": 0.2,
+        "water": 0.15,
         "wind": 0,
-        "earth": 0.8550368550368549
+        "earth": 0
       }
     },
     {
@@ -7753,7 +7753,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7777,7 +7777,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7789,7 +7789,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7797,7 +7797,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7809,7 +7809,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7820,14 +7820,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.705159705159705,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.705159705159705,
-        "fire": 0,
-        "water": 0.29484029484029495,
-        "wind": 0.6778991411781079,
-        "earth": 0.705159705159705
+        "defense_blunt": 0,
+        "fire": 0.2,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -7843,7 +7843,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7867,7 +7867,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7879,7 +7879,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7887,7 +7887,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7899,7 +7899,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -7910,14 +7910,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.34398034398034394,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.34398034398034394,
-        "fire": 0,
-        "water": 0.6560196560196561,
+        "defense_blunt": 0,
+        "fire": 0.2,
+        "water": 0.15,
         "wind": 0,
-        "earth": 0.34398034398034394
+        "earth": 0
       }
     },
     {
@@ -7933,7 +7933,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -7957,7 +7957,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -7969,7 +7969,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -7977,7 +7977,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -7989,7 +7989,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -8000,14 +8000,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.3931203931203931,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.3931203931203931,
-        "fire": 0.18944519621109607,
-        "water": 0.606879606879607,
-        "wind": 0.29899392584411905,
-        "earth": 0.3931203931203931
+        "defense_blunt": 0,
+        "fire": 0.28525,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -8023,7 +8023,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -8047,7 +8047,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -8059,7 +8059,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -8067,7 +8067,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -8079,7 +8079,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -8090,14 +8090,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.34398034398034394,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.34398034398034394,
-        "fire": 0.09201623815967523,
-        "water": 0.6560196560196561,
+        "defense_blunt": 0,
+        "fire": 0.24141,
+        "water": 0.15,
         "wind": 0,
-        "earth": 0.34398034398034394
+        "earth": 0
       }
     },
     {
@@ -8113,7 +8113,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -8137,7 +8137,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -8149,7 +8149,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -8157,7 +8157,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -8169,7 +8169,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -8180,14 +8180,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.33169533169533166,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.33169533169533166,
-        "fire": 0.18132611637347767,
-        "water": 0.6683046683046683,
-        "wind": 0.158475759493955,
-        "earth": 0.33169533169533166
+        "defense_blunt": 0,
+        "fire": 0.2816,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -8203,7 +8203,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -8227,7 +8227,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -8239,7 +8239,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -8247,7 +8247,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -8259,7 +8259,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -8270,14 +8270,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.31695331695331697,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.31695331695331697,
-        "fire": 0.1918809201623816,
-        "water": 0.683046683046683,
-        "wind": 0.3362559316174853,
-        "earth": 0.31695331695331697
+        "defense_blunt": 0,
+        "fire": 0.28635,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     },
     {
@@ -8293,7 +8293,7 @@
       "electronegativity_pauling": null,
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "yield_strength": {
@@ -8317,7 +8317,7 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0,
           "units": "g/cm³"
         },
         "melting_point": {
@@ -8329,7 +8329,7 @@
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 0,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
@@ -8337,7 +8337,7 @@
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 0,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
@@ -8349,7 +8349,7 @@
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 0,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
@@ -8360,14 +8360,14 @@
       "factors": {
         "slash": 0,
         "pierce": 0,
-        "blunt": 0.07371007371007371,
+        "blunt": 0,
         "defense_slash": 0,
         "defense_pierce": 0,
-        "defense_blunt": 0.07371007371007371,
-        "fire": 0,
-        "water": 0.9262899262899262,
-        "wind": 0.28673786852348176,
-        "earth": 0.07371007371007371
+        "defense_blunt": 0,
+        "fire": 0.2,
+        "water": 0.15,
+        "wind": 0,
+        "earth": 0
       }
     }
   ]

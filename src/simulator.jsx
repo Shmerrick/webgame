@@ -1212,8 +1212,6 @@ function App({ DB }){
               </div>
             </div>
           </section>
-
-          <div className="mt-6 text-xs text-slate-500">v16.0: Database-backed materials (T1–T5), inner and binding options per armor piece, centered skill specification with points, equipment preview restored at the bottom, and clear plain-English explanations. Heavy armor reduces magic by twenty-five percent, and Carapace is not available for weapon heads.</div>
         </div>
       </div>
     </>
