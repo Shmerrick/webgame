@@ -4,6 +4,14 @@
 - Use JavaScript or TypeScript for any new code.
 - Before committing changes, run available project checks such as `npm test` (if defined) and `npm run build`.
 
+## Hosting
+
+Ensure the site functions both when served locally and when deployed to GitHub Pages. Prefer relative paths so all pages can access shared data files in either environment.
+
 ## Project Scope
 
 This repository powers a public web companion for an open-world MMORPG and will later host C++ classes integrated with Unreal Engine 5.6+. Keep all pages pulling from the same database files so future game code and website remain in sync.
+
+## Agent Log
+
+- Verified three bug-check passes by running syntax checks on key scripts (`public/crafting_calculator.js`, `public/siege_calculator.js`, `src/simulator.jsx`).
