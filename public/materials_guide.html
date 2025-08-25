@@ -102,12 +102,25 @@
 
             <h3 class="text-xl text-emerald-300">Elemental Resistances</h3>
             <p>The world is filled with magic. The right material can save you from a fiery end.</p>
-             <ul class="list-disc text-slate-300 mt-2">
+            <ul class="list-disc text-slate-300 mt-2">
                 <li><strong>Fire Resistance:</strong> Materials that don't conduct heat well, like stone and certain minerals, offer protection from flames.</li>
                 <li><strong>Water Resistance:</strong> Materials that don't corrode or soak up water will resist corrosive and water-based spells.</li>
                 <li><strong>Wind Resistance:</strong> In our world, wind magic is tied to electricity. Materials that are poor electrical conductors will shield you from shocking attacks.</li>
                 <li><strong>Earth Resistance:</strong> Dense and tough materials are your best bet for withstanding the crushing force of earth magic.</li>
             </ul>
+
+            <h3 class="text-xl text-emerald-300 mt-4">Defense Formula Reference</h3>
+            <p>Each defense value starts by scaling a material's real-world properties between 0 and 1 compared to all known materials. We then blend those scaled values with the weights below:</p>
+            <ul class="list-disc text-slate-300 mt-2">
+                <li><strong>Slash Defense:</strong> 50% hardness + 30% yield strength + 20% elastic modulus.</li>
+                <li><strong>Pierce Defense:</strong> 45% hardness + 35% yield strength + 20% ultimate tensile strength.</li>
+                <li><strong>Blunt Defense:</strong> 35% elastic modulus + 35% yield strength + 30% density.</li>
+                <li><strong>Fire Resistance:</strong> 45% melting point + 35% specific heat + 20% low thermal conductivity.</li>
+                <li><strong>Earth Resistance:</strong> 50% hardness + 30% elastic modulus + 20% density.</li>
+                <li><strong>Water Resistance:</strong> 45% electrical resistivity + 25% hardness + 15% low thermal conductivity + 15% specific heat.</li>
+                <li><strong>Wind Resistance:</strong> 40% specific stiffness (elastic modulus ÷ density) + 30% hardness + 30% electrical resistivity.</li>
+            </ul>
+            <p>Armor thickness and magical attunements can further nudge these numbers up or down.</p>
         </section>
 
         
