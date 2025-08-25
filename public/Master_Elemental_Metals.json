@@ -21,11 +21,11 @@
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 4.9,
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0.6,
           "units": null
         },
         "brinell_hardness": {
@@ -37,43 +37,43 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0.535,
           "units": "g/cm³"
         },
         "melting_point": {
-          "value": null,
+          "value": 180.54,
           "units": "°C"
         },
         "boiling_point": {
-          "value": null,
+          "value": 1342,
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 85,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
-          "value": null,
+          "value": 46,
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 3.57,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
-          "value": null,
+          "value": 3,
           "units": "kJ/mol"
         },
         "heat_of_vaporization": {
-          "value": null,
+          "value": 147,
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 94,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
-          "value": null,
+          "value": 0.000178,
           "units": "cm³/mol"
         }
       }
@@ -99,59 +99,59 @@
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 287,
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 5.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 600,
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 1670,
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 1.848,
           "units": "g/cm³"
         },
         "melting_point": {
-          "value": null,
+          "value": 1287,
           "units": "°C"
         },
         "boiling_point": {
-          "value": null,
+          "value": 2470,
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 190,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
-          "value": null,
+          "value": 11.3,
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 1.82,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
-          "value": null,
+          "value": 7.95,
           "units": "kJ/mol"
         },
         "heat_of_vaporization": {
-          "value": null,
+          "value": 297,
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 40,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
-          "value": null,
+          "value": -0.0001136,
           "units": "cm³/mol"
         }
       }
@@ -177,15 +177,15 @@
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 10,
           "units": "GPa"
         },
         "mohs_hardness": {
-          "value": null,
+          "value": 0.5,
           "units": null
         },
         "brinell_hardness": {
-          "value": null,
+          "value": 0.69,
           "units": "MPa"
         },
         "vickers_hardness": {
@@ -193,43 +193,43 @@
           "units": "MPa"
         },
         "density": {
-          "value": null,
+          "value": 0.968,
           "units": "g/cm³"
         },
         "melting_point": {
-          "value": null,
+          "value": 97.72,
           "units": "°C"
         },
         "boiling_point": {
-          "value": null,
+          "value": 883,
           "units": "°C"
         },
         "thermal_conductivity": {
-          "value": null,
+          "value": 140,
           "units": "W/m·K"
         },
         "thermal_expansion_coefficient": {
-          "value": null,
+          "value": 70,
           "units": "µm/m·K"
         },
         "specific_heat": {
-          "value": null,
+          "value": 1.23,
           "units": "J/g·K"
         },
         "heat_of_fusion": {
-          "value": null,
+          "value": 2.6,
           "units": "kJ/mol"
         },
         "heat_of_vaporization": {
-          "value": null,
+          "value": 97.7,
           "units": "kJ/mol"
         },
         "electrical_resistivity": {
-          "value": null,
+          "value": 47,
           "units": "nΩ·m"
         },
         "magnetic_susceptibility": {
-          "value": null,
+          "value": 0.0002,
           "units": "cm³/mol"
         }
       }
