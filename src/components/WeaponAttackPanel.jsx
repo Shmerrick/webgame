@@ -58,10 +58,29 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
 
         {["Sword", "Axe", "Hammer", "Spear"].includes(weaponKey) && (
           <div>
-            <label className="block text-sm mb-1">
-              <input type="checkbox" checked={isTwoHanded} onChange={e => setTwoHanded(e.target.checked)} disabled={armor.shield.shield !== 'None'} />
-              Two-Handed
-            </label>
+            <span className="block text-sm mb-1">Handedness</span>
+            <div className="flex gap-4 text-sm">
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="handedness"
+                  checked={!isTwoHanded}
+                  onChange={() => setTwoHanded(false)}
+                  disabled={armor.shield.shield !== 'None'}
+                />
+                <span className="ml-2">One-Handed</span>
+              </label>
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="handedness"
+                  checked={isTwoHanded}
+                  onChange={() => setTwoHanded(true)}
+                  disabled={armor.shield.shield !== 'None'}
+                />
+                <span className="ml-2">Two-Handed</span>
+              </label>
+            </div>
           </div>
         )}
 

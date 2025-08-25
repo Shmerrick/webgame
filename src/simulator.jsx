@@ -605,7 +605,7 @@ function App({ DB }){
     const finalParts = {};
     for (const [k,v] of Object.entries(scaledWithSkill)) finalParts[k] = Math.floor(total * (v||0) / partsSum);
     const isHeavy = (weapon.type!=='mounted') && (charge >= 1.5 - 1e-6);
-    const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1));
+    const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1) * (isTwoHanded ? 2 : 1));
     return { total, parts: finalParts, staminaCost: staminaCostFinal, isHeavy };
   }, [weapon, direction, charge, swing, effective.STR, mountedSpeed, missingPieces, nakedOverride, weaponComps, skillMult, DB, bowType, bowWood, isTwoHanded]);
 
@@ -848,7 +848,10 @@ function App({ DB }){
             <div className="bg-slate-800/70 rounded-xl p-4">
               <div className="flex items-center justify-between">
                 <div className="text-slate-300 font-medium">Stamina Cost for the Attack</div>
-                {damage.isHeavy && <span className="text-[10px] px-2 py-0.5 rounded-full border border-amber-400 text-amber-300">Heavy attack (double stamina)</span>}
+                <div className="flex gap-2">
+                  {isTwoHanded && <span className="text-[10px] px-2 py-0.5 rounded-full border border-amber-400 text-amber-300">Two-handed (double stamina)</span>}
+                  {damage.isHeavy && <span className="text-[10px] px-2 py-0.5 rounded-full border border-amber-400 text-amber-300">Heavy attack (double stamina)</span>}
+                </div>
               </div>
               <div className="text-2xl tabular-nums mt-1">{damage.staminaCost}</div>
             </div>
