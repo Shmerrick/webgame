@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS } from "./constants/weapons.js";
 import CharacterPanel from "./components/CharacterPanel.jsx";
 import WeaponAttackPanel from "./components/WeaponAttackPanel.jsx";
+import RangedWeaponPanel from "./components/RangedWeaponPanel.jsx";
 import MaterialSelect from "./components/MaterialSelect.jsx";
 import ResultsPanel from "./components/ResultsPanel.jsx";
 import useMaterials from "./hooks/useMaterials.js";
@@ -61,7 +62,7 @@ const OFFHAND_ITEMS = {
   Round: { class: "Light",  strengthRequirement: 50, type: 'shield' },
   Kite:  { class: "Medium", strengthRequirement: 75, type: 'shield' },
   Tower: { class: "Heavy",  strengthRequirement: 100, type: 'shield' },
-  Sling: { class: "None", strengthRequirement: 0, type: 'weapon' }
+  Sling: { class: "None", strengthRequirement: 0, type: 'weapon' } // Sling can be used in either hand
 };
 
 const REGEN_MULT = { Naked: 1.0, Light: 0.75, Medium: 0.50, Heavy: 0.25 };
@@ -677,36 +678,6 @@ function App({ DB }){
                 STAT_POOL={STAT_POOL}
                 HEALTH_FIXED={HEALTH_FIXED}
               />
-
-              <WeaponAttackPanel
-                weaponKey={weaponKey}
-                setWeaponKey={setWeaponKey}
-                weapon={weapon}
-                rangedWeaponKey={rangedWeaponKey}
-                setRangedWeaponKey={setRangedWeaponKey}
-                bowType={bowType}
-                setBowType={setBowType}
-                bowWood={bowWood}
-                setBowWood={setBowWood}
-                weaponComps={weaponComps}
-                setWeaponComp={setWeaponComp}
-                isTwoHanded={isTwoHanded}
-                setTwoHanded={setTwoHanded}
-                direction={direction}
-                setDirection={setDirection}
-                charge={charge}
-                setCharge={setCharge}
-                swing={swing}
-                setSwing={setSwing}
-                mountedSpeed={mountedSpeed}
-                setMountedSpeed={setMountedSpeed}
-                armor={armor}
-                DB={DB}
-                subcategoriesFor={subcategoriesFor}
-                itemsForCategory={itemsForCategory}
-                firstSubCat={firstSubCat}
-                firstMat={firstMat}
-              />
             </div>
 
             {/* Center column: Skills */}
@@ -804,42 +775,41 @@ function App({ DB }){
               </div>
             </section>
 
-            {/* Right column: Armor & Target */}
+            {/* Right column: Weapons */}
             <div className="flex flex-col gap-6">
-              <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
-                <h2 className="text-lg font-semibold mb-3">Target Armor for Damage Against Armor</h2>
-                <div className="grid grid-cols-1 gap-2">
-                  <div>
-                    <label className="block text-sm">Armor Class</label>
-                    <select
-                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2"
-                      value={targetArmor.class}
-                      onChange={e=> {
-                        const cls = e.target.value;
-                        const allowed = MATERIALS_FOR_CLASS[cls] || [];
-                        const cat = allowed[0] || "";
-                        const sub = firstSubCat(cat);
-                        const mat = firstMat(cat, sub);
-                        setTargetArmor(t=> ({...t, class: cls, category: cat, subCategory: sub, material: mat}));
-                      }}
-                    >
-                      {Object.keys(ARMOR_CLASS).map(k=> <option key={k} value={k}>{k}</option>)}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm">Outer Material Category, which is eighty percent of the weighting</label>
-                    <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_CLASS[targetArmor.class]||[]} value={{category:targetArmor.category, subCategory:targetArmor.subCategory, material:targetArmor.material}} onChange={val=> setTargetArmor(t=> ({...t, category:val.category, subCategory:val.subCategory, material:val.material}))} />
-                  </div>
-                  <div>
-                    <label className="block text-sm mt-3">Inner Layer Material</label>
-                    <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_INNER} value={{category:targetArmor.innerCategory, subCategory:targetArmor.innerSubCategory, material:targetArmor.innerMaterial}} onChange={val=> setTargetArmor(t=> ({...t, innerCategory:val.category, innerSubCategory:val.subCategory, innerMaterial:val.material}))} />
-                  </div>
-                  <div>
-                    <label className="block text-sm mt-3">Binding</label>
-                    <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_BINDING} value={{category:targetArmor.bindingCategory, subCategory:targetArmor.bindingSubCategory, material:targetArmor.bindingMaterial}} onChange={val=> setTargetArmor(t=> ({...t, bindingCategory:val.category, bindingSubCategory:val.subCategory, bindingMaterial:val.material}))} />
-                  </div>
-                </div>
-              </section>
+              <WeaponAttackPanel
+                weaponKey={weaponKey}
+                setWeaponKey={setWeaponKey}
+                weapon={weapon}
+                bowType={bowType}
+                setBowType={setBowType}
+                bowWood={bowWood}
+                setBowWood={setBowWood}
+                weaponComps={weaponComps}
+                setWeaponComp={setWeaponComp}
+                isTwoHanded={isTwoHanded}
+                setTwoHanded={setTwoHanded}
+                direction={direction}
+                setDirection={setDirection}
+                charge={charge}
+                setCharge={setCharge}
+                swing={swing}
+                setSwing={setSwing}
+                mountedSpeed={mountedSpeed}
+                setMountedSpeed={setMountedSpeed}
+                armor={armor}
+                DB={DB}
+                subcategoriesFor={subcategoriesFor}
+                itemsForCategory={itemsForCategory}
+                firstSubCat={firstSubCat}
+                firstMat={firstMat}
+              />
+
+              <RangedWeaponPanel
+                rangedWeaponKey={rangedWeaponKey}
+                setRangedWeaponKey={setRangedWeaponKey}
+              />
+
               <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
                 <h2 className="text-lg font-semibold mb-3">Character Portrait</h2>
                 <div className="flex justify-center">
@@ -1045,20 +1015,55 @@ function App({ DB }){
               })}
             </div>
 
-            <ResultsPanel
-              S={S}
-              Smax={Smax}
-              R={R}
-              category={category}
-              missingPieces={missingPieces}
-              regenStam={regenStam}
-              regenMana={regenMana}
-              nakedOverride={nakedOverride}
-            />
-          </section>
-        </div>
+          <ResultsPanel
+            S={S}
+            Smax={Smax}
+            R={R}
+            category={category}
+            missingPieces={missingPieces}
+            regenStam={regenStam}
+            regenMana={regenMana}
+            nakedOverride={nakedOverride}
+          />
+        </section>
+
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6">
+          <h2 className="text-lg font-semibold mb-3">Target Armor for Damage Against Armor</h2>
+          <div className="grid grid-cols-1 gap-2">
+            <div>
+              <label className="block text-sm">Armor Class</label>
+              <select
+                className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2"
+                value={targetArmor.class}
+                onChange={e=> {
+                  const cls = e.target.value;
+                  const allowed = MATERIALS_FOR_CLASS[cls] || [];
+                  const cat = allowed[0] || "";
+                  const sub = firstSubCat(cat);
+                  const mat = firstMat(cat, sub);
+                  setTargetArmor(t=> ({...t, class: cls, category: cat, subCategory: sub, material: mat}));
+                }}
+              >
+                {Object.keys(ARMOR_CLASS).map(k=> <option key={k} value={k}>{k}</option>)}
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm">Outer Material Category, which is eighty percent of the weighting</label>
+              <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_CLASS[targetArmor.class]||[]} value={{category:targetArmor.category, subCategory:targetArmor.subCategory, material:targetArmor.material}} onChange={val=> setTargetArmor(t=> ({...t, category:val.category, subCategory:val.subCategory, material:val.material}))} />
+            </div>
+            <div>
+              <label className="block text-sm mt-3">Inner Layer Material</label>
+              <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_INNER} value={{category:targetArmor.innerCategory, subCategory:targetArmor.innerSubCategory, material:targetArmor.innerMaterial}} onChange={val=> setTargetArmor(t=> ({...t, innerCategory:val.category, innerSubCategory:val.subCategory, innerMaterial:val.material}))} />
+            </div>
+            <div>
+              <label className="block text-sm mt-3">Binding</label>
+              <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_BINDING} value={{category:targetArmor.bindingCategory, subCategory:targetArmor.bindingSubCategory, material:targetArmor.bindingMaterial}} onChange={val=> setTargetArmor(t=> ({...t, bindingCategory:val.category, bindingSubCategory:val.subCategory, bindingMaterial:val.material}))} />
+            </div>
+          </div>
+        </section>
       </div>
-    </>
+    </div>
+  </>
   );
 }
 
