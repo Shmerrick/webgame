@@ -64,8 +64,8 @@ const BASE_TICK_PCT = 0.10;
 const MATERIALS_FOR_CLASS = {
   None:   [],
   Light:  ["Leather","Scales","Cloth","Fur"],
-  Medium: ["Leather","Scales","Chitin","Wood","Bone"],
-  Heavy:  ["Metals"],
+  Medium: ["Leather","Scales","Carapace","Wood","Bone"],
+  Heavy:  ["Metal"],
 };
 const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Silk", "Fur"];
 const MATERIALS_FOR_BINDING = ["Leather", "Metals"];
@@ -164,24 +164,11 @@ function classBasePerType(cls){
   return { blunt: c.physical, slash: c.physical, pierce: c.physical, magic: c.magical };
 }
 
-function getMaterialsForCategory(DB, cat){ return DB[cat] || {}; }
+function getMaterialsForCategory(DB, cat){
+  if (cat === "Metal") cat = "Metals";
+  return DB[cat] || {};
+}
 function itemsForCategory(DB, cat){
-  if (cat === 'Metals') {
-    const sources = ['Metals', 'Elemental Metals', 'Metal Alloys'];
-    let combined = [];
-    for (const src of sources) {
-      const obj = getMaterialsForCategory(DB, src);
-      if (Array.isArray(obj)) {
-        combined = combined.concat(obj);
-      } else {
-        for (const list of Object.values(obj || {})) {
-          if (Array.isArray(list)) combined = combined.concat(list);
-        }
-      }
-    }
-    return combined;
-  }
-
   const obj = getMaterialsForCategory(DB, cat);
   if (Array.isArray(obj)) return obj;
   let arr = [];
@@ -422,9 +409,9 @@ function App({ DB }){
   });
 
   // Target armor (for “damage against armor”)
-  const [targetArmor, setTargetArmor] = useState({
-    class: "Heavy", category: "Metals", material: firstName("Metals"), innerCategory:"Cloth", innerMaterial:firstName("Cloth"), bindingCategory:"Leather", bindingMaterial:firstName("Leather")
-  });
+    const [targetArmor, setTargetArmor] = useState({
+      class: "Heavy", category: "Metal", material: firstName("Metal"), innerCategory:"Cloth", innerMaterial:firstName("Cloth"), bindingCategory:"Leather", bindingMaterial:firstName("Leather")
+    });
 
   // Weapon & attack
   const [weaponKey, setWeaponKey] = useState("Sword");
@@ -938,7 +925,17 @@ function App({ DB }){
                 <div className="grid grid-cols-1 gap-2">
                   <div>
                     <label className="block text-sm">Armor Class</label>
-                    <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2" value={targetArmor.class} onChange={e=> setTargetArmor(t=> ({...t, class: e.target.value}))}>
+                    <select
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 py-2"
+                      value={targetArmor.class}
+                      onChange={e=> {
+                        const cls = e.target.value;
+                        const allowed = MATERIALS_FOR_CLASS[cls] || [];
+                        const cat = allowed[0] || "";
+                        const mat = (itemsForCategory(DB, cat)[0]?.name) || "";
+                        setTargetArmor(t=> ({...t, class: cls, category: cat, material: mat}));
+                      }}
+                    >
                       {Object.keys(ARMOR_CLASS).map(k=> <option key={k} value={k}>{k}</option>)}
                     </select>
                   </div>
@@ -1277,8 +1274,20 @@ fetch('materials.json', { cache: 'no-cache' })
       fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
     ]);
 
-    db['Elemental Metals'] = (elementals.elements || []).map(m => ({ name: m.name }));
-    db['Metal Alloys'] = (alloys.elements || []).map(m => ({ name: m.name }));
+    const elementalMetals = (elementals.elements || []).map(m => ({ name: m.name }));
+    const alloyMetals = (alloys.elements || []).map(m => ({ name: m.name }));
+
+    db['Elemental Metals'] = elementalMetals;
+    db['Metal Alloys'] = alloyMetals;
+
+    if (!db.Metals) db.Metals = { T1: [], T2: [], T3: [], T4: [], T5: [] };
+    const existing = new Set((db.Metals.T1 || []).map(m => m.name));
+    for (const m of [...elementalMetals, ...alloyMetals]) {
+      if (!existing.has(m.name)) {
+        db.Metals.T1.push(m);
+        existing.add(m.name);
+      }
+    }
 
     ReactDOM.createRoot(document.getElementById("root")).render(
       <React.StrictMode><App DB={db} /></React.StrictMode>
