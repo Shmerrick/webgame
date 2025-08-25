@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
         Medium: ["Leather","Scales","Carapace","Wood","Bone","Dev"],
         Heavy:  ["Metals","Dev"],
     };
-    const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Silk", "Fur", "Dev"];
-    const MATERIALS_FOR_BINDING = ["Leather", "Metals", "Dev"];
+    const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Fur", "Dev"];
+    const MATERIALS_FOR_BINDING = ["Leather", "Dev"];
     const MATERIALS_FOR_JEWELRY_SETTING = ["Metals", "Dev"];
-    const MATERIALS_FOR_JEWELRY_GEM = ["Minerals", "Dev"];
+    const MATERIALS_FOR_JEWELRY_GEM = ["Rock Types", "Dev"];
 
     // Armor
     const armorPieceSelect = document.getElementById('armor-piece');
@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const MATERIALS_FOR_HANDLE_CORE = ["Wood", "Metals", "Dev"];
     const MATERIALS_FOR_HANDLE_GRIP = ["Cloth", "Leather", "Dev"];
-    const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Minerals", "Dev"];
-    const MATERIALS_FOR_HEAD = ["Metals", "Minerals", "Wood", "Dev"];
+    const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Rock Types", "Dev"];
+    const MATERIALS_FOR_HEAD = ["Metals", "Rock Types", "Wood", "Dev"];
     const BANNED_WEAPON_HEAD_MATERIALS = ["Carapace", "Cloth", "Fur", "Herbs", "Leather", "Linen", "Scales"];
 
     // Fetch and process data
@@ -117,12 +117,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 potionHerbs,
                 runesList,
                 bannedNamesText,
+                rockTypes,
+                armorVolumesList,
+                shieldVolumesList,
+                weaponVolumesList,
+                potionIngredientsList,
+                enchantmentRunesList,
+                bannedNamesList,
                 alchemyRecipesList
             ] = await Promise.all([
                 getDatabaseSection('materials'),
                 getDatabaseSection('woodTypes'),
                 getDatabaseSection('elementalMetals'),
                 getDatabaseSection('metalAlloys'),
+                getDatabaseSection('rockTypes'),
                 getDatabaseSection('armorVolumes'),
                 getDatabaseSection('shieldVolumes'),
                 getDatabaseSection('weaponVolumes'),
@@ -133,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]);
             console.log("CRAFTING_CALCULATOR: All files fetched.");
 
-            const db = buildMaterialDB(baseMaterials, woodList, elementalList, alloyList);
+            const db = buildMaterialDB(baseMaterials, woodList, elementalList, alloyList, rockTypes);
             db.Dev = [
                 {
                     id: 'dev_material',
@@ -205,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function buildMaterialDB(db, wood, elementals, alloys) {
+    function buildMaterialDB(db, wood, elementals, alloys, rocks) {
         const slug = name => name.toLowerCase().replace(/\s+/g, '_');
         db['Wood'] = Object.fromEntries(
             Object.entries(wood).map(([type, list]) => [
@@ -214,29 +222,12 @@ document.addEventListener('DOMContentLoaded', () => {
             ])
         );
 
-        const silicateMinerals = [
-            'Amphibole',
-            'Biotite',
-            'Feldspar',
-            'Hornblende',
-            'Mica',
-            'Olivine',
-            'Plagioclase',
-            'Pyroxene',
-            'Quartz',
-            'Clay Minerals'
-        ];
-        const nonSilicateMinerals = [
-            'Aragonite',
-            'Calcite',
-            'Dolomite',
-            'Chert',
-            'Silica'
-        ];
-        db['Minerals'] = {
-            'Silicate Minerals': silicateMinerals.map(name => ({ id: slug(name), name })),
-            'Non-Silicate Minerals': nonSilicateMinerals.map(name => ({ id: slug(name), name }))
-        };
+        db['Rock Types'] = Object.fromEntries(
+            Object.entries(rocks).map(([type, stones]) => [
+                type,
+                Object.keys(stones).map(name => ({ id: slug(name), name }))
+            ])
+        );
 
         const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name, factors: m.factors || {} }));
         const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name, factors: m.factors || {} }));
@@ -432,13 +423,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const GEMSTONES = [
-        { name: "Diamond", rowName: "Minerals_T5_Diamond", rough: "Rough Diamond", cut: "Cut Diamond" },
-        { name: "Ruby", rowName: "Minerals_T5_Ruby", rough: "Rough Ruby", cut: "Cut Ruby" },
-        { name: "Sapphire", rowName: "Minerals_T5_Sapphire", rough: "Rough Sapphire", cut: "Cut Sapphire" },
-        { name: "Emerald", rowName: "Minerals_T4_Emerald", rough: "Rough Emerald", cut: "Cut Emerald" },
-        { name: "Topaz", rowName: "Minerals_T4_Topaz", rough: "Rough Topaz", cut: "Cut Topaz" },
-        { name: "Garnet", rowName: "Minerals_T3_Garnet", rough: "Rough Garnet", cut: "Cut Garnet" },
-        { name: "Quartz", rowName: "Minerals_T1_Quartz", rough: "Rough Quartz", cut: "Cut Quartz" },
+        { name: "Diamond", rowName: "Rock Types_T5_Diamond", rough: "Rough Diamond", cut: "Cut Diamond" },
+        { name: "Ruby", rowName: "Rock Types_T5_Ruby", rough: "Rough Ruby", cut: "Cut Ruby" },
+        { name: "Sapphire", rowName: "Rock Types_T5_Sapphire", rough: "Rough Sapphire", cut: "Cut Sapphire" },
+        { name: "Emerald", rowName: "Rock Types_T4_Emerald", rough: "Rough Emerald", cut: "Cut Emerald" },
+        { name: "Topaz", rowName: "Rock Types_T4_Topaz", rough: "Rough Topaz", cut: "Cut Topaz" },
+        { name: "Garnet", rowName: "Rock Types_T3_Garnet", rough: "Rough Garnet", cut: "Cut Garnet" },
+        { name: "Quartz", rowName: "Rock Types_T1_Quartz", rough: "Rough Quartz", cut: "Cut Quartz" },
     ];
 
     function populateBowyerDropdowns() {
