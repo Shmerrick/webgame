@@ -1,16 +1,16 @@
 [
-  "Leather",
-  "Fur",
   "Bone",
-  "Scale",
   "Carapace",
-  "Wood",
   "Cloth",
-  "Linen",
-  "Thread",
+  "Fur",
+  "Gem",
   "Herbs",
-  "Stone",
-  "Ore",
+  "Leather",
+  "Linen",
   "Metal",
-  "Gem"
+  "Ore",
+  "Scale",
+  "Stone",
+  "Thread",
+  "Wood"
 ]

@@ -71,44 +71,69 @@
           container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
 
           try {
-            const [itemCats, elementals, alloys, stones, woods] = await Promise.all([
-              fetch('item_categories.json', { cache: 'no-cache' }).then(r => r.json()),
-              fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
-              fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
+            const [db, woods, stones, elementals, alloys] = await Promise.all([
+              fetch('materials.json', { cache: 'no-cache' }).then(r => r.json()),
+              fetch('wood_types.json', { cache: 'no-cache' }).then(r => r.json()),
               fetch('stone_types.json', { cache: 'no-cache' }).then(r => r.json()),
-              fetch('wood_types.json', { cache: 'no-cache' }).then(r => r.json())
+              fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
+              fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json())
             ]);
 
-            container.innerHTML = '';
+            // Merge external lists into the DB
+            db['Wood'] = Object.fromEntries(
+              Object.entries(woods).map(([k, list]) => [k, list.map(name => ({ name }))])
+            );
+            db['Stone'] = Object.fromEntries(
+              Object.entries(stones).map(([k, list]) => [k, list.map(name => ({ name }))])
+            );
+            const elementalMetals = (elementals.elements || []).map(m => ({ name: m.name }));
+            const alloyMetals = (alloys.elements || []).map(m => ({ name: m.name }));
+            db['Elemental Metals'] = elementalMetals;
+            db['Metal Alloys'] = alloyMetals;
 
-            // Each material entry should use a single canonical name with no parentheses or slashes.
+            if (!db.Metals) db.Metals = { T1: [], T2: [], T3: [], T4: [], T5: [] };
+            const existing = new Set((db.Metals.T1 || []).map(m => m.name));
+            for (const m of [...elementalMetals, ...alloyMetals]) {
+              if (!existing.has(m.name)) {
+                db.Metals.T1.push(m);
+                existing.add(m.name);
+              }
+            }
+
+            container.innerHTML = '';
 
             function renderNested(data) {
               if (Array.isArray(data)) {
                 const ul = document.createElement('ul');
                 ul.className = 'pl-5 list-disc space-y-1';
-                data.forEach(item => {
-                  const li = document.createElement('li');
-                  li.textContent = item;
-                  ul.appendChild(li);
-                });
+                data
+                  .slice()
+                  .sort((a, b) => (a.name || a).localeCompare(b.name || b))
+                  .forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item.name || item;
+                    ul.appendChild(li);
+                  });
                 return ul;
               } else if (data && typeof data === 'object') {
                 const ul = document.createElement('ul');
                 ul.className = 'pl-5 list-disc space-y-1';
-                Object.entries(data).forEach(([key, value]) => {
-                  const li = document.createElement('li');
-                  if (Array.isArray(value) || (value && typeof value === 'object')) {
-                    const span = document.createElement('span');
-                    span.className = 'font-medium';
-                    span.textContent = key;
-                    li.appendChild(span);
-                    li.appendChild(renderNested(value));
-                  } else {
-                    li.innerHTML = `<strong>${key}</strong>: ${value}`;
-                  }
-                  ul.appendChild(li);
-                });
+                Object.keys(data)
+                  .sort()
+                  .forEach(key => {
+                    const value = data[key];
+                    const li = document.createElement('li');
+                    if (Array.isArray(value) || (value && typeof value === 'object')) {
+                      const span = document.createElement('span');
+                      span.className = 'font-medium';
+                      span.textContent = key;
+                      li.appendChild(span);
+                      li.appendChild(renderNested(value));
+                    } else {
+                      li.innerHTML = `<strong>${key}</strong>: ${value}`;
+                    }
+                    ul.appendChild(li);
+                  });
                 return ul;
               } else {
                 const span = document.createElement('span');
@@ -117,68 +142,36 @@
               }
             }
 
-            itemCats.forEach(cat => {
-              const section = document.createElement('section');
-              section.innerHTML = `<h2 class="text-2xl font-semibold mb-2">${cat}</h2>`;
+            Object.keys(db)
+              .sort()
+              .forEach(cat => {
+                const section = document.createElement('section');
+                section.innerHTML = `<h2 class="text-2xl font-semibold mb-2">${cat}</h2>`;
+                const data = db[cat];
 
-              if (cat === 'Metal') {
-                const metals = {
-                  'Elemental Metals': elementals.elements,
-                  'Metal Alloys': alloys.elements
-                };
+                if (Array.isArray(data)) {
+                  section.appendChild(renderNested(data));
+                } else if (data && typeof data === 'object') {
+                  Object.keys(data)
+                    .sort()
+                    .forEach(sub => {
+                      const detailsEl = document.createElement('details');
+                      const summary = document.createElement('summary');
+                      summary.className = 'text-xl font-medium mt-2 cursor-pointer';
+                      summary.textContent = sub;
+                      detailsEl.appendChild(summary);
+                      detailsEl.appendChild(renderNested(data[sub]));
+                      section.appendChild(detailsEl);
+                    });
+                } else {
+                  const p = document.createElement('p');
+                  p.className = 'text-slate-400';
+                  p.textContent = 'No materials listed.';
+                  section.appendChild(p);
+                }
 
-                Object.entries(metals).forEach(([sub, list]) => {
-                  const detailsEl = document.createElement('details');
-                  const summary = document.createElement('summary');
-                  summary.className = 'text-xl font-medium mt-2 cursor-pointer';
-                  summary.textContent = sub;
-                  detailsEl.appendChild(summary);
-                  const ul = document.createElement('ul');
-                  ul.className = 'pl-5 list-disc space-y-1';
-                  list.forEach(m => {
-                    const li = document.createElement('li');
-                    li.textContent = m.name;
-                    ul.appendChild(li);
-                  });
-                  detailsEl.appendChild(ul);
-                  section.appendChild(detailsEl);
-                });
-              } else if (cat === 'Stone') {
-                Object.entries(stones).forEach(([category, details]) => {
-                  const detailsEl = document.createElement('details');
-                  const summary = document.createElement('summary');
-                  summary.className = 'text-xl font-medium mt-2 cursor-pointer';
-                  summary.textContent = category;
-                  detailsEl.appendChild(summary);
-                  detailsEl.appendChild(renderNested(details));
-                  section.appendChild(detailsEl);
-                });
-              } else if (cat === 'Wood') {
-                Object.entries(woods).forEach(([category, list]) => {
-                  const detailsEl = document.createElement('details');
-                  const summary = document.createElement('summary');
-                  summary.className = 'text-xl font-medium mt-2 cursor-pointer';
-                  summary.textContent = category;
-                  detailsEl.appendChild(summary);
-                  const ul = document.createElement('ul');
-                  ul.className = 'pl-5 list-disc space-y-1';
-                  list.forEach(w => {
-                    const li = document.createElement('li');
-                    li.textContent = w;
-                    ul.appendChild(li);
-                  });
-                  detailsEl.appendChild(ul);
-                  section.appendChild(detailsEl);
-                });
-              } else {
-                const p = document.createElement('p');
-                p.className = 'text-slate-400';
-                p.textContent = 'No materials listed.';
-                section.appendChild(p);
-              }
-
-              container.appendChild(section);
-            });
+                container.appendChild(section);
+              });
           } catch (err) {
             console.error('Failed to load materials', err);
             container.innerHTML = '<p class="text-red-400">Failed to load materials.</p>';
