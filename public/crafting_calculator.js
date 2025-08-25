@@ -1,4 +1,5 @@
 import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS } from '../src/constants/weapons.js';
+import buildMaterialDB from '../src/utils/buildMaterialDB.js';
 
 const DEBUG = false;
 const debugLog = (...args) => { if (DEBUG) console.log(...args); };
@@ -7,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Common
     let materialsData = new Map();
     let bannedNames = [];
+
+    const escapeHTML = (str = '') =>
+        str.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
     const ARMOR_CLASS = {
         Light:  { physical: 0.45, magical: 0.45 },
@@ -191,41 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function buildMaterialDB(db, wood, elementals, alloys, rocks) {
-        const slug = name => name.toLowerCase().replace(/\s+/g, '_');
-        db['Wood'] = Object.fromEntries(
-            Object.entries(wood).map(([type, list]) => [
-                type,
-                list.map(name => ({ id: slug(name), name }))
-            ])
-        );
-
-        db['Rock Types'] = Object.fromEntries(
-            Object.entries(rocks).map(([type, stones]) => [
-                type,
-                Object.keys(stones).map(name => ({ id: slug(name), name }))
-            ])
-        );
-
-        const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name, factors: m.factors || {} }));
-        const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name, factors: m.factors || {} }));
-
-        db.Metals = db.Metals || {};
-        db.Metals['Elemental Metals'] = elementalMetals;
-        db.Metals['Metal Alloys'] = alloyMetals;
-
-        const assignIds = obj => {
-            for (const val of Object.values(obj)) {
-                if (Array.isArray(val)) {
-                    val.forEach(m => { if (m.name && !m.id) m.id = slug(m.name); });
-                } else if (val && typeof val === 'object') {
-                    assignIds(val);
-                }
-            }
-        };
-        assignIds(db);
-        return db;
-    }
 
     function flattenMaterialsDB(db) {
         const map = new Map();
@@ -518,6 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Calculation Functions ---
     function validateName(name) {
         if (!name) return true; // Empty name is valid
+        if (!/^[A-Za-z0-9 _'-]+$/.test(name)) return false;
         const lowerCaseName = name.toLowerCase();
         return !bannedNames.some(bannedWord => lowerCaseName.includes(bannedWord));
     }
@@ -595,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
             defenses,
             piece,
             armorClass,
-            name: armorName,
+            name: escapeHTML(armorName),
         });
     }
 
@@ -679,7 +649,7 @@ document.addEventListener('DOMContentLoaded', () => {
             damageMod,
             weaponInfo,
             type,
-            name: weaponName,
+            name: escapeHTML(weaponName),
             handedness,
         });
     }
