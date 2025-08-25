@@ -68,27 +68,25 @@ export function calculateMaterialDefenses(materials, options = {}) {
   }
   const medianSS = median(ssValues);
 
-  // Impute missing values and compute derived properties
-  for (const mat of materials) {
+  // Impute missing values and compute derived properties on copies
+  const enriched = materials.map((mat) => {
     const cls = mat.class || "global";
     const cMed = mediansClass[cls] || {};
+    const ratio = classRatios[cls] || globalRatio;
 
-    if (mat.YS == null && mat.UTS != null) {
-      const ratio = classRatios[cls] || globalRatio;
-      mat.YS = mat.UTS / ratio;
-    }
-    if (mat.UTS == null && mat.YS != null) {
-      const ratio = classRatios[cls] || globalRatio;
-      mat.UTS = mat.YS * ratio;
-    }
-    if (mat.YS == null) mat.YS = cMed.YS ?? mediansGlobal.YS;
-    if (mat.UTS == null) mat.UTS = cMed.UTS ?? mediansGlobal.UTS;
+    let YS = mat.YS;
+    let UTS = mat.UTS;
+    if (YS == null && UTS != null) YS = UTS / ratio;
+    if (UTS == null && YS != null) UTS = YS * ratio;
+    if (YS == null) YS = cMed.YS ?? mediansGlobal.YS;
+    if (UTS == null) UTS = cMed.UTS ?? mediansGlobal.UTS;
 
-    for (const p of ["E", "density", "k", "cp", "Tm", "re"]) {
-      if (mat[p] == null) {
-        mat[p] = cMed[p] ?? mediansGlobal[p];
-      }
-    }
+    let E = mat.E ?? cMed.E ?? mediansGlobal.E;
+    let density = mat.density ?? cMed.density ?? mediansGlobal.density;
+    let k = mat.k ?? cMed.k ?? mediansGlobal.k;
+    let cp = mat.cp ?? cMed.cp ?? mediansGlobal.cp;
+    let Tm = mat.Tm ?? cMed.Tm ?? mediansGlobal.Tm;
+    let re = mat.re ?? cMed.re ?? mediansGlobal.re;
 
     // Hardness proxy in MPa
     let brinellMPa = mat.brinellMPa;
@@ -98,19 +96,23 @@ export function calculateMaterialDefenses(materials, options = {}) {
     const candidates = [];
     if (brinellMPa != null) candidates.push(brinellMPa);
     if (vickersMPa != null) candidates.push(vickersMPa);
-    if (mat.YS != null) candidates.push(mat.YS * 3);
-    if (mat.UTS != null) candidates.push(mat.UTS * 2);
-    mat.H_MP = Math.max(...candidates);
+    if (YS != null) candidates.push(YS * 3);
+    if (UTS != null) candidates.push(UTS * 2);
+    const H_MP = Math.max(...candidates);
 
-    if (mat.E != null && mat.density != null) mat.SS = mat.E / mat.density;
-    else mat.SS = medianSS;
-  }
+    const SS = (E != null && density != null) ? E / density : medianSS;
+
+    return { ...mat, YS, UTS, E, density, k, cp, Tm, re, H_MP, SS };
+  });
 
   // Normalization bounds
   const normProps = ["H_MP", "YS", "UTS", "E", "density", "SS", "k", "cp", "Tm", "re"];
   const bounds = {};
   for (const p of normProps) {
-    const values = materials.map(m => m[p]).filter(v => v != null).sort((a, b) => a - b);
+    const values = enriched
+      .map((m) => m[p])
+      .filter((v) => v != null)
+      .sort((a, b) => a - b);
     let a, b;
     if (values.length < 20) {
       a = values[0];
@@ -125,7 +127,7 @@ export function calculateMaterialDefenses(materials, options = {}) {
   }
 
   // Compute defenses
-  for (const mat of materials) {
+  const withDefenses = enriched.map((mat) => {
     const n = (p) => normalize(mat[p], bounds[p].a, bounds[p].b);
     const Hn = n("H_MP");
     const YSn = n("YS");
@@ -166,16 +168,19 @@ export function calculateMaterialDefenses(materials, options = {}) {
       wind = feelTransform(wind);
     }
 
-    mat.R_slash = slash;
-    mat.R_pierce = pierce;
-    mat.R_blunt = blunt;
-    mat.R_fire = fire;
-    mat.R_earth = earth;
-    mat.R_water = water;
-    mat.R_wind = wind;
-  }
+    return {
+      ...mat,
+      R_slash: slash,
+      R_pierce: pierce,
+      R_blunt: blunt,
+      R_fire: fire,
+      R_earth: earth,
+      R_water: water,
+      R_wind: wind,
+    };
+  });
 
-  return materials;
+  return withDefenses;
 }
 
 function median(arr) {
