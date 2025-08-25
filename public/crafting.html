@@ -40,7 +40,10 @@
     <div class="max-w-4xl mx-auto">
       <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
         <div class="flex items-center justify-between flex-wrap">
-          <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+          <div class="flex items-center gap-2">
+            <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+            <span id="version-display" class="text-sm text-slate-400"></span>
+          </div>
           <div class="flex flex-wrap gap-4">
             <a href="index.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Home</a>
             <a href="materials.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials</a>
@@ -186,12 +189,24 @@
                     <select id="shield-type" name="shield-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
                   </div>
                   <div>
+                    <label for="shield-body-category" class="block text-sm font-medium text-slate-300">Body Category</label>
+                    <select id="shield-body-category" name="shield-body-category" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
                     <label for="shield-body-material" class="block text-sm font-medium text-slate-300">Body Material</label>
                     <select id="shield-body-material" name="shield-body-material" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
                   </div>
                   <div>
+                    <label for="shield-boss-category" class="block text-sm font-medium text-slate-300">Boss Category</label>
+                    <select id="shield-boss-category" name="shield-boss-category" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
                     <label for="shield-boss-material" class="block text-sm font-medium text-slate-300">Boss Material</label>
                     <select id="shield-boss-material" name="shield-boss-material" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
+                  </div>
+                  <div>
+                    <label for="shield-rim-category" class="block text-sm font-medium text-slate-300">Rim Category</label>
+                    <select id="shield-rim-category" name="shield-rim-category" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white"></select>
                   </div>
                   <div>
                     <label for="shield-rim-material" class="block text-sm font-medium text-slate-300">Rim Material</label>
@@ -318,5 +333,6 @@
       </main>
     </div>
   </div>
+  <script src="version.js"></script>
 </body>
 </html>
