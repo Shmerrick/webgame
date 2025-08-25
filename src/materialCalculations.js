@@ -1,10 +1,12 @@
 // Utility for computing defensive ratings for materials.
-// Implements robust normalization and defense formulas.
+// Implements robust normalization and defense formulas with clearer naming.
 
 // Calculate defensive ratings for a list of materials.
-// Each material object may contain:
-//  name, class, YS, UTS, E, density, brinellMPa, brinell, vickersMPa, vickers,
-//  k (thermal conductivity), cp (specific heat), Tm (melting point), re (electrical resistivity)
+// Each material object may contain the following engineering properties:
+//   name, class,
+//   yieldStrength, tensileStrength, elasticModulus, density,
+//   brinellMPa, brinell, vickersMPa, vickers,
+//   thermalConductivity, specificHeat, meltingPoint, electricalResistivity
 // Values are expected in the units specified by the project specification.
 
 export function calculateMaterialDefenses(materials, options = {}) {
@@ -18,95 +20,143 @@ export function calculateMaterialDefenses(materials, options = {}) {
   const thicknessFactor = clamp(thickness, 0.5, 1.5);
 
   // Gather statistics for medians per class and globally
-  const props = ["YS", "UTS", "E", "density", "k", "cp", "Tm", "re"];
-  const classValues = {};
+  // Property keys we care about for normalization
+  const propertyKeys = [
+    "yieldStrength",
+    "tensileStrength",
+    "elasticModulus",
+    "density",
+    "thermalConductivity",
+    "specificHeat",
+    "meltingPoint",
+    "electricalResistivity",
+  ];
+  const valuesByClass = {};
   const globalValues = {};
 
   for (const mat of materials) {
     const cls = mat.class || "global";
-    if (!classValues[cls]) classValues[cls] = {};
-    for (const p of props) {
-      const v = mat[p];
-      if (v != null) {
-        if (!classValues[cls][p]) classValues[cls][p] = [];
-        classValues[cls][p].push(v);
-        if (!globalValues[p]) globalValues[p] = [];
-        globalValues[p].push(v);
+    if (!valuesByClass[cls]) valuesByClass[cls] = {};
+    for (const key of propertyKeys) {
+      const val = mat[key];
+      if (val != null) {
+        (valuesByClass[cls][key] ||= []).push(val);
+        (globalValues[key] ||= []).push(val);
       }
     }
   }
 
-  const mediansGlobal = {};
-  for (const p of props) {
-    mediansGlobal[p] = median(globalValues[p] || []);
+  const globalMedians = {};
+  for (const key of propertyKeys) {
+    globalMedians[key] = median(globalValues[key] || []);
   }
 
-  const mediansClass = {};
-  for (const [cls, values] of Object.entries(classValues)) {
-    mediansClass[cls] = {};
-    for (const p of props) {
-      mediansClass[cls][p] = median(values[p] || []);
+  const classMedians = {};
+  for (const [cls, values] of Object.entries(valuesByClass)) {
+    classMedians[cls] = {};
+    for (const key of propertyKeys) {
+      classMedians[cls][key] = median(values[key] || []);
     }
   }
 
+  // Ratio of tensile to yield strength used for imputations
   const classRatios = {};
-  for (const cls of Object.keys(mediansClass)) {
-    const ys = mediansClass[cls].YS;
-    const uts = mediansClass[cls].UTS;
+  for (const cls of Object.keys(classMedians)) {
+    const ys = classMedians[cls].yieldStrength;
+    const uts = classMedians[cls].tensileStrength;
     classRatios[cls] = ys && uts ? uts / ys : 1.3;
   }
-  const globalRatio = mediansGlobal.YS && mediansGlobal.UTS
-    ? mediansGlobal.UTS / mediansGlobal.YS
-    : 1.3;
+  const globalRatio =
+    globalMedians.yieldStrength && globalMedians.tensileStrength
+      ? globalMedians.tensileStrength / globalMedians.yieldStrength
+      : 1.3;
 
-  // Median specific stiffness for imputation when E or density missing
+  // Median specific stiffness for imputation when elastic modulus or density missing
   const ssValues = [];
   for (const mat of materials) {
-    if (mat.E != null && mat.density != null) {
-      ssValues.push(mat.E / mat.density);
+    if (mat.elasticModulus != null && mat.density != null) {
+      ssValues.push(mat.elasticModulus / mat.density);
     }
   }
-  const medianSS = median(ssValues);
+  const medianSpecificStiffness = median(ssValues);
 
   // Impute missing values and compute derived properties on copies
   const enriched = materials.map((mat) => {
     const cls = mat.class || "global";
-    const cMed = mediansClass[cls] || {};
+    const classMedian = classMedians[cls] || {};
     const ratio = classRatios[cls] || globalRatio;
 
-    let YS = mat.YS;
-    let UTS = mat.UTS;
-    if (YS == null && UTS != null) YS = UTS / ratio;
-    if (UTS == null && YS != null) UTS = YS * ratio;
-    if (YS == null) YS = cMed.YS ?? mediansGlobal.YS;
-    if (UTS == null) UTS = cMed.UTS ?? mediansGlobal.UTS;
+    // Core mechanical properties with fallbacks
+    let yieldStrength = mat.yieldStrength;
+    let tensileStrength = mat.tensileStrength;
+    if (yieldStrength == null && tensileStrength != null)
+      yieldStrength = tensileStrength / ratio;
+    if (tensileStrength == null && yieldStrength != null)
+      tensileStrength = yieldStrength * ratio;
+    if (yieldStrength == null)
+      yieldStrength = classMedian.yieldStrength ?? globalMedians.yieldStrength;
+    if (tensileStrength == null)
+      tensileStrength = classMedian.tensileStrength ?? globalMedians.tensileStrength;
 
-    let E = mat.E ?? cMed.E ?? mediansGlobal.E;
-    let density = mat.density ?? cMed.density ?? mediansGlobal.density;
-    let k = mat.k ?? cMed.k ?? mediansGlobal.k;
-    let cp = mat.cp ?? cMed.cp ?? mediansGlobal.cp;
-    let Tm = mat.Tm ?? cMed.Tm ?? mediansGlobal.Tm;
-    let re = mat.re ?? cMed.re ?? mediansGlobal.re;
+    let elasticModulus =
+      mat.elasticModulus ?? classMedian.elasticModulus ?? globalMedians.elasticModulus;
+    let density = mat.density ?? classMedian.density ?? globalMedians.density;
+    let thermalConductivity =
+      mat.thermalConductivity ?? classMedian.thermalConductivity ?? globalMedians.thermalConductivity;
+    let specificHeat =
+      mat.specificHeat ?? classMedian.specificHeat ?? globalMedians.specificHeat;
+    let meltingPoint =
+      mat.meltingPoint ?? classMedian.meltingPoint ?? globalMedians.meltingPoint;
+    let electricalResistivity =
+      mat.electricalResistivity ?? classMedian.electricalResistivity ?? globalMedians.electricalResistivity;
 
-    // Hardness proxy in MPa
+    // Hardness proxy in MPa using best available source
     let brinellMPa = mat.brinellMPa;
     if (brinellMPa == null && mat.brinell != null) brinellMPa = mat.brinell * 9.807;
     let vickersMPa = mat.vickersMPa;
     if (vickersMPa == null && mat.vickers != null) vickersMPa = mat.vickers * 9.807;
-    const candidates = [];
-    if (brinellMPa != null) candidates.push(brinellMPa);
-    if (vickersMPa != null) candidates.push(vickersMPa);
-    if (YS != null) candidates.push(YS * 3);
-    if (UTS != null) candidates.push(UTS * 2);
-    const H_MP = candidates.length ? Math.max(...candidates) : undefined;
+    const hardnessCandidates = [];
+    if (brinellMPa != null) hardnessCandidates.push(brinellMPa);
+    if (vickersMPa != null) hardnessCandidates.push(vickersMPa);
+    if (yieldStrength != null) hardnessCandidates.push(yieldStrength * 3);
+    if (tensileStrength != null) hardnessCandidates.push(tensileStrength * 2);
+    const estimatedHardnessMPa =
+      hardnessCandidates.length ? Math.max(...hardnessCandidates) : undefined;
 
-    const SS = (E != null && density != null) ? E / density : medianSS;
+    // Specific stiffness = elastic modulus / density
+    const specificStiffness =
+      elasticModulus != null && density != null
+        ? elasticModulus / density
+        : medianSpecificStiffness;
 
-    return { ...mat, YS, UTS, E, density, k, cp, Tm, re, H_MP, SS };
+    return {
+      ...mat,
+      yieldStrength,
+      tensileStrength,
+      elasticModulus,
+      density,
+      thermalConductivity,
+      specificHeat,
+      meltingPoint,
+      electricalResistivity,
+      estimatedHardnessMPa,
+      specificStiffness,
+    };
   });
 
   // Normalization bounds scoped by material class
-  const normProps = ["H_MP", "YS", "UTS", "E", "density", "SS", "k", "cp", "Tm", "re"];
+  const normProps = [
+    "estimatedHardnessMPa",
+    "yieldStrength",
+    "tensileStrength",
+    "elasticModulus",
+    "density",
+    "specificStiffness",
+    "thermalConductivity",
+    "specificHeat",
+    "meltingPoint",
+    "electricalResistivity",
+  ];
   const buildBounds = (values) => {
     const v = values.slice().sort((a, b) => a - b);
     if (!v.length) return { a: 0, b: 1 };
@@ -121,54 +171,80 @@ export function calculateMaterialDefenses(materials, options = {}) {
   for (const m of enriched) {
     const cls = m.class || "global";
     if (!classBuckets[cls]) classBuckets[cls] = {};
-    for (const p of normProps) {
-      const val = m[p];
+    for (const prop of normProps) {
+      const val = m[prop];
       if (val != null) {
-        (globalBuckets[p] ||= []).push(val);
-        (classBuckets[cls][p] ||= []).push(val);
+        (globalBuckets[prop] ||= []).push(val);
+        (classBuckets[cls][prop] ||= []).push(val);
       }
     }
   }
 
   const globalBounds = {};
-  for (const p of normProps) {
-    globalBounds[p] = buildBounds(globalBuckets[p] || []);
+  for (const prop of normProps) {
+    globalBounds[prop] = buildBounds(globalBuckets[prop] || []);
   }
 
   const boundsByClass = {};
   for (const [cls, props] of Object.entries(classBuckets)) {
     boundsByClass[cls] = {};
-    for (const p of normProps) {
-      const arr = props[p] && props[p].length ? props[p] : globalBuckets[p] || [];
-      boundsByClass[cls][p] = buildBounds(arr);
+    for (const prop of normProps) {
+      const arr = props[prop] && props[prop].length ? props[prop] : globalBuckets[prop] || [];
+      boundsByClass[cls][prop] = buildBounds(arr);
     }
   }
 
   // Compute defenses
   const withDefenses = enriched.map((mat) => {
     const cls = mat.class || "global";
-    const b = boundsByClass[cls] || globalBounds;
-    const n = (p) => normalize(mat[p], b[p].a, b[p].b);
-    const Hn = n("H_MP");
-    const YSn = n("YS");
-    const UTSn = n("UTS");
-    const En = n("E");
-    const rhon = n("density");
-    const SSn = n("SS");
-    const kn = n("k");
-    const cpn = n("cp");
-    const Tmn = n("Tm");
-    const ren = n("re");
+    const bounds = boundsByClass[cls] || globalBounds;
+    const normalizeProp = (prop) => normalize(mat[prop], bounds[prop].a, bounds[prop].b);
 
-    let slash = 0.50 * Hn + 0.30 * YSn + 0.20 * En;
-    let pierce = 0.45 * Hn + 0.35 * YSn + 0.20 * UTSn;
-    let blunt = 0.35 * En + 0.35 * YSn + 0.30 * rhon;
+    const normalizedHardness = normalizeProp("estimatedHardnessMPa");
+    const normalizedYieldStrength = normalizeProp("yieldStrength");
+    const normalizedTensileStrength = normalizeProp("tensileStrength");
+    const normalizedElasticModulus = normalizeProp("elasticModulus");
+    const normalizedDensity = normalizeProp("density");
+    const normalizedSpecificStiffness = normalizeProp("specificStiffness");
+    const normalizedThermalConductivity = normalizeProp("thermalConductivity");
+    const normalizedSpecificHeat = normalizeProp("specificHeat");
+    const normalizedMeltingPoint = normalizeProp("meltingPoint");
+    const normalizedResistivity = normalizeProp("electricalResistivity");
 
-    let fire = 0.45 * Tmn + 0.35 * cpn + 0.20 * (1 - kn);
-    let earth = 0.50 * Hn + 0.30 * En + 0.20 * rhon;
-    let water = 0.45 * ren + 0.25 * Hn + 0.15 * (1 - kn) + 0.15 * cpn;
-    let wind = 0.40 * SSn + 0.30 * Hn + 0.30 * ren;
+    // Physical damage resistances blend hardness and strength values
+    let slash =
+      0.50 * normalizedHardness +
+      0.30 * normalizedYieldStrength +
+      0.20 * normalizedElasticModulus;
+    let pierce =
+      0.45 * normalizedHardness +
+      0.35 * normalizedYieldStrength +
+      0.20 * normalizedTensileStrength;
+    let blunt =
+      0.35 * normalizedElasticModulus +
+      0.35 * normalizedYieldStrength +
+      0.30 * normalizedDensity;
 
+    // Elemental resistances mix thermal and electrical properties
+    let fire =
+      0.45 * normalizedMeltingPoint +
+      0.35 * normalizedSpecificHeat +
+      0.20 * (1 - normalizedThermalConductivity);
+    let earth =
+      0.50 * normalizedHardness +
+      0.30 * normalizedElasticModulus +
+      0.20 * normalizedDensity;
+    let water =
+      0.45 * normalizedResistivity +
+      0.25 * normalizedHardness +
+      0.15 * (1 - normalizedThermalConductivity) +
+      0.15 * normalizedSpecificHeat;
+    let wind =
+      0.40 * normalizedSpecificStiffness +
+      0.30 * normalizedHardness +
+      0.30 * normalizedResistivity;
+
+    // Apply armor bias and thickness modifiers
     slash = clamp01(slash * thicknessFactor + (armorBias.slashing || 0));
     pierce = clamp01(pierce * thicknessFactor + (armorBias.piercing || 0));
     blunt = clamp01(blunt * thicknessFactor + (armorBias.blunt || 0));
@@ -204,7 +280,7 @@ export function calculateMaterialDefenses(materials, options = {}) {
 }
 
 function median(arr) {
-  const a = arr.filter(v => v != null).sort((x, y) => x - y);
+  const a = arr.filter((v) => v != null).sort((x, y) => x - y);
   if (!a.length) return undefined;
   const mid = Math.floor(a.length / 2);
   return a.length % 2 ? a[mid] : (a[mid - 1] + a[mid]) / 2;
