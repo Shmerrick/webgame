@@ -6,7 +6,7 @@ export const WEAPONS = {
   Dagger:  { type: "melee",   massKilograms: 1, baseCost: 20, head: { Blunt: 0.05, Slash: 0.20, Pierce: 0.30 }, direction: { Left: "Slash", Right: "Slash", Up: "Slash", Down: "Pierce" } },
   Bow:     { type: "ranged",  drawWeight: 50, head: { Pierce: 0.40 } },
   Crossbow:{ type: "ranged",  drawWeight: 35, head: { Pierce: 0.30 } },
-  Sling:   { type: "ranged",  drawWeight: 15, head: { Blunt: 0.20 } },
+  Sling:   { type: "ranged",  drawWeight: 15, head: { Blunt: 0.20 } }, // Can be used in main or offhand
   Throwing:{ type: "ranged",  drawWeight: 20, head: { Pierce: 0.25 } },
   Lance:   { type: "mounted", massKilograms: 5, head: { Blunt: 0.20, Pierce: 0.50 }, speed: { Walk: 0.5, Trot: 0.9, Canter: 1.2, Gallop: 1.6 } },
   Polesword: { type: "melee", massKilograms: 5, baseCost: 35, head: { Blunt: 0.10, Slash: 0.35, Pierce: 0.25 }, direction: { Left: "Slash", Right: "Slash", Up: "Pierce", Down: "Slash" } },

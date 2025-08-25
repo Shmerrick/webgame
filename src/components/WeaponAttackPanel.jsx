@@ -12,10 +12,10 @@ const BOW_TYPES = {
 
 const DIRECTIONS = ["Left","Right","Up","Down"];
 
-export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, rangedWeaponKey, setRangedWeaponKey, bowType, setBowType, bowWood, setBowWood, weaponComps, setWeaponComp, isTwoHanded, setTwoHanded, direction, setDirection, charge, setCharge, swing, setSwing, mountedSpeed, setMountedSpeed, armor, DB, subcategoriesFor, itemsForCategory, firstSubCat, firstMat }) {
+export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bowType, setBowType, bowWood, setBowWood, weaponComps, setWeaponComp, isTwoHanded, setTwoHanded, direction, setDirection, charge, setCharge, swing, setSwing, mountedSpeed, setMountedSpeed, armor, DB, subcategoriesFor, itemsForCategory, firstSubCat, firstMat }) {
   return (
     <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
-      <h2 className="text-lg font-semibold mb-3">Weapons and Attack</h2>
+      <h2 className="text-lg font-semibold mb-3">Melee</h2>
       <div className="grid grid-cols-1 gap-3">
         <div>
           <label className="block text-sm mb-1">Weapon</label>
@@ -24,13 +24,6 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, ran
           </select>
           {weapon?.type==='melee' && <div className="text-sm text-slate-300 mt-1">This weapon weighs approximately {weapon.massKilograms} kilograms. The stamina cost to swing is the base cost {weapon.baseCost} plus one times the rounded mass.</div>}
         </div>
-        <div>
-          <label className="block text-sm mb-1">Ranged Weapon</label>
-          <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={rangedWeaponKey} onChange={e=>setRangedWeaponKey(e.target.value)}>
-            {['None','Bow','Crossbow','Sling','Throwing'].map(k=> <option key={k} value={k}>{k}</option>)}
-          </select>
-        </div>
-
         {weaponKey === 'Bow' ? (
           <div className="grid grid-cols-1 gap-3">
             <div>
