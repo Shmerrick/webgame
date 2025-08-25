@@ -1273,14 +1273,20 @@ async function loadMaterials() {
     const response = await fetch('materials.json', { cache: 'no-cache' });
     const db = await response.json();
 
-    const [elementals, alloys] = await Promise.all([
+    const [wood, stone, elementals, alloys] = await Promise.all([
+      fetch('wood_types.json', { cache: 'no-cache' }).then(r => r.json()),
+      fetch('stone_types.json', { cache: 'no-cache' }).then(r => r.json()),
       fetch('Master_Elemental_Metals.json', { cache: 'no-cache' }).then(r => r.json()),
       fetch('Master_Metal_Alloys.json', { cache: 'no-cache' }).then(r => r.json()),
     ]);
 
+    const woods = Object.values(wood).flat().map(name => ({ name }));
+    const stones = Object.values(stone).flat().map(name => ({ name }));
     const elementalMetals = (elementals.elements || []).map(m => ({ name: m.name }));
     const alloyMetals = (alloys.elements || []).map(m => ({ name: m.name }));
 
+    db['Wood'] = woods;
+    db['Minerals'] = stones;
     db['Elemental Metals'] = elementalMetals;
     db['Metal Alloys'] = alloyMetals;
 
