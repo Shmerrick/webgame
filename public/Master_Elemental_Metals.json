@@ -17,7 +17,7 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
@@ -33,7 +33,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 600,
           "units": "MPa"
         },
         "density": {
@@ -78,11 +78,11 @@
         }
       },
       "factors": {
-        "slash": 0.10909090909090909,
+        "slash": 0.163154760448023,
         "pierce": 0,
         "blunt": 0.013144963144963145,
         "defense_slash": 0,
-        "defense_pierce": 0.10909090909090909,
+        "defense_pierce": 0.163154760448023,
         "defense_blunt": 0.013144963144963145,
         "fire": 0.12277401894451961,
         "water": 0.9868550368550368,
@@ -107,7 +107,7 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
@@ -168,11 +168,11 @@
         }
       },
       "factors": {
-        "slash": 1,
+        "slash": 0.4541140832469973,
         "pierce": 0,
         "blunt": 0.04540540540540541,
         "defense_slash": 0,
-        "defense_pierce": 1,
+        "defense_pierce": 0.4541140832469973,
         "defense_blunt": 0.04540540540540541,
         "fire": 0.42219215155615697,
         "water": 0.9545945945945946,
@@ -197,7 +197,7 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
@@ -213,7 +213,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0.69,
           "units": "MPa"
         },
         "density": {
@@ -258,11 +258,11 @@
         }
       },
       "factors": {
-        "slash": 0.09090909090909091,
+        "slash": 0.0001876279745152264,
         "pierce": 0,
         "blunt": 0.02378378378378378,
         "defense_slash": 0,
-        "defense_pierce": 0.09090909090909091,
+        "defense_pierce": 0.0001876279745152264,
         "defense_blunt": 0.02378378378378378,
         "fire": 0.10039079837618403,
         "water": 0.9762162162162162,
@@ -287,11 +287,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -303,7 +303,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -377,11 +377,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -393,7 +393,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -467,11 +467,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -483,7 +483,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -557,11 +557,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -573,7 +573,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -647,11 +647,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -663,7 +663,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -737,11 +737,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -753,7 +753,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -827,11 +827,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -843,7 +843,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -917,11 +917,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -933,7 +933,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -1007,11 +1007,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1023,7 +1023,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -1158,11 +1158,11 @@
         }
       },
       "factors": {
-        "slash": 0.7272727272727273,
+        "slash": 0.16533015725399663,
         "pierce": 0.31759656652360513,
         "blunt": 0.19346437346437345,
         "defense_slash": 0.17435897435897435,
-        "defense_pierce": 0.7272727272727273,
+        "defense_pierce": 0.16533015725399663,
         "defense_blunt": 0.19346437346437345,
         "fire": 0.4901217861975643,
         "water": 0.8065356265356265,
@@ -1187,11 +1187,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1203,7 +1203,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -1277,11 +1277,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1293,7 +1293,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -1428,11 +1428,11 @@
         }
       },
       "factors": {
-        "slash": 0.5454545454545454,
+        "slash": 0.09517361026134674,
         "pierce": 0.18025751072961374,
         "blunt": 0.21916461916461916,
         "defense_slash": 0.033846153846153845,
-        "defense_pierce": 0.5454545454545454,
+        "defense_pierce": 0.09517361026134674,
         "defense_blunt": 0.21916461916461916,
         "fire": 0.36746143437077133,
         "water": 0.7808353808353808,
@@ -1457,11 +1457,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1473,7 +1473,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -1547,11 +1547,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1563,7 +1563,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -1637,11 +1637,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1653,7 +1653,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -1727,11 +1727,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1743,7 +1743,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -1817,11 +1817,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1833,7 +1833,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -1907,11 +1907,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1923,7 +1923,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -1997,11 +1997,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2013,7 +2013,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2087,11 +2087,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2103,7 +2103,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2177,11 +2177,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2193,7 +2193,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2267,11 +2267,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2283,7 +2283,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2357,11 +2357,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2373,7 +2373,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2447,11 +2447,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2463,7 +2463,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2537,11 +2537,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2553,7 +2553,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2627,11 +2627,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2643,7 +2643,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2717,11 +2717,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2733,7 +2733,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2807,11 +2807,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2823,7 +2823,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2897,11 +2897,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2913,7 +2913,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -2987,11 +2987,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3003,7 +3003,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3077,11 +3077,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3093,7 +3093,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3167,11 +3167,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3183,7 +3183,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3257,11 +3257,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3273,7 +3273,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3347,11 +3347,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3363,7 +3363,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3437,11 +3437,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3453,7 +3453,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3527,11 +3527,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3543,7 +3543,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3617,11 +3617,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3633,7 +3633,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3707,11 +3707,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3723,7 +3723,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3797,11 +3797,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3813,7 +3813,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3887,11 +3887,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3903,7 +3903,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -3977,11 +3977,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -3993,7 +3993,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4067,11 +4067,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4083,7 +4083,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4157,11 +4157,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4173,7 +4173,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4247,11 +4247,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4263,7 +4263,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4337,11 +4337,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4353,7 +4353,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4427,11 +4427,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4443,7 +4443,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4517,11 +4517,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4533,7 +4533,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4607,11 +4607,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4623,7 +4623,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4697,11 +4697,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4713,7 +4713,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4787,11 +4787,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4803,7 +4803,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4877,11 +4877,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4893,7 +4893,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -4967,11 +4967,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -4983,7 +4983,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5057,11 +5057,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5073,7 +5073,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5147,11 +5147,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5163,7 +5163,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5237,11 +5237,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5253,7 +5253,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5327,11 +5327,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5343,7 +5343,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5417,11 +5417,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5433,7 +5433,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5507,11 +5507,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5523,7 +5523,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5597,11 +5597,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5613,7 +5613,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5687,11 +5687,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5703,7 +5703,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5777,11 +5777,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5793,7 +5793,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5867,11 +5867,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5883,7 +5883,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -5957,11 +5957,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -5973,7 +5973,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6047,11 +6047,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6063,7 +6063,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6137,11 +6137,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6153,7 +6153,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6227,11 +6227,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6243,7 +6243,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6317,11 +6317,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6333,7 +6333,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6407,11 +6407,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6423,7 +6423,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6497,11 +6497,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6513,7 +6513,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6587,11 +6587,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6603,7 +6603,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6677,11 +6677,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6693,7 +6693,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6767,11 +6767,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6783,7 +6783,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6857,11 +6857,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6873,7 +6873,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -6947,11 +6947,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6963,7 +6963,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7037,11 +7037,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7053,7 +7053,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7127,11 +7127,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7143,7 +7143,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7217,11 +7217,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7233,7 +7233,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7307,11 +7307,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7323,7 +7323,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7397,11 +7397,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7413,7 +7413,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7487,11 +7487,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7503,7 +7503,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7577,11 +7577,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7593,7 +7593,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7667,11 +7667,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7683,7 +7683,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7757,11 +7757,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7773,7 +7773,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7847,11 +7847,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7863,7 +7863,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -7937,11 +7937,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7953,7 +7953,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -8027,11 +8027,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -8043,7 +8043,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -8117,11 +8117,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -8133,7 +8133,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -8207,11 +8207,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -8223,7 +8223,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
@@ -8297,11 +8297,11 @@
           "units": "MPa"
         },
         "yield_strength": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": null,
+          "value": 0,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -8313,7 +8313,7 @@
           "units": "MPa"
         },
         "vickers_hardness": {
-          "value": null,
+          "value": 0,
           "units": "MPa"
         },
         "density": {
