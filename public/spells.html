@@ -87,7 +87,9 @@
 
         const processedSpells = useMemo(() => {
           const allSpells = [];
-          spells.forEach(baseSpell => {
+          spells
+            .filter(baseSpell => baseSpell.school !== "Radiance" && baseSpell.school !== "Void")
+            .forEach(baseSpell => {
             Object.keys(baseSpell.ranges).forEach(range => {
               Object.keys(baseSpell.modifiers).forEach(modifier => {
                 const rangeData = baseSpell.ranges[range];
