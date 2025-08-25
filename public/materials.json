@@ -1,27 +1,43 @@
 {
   "Cloth": {},
   "Leather": {
-    "Reptile": [
+    "Reptiles": [
       { "name": "Crocodile" },
       { "name": "Alligator" },
       { "name": "Caiman" },
       { "name": "Lizard" },
       { "name": "Python" }
     ],
-    "Mammal": [
+    "Mammals": [
       { "name": "Cow" },
       { "name": "Sheep" },
       { "name": "Goat" },
       { "name": "Pig" },
       { "name": "Deer" }
     ],
-    "Avian": [
+    "Birds": [
       { "name": "Ostrich" },
       { "name": "Emu" },
       { "name": "Rhea" },
       { "name": "Turkey" },
       { "name": "Chicken" }
-    ]
+    ],
+    "Amphibians": [],
+    "Fish": []
+  },
+  "Fur": {
+    "Mammals": [],
+    "Reptiles": [],
+    "Birds": [],
+    "Amphibians": [],
+    "Fish": []
+  },
+  "Bone": {
+    "Mammals": [],
+    "Reptiles": [],
+    "Birds": [],
+    "Amphibians": [],
+    "Fish": []
   },
   "Herbs": [
     { "name": "Basil" },
@@ -57,7 +73,7 @@
       { "name": "Chelicerata" },
       { "name": "Cirripedia" }
     ],
-    "Reptile": [
+    "Reptiles": [
       { "name": "Testudines" },
       { "name": "Crocodylia" }
     ],
@@ -69,12 +85,14 @@
     "Echinoderm": [
       { "name": "Echinoidea" }
     ],
-    "Mammal": [
+    "Mammals": [
       { "name": "Cingulata" }
     ],
     "Fish": [
       { "name": "Actinopterygii" }
-    ]
+    ],
+    "Birds": [],
+    "Amphibians": []
   },
   "Scales": {
     "Fish": [
@@ -84,15 +102,17 @@
       { "name": "Ctenoid" },
       { "name": "Cosmoid" }
     ],
-    "Reptile": [
+    "Reptiles": [
       { "name": "Imbricate" },
       { "name": "Keeled" },
       { "name": "Granular" }
     ],
-    "Bird": [
+    "Birds": [
       { "name": "Scutate" },
       { "name": "Reticulate" }
-    ]
+    ],
+    "Mammals": [],
+    "Amphibians": []
   },
   "Wood": {},
   "Minerals": {},
