@@ -36,7 +36,10 @@
       <div class="max-w-7xl mx-auto">
         <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
           <div class="flex items-center justify-between flex-wrap">
-            <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+            <div class="flex items-center gap-2">
+              <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+              <span id="version-display" class="text-sm text-slate-400"></span>
+            </div>
             <div class="flex flex-wrap gap-4">
               <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
               <a href="materials.html" class="text-emerald-400 font-semibold">Materials</a>
@@ -131,6 +134,18 @@
                   .forEach(item => {
                     const li = document.createElement('li');
                     li.textContent = item.name || item;
+                    if (item.factors) {
+                      const f = item.factors;
+                      const props = [
+                        `Slash: ${f.slash}`,
+                        `Pierce: ${f.pierce}`,
+                        `Blunt: ${f.blunt}`,
+                        `Defense Slash: ${f.defense_slash}`,
+                        `Defense Pierce: ${f.defense_pierce}`,
+                        `Defense Blunt: ${f.defense_blunt}`,
+                      ];
+                      li.title = props.join(', ');
+                    }
                     ul.appendChild(li);
                   });
                 return ul;
@@ -201,5 +216,6 @@
 
         loadMaterials();
       </script>
+      <script src="version.js"></script>
   </body>
 </html>

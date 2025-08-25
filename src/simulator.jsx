@@ -1286,7 +1286,3 @@ async function loadMaterials() {
 
 loadMaterials();
 
-const versionDisplay = document.getElementById('version-display');
-if (versionDisplay) {
-  versionDisplay.textContent = 'Version: 16.0';
-}

@@ -25,8 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Shield
     const shieldTypeSelect = document.getElementById('shield-type');
+    const shieldBodyCategorySelect = document.getElementById('shield-body-category');
     const shieldBodyMaterialSelect = document.getElementById('shield-body-material');
+    const shieldBossCategorySelect = document.getElementById('shield-boss-category');
     const shieldBossMaterialSelect = document.getElementById('shield-boss-material');
+    const shieldRimCategorySelect = document.getElementById('shield-rim-category');
     const shieldRimMaterialSelect = document.getElementById('shield-rim-material');
     const shieldResultsDiv = document.getElementById('shield-crafting-results');
     let shieldVolumesData = {};
@@ -284,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             calculateAndDisplayArmorResults();
         }));
-        [shieldTypeSelect, shieldBodyMaterialSelect, shieldBossMaterialSelect, shieldRimMaterialSelect].forEach(el => el.addEventListener('change', calculateAndDisplayShieldResults));
+        [shieldTypeSelect, shieldBodyCategorySelect, shieldBodyMaterialSelect, shieldBossCategorySelect, shieldBossMaterialSelect, shieldRimCategorySelect, shieldRimMaterialSelect].forEach(el => el.addEventListener('change', calculateAndDisplayShieldResults));
         weaponTypeSelect.addEventListener('change', () => {
             populateWeaponComponents();
             calculateAndDisplayWeaponResults();
@@ -348,11 +351,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateShieldDropdowns() {
         Object.keys(shieldVolumesData).forEach(type => addOption(shieldTypeSelect, type, type));
-        for (const material of materialsData.values()) {
-            addOption(shieldBodyMaterialSelect, material.name, material.rowName);
-            addOption(shieldBossMaterialSelect, material.name, material.rowName);
-            addOption(shieldRimMaterialSelect, material.name, material.rowName);
-        }
+
+        const allMaterials = Array.from(materialsData.values());
+        const allCategories = [...new Set(allMaterials.map(m => m.Category))].sort();
+
+        allCategories.forEach(cat => {
+            addOption(shieldBodyCategorySelect, cat, cat);
+            addOption(shieldBossCategorySelect, cat, cat);
+            addOption(shieldRimCategorySelect, cat, cat);
+        });
+
+        const populateByCat = (catSel, matSel) => {
+            const mats = allMaterials.filter(m => m.Category === catSel.value);
+            populateSelectWithOptions(matSel, mats);
+        };
+
+        populateByCat(shieldBodyCategorySelect, shieldBodyMaterialSelect);
+        populateByCat(shieldBossCategorySelect, shieldBossMaterialSelect);
+        populateByCat(shieldRimCategorySelect, shieldRimMaterialSelect);
+
+        [
+            [shieldBodyCategorySelect, shieldBodyMaterialSelect],
+            [shieldBossCategorySelect, shieldBossMaterialSelect],
+            [shieldRimCategorySelect, shieldRimMaterialSelect]
+        ].forEach(([catSel, matSel]) => {
+            catSel.addEventListener('change', () => populateByCat(catSel, matSel));
+        });
     }
 
     function populateWeaponDropdowns() {
@@ -404,33 +428,67 @@ document.addEventListener('DOMContentLoaded', () => {
         weaponComponentsDiv.innerHTML = '';
         if (!type || !weaponVolumesData[type]) return;
 
+        const allMaterials = Array.from(materialsData.values());
+        const allCategories = [...new Set(allMaterials.map(m => m.Category))].sort();
+
         Object.keys(weaponVolumesData[type]).forEach(comp => {
-            const id = `weapon-comp-${comp.toLowerCase().replace(' ', '-')}`;
-            const label = createLabel(comp, id);
-            const select = createMaterialSelect(id);
-            select.addEventListener('change', calculateAndDisplayWeaponResults);
-            weaponComponentsDiv.appendChild(label);
-            weaponComponentsDiv.appendChild(select);
+            const slug = comp.toLowerCase().replace(' ', '-');
+            const catId = `weapon-comp-${slug}-category`;
+            const matId = `weapon-comp-${slug}-material`;
+
+            const catLabel = createLabel(`${comp} Category`, catId);
+            const catSelect = document.createElement('select');
+            catSelect.id = catId;
+            catSelect.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
+            allCategories.forEach(cat => addOption(catSelect, cat, cat));
+
+            const matLabel = createLabel(comp, matId);
+            const initialMats = allMaterials.filter(m => m.Category === catSelect.value);
+            const matSelect = createMaterialSelect(matId, initialMats);
+
+            catSelect.addEventListener('change', () => {
+                const mats = allMaterials.filter(m => m.Category === catSelect.value);
+                populateSelectWithOptions(matSelect, mats);
+                calculateAndDisplayWeaponResults();
+            });
+            matSelect.addEventListener('change', calculateAndDisplayWeaponResults);
+
+            weaponComponentsDiv.appendChild(catLabel);
+            weaponComponentsDiv.appendChild(catSelect);
+            weaponComponentsDiv.appendChild(matLabel);
+            weaponComponentsDiv.appendChild(matSelect);
         });
     }
 
     function populateBowComponents() {
         bowComponentsDiv.innerHTML = '';
-        const id = `bow-comp-wood`;
-        const label = createLabel("Wood", id);
-        const select = createWoodMaterialSelect(id);
-        select.addEventListener('change', calculateAndDisplayBowResults);
-        bowComponentsDiv.appendChild(label);
-        bowComponentsDiv.appendChild(select);
-    }
+        const allMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Wood' || m.Category === 'Dev');
+        const categories = [...new Set(allMaterials.map(m => m.Category))].sort();
 
-    function createWoodMaterialSelect(id) {
-        const select = document.createElement('select');
-        select.id = id;
-        select.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
-        const woodMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Wood' || m.Category === 'Dev');
-        populateSelectWithOptions(select, woodMaterials);
-        return select;
+        const catId = 'bow-comp-stave-category';
+        const matId = 'bow-comp-stave-material';
+
+        const catLabel = createLabel('Stave Category', catId);
+        const catSelect = document.createElement('select');
+        catSelect.id = catId;
+        catSelect.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
+        categories.forEach(cat => addOption(catSelect, cat, cat));
+
+        const matLabel = createLabel('Stave Material', matId);
+        const initialMats = allMaterials.filter(m => m.Category === catSelect.value);
+        const matSelect = createMaterialSelect(matId, initialMats);
+
+        catSelect.addEventListener('change', () => {
+            const mats = allMaterials.filter(m => m.Category === catSelect.value);
+            populateSelectWithOptions(matSelect, mats);
+            calculateAndDisplayBowResults();
+        });
+        matSelect.addEventListener('change', calculateAndDisplayBowResults);
+
+        bowComponentsDiv.appendChild(catLabel);
+        bowComponentsDiv.appendChild(catSelect);
+        bowComponentsDiv.appendChild(matLabel);
+        bowComponentsDiv.appendChild(matSelect);
     }
 
     // --- Calculation Functions ---
@@ -606,7 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const type = bowTypeSelect.value;
         if (!type) return;
 
-        const woodSelect = document.getElementById('bow-comp-wood');
+        const woodSelect = document.getElementById('bow-comp-stave-material');
         if (!woodSelect) return;
 
         const woodMaterial = findMaterial(woodSelect.value);
@@ -778,11 +836,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return label;
     }
 
-    function createMaterialSelect(id) {
+    function createMaterialSelect(id, materials = Array.from(materialsData.values())) {
         const select = document.createElement('select');
         select.id = id;
         select.className = "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md bg-slate-700 text-white";
-        populateSelectWithOptions(select, Array.from(materialsData.values()));
+        populateSelectWithOptions(select, materials);
         return select;
     }
 
@@ -792,12 +850,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getComponentData(container, prefix) {
         const components = {};
-        const selects = container.querySelectorAll('select');
+        const selects = container.querySelectorAll(`select[id^="${prefix}"][id$="-material"]`);
         for (const select of selects) {
-            const compName = select.id.replace(prefix, '').replace('-', ' ');
+            const compName = select.id
+                .replace(prefix, '')
+                .replace('-material', '')
+                .replace(/-/g, ' ');
             const material = findMaterial(select.value);
             if(!material) return null; // Incomplete selection
-            const type = container.id.includes('weapon') ? weaponTypeSelect.value : bowTypeSelect.value;
+            const type = weaponTypeSelect.value;
             const volume = weaponVolumesData[type][
                 Object.keys(weaponVolumesData[type]).find(k => k.toLowerCase() === compName)
             ];
