@@ -209,10 +209,11 @@ function App({ DB }){
     const ids = races.map(r => r.id);
     return ids[Math.floor(Math.random() * ids.length)];
   });
-  const [stats, setStats]   = useState({ STR:0, DEX:0, INT:0, PSY:0 });
+  const initialStats = { STR:0, DEX:0, INT:0, PSY:0 };
+  const [stats, setStats]   = useState(initialStats);
 
   // Skills with a pool
-  const [skills, setSkills] = useState({
+  const initialSkills = {
     ArmorTraining: 0,
     BlockingAndShields: 0,
     Sword: 0,
@@ -238,7 +239,8 @@ function App({ DB }){
     ElementalAmbush: 0,
     ElementalMagic: 0,
     EntropyMagic: 0,
-  });
+  };
+  const [skills, setSkills] = useState(initialSkills);
 
   const [elementalSchool, setElementalSchool] = useState("Fire");
   const [entropySchool, setEntropySchool] = useState("Radiance");
@@ -320,6 +322,9 @@ function App({ DB }){
 
     setSkills(nextSkills);
   }
+
+  const resetStats = () => setStats(initialStats);
+  const resetSkills = () => setSkills(initialSkills);
 
   const applyDamageToPlayer = (amount) => {
     if (amount > 0) {
@@ -600,6 +605,7 @@ function App({ DB }){
                 setRaceId={setRaceId}
                 stats={stats}
                 setStat={setStat}
+                resetStats={resetStats}
                 effective={effective}
                 jewelryBonus={jewelryBonus}
                 spent={spent}
@@ -625,8 +631,11 @@ function App({ DB }){
               <h2 className="text-lg font-semibold mb-3">Skills and Specialization</h2>
               <div className="text-sm text-slate-300 mb-2">Use the sliders to distribute your skill points. The total number of points you can allocate is limited. The skill that corresponds to your current weapon contributes directly to damage.</div>
               <div className="flex items-center justify-between text-sm mb-3">
-                <div>Skill points spent</div>
-                <div className={`tabular-nums ${totalSkill>SKILL_POOL?"text-rose-400":""}`}>{totalSkill} / {SKILL_POOL} <span className="text-slate-500">(remaining {Math.max(0, SKILL_POOL-totalSkill)})</span></div>
+                <div>
+                  <div>Skill points spent</div>
+                  <div className={`tabular-nums ${totalSkill>SKILL_POOL?"text-rose-400":""}`}>{totalSkill} / {SKILL_POOL} <span className="text-slate-500">(remaining {Math.max(0, SKILL_POOL-totalSkill)})</span></div>
+                </div>
+                <button type="button" onClick={resetSkills} className="ml-2 px-2 py-1 text-xs border border-slate-700 rounded hover:text-emerald-400">Reset</button>
               </div>
               <div className="space-y-3">
                 {Object.entries({
