@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import MaterialSelect from "./MaterialSelect.jsx";
 import Tooltip from "./Tooltip.jsx";
 import {
@@ -171,3 +172,24 @@ export default function ArmorSelectionPanel({
     </section>
   );
 }
+
+ArmorSelectionPanel.propTypes = {
+  DB: PropTypes.object.isRequired,
+  armor: PropTypes.object.isRequired,
+  setArmor: PropTypes.func.isRequired,
+  effective: PropTypes.object.isRequired,
+  isTwoHanded: PropTypes.bool,
+  setArmorClassSafe: PropTypes.func.isRequired,
+  setShieldSubtypeSafe: PropTypes.func.isRequired,
+  setShieldEquipped: PropTypes.func.isRequired,
+  setArmorOuter: PropTypes.func.isRequired,
+  setArmorInner: PropTypes.func.isRequired,
+  setArmorBinding: PropTypes.func.isRequired,
+  setJewelrySetting: PropTypes.func.isRequired,
+  setJewelryGem: PropTypes.func.isRequired,
+  effectiveDRForSlot: PropTypes.func.isRequired,
+};
+
+ArmorSelectionPanel.defaultProps = {
+  isTwoHanded: false,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function ResultsPanel({ totalLoadoutWeight, maximumLoadoutWeight, loadoutWeightRatio, category, missingPieces, regenStam, regenMana, nakedOverride }) {
   const penalty = missingPieces * 15;
@@ -34,3 +35,18 @@ export default function ResultsPanel({ totalLoadoutWeight, maximumLoadoutWeight,
     </section>
   );
 }
+
+ResultsPanel.propTypes = {
+  totalLoadoutWeight: PropTypes.number.isRequired,
+  maximumLoadoutWeight: PropTypes.number.isRequired,
+  loadoutWeightRatio: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
+  missingPieces: PropTypes.number.isRequired,
+  regenStam: PropTypes.number.isRequired,
+  regenMana: PropTypes.number.isRequired,
+  nakedOverride: PropTypes.bool,
+};
+
+ResultsPanel.defaultProps = {
+  nakedOverride: false,
+};

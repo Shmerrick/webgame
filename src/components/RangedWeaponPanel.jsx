@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default function RangedWeaponPanel({ rangedWeaponKey, setRangedWeaponKey }) {
   return (
@@ -24,3 +25,8 @@ export default function RangedWeaponPanel({ rangedWeaponKey, setRangedWeaponKey 
     </section>
   );
 }
+
+RangedWeaponPanel.propTypes = {
+  rangedWeaponKey: PropTypes.string.isRequired,
+  setRangedWeaponKey: PropTypes.func.isRequired,
+};

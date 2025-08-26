@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { DIRECTIONS } from "../constants/attack.js";
 
 export default function AttackDirectionPanel({ weapon, direction, setDirection, charge, setCharge, swing, setSwing }) {
@@ -71,4 +72,18 @@ export default function AttackDirectionPanel({ weapon, direction, setDirection, 
     </section>
   );
 }
+
+AttackDirectionPanel.propTypes = {
+  weapon: PropTypes.shape({ type: PropTypes.string }),
+  direction: PropTypes.string.isRequired,
+  setDirection: PropTypes.func.isRequired,
+  charge: PropTypes.number.isRequired,
+  setCharge: PropTypes.func.isRequired,
+  swing: PropTypes.number.isRequired,
+  setSwing: PropTypes.func.isRequired,
+};
+
+AttackDirectionPanel.defaultProps = {
+  weapon: null,
+};
 
