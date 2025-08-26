@@ -1,6 +1,6 @@
 window.addEventListener('load', async () => {
   try {
-    const res = await fetch('../package.json', { cache: 'no-cache' });
+    const res = await fetch('version.json', { cache: 'no-cache' });
     const pkg = await res.json();
     const el = document.getElementById('version-display');
     if (el) {
