@@ -1,4 +1,5 @@
 import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS } from '../src/constants/weapons.js';
+import { ARMOR_CLASS, MATERIALS_FOR_CLASS, MATERIALS_FOR_INNER, MATERIALS_FOR_BINDING, MATERIALS_FOR_JEWELRY_SETTING, MATERIALS_FOR_JEWELRY_GEM } from '../src/constants/armor.js';
 import buildMaterialDB from '../src/utils/buildMaterialDB.js';
 
 const DEBUG = false;
@@ -12,21 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const escapeHTML = (str = '') =>
         str.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-    const ARMOR_CLASS = {
-        Light:  { physical: 0.45, magical: 0.45 },
-        Medium: { physical: 0.65, magical: 0.65 },
-        Heavy:  { physical: 0.85, magical: 0.85 },
-    };
-    const MATERIALS_FOR_CLASS = {
-        None:   [],
-        Light:  ["Leather","Scales","Linen","Fur","Dev"],
-        Medium: ["Leather","Scales","Carapace","Wood","Bone","Dev"],
-        Heavy:  ["Metals","Dev"],
-    };
-    const MATERIALS_FOR_INNER = ["Linen", "Leather", "Fur", "Dev"];
-    const MATERIALS_FOR_BINDING = ["Leather", "Dev"];
-    const MATERIALS_FOR_JEWELRY_SETTING = ["Elemental Metals", "Metal Alloys", "Dev"];
-    const MATERIALS_FOR_JEWELRY_GEM = ["Rock Types", "Dev"];
+    // Armor constants imported from src/constants/armor.js
 
     // Armor
     const armorPieceSelect = document.getElementById('armor-piece');
