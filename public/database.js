@@ -1,6 +1,6 @@
 const dbIndexPromise = (async () => {
     try {
-        const res = await fetch('database.json', { cache: 'no-cache' });
+        const res = await fetch(new URL('database.json', import.meta.url), { cache: 'no-cache' });
         if (!res.ok) {
             throw new Error(`Failed to load database index: ${res.status} ${res.statusText}`);
         }
@@ -21,7 +21,7 @@ export async function getDatabaseSection(key) {
         if (typeof entry === 'string') {
             dbCache[key] = (async () => {
                 try {
-                    const res = await fetch(entry, { cache: 'no-cache' });
+                    const res = await fetch(new URL(entry, import.meta.url), { cache: 'no-cache' });
                     if (!res.ok) {
                         throw new Error(`Failed to fetch ${entry}: ${res.status} ${res.statusText}`);
                     }
