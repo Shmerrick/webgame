@@ -38,8 +38,7 @@ export default function useMaterials() {
           {
             id: 'dev_material',
             name: 'Dev Material',
-            Name: 'Dev Material',
-            Density: 1,
+            density: 1,
             factors: {
               slash: 1,
               pierce: 1,

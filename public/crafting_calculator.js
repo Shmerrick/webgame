@@ -118,8 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     id: 'dev_material',
                     name: 'Dev Material',
-                    Name: 'Dev Material',
-                    Density: 1,
+                    density: 1,
                     factors: {
                         slash: 1,
                         pierce: 1,
@@ -703,7 +702,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const result = {
             requiredMaterials: {
-                "Stave": { name: woodMaterial.Name, volume, units: requiredUnits }
+                "Stave": { name: woodMaterial.name, volume, units: requiredUnits }
             },
             totalMass: mass / 1000,
             drawWeight,
@@ -843,10 +842,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for(const name in components) {
             const comp = components[name];
-            const density = parseFloat(comp.material.Density);
+            const density = parseFloat(comp.material.density);
             totalMass += comp.volume * density;
             requiredMaterials[name] = {
-                name: comp.material.Name,
+                name: comp.material.name,
                 volume: comp.volume,
                 units: (comp.volume * density) / 100
             };
