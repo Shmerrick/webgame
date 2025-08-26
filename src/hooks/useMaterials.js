@@ -10,14 +10,29 @@ export default function useMaterials() {
     let cancelled = false;
     async function load() {
       try {
-        const [base, wood, elementals, alloys, rocks] = await Promise.all([
+        const [base, wood, elementals, alloys, rocks, gemstones] = await Promise.all([
           getDatabaseSection('materials'),
           getDatabaseSection('woodTypes'),
           getDatabaseSection('elementalMetals'),
           getDatabaseSection('metalAlloys'),
           getDatabaseSection('rockTypes'),
+          getDatabaseSection('cutGemstones'),
         ]);
-        const built = buildMaterialDB(base, wood, elementals, alloys, rocks);
+
+        const capitalizeWords = (s = '') => s.replace(/\b\w/g, c => c.toUpperCase());
+        const capitalizeNode = (node) => {
+          if (Array.isArray(node)) {
+            return node.map(item => ({ ...item, name: capitalizeWords(item.name) }));
+          }
+          const out = {};
+          for (const [key, value] of Object.entries(node)) {
+            out[capitalizeWords(key)] = capitalizeNode(value);
+          }
+          return out;
+        };
+
+        const built = capitalizeNode(buildMaterialDB(base, wood, elementals, alloys, rocks));
+        built['Cut Gemstones'] = (gemstones || []).map(name => ({ name: capitalizeWords(name) }));
         built.Dev = [
           {
             id: 'dev_material',

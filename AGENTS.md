@@ -15,3 +15,15 @@ This repository powers a public web companion for an open-world MMORPG and will 
 ## Agent Log
 
 - Verified three bug-check passes by running syntax checks on key scripts (`public/crafting_calculator.js`, `public/siege_calculator.js`, `src/simulator.jsx`).
+
+## Programming Principles
+
+Follow these practices while coding and reviewing code:
+
+- KISS (Keep It Simple, Stupid)
+- DRY (Don't Repeat Yourself)
+- YAGNI (You Aren't Gonna Need It)
+- SOLID
+- Separation of Concerns (SoC)
+- Avoid Premature Optimization
+- Law of Demeter

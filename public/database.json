@@ -3,6 +3,7 @@
   "woodTypes": "wood_types.json",
   "woodProperties": "wood_properties.json",
   "rockTypes": "rock_types.json",
+  "cutGemstones": "cut_gemstones.json",
   "elementalMetals": "Master_Elemental_Metals.json",
   "metalAlloys": "Master_Metal_Alloys.json",
   "mechanicalLimits": "mechanical_limits.json",
