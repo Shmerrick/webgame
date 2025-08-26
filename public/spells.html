@@ -81,15 +81,13 @@
         );
       }
 
-      window.addEventListener('DOMContentLoaded', () => {
-        getDatabaseSection('spells')
+        window.getDatabaseSection('spells')
           .then(data => {
             ReactDOM.createRoot(document.getElementById("root")).render(
               <React.StrictMode><SpellsPage data={data} /></React.StrictMode>
             );
           })
           .catch(error => console.error('Error loading spells:', error));
-      });
     </script>
     <script src="nav.js"></script>
     <script src="version.js"></script>

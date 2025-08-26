@@ -1,6 +1,5 @@
 node_modules
 
 # Build outputs
-public/dist/
-dist/
+/dist/
 build/
