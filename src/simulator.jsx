@@ -1,7 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import SimulatorContainer from "./components/SimulatorContainer.jsx";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode><SimulatorContainer /></React.StrictMode>
-);
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  createRoot(rootElement).render(
+    <React.StrictMode>
+      <SimulatorContainer />
+    </React.StrictMode>
+  );
+} else {
+  // eslint-disable-next-line no-console
+  console.error("Root element 'root' not found for simulator");
+}
