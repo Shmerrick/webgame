@@ -7,7 +7,8 @@ describe('getDatabaseSection', () => {
       'foo.json': { ok: false, status: 404, statusText: 'Not Found' },
     };
     const fetch = vi.fn(async (url) => {
-      const res = responses[url];
+      const key = url instanceof URL ? url.pathname.split('/').pop() : url;
+      const res = responses[key];
       if (!res) throw new Error('unknown url');
       return res;
     });
