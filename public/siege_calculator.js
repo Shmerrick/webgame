@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const [
                 db,
                 woods,
+                woodProps,
                 elementals,
                 alloys,
                 siegeVolumesList,
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ] = await Promise.all([
                 getDatabaseSection('materials'),
                 getDatabaseSection('woodTypes'),
+                getDatabaseSection('woodProperties'),
                 getDatabaseSection('elementalMetals'),
                 getDatabaseSection('metalAlloys'),
                 getDatabaseSection('siegeVolumes'),
@@ -28,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]);
 
             const built = buildMaterialDB(db, woods, elementals, alloys, rocks, {
-                defaultDensities: { Wood: 0.6, 'Rock Types': 2.5 }
+                defaultDensities: { Wood: 0.6, 'Rock Types': 2.5 },
+                woodProperties: woodProps
             });
             built['Dev'] = {
                 Dev: [

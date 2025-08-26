@@ -1,0 +1,202 @@
+{
+  "White Oak": {
+    "density": 0.755,
+    "tensileStrength": 102.3,
+    "yieldStrength": 50.8,
+    "elasticModulus": 12150,
+    "thermalConductivity": 0.16,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Red Oak": {
+    "density": 0.7,
+    "tensileStrength": 99.2,
+    "yieldStrength": 46.8,
+    "elasticModulus": 12140,
+    "thermalConductivity": 0.16,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Maple": {
+    "density": 0.705,
+    "tensileStrength": 109,
+    "yieldStrength": 54,
+    "elasticModulus": 12620,
+    "thermalConductivity": 0.16,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Black Walnut": {
+    "density": 0.61,
+    "tensileStrength": 100.7,
+    "yieldStrength": 52.3,
+    "elasticModulus": 11590,
+    "thermalConductivity": 0.16,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Cherry": {
+    "density": 0.56,
+    "tensileStrength": 84.8,
+    "yieldStrength": 49,
+    "elasticModulus": 10300,
+    "thermalConductivity": 0.16,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "White Ash": {
+    "density": 0.675,
+    "tensileStrength": 103.5,
+    "yieldStrength": 51.1,
+    "elasticModulus": 12000,
+    "thermalConductivity": 0.16,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "American Beech": {
+    "density": 0.72,
+    "tensileStrength": 102.8,
+    "yieldStrength": 51.1,
+    "elasticModulus": 11860,
+    "thermalConductivity": 0.16,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Yellow Birch": {
+    "density": 0.69,
+    "tensileStrength": 114.5,
+    "yieldStrength": 56.3,
+    "elasticModulus": 13860,
+    "thermalConductivity": 0.16,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Mahogany": {
+    "density": 0.59,
+    "tensileStrength": 80.8,
+    "yieldStrength": 46.6,
+    "elasticModulus": 10060,
+    "thermalConductivity": 0.16,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Hickory": {
+    "density": 0.8,
+    "tensileStrength": 139.3,
+    "yieldStrength": 63.5,
+    "elasticModulus": 14900,
+    "thermalConductivity": 0.16,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Douglas Fir": {
+    "density": 0.51,
+    "tensileStrength": 86.2,
+    "yieldStrength": 47.9,
+    "elasticModulus": 12170,
+    "thermalConductivity": 0.12,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Eastern White Pine": {
+    "density": 0.4,
+    "tensileStrength": 59.3,
+    "yieldStrength": 33.1,
+    "elasticModulus": 8550,
+    "thermalConductivity": 0.12,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Loblolly Pine": {
+    "density": 0.57,
+    "tensileStrength": 88.3,
+    "yieldStrength": 49.2,
+    "elasticModulus": 12300,
+    "thermalConductivity": 0.12,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Sitka Spruce": {
+    "density": 0.425,
+    "tensileStrength": 70,
+    "yieldStrength": 38.2,
+    "elasticModulus": 11030,
+    "thermalConductivity": 0.12,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Norway Spruce": {
+    "density": 0.405,
+    "tensileStrength": 63,
+    "yieldStrength": 35.5,
+    "elasticModulus": 9700,
+    "thermalConductivity": 0.12,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Western Red Cedar": {
+    "density": 0.37,
+    "tensileStrength": 51.7,
+    "yieldStrength": 31.4,
+    "elasticModulus": 7660,
+    "thermalConductivity": 0.12,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Eastern Red Cedar": {
+    "density": 0.53,
+    "tensileStrength": 60.7,
+    "yieldStrength": 41.5,
+    "elasticModulus": 6070,
+    "thermalConductivity": 0.12,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Western Hemlock": {
+    "density": 0.465,
+    "tensileStrength": 77.9,
+    "yieldStrength": 37.3,
+    "elasticModulus": 11240,
+    "thermalConductivity": 0.12,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "European Larch": {
+    "density": 0.575,
+    "tensileStrength": 90,
+    "yieldStrength": 52,
+    "elasticModulus": 11800,
+    "thermalConductivity": 0.12,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  },
+  "Coast Redwood": {
+    "density": 0.415,
+    "tensileStrength": 61.7,
+    "yieldStrength": 39.2,
+    "elasticModulus": 8410,
+    "thermalConductivity": 0.12,
+    "specificHeat": 1.3,
+    "meltingPoint": 0,
+    "electricalResistivity": 1000000000
+  }
+}
