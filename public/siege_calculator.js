@@ -115,9 +115,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function allowedCategories(type, comp) {
-        if (type === 'Ammunition') return ['Metals', 'Rock Types', 'Wood', 'Dev'];
-        if (comp === 'frame' || comp === 'head') return ['Wood', 'Metals', 'Dev'];
-        return Object.keys(materialsDB).sort();
+        let categories;
+        if (type === 'Ammunition') {
+            categories = ['Metals', 'Rock Types', 'Wood', 'Dev'];
+        } else if (comp === 'frame' || comp === 'head') {
+            categories = ['Wood', 'Metals', 'Dev'];
+        } else {
+            categories = Object.keys(materialsDB).sort();
+        }
+
+        if (type === 'Battering Ram') {
+            categories = categories.filter(c => c !== 'Bone');
+        }
+
+        return categories;
     }
 
     function populateSiegeWeaponComponents() {
