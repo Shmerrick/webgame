@@ -43,7 +43,7 @@ const armorSlots = [
   { id: "boots",  name: "Boots",  factor: 2 },
   { id: "torso",  name: "Torso",  factor: 3 },
   { id: "legs",   name: "Legs",   factor: 3 },
-  { id: "shield", name: "Shield", factor: 2 },
+  { id: "shield", name: "Off-Hand", factor: 2 },
   { id: "ring1", name: "Ring 1", factor: 0, type: 'ring' },
   { id: "ring2", name: "Ring 2", factor: 0, type: 'ring' },
   { id: "earring1", name: "Earring 1", factor: 0, type: 'earring' },
@@ -68,6 +68,8 @@ const OFFHAND_ITEMS = {
   Sling: { class: "None", strengthRequirement: 0, type: 'weapon' } // Sling can be used in either hand
 };
 
+const DEFAULT_OFFHAND_ITEM = Object.keys(OFFHAND_ITEMS).find(k => k !== "None") || "None";
+
 const REGEN_MULT = { Naked: 1.0, Light: 0.75, Medium: 0.50, Heavy: 0.25 };
 const BASE_TICK_PCT = 0.10;
 // Floor for displaying extremely small defense values
@@ -83,7 +85,7 @@ const MATERIALS_FOR_CLASS = {
 const MATERIALS_FOR_INNER = ["Linen", "Leather", "Fur", "Dev"];
 const MATERIALS_FOR_BINDING = ["Leather", "Dev"];
 const MATERIALS_FOR_JEWELRY_SETTING = ["Metals", "Dev"];
-const MATERIALS_FOR_JEWELRY_GEM = ["Rock Types", "Dev"];
+const MATERIALS_FOR_JEWELRY_GEM = ["Cut Gemstones", "Dev"];
 
 // Weapons
 const BOW_TYPES = {
@@ -112,7 +114,7 @@ const staminaPool = (DEX)=> 100 + 2*DEX;
 const manaPool    = (PSY)=> 100 + 2*PSY;
 
 function loadoutCategory(equipped, STR){
-  let S=0,Smax=0, missingPieces=0;
+  let loadoutScore=0, maxLoadoutScore=0, missingPieces=0;
   for (const slot of armorSlots){
     const entry = equipped[slot.id] || {};
     const factor = slot.factor;
@@ -120,30 +122,45 @@ function loadoutCategory(equipped, STR){
     if (slot.id==="shield"){
       const subtype = entry.shield || "None";
       const meta = OFFHAND_ITEMS[subtype];
-      if (meta.type === 'shield') {
+      const equippedShield = entry.isEquipped;
+      if (equippedShield && meta?.type === 'shield') {
           className = (STR >= (meta?.strengthRequirement||0)) ? (meta?.class||"None") : "None";
       } else {
           className = "None";
       }
     }
     const metaC = ARMOR_CLASS[className] || { value:0 };
-    S    += factor * (metaC.value||0);
-    Smax += factor * ARMOR_CLASS.Heavy.value;
+    loadoutScore    += factor * (metaC.value||0);
+    maxLoadoutScore += factor * ARMOR_CLASS.Heavy.value;
     if (slot.id!=="shield" && className==="None") missingPieces++;
   }
-  const R = Smax ? S/Smax : 0;
-  const category = R <= 0.4 ? "Light" : (R < 0.8 ? "Medium" : "Heavy");
+  const loadoutRatio = maxLoadoutScore ? loadoutScore/maxLoadoutScore : 0;
+  const category = loadoutRatio <= 0.4 ? "Light" : (loadoutRatio < 0.8 ? "Medium" : "Heavy");
   const noArmor = armorSlots.every(s=> s.id==="shield" || (equipped[s.id]?.class||"None")==="None");
   const shieldSubtype = equipped.shield?.shield || "None";
-  const hasShield = (OFFHAND_ITEMS[shieldSubtype]?.class||"None")!=="None" && STR >= (OFFHAND_ITEMS[shieldSubtype]?.strengthRequirement||0);
+  const shieldEquipped = equipped.shield?.isEquipped;
+  const hasShield = shieldEquipped && (OFFHAND_ITEMS[shieldSubtype]?.class||"None")!=="None" && STR >= (OFFHAND_ITEMS[shieldSubtype]?.strengthRequirement||0);
   const nakedOverride = noArmor && !hasShield;
-  return { S,Smax,R,category,missingPieces,nakedOverride };
+  return { loadoutScore,maxLoadoutScore,loadoutRatio,category,missingPieces,nakedOverride };
 }
 
 function regenPerTick(pool, category, nakedOverride, armorTraining=0){
   const mult = nakedOverride ? REGEN_MULT.Naked : (REGEN_MULT[category]||1);
   const skillBonus = 1 + 0.10 * (armorTraining/100);
   return Math.ceil(BASE_TICK_PCT * pool * mult * skillBonus);
+}
+
+function calcJewelryBonus(armor){
+  const bonus = { STR: 0, DEX: 0, INT: 0, PSY: 0 };
+  ["ring1","ring2","earring1","earring2","amulet"].forEach(slot => {
+    const item = armor[slot];
+    if (item && item.isEquipped && item.attribute && item.bonus) {
+      if (bonus[item.attribute] !== undefined) {
+        bonus[item.attribute] += item.bonus;
+      }
+    }
+  });
+  return bonus;
 }
 
 const chargeMultiplier = (t)=> t <= 0.5 ? 0 : (t >= 1.0 ? 1 : (t-0.5)/0.5);
@@ -318,7 +335,10 @@ function getRangedWeaponIcon(weaponKey) {
 
 function App({ DB }){
   // Character
-  const [raceId, setRaceId] = useState("human");
+  const [raceId, setRaceId] = useState(() => {
+    const ids = races.map(r => r.id);
+    return ids[Math.floor(Math.random() * ids.length)];
+  });
   const [stats, setStats]   = useState({ STR:0, DEX:0, INT:0, PSY:0 });
 
   // Skills with a pool
@@ -449,12 +469,12 @@ function App({ DB }){
     boots:  { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Linen", innerSubCategory:firstSubCat("Linen"), innerMaterial:firstMat("Linen", firstSubCat("Linen")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
     torso:  { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Linen", innerSubCategory:firstSubCat("Linen"), innerMaterial:firstMat("Linen", firstSubCat("Linen")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
     legs:   { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Linen", innerSubCategory:firstSubCat("Linen"), innerMaterial:firstMat("Linen", firstSubCat("Linen")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
-    shield: { shield:"None" },
-    ring1: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1, attribute: 'Strength' },
-    ring2: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1, attribute: 'Strength' },
-    earring1: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1, attribute: 'Dexterity' },
-    earring2: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1, attribute: 'Dexterity' },
-    amulet: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1 },
+    shield: { isEquipped: false, shield: DEFAULT_OFFHAND_ITEM },
+    ring1: { isEquipped: false, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Cut Gemstones", gemSubCategory:firstSubCat("Cut Gemstones"), gemMaterial:firstMat("Cut Gemstones", firstSubCat("Cut Gemstones")), bonus: 1, attribute: 'STR' },
+    ring2: { isEquipped: false, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Cut Gemstones", gemSubCategory:firstSubCat("Cut Gemstones"), gemMaterial:firstMat("Cut Gemstones", firstSubCat("Cut Gemstones")), bonus: 1, attribute: 'STR' },
+    earring1: { isEquipped: false, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Cut Gemstones", gemSubCategory:firstSubCat("Cut Gemstones"), gemMaterial:firstMat("Cut Gemstones", firstSubCat("Cut Gemstones")), bonus: 1, attribute: 'DEX' },
+    earring2: { isEquipped: false, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Cut Gemstones", gemSubCategory:firstSubCat("Cut Gemstones"), gemMaterial:firstMat("Cut Gemstones", firstSubCat("Cut Gemstones")), bonus: 1, attribute: 'DEX' },
+    amulet: { isEquipped: false, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Cut Gemstones", gemSubCategory:firstSubCat("Cut Gemstones"), gemMaterial:firstMat("Cut Gemstones", firstSubCat("Cut Gemstones")), bonus: 1 },
   });
 
   // Target armor (for “damage against armor”)
@@ -497,50 +517,47 @@ function App({ DB }){
       }
   }, [weaponKey]);
 
-  // Effective stats with racial modifiers
+  // Effective stats with racial modifiers and jewelry bonuses
   const race = races.find(r => r.id === raceId) || races[0];
-  const { effective, jewelryBonus } = useMemo(() => {
-      // Start with clamped stat investments
-      const invested = {
-          STR: Math.min(100, stats.STR),
-          DEX: Math.min(100, stats.DEX),
-          INT: Math.min(100, stats.INT),
-          PSY: Math.min(100, stats.PSY)
-      };
+  const jewelryBonus = useMemo(() => calcJewelryBonus(armor), [armor]);
 
-      // Apply racial modifiers after investing points
-      const afterRace = {
-          STR: Math.max(0, invested.STR + (race.modifier.STR || 0)),
-          DEX: Math.max(0, invested.DEX + (race.modifier.DEX || 0)),
-          INT: Math.max(0, invested.INT + (race.modifier.INT || 0)),
-          PSY: Math.max(0, invested.PSY + (race.modifier.PSY || 0))
-      };
-
-      // Then apply jewelry bonuses
-      let bonus = { STR: 0, DEX: 0, INT: 0, PSY: 0 };
-      let eff = { ...afterRace };
-      ["ring1", "ring2", "earring1", "earring2"].forEach(slotId => {
-          const item = armor[slotId];
-          if (item && item.isEquipped && item.attribute && item.bonus) {
-              bonus[item.attribute] += item.bonus;
-              eff[item.attribute] += item.bonus;
-          }
+  useEffect(() => {
+    setStats(prev => {
+      const updated = { ...prev };
+      let changed = false;
+      ["STR","DEX","INT","PSY"].forEach(k => {
+        const max = 100 - jewelryBonus[k];
+        if (updated[k] > max) {
+          updated[k] = max;
+          changed = true;
+        }
       });
+      return changed ? updated : prev;
+    });
+  }, [jewelryBonus]);
 
-      eff.STR = Math.max(0, eff.STR);
-      eff.DEX = Math.max(0, eff.DEX);
-      eff.INT = Math.max(0, eff.INT);
-      eff.PSY = Math.max(0, eff.PSY);
+  const effective = useMemo(() => {
+      const baseWithJewelry = {
+          STR: Math.min(100, stats.STR + jewelryBonus.STR),
+          DEX: Math.min(100, stats.DEX + jewelryBonus.DEX),
+          INT: Math.min(100, stats.INT + jewelryBonus.INT),
+          PSY: Math.min(100, stats.PSY + jewelryBonus.PSY)
+      };
 
-      return { effective: eff, jewelryBonus: bonus };
-  }, [stats, raceId, armor]);
+      return {
+          STR: Math.max(0, baseWithJewelry.STR + (race.modifier.STR || 0)),
+          DEX: Math.max(0, baseWithJewelry.DEX + (race.modifier.DEX || 0)),
+          INT: Math.max(0, baseWithJewelry.INT + (race.modifier.INT || 0)),
+          PSY: Math.max(0, baseWithJewelry.PSY + (race.modifier.PSY || 0))
+      };
+  }, [stats, raceId, jewelryBonus]);
 
   const spent  = sumCost(stats);
   const remain = STAT_POOL - spent;
   const stamPool = staminaPool(effective.DEX);
   const manaPoolV= manaPool(effective.PSY);
 
-  const { S,Smax,R,category,missingPieces,nakedOverride } = useMemo(()=> loadoutCategory(armor, effective.STR), [armor, effective.STR]);
+  const { loadoutScore, maxLoadoutScore, loadoutRatio, category, missingPieces, nakedOverride } = useMemo(()=> loadoutCategory(armor, effective.STR), [armor, effective.STR]);
   const regenStam = regenPerTick(stamPool, category, nakedOverride, skills.ArmorTraining);
   const regenMana = regenPerTick(manaPoolV, category, nakedOverride, skills.ArmorTraining);
 
@@ -672,6 +689,7 @@ function App({ DB }){
     return { ...p, [slotId]: { ...prev, class: className, category, subCategory, material } };
   });
   const setShieldSubtypeSafe = (sub)=> setArmor(p=> ({ ...p, shield: { ...p.shield, shield: sub } }));
+  const setShieldEquipped = (eq)=> setArmor(p=> ({ ...p, shield: { ...p.shield, isEquipped: eq } }));
 
   const setArmorOuter = (slotId, val)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], category: val.category, subCategory: val.subCategory, material: val.material } }));
   const setArmorInner = (slotId, val)=> setArmor(p=> ({ ...p, [slotId]: { ...p[slotId], innerCategory: val.category, innerSubCategory: val.subCategory, innerMaterial: val.material } }));
@@ -903,16 +921,17 @@ function App({ DB }){
           <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6">
             <h2 className="text-lg font-semibold mb-3">Equipment Preview</h2>
             <p className="text-sm text-slate-300 mb-3">Each slot shows the selected armor class and the chosen material. Where there is no image, the slot uses a simple fill color. This is a lightweight representation so you can see your loadout at a glance.</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {armorSlots.map(slotId=>{
-                const entry = armor[slotId.id] || {};
-                const label = slotId.name;
-                const cls = slotId.id==="shield" ? (OFFHAND_ITEMS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
-                const shieldType = slotId.id === "shield" ? (armor.shield?.shield || "None") : null;
-                const jewelryType = slotId.type;
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {armorSlots.map(slotId=>{
+                  const entry = armor[slotId.id] || {};
+                  const label = slotId.name;
+                  const isShieldSlot = slotId.id === "shield";
+                  const shieldType = isShieldSlot && entry.isEquipped ? entry.shield : "None";
+                  const cls = isShieldSlot ? (entry.isEquipped ? (OFFHAND_ITEMS[shieldType]?.class||"None") : "None") : (entry.class||"None");
+                  const jewelryType = slotId.type;
 
-                const iconUrl = getIconUrl(slotId.id, cls, shieldType, jewelryType);
-                const borderColor = cls==="None" ? "border-slate-700" : (cls==="Light" ? "border-emerald-500" : (cls==="Medium" ? "border-amber-500" : "border-rose-500"));
+                  const iconUrl = getIconUrl(slotId.id, cls, shieldType, jewelryType);
+                  const borderColor = cls==="None" ? "border-slate-700" : (cls==="Light" ? "border-emerald-500" : (cls==="Medium" ? "border-amber-500" : "border-rose-500"));
 
                 return (
                   <div key={slotId.id} className="rounded-xl border border-slate-800 p-3 bg-slate-800/50">
@@ -939,7 +958,8 @@ function App({ DB }){
               {armorSlots.map(slot=>{
                 const isShield = slot.id==="shield";
                 const entry = armor[slot.id] || {};
-                const cls = isShield ? (OFFHAND_ITEMS[armor.shield?.shield]?.class||"None") : (entry.class||"None");
+                const shieldEquipped = isShield ? entry.isEquipped : false;
+                const cls = isShield ? (shieldEquipped ? (OFFHAND_ITEMS[entry.shield]?.class||"None") : "None") : (entry.class||"None");
                 const category = entry.category || "Leather";
                 const subCategory = entry.subCategory || firstSubCat(category);
                 const material = entry.material || "";
@@ -1002,7 +1022,27 @@ function App({ DB }){
                       ) : (
                         <button onClick={() => setArmor(p => ({...p, [slot.id]: {...p[slot.id], isEquipped: true}}))} className="mt-3 w-full bg-emerald-500/20 text-emerald-300 border border-emerald-500 rounded-lg py-2 hover:bg-emerald-500/40">Equip</button>
                       )
-                    ) : !isShield ? (
+                    ) : isShield ? (
+                      shieldEquipped ? (
+                        <>
+                          <label className="block text-sm mt-2">Off-Hand Item</label>
+                          <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.shield} onChange={e=>setShieldSubtypeSafe(e.target.value)} disabled={isTwoHanded}>
+                            {Object.keys(OFFHAND_ITEMS).filter(k=> k!=="None").map(k=> <option key={k} value={k}>{k}</option>)}
+                          </select>
+                          {entry.shield!=="None" && (
+                            <div className="text-sm text-slate-300 mt-1">
+                              Required Strength: <span className={`font-semibold ${(effective.STR >= (OFFHAND_ITEMS[entry.shield].strengthRequirement||0)) ? "text-emerald-300" : "text-rose-300"}`}>{OFFHAND_ITEMS[entry.shield].strengthRequirement}</span>.
+                            </div>
+                          )}
+                          <div className="text-sm text-slate-300 mt-2">
+                            Shield faces are treated similarly to wood planks for now so that the calculations stay consistent with your materials database. If you want a dedicated shield material list, tell me how you would like it organized, and I will add it.
+                          </div>
+                          <button onClick={() => setShieldEquipped(false)} className="mt-3 w-full bg-rose-500/20 text-rose-300 border border-rose-500 rounded-lg py-2 hover:bg-rose-500/40" disabled={isTwoHanded}>Unequip</button>
+                        </>
+                      ) : (
+                        <button onClick={() => setShieldEquipped(true)} className="mt-2 w-full bg-emerald-500/20 text-emerald-300 border border-emerald-500 rounded-lg py-2 hover:bg-emerald-500/40" disabled={isTwoHanded}>Equip</button>
+                      )
+                    ) : (
                       <>
                         <label className="block text-sm mt-2">Armor Class</label>
                         <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.class||"None"} onChange={e=>setArmorClassSafe(slot.id, e.target.value)}>
@@ -1043,21 +1083,6 @@ function App({ DB }){
                           </div>
                         )}
                       </>
-                    ) : (
-                      <div>
-                        <label className="block text-sm mt-2">Shield Type</label>
-                        <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={armor.shield?.shield||"None"} onChange={e=>setShieldSubtypeSafe(e.target.value)} disabled={isTwoHanded}>
-                          {Object.keys(OFFHAND_ITEMS).map(k=> <option key={k} value={k}>{k}</option>)}
-                        </select>
-                        {armor.shield?.shield!=="None" && (
-                          <div className="text-sm text-slate-300 mt-1">
-                            Required Strength: <span className={`font-semibold ${(effective.STR >= (OFFHAND_ITEMS[armor.shield?.shield].strengthRequirement||0)) ? "text-emerald-300" : "text-rose-300"}`}>{OFFHAND_ITEMS[armor.shield?.shield].strengthRequirement}</span>.
-                          </div>
-                        )}
-                        <div className="text-sm text-slate-300 mt-2">
-                          Shield faces are treated similarly to wood planks for now so that the calculations stay consistent with your materials database. If you want a dedicated shield material list, tell me how you would like it organized, and I will add it.
-                        </div>
-                      </div>
                     )}
                   </div>
                 );
@@ -1065,9 +1090,9 @@ function App({ DB }){
             </div>
 
           <ResultsPanel
-            S={S}
-            Smax={Smax}
-            R={R}
+            loadoutScore={loadoutScore}
+            maxLoadoutScore={maxLoadoutScore}
+            loadoutRatio={loadoutRatio}
             category={category}
             missingPieces={missingPieces}
             regenStam={regenStam}
