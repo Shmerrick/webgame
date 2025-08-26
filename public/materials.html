@@ -90,7 +90,14 @@
             db['Wood'] = Object.fromEntries(
               Object.entries(woods).map(([type, list]) => [
                 toTitleCase(type),
-                list.map(name => ({ id: slug(name), name: toTitleCase(name), ...(woodProps[name] || {}) }))
+                list.map(name => {
+                  const factors = woodProps[name];
+                  return {
+                    id: slug(name),
+                    name: toTitleCase(name),
+                    ...(factors ? { factors } : {})
+                  };
+                })
               ])
             );
 
