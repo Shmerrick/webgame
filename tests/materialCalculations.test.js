@@ -1,5 +1,12 @@
 import { describe, it, expect } from 'vitest';
-import { calculateMaterialDefenses, normalizeDamageFactorsByCategory } from '../src/materialCalculations.js';
+import {
+  calculateMaterialDefenses,
+  normalizeDamageFactorsByCategory,
+  computeMaterialStats,
+  imputeMaterialProperties,
+  buildNormalizationBounds,
+  scoreMaterialDefenses,
+} from '../src/materialCalculations.js';
 
 describe('calculateMaterialDefenses', () => {
   it('computes defense ratings within [0,1]', () => {
@@ -98,5 +105,106 @@ describe('calculateMaterialDefenses', () => {
     const normalized = normalizeDamageFactorsByCategory(db);
     expect(db).toEqual(original);
     expect(normalized).not.toBe(db);
+  });
+});
+
+describe('material calculation helpers', () => {
+  it('computes medians and ratios', () => {
+    const mats = [
+      { class: 'A', yieldStrength: 100, tensileStrength: 200, elasticModulus: 100, density: 10 },
+      { class: 'A', yieldStrength: 110, tensileStrength: 210, elasticModulus: 110, density: 11 },
+      { class: 'B', yieldStrength: 50, tensileStrength: 100, elasticModulus: 50, density: 5 },
+    ];
+    const stats = computeMaterialStats(mats);
+    expect(stats.globalMedians.yieldStrength).toBe(100);
+    expect(stats.classMedians.A.yieldStrength).toBe(105);
+    expect(stats.classRatios.A).toBeCloseTo(
+      stats.classMedians.A.tensileStrength / stats.classMedians.A.yieldStrength
+    );
+    expect(stats.globalRatio).toBeCloseTo(
+      stats.globalMedians.tensileStrength / stats.globalMedians.yieldStrength
+    );
+    expect(stats.medianSpecificStiffness).toBeCloseTo(10);
+  });
+
+  it('imputes missing properties and derives values', () => {
+    const mats = [
+      { class: 'Metal', tensileStrength: 200, elasticModulus: 100, density: 10 },
+      { class: 'Metal', yieldStrength: 100, tensileStrength: 200, elasticModulus: 100, density: 10 },
+    ];
+    const stats = computeMaterialStats(mats);
+    const enriched = imputeMaterialProperties(mats, stats);
+    expect(enriched[0].yieldStrength).toBe(100);
+    expect(enriched[0].estimatedHardnessMPa).toBe(400);
+    expect(enriched[0].specificStiffness).toBeCloseTo(10);
+  });
+
+  it('builds normalization bounds', () => {
+    const enriched = [
+      {
+        class: 'A',
+        estimatedHardnessMPa: 100,
+        yieldStrength: 200,
+        tensileStrength: 300,
+        elasticModulus: 1000,
+        density: 1,
+        specificStiffness: 10,
+        thermalConductivity: 5,
+        specificHeat: 2,
+        meltingPoint: 1000,
+        electricalResistivity: 0.1,
+      },
+      {
+        class: 'A',
+        estimatedHardnessMPa: 200,
+        yieldStrength: 400,
+        tensileStrength: 500,
+        elasticModulus: 2000,
+        density: 2,
+        specificStiffness: 20,
+        thermalConductivity: 6,
+        specificHeat: 3,
+        meltingPoint: 1100,
+        electricalResistivity: 0.2,
+      },
+    ];
+    const bounds = buildNormalizationBounds(enriched);
+    expect(bounds.boundsByClass.A.estimatedHardnessMPa).toEqual({ a: 100, b: 200 });
+    expect(bounds.globalBounds.estimatedHardnessMPa).toEqual({ a: 100, b: 200 });
+  });
+
+  it('scores defenses from normalized properties', () => {
+    const enriched = [
+      {
+        class: 'A',
+        estimatedHardnessMPa: 100,
+        yieldStrength: 200,
+        tensileStrength: 300,
+        elasticModulus: 1000,
+        density: 1,
+        specificStiffness: 10,
+        thermalConductivity: 5,
+        specificHeat: 2,
+        meltingPoint: 1000,
+        electricalResistivity: 0.1,
+      },
+      {
+        class: 'A',
+        estimatedHardnessMPa: 200,
+        yieldStrength: 400,
+        tensileStrength: 500,
+        elasticModulus: 2000,
+        density: 2,
+        specificStiffness: 20,
+        thermalConductivity: 6,
+        specificHeat: 3,
+        meltingPoint: 1100,
+        electricalResistivity: 0.2,
+      },
+    ];
+    const bounds = buildNormalizationBounds(enriched);
+    const scored = scoreMaterialDefenses(enriched, bounds);
+    expect(scored[0].R_slash).toBeCloseTo(0);
+    expect(scored[1].R_slash).toBeCloseTo(1);
   });
 });

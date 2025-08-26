@@ -9,28 +9,34 @@
 //   thermalConductivity, specificHeat, meltingPoint, electricalResistivity
 // Values are expected in the units specified by the project specification.
 
-export function calculateMaterialDefenses(materials, options = {}) {
-  const {
-    feel = false,
-    armorBias = {},
-    thickness = 1,
-    attunement = {},
-  } = options;
+const PROPERTY_KEYS = [
+  "yieldStrength",
+  "tensileStrength",
+  "elasticModulus",
+  "density",
+  "thermalConductivity",
+  "specificHeat",
+  "meltingPoint",
+  "electricalResistivity",
+];
 
-  const thicknessFactor = clamp(thickness, 0.5, 1.5);
+const NORM_PROPS = [
+  "estimatedHardnessMPa",
+  "yieldStrength",
+  "tensileStrength",
+  "elasticModulus",
+  "density",
+  "specificStiffness",
+  "thermalConductivity",
+  "specificHeat",
+  "meltingPoint",
+  "electricalResistivity",
+];
 
-  // Gather statistics for medians per class and globally
-  // Property keys we care about for normalization
-  const propertyKeys = [
-    "yieldStrength",
-    "tensileStrength",
-    "elasticModulus",
-    "density",
-    "thermalConductivity",
-    "specificHeat",
-    "meltingPoint",
-    "electricalResistivity",
-  ];
+/**
+ * Derive medians and ratios used for normalization and imputation.
+ */
+export function computeMaterialStats(materials, propertyKeys = PROPERTY_KEYS) {
   const valuesByClass = {};
   const globalValues = {};
 
@@ -59,7 +65,6 @@ export function calculateMaterialDefenses(materials, options = {}) {
     }
   }
 
-  // Ratio of tensile to yield strength used for imputations
   const classRatios = {};
   for (const cls of Object.keys(classMedians)) {
     const ys = classMedians[cls].yieldStrength;
@@ -71,7 +76,6 @@ export function calculateMaterialDefenses(materials, options = {}) {
       ? globalMedians.tensileStrength / globalMedians.yieldStrength
       : 1.3;
 
-  // Median specific stiffness for imputation when elastic modulus or density missing
   const ssValues = [];
   for (const mat of materials) {
     if (mat.elasticModulus != null && mat.density != null) {
@@ -80,19 +84,31 @@ export function calculateMaterialDefenses(materials, options = {}) {
   }
   const medianSpecificStiffness = median(ssValues);
 
-  // Impute missing values and compute derived properties on copies
-  const enriched = materials.map((mat) => {
+  return {
+    globalMedians,
+    classMedians,
+    classRatios,
+    globalRatio,
+    medianSpecificStiffness,
+  };
+}
+
+/**
+ * Fill in missing properties and compute derived values for materials.
+ */
+export function imputeMaterialProperties(materials, stats) {
+  const { globalMedians, classMedians, classRatios, globalRatio, medianSpecificStiffness } =
+    stats;
+
+  return materials.map((mat) => {
     const cls = mat.class || "global";
     const classMedian = classMedians[cls] || {};
     const ratio = classRatios[cls] || globalRatio;
 
-    // Core mechanical properties with fallbacks
     let yieldStrength = mat.yieldStrength;
     let tensileStrength = mat.tensileStrength;
-    if (yieldStrength == null && tensileStrength != null)
-      yieldStrength = tensileStrength / ratio;
-    if (tensileStrength == null && yieldStrength != null)
-      tensileStrength = yieldStrength * ratio;
+    if (yieldStrength == null && tensileStrength != null) yieldStrength = tensileStrength / ratio;
+    if (tensileStrength == null && yieldStrength != null) tensileStrength = yieldStrength * ratio;
     if (yieldStrength == null)
       yieldStrength = classMedian.yieldStrength ?? globalMedians.yieldStrength;
     if (tensileStrength == null)
@@ -110,7 +126,6 @@ export function calculateMaterialDefenses(materials, options = {}) {
     let electricalResistivity =
       mat.electricalResistivity ?? classMedian.electricalResistivity ?? globalMedians.electricalResistivity;
 
-    // Hardness proxy in MPa using best available source
     let brinellMPa = mat.brinellMPa;
     if (brinellMPa == null && mat.brinell != null) brinellMPa = mat.brinell * 9.807;
     let vickersMPa = mat.vickersMPa;
@@ -123,7 +138,6 @@ export function calculateMaterialDefenses(materials, options = {}) {
     const estimatedHardnessMPa =
       hardnessCandidates.length ? Math.max(...hardnessCandidates) : undefined;
 
-    // Specific stiffness = elastic modulus / density
     const specificStiffness =
       elasticModulus != null && density != null
         ? elasticModulus / density
@@ -143,20 +157,12 @@ export function calculateMaterialDefenses(materials, options = {}) {
       specificStiffness,
     };
   });
+}
 
-  // Normalization bounds scoped by material class
-  const normProps = [
-    "estimatedHardnessMPa",
-    "yieldStrength",
-    "tensileStrength",
-    "elasticModulus",
-    "density",
-    "specificStiffness",
-    "thermalConductivity",
-    "specificHeat",
-    "meltingPoint",
-    "electricalResistivity",
-  ];
+/**
+ * Build normalization bounds for each class and globally.
+ */
+export function buildNormalizationBounds(enriched, normProps = NORM_PROPS) {
   const buildBounds = (values) => {
     const v = values.slice().sort((a, b) => a - b);
     if (!v.length) return { a: 0, b: 1 };
@@ -194,11 +200,22 @@ export function calculateMaterialDefenses(materials, options = {}) {
     }
   }
 
-  // Compute defenses
-  const withDefenses = enriched.map((mat) => {
+  return { boundsByClass, globalBounds };
+}
+
+/**
+ * Use normalized properties to generate final defense scores.
+ */
+export function scoreMaterialDefenses(enriched, bounds, options = {}) {
+  const { feel = false, armorBias = {}, thickness = 1, attunement = {} } = options;
+  const thicknessFactor = clamp(thickness, 0.5, 1.5);
+
+  const { boundsByClass, globalBounds } = bounds;
+
+  return enriched.map((mat) => {
     const cls = mat.class || "global";
-    const bounds = boundsByClass[cls] || globalBounds;
-    const normalizeProp = (prop) => normalize(mat[prop], bounds[prop].a, bounds[prop].b);
+    const b = boundsByClass[cls] || globalBounds;
+    const normalizeProp = (prop) => normalize(mat[prop], b[prop].a, b[prop].b);
 
     const normalizedHardness = normalizeProp("estimatedHardnessMPa");
     const normalizedYieldStrength = normalizeProp("yieldStrength");
@@ -211,18 +228,10 @@ export function calculateMaterialDefenses(materials, options = {}) {
     const normalizedMeltingPoint = normalizeProp("meltingPoint");
     const normalizedResistivity = normalizeProp("electricalResistivity");
 
-    // Normalized values above ensure all downstream formulas use inputs
-    // that are already scoped to the material's class.  This keeps steel,
-    // wood, bone, etc. from being compared directly.
-
-    // Offensive damage factors draw directly from these normalized
-    // mechanical properties.  They are returned so weapon components can
-    // scale slash, pierce, and blunt damage consistently per category.
     const damage_slash = normalizedHardness;
     const damage_pierce = normalizedTensileStrength;
     const damage_blunt = normalizedDensity;
 
-    // Physical damage resistances blend hardness and strength values
     let slash =
       0.50 * normalizedHardness +
       0.30 * normalizedYieldStrength +
@@ -236,7 +245,6 @@ export function calculateMaterialDefenses(materials, options = {}) {
       0.35 * normalizedYieldStrength +
       0.30 * normalizedDensity;
 
-    // Elemental resistances mix thermal and electrical properties
     let fire =
       0.45 * normalizedMeltingPoint +
       0.35 * normalizedSpecificHeat +
@@ -255,7 +263,6 @@ export function calculateMaterialDefenses(materials, options = {}) {
       0.30 * normalizedHardness +
       0.30 * normalizedResistivity;
 
-    // Apply armor bias and thickness modifiers
     slash = clamp01(slash * thicknessFactor + (armorBias.slashing || 0));
     pierce = clamp01(pierce * thicknessFactor + (armorBias.piercing || 0));
     blunt = clamp01(blunt * thicknessFactor + (armorBias.blunt || 0));
@@ -277,7 +284,6 @@ export function calculateMaterialDefenses(materials, options = {}) {
 
     return {
       ...mat,
-      // Normalized offensive factors
       D_slash: damage_slash,
       D_pierce: damage_pierce,
       D_blunt: damage_blunt,
@@ -290,8 +296,13 @@ export function calculateMaterialDefenses(materials, options = {}) {
       R_wind: wind,
     };
   });
+}
 
-  return withDefenses;
+export function calculateMaterialDefenses(materials, options = {}) {
+  const stats = computeMaterialStats(materials, PROPERTY_KEYS);
+  const enriched = imputeMaterialProperties(materials, stats);
+  const bounds = buildNormalizationBounds(enriched, NORM_PROPS);
+  return scoreMaterialDefenses(enriched, bounds, options);
 }
 
 function median(arr) {
