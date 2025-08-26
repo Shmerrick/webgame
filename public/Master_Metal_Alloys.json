@@ -8163,61 +8163,61 @@
     {
       "name": "Stainless Steel 420",
       "atomic_mass": "N/A",
-      "boil": "N/A",
+      "boil": 3000,
       "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
+      "density": 7.75,
+      "melt": 1450,
       "molar_heat": "N/A",
       "symbol": "N/A",
       "electron_affinity": "N/A",
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 655,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 345,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 200,
           "units": "GPa"
         },
         "mohs_hardness": {
           "units": "Mohs",
-          "value": "N/A"
+          "value": 4
         },
         "brinell_hardness": {
           "units": "HB",
-          "value": "N/A"
+          "value": 201
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 2108.505,
           "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 7.75,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 1450
         },
         "boiling_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 3000
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 24.9,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 10.3
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.46,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -8229,7 +8229,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 560,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -8253,61 +8253,61 @@
     {
       "name": "Stainless Steel 430",
       "atomic_mass": "N/A",
-      "boil": "N/A",
+      "boil": 3000,
       "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
+      "density": 7.74,
+      "melt": 1510,
       "molar_heat": "N/A",
       "symbol": "N/A",
       "electron_affinity": "N/A",
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 515,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 310,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 200,
           "units": "GPa"
         },
         "mohs_hardness": {
           "units": "Mohs",
-          "value": "N/A"
+          "value": 4
         },
         "brinell_hardness": {
           "units": "HB",
-          "value": "N/A"
+          "value": 170
         },
         "vickers_hardness": {
-          "value": 0,
+          "value": 1667.19,
           "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 7.74,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 1510
         },
         "boiling_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 3000
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 26,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 10.4
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.46,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -8319,7 +8319,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 600,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {

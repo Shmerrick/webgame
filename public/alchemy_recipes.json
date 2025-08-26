@@ -69,7 +69,7 @@
   {
     "name": "Torch",
     "type": "Tool",
-    "ingredients": ["Stick", "Cloth_Scraps"],
+    "ingredients": ["Stick", "Linen_Scraps"],
     "effect": "Provides light in dark areas.",
     "properties": {
       "duration": 300
@@ -78,7 +78,7 @@
   {
     "name": "Soothing Bandage",
     "type": "Consumable",
-    "ingredients": ["Cloth_Scraps", "Aloe_Vera"],
+    "ingredients": ["Linen_Scraps", "Aloe_Vera"],
     "effect": "Heals for 10 health over 5 seconds.",
     "properties": {
       "health_per_second": 2,

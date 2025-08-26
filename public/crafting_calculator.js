@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const MATERIALS_FOR_CLASS = {
         None:   [],
-        Light:  ["Leather","Scales","Cloth","Fur","Dev"],
+        Light:  ["Leather","Scales","Linen","Fur","Dev"],
         Medium: ["Leather","Scales","Carapace","Wood","Bone","Dev"],
         Heavy:  ["Metals","Dev"],
     };
-    const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Fur", "Dev"];
+    const MATERIALS_FOR_INNER = ["Linen", "Leather", "Fur", "Dev"];
     const MATERIALS_FOR_BINDING = ["Leather", "Dev"];
-    const MATERIALS_FOR_JEWELRY_SETTING = ["Metals", "Dev"];
+    const MATERIALS_FOR_JEWELRY_SETTING = ["Elemental Metals", "Metal Alloys", "Dev"];
     const MATERIALS_FOR_JEWELRY_GEM = ["Rock Types", "Dev"];
 
     // Armor
@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Jewelry Crafting
     const jewelryTypeSelect = document.getElementById('jewelry-type');
     const jewelryMetalSelect = document.getElementById('jewelry-metal');
+    const jewelryGemSelect = document.getElementById('jewelry-gem');
     const jewelryResultsDiv = document.getElementById('jewelry-crafting-results');
 
 
@@ -267,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [ingredient1Select, ingredient2Select].forEach(el => el.addEventListener('change', calculateAndDisplayAlchemyResults));
         [rune1Select, rune2Select].forEach(el => el.addEventListener('change', calculateAndDisplayEnchantingResults));
         roughGemstoneSelect.addEventListener('change', calculateAndDisplayRefiningResults);
-        [jewelryTypeSelect, jewelryMetalSelect, document.getElementById('jewelry-attribute')].forEach(el => el.addEventListener('change', calculateAndDisplayJewelryResults));
+        [jewelryTypeSelect, jewelryMetalSelect, jewelryGemSelect, document.getElementById('jewelry-attribute')].forEach(el => el.addEventListener('change', calculateAndDisplayJewelryResults));
     }
 
     function calculateAllResults() {
@@ -332,11 +333,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const allMaterials = Array.from(materialsData.values());
         const allCategories = [...new Set(allMaterials.map(m => m.Category))].sort();
 
-        allCategories.forEach(cat => {
-            addOption(shieldBodyCategorySelect, cat, cat);
-            addOption(shieldBossCategorySelect, cat, cat);
-            addOption(shieldRimCategorySelect, cat, cat);
-        });
+        addOption(shieldBodyCategorySelect, 'Wood', 'Wood');
+        addOption(shieldBossCategorySelect, 'Metal', 'Metal');
+        shieldBodyCategorySelect.disabled = true;
+        shieldBossCategorySelect.disabled = true;
+        allCategories.forEach(cat => addOption(shieldRimCategorySelect, cat, cat));
 
         const populateByCat = (catSel, matSel) => {
             const mats = allMaterials.filter(m => m.Category === catSel.value);
@@ -741,17 +742,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateJewelryDropdowns() {
         if (!jewelryTypeSelect) return;
-        const metalMaterials = Array.from(materialsData.values()).filter(m => m.Category === 'Elemental Metals' || m.Category === 'Metal Alloys' || m.Category === 'Dev');
+        const metalMaterials = Array.from(materialsData.values()).filter(m => ['Elemental Metals', 'Metal Alloys', 'Dev'].includes(m.Category));
         populateSelectWithOptions(jewelryMetalSelect, metalMaterials);
+        if (jewelryGemSelect) {
+            const gemOptions = GEMSTONES.map(g => ({ name: g.cut, rowName: g.rowName }));
+            populateSelectWithOptions(jewelryGemSelect, gemOptions);
+        }
     }
 
     function calculateAndDisplayJewelryResults() {
         if (!jewelryTypeSelect) return;
         const itemType = jewelryTypeSelect.value;
         const metalMaterial = findMaterial(jewelryMetalSelect.value);
+        const gem = GEMSTONES.find(g => g.rowName === jewelryGemSelect.value);
         const attributeSelect = document.getElementById('jewelry-attribute');
 
-        if (!itemType || !metalMaterial) return;
+        if (!itemType || !metalMaterial || !gem) return;
 
         // Show/hide attribute dropdown
         if (itemType === 'Ring' || itemType === 'Earring') {
@@ -785,6 +791,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let resultsHTML = `
             <h5 class="text-md font-semibold text-emerald-400 mt-4">Crafted ${itemType}:</h5>
             <p><strong>Material:</strong> ${metalMaterial.name}</p>
+            <p><strong>Gemstone:</strong> ${gem.cut}</p>
             <p><strong>Durability:</strong> ${durability.toFixed(2)}</p>
         `;
 

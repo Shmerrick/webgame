@@ -14,7 +14,7 @@ export const WEAPONS = {
 };
 
 export const MATERIALS_FOR_HANDLE_CORE = ["Wood", "Metals", "Dev"];
-export const MATERIALS_FOR_HANDLE_GRIP = ["Cloth", "Leather", "Dev"];
+export const MATERIALS_FOR_HANDLE_GRIP = ["Linen", "Leather", "Dev"];
 export const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Rock Types", "Dev"];
 export const MATERIALS_FOR_HEAD = ["Metals", "Rock Types", "Wood", "Dev"];
-export const BANNED_WEAPON_HEAD_MATERIALS = ["Carapace", "Cloth", "Fur", "Herbs", "Leather", "Linen", "Scales"];
+export const BANNED_WEAPON_HEAD_MATERIALS = ["Carapace", "Fur", "Herbs", "Leather", "Linen", "Scales"];
