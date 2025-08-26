@@ -44,15 +44,14 @@
               <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
               <a href="materials.html" class="text-emerald-400 font-semibold">Materials</a>
               <a href="simulator.html" class="text-slate-300 hover:text-emerald-400">Simulator</a>
-              <a href="magic.html" class="text-slate-300 hover:text-emerald-400">Magic</a>
-              <a href="spells.html" class="text-slate-300 hover:text-emerald-400">Spells</a>
               <a href="combat.html" class="text-slate-300 hover:text-emerald-400">Combat</a>
               <a href="movement.html" class="text-slate-300 hover:text-emerald-400">Movement</a>
               <a href="races.html" class="text-slate-300 hover:text-emerald-400">Races</a>
               <a href="ascension.html" class="text-slate-300 hover:text-emerald-400">Ascension</a>
               <a href="magic.html" class="text-slate-300 hover:text-emerald-400">Magic</a>
+              <a href="spells.html" class="text-slate-300 hover:text-emerald-400">Spells</a>
               <a href="crafting.html" class="text-slate-300 hover:text-emerald-400">Crafting</a>
-            <a href="siege.html" class="text-slate-300 hover:text-emerald-400">Siege</a>
+              <a href="siege.html" class="text-slate-300 hover:text-emerald-400">Siege</a>
               <a href="materials_guide.html" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
             </div>
           </div>
@@ -134,23 +133,29 @@
                         const cleanVal = val === 0 ? 0 : val;
                         return `${label}: ${cleanVal}`;
                       });
-                      li.style.position = 'relative';
-                      li.addEventListener('click', () => {
-                        const existing = li.querySelector('.tooltip');
+                      li.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const existing = document.querySelector('.tooltip');
                         if (existing) {
+                          const same = existing.dataset.for === (item.id || li.textContent);
                           existing.remove();
-                          return;
+                          if (same) {
+                            return;
+                          }
                         }
                         const tooltip = document.createElement('div');
-                        tooltip.className = 'tooltip absolute left-full top-0 ml-2 p-2 bg-slate-800 border border-slate-700 rounded shadow-lg text-xs';
+                        tooltip.className = 'tooltip fixed z-50 p-2 bg-slate-800 border border-slate-700 rounded shadow-lg text-xs whitespace-nowrap';
+                        tooltip.dataset.for = item.id || li.textContent;
+                        tooltip.style.left = `${e.clientX + 10}px`;
+                        tooltip.style.top = `${e.clientY + 10}px`;
                         tooltip.innerHTML = props.map(p => `<div>${p}</div>`).join('');
-                        li.appendChild(tooltip);
+                        document.body.appendChild(tooltip);
                         const hide = () => {
                           tooltip.remove();
-                          li.removeEventListener('mouseleave', hide);
+                          document.removeEventListener('click', hide);
                           window.removeEventListener('scroll', hide);
                         };
-                        li.addEventListener('mouseleave', hide, { once: true });
+                        document.addEventListener('click', hide, { once: true });
                         window.addEventListener('scroll', hide, { once: true });
                       });
                     }
