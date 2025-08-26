@@ -7,6 +7,7 @@ import {
   MATERIALS_FOR_HANDLE_FITTING,
   MATERIALS_FOR_HEAD,
   BANNED_WEAPON_HEAD_MATERIALS,
+  BOW_TYPES,
 } from "./constants/weapons.js";
 import {
   armorSlots,
@@ -45,16 +46,6 @@ const races = [
   { id: "goliath", name: "Goliath", modifier: { STR: 8, DEX: -4, INT: -8, PSY: 0 }, magicProficiency: "Void" },
   { id: "fae",   name: "Fae",    modifier: { STR: -8, DEX: 0, INT: 8, PSY: -4 }, magicProficiency: "Radiance" },
 ];
-
-
-// Weapons
-const BOW_TYPES = {
-  Long:    { drawWeight: 60, massKilograms: 1.2 },
-  Recurve: { drawWeight: 50, massKilograms: 1.0 },
-  Yumi:    { drawWeight: 55, massKilograms: 1.1 },
-  Horse:   { drawWeight: 45, massKilograms: 0.8 },
-  Flat:    { drawWeight: 40, massKilograms: 0.9 },
-};
 
 const DIRECTIONS = ["Left","Right","Up","Down"];
 

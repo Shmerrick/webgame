@@ -1,14 +1,6 @@
 import React from "react";
 import MaterialSelect from "./MaterialSelect.jsx";
-import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS } from "../constants/weapons.js";
-
-const BOW_TYPES = {
-  Long:    { drawWeight: 60, massKilograms: 1.2 },
-  Recurve: { drawWeight: 50, massKilograms: 1.0 },
-  Yumi:    { drawWeight: 55, massKilograms: 1.1 },
-  Horse:   { drawWeight: 45, massKilograms: 0.8 },
-  Flat:    { drawWeight: 40, massKilograms: 0.9 },
-};
+import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS, BOW_TYPES } from "../constants/weapons.js";
 
 
 export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bowType, setBowType, bowWood, setBowWood, weaponComps, setWeaponComp, isTwoHanded, setTwoHanded, mountedSpeed, setMountedSpeed, armor, DB, subcategoriesFor, itemsForCategory, firstSubCat, firstMat }) {
