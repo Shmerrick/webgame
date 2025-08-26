@@ -37,7 +37,13 @@ export async function getDatabaseSection(key) {
                 }
             })();
         } else if (entry.source && entry.section) {
-            dbCache[key] = getDatabaseSection(entry.source).then(data => data[entry.section]);
+            dbCache[key] = getDatabaseSection(entry.source).then(data => {
+                const sectionData = data[entry.section];
+                if (sectionData === undefined) {
+                    throw new Error(`Section ${entry.section} not found in ${entry.source}`);
+                }
+                return sectionData;
+            });
         } else {
             throw new Error(`Invalid database entry for ${key}`);
         }
