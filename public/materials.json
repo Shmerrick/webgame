@@ -707,6 +707,57 @@
           "earth": 1
         }
       }
+    ],
+    "Birds": [
+      {
+        "name": "Eagle",
+        "factors": {
+          "slash": 1,
+          "pierce": 1,
+          "blunt": 1,
+          "defense_slash": 1,
+          "defense_pierce": 1,
+          "defense_blunt": 1,
+          "fire": 1,
+          "water": 1,
+          "wind": 1,
+          "earth": 1
+        }
+      }
+    ],
+    "Reptiles": [
+      {
+        "name": "Snake",
+        "factors": {
+          "slash": 1,
+          "pierce": 1,
+          "blunt": 1,
+          "defense_slash": 1,
+          "defense_pierce": 1,
+          "defense_blunt": 1,
+          "fire": 1,
+          "water": 1,
+          "wind": 1,
+          "earth": 1
+        }
+      }
+    ],
+    "Fish": [
+      {
+        "name": "Salmon",
+        "factors": {
+          "slash": 1,
+          "pierce": 1,
+          "blunt": 1,
+          "defense_slash": 1,
+          "defense_pierce": 1,
+          "defense_blunt": 1,
+          "fire": 1,
+          "water": 1,
+          "wind": 1,
+          "earth": 1
+        }
+      }
     ]
   },
   "Herbs": [
