@@ -29,7 +29,7 @@ import ArmorSelectionPanel from "./ArmorSelectionPanel.jsx";
 import MaterialSelect from "./MaterialSelect.jsx";
 import useMaterials from "../hooks/useMaterials.js";
 import useLoadout, { useJewelryBonus } from "../hooks/useLoadout.js";
-import { firstSub, firstMaterial } from "../utils/materialHelpers.js";
+import { firstSub, firstMaterial, factorsFor } from "../utils/materialHelpers.js";
 import { DIRECTIONS } from "../constants/attack.js";
 import {
   statCost,
