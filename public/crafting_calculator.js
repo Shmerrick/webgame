@@ -321,6 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const allMaterials = Array.from(materialsData.values());
         const allCategories = [...new Set(allMaterials.map(m => m.Category))].sort();
+        const metalMaterials = allMaterials.filter(m => ['Elemental Metals', 'Metal Alloys', 'Dev'].includes(m.Category));
 
         addOption(shieldBodyCategorySelect, 'Wood', 'Wood');
         addOption(shieldBossCategorySelect, 'Metal', 'Metal');
@@ -334,12 +335,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         populateByCat(shieldBodyCategorySelect, shieldBodyMaterialSelect);
-        populateByCat(shieldBossCategorySelect, shieldBossMaterialSelect);
+        populateSelectWithOptions(shieldBossMaterialSelect, metalMaterials);
         populateByCat(shieldRimCategorySelect, shieldRimMaterialSelect);
 
         [
             [shieldBodyCategorySelect, shieldBodyMaterialSelect],
-            [shieldBossCategorySelect, shieldBossMaterialSelect],
             [shieldRimCategorySelect, shieldRimMaterialSelect]
         ].forEach(([catSel, matSel]) => {
             catSel.addEventListener('change', () => populateByCat(catSel, matSel));
@@ -414,7 +414,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const l = name.toLowerCase();
             if (['handle','shaft','stock'].some(k => l.includes(k))) return MATERIALS_FOR_HANDLE_CORE;
             if (['grip','cord','string'].some(k => l.includes(k))) return MATERIALS_FOR_HANDLE_GRIP;
-            if (['guard','pommel','butt'].some(k => l.includes(k))) return MATERIALS_FOR_HANDLE_FITTING;
+            if (['guard','pommel','butt'].some(k => l.includes(k))) {
+                let cats = MATERIALS_FOR_HANDLE_FITTING;
+                if (type === 'Sword' && (l.includes('guard') || l.includes('pommel'))) {
+                    cats = cats.filter(c => c !== 'Rock Types');
+                }
+                return cats;
+            }
             if (isHeadComponent(name)) return MATERIALS_FOR_HEAD;
             return allCategories;
         };

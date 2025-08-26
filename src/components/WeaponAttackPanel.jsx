@@ -40,7 +40,16 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
             </div>
             <div>
               <label className="block text-sm mb-1">Guard or Pommel Fittings</label>
-              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_HANDLE_FITTING} value={weaponComps.fitting} onChange={val=>setWeaponComp('fitting', val)} />
+              <MaterialSelect
+                DB={DB}
+                allowed={
+                  weaponKey === 'Sword'
+                    ? MATERIALS_FOR_HANDLE_FITTING.filter(c => c !== 'Rock Types')
+                    : MATERIALS_FOR_HANDLE_FITTING
+                }
+                value={weaponComps.fitting}
+                onChange={val => setWeaponComp('fitting', val)}
+              />
             </div>
             <div>
               <label className="block text-sm mb-1">Weapon Head Material</label>
