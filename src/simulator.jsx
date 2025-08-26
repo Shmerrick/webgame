@@ -36,6 +36,7 @@ import {
   firstMaterial,
   factorsFor,
 } from "./utils/materialHelpers.js";
+import { DIRECTIONS } from "./constants/attack.js";
 
 const STAT_POOL = 270;
 const SKILL_POOL = 500;
@@ -52,8 +53,6 @@ const races = [
   { id: "goliath", name: "Goliath", modifier: { STR: 8, DEX: -4, INT: -8, PSY: 0 }, magicProficiency: "Void" },
   { id: "fae",   name: "Fae",    modifier: { STR: -8, DEX: 0, INT: 8, PSY: -4 }, magicProficiency: "Radiance" },
 ];
-
-const DIRECTIONS = ["Left","Right","Up","Down"];
 
 function statCost(v){
   const clamp=(x)=> Math.max(0, Math.min(100, x));
