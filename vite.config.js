@@ -1,23 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
 export default defineConfig({
   plugins: [react()],
   base: './',
-  publicDir: false,
   build: {
-    outDir: 'public/dist',
+    outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: resolve(__dirname, 'src/simulator.jsx'),
-      output: {
-        entryFileNames: 'simulator.js',
-        chunkFileNames: '[name].js',
-        assetFileNames: '[name][extname]'
+      input: {
+        main: 'simulator.html'
       }
     }
   }
