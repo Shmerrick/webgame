@@ -74,11 +74,11 @@ const MIN_DEFENSE_FLOOR = 0.01;
 // Allowed outer categories by armor class (kept aligned to your DB families)
 const MATERIALS_FOR_CLASS = {
   None:   [],
-  Light:  ["Leather","Scales","Cloth","Fur","Dev"],
+  Light:  ["Leather","Scales","Linen","Fur","Dev"],
   Medium: ["Leather","Scales","Carapace","Wood","Bone","Dev"],
   Heavy:  ["Metals","Dev"],
 };
-const MATERIALS_FOR_INNER = ["Linen", "Cloth", "Leather", "Fur", "Dev"];
+const MATERIALS_FOR_INNER = ["Linen", "Leather", "Fur", "Dev"];
 const MATERIALS_FOR_BINDING = ["Leather", "Dev"];
 const MATERIALS_FOR_JEWELRY_SETTING = ["Metals", "Dev"];
 const MATERIALS_FOR_JEWELRY_GEM = ["Rock Types", "Dev"];
@@ -419,11 +419,11 @@ function App({ DB }){
 
   // Armor pieces (each piece has class, outer category/material + inner + binding)
   const [armor, setArmor] = useState({
-    helmet: { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Cloth", innerSubCategory:firstSubCat("Cloth"), innerMaterial:firstMat("Cloth", firstSubCat("Cloth")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
-    gloves: { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Cloth", innerSubCategory:firstSubCat("Cloth"), innerMaterial:firstMat("Cloth", firstSubCat("Cloth")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
-    boots:  { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Cloth", innerSubCategory:firstSubCat("Cloth"), innerMaterial:firstMat("Cloth", firstSubCat("Cloth")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
-    torso:  { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Cloth", innerSubCategory:firstSubCat("Cloth"), innerMaterial:firstMat("Cloth", firstSubCat("Cloth")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
-    legs:   { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Cloth", innerSubCategory:firstSubCat("Cloth"), innerMaterial:firstMat("Cloth", firstSubCat("Cloth")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
+    helmet: { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Linen", innerSubCategory:firstSubCat("Linen"), innerMaterial:firstMat("Linen", firstSubCat("Linen")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
+    gloves: { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Linen", innerSubCategory:firstSubCat("Linen"), innerMaterial:firstMat("Linen", firstSubCat("Linen")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
+    boots:  { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Linen", innerSubCategory:firstSubCat("Linen"), innerMaterial:firstMat("Linen", firstSubCat("Linen")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
+    torso:  { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Linen", innerSubCategory:firstSubCat("Linen"), innerMaterial:firstMat("Linen", firstSubCat("Linen")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
+    legs:   { class:"None", category:"Leather", subCategory:firstSubCat("Leather"), material:firstMat("Leather", firstSubCat("Leather")), innerCategory:"Linen", innerSubCategory:firstSubCat("Linen"), innerMaterial:firstMat("Linen", firstSubCat("Linen")), bindingCategory:"Leather", bindingSubCategory:firstSubCat("Leather"), bindingMaterial:firstMat("Leather", firstSubCat("Leather")) },
     shield: { shield:"None" },
     ring1: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1, attribute: 'Strength' },
     ring2: { isEquipped: true, settingCategory:"Metals", settingSubCategory:firstSubCat("Metals"), settingMaterial:firstMat("Metals", firstSubCat("Metals")), gemCategory:"Rock Types", gemSubCategory:firstSubCat("Rock Types"), gemMaterial:firstMat("Rock Types", firstSubCat("Rock Types")), bonus: 1, attribute: 'Strength' },
@@ -438,9 +438,9 @@ function App({ DB }){
       category: "Metals",
       subCategory: firstSubCat("Metals"),
       material: firstMat("Metals", firstSubCat("Metals")),
-      innerCategory:"Cloth",
-      innerSubCategory:firstSubCat("Cloth"),
-      innerMaterial:firstMat("Cloth", firstSubCat("Cloth")),
+      innerCategory:"Linen",
+      innerSubCategory:firstSubCat("Linen"),
+      innerMaterial:firstMat("Linen", firstSubCat("Linen")),
       bindingCategory:"Leather",
       bindingSubCategory:firstSubCat("Leather"),
       bindingMaterial:firstMat("Leather", firstSubCat("Leather"))
@@ -912,7 +912,7 @@ function App({ DB }){
                 const category = entry.category || "Leather";
                 const subCategory = entry.subCategory || firstSubCat(category);
                 const material = entry.material || "";
-                const innerCategory = entry.innerCategory || "Cloth";
+                const innerCategory = entry.innerCategory || "Linen";
                 const innerSubCategory = entry.innerSubCategory || firstSubCat(innerCategory);
                 const innerMaterial = entry.innerMaterial || "";
                 const bindingCategory = entry.bindingCategory || "Leather";
