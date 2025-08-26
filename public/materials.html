@@ -62,7 +62,15 @@
               getDatabaseSection('rockTypes')
             ]);
 
-            const slug = name => name.toLowerCase().replace(/\s+/g, '_');
+            const slug = (() => {
+              const counts = {};
+              return name => {
+                const base = name.toLowerCase().replace(/\s+/g, '_');
+                const count = counts[base] || 0;
+                counts[base] = count + 1;
+                return count === 0 ? base : `${base}_${count + 1}`;
+              };
+            })();
             const toTitleCase = str => str.replace(/\b\w/g, c => c.toUpperCase());
 
             // Merge wood types by subcategory
