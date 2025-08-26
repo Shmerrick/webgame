@@ -473,31 +473,42 @@ function App({ DB }){
   }, [weaponKey]);
 
   // Effective stats with racial modifiers
-  const race = races.find(r=> r.id===raceId) || races[0];
-  const { effective, jewelryBonus } = useMemo(()=> {
-      let statsWithJewelry = { ...stats };
-      let bonus = { STR:0, DEX:0, INT:0, PSY:0 };
+  const race = races.find(r => r.id === raceId) || races[0];
+  const { effective, jewelryBonus } = useMemo(() => {
+      // Start with clamped stat investments
+      const invested = {
+          STR: Math.min(100, stats.STR),
+          DEX: Math.min(100, stats.DEX),
+          INT: Math.min(100, stats.INT),
+          PSY: Math.min(100, stats.PSY)
+      };
+
+      // Apply racial modifiers after investing points
+      const afterRace = {
+          STR: Math.max(0, invested.STR + (race.modifier.STR || 0)),
+          DEX: Math.max(0, invested.DEX + (race.modifier.DEX || 0)),
+          INT: Math.max(0, invested.INT + (race.modifier.INT || 0)),
+          PSY: Math.max(0, invested.PSY + (race.modifier.PSY || 0))
+      };
+
+      // Then apply jewelry bonuses
+      let bonus = { STR: 0, DEX: 0, INT: 0, PSY: 0 };
+      let eff = { ...afterRace };
       ["ring1", "ring2", "earring1", "earring2"].forEach(slotId => {
           const item = armor[slotId];
           if (item && item.isEquipped && item.attribute && item.bonus) {
               bonus[item.attribute] += item.bonus;
-              statsWithJewelry[item.attribute] += item.bonus;
+              eff[item.attribute] += item.bonus;
           }
       });
 
-      statsWithJewelry.STR = Math.min(100, statsWithJewelry.STR);
-      statsWithJewelry.DEX = Math.min(100, statsWithJewelry.DEX);
-      statsWithJewelry.INT = Math.min(100, statsWithJewelry.INT);
-      statsWithJewelry.PSY = Math.min(100, statsWithJewelry.PSY);
+      eff.STR = Math.max(0, eff.STR);
+      eff.DEX = Math.max(0, eff.DEX);
+      eff.INT = Math.max(0, eff.INT);
+      eff.PSY = Math.max(0, eff.PSY);
 
-      const eff = {
-        STR: Math.max(0, statsWithJewelry.STR + (race.modifier.STR || 0)),
-        DEX: Math.max(0, statsWithJewelry.DEX + (race.modifier.DEX || 0)),
-        INT: Math.max(0, statsWithJewelry.INT + (race.modifier.INT || 0)),
-        PSY: Math.max(0, statsWithJewelry.PSY + (race.modifier.PSY || 0)),
-      };
       return { effective: eff, jewelryBonus: bonus };
-  }, [stats, race, armor]);
+  }, [stats, raceId, armor]);
 
   const spent  = sumCost(stats);
   const remain = STAT_POOL - spent;
