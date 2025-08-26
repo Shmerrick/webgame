@@ -322,6 +322,8 @@ function feelTransform(r) {
 // material category (e.g., Metals vs. Wood) is scaled independently. This
 // prevents cross-category comparisons such as bone vs. steel.
 export function normalizeDamageFactorsByCategory(db) {
+  // Work on a deep clone so the original database remains untouched.
+  const out = structuredClone(db);
   const maxes = {};
 
   const gather = (node, top) => {
@@ -356,10 +358,10 @@ export function normalizeDamageFactorsByCategory(db) {
     }
   };
 
-  gather(db, null);
-  apply(db, null);
+  gather(out, null);
+  apply(out, null);
 
-  return db;
+  return out;
 }
 
 export default calculateMaterialDefenses;

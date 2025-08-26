@@ -53,8 +53,8 @@ export default function useMaterials() {
             },
           },
         ];
-        normalizeDamageFactorsByCategory(built);
-        if (!cancelled) setDb(built);
+        const normalized = normalizeDamageFactorsByCategory(built);
+        if (!cancelled) setDb(normalized);
       } catch (e) {
         if (!cancelled) setError(e);
       }

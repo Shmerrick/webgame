@@ -68,14 +68,35 @@ describe('calculateMaterialDefenses', () => {
         ]
       }
     };
-    normalizeDamageFactorsByCategory(db);
-    const metals = db.Metals.Stuff;
+    const normalized = normalizeDamageFactorsByCategory(db);
+    const metals = normalized.Metals.Stuff;
     expect(Math.max(...metals.map(m=>m.factors.slash))).toBeCloseTo(1);
     expect(Math.max(...metals.map(m=>m.factors.pierce))).toBeCloseTo(1);
     expect(Math.max(...metals.map(m=>m.factors.blunt))).toBeCloseTo(1);
-    const woods = db.Wood.Any;
+    const woods = normalized.Wood.Any;
     expect(Math.max(...woods.map(m=>m.factors.slash))).toBeCloseTo(1);
     expect(Math.max(...woods.map(m=>m.factors.pierce))).toBeCloseTo(1);
     expect(Math.max(...woods.map(m=>m.factors.blunt))).toBeCloseTo(1);
+  });
+
+  it('does not mutate the original database object', () => {
+    const db = {
+      Metals: {
+        Stuff: [
+          { name: 'Iron', factors: { slash: 10, pierce: 5, blunt: 2 } },
+          { name: 'Steel', factors: { slash: 20, pierce: 10, blunt: 4 } }
+        ]
+      },
+      Wood: {
+        Any: [
+          { name: 'Oak', factors: { slash: 3, pierce: 1, blunt: 1 } },
+          { name: 'Pine', factors: { slash: 6, pierce: 2, blunt: 2 } }
+        ]
+      }
+    };
+    const original = structuredClone(db);
+    const normalized = normalizeDamageFactorsByCategory(db);
+    expect(db).toEqual(original);
+    expect(normalized).not.toBe(db);
   });
 });
