@@ -1,6 +1,5 @@
 import React from "react";
-
-const DIRECTIONS = ["Left","Right","Up","Down"];
+import { DIRECTIONS } from "../constants/attack.js";
 
 export default function AttackDirectionPanel({ weapon, direction, setDirection, charge, setCharge, swing, setSwing }) {
   if (!weapon) return null;
