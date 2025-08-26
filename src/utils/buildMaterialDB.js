@@ -1,6 +1,14 @@
 export default function buildMaterialDB(base, wood, elementals, alloys, rocks, options = {}) {
   const { defaultDensities = {}, woodProperties = {} } = options;
-  const slug = (name) => name.toLowerCase().replace(/\s+/g, '_');
+  const slug = (() => {
+    const counts = {};
+    return (name) => {
+      const base = name.toLowerCase().replace(/\s+/g, '_');
+      const count = counts[base] || 0;
+      counts[base] = count + 1;
+      return count === 0 ? base : `${base}_${count + 1}`;
+    };
+  })();
   const db = { ...base };
 
   db['Wood'] = Object.fromEntries(

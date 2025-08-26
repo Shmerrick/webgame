@@ -23,4 +23,11 @@ describe('buildMaterialDB', () => {
     expect(db.Wood.Soft[0]).toEqual({ id: 'pine', name: 'Pine', density: 0.5 });
     expect(db['Rock Types'].Igneous[0]).toEqual({ id: 'granite', name: 'Granite', density: 2.7 });
   });
+
+  it('generates unique ids for duplicate names', () => {
+    const base = { Metals: { 'Base Metals': [{ name: 'Iron' }, { name: 'Iron' }] } };
+    const db = buildMaterialDB(base, {}, { elements: [] }, { elements: [] }, {}, {});
+    const ids = db.Metals['Base Metals'].map((m) => m.id);
+    expect(ids).toEqual(['iron', 'iron_2']);
+  });
 });
