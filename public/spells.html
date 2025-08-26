@@ -28,7 +28,7 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="database.js"></script>
+    <script type="module" src="database.js"></script>
   </head>
   <body style="background-image: url('Art/Backgrounds/summer.png'); background-size: cover; background-attachment: fixed;">
     <div class="min-h-screen w-full bg-slate-950/80 text-slate-100 p-4 md:p-8">
@@ -99,13 +99,15 @@
         );
       }
 
-      getDatabaseSection('spells')
-        .then(data => {
-          ReactDOM.createRoot(document.getElementById("root")).render(
-            <React.StrictMode><SpellsPage data={data} /></React.StrictMode>
-          );
-        })
-        .catch(error => console.error('Error loading spells:', error));
+      window.addEventListener('DOMContentLoaded', () => {
+        getDatabaseSection('spells')
+          .then(data => {
+            ReactDOM.createRoot(document.getElementById("root")).render(
+              <React.StrictMode><SpellsPage data={data} /></React.StrictMode>
+            );
+          })
+          .catch(error => console.error('Error loading spells:', error));
+      });
     </script>
   </body>
 </html>

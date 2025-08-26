@@ -10,9 +10,10 @@ const dbIndexPromise = (async () => {
         throw err;
     }
 })();
+
 const dbCache = {};
 
-async function getDatabaseSection(key) {
+export async function getDatabaseSection(key) {
     const index = await dbIndexPromise;
     if (!dbCache[key]) {
         const entry = index[key];
@@ -39,4 +40,8 @@ async function getDatabaseSection(key) {
         }
     }
     return dbCache[key];
+}
+
+if (typeof window !== 'undefined') {
+    window.getDatabaseSection = getDatabaseSection;
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import buildMaterialDB from '../utils/buildMaterialDB.js';
 import { normalizeDamageFactorsByCategory } from '../materialCalculations.js';
+import { getDatabaseSection } from '../../public/database.js';
 
 export default function useMaterials() {
   const [db, setDb] = useState(null);
