@@ -1,25 +1,34 @@
 import React, { useState, useMemo, useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS } from "./constants/weapons.js";
+import {
+  WEAPONS,
+  MATERIALS_FOR_HANDLE_CORE,
+  MATERIALS_FOR_HANDLE_GRIP,
+  MATERIALS_FOR_HANDLE_FITTING,
+  MATERIALS_FOR_HEAD,
+  BANNED_WEAPON_HEAD_MATERIALS,
+} from "./constants/weapons.js";
+import {
+  armorSlots,
+  ARMOR_CLASS,
+  OFFHAND_ITEMS,
+  DEFAULT_OFFHAND_ITEM,
+  MATERIALS_FOR_CLASS,
+  MATERIALS_FOR_INNER,
+  MATERIALS_FOR_BINDING,
+  MATERIALS_FOR_JEWELRY_SETTING,
+  MATERIALS_FOR_JEWELRY_GEM,
+  MIN_DEFENSE_FLOOR,
+} from "./constants/armor.js";
 import CharacterPanel from "./components/CharacterPanel.jsx";
 import AttackDirectionPanel from "./components/AttackDirectionPanel.jsx";
 import WeaponAttackPanel from "./components/WeaponAttackPanel.jsx";
 import RangedWeaponPanel from "./components/RangedWeaponPanel.jsx";
-import MaterialSelect from "./components/MaterialSelect.jsx";
 import ResultsPanel from "./components/ResultsPanel.jsx";
+import ArmorSelectionPanel from "./components/ArmorSelectionPanel.jsx";
+import MaterialSelect from "./components/MaterialSelect.jsx";
 import useMaterials from "./hooks/useMaterials.js";
-
-
-function Tooltip({ text, children }) {
-  return (
-    <span className="relative group inline-block">
-      {children}
-      <span className="absolute hidden group-hover:block bottom-full mb-2 w-max px-2 py-1 bg-slate-900 text-white text-xs rounded-md border border-slate-700 shadow-lg">
-        {text}
-      </span>
-    </span>
-  );
-}
+import useLoadout, { useJewelryBonus } from "./hooks/useLoadout.js";
 
 const STAT_POOL = 270;
 const SKILL_POOL = 500;
@@ -37,55 +46,6 @@ const races = [
   { id: "fae",   name: "Fae",    modifier: { STR: -8, DEX: 0, INT: 8, PSY: -4 }, magicProficiency: "Radiance" },
 ];
 
-const armorSlots = [
-  { id: "helmet", name: "Helmet", factor: 1 },
-  { id: "gloves", name: "Gloves", factor: 1 },
-  { id: "boots",  name: "Boots",  factor: 2 },
-  { id: "torso",  name: "Torso",  factor: 3 },
-  { id: "legs",   name: "Legs",   factor: 3 },
-  { id: "shield", name: "Off-Hand", factor: 2 },
-  { id: "ring1", name: "Ring 1", factor: 0, type: 'ring' },
-  { id: "ring2", name: "Ring 2", factor: 0, type: 'ring' },
-  { id: "earring1", name: "Earring 1", factor: 0, type: 'earring' },
-  { id: "earring2", name: "Earring 2", factor: 0, type: 'earring' },
-  { id: "amulet", name: "Amulet", factor: 0, type: 'amulet' },
-];
-
-// Armor class base reductions (heavy magic = 50% from doc)
-const ARMOR_CLASS = {
-  None:   { value: 0, physical: 0.00, magical: 0.00 },
-  Light:  { value: 1, physical: 0.45, magical: 0.45 },
-  Medium: { value: 2, physical: 0.65, magical: 0.65 },
-  Heavy:  { value: 3, physical: 0.85, magical: 0.85 },
-};
-
-const OFFHAND_ITEMS = {
-  None:  { class: "None",   strengthRequirement: 0, type: 'shield' },
-  Buckler: { class: "Light", strengthRequirement: 25, type: 'shield' },
-  Round: { class: "Light",  strengthRequirement: 50, type: 'shield' },
-  Kite:  { class: "Medium", strengthRequirement: 75, type: 'shield' },
-  Tower: { class: "Heavy",  strengthRequirement: 100, type: 'shield' },
-  Sling: { class: "None", strengthRequirement: 0, type: 'weapon' } // Sling can be used in either hand
-};
-
-const DEFAULT_OFFHAND_ITEM = Object.keys(OFFHAND_ITEMS).find(k => k !== "None") || "None";
-
-const REGEN_MULT = { Naked: 1.0, Light: 0.75, Medium: 0.50, Heavy: 0.25 };
-const BASE_TICK_PCT = 0.10;
-// Floor for displaying extremely small defense values
-const MIN_DEFENSE_FLOOR = 0.01;
-
-// Allowed outer categories by armor class (kept aligned to your DB families)
-const MATERIALS_FOR_CLASS = {
-  None:   [],
-  Light:  ["Leather","Scales","Linen","Fur","Dev"],
-  Medium: ["Leather","Scales","Carapace","Wood","Bone","Dev"],
-  Heavy:  ["Metals","Dev"],
-};
-const MATERIALS_FOR_INNER = ["Linen", "Leather", "Fur", "Dev"];
-const MATERIALS_FOR_BINDING = ["Leather", "Dev"];
-const MATERIALS_FOR_JEWELRY_SETTING = ["Metals", "Dev"];
-const MATERIALS_FOR_JEWELRY_GEM = ["Cut Gemstones", "Dev"];
 
 // Weapons
 const BOW_TYPES = {
@@ -113,55 +73,6 @@ function sumCost(stats){
 const staminaPool = (DEX)=> 100 + 2*DEX;
 const manaPool    = (PSY)=> 100 + 2*PSY;
 
-function loadoutCategory(equipped, STR){
-  let totalLoadoutWeight=0, maximumLoadoutWeight=0, missingPieces=0;
-  for (const slot of armorSlots){
-    const entry = equipped[slot.id] || {};
-    const factor = slot.factor;
-    let className = entry.class || "None";
-    if (slot.id==="shield"){
-      const subtype = entry.shield || "None";
-      const meta = OFFHAND_ITEMS[subtype];
-      const equippedShield = entry.isEquipped;
-      if (equippedShield && meta?.type === 'shield') {
-          className = (STR >= (meta?.strengthRequirement||0)) ? (meta?.class||"None") : "None";
-      } else {
-          className = "None";
-      }
-    }
-    const metaC = ARMOR_CLASS[className] || { value:0 };
-    totalLoadoutWeight    += factor * (metaC.value||0);
-    maximumLoadoutWeight += factor * ARMOR_CLASS.Heavy.value;
-    if (slot.id!=="shield" && className==="None") missingPieces++;
-  }
-  const loadoutWeightRatio = maximumLoadoutWeight ? totalLoadoutWeight/maximumLoadoutWeight : 0;
-  const category = loadoutWeightRatio <= 0.4 ? "Light" : (loadoutWeightRatio < 0.8 ? "Medium" : "Heavy");
-  const noArmor = armorSlots.every(s=> s.id==="shield" || (equipped[s.id]?.class||"None")==="None");
-  const shieldSubtype = equipped.shield?.shield || "None";
-  const shieldEquipped = equipped.shield?.isEquipped;
-  const hasShield = shieldEquipped && (OFFHAND_ITEMS[shieldSubtype]?.class||"None")!=="None" && STR >= (OFFHAND_ITEMS[shieldSubtype]?.strengthRequirement||0);
-  const nakedOverride = noArmor && !hasShield;
-  return { totalLoadoutWeight,maximumLoadoutWeight,loadoutWeightRatio,category,missingPieces,nakedOverride };
-}
-
-function regenPerTick(pool, category, nakedOverride, armorTraining=0){
-  const mult = nakedOverride ? REGEN_MULT.Naked : (REGEN_MULT[category]||1);
-  const skillBonus = 1 + 0.10 * (armorTraining/100);
-  return Math.ceil(BASE_TICK_PCT * pool * mult * skillBonus);
-}
-
-function calcJewelryBonus(armor){
-  const bonus = { STR: 0, DEX: 0, INT: 0, PSY: 0 };
-  ["ring1","ring2","earring1","earring2","amulet"].forEach(slot => {
-    const item = armor[slot];
-    if (item && item.isEquipped && item.attribute && item.bonus) {
-      if (bonus[item.attribute] !== undefined) {
-        bonus[item.attribute] += item.bonus;
-      }
-    }
-  });
-  return bonus;
-}
 
 const chargeMultiplier = (t)=> t <= 0.5 ? 0 : (t >= 1.0 ? 1 : (t-0.5)/0.5);
 const swingMultiplier  = (p)=> p < 0.6 ? 0 : Math.max(0, Math.min(1, p));
@@ -519,7 +430,7 @@ function App({ DB }){
 
   // Effective stats with racial modifiers and jewelry bonuses
   const race = races.find(r => r.id === raceId) || races[0];
-  const jewelryBonus = useMemo(() => calcJewelryBonus(armor), [armor]);
+  const jewelryBonus = useJewelryBonus(armor);
 
   useEffect(() => {
     setStats(prev => {
@@ -556,10 +467,17 @@ function App({ DB }){
   const remain = STAT_POOL - spent;
   const stamPool = staminaPool(effective.DEX);
   const manaPoolV= manaPool(effective.PSY);
+  const {
+    totalLoadoutWeight,
+    maximumLoadoutWeight,
+    loadoutWeightRatio,
+    category,
+    missingPieces,
+    nakedOverride,
+    regenStam,
+    regenMana,
+  } = useLoadout(armor, effective.STR, skills, stamPool, manaPoolV);
 
-  const { totalLoadoutWeight, maximumLoadoutWeight, loadoutWeightRatio, category, missingPieces, nakedOverride } = useMemo(()=> loadoutCategory(armor, effective.STR), [armor, effective.STR]);
-  const regenStam = regenPerTick(stamPool, category, nakedOverride, skills.ArmorTraining);
-  const regenMana = regenPerTick(manaPoolV, category, nakedOverride, skills.ArmorTraining);
 
   const weapon = WEAPONS[weaponKey];
 
@@ -702,7 +620,6 @@ function App({ DB }){
 
   const setSkill = (name, val)=> setSkillBound(name, val);
 
-  // MaterialSelect component now imported
 
   /* ============================== UI ============================== */
   return (
@@ -952,154 +869,37 @@ function App({ DB }){
             </div>
           </section>
 
-          <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6">
-            <h2 className="text-lg font-semibold mb-3">Armor Loadout and Regeneration</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {armorSlots.map(slot=>{
-                const isShield = slot.id==="shield";
-                const entry = armor[slot.id] || {};
-                const shieldEquipped = isShield ? entry.isEquipped : false;
-                const cls = isShield ? (shieldEquipped ? (OFFHAND_ITEMS[entry.shield]?.class||"None") : "None") : (entry.class||"None");
-                const category = entry.category || "Leather";
-                const subCategory = entry.subCategory || firstSubCat(category);
-                const material = entry.material || "";
-                const innerCategory = entry.innerCategory || "Linen";
-                const innerSubCategory = entry.innerSubCategory || firstSubCat(innerCategory);
-                const innerMaterial = entry.innerMaterial || "";
-                const bindingCategory = entry.bindingCategory || "Leather";
-                const bindingSubCategory = entry.bindingSubCategory || firstSubCat(bindingCategory);
-                const bindingMaterial = entry.bindingMaterial || "";
-                const isJewelry = ["ring1", "ring2", "earring1", "earring2", "amulet"].includes(slot.id);
-                const eff = isJewelry ? { blunt: 0, slash: 0, pierce: 0, fire: 0, water: 0, wind: 0, earth: 0, fallbackFlags: {} } : effectiveDRForSlot(DB, cls, category, material, innerCategory, innerMaterial, bindingCategory, bindingMaterial, isShield);
-                const allowedCats = MATERIALS_FOR_CLASS[entry.class||"None"] || [];
-                const matObj = factorsFor(DB, category, material);
-
-                return (
-                  <div key={slot.id} className="bg-slate-800/60 rounded-xl p-3">
-                    <div className="flex items-center justify-between">
-                      <div className="text-sm font-medium">{slot.name}</div>
-                      <div className="text-xs text-slate-400">Weight factor in loadout score: {slot.factor}</div>
-                    </div>
-
-                    {isJewelry ? (
-                      entry.isEquipped ? (
-                        <>
-                          <label className="block text-sm mt-3">Setting Material</label>
-                          <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_JEWELRY_SETTING} value={{category: entry.settingCategory, subCategory: entry.settingSubCategory, material: entry.settingMaterial}} onChange={val=> setJewelrySetting(slot.id, val)} />
-
-                          <label className="block text-sm mt-3">Gem</label>
-                          <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_JEWELRY_GEM} value={{category: entry.gemCategory, subCategory: entry.gemSubCategory, material: entry.gemMaterial}} onChange={val=> setJewelryGem(slot.id, val)} />
-                          <div className="mt-3">
-                            <label className="block text-sm">Bonus</label>
-                            <input type="range" min="1" max="5" value={entry.bonus || 1} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], bonus: parseInt(e.target.value, 10)}}))} className="w-full" />
-                            <div className="text-center text-sm">{entry.bonus || 1}</div>
-                          </div>
-                          {slot.type !== 'amulet' && (
-                            <div className="mt-3">
-                              <label className="block text-sm">Attribute Bonus</label>
-                              <select
-                                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2"
-                                value={entry.attribute || (slot.type === 'ring' ? 'STR' : 'DEX')}
-                                onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], attribute: e.target.value}}))}
-                              >
-                                {slot.type === 'ring' && (
-                                  <>
-                                    <option value="STR">Strength</option>
-                                    <option value="INT">Intelligence</option>
-                                  </>
-                                )}
-                                {slot.type === 'earring' && (
-                                  <>
-                                    <option value="DEX">Dexterity</option>
-                                    <option value="PSY">Psyche</option>
-                                  </>
-                                )}
-                              </select>
-                            </div>
-                          )}
-                          <button onClick={() => setArmor(p => ({...p, [slot.id]: {...p[slot.id], isEquipped: false}}))} className="mt-3 w-full bg-rose-500/20 text-rose-300 border border-rose-500 rounded-lg py-2 hover:bg-rose-500/40">Unequip</button>
-                        </>
-                      ) : (
-                        <button onClick={() => setArmor(p => ({...p, [slot.id]: {...p[slot.id], isEquipped: true}}))} className="mt-3 w-full bg-emerald-500/20 text-emerald-300 border border-emerald-500 rounded-lg py-2 hover:bg-emerald-500/40">Equip</button>
-                      )
-                    ) : isShield ? (
-                      shieldEquipped ? (
-                        <>
-                          <label className="block text-sm mt-2">Off-Hand Item</label>
-                          <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.shield} onChange={e=>setShieldSubtypeSafe(e.target.value)} disabled={isTwoHanded}>
-                            {Object.keys(OFFHAND_ITEMS).filter(k=> k!=="None").map(k=> <option key={k} value={k}>{k}</option>)}
-                          </select>
-                          {entry.shield!=="None" && (
-                            <div className="text-sm text-slate-300 mt-1">
-                              Required Strength: <span className={`font-semibold ${(effective.STR >= (OFFHAND_ITEMS[entry.shield].strengthRequirement||0)) ? "text-emerald-300" : "text-rose-300"}`}>{OFFHAND_ITEMS[entry.shield].strengthRequirement}</span>.
-                            </div>
-                          )}
-                          <div className="text-sm text-slate-300 mt-2">
-                            Shield faces are treated similarly to wood planks for now so that the calculations stay consistent with your materials database. If you want a dedicated shield material list, tell me how you would like it organized, and I will add it.
-                          </div>
-                          <button onClick={() => setShieldEquipped(false)} className="mt-3 w-full bg-rose-500/20 text-rose-300 border border-rose-500 rounded-lg py-2 hover:bg-rose-500/40" disabled={isTwoHanded}>Unequip</button>
-                        </>
-                      ) : (
-                        <button onClick={() => setShieldEquipped(true)} className="mt-2 w-full bg-emerald-500/20 text-emerald-300 border border-emerald-500 rounded-lg py-2 hover:bg-emerald-500/40" disabled={isTwoHanded}>Equip</button>
-                      )
-                    ) : (
-                      <>
-                        <label className="block text-sm mt-2">Armor Class</label>
-                        <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.class||"None"} onChange={e=>setArmorClassSafe(slot.id, e.target.value)}>
-                          {Object.keys(ARMOR_CLASS).map(k=> <option key={k} value={k}>{k}</option>)}
-                        </select>
-
-                        <label className="block text-sm mt-3">Outer Material</label>
-                        <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={allowedCats} value={{category, subCategory: entry.subCategory, material}} onChange={val=> setArmorOuter(slot.id, val)} disabled={(entry.class||"None")==="None"} />
-
-                        <label className="block text-sm mt-3">Inner Layer Material</label>
-                        <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_INNER} value={{category: innerCategory, subCategory: entry.innerSubCategory, material: innerMaterial}} onChange={val=> setArmorInner(slot.id, val)} disabled={(entry.class||"None")==="None"} />
-
-                        <label className="block text-sm mt-3">Binding</label>
-                        <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_BINDING} value={{category: bindingCategory, subCategory: entry.bindingSubCategory, material: bindingMaterial}} onChange={val=> setArmorBinding(slot.id, val)} disabled={(entry.class||"None")==="None"} />
-
-                        {(entry.class||"None")!=="None" && matObj && (
-                          <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
-                            <div className="font-medium mb-1">Material and Armor Explanation</div>
-                            <p className="text-sm text-slate-300">
-                              {Object.keys(eff).filter(k => k !== 'fallbackFlags').map(key => {
-                                  const value = eff[key];
-                                  const isFallback = eff.fallbackFlags[key];
-                                  const text = `${key.charAt(0).toUpperCase() + key.slice(1)}: ${(value * 100).toFixed(0)}%`;
-
-                                  if (isFallback) {
-                                      return (
-                                          <React.Fragment key={key}>
-                                              <Tooltip text="This value is a fallback for missing data.">
-                                                  <span className="text-amber-400 cursor-help">{text}*</span>
-                                              </Tooltip>
-                                              {' '}
-                                          </React.Fragment>
-                                      );
-                                  }
-                                  return <span key={key}>{text} </span>;
-                              })}
-                            </p>
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-          <ResultsPanel
-            totalLoadoutWeight={totalLoadoutWeight}
-            maximumLoadoutWeight={maximumLoadoutWeight}
-            loadoutWeightRatio={loadoutWeightRatio}
-            category={category}
-            missingPieces={missingPieces}
-            regenStam={regenStam}
-            regenMana={regenMana}
-            nakedOverride={nakedOverride}
-          />
-        </section>
+        <ArmorSelectionPanel
+          DB={DB}
+          armor={armor}
+          setArmor={setArmor}
+          effective={effective}
+          isTwoHanded={isTwoHanded}
+          setArmorClassSafe={setArmorClassSafe}
+          setShieldSubtypeSafe={setShieldSubtypeSafe}
+          setShieldEquipped={setShieldEquipped}
+          setArmorOuter={setArmorOuter}
+          setArmorInner={setArmorInner}
+          setArmorBinding={setArmorBinding}
+          setJewelrySetting={setJewelrySetting}
+          setJewelryGem={setJewelryGem}
+          firstSubCat={firstSubCat}
+          firstMat={firstMat}
+          effectiveDRForSlot={effectiveDRForSlot}
+          subcategoriesFor={subcategoriesFor}
+          itemsForCategory={itemsForCategory}
+          factorsFor={factorsFor}
+        />
+        <ResultsPanel
+          totalLoadoutWeight={totalLoadoutWeight}
+          maximumLoadoutWeight={maximumLoadoutWeight}
+          loadoutWeightRatio={loadoutWeightRatio}
+          category={category}
+          missingPieces={missingPieces}
+          regenStam={regenStam}
+          regenMana={regenMana}
+          nakedOverride={nakedOverride}
+        />
 
         <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6">
           <h2 className="text-lg font-semibold mb-3">Target Armor for Damage Against Armor</h2>
