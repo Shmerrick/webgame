@@ -161,77 +161,6 @@ function App({ DB }){
   const [elementalSchool, setElementalSchool] = useState("Fire");
   const [entropySchool, setEntropySchool] = useState("Radiance");
 
-  // Player health and regeneration tracking
-  const [playerHealth, setPlayerHealth] = useState(BASE_HEALTH);
-  const [lastDamageTime, setLastDamageTime] = useState(null);
-
-  // Player stamina and regeneration tracking
-  const [playerStamina, setPlayerStamina] = useState(stamPool);
-  const [lastStaminaUse, setLastStaminaUse] = useState(null);
-  useEffect(() => {
-    setPlayerStamina(s => Math.min(stamPool, s));
-  }, [stamPool]);
-
-  useEffect(() => {
-    const race = races.find(r => r.id === raceId);
-    if (race) {
-      if (race.magicProficiency === "Void" || race.magicProficiency === "Radiance") {
-        setEntropySchool(race.magicProficiency);
-      } else {
-        setElementalSchool(race.magicProficiency);
-      }
-
-      const raceArmorPreference = {
-        human: 'Medium',
-        dwarf: 'Heavy',
-        elf: 'Light',
-        orc: 'Medium',
-        goliath: 'Heavy',
-        fae: 'Light',
-      };
-      const preferredArmorClass = raceArmorPreference[raceId] || 'None';
-
-      setArmor(currentArmor => {
-        const newArmor = { ...currentArmor };
-        for (const slot of armorSlots) {
-          if (slot.id !== 'shield') {
-            const prev = newArmor[slot.id] || {};
-            const allowed = MATERIALS_FOR_CLASS[preferredArmorClass] || [];
-            let category = prev.category || allowed[0] || "Leather";
-            if (!allowed.includes(category)) category = allowed[0] || "Leather";
-            const subCategory = firstSubCat(category);
-            const material = firstMat(category, subCategory);
-            newArmor[slot.id] = { ...prev, class: preferredArmorClass, category, subCategory, material };
-          }
-        }
-        return newArmor;
-      });
-    }
-  }, [raceId]);
-
-  // Health regeneration: 1 HP every 2 seconds after 10 seconds without
-  // taking damage.
-  useEffect(() => {
-    const id = setInterval(() => {
-      const now = Date.now();
-      if (playerHealth < BASE_HEALTH && (!lastDamageTime || now - lastDamageTime >= 10000)) {
-        setPlayerHealth(h => Math.min(BASE_HEALTH, h + 1));
-      }
-    }, 2000);
-    return () => clearInterval(id);
-  }, [playerHealth, lastDamageTime]);
-
-  // Stamina regeneration: regenStam per second after 3 seconds without using stamina
-  useEffect(() => {
-    const id = setInterval(() => {
-      const now = Date.now();
-      if (playerStamina < stamPool && (!lastStaminaUse || now - lastStaminaUse >= 3000)) {
-        setPlayerStamina(s => Math.min(stamPool, s + regenStam));
-      }
-    }, 1000);
-    return () => clearInterval(id);
-  }, [playerStamina, lastStaminaUse, stamPool, regenStam]);
-
   const totalSkill = Object.values(skills).reduce((a,b)=> a+(b||0), 0);
   function setSkillBound(name, val) {
     val = Math.max(0, Math.min(100, val));
@@ -262,20 +191,6 @@ function App({ DB }){
 
     setSkills(nextSkills);
   }
-
-  const applyDamageToPlayer = (amount) => {
-    if (amount > 0) {
-      setPlayerHealth((h) => Math.max(0, h - amount));
-      setLastDamageTime(Date.now());
-    }
-  };
-
-  const consumeStamina = (amount) => {
-    if (amount > 0) {
-      setPlayerStamina(s => Math.max(0, s - amount));
-      setLastStaminaUse(Date.now());
-    }
-  };
 
   // Helpers for materials
   const firstMat = (cat, sub) => firstMaterial(DB, cat, sub);
@@ -336,6 +251,43 @@ function App({ DB }){
       }
   }, [weaponKey]);
 
+  useEffect(() => {
+    const race = races.find(r => r.id === raceId);
+    if (race) {
+      if (race.magicProficiency === "Void" || race.magicProficiency === "Radiance") {
+        setEntropySchool(race.magicProficiency);
+      } else {
+        setElementalSchool(race.magicProficiency);
+      }
+
+      const raceArmorPreference = {
+        human: 'Medium',
+        dwarf: 'Heavy',
+        elf: 'Light',
+        orc: 'Medium',
+        goliath: 'Heavy',
+        fae: 'Light',
+      };
+      const preferredArmorClass = raceArmorPreference[raceId] || 'None';
+
+      setArmor(currentArmor => {
+        const newArmor = { ...currentArmor };
+        for (const slot of armorSlots) {
+          if (slot.id !== 'shield') {
+            const prev = newArmor[slot.id] || {};
+            const allowed = MATERIALS_FOR_CLASS[preferredArmorClass] || [];
+            let category = prev.category || allowed[0] || "Leather";
+            if (!allowed.includes(category)) category = allowed[0] || "Leather";
+            const subCategory = firstSubCat(category);
+            const material = firstMat(category, subCategory);
+            newArmor[slot.id] = { ...prev, class: preferredArmorClass, category, subCategory, material };
+          }
+        }
+        return newArmor;
+      });
+    }
+  }, [raceId]);
+
   // Effective stats with racial modifiers and jewelry bonuses
   const race = races.find(r => r.id === raceId) || races[0];
   const jewelryBonus = useJewelryBonus(armor);
@@ -386,6 +338,52 @@ function App({ DB }){
     regenMana,
   } = useLoadout(armor, effective.STR, skills, stamPool, manaPoolV);
 
+  // Player health and regeneration tracking
+  const [playerHealth, setPlayerHealth] = useState(BASE_HEALTH);
+  const [lastDamageTime, setLastDamageTime] = useState(null);
+
+  // Player stamina and regeneration tracking
+  const [playerStamina, setPlayerStamina] = useState(stamPool);
+  const [lastStaminaUse, setLastStaminaUse] = useState(null);
+  useEffect(() => {
+    setPlayerStamina(s => Math.min(stamPool, s));
+  }, [stamPool]);
+
+  const applyDamageToPlayer = (amount) => {
+    if (amount > 0) {
+      setPlayerHealth(h => Math.max(0, h - amount));
+      setLastDamageTime(Date.now());
+    }
+  };
+
+  const consumeStamina = (amount) => {
+    if (amount > 0) {
+      setPlayerStamina(s => Math.max(0, s - amount));
+      setLastStaminaUse(Date.now());
+    }
+  };
+
+  // Health regeneration: 1 HP every 2 seconds after 10 seconds without taking damage.
+  useEffect(() => {
+    const id = setInterval(() => {
+      const now = Date.now();
+      if (playerHealth < BASE_HEALTH && (!lastDamageTime || now - lastDamageTime >= 10000)) {
+        setPlayerHealth(h => Math.min(BASE_HEALTH, h + 1));
+      }
+    }, 2000);
+    return () => clearInterval(id);
+  }, [playerHealth, lastDamageTime]);
+
+  // Stamina regeneration: regenStam per second after 3 seconds without using stamina
+  useEffect(() => {
+    const id = setInterval(() => {
+      const now = Date.now();
+      if (playerStamina < stamPool && (!lastStaminaUse || now - lastStaminaUse >= 3000)) {
+        setPlayerStamina(s => Math.min(stamPool, s + regenStam));
+      }
+    }, 1000);
+    return () => clearInterval(id);
+  }, [playerStamina, lastStaminaUse, stamPool, regenStam]);
 
   const weapon = WEAPONS[weaponKey];
 
