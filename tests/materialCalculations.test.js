@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calculateMaterialDefenses } from '../src/materialCalculations.js';
+import { calculateMaterialDefenses, normalizeDamageFactorsByCategory } from '../src/materialCalculations.js';
 
 describe('calculateMaterialDefenses', () => {
   it('computes defense ratings within [0,1]', () => {
@@ -10,7 +10,7 @@ describe('calculateMaterialDefenses', () => {
     const result = calculateMaterialDefenses(materials);
     expect(result).toHaveLength(2);
     for (const mat of result) {
-      ['R_slash','R_pierce','R_blunt','R_fire','R_earth','R_water','R_wind'].forEach(key => {
+      ['D_slash','D_pierce','D_blunt','R_slash','R_pierce','R_blunt','R_fire','R_earth','R_water','R_wind'].forEach(key => {
         expect(mat[key]).toBeGreaterThanOrEqual(0);
         expect(mat[key]).toBeLessThanOrEqual(1);
       });
@@ -51,5 +51,31 @@ describe('calculateMaterialDefenses', () => {
     const base = calculateMaterialDefenses(materials)[2];
     const attuned = calculateMaterialDefenses(materials, { attunement: { fire: 0.2 } })[2];
     expect(attuned.R_fire).toBeCloseTo(Math.min(1, base.R_fire + 0.2));
+  });
+
+  it('normalizes damage factors per category', () => {
+    const db = {
+      Metals: {
+        Stuff: [
+          { name: 'Iron', factors: { slash: 10, pierce: 5, blunt: 2 } },
+          { name: 'Steel', factors: { slash: 20, pierce: 10, blunt: 4 } }
+        ]
+      },
+      Wood: {
+        Any: [
+          { name: 'Oak', factors: { slash: 3, pierce: 1, blunt: 1 } },
+          { name: 'Pine', factors: { slash: 6, pierce: 2, blunt: 2 } }
+        ]
+      }
+    };
+    normalizeDamageFactorsByCategory(db);
+    const metals = db.Metals.Stuff;
+    expect(Math.max(...metals.map(m=>m.factors.slash))).toBeCloseTo(1);
+    expect(Math.max(...metals.map(m=>m.factors.pierce))).toBeCloseTo(1);
+    expect(Math.max(...metals.map(m=>m.factors.blunt))).toBeCloseTo(1);
+    const woods = db.Wood.Any;
+    expect(Math.max(...woods.map(m=>m.factors.slash))).toBeCloseTo(1);
+    expect(Math.max(...woods.map(m=>m.factors.pierce))).toBeCloseTo(1);
+    expect(Math.max(...woods.map(m=>m.factors.blunt))).toBeCloseTo(1);
   });
 });
