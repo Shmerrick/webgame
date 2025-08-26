@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import MaterialSelect from "./MaterialSelect.jsx";
 import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS, BOW_TYPES } from "../constants/weapons.js";
 
@@ -98,3 +99,37 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
     </section>
   );
 }
+
+const materialShape = PropTypes.shape({
+  category: PropTypes.string.isRequired,
+  subCategory: PropTypes.string.isRequired,
+  material: PropTypes.string.isRequired,
+});
+
+WeaponAttackPanel.propTypes = {
+  weaponKey: PropTypes.string.isRequired,
+  setWeaponKey: PropTypes.func.isRequired,
+  weapon: PropTypes.shape({ type: PropTypes.string }),
+  bowType: PropTypes.string.isRequired,
+  setBowType: PropTypes.func.isRequired,
+  bowWood: materialShape.isRequired,
+  setBowWood: PropTypes.func.isRequired,
+  weaponComps: PropTypes.shape({
+    core: materialShape.isRequired,
+    grip: materialShape.isRequired,
+    fitting: materialShape.isRequired,
+    head: materialShape.isRequired,
+  }).isRequired,
+  setWeaponComp: PropTypes.func.isRequired,
+  isTwoHanded: PropTypes.bool,
+  setTwoHanded: PropTypes.func.isRequired,
+  mountedSpeed: PropTypes.string.isRequired,
+  setMountedSpeed: PropTypes.func.isRequired,
+  armor: PropTypes.object.isRequired,
+  DB: PropTypes.object.isRequired,
+};
+
+WeaponAttackPanel.defaultProps = {
+  weapon: null,
+  isTwoHanded: false,
+};

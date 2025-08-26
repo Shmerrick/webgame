@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import PropTypes from "prop-types";
 import {
   subcategoriesFor,
   itemsForCategory,
@@ -6,7 +7,7 @@ import {
   firstMaterial,
 } from "../utils/materialHelpers.js";
 
-export default function MaterialSelect({ DB, allowed, value, onChange, disabled = false, exclude = [] }) {
+export default function MaterialSelect({ DB, allowed, value, onChange, disabled, exclude }) {
   const title = (s) => s.replace(/\b\w/g, c => c.toUpperCase());
   const categories = useMemo(() => allowed.slice().sort((a,b)=>a.localeCompare(b)), [allowed]);
   const subCats = useMemo(() => subcategoriesFor(DB, value.category), [DB, value.category]);
@@ -60,3 +61,23 @@ export default function MaterialSelect({ DB, allowed, value, onChange, disabled 
     </div>
   );
 }
+
+const materialShape = PropTypes.shape({
+  category: PropTypes.string.isRequired,
+  subCategory: PropTypes.string.isRequired,
+  material: PropTypes.string.isRequired,
+});
+
+MaterialSelect.propTypes = {
+  DB: PropTypes.object.isRequired,
+  allowed: PropTypes.arrayOf(PropTypes.string).isRequired,
+  value: materialShape.isRequired,
+  onChange: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  exclude: PropTypes.arrayOf(PropTypes.string),
+};
+
+MaterialSelect.defaultProps = {
+  disabled: false,
+  exclude: [],
+};

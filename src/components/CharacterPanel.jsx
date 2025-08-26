@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default function CharacterPanel({ races, raceId, setRaceId, stats, setStat, effective, jewelryBonus, spent, remain, stamPool, manaPoolV, STAT_POOL, baseHealth, resetStats }) {
   const race = races.find(r => r.id === raceId) || races[0];
@@ -44,3 +45,33 @@ export default function CharacterPanel({ races, raceId, setRaceId, stats, setSta
     </section>
   );
 }
+
+const statShape = PropTypes.shape({
+  STR: PropTypes.number.isRequired,
+  DEX: PropTypes.number.isRequired,
+  INT: PropTypes.number.isRequired,
+  PSY: PropTypes.number.isRequired,
+});
+
+CharacterPanel.propTypes = {
+  races: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      modifier: PropTypes.object.isRequired,
+    })
+  ).isRequired,
+  raceId: PropTypes.string.isRequired,
+  setRaceId: PropTypes.func.isRequired,
+  stats: statShape.isRequired,
+  setStat: PropTypes.func.isRequired,
+  effective: statShape.isRequired,
+  jewelryBonus: statShape.isRequired,
+  spent: PropTypes.number.isRequired,
+  remain: PropTypes.number.isRequired,
+  stamPool: PropTypes.number.isRequired,
+  manaPoolV: PropTypes.number.isRequired,
+  STAT_POOL: PropTypes.number.isRequired,
+  baseHealth: PropTypes.number.isRequired,
+  resetStats: PropTypes.func.isRequired,
+};

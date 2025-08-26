@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
+import PropTypes from "prop-types";
 import {
   WEAPONS,
   MATERIALS_FOR_HANDLE_CORE,
@@ -861,8 +862,12 @@ function App({ DB }){
       </div>
     </div>
   </>
-  );
-}
+    );
+  }
+
+App.propTypes = {
+  DB: PropTypes.object.isRequired,
+};
 
 export default function SimulatorContainer() {
   const [DB, error] = useMaterials();
@@ -874,4 +879,6 @@ export default function SimulatorContainer() {
   }
   return <App DB={DB} />;
 }
+
+SimulatorContainer.propTypes = {};
 
