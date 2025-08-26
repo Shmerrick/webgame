@@ -43,9 +43,13 @@
     <div class="min-h-screen w-full bg-slate-950/80 text-slate-100 p-4 md:p-8">
     <div class="max-w-4xl mx-auto">
       <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
-        <div class="flex items-center justify-between flex-wrap">
-          <div class="text-xl font-bold tracking-tight">Game Simulator</div>
-          <div class="flex flex-wrap gap-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+            <span id="version-display" class="text-sm text-slate-400"></span>
+          </div>
+          <button id="menu-toggle" class="md:hidden px-2 py-1 text-slate-300 hover:text-emerald-400 border border-slate-700 rounded">Menu</button>
+          <div id="nav-links" class="hidden w-full flex-col gap-2 mt-4 md:mt-0 md:flex md:flex-row md:flex-wrap md:gap-4 md:w-auto">
             <a href="index.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Home</a>
             <a href="materials.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials</a>
             <a href="simulator.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Simulator</a>
@@ -53,11 +57,12 @@
             <a href="movement.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Movement</a>
             <a href="races.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Races</a>
             <a href="ascension.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Ascension</a>
-            <a href="magic.html" class="px-2 py-1 bg-emerald-600 text-white rounded">Magic</a>
+            <a href="magic.html" class="px-2 py-1 text-emerald-400 font-semibold">Magic</a>
             <a href="spells.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Spells</a>
             <a href="crafting.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Crafting</a>
             <a href="siege.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Siege</a>
             <a href="materials_guide.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials Guide</a>
+            <a href="game_systems.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Game Systems</a>
           </div>
         </div>
       </nav>
@@ -65,7 +70,7 @@
       <header class="text-center">
         <h1 class="text-4xl font-bold tracking-tight mb-4">Magic System Reference</h1>
         <p class="text-lg text-slate-300 break-words">
-          This document consolidates all design decisions into one comprehensive system reference.
+          This document consolidates key design decisions into a single reference.
         </p>
       </header>
 
@@ -244,5 +249,7 @@
       </main>
     </div>
   </div>
+  <script src="nav.js"></script>
+  <script src="version.js"></script>
 </body>
 </html>
