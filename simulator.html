@@ -2,19 +2,50 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Redirecting...</title>
+    <title>Game Simulator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/aspect_ratio.js"></script>
     <script>
-      const base = window.location.pathname.replace(/[^/]*$/, '');
-      const target = `${base}public/simulator.html`;
-      window.location.replace(target);
+      if (window.tailwind) {
+        tailwind.config = {
+          theme: {
+            extend: {
+              screens: {
+                "aspect-ultrawide": { "raw": "[data-aspect-ratio='ultrawide']" },
+                "aspect-widescreen": { "raw": "[data-aspect-ratio='widescreen']" },
+                "aspect-mobile": { "raw": "[data-aspect-ratio='mobile']" },
+              },
+            },
+          },
+        };
+      }
+      document.documentElement.classList.add("dark");
     </script>
+    <style>
+      :root { color-scheme: dark; }
+      body { background: #0f172a; color: #e2e8f0; margin: 0; }
+      .slot-box { min-height: 82px; }
+          [data-aspect-ratio='ultrawide'] #materials-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      [data-aspect-ratio='widescreen'] #materials-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    </style>
+
   </head>
-  <body>
-    <p>If you are not redirected automatically, follow this <a id="redirect-link" href="#">link to the simulator</a>.</p>
-    <script>
-      const base = window.location.pathname.replace(/[^/]*$/, '');
-      const target = `${base}public/simulator.html`;
-      document.getElementById('redirect-link').href = target;
-    </script>
+  <body style="background-image: url('/Art/Backgrounds/summer.png'); background-size: cover; background-attachment: fixed;">
+    <div class="min-h-screen w-full bg-slate-950/70 text-slate-100 p-4 md:p-8">
+      <div class="max-w-7xl mx-auto">
+        <div id="nav-container" data-sticky="true"></div>
+        <div id="root"></div>
+      </div>
+    </div>
+
+  <script type="module" src="/database.js"></script>
+  <script type="module" src="/src/simulator.jsx"></script>
+  <script src="/nav.js"></script>
+  <script src="/version.js"></script>
   </body>
 </html>
