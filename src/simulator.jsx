@@ -30,6 +30,12 @@ import ArmorSelectionPanel from "./components/ArmorSelectionPanel.jsx";
 import MaterialSelect from "./components/MaterialSelect.jsx";
 import useMaterials from "./hooks/useMaterials.js";
 import useLoadout, { useJewelryBonus } from "./hooks/useLoadout.js";
+import {
+  itemsForCategory,
+  firstSub,
+  firstMaterial,
+  factorsFor,
+} from "./utils/materialHelpers.js";
 
 const STAT_POOL = 270;
 const SKILL_POOL = 500;
@@ -75,44 +81,6 @@ function classBasePerType(cls){
   return { blunt: c.physical, slash: c.physical, pierce: c.physical, magic: c.magical };
 }
 
-function getMaterialsForCategory(DB, cat){
-  return DB[cat] || {};
-}
-function subcategoriesFor(DB, cat){
-  const obj = getMaterialsForCategory(DB, cat);
-  if (Array.isArray(obj)) return [];
-  const keys = Object.keys(obj || {}).sort();
-  return (keys.length === 1 && keys[0] === 'A') ? [] : keys;
-}
-function itemsForCategory(DB, cat, subCat){
-  const obj = getMaterialsForCategory(DB, cat);
-  if (Array.isArray(obj)) return obj.slice().sort((a,b)=>a.name.localeCompare(b.name));
-  if (subCat) {
-    const list = obj[subCat];
-    return Array.isArray(list) ? list.slice().sort((a,b)=>a.name.localeCompare(b.name)) : [];
-  }
-  let arr = [];
-  for (const list of Object.values(obj || {})){
-    if (Array.isArray(list)) arr = arr.concat(list);
-  }
-  return arr.sort((a,b)=>a.name.localeCompare(b.name));
-}
-function firstSub(DB, cat){
-  return subcategoriesFor(DB, cat)[0] || "";
-}
-function firstMaterial(DB, cat, subCat){
-  const items = itemsForCategory(DB, cat, subCat);
-  return (items[0]?.name) || "";
-}
-function factorsFor(DB, cat, materialName){
-  const items = itemsForCategory(DB, cat);
-  for (const m of items){
-    if (m.name === materialName){
-      return m.factors || m;
-    }
-  }
-  return null;
-}
 
 // Weighted 80% outer, 15% inner, 5% binding; multiplied by armor-class base DRs
 function effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory, innerMaterialName, bindingCategory, bindingMaterialName, isShield=false){
@@ -765,10 +733,6 @@ function App({ DB }){
                 setMountedSpeed={setMountedSpeed}
                 armor={armor}
                 DB={DB}
-                subcategoriesFor={subcategoriesFor}
-                itemsForCategory={itemsForCategory}
-                firstSubCat={firstSubCat}
-                firstMat={firstMat}
               />
 
               <RangedWeaponPanel
@@ -874,12 +838,7 @@ function App({ DB }){
           setArmorBinding={setArmorBinding}
           setJewelrySetting={setJewelrySetting}
           setJewelryGem={setJewelryGem}
-          firstSubCat={firstSubCat}
-          firstMat={firstMat}
           effectiveDRForSlot={effectiveDRForSlot}
-          subcategoriesFor={subcategoriesFor}
-          itemsForCategory={itemsForCategory}
-          factorsFor={factorsFor}
         />
         <ResultsPanel
           totalLoadoutWeight={totalLoadoutWeight}
@@ -914,15 +873,15 @@ function App({ DB }){
             </div>
             <div>
               <label className="block text-sm">Outer Material Category, which is eighty percent of the weighting</label>
-              <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_CLASS[targetArmor.class]||[]} value={{category:targetArmor.category, subCategory:targetArmor.subCategory, material:targetArmor.material}} onChange={val=> setTargetArmor(t=> ({...t, category:val.category, subCategory:val.subCategory, material:val.material}))} />
+              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_CLASS[targetArmor.class]||[]} value={{category:targetArmor.category, subCategory:targetArmor.subCategory, material:targetArmor.material}} onChange={val=> setTargetArmor(t=> ({...t, category:val.category, subCategory:val.subCategory, material:val.material}))} />
             </div>
             <div>
               <label className="block text-sm mt-3">Inner Layer Material</label>
-              <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_INNER} value={{category:targetArmor.innerCategory, subCategory:targetArmor.innerSubCategory, material:targetArmor.innerMaterial}} onChange={val=> setTargetArmor(t=> ({...t, innerCategory:val.category, innerSubCategory:val.subCategory, innerMaterial:val.material}))} />
+              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_INNER} value={{category:targetArmor.innerCategory, subCategory:targetArmor.innerSubCategory, material:targetArmor.innerMaterial}} onChange={val=> setTargetArmor(t=> ({...t, innerCategory:val.category, innerSubCategory:val.subCategory, innerMaterial:val.material}))} />
             </div>
             <div>
               <label className="block text-sm mt-3">Binding</label>
-              <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_BINDING} value={{category:targetArmor.bindingCategory, subCategory:targetArmor.bindingSubCategory, material:targetArmor.bindingMaterial}} onChange={val=> setTargetArmor(t=> ({...t, bindingCategory:val.category, bindingSubCategory:val.subCategory, bindingMaterial:val.material}))} />
+              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_BINDING} value={{category:targetArmor.bindingCategory, subCategory:targetArmor.bindingSubCategory, material:targetArmor.bindingMaterial}} onChange={val=> setTargetArmor(t=> ({...t, bindingCategory:val.category, bindingSubCategory:val.subCategory, bindingMaterial:val.material}))} />
             </div>
           </div>
         </section>

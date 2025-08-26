@@ -1,6 +1,12 @@
 import React from "react";
+import {
+  subcategoriesFor,
+  itemsForCategory,
+  firstSub,
+  firstMaterial,
+} from "../utils/materialHelpers.js";
 
-export default function MaterialSelect({ DB, allowed, value, onChange, disabled = false, exclude = [], subcategoriesFor, itemsForCategory, firstSub, firstMaterial }) {
+export default function MaterialSelect({ DB, allowed, value, onChange, disabled = false, exclude = [] }) {
   const categories = allowed.slice().sort();
   const subCats = subcategoriesFor(DB, value.category);
   const materials = itemsForCategory(DB, value.category, value.subCategory).filter(m => !exclude.includes(m.name));

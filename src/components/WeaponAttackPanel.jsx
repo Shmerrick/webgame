@@ -3,7 +3,7 @@ import MaterialSelect from "./MaterialSelect.jsx";
 import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS, BOW_TYPES } from "../constants/weapons.js";
 
 
-export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bowType, setBowType, bowWood, setBowWood, weaponComps, setWeaponComp, isTwoHanded, setTwoHanded, mountedSpeed, setMountedSpeed, armor, DB, subcategoriesFor, itemsForCategory, firstSubCat, firstMat }) {
+export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bowType, setBowType, bowWood, setBowWood, weaponComps, setWeaponComp, isTwoHanded, setTwoHanded, mountedSpeed, setMountedSpeed, armor, DB }) {
   return (
     <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
       <h2 className="text-lg font-semibold mb-3">Melee</h2>
@@ -25,26 +25,26 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
             </div>
             <div>
               <label className="block text-sm mb-1">Wood Material</label>
-              <MaterialSelect DB={DB} allowed={["Wood"]} value={bowWood} onChange={setBowWood} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} />
+              <MaterialSelect DB={DB} allowed={["Wood"]} value={bowWood} onChange={setBowWood} />
             </div>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-3">
             <div>
               <label className="block text-sm mb-1">Handle or Core Material</label>
-              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_HANDLE_CORE} value={weaponComps.core} onChange={val=>setWeaponComp('core', val)} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} />
+              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_HANDLE_CORE} value={weaponComps.core} onChange={val=>setWeaponComp('core', val)} />
             </div>
             <div>
               <label className="block text-sm mb-1">Grip or Wrap Material</label>
-              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_HANDLE_GRIP} value={weaponComps.grip} onChange={val=>setWeaponComp('grip', val)} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} />
+              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_HANDLE_GRIP} value={weaponComps.grip} onChange={val=>setWeaponComp('grip', val)} />
             </div>
             <div>
               <label className="block text-sm mb-1">Guard or Pommel Fittings</label>
-              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_HANDLE_FITTING} value={weaponComps.fitting} onChange={val=>setWeaponComp('fitting', val)} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} />
+              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_HANDLE_FITTING} value={weaponComps.fitting} onChange={val=>setWeaponComp('fitting', val)} />
             </div>
             <div>
               <label className="block text-sm mb-1">Weapon Head Material</label>
-              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_HEAD} exclude={BANNED_WEAPON_HEAD_MATERIALS} value={weaponComps.head} onChange={val=>setWeaponComp('head', val)} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} />
+              <MaterialSelect DB={DB} allowed={MATERIALS_FOR_HEAD} exclude={BANNED_WEAPON_HEAD_MATERIALS} value={weaponComps.head} onChange={val=>setWeaponComp('head', val)} />
             </div>
           </div>
         )}

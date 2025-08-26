@@ -11,6 +11,7 @@ import {
   MATERIALS_FOR_JEWELRY_SETTING,
   MATERIALS_FOR_JEWELRY_GEM,
 } from "../constants/armor.js";
+import { firstSub, firstMaterial, factorsFor } from "../utils/materialHelpers.js";
 
 export default function ArmorSelectionPanel({
   DB,
@@ -26,13 +27,10 @@ export default function ArmorSelectionPanel({
   setArmorBinding,
   setJewelrySetting,
   setJewelryGem,
-  firstSubCat,
-  firstMat,
   effectiveDRForSlot,
-  subcategoriesFor,
-  itemsForCategory,
-  factorsFor,
 }) {
+  const firstSubCat = (cat) => firstSub(DB, cat);
+  const firstMat = (cat, subCat) => firstMaterial(DB, cat, subCat);
   return (
     <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6">
       <h2 className="text-lg font-semibold mb-3">Armor Loadout and Regeneration</h2>
@@ -67,10 +65,10 @@ export default function ArmorSelectionPanel({
                 entry.isEquipped ? (
                   <>
                     <label className="block text-sm mt-3">Setting Material</label>
-                    <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_JEWELRY_SETTING} value={{category: entry.settingCategory, subCategory: entry.settingSubCategory, material: entry.settingMaterial}} onChange={val=> setJewelrySetting(slot.id, val)} />
+                    <MaterialSelect DB={DB} allowed={MATERIALS_FOR_JEWELRY_SETTING} value={{category: entry.settingCategory, subCategory: entry.settingSubCategory, material: entry.settingMaterial}} onChange={val=> setJewelrySetting(slot.id, val)} />
 
                     <label className="block text-sm mt-3">Gem</label>
-                    <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_JEWELRY_GEM} value={{category: entry.gemCategory, subCategory: entry.gemSubCategory, material: entry.gemMaterial}} onChange={val=> setJewelryGem(slot.id, val)} />
+                    <MaterialSelect DB={DB} allowed={MATERIALS_FOR_JEWELRY_GEM} value={{category: entry.gemCategory, subCategory: entry.gemSubCategory, material: entry.gemMaterial}} onChange={val=> setJewelryGem(slot.id, val)} />
                     <div className="mt-3">
                       <label className="block text-sm">Bonus</label>
                       <input type="range" min="1" max="5" value={entry.bonus || 1} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], bonus: parseInt(e.target.value, 10)}}))} className="w-full" />
@@ -132,13 +130,13 @@ export default function ArmorSelectionPanel({
                   </select>
 
                   <label className="block text-sm mt-3">Outer Material</label>
-                  <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={allowedCats} value={{category, subCategory: entry.subCategory, material}} onChange={val=> setArmorOuter(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+                  <MaterialSelect DB={DB} allowed={allowedCats} value={{category, subCategory: entry.subCategory, material}} onChange={val=> setArmorOuter(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
                   <label className="block text-sm mt-3">Inner Layer Material</label>
-                  <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_INNER} value={{category: innerCategory, subCategory: entry.innerSubCategory, material: innerMaterial}} onChange={val=> setArmorInner(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+                  <MaterialSelect DB={DB} allowed={MATERIALS_FOR_INNER} value={{category: innerCategory, subCategory: entry.innerSubCategory, material: innerMaterial}} onChange={val=> setArmorInner(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
                   <label className="block text-sm mt-3">Binding</label>
-                  <MaterialSelect DB={DB} subcategoriesFor={subcategoriesFor} itemsForCategory={itemsForCategory} firstSub={firstSubCat} firstMaterial={firstMat} allowed={MATERIALS_FOR_BINDING} value={{category: bindingCategory, subCategory: entry.bindingSubCategory, material: bindingMaterial}} onChange={val=> setArmorBinding(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+                  <MaterialSelect DB={DB} allowed={MATERIALS_FOR_BINDING} value={{category: bindingCategory, subCategory: entry.bindingSubCategory, material: bindingMaterial}} onChange={val=> setArmorBinding(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
                   {(entry.class||"None")!=="None" && matObj && (
                     <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
