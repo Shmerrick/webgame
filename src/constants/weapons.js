@@ -18,3 +18,11 @@ export const MATERIALS_FOR_HANDLE_GRIP = ["Linen", "Leather", "Dev"];
 export const MATERIALS_FOR_HANDLE_FITTING = ["Metals", "Rock Types", "Dev"];
 export const MATERIALS_FOR_HEAD = ["Metals", "Rock Types", "Wood", "Dev"];
 export const BANNED_WEAPON_HEAD_MATERIALS = ["Carapace", "Fur", "Herbs", "Leather", "Linen", "Scales"];
+
+export const BOW_TYPES = {
+  Long:    { drawWeight: 60, massKilograms: 1.2 },
+  Recurve: { drawWeight: 50, massKilograms: 1.0 },
+  Yumi:    { drawWeight: 55, massKilograms: 1.1 },
+  Horse:   { drawWeight: 45, massKilograms: 0.8 },
+  Flat:    { drawWeight: 40, massKilograms: 0.9 },
+};
