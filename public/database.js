@@ -1,5 +1,12 @@
 // Base URL ensures fetch paths resolve correctly in both browser and Node environments
-const baseUrl = new URL('.', import.meta.url);
+// When bundled, import.meta.url may point inside the dist folder which breaks
+// relative fetch paths. Prefer the page location in the browser so resources
+// are always resolved relative to the served HTML, falling back to import.meta.url
+// for non-browser environments.
+const baseUrl = new URL(
+    '.',
+    typeof window !== 'undefined' ? window.location.href : import.meta.url
+);
 
 const dbIndexPromise = (async () => {
     try {
