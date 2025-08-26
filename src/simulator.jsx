@@ -23,7 +23,9 @@ function Tooltip({ text, children }) {
 
 const STAT_POOL = 270;
 const SKILL_POOL = 500;
-const HEALTH_FIXED = 200;
+// Base player health before any damage is taken. The value itself is kept
+// constant, but actual health is stored in state so it can change over time.
+const BASE_HEALTH = 200;
 const MSF = 1.0;
 
 const races = [
@@ -351,6 +353,10 @@ function App({ DB }){
   const [elementalSchool, setElementalSchool] = useState("Fire");
   const [entropySchool, setEntropySchool] = useState("Radiance");
 
+  // Player health and regeneration tracking
+  const [playerHealth, setPlayerHealth] = useState(BASE_HEALTH);
+  const [lastDamageTime, setLastDamageTime] = useState(null);
+
   useEffect(() => {
     const race = races.find(r => r.id === raceId);
     if (race) {
@@ -388,6 +394,18 @@ function App({ DB }){
     }
   }, [raceId]);
 
+  // Health regeneration: 1 HP every 2 seconds after 10 seconds without
+  // taking damage.
+  useEffect(() => {
+    const id = setInterval(() => {
+      const now = Date.now();
+      if (playerHealth < BASE_HEALTH && (!lastDamageTime || now - lastDamageTime >= 10000)) {
+        setPlayerHealth(h => Math.min(BASE_HEALTH, h + 1));
+      }
+    }, 2000);
+    return () => clearInterval(id);
+  }, [playerHealth, lastDamageTime]);
+
   const totalSkill = Object.values(skills).reduce((a,b)=> a+(b||0), 0);
   function setSkillBound(name, val) {
     val = Math.max(0, Math.min(100, val));
@@ -412,6 +430,13 @@ function App({ DB }){
 
     setSkills(nextSkills);
   }
+
+  const applyDamageToPlayer = (amount) => {
+    if (amount > 0) {
+      setPlayerHealth((h) => Math.max(0, h - amount));
+      setLastDamageTime(Date.now());
+    }
+  };
 
   // Helpers for materials
   const firstMat = (cat, sub) => firstMaterial(DB, cat, sub);
@@ -623,14 +648,14 @@ function App({ DB }){
   // Damage against target armor
   const dmgVsArmor = useMemo(()=>{
     const t = effectiveDRForTarget(DB, targetArmor.class, targetArmor.category, targetArmor.material, targetArmor.innerCategory, targetArmor.innerMaterial, targetArmor.bindingCategory, targetArmor.bindingMaterial);
-    const mapKey = (k)=> k.toLowerCase();
-    let acc = 0;
+    const parts = {};
     for (const [k,v] of Object.entries(damage.parts)){
-      const key = mapKey(k);
+      const key = k.toLowerCase();
       const dr = key==='blunt'?t.blunt: key==='slash'?t.slash: key==='pierce'?t.pierce: 0;
-      acc += Math.max(0, v * (1 - dr));
+      parts[k] = Math.floor(Math.max(0, v * (1 - dr)));
     }
-    return Math.floor(acc);
+    const total = Object.values(parts).reduce((a,b)=> a + b, 0);
+    return { total, parts };
   }, [damage.parts, targetArmor, DB]);
 
   // Attribute handlers
@@ -688,7 +713,7 @@ function App({ DB }){
                 stamPool={stamPool}
                 manaPoolV={manaPoolV}
                 STAT_POOL={STAT_POOL}
-                HEALTH_FIXED={HEALTH_FIXED}
+                baseHealth={BASE_HEALTH}
               />
               <AttackDirectionPanel
                 weapon={weapon}
@@ -840,7 +865,7 @@ function App({ DB }){
           </div>
 
           {/* Results */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-sm mt-6">
             <div className="bg-slate-800/70 rounded-xl p-4">
               <div className="text-slate-300 font-medium">Raw Damage</div>
               <div className="text-2xl tabular-nums mt-1">{damage.total}</div>
@@ -853,8 +878,8 @@ function App({ DB }){
             </div>
             <div className="bg-slate-800/70 rounded-xl p-4">
               <div className="text-slate-300 font-medium">Damage Against Target Armor</div>
-              <div className="text-2xl tabular-nums mt-1">{dmgVsArmor}</div>
-              <div className="text-sm text-slate-300 mt-1">This number applies the target’s effective reductions for blunt, slash, and pierce types to your attack parts.</div>
+              <div className="text-2xl tabular-nums mt-1">{dmgVsArmor.total}</div>
+              <div className="text-sm text-slate-300 mt-1">Damage after reductions: {Object.entries(dmgVsArmor.parts).map(([k,v])=>`${k} ${v}`).join(' • ') || 'None'}</div>
             </div>
             <div className="bg-slate-800/70 rounded-xl p-4">
               <div className="flex items-center justify-between">
@@ -865,6 +890,12 @@ function App({ DB }){
                 </div>
               </div>
               <div className="text-2xl tabular-nums mt-1">{damage.staminaCost}</div>
+            </div>
+            <div className="bg-slate-800/70 rounded-xl p-4">
+              <div className="text-slate-300 font-medium">Player Health</div>
+              <div className="text-2xl tabular-nums mt-1">{playerHealth}</div>
+              <button className="mt-2 px-2 py-1 text-xs rounded bg-slate-700" onClick={()=>applyDamageToPlayer(dmgVsArmor.total)}>Take {dmgVsArmor.total} damage</button>
+              <div className="text-xs text-slate-300 mt-1">Regenerates 1 HP every 2s after 10s without taking damage.</div>
             </div>
           </div>
 

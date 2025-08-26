@@ -211,6 +211,17 @@ export function calculateMaterialDefenses(materials, options = {}) {
     const normalizedMeltingPoint = normalizeProp("meltingPoint");
     const normalizedResistivity = normalizeProp("electricalResistivity");
 
+    // Normalized values above ensure all downstream formulas use inputs
+    // that are already scoped to the material's class.  This keeps steel,
+    // wood, bone, etc. from being compared directly.
+
+    // Offensive damage factors draw directly from these normalized
+    // mechanical properties.  They are returned so weapon components can
+    // scale slash, pierce, and blunt damage consistently per category.
+    const damage_slash = normalizedHardness;
+    const damage_pierce = normalizedTensileStrength;
+    const damage_blunt = normalizedDensity;
+
     // Physical damage resistances blend hardness and strength values
     let slash =
       0.50 * normalizedHardness +
@@ -266,6 +277,10 @@ export function calculateMaterialDefenses(materials, options = {}) {
 
     return {
       ...mat,
+      // Normalized offensive factors
+      D_slash: damage_slash,
+      D_pierce: damage_pierce,
+      D_blunt: damage_blunt,
       R_slash: slash,
       R_pierce: pierce,
       R_blunt: blunt,
@@ -301,6 +316,50 @@ function clamp(v, min, max) {
 
 function feelTransform(r) {
   return 0.05 + 0.90 * r;
+}
+
+// Normalize existing slash/pierce/blunt factors so that each top-level
+// material category (e.g., Metals vs. Wood) is scaled independently. This
+// prevents cross-category comparisons such as bone vs. steel.
+export function normalizeDamageFactorsByCategory(db) {
+  const maxes = {};
+
+  const gather = (node, top) => {
+    if (Array.isArray(node)) {
+      const m = (maxes[top] ||= { slash: 0, pierce: 0, blunt: 0 });
+      for (const item of node) {
+        const f = item.factors || {};
+        if (f.slash != null) m.slash = Math.max(m.slash, f.slash);
+        if (f.pierce != null) m.pierce = Math.max(m.pierce, f.pierce);
+        if (f.blunt != null) m.blunt = Math.max(m.blunt, f.blunt);
+      }
+    } else if (node && typeof node === "object") {
+      for (const [k, v] of Object.entries(node)) {
+        gather(v, top || k);
+      }
+    }
+  };
+
+  const apply = (node, top) => {
+    if (Array.isArray(node)) {
+      const m = maxes[top] || { slash: 1, pierce: 1, blunt: 1 };
+      for (const item of node) {
+        const f = item.factors || (item.factors = {});
+        f.slash = m.slash ? (f.slash || 0) / m.slash : 0;
+        f.pierce = m.pierce ? (f.pierce || 0) / m.pierce : 0;
+        f.blunt = m.blunt ? (f.blunt || 0) / m.blunt : 0;
+      }
+    } else if (node && typeof node === "object") {
+      for (const [k, v] of Object.entries(node)) {
+        apply(v, top || k);
+      }
+    }
+  };
+
+  gather(db, null);
+  apply(db, null);
+
+  return db;
 }
 
 export default calculateMaterialDefenses;

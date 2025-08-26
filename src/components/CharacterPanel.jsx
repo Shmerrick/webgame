@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CharacterPanel({ races, raceId, setRaceId, stats, setStat, effective, jewelryBonus, spent, remain, stamPool, manaPoolV, STAT_POOL, HEALTH_FIXED }) {
+export default function CharacterPanel({ races, raceId, setRaceId, stats, setStat, effective, jewelryBonus, spent, remain, stamPool, manaPoolV, STAT_POOL, baseHealth }) {
   const race = races.find(r => r.id === raceId) || races[0];
   return (
     <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
@@ -32,7 +32,7 @@ export default function CharacterPanel({ races, raceId, setRaceId, stats, setSta
         <div className={`tabular-nums ${remain<0?"text-rose-400":""}`}>{spent} / {STAT_POOL} <span className="text-slate-500">(remaining {Math.max(0, remain)})</span></div>
       </div>
       <div className="grid grid-cols-3 gap-3 mt-4 text-sm">
-        <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Health</div><div className="text-xl tabular-nums">{HEALTH_FIXED}</div></div>
+        <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Health</div><div className="text-xl tabular-nums">{baseHealth}</div></div>
         <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Stamina</div><div className="text-xl tabular-nums">{stamPool}</div></div>
         <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Mana</div><div className="text-xl tabular-nums">{manaPoolV}</div></div>
       </div>
