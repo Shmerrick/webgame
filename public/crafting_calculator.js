@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const [
                 baseMaterials,
                 woodList,
+                woodProps,
                 elementalList,
                 alloyList,
                 rockTypes,
@@ -111,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ] = await Promise.all([
                 getDatabaseSection('materials'),
                 getDatabaseSection('woodTypes'),
+                getDatabaseSection('woodProperties'),
                 getDatabaseSection('elementalMetals'),
                 getDatabaseSection('metalAlloys'),
                 getDatabaseSection('rockTypes'),
@@ -124,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]);
             debugLog("CRAFTING_CALCULATOR: All files fetched.");
 
-            const db = buildMaterialDB(baseMaterials, woodList, elementalList, alloyList, rockTypes);
+            const db = buildMaterialDB(baseMaterials, woodList, elementalList, alloyList, rockTypes, { woodProperties: woodProps });
             db.Dev = [
                 {
                     id: 'dev_material',

@@ -75,9 +75,10 @@
           container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
 
           try {
-            const [db, woods, elementals, alloys, rocks] = await Promise.all([
+            const [db, woods, woodProps, elementals, alloys, rocks] = await Promise.all([
               getDatabaseSection('materials'),
               getDatabaseSection('woodTypes'),
+              getDatabaseSection('woodProperties'),
               getDatabaseSection('elementalMetals'),
               getDatabaseSection('metalAlloys'),
               getDatabaseSection('rockTypes')
@@ -89,7 +90,7 @@
             db['Wood'] = Object.fromEntries(
               Object.entries(woods).map(([type, list]) => [
                 type,
-                list.map(name => ({ id: slug(name), name }))
+                list.map(name => ({ id: slug(name), name, ...(woodProps[name] || {}) }))
               ])
             );
 

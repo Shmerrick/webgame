@@ -1,16 +1,19 @@
 export default function buildMaterialDB(base, wood, elementals, alloys, rocks, options = {}) {
-  const { defaultDensities = {} } = options;
+  const { defaultDensities = {}, woodProperties = {} } = options;
   const slug = (name) => name.toLowerCase().replace(/\s+/g, '_');
   const db = { ...base };
 
   db['Wood'] = Object.fromEntries(
     Object.entries(wood).map(([type, list]) => [
       type,
-      list.map((name) => ({
-        id: slug(name),
-        name,
-        ...(defaultDensities['Wood'] ? { density: defaultDensities['Wood'] } : {}),
-      })),
+      list.map((name) => {
+        const props = woodProperties[name] || {};
+        const entry = { id: slug(name), name, ...props };
+        if (entry.density == null && defaultDensities['Wood']) {
+          entry.density = defaultDensities['Wood'];
+        }
+        return entry;
+      }),
     ])
   );
 
