@@ -3,9 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=public/index.html" />
+    <script>
+      const base = window.location.pathname.replace(/[^/]*$/, '');
+      const target = `${base}public/index.html`;
+      window.location.replace(target);
+    </script>
   </head>
   <body>
-    <p>If you are not redirected automatically, follow this <a href="public/index.html">link to the simulator</a>.</p>
+    <p>If you are not redirected automatically, follow this <a id="redirect-link" href="#">link to the site</a>.</p>
+    <script>
+      const base = window.location.pathname.replace(/[^/]*$/, '');
+      const target = `${base}public/index.html`;
+      document.getElementById('redirect-link').href = target;
+    </script>
   </body>
 </html>

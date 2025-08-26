@@ -7,17 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./aspect_ratio.js"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            screens: {
-              "aspect-ultrawide": { "raw": "[data-aspect-ratio='ultrawide']" },
-              "aspect-widescreen": { "raw": "[data-aspect-ratio='widescreen']" },
-              "aspect-mobile": { "raw": "[data-aspect-ratio='mobile']" },
+      if (window.tailwind) {
+        tailwind.config = {
+          theme: {
+            extend: {
+              screens: {
+                "aspect-ultrawide": { "raw": "[data-aspect-ratio='ultrawide']" },
+                "aspect-widescreen": { "raw": "[data-aspect-ratio='widescreen']" },
+                "aspect-mobile": { "raw": "[data-aspect-ratio='mobile']" },
+              },
             },
           },
-        },
-      };
+        };
+      }
       document.documentElement.classList.add("dark");
     </script>
     <style>
