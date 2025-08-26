@@ -1,6 +1,8 @@
 // Utility for computing defensive ratings for materials.
 // Implements robust normalization and defense formulas with clearer naming.
 
+import { deepClone } from './utils/clone.js';
+
 // Calculate defensive ratings for a list of materials.
 // Each material object may contain the following engineering properties:
 //   name, class,
@@ -334,7 +336,7 @@ function feelTransform(r) {
 // prevents cross-category comparisons such as bone vs. steel.
 export function normalizeDamageFactorsByCategory(db) {
   // Work on a deep clone so the original database remains untouched.
-  const out = structuredClone(db);
+  const out = deepClone(db);
   const maxes = {};
 
   const gather = (node, top) => {
