@@ -114,7 +114,7 @@ const staminaPool = (DEX)=> 100 + 2*DEX;
 const manaPool    = (PSY)=> 100 + 2*PSY;
 
 function loadoutCategory(equipped, STR){
-  let loadoutScore=0, maxLoadoutScore=0, missingPieces=0;
+  let totalLoadoutWeight=0, maximumLoadoutWeight=0, missingPieces=0;
   for (const slot of armorSlots){
     const entry = equipped[slot.id] || {};
     const factor = slot.factor;
@@ -130,18 +130,18 @@ function loadoutCategory(equipped, STR){
       }
     }
     const metaC = ARMOR_CLASS[className] || { value:0 };
-    loadoutScore    += factor * (metaC.value||0);
-    maxLoadoutScore += factor * ARMOR_CLASS.Heavy.value;
+    totalLoadoutWeight    += factor * (metaC.value||0);
+    maximumLoadoutWeight += factor * ARMOR_CLASS.Heavy.value;
     if (slot.id!=="shield" && className==="None") missingPieces++;
   }
-  const loadoutRatio = maxLoadoutScore ? loadoutScore/maxLoadoutScore : 0;
-  const category = loadoutRatio <= 0.4 ? "Light" : (loadoutRatio < 0.8 ? "Medium" : "Heavy");
+  const loadoutWeightRatio = maximumLoadoutWeight ? totalLoadoutWeight/maximumLoadoutWeight : 0;
+  const category = loadoutWeightRatio <= 0.4 ? "Light" : (loadoutWeightRatio < 0.8 ? "Medium" : "Heavy");
   const noArmor = armorSlots.every(s=> s.id==="shield" || (equipped[s.id]?.class||"None")==="None");
   const shieldSubtype = equipped.shield?.shield || "None";
   const shieldEquipped = equipped.shield?.isEquipped;
   const hasShield = shieldEquipped && (OFFHAND_ITEMS[shieldSubtype]?.class||"None")!=="None" && STR >= (OFFHAND_ITEMS[shieldSubtype]?.strengthRequirement||0);
   const nakedOverride = noArmor && !hasShield;
-  return { loadoutScore,maxLoadoutScore,loadoutRatio,category,missingPieces,nakedOverride };
+  return { totalLoadoutWeight,maximumLoadoutWeight,loadoutWeightRatio,category,missingPieces,nakedOverride };
 }
 
 function regenPerTick(pool, category, nakedOverride, armorTraining=0){
@@ -557,7 +557,7 @@ function App({ DB }){
   const stamPool = staminaPool(effective.DEX);
   const manaPoolV= manaPool(effective.PSY);
 
-  const { loadoutScore, maxLoadoutScore, loadoutRatio, category, missingPieces, nakedOverride } = useMemo(()=> loadoutCategory(armor, effective.STR), [armor, effective.STR]);
+  const { totalLoadoutWeight, maximumLoadoutWeight, loadoutWeightRatio, category, missingPieces, nakedOverride } = useMemo(()=> loadoutCategory(armor, effective.STR), [armor, effective.STR]);
   const regenStam = regenPerTick(stamPool, category, nakedOverride, skills.ArmorTraining);
   const regenMana = regenPerTick(manaPoolV, category, nakedOverride, skills.ArmorTraining);
 
@@ -1090,9 +1090,9 @@ function App({ DB }){
             </div>
 
           <ResultsPanel
-            loadoutScore={loadoutScore}
-            maxLoadoutScore={maxLoadoutScore}
-            loadoutRatio={loadoutRatio}
+            totalLoadoutWeight={totalLoadoutWeight}
+            maximumLoadoutWeight={maximumLoadoutWeight}
+            loadoutWeightRatio={loadoutWeightRatio}
             category={category}
             missingPieces={missingPieces}
             regenStam={regenStam}

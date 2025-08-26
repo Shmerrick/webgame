@@ -27,3 +27,17 @@ Follow these practices while coding and reviewing code:
 - Separation of Concerns (SoC)
 - Avoid Premature Optimization
 - Law of Demeter
+
+## Additional Programming Practices
+
+The coding standards above are reinforced by the guidance from [GeeksforGeeks: 7 Common Programming Principles That Every Developer Must Follow](https://www.geeksforgeeks.org/blogs/7-common-programming-principles-that-every-developer-must-follow/).
+
+These principles include:
+
+- KISS (Keep It Simple, Stupid)
+- DRY (Don't Repeat Yourself)
+- YAGNI (You Aren't Gonna Need It)
+- SOLID
+- Separation of Concerns (SoC)
+- Avoid Premature Optimization
+- Law of Demeter
