@@ -372,6 +372,14 @@ document.addEventListener('DOMContentLoaded', () => {
         Flat:    { Stave: 1000 },
     };
 
+    const BOW_SPECS = {
+        Long:    { length: 1.8, draw: 0.7 },
+        Recurve: { length: 1.5, draw: 0.6 },
+        Yumi:    { length: 2.1, draw: 0.8 },
+        Horse:   { length: 1.2, draw: 0.5 },
+        Flat:    { length: 1.4, draw: 0.6 },
+    };
+
     const GEMSTONES = [
         { name: "Diamond", rowName: "Rock Types_T5_Diamond", rough: "Rough Diamond", cut: "Cut Diamond" },
         { name: "Ruby", rowName: "Rock Types_T5_Ruby", rough: "Rough Ruby", cut: "Cut Ruby" },
@@ -485,6 +493,20 @@ document.addEventListener('DOMContentLoaded', () => {
         bowComponentsDiv.appendChild(catSelect);
         bowComponentsDiv.appendChild(matLabel);
         bowComponentsDiv.appendChild(matSelect);
+    }
+
+    function computeDrawWeight(wood, type) {
+        const spec = BOW_SPECS[type];
+        if (!spec) return 0;
+        const volume_cm3 = BOW_VOLUMES[type].Stave;
+        const volume_m3 = volume_cm3 / 1e6;
+        const E = (wood.elasticModulus || 10000) * 1e6;
+        const L = spec.length;
+        const drawLen = spec.draw;
+        const area = volume_m3 / L;
+        const I = (area * area) / 12;
+        const force = (6 * E * I * drawLen) / Math.pow(L, 3);
+        return force / 4.44822;
     }
 
     // --- Calculation Functions ---
@@ -672,14 +694,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const mass = volume * density;
         const requiredUnits = mass / 100;
 
+        const drawWeight = computeDrawWeight(woodMaterial, type);
+
+        const allWoods = Array.from(materialsData.values()).filter(m => m.Category === 'Wood');
+        const maxHard = Math.max(...allWoods.map(w => w.hardness || 0));
+        const maxTough = Math.max(...allWoods.map(w => w.toughness || 0));
+        const maxMass = Math.max(...allWoods.map(w => BOW_VOLUMES[type].Stave * (w.density || 0)));
+        const maxDraw = Math.max(...allWoods.map(w => computeDrawWeight(w, type)));
+
+        const normalized = {
+            hardness: (woodMaterial.hardness || 0) / maxHard,
+            toughness: (woodMaterial.toughness || 0) / maxTough,
+            mass: mass / maxMass,
+            draw: drawWeight / maxDraw,
+        };
+
         const result = {
             requiredMaterials: {
                 "Stave": { name: woodMaterial.Name, volume, units: requiredUnits }
             },
-            totalMass: mass / 1000
+            totalMass: mass / 1000,
+            drawWeight,
+            normalized
         };
 
-        bowResultsDiv.innerHTML = formatResults(result);
+        bowResultsDiv.innerHTML = formatBowResults(result);
     }
 
     // ... inside loadData ...
@@ -882,6 +921,22 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul class="list-disc list-inside">${materialsList}</ul>
             <h5 class="text-md font-semibold text-emerald-400 mt-2">Item Stats:</h5>
             <p>Estimated Mass: ${totalMass.toFixed(2)} kg</p>
+        `;
+    }
+
+    function formatBowResults({ requiredMaterials, totalMass, drawWeight, normalized }) {
+        let materialsList = '';
+        for (const name in requiredMaterials) {
+            materialsList += `<li>${name}: ${requiredMaterials[name].units.toFixed(2)} units of ${requiredMaterials[name].name}</li>`;
+        }
+
+        return `
+            <h5 class="text-md font-semibold text-emerald-400 mt-4">Required Materials:</h5>
+            <ul class="list-disc list-inside">${materialsList}</ul>
+            <h5 class="text-md font-semibold text-emerald-400 mt-2">Item Stats:</h5>
+            <p>Estimated Mass: ${totalMass.toFixed(2)} kg (${(normalized.mass * 100).toFixed(1)}% of heaviest)</p>
+            <p>Draw Weight: ${drawWeight.toFixed(1)} lb (${(normalized.draw * 100).toFixed(1)}% of strongest)</p>
+            <p>Hardness: ${(normalized.hardness * 100).toFixed(1)}%, Toughness: ${(normalized.toughness * 100).toFixed(1)}%</p>
         `;
     }
 
