@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   subcategoriesFor,
   itemsForCategory,
@@ -7,9 +7,12 @@ import {
 } from "../utils/materialHelpers.js";
 
 export default function MaterialSelect({ DB, allowed, value, onChange, disabled = false, exclude = [] }) {
-  const categories = allowed.slice().sort();
-  const subCats = subcategoriesFor(DB, value.category);
-  const materials = itemsForCategory(DB, value.category, value.subCategory).filter(m => !exclude.includes(m.name));
+  const categories = useMemo(() => allowed.slice().sort(), [allowed]);
+  const subCats = useMemo(() => subcategoriesFor(DB, value.category), [DB, value.category]);
+  const materials = useMemo(
+    () => itemsForCategory(DB, value.category, value.subCategory).filter(m => !exclude.includes(m.name)),
+    [DB, value.category, value.subCategory, exclude]
+  );
   return (
     <div className="grid grid-cols-1 gap-2">
       <select
