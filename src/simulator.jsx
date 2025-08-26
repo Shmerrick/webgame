@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS } from "./constants/weapons.js";
 import CharacterPanel from "./components/CharacterPanel.jsx";
+import AttackDirectionPanel from "./components/AttackDirectionPanel.jsx";
 import WeaponAttackPanel from "./components/WeaponAttackPanel.jsx";
 import RangedWeaponPanel from "./components/RangedWeaponPanel.jsx";
 import MaterialSelect from "./components/MaterialSelect.jsx";
@@ -490,10 +491,10 @@ function App({ DB }){
       statsWithJewelry.PSY = Math.min(100, statsWithJewelry.PSY);
 
       const eff = {
-        STR: Math.min(100, Math.max(0, statsWithJewelry.STR + (race.modifier.STR||0))),
-        DEX: Math.min(100, Math.max(0, statsWithJewelry.DEX + (race.modifier.DEX||0))),
-        INT: Math.min(100, Math.max(0, statsWithJewelry.INT + (race.modifier.INT||0))),
-        PSY: Math.min(100, Math.max(0, statsWithJewelry.PSY + (race.modifier.PSY||0))),
+        STR: Math.max(0, statsWithJewelry.STR + (race.modifier.STR || 0)),
+        DEX: Math.max(0, statsWithJewelry.DEX + (race.modifier.DEX || 0)),
+        INT: Math.max(0, statsWithJewelry.INT + (race.modifier.INT || 0)),
+        PSY: Math.max(0, statsWithJewelry.PSY + (race.modifier.PSY || 0)),
       };
       return { effective: eff, jewelryBonus: bonus };
   }, [stats, race, armor]);
@@ -678,6 +679,15 @@ function App({ DB }){
                 STAT_POOL={STAT_POOL}
                 HEALTH_FIXED={HEALTH_FIXED}
               />
+              <AttackDirectionPanel
+                weapon={weapon}
+                direction={direction}
+                setDirection={setDirection}
+                charge={charge}
+                setCharge={setCharge}
+                swing={swing}
+                setSwing={setSwing}
+              />
             </div>
 
             {/* Center column: Skills */}
@@ -789,12 +799,6 @@ function App({ DB }){
                 setWeaponComp={setWeaponComp}
                 isTwoHanded={isTwoHanded}
                 setTwoHanded={setTwoHanded}
-                direction={direction}
-                setDirection={setDirection}
-                charge={charge}
-                setCharge={setCharge}
-                swing={swing}
-                setSwing={setSwing}
                 mountedSpeed={mountedSpeed}
                 setMountedSpeed={setMountedSpeed}
                 armor={armor}
