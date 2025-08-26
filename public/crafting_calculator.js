@@ -1,6 +1,6 @@
 import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS } from '../src/constants/weapons.js';
 import { ARMOR_CLASS, MATERIALS_FOR_CLASS, MATERIALS_FOR_INNER, MATERIALS_FOR_BINDING, MATERIALS_FOR_JEWELRY_SETTING, MATERIALS_FOR_JEWELRY_GEM } from '../src/constants/armor.js';
-import buildMaterialDB from './buildMaterialDB.js';
+import { buildMaterialDB, getDatabaseSection } from './database.js';
 
 const DEBUG = false;
 const debugLog = (...args) => { if (DEBUG) console.log(...args); };
