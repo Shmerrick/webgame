@@ -7,6 +7,7 @@ import {
   buildNormalizationBounds,
   scoreMaterialDefenses,
 } from '../src/materialCalculations.js';
+import { deepClone } from '../src/utils/clone.js';
 
 describe('calculateMaterialDefenses', () => {
   it('computes defense ratings within [0,1]', () => {
@@ -101,7 +102,7 @@ describe('calculateMaterialDefenses', () => {
         ]
       }
     };
-    const original = structuredClone(db);
+    const original = deepClone(db);
     const normalized = normalizeDamageFactorsByCategory(db);
     expect(db).toEqual(original);
     expect(normalized).not.toBe(db);
