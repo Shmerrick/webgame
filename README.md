@@ -20,11 +20,13 @@ npm install
 
 ## Development
 
-Build the project:
+Build the project for GitHub Pages deployment:
 
 ```bash
 npm run build
 ```
+
+This writes the bundled files to `public/dist/` for hosting on GitHub Pages.
 
 Run the test suite:
 
