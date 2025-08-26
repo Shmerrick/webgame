@@ -85,18 +85,19 @@
             ]);
 
             const slug = name => name.toLowerCase().replace(/\s+/g, '_');
+            const toTitleCase = str => str.replace(/\b\w/g, c => c.toUpperCase());
 
             // Merge wood types by subcategory
             db['Wood'] = Object.fromEntries(
               Object.entries(woods).map(([type, list]) => [
-                type,
-                list.map(name => ({ id: slug(name), name, ...(woodProps[name] || {}) }))
+                toTitleCase(type),
+                list.map(name => ({ id: slug(name), name: toTitleCase(name), ...(woodProps[name] || {}) }))
               ])
             );
 
             db['Rock Types'] = rocks;
-            const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
-            const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: m.name }));
+            const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: toTitleCase(m.name) }));
+            const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: toTitleCase(m.name) }));
             db.Metals = db.Metals || {};
             db.Metals['Elemental Metals'] = elementalMetals;
             db.Metals['Metal Alloys'] = alloyMetals;
@@ -123,14 +124,15 @@
                   .sort((a, b) => (a.name || a).localeCompare(b.name || b))
                   .forEach(item => {
                     const li = document.createElement('li');
-                    li.textContent = item.name || item;
+                    li.textContent = toTitleCase(item.name || item);
                     if (item.factors) {
                       const f = item.factors;
                       const props = Object.entries(f).map(([key, val]) => {
                         const label = key
                           .replace(/_/g, ' ')
                           .replace(/\b\w/g, c => c.toUpperCase());
-                        return `${label}: ${val}`;
+                        const cleanVal = val === 0 ? 0 : val;
+                        return `${label}: ${cleanVal}`;
                       });
                       li.style.position = 'relative';
                       li.addEventListener('click', () => {
@@ -168,18 +170,19 @@
                   if (Array.isArray(value) || (value && typeof value === 'object')) {
                     const span = document.createElement('span');
                     span.className = 'font-medium';
-                    span.textContent = key;
+                    span.textContent = toTitleCase(key);
                     li.appendChild(span);
                     li.appendChild(renderNested(value));
                   } else {
-                    li.innerHTML = `<strong>${key}</strong>: ${value}`;
+                    const cleanVal = value === 0 ? 0 : value;
+                    li.innerHTML = `<strong>${toTitleCase(key)}</strong>: ${cleanVal}`;
                   }
                   ul.appendChild(li);
                 });
                 return ul;
               } else {
                 const span = document.createElement('span');
-                span.textContent = data;
+                span.textContent = toTitleCase(data);
                 return span;
               }
             }
@@ -190,7 +193,7 @@
                 const details = document.createElement('details');
                 const summary = document.createElement('summary');
                 summary.className = 'text-2xl font-semibold mb-2 cursor-pointer';
-                summary.textContent = cat;
+                summary.textContent = toTitleCase(cat);
                 details.appendChild(summary);
                 const data = db[cat];
 
@@ -203,7 +206,7 @@
                       const subDetails = document.createElement('details');
                       const subSummary = document.createElement('summary');
                       subSummary.className = 'text-xl font-medium mt-2 cursor-pointer';
-                      subSummary.textContent = sub;
+                      subSummary.textContent = toTitleCase(sub);
                       subDetails.appendChild(subSummary);
                       subDetails.appendChild(renderNested(data[sub]));
                       details.appendChild(subDetails);
