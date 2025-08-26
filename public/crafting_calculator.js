@@ -321,12 +321,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const allMaterials = Array.from(materialsData.values());
         const allCategories = [...new Set(allMaterials.map(m => m.Category))].sort();
-        const metalMaterials = allMaterials.filter(m => ['Elemental Metals', 'Metal Alloys', 'Dev'].includes(m.Category));
 
         addOption(shieldBodyCategorySelect, 'Wood', 'Wood');
-        addOption(shieldBossCategorySelect, 'Metal', 'Metal');
+        ['Elemental Metals', 'Metal Alloys'].forEach(cat => addOption(shieldBossCategorySelect, cat, cat));
         shieldBodyCategorySelect.disabled = true;
-        shieldBossCategorySelect.disabled = true;
         allCategories.forEach(cat => addOption(shieldRimCategorySelect, cat, cat));
 
         const populateByCat = (catSel, matSel) => {
@@ -335,11 +333,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         populateByCat(shieldBodyCategorySelect, shieldBodyMaterialSelect);
-        populateSelectWithOptions(shieldBossMaterialSelect, metalMaterials);
+        populateByCat(shieldBossCategorySelect, shieldBossMaterialSelect);
         populateByCat(shieldRimCategorySelect, shieldRimMaterialSelect);
 
         [
             [shieldBodyCategorySelect, shieldBodyMaterialSelect],
+            [shieldBossCategorySelect, shieldBossMaterialSelect],
             [shieldRimCategorySelect, shieldRimMaterialSelect]
         ].forEach(([catSel, matSel]) => {
             catSel.addEventListener('change', () => populateByCat(catSel, matSel));
