@@ -210,15 +210,17 @@ function App({ DB }){
     return ids[Math.floor(Math.random() * ids.length)];
   });
   const [stats, setStats]   = useState({ STR:0, DEX:0, INT:0, PSY:0 });
+  const resetStats = () => setStats({ STR:0, DEX:0, INT:0, PSY:0 });
 
   // Skills with a pool
-  const [skills, setSkills] = useState({
+  const initialSkills = {
     ArmorTraining: 0,
     BlockingAndShields: 0,
     Sword: 0,
     Axe: 0,
     Hammer: 0,
     Spear: 0,
+    Lances: 0,
     Dagger: 0,
     Polesword: 0,
     Poleaxe: 0,
@@ -238,7 +240,9 @@ function App({ DB }){
     ElementalAmbush: 0,
     ElementalMagic: 0,
     EntropyMagic: 0,
-  });
+  };
+  const [skills, setSkills] = useState(initialSkills);
+  const resetSkills = () => setSkills({ ...initialSkills });
 
   const [elementalSchool, setElementalSchool] = useState("Fire");
   const [entropySchool, setEntropySchool] = useState("Radiance");
@@ -246,6 +250,13 @@ function App({ DB }){
   // Player health and regeneration tracking
   const [playerHealth, setPlayerHealth] = useState(BASE_HEALTH);
   const [lastDamageTime, setLastDamageTime] = useState(null);
+
+  // Player stamina and regeneration tracking
+  const [playerStamina, setPlayerStamina] = useState(stamPool);
+  const [lastStaminaUse, setLastStaminaUse] = useState(null);
+  useEffect(() => {
+    setPlayerStamina(s => Math.min(stamPool, s));
+  }, [stamPool]);
 
   useEffect(() => {
     const race = races.find(r => r.id === raceId);
@@ -296,6 +307,17 @@ function App({ DB }){
     return () => clearInterval(id);
   }, [playerHealth, lastDamageTime]);
 
+  // Stamina regeneration: regenStam per second after 3 seconds without using stamina
+  useEffect(() => {
+    const id = setInterval(() => {
+      const now = Date.now();
+      if (playerStamina < stamPool && (!lastStaminaUse || now - lastStaminaUse >= 3000)) {
+        setPlayerStamina(s => Math.min(stamPool, s + regenStam));
+      }
+    }, 1000);
+    return () => clearInterval(id);
+  }, [playerStamina, lastStaminaUse, stamPool, regenStam]);
+
   const totalSkill = Object.values(skills).reduce((a,b)=> a+(b||0), 0);
   function setSkillBound(name, val) {
     val = Math.max(0, Math.min(100, val));
@@ -304,6 +326,9 @@ function App({ DB }){
 
     if (name === 'MeleeAmbush' || name === 'RangedAmbush' || name === 'ElementalAmbush') {
       val = Math.min(val, skills.Stealth || 0);
+    }
+    if (name === 'Lances') {
+      val = Math.min(val, skills.Spear || 0);
     }
 
     const others = totalSkill - (skills[name] || 0);
@@ -317,6 +342,9 @@ function App({ DB }){
       nextSkills.RangedAmbush = Math.min(nextSkills.RangedAmbush, finalVal);
       nextSkills.ElementalAmbush = Math.min(nextSkills.ElementalAmbush, finalVal);
     }
+    if (name === 'Spear') {
+      nextSkills.Lances = Math.min(nextSkills.Lances, finalVal);
+    }
 
     setSkills(nextSkills);
   }
@@ -325,6 +353,13 @@ function App({ DB }){
     if (amount > 0) {
       setPlayerHealth((h) => Math.max(0, h - amount));
       setLastDamageTime(Date.now());
+    }
+  };
+
+  const consumeStamina = (amount) => {
+    if (amount > 0) {
+      setPlayerStamina(s => Math.max(0, s - amount));
+      setLastStaminaUse(Date.now());
     }
   };
 
@@ -608,6 +643,7 @@ function App({ DB }){
                 manaPoolV={manaPoolV}
                 STAT_POOL={STAT_POOL}
                 baseHealth={BASE_HEALTH}
+                resetStats={resetStats}
               />
               <AttackDirectionPanel
                 weapon={weapon}
@@ -628,6 +664,7 @@ function App({ DB }){
                 <div>Skill points spent</div>
                 <div className={`tabular-nums ${totalSkill>SKILL_POOL?"text-rose-400":""}`}>{totalSkill} / {SKILL_POOL} <span className="text-slate-500">(remaining {Math.max(0, SKILL_POOL-totalSkill)})</span></div>
               </div>
+              <button className="mb-3 px-2 py-1 text-xs rounded bg-slate-700" onClick={resetSkills}>Reset Skills</button>
               <div className="space-y-3">
                 {Object.entries({
                   "General": [
@@ -651,8 +688,7 @@ function App({ DB }){
                     ["MountedMagery", "Mounted Magery"],
                   ],
                   "Stealth": [
-                    ["Stealth", "Stealth"], ["MeleeAmbush", "Melee Ambush"],
-                    ["RangedAmbush", "Ranged Ambush"], ["ElementalAmbush", "Elemental Ambush"],
+                    ["Stealth", "Stealth"],
                   ],
                   "Animal Handling": [
                     ["BeastControl", "Beast Control"], ["Taming", "Taming"],
@@ -662,14 +698,32 @@ function App({ DB }){
                     <summary className="text-lg font-semibold p-3 cursor-pointer select-none">{groupName}</summary>
                     <div className="p-3 border-t border-slate-700/50 space-y-3">
                       {groupSkills.map(([key, label]) => (
-                        <div key={key} title={
-                          (key === 'MeleeAmbush' || key === 'RangedAmbush' || key === 'ElementalAmbush')
-                          ? 'This skill cannot be higher than your Stealth skill.'
-                          : ''
-                        }>
-                          <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
-                          <input type="range" min={0} max={100} value={skills[key]} onChange={e => setSkillBound(key, parseInt(e.target.value))} className="w-full" />
-                        </div>
+                        <React.Fragment key={key}>
+                          <div>
+                            <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
+                            <input type="range" min={0} max={100} value={skills[key]} onChange={e => setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                          </div>
+                          {key === 'Spear' && (
+                            <div className="ml-4" title="This skill cannot be higher than your Spear skill.">
+                              <div className="flex items-center justify-between text-sm"><span>Lances</span><span className="tabular-nums">{skills.Lances}</span></div>
+                              <input type="range" min={0} max={skills.Spear} value={skills.Lances} onChange={e => setSkillBound('Lances', parseInt(e.target.value))} className="w-full" />
+                            </div>
+                          )}
+                          {groupName === 'Stealth' && key === 'Stealth' && (
+                            <div className="ml-4 space-y-3">
+                              {[
+                                ['MeleeAmbush','Melee Ambush'],
+                                ['RangedAmbush','Ranged Ambush'],
+                                ['ElementalAmbush','Elemental Ambush'],
+                              ].map(([subKey, subLabel]) => (
+                                <div key={subKey} title="This skill cannot be higher than your Stealth skill.">
+                                  <div className="flex items-center justify-between text-sm"><span>{subLabel}</span><span className="tabular-nums">{skills[subKey]}</span></div>
+                                  <input type="range" min={0} max={skills.Stealth} value={skills[subKey]} onChange={e => setSkillBound(subKey, parseInt(e.target.value))} className="w-full" />
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </React.Fragment>
                       ))}
                     </div>
                   </details>
@@ -780,6 +834,12 @@ function App({ DB }){
                 </div>
               </div>
               <div className="text-2xl tabular-nums mt-1">{damage.staminaCost}</div>
+            </div>
+            <div className="bg-slate-800/70 rounded-xl p-4">
+              <div className="text-slate-300 font-medium">Player Stamina</div>
+              <div className="text-2xl tabular-nums mt-1">{Math.floor(playerStamina)}</div>
+              <button className="mt-2 px-2 py-1 text-xs rounded bg-slate-700" onClick={()=>consumeStamina(damage.staminaCost)}>Use {damage.staminaCost} stamina</button>
+              <div className="text-xs text-slate-300 mt-1">Regenerates {regenStam} stamina per second after 3s without use.</div>
             </div>
             <div className="bg-slate-800/70 rounded-xl p-4">
               <div className="text-slate-300 font-medium">Player Health</div>

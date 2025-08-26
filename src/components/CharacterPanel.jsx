@@ -1,7 +1,11 @@
 import React from "react";
 
-export default function CharacterPanel({ races, raceId, setRaceId, stats, setStat, effective, jewelryBonus, spent, remain, stamPool, manaPoolV, STAT_POOL, baseHealth }) {
+export default function CharacterPanel({ races, raceId, setRaceId, stats, setStat, effective, jewelryBonus, spent, remain, stamPool, manaPoolV, STAT_POOL, baseHealth, resetStats }) {
   const race = races.find(r => r.id === raceId) || races[0];
+  const modList = Object.entries(race.modifier)
+    .filter(([_, v]) => v !== 0)
+    .map(([k, v]) => `${k} ${v > 0 ? "+" : ""}${v}`);
+  const modText = modList.length ? modList.join(', ') : 'none';
   return (
     <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
       <h2 className="text-lg font-semibold mb-3">Character</h2>
@@ -11,7 +15,7 @@ export default function CharacterPanel({ races, raceId, setRaceId, stats, setSta
           {races.map(r=> <option key={r.id} value={r.id}>{r.name}</option>)}
         </select>
         <div className="text-sm text-slate-300 mt-2">
-          The chosen race applies the following adjustments to your base attributes: Strength {race.modifier.STR>=0?"+":""}{race.modifier.STR}, Dexterity {race.modifier.DEX>=0?"+":""}{race.modifier.DEX}, Intelligence {race.modifier.INT>=0?"+":""}{race.modifier.INT}, Psyche {race.modifier.PSY>=0?"+":""}{race.modifier.PSY}.
+          The chosen race applies the following adjustments to your base attributes: {modText}.
         </div>
       </div>
       {["STR","DEX","INT","PSY"].map(k=> (
@@ -31,6 +35,7 @@ export default function CharacterPanel({ races, raceId, setRaceId, stats, setSta
         <div>Attribute points spent</div>
         <div className={`tabular-nums ${remain<0?"text-rose-400":""}`}>{spent} / {STAT_POOL} <span className="text-slate-500">(remaining {Math.max(0, remain)})</span></div>
       </div>
+      <button className="mt-2 px-2 py-1 text-xs rounded bg-slate-700" onClick={resetStats}>Reset Attributes</button>
       <div className="grid grid-cols-3 gap-3 mt-4 text-sm">
         <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Health</div><div className="text-xl tabular-nums">{baseHealth}</div></div>
         <div className="bg-slate-800/70 rounded-xl p-3"><div className="text-slate-400">Stamina</div><div className="text-xl tabular-nums">{stamPool}</div></div>

@@ -7,7 +7,8 @@ import {
 } from "../utils/materialHelpers.js";
 
 export default function MaterialSelect({ DB, allowed, value, onChange, disabled = false, exclude = [] }) {
-  const categories = useMemo(() => allowed.slice().sort(), [allowed]);
+  const title = (s) => s.replace(/\b\w/g, c => c.toUpperCase());
+  const categories = useMemo(() => allowed.slice().sort((a,b)=>a.localeCompare(b)), [allowed]);
   const subCats = useMemo(() => subcategoriesFor(DB, value.category), [DB, value.category]);
   const materials = useMemo(
     () => itemsForCategory(DB, value.category, value.subCategory).filter(m => !exclude.includes(m.name)),
@@ -27,7 +28,7 @@ export default function MaterialSelect({ DB, allowed, value, onChange, disabled 
         disabled={disabled}
       >
         {categories.map(c => (
-          <option key={c} value={c}>{c}</option>
+          <option key={c} value={c}>{title(c)}</option>
         ))}
       </select>
       {subCats.length > 0 && (
@@ -42,7 +43,7 @@ export default function MaterialSelect({ DB, allowed, value, onChange, disabled 
           disabled={disabled}
         >
           {subCats.map(s => (
-            <option key={s} value={s}>{s}</option>
+            <option key={s} value={s}>{title(s)}</option>
           ))}
         </select>
       )}
@@ -53,7 +54,7 @@ export default function MaterialSelect({ DB, allowed, value, onChange, disabled 
         disabled={disabled}
       >
         {materials.map(m => (
-          <option key={m.name} value={m.name}>{m.name}</option>
+          <option key={m.name} value={m.name}>{title(m.name)}</option>
         ))}
       </select>
     </div>
