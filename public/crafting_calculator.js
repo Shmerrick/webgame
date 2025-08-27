@@ -341,21 +341,21 @@ document.addEventListener('DOMContentLoaded', () => {
         shieldBodyCategorySelect.disabled = true;
         allCategories.forEach(cat => addOption(shieldRimCategorySelect, cat, cat));
 
-        const populateByCat = (catSel, matSel) => {
-            const mats = allMaterials.filter(m => m.Category === catSel.value);
+        const populateByCat = (catSel, matSel, useSub = false) => {
+            const mats = allMaterials.filter(m => (useSub ? m.SubCategory : m.Category) === catSel.value);
             populateSelectWithOptions(matSel, mats);
         };
 
         populateByCat(shieldBodyCategorySelect, shieldBodyMaterialSelect);
-        populateByCat(shieldBossCategorySelect, shieldBossMaterialSelect);
+        populateByCat(shieldBossCategorySelect, shieldBossMaterialSelect, true);
         populateByCat(shieldRimCategorySelect, shieldRimMaterialSelect);
 
         [
-            [shieldBodyCategorySelect, shieldBodyMaterialSelect],
-            [shieldBossCategorySelect, shieldBossMaterialSelect],
-            [shieldRimCategorySelect, shieldRimMaterialSelect]
-        ].forEach(([catSel, matSel]) => {
-            catSel.addEventListener('change', () => populateByCat(catSel, matSel));
+            [shieldBodyCategorySelect, shieldBodyMaterialSelect, false],
+            [shieldBossCategorySelect, shieldBossMaterialSelect, true],
+            [shieldRimCategorySelect, shieldRimMaterialSelect, false]
+        ].forEach(([catSel, matSel, useSub]) => {
+            catSel.addEventListener('change', () => populateByCat(catSel, matSel, useSub));
         });
     }
 

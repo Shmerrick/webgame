@@ -19,8 +19,7 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
         <h2 className="text-lg font-semibold">Melee</h2>
         <button type="button" className="text-xs text-slate-300 hover:text-emerald-400" onClick={() => setCollapsed(c=>!c)}>{collapsed ? 'Expand' : 'Collapse'}</button>
       </div>
-      {!collapsed && (
-      <div className="grid grid-cols-1 gap-3">
+      <div className={`grid grid-cols-1 gap-3 ${collapsed ? 'hidden' : ''}`}>
         <div>
           <label className="block text-sm mb-1">Weapon</label>
           <select className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2" value={weaponKey} onChange={e=>setWeaponKey(e.target.value)}>
@@ -108,7 +107,6 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
           </div>
         )}
       </div>
-      )}
     </section>
   );
 }

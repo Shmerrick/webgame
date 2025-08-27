@@ -72,111 +72,113 @@ export default function ArmorSelectionPanel({
                 </div>
               </div>
 
-              { !isCollapsed && (isJewelry ? (
-                entry.isEquipped ? (
-                  <>
-                    <label className="block text-sm mt-3">Setting Material</label>
-                    <MaterialSelect DB={DB} allowed={MATERIALS_FOR_JEWELRY_SETTING} value={{category: entry.settingCategory, subCategory: entry.settingSubCategory, material: entry.settingMaterial}} onChange={val=> setJewelrySetting(slot.id, val)} />
+              <div className={isCollapsed ? 'hidden' : ''}>
+                {isJewelry ? (
+                  entry.isEquipped ? (
+                    <>
+                      <label className="block text-sm mt-3">Setting Material</label>
+                      <MaterialSelect DB={DB} allowed={MATERIALS_FOR_JEWELRY_SETTING} value={{category: entry.settingCategory, subCategory: entry.settingSubCategory, material: entry.settingMaterial}} onChange={val=> setJewelrySetting(slot.id, val)} />
 
-                    <label className="block text-sm mt-3">Gem</label>
-                    <MaterialSelect DB={DB} allowed={MATERIALS_FOR_JEWELRY_GEM} value={{category: entry.gemCategory, subCategory: entry.gemSubCategory, material: entry.gemMaterial}} onChange={val=> setJewelryGem(slot.id, val)} />
-                    <div className="mt-3">
-                      <label className="block text-sm">Bonus</label>
-                      <input type="range" min="1" max="5" value={entry.bonus || 1} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], bonus: parseInt(e.target.value, 10)}}))} className="w-full" />
-                      <div className="text-center text-sm">{entry.bonus || 1}</div>
-                    </div>
-                    {slot.type !== 'amulet' && (
+                      <label className="block text-sm mt-3">Gem</label>
+                      <MaterialSelect DB={DB} allowed={MATERIALS_FOR_JEWELRY_GEM} value={{category: entry.gemCategory, subCategory: entry.gemSubCategory, material: entry.gemMaterial}} onChange={val=> setJewelryGem(slot.id, val)} />
                       <div className="mt-3">
-                        <label className="block text-sm">Attribute Bonus</label>
-                        <select
-                          className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2"
-                          value={entry.attribute || (slot.type === 'ring' ? 'STR' : 'DEX')}
-                          onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], attribute: e.target.value}}))}
-                        >
-                          {slot.type === 'ring' && (
-                            <>
-                              <option value="STR">Strength</option>
-                              <option value="INT">Intelligence</option>
-                            </>
-                          )}
-                          {slot.type === 'earring' && (
-                            <>
-                              <option value="DEX">Dexterity</option>
-                              <option value="PSY">Psyche</option>
-                            </>
-                          )}
-                        </select>
+                        <label className="block text-sm">Bonus</label>
+                        <input type="range" min="1" max="5" value={entry.bonus || 1} onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], bonus: parseInt(e.target.value, 10)}}))} className="w-full" />
+                        <div className="text-center text-sm">{entry.bonus || 1}</div>
                       </div>
-                    )}
-                    <button onClick={() => setArmor(p => ({...p, [slot.id]: {...p[slot.id], isEquipped: false}}))} className="mt-3 w-full bg-rose-500/20 text-rose-300 border border-rose-500 rounded-lg py-2 hover:bg-rose-500/40">Unequip</button>
-                  </>
+                      {slot.type !== 'amulet' && (
+                        <div className="mt-3">
+                          <label className="block text-sm">Attribute Bonus</label>
+                          <select
+                            className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2"
+                            value={entry.attribute || (slot.type === 'ring' ? 'STR' : 'DEX')}
+                            onChange={e => setArmor(p => ({...p, [slot.id]: {...p[slot.id], attribute: e.target.value}}))}
+                          >
+                            {slot.type === 'ring' && (
+                              <>
+                                <option value="STR">Strength</option>
+                                <option value="INT">Intelligence</option>
+                              </>
+                            )}
+                            {slot.type === 'earring' && (
+                              <>
+                                <option value="DEX">Dexterity</option>
+                                <option value="PSY">Psyche</option>
+                              </>
+                            )}
+                          </select>
+                        </div>
+                      )}
+                      <button onClick={() => setArmor(p => ({...p, [slot.id]: {...p[slot.id], isEquipped: false}}))} className="mt-3 w-full bg-rose-500/20 text-rose-300 border border-rose-500 rounded-lg py-2 hover:bg-rose-500/40">Unequip</button>
+                    </>
+                  ) : (
+                    <button onClick={() => setArmor(p => ({...p, [slot.id]: {...p[slot.id], isEquipped: true}}))} className="mt-3 w-full bg-emerald-500/20 text-emerald-300 border border-emerald-500 rounded-lg py-2 hover:bg-emerald-500/40">Equip</button>
+                  )
+                ) : isShield ? (
+                  shieldEquipped ? (
+                    <>
+                      <label className="block text-sm mt-2">Off-Hand Item</label>
+                      <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.shield} onChange={e=>setShieldSubtypeSafe(e.target.value)} disabled={isTwoHanded}>
+                        {Object.keys(OFFHAND_ITEMS).filter(k=> k!=="None").map(k=> <option key={k} value={k}>{k}</option>)}
+                      </select>
+                      {entry.shield!=="None" && (
+                        <div className="text-sm text-slate-300 mt-1">
+                          Required Strength: <span className={`font-semibold ${(effective.STR >= (OFFHAND_ITEMS[entry.shield].strengthRequirement||0)) ? "text-emerald-300" : "text-rose-300"}`}>{OFFHAND_ITEMS[entry.shield].strengthRequirement}</span>.
+                        </div>
+                      )}
+                      <div className="text-sm text-slate-300 mt-2">
+                        Shield faces are treated similarly to wood planks for now so that the calculations stay consistent with your materials database. If you want a dedicated shield material list, tell me how you would like it organized, and I will add it.
+                      </div>
+                      <button onClick={() => setShieldEquipped(false)} className="mt-3 w-full bg-rose-500/20 text-rose-300 border border-rose-500 rounded-lg py-2 hover:bg-rose-500/40" disabled={isTwoHanded}>Unequip</button>
+                    </>
+                  ) : (
+                    <button onClick={() => setShieldEquipped(true)} className="mt-2 w-full bg-emerald-500/20 text-emerald-300 border border-emerald-500 rounded-lg py-2 hover:bg-emerald-500/40" disabled={isTwoHanded}>Equip</button>
+                  )
                 ) : (
-                  <button onClick={() => setArmor(p => ({...p, [slot.id]: {...p[slot.id], isEquipped: true}}))} className="mt-3 w-full bg-emerald-500/20 text-emerald-300 border border-emerald-500 rounded-lg py-2 hover:bg-emerald-500/40">Equip</button>
-                )
-              ) : isShield ? (
-                shieldEquipped ? (
                   <>
-                    <label className="block text-sm mt-2">Off-Hand Item</label>
-                    <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.shield} onChange={e=>setShieldSubtypeSafe(e.target.value)} disabled={isTwoHanded}>
-                      {Object.keys(OFFHAND_ITEMS).filter(k=> k!=="None").map(k=> <option key={k} value={k}>{k}</option>)}
+                    <label className="block text-sm mt-2">Armor Class</label>
+                    <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.class||"None"} onChange={e=>setArmorClassSafe(slot.id, e.target.value)}>
+                      {Object.keys(ARMOR_CLASS).map(k=> <option key={k} value={k}>{k}</option>)}
                     </select>
-                    {entry.shield!=="None" && (
-                      <div className="text-sm text-slate-300 mt-1">
-                        Required Strength: <span className={`font-semibold ${(effective.STR >= (OFFHAND_ITEMS[entry.shield].strengthRequirement||0)) ? "text-emerald-300" : "text-rose-300"}`}>{OFFHAND_ITEMS[entry.shield].strengthRequirement}</span>.
+
+                    <label className="block text-sm mt-3">Outer Material</label>
+                    <MaterialSelect DB={DB} allowed={allowedCats} value={{category, subCategory: entry.subCategory, material}} onChange={val=> setArmorOuter(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+
+                    <label className="block text-sm mt-3">Inner Layer Material</label>
+                    <MaterialSelect DB={DB} allowed={MATERIALS_FOR_INNER} value={{category: innerCategory, subCategory: entry.innerSubCategory, material: innerMaterial}} onChange={val=> setArmorInner(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+
+                    <label className="block text-sm mt-3">Binding</label>
+                    <MaterialSelect DB={DB} allowed={MATERIALS_FOR_BINDING} value={{category: bindingCategory, subCategory: entry.bindingSubCategory, material: bindingMaterial}} onChange={val=> setArmorBinding(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+
+                    {(entry.class||"None")!=="None" && matObj && (
+                      <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
+                        <div className="font-medium mb-1">Material and Armor Explanation</div>
+                        <p className="text-sm text-slate-300">
+                          {Object.keys(eff).filter(k => k !== 'fallbackFlags').map(key => {
+                              const value = eff[key];
+                              const isFallback = eff.fallbackFlags[key];
+                              const text = `${key.charAt(0).toUpperCase() + key.slice(1)}: ${(value * 100).toFixed(0)}%`;
+
+                              if (isFallback) {
+                                  return (
+                                      <React.Fragment key={key}>
+                                          <Tooltip text="This value is a fallback for missing data.">
+                                              <span className="text-amber-400 cursor-help">{text}*</span>
+                                          </Tooltip>
+                                          {' '}
+                                      </React.Fragment>
+                                  );
+                              }
+                              return <span key={key}>{text} </span>;
+                          })}
+                        </p>
                       </div>
                     )}
-                    <div className="text-sm text-slate-300 mt-2">
-                      Shield faces are treated similarly to wood planks for now so that the calculations stay consistent with your materials database. If you want a dedicated shield material list, tell me how you would like it organized, and I will add it.
-                    </div>
-                    <button onClick={() => setShieldEquipped(false)} className="mt-3 w-full bg-rose-500/20 text-rose-300 border border-rose-500 rounded-lg py-2 hover:bg-rose-500/40" disabled={isTwoHanded}>Unequip</button>
                   </>
-                ) : (
-                  <button onClick={() => setShieldEquipped(true)} className="mt-2 w-full bg-emerald-500/20 text-emerald-300 border border-emerald-500 rounded-lg py-2 hover:bg-emerald-500/40" disabled={isTwoHanded}>Equip</button>
-                )
-              ) : (
-                <>
-                  <label className="block text-sm mt-2">Armor Class</label>
-                  <select className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-2" value={entry.class||"None"} onChange={e=>setArmorClassSafe(slot.id, e.target.value)}>
-                    {Object.keys(ARMOR_CLASS).map(k=> <option key={k} value={k}>{k}</option>)}
-                  </select>
-
-                  <label className="block text-sm mt-3">Outer Material</label>
-                  <MaterialSelect DB={DB} allowed={allowedCats} value={{category, subCategory: entry.subCategory, material}} onChange={val=> setArmorOuter(slot.id, val)} disabled={(entry.class||"None")==="None"} />
-
-                  <label className="block text-sm mt-3">Inner Layer Material</label>
-                  <MaterialSelect DB={DB} allowed={MATERIALS_FOR_INNER} value={{category: innerCategory, subCategory: entry.innerSubCategory, material: innerMaterial}} onChange={val=> setArmorInner(slot.id, val)} disabled={(entry.class||"None")==="None"} />
-
-                  <label className="block text-sm mt-3">Binding</label>
-                  <MaterialSelect DB={DB} allowed={MATERIALS_FOR_BINDING} value={{category: bindingCategory, subCategory: entry.bindingSubCategory, material: bindingMaterial}} onChange={val=> setArmorBinding(slot.id, val)} disabled={(entry.class||"None")==="None"} />
-
-                  {(entry.class||"None")!=="None" && matObj && (
-                    <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
-                      <div className="font-medium mb-1">Material and Armor Explanation</div>
-                      <p className="text-sm text-slate-300">
-                        {Object.keys(eff).filter(k => k !== 'fallbackFlags').map(key => {
-                            const value = eff[key];
-                            const isFallback = eff.fallbackFlags[key];
-                            const text = `${key.charAt(0).toUpperCase() + key.slice(1)}: ${(value * 100).toFixed(0)}%`;
-
-                            if (isFallback) {
-                                return (
-                                    <React.Fragment key={key}>
-                                        <Tooltip text="This value is a fallback for missing data.">
-                                            <span className="text-amber-400 cursor-help">{text}*</span>
-                                        </Tooltip>
-                                        {' '}
-                                    </React.Fragment>
-                                );
-                            }
-                            return <span key={key}>{text} </span>;
-                        })}
-                      </p>
-                    </div>
-                  )}
-                </>
-                ))}
+                )}
               </div>
-            );
+            </div>
+          );
         })}
       </div>
     </section>

@@ -667,7 +667,7 @@ function App({ DB }){
                   <div>Skill points spent</div>
                   <div className={`tabular-nums ${totalSkill>SKILL_POOL?"text-rose-400":""}`}>{totalSkill} / {SKILL_POOL} <span className="text-slate-500">(remaining {Math.max(0, SKILL_POOL-totalSkill)})</span></div>
                 </div>
-                <button type="button" onClick={resetSkills} className="ml-2 px-2 py-1 text-xs border border-slate-700 rounded hover:text-emerald-400">Reset</button>
+                <button type="button" onClick={resetSkills} className="ml-2 px-2 py-1 text-xs border border-slate-700 rounded hover:text-red-400">Reset</button>
               </div>
               <div className="space-y-3">
                 {Object.entries({
