@@ -32,10 +32,6 @@
           "units": "MPa",
           "value": 1520.03
         },
-        "vickers_hardness": {
-          "value": 1618.1,
-          "units": "MPa"
-        },
         "density": {
           "value": 2.81,
           "units": "g/cm3"
@@ -78,10 +74,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -134,10 +126,6 @@
           "units": "MPa",
           "value": 1794.62
         },
-        "vickers_hardness": {
-          "value": 2181.98,
-          "units": "MPa"
-        },
         "density": {
           "value": 8,
           "units": "g/cm3"
@@ -180,10 +168,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -236,10 +220,6 @@
           "units": "MPa",
           "value": 1632.81
         },
-        "vickers_hardness": {
-          "value": 1765.2,
-          "units": "MPa"
-        },
         "density": {
           "value": 7.85,
           "units": "g/cm3"
@@ -282,10 +262,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -338,10 +314,6 @@
           "units": "MPa",
           "value": 2696.83
         },
-        "vickers_hardness": {
-          "value": 2843.93,
-          "units": "MPa"
-        },
         "density": {
           "value": 7.85,
           "units": "g/cm3"
@@ -384,10 +356,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -440,10 +408,6 @@
           "units": "MPa",
           "value": 514.85
         },
-        "vickers_hardness": {
-          "value": 588.4,
-          "units": "MPa"
-        },
         "density": {
           "value": 8.94,
           "units": "g/cm3"
@@ -486,10 +450,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -542,10 +502,6 @@
           "units": "MPa",
           "value": 882.6
         },
-        "vickers_hardness": {
-          "value": 980.66,
-          "units": "MPa"
-        },
         "density": {
           "value": 8.47,
           "units": "g/cm3"
@@ -588,10 +544,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -644,10 +596,6 @@
           "units": "MPa",
           "value": 1225.83
         },
-        "vickers_hardness": {
-          "value": 1372.93,
-          "units": "MPa"
-        },
         "density": {
           "value": 8.8,
           "units": "g/cm3"
@@ -690,10 +638,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -746,10 +690,6 @@
           "units": "MPa",
           "value": 2010.36
         },
-        "vickers_hardness": {
-          "value": 2181.98,
-          "units": "MPa"
-        },
         "density": {
           "value": 8.44,
           "units": "g/cm3"
@@ -792,10 +732,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -848,10 +784,6 @@
           "units": "MPa",
           "value": 2353.6
         },
-        "vickers_hardness": {
-          "value": 2794.9,
-          "units": "MPa"
-        },
         "density": {
           "value": 8.19,
           "units": "g/cm3"
@@ -894,10 +826,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -950,10 +878,6 @@
           "units": "MPa",
           "value": 1323.9
         },
-        "vickers_hardness": {
-          "value": 1716.16,
-          "units": "MPa"
-        },
         "density": {
           "value": 8.8,
           "units": "g/cm3"
@@ -996,10 +920,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -1052,10 +972,6 @@
           "units": "MPa",
           "value": 2059.4
         },
-        "vickers_hardness": {
-          "value": 2206.5,
-          "units": "MPa"
-        },
         "density": {
           "value": 8.89,
           "units": "g/cm3"
@@ -1098,10 +1014,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -1154,10 +1066,6 @@
           "units": "MPa",
           "value": 514.85
         },
-        "vickers_hardness": {
-          "value": 612.92,
-          "units": "MPa"
-        },
         "density": {
           "value": 1.78,
           "units": "g/cm3"
@@ -1200,10 +1108,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -1256,10 +1160,6 @@
           "units": "MPa",
           "value": 1716.16
         },
-        "vickers_hardness": {
-          "value": 1814.23,
-          "units": "MPa"
-        },
         "density": {
           "value": 7.93,
           "units": "g/cm3"
@@ -1302,10 +1202,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -1358,10 +1254,6 @@
           "units": "MPa",
           "value": 1274.86
         },
-        "vickers_hardness": {
-          "value": 1397.45,
-          "units": "MPa"
-        },
         "density": {
           "value": 2.78,
           "units": "g/cm3"
@@ -1404,10 +1296,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -1460,10 +1348,6 @@
           "units": "MPa",
           "value": 3481.36
         },
-        "vickers_hardness": {
-          "value": 3677.49,
-          "units": "MPa"
-        },
         "density": {
           "value": 7.75,
           "units": "g/cm3"
@@ -1506,10 +1390,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -1562,10 +1442,6 @@
           "units": "MPa",
           "value": 858.08
         },
-        "vickers_hardness": {
-          "value": 956.15,
-          "units": "MPa"
-        },
         "density": {
           "value": 8.9,
           "units": "g/cm3"
@@ -1608,10 +1484,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -1664,10 +1536,6 @@
           "units": "MPa",
           "value": 735.5
         },
-        "vickers_hardness": {
-          "value": 858.08,
-          "units": "MPa"
-        },
         "density": {
           "value": 2.66,
           "units": "g/cm3"
@@ -1710,10 +1578,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -1766,10 +1630,6 @@
           "units": "MPa",
           "value": 1323.9
         },
-        "vickers_hardness": {
-          "value": 1421.96,
-          "units": "MPa"
-        },
         "density": {
           "value": 2.84,
           "units": "g/cm3"
@@ -1812,10 +1672,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -1868,10 +1724,6 @@
           "units": "MPa",
           "value": 416.78
         },
-        "vickers_hardness": {
-          "value": 490.33,
-          "units": "MPa"
-        },
         "density": {
           "value": 2.73,
           "units": "g/cm3"
@@ -1914,10 +1766,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -1970,10 +1818,6 @@
           "units": "MPa",
           "value": 3285.23
         },
-        "vickers_hardness": {
-          "value": 3481.36,
-          "units": "MPa"
-        },
         "density": {
           "value": 8.3,
           "units": "g/cm3"
@@ -2016,10 +1860,6 @@
         },
         "hardness_brinell": {
           "units": "HB",
-          "value": "N/A"
-        },
-        "hardness_vickers": {
-          "units": "HV",
           "value": "N/A"
         },
         "specific_heat_capacity": {
@@ -2071,10 +1911,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -2162,10 +1998,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -2251,10 +2083,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -2342,10 +2170,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -2431,10 +2255,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -2522,10 +2342,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -2611,10 +2427,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -2702,10 +2514,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -2791,10 +2599,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -2882,10 +2686,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -2971,10 +2771,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -3062,10 +2858,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -3151,10 +2943,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -3242,10 +3030,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -3331,10 +3115,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -3422,10 +3202,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -3511,10 +3287,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -3602,10 +3374,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -3691,10 +3459,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -3782,10 +3546,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -3871,10 +3631,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -3962,10 +3718,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -4051,10 +3803,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -4142,10 +3890,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -4231,10 +3975,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -4322,10 +4062,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -4411,10 +4147,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -4502,10 +4234,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -4591,10 +4319,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -4682,10 +4406,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -4771,10 +4491,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -4862,10 +4578,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -4951,10 +4663,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -5042,10 +4750,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -5131,10 +4835,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -5222,10 +4922,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -5311,10 +5007,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -5402,10 +5094,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -5491,10 +5179,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -5582,10 +5266,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -5671,10 +5351,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -5762,10 +5438,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -5851,10 +5523,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -5942,10 +5610,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -6031,10 +5695,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -6122,10 +5782,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -6211,10 +5867,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -6302,10 +5954,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -6391,10 +6039,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -6482,10 +6126,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -6571,10 +6211,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -6662,10 +6298,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -6751,10 +6383,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -6842,10 +6470,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -6931,10 +6555,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -7022,10 +6642,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -7111,10 +6727,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -7202,10 +6814,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -7291,10 +6899,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -7382,10 +6986,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -7471,10 +7071,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -7562,10 +7158,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -7651,10 +7243,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -7742,10 +7330,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -7831,10 +7415,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -7922,10 +7502,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -8011,10 +7587,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -8102,10 +7674,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -8191,10 +7759,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": 201
-        },
-        "vickers_hardness": {
-          "value": 2108.505,
-          "units": "MPa"
         },
         "density": {
           "value": 7.75,
@@ -8282,10 +7846,6 @@
           "units": "HB",
           "value": 170
         },
-        "vickers_hardness": {
-          "value": 1667.19,
-          "units": "MPa"
-        },
         "density": {
           "value": 7.74,
           "units": "g/cm3"
@@ -8371,10 +7931,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -8462,10 +8018,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -8551,10 +8103,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,
@@ -8642,10 +8190,6 @@
           "units": "HB",
           "value": "N/A"
         },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
-        },
         "density": {
           "value": 0,
           "units": "g/cm3"
@@ -8731,10 +8275,6 @@
         "brinell_hardness": {
           "units": "HB",
           "value": "N/A"
-        },
-        "vickers_hardness": {
-          "value": 0,
-          "units": "MPa"
         },
         "density": {
           "value": 0,

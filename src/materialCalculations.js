@@ -5,7 +5,7 @@
 // Each material object may contain the following engineering properties:
 //   name, class,
 //   yieldStrength, tensileStrength, elasticModulus, density,
-//   brinellMPa, brinell, vickersMPa, vickers,
+//   brinellMPa, brinell,
 //   thermalConductivity, specificHeat, meltingPoint, electricalResistivity
 // Values are expected in the units specified by the project specification.
 
@@ -31,6 +31,17 @@ const NORM_PROPS = [
   "specificHeat",
   "meltingPoint",
   "electricalResistivity",
+];
+
+// Raw resistance metrics that are later normalized per material class.
+const RESISTANCE_PROPS = [
+  "rawSlashingResistance",
+  "rawPiercingResistance",
+  "rawBluntResistance",
+  "rawFireResistance",
+  "rawEarthResistance",
+  "rawWaterResistance",
+  "rawWindResistance",
 ];
 
 /**
@@ -107,8 +118,10 @@ export function imputeMaterialProperties(materials, stats) {
 
     let yieldStrength = mat.yieldStrength;
     let tensileStrength = mat.tensileStrength;
-    if (yieldStrength == null && tensileStrength != null) yieldStrength = tensileStrength / ratio;
-    if (tensileStrength == null && yieldStrength != null) tensileStrength = yieldStrength * ratio;
+    if (yieldStrength == null && tensileStrength != null)
+      yieldStrength = tensileStrength / ratio; // derive yield from tensile using class ratio
+    if (tensileStrength == null && yieldStrength != null)
+      tensileStrength = yieldStrength * ratio; // derive tensile from yield using class ratio
     if (yieldStrength == null)
       yieldStrength = classMedian.yieldStrength ?? globalMedians.yieldStrength;
     if (tensileStrength == null)
@@ -127,20 +140,18 @@ export function imputeMaterialProperties(materials, stats) {
       mat.electricalResistivity ?? classMedian.electricalResistivity ?? globalMedians.electricalResistivity;
 
     let brinellMPa = mat.brinellMPa;
-    if (brinellMPa == null && mat.brinell != null) brinellMPa = mat.brinell * 9.807;
-    let vickersMPa = mat.vickersMPa;
-    if (vickersMPa == null && mat.vickers != null) vickersMPa = mat.vickers * 9.807;
+    if (brinellMPa == null && mat.brinell != null)
+      brinellMPa = mat.brinell * 9.807; // convert Brinell hardness to MPa
     const hardnessCandidates = [];
     if (brinellMPa != null) hardnessCandidates.push(brinellMPa);
-    if (vickersMPa != null) hardnessCandidates.push(vickersMPa);
-    if (yieldStrength != null) hardnessCandidates.push(yieldStrength * 3);
-    if (tensileStrength != null) hardnessCandidates.push(tensileStrength * 2);
+    if (yieldStrength != null) hardnessCandidates.push(yieldStrength * 3); // empirical yield→hardness
+    if (tensileStrength != null) hardnessCandidates.push(tensileStrength * 2); // empirical tensile→hardness
     const estimatedHardnessMPa =
-      hardnessCandidates.length ? Math.max(...hardnessCandidates) : undefined;
+      hardnessCandidates.length ? Math.max(...hardnessCandidates) : undefined; // pick hardest source
 
     const specificStiffness =
       elasticModulus != null && density != null
-        ? elasticModulus / density
+        ? elasticModulus / density // stiffness per unit mass
         : medianSpecificStiffness;
 
     return {
@@ -179,7 +190,9 @@ export function buildNormalizationBounds(enriched, normProps = NORM_PROPS) {
     if (!classBuckets[cls]) classBuckets[cls] = {};
     for (const prop of normProps) {
       const val = m[prop];
-      if (val != null) {
+      // Only bucket finite numbers so NaN or infinities do not pollute
+      // normalization bounds.
+      if (Number.isFinite(val)) {
         (globalBuckets[prop] ||= []).push(val);
         (classBuckets[cls][prop] ||= []).push(val);
       }
@@ -206,94 +219,121 @@ export function buildNormalizationBounds(enriched, normProps = NORM_PROPS) {
 /**
  * Use normalized properties to generate final defense scores.
  */
-export function scoreMaterialDefenses(enriched, bounds, options = {}) {
+export function scoreMaterialDefenses(enriched, propBounds, options = {}) {
   const { feel = false, armorBias = {}, thickness = 1, attunement = {} } = options;
   const thicknessFactor = clamp(thickness, 0.5, 1.5);
 
-  const { boundsByClass, globalBounds } = bounds;
+  // First compute raw resistance metrics based on physical properties.
+  const withRaw = enriched.map((mat) => {
+    // Slash resistance uses the average of hardness and yield strength.
+    const rawSlashingResistance =
+      ((mat.estimatedHardnessMPa || 0) + (mat.yieldStrength || 0)) / 2;
+    // Pierce resistance uses the average of yield and tensile strengths.
+    const rawPiercingResistance =
+      ((mat.tensileStrength || 0) + (mat.yieldStrength || 0)) / 2;
+    // Blunt resistance comes from the square root of stiffness × density.
+    const rawBluntResistance = Math.sqrt(
+      (mat.elasticModulus || 0) * (mat.density || 0)
+    );
 
-  return enriched.map((mat) => {
+    // Fire resistance grows with heat capacity and melting point but falls with conductivity.
+    const rawFireResistance =
+      ((mat.meltingPoint || 0) * (mat.specificHeat || 0)) /
+      (mat.thermalConductivity || 1);
+    // Earth resistance is stiffness multiplied by density.
+    const rawEarthResistance = (mat.elasticModulus || 0) * (mat.density || 0);
+    // Water resistance is electrical resistivity times specific heat.
+    const rawWaterResistance =
+      (mat.electricalResistivity || 0) * (mat.specificHeat || 0);
+    // Wind resistance uses specific stiffness and electrical resistivity.
+    const rawWindResistance =
+      (mat.specificStiffness || 0) * (mat.electricalResistivity || 0);
+
+    return {
+      ...mat,
+      rawSlashingResistance,
+      rawPiercingResistance,
+      rawBluntResistance,
+      rawFireResistance,
+      rawEarthResistance,
+      rawWaterResistance,
+      rawWindResistance,
+    };
+  });
+
+  // Build normalization bounds for the raw resistance metrics.
+  const resistanceBounds = buildNormalizationBounds(withRaw, RESISTANCE_PROPS);
+
+  return withRaw.map((mat) => {
     const cls = mat.class || "global";
-    const b = boundsByClass[cls] || globalBounds;
-    const normalizeProp = (prop) => normalize(mat[prop], b[prop].a, b[prop].b);
+    // Normalize using bounds for this material class so categories aren't mixed.
+    const classBoundsForResistance =
+      resistanceBounds.boundsByClass[cls] || resistanceBounds.globalBounds;
+    const normRaw = (prop) =>
+      normalize(mat[prop], classBoundsForResistance[prop].a, classBoundsForResistance[prop].b);
 
-    const normalizedHardness = normalizeProp("estimatedHardnessMPa");
-    const normalizedYieldStrength = normalizeProp("yieldStrength");
-    const normalizedTensileStrength = normalizeProp("tensileStrength");
-    const normalizedElasticModulus = normalizeProp("elasticModulus");
-    const normalizedDensity = normalizeProp("density");
-    const normalizedSpecificStiffness = normalizeProp("specificStiffness");
-    const normalizedThermalConductivity = normalizeProp("thermalConductivity");
-    const normalizedSpecificHeat = normalizeProp("specificHeat");
-    const normalizedMeltingPoint = normalizeProp("meltingPoint");
-    const normalizedResistivity = normalizeProp("electricalResistivity");
+    let slashingResistance = normRaw("rawSlashingResistance");
+    let piercingResistance = normRaw("rawPiercingResistance");
+    let bluntResistance = normRaw("rawBluntResistance");
+    let fireResistance = normRaw("rawFireResistance");
+    let earthResistance = normRaw("rawEarthResistance");
+    let waterResistance = normRaw("rawWaterResistance");
+    let windResistance = normRaw("rawWindResistance");
 
-    const damage_slash = normalizedHardness;
-    const damage_pierce = normalizedTensileStrength;
-    const damage_blunt = normalizedDensity;
+    // Apply thickness scaling and armor bias after normalization.
+    slashingResistance = clamp01(
+      slashingResistance * thicknessFactor + (armorBias.slashing || 0)
+    );
+    piercingResistance = clamp01(
+      piercingResistance * thicknessFactor + (armorBias.piercing || 0)
+    );
+    bluntResistance = clamp01(
+      bluntResistance * thicknessFactor + (armorBias.blunt || 0)
+    );
 
-    let slash =
-      0.50 * normalizedHardness +
-      0.30 * normalizedYieldStrength +
-      0.20 * normalizedElasticModulus;
-    let pierce =
-      0.45 * normalizedHardness +
-      0.35 * normalizedYieldStrength +
-      0.20 * normalizedTensileStrength;
-    let blunt =
-      0.35 * normalizedElasticModulus +
-      0.35 * normalizedYieldStrength +
-      0.30 * normalizedDensity;
+    fireResistance = clamp01(
+      fireResistance + (armorBias.fire || 0) + (attunement.fire || 0)
+    );
+    earthResistance = clamp01(
+      earthResistance + (armorBias.earth || 0) + (attunement.earth || 0)
+    );
+    waterResistance = clamp01(
+      waterResistance + (armorBias.water || 0) + (attunement.water || 0)
+    );
+    windResistance = clamp01(
+      windResistance + (armorBias.wind || 0) + (attunement.wind || 0)
+    );
 
-    let fire =
-      0.45 * normalizedMeltingPoint +
-      0.35 * normalizedSpecificHeat +
-      0.20 * (1 - normalizedThermalConductivity);
-    let earth =
-      0.50 * normalizedHardness +
-      0.30 * normalizedElasticModulus +
-      0.20 * normalizedDensity;
-    let water =
-      0.45 * normalizedResistivity +
-      0.25 * normalizedHardness +
-      0.15 * (1 - normalizedThermalConductivity) +
-      0.15 * normalizedSpecificHeat;
-    let wind =
-      0.40 * normalizedSpecificStiffness +
-      0.30 * normalizedHardness +
-      0.30 * normalizedResistivity;
-
-    slash = clamp01(slash * thicknessFactor + (armorBias.slashing || 0));
-    pierce = clamp01(pierce * thicknessFactor + (armorBias.piercing || 0));
-    blunt = clamp01(blunt * thicknessFactor + (armorBias.blunt || 0));
-
-    fire = clamp01(fire + (armorBias.fire || 0) + (attunement.fire || 0));
-    earth = clamp01(earth + (armorBias.earth || 0) + (attunement.earth || 0));
-    water = clamp01(water + (armorBias.water || 0) + (attunement.water || 0));
-    wind = clamp01(wind + (armorBias.wind || 0) + (attunement.wind || 0));
+    // Damage metrics are also normalized per material class.
+    const clsBounds = propBounds.boundsByClass[cls] || propBounds.globalBounds;
+    const normProp = (prop) =>
+      normalize(mat[prop], clsBounds[prop].a, clsBounds[prop].b);
+    const slashDamage = normProp("estimatedHardnessMPa"); // Hardness -> slash damage
+    const pierceDamage = normProp("tensileStrength"); // Tensile strength -> pierce damage
+    const bluntDamage = normProp("density"); // Density -> blunt damage
 
     if (feel) {
-      slash = feelTransform(slash);
-      pierce = feelTransform(pierce);
-      blunt = feelTransform(blunt);
-      fire = feelTransform(fire);
-      earth = feelTransform(earth);
-      water = feelTransform(water);
-      wind = feelTransform(wind);
+      slashingResistance = feelTransform(slashingResistance);
+      piercingResistance = feelTransform(piercingResistance);
+      bluntResistance = feelTransform(bluntResistance);
+      fireResistance = feelTransform(fireResistance);
+      earthResistance = feelTransform(earthResistance);
+      waterResistance = feelTransform(waterResistance);
+      windResistance = feelTransform(windResistance);
     }
 
     return {
       ...mat,
-      D_slash: round5(damage_slash),
-      D_pierce: round5(damage_pierce),
-      D_blunt: round5(damage_blunt),
-      R_slash: round5(slash),
-      R_pierce: round5(pierce),
-      R_blunt: round5(blunt),
-      R_fire: round5(fire),
-      R_earth: round5(earth),
-      R_water: round5(water),
-      R_wind: round5(wind),
+      D_slash: round5(slashDamage),
+      D_pierce: round5(pierceDamage),
+      D_blunt: round5(bluntDamage),
+      R_slash: round5(slashingResistance),
+      R_pierce: round5(piercingResistance),
+      R_blunt: round5(bluntResistance),
+      R_fire: round5(fireResistance),
+      R_earth: round5(earthResistance),
+      R_water: round5(waterResistance),
+      R_wind: round5(windResistance),
     };
   });
 }

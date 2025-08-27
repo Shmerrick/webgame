@@ -49,6 +49,24 @@ describe('calculateMaterialDefenses', () => {
     expect(thick.R_slash).toBeCloseTo(Math.min(1, base.R_slash * 1.5));
   });
 
+  it('ranks slash defense by strength and hardness', () => {
+    const materials = [
+      { name: 'Soft', class: 'Metal', yieldStrength: 100, tensileStrength: 150, elasticModulus: 100, density: 10, thermalConductivity: 1, specificHeat: 1, meltingPoint: 1, electricalResistivity: 1 },
+      { name: 'Hard', class: 'Metal', yieldStrength: 300, tensileStrength: 150, elasticModulus: 100, density: 10, thermalConductivity: 1, specificHeat: 1, meltingPoint: 1, electricalResistivity: 1 }
+    ];
+    const [soft, hard] = calculateMaterialDefenses(materials);
+    expect(hard.R_slash).toBeGreaterThan(soft.R_slash);
+  });
+
+  it('reduces fire resistance for high thermal conductivity', () => {
+    const materials = [
+      { name: 'Insulator', class: 'Metal', yieldStrength: 100, tensileStrength: 100, elasticModulus: 100, density: 10, thermalConductivity: 1, specificHeat: 1, meltingPoint: 1000, electricalResistivity: 1 },
+      { name: 'Conductor', class: 'Metal', yieldStrength: 100, tensileStrength: 100, elasticModulus: 100, density: 10, thermalConductivity: 100, specificHeat: 1, meltingPoint: 1000, electricalResistivity: 1 }
+    ];
+    const [ins, cond] = calculateMaterialDefenses(materials);
+    expect(ins.R_fire).toBeGreaterThan(cond.R_fire);
+  });
+
   it('applies attunement bonuses', () => {
     const materials = [
       { name: 'Mat1', class: 'Metal', yieldStrength: 100, tensileStrength: 200, elasticModulus: 100, density: 10, thermalConductivity: 1, specificHeat: 1, meltingPoint: 1, electricalResistivity: 1 },
@@ -58,6 +76,19 @@ describe('calculateMaterialDefenses', () => {
     const base = calculateMaterialDefenses(materials)[2];
     const attuned = calculateMaterialDefenses(materials, { attunement: { fire: 0.2 } })[2];
     expect(attuned.R_fire).toBeCloseTo(Math.min(1, base.R_fire + 0.2));
+  });
+
+  it('handles NaN inputs without producing NaN offense scores', () => {
+    const materials = [
+      { name: 'Valid', class: 'Metal', yieldStrength: 200, tensileStrength: 400, elasticModulus: 210000, density: 7.8 },
+      { name: 'Broken', class: 'Metal', yieldStrength: NaN, tensileStrength: 400, elasticModulus: 210000, density: 7.8 },
+    ];
+    const result = calculateMaterialDefenses(materials);
+    for (const mat of result) {
+      ['D_slash', 'D_pierce', 'D_blunt'].forEach((key) => {
+        expect(Number.isFinite(mat[key])).toBe(true);
+      });
+    }
   });
 
   it('normalizes damage factors per category', () => {
@@ -171,6 +202,20 @@ describe('material calculation helpers', () => {
     const bounds = buildNormalizationBounds(enriched);
     expect(bounds.boundsByClass.A.estimatedHardnessMPa).toEqual({ a: 100, b: 200 });
     expect(bounds.globalBounds.estimatedHardnessMPa).toEqual({ a: 100, b: 200 });
+  });
+
+  it('filters out NaN values when building bounds', () => {
+    const enriched = [
+      { class: 'Metal', estimatedHardnessMPa: 100 },
+      { class: 'Metal', estimatedHardnessMPa: NaN },
+    ];
+    const bounds = buildNormalizationBounds(enriched, ['estimatedHardnessMPa']);
+    const gb = bounds.globalBounds.estimatedHardnessMPa;
+    const cb = bounds.boundsByClass.Metal.estimatedHardnessMPa;
+    expect(Number.isFinite(gb.a)).toBe(true);
+    expect(Number.isFinite(gb.b)).toBe(true);
+    expect(Number.isFinite(cb.a)).toBe(true);
+    expect(Number.isFinite(cb.b)).toBe(true);
   });
 
   it('scores defenses from normalized properties', () => {

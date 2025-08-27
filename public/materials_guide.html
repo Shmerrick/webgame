@@ -116,17 +116,17 @@
             </ul>
 
             <h3 class="text-xl text-emerald-300 mt-4">Defense Formula Reference</h3>
-            <p>Each defense value starts by scaling a material's real-world properties between 0 and 1 compared to all known materials. We blend those scaled values with the weights below and round the result to five decimal places:</p>
+            <p>We derive raw resistance metrics directly from measurable properties and then normalize them within each material category. The core formulas are:</p>
             <ul class="list-disc text-slate-300 mt-2">
-                <li><strong>Slash Defense:</strong> 50% hardness + 30% yield strength + 200% elastic modulus.</li>
-                <li><strong>Pierce Defense:</strong> 45% hardness + 35% yield strength + 20% ultimate tensile strength.</li>
-                <li><strong>Blunt Defense:</strong> 35% elastic modulus + 35% yield strength + 30% density.</li>
-                <li><strong>Fire Resistance:</strong> 45% melting point + 35% specific heat + 20% low thermal conductivity.</li>
-                <li><strong>Earth Resistance:</strong> 50% hardness + 30% elastic modulus + 20% density.</li>
-                <li><strong>Water Resistance:</strong> 45% electrical resistivity + 25% hardness + 15% low thermal conductivity + 15% specific heat.</li>
-                <li><strong>Wind Resistance:</strong> 40% specific stiffness (elastic modulus ÷ density) + 30% hardness + 30% electrical resistivity.</li>
+                <li><strong>Slash Defense:</strong> average of hardness and yield strength.</li>
+                <li><strong>Pierce Defense:</strong> average of yield strength and tensile strength.</li>
+                <li><strong>Blunt Defense:</strong> square root of (elastic modulus × density).</li>
+                <li><strong>Fire Resistance:</strong> (melting point × specific heat) ÷ thermal conductivity.</li>
+                <li><strong>Earth Resistance:</strong> elastic modulus × density.</li>
+                <li><strong>Water Resistance:</strong> electrical resistivity × specific heat.</li>
+                <li><strong>Wind Resistance:</strong> specific stiffness × electrical resistivity.</li>
             </ul>
-            <p>Armor thickness and magical attunements can further nudge these numbers up or down.</p>
+            <p>Each raw value is normalized against other materials of the same category (metals with metals, wood with wood), so cross-category comparisons are avoided. The normalized results are adjusted for armor thickness and any magical attunements.</p>
         </section>
 
         
