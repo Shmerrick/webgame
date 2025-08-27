@@ -507,7 +507,7 @@ function App({ DB }){
 
       if (weapon.type==='mounted'){
         const m = weapon.head; const factor = weapon.speed[mountedSpeed] || 1.0;
-        const mass = Math.ceil((weapon.massKilograms||0) * massMult * (isTwoHanded ? 1.5 : 1));
+        const mass = Math.ceil((weapon.massKilograms||0) * massMult);
         staminaCost = (weapon.baseCost||0) + MSF*mass;
         const rawB = effective.STR*(m.Blunt||0)*factor;
         const rawP = effective.STR*(m.Pierce||0)*factor;
@@ -536,7 +536,7 @@ function App({ DB }){
     const scaledWithSkill = {};
     for (const [k,v] of Object.entries(parts)) scaledWithSkill[k] = (v||0) * (total/partsSum0);
 
-    const damageMult = isTwoHanded ? 2 : 1;
+    const damageMult = isTwoHanded ? 1.25 : 1;
     const outMult = (nakedOverride ? 0.25 : 1) * Math.max(0, 1 - 0.15*missingPieces) * damageMult;
     total = Math.floor(total * outMult);
 
@@ -544,7 +544,7 @@ function App({ DB }){
     const finalParts = {};
     for (const [k,v] of Object.entries(scaledWithSkill)) finalParts[k] = Math.floor(total * (v||0) / partsSum);
     const isHeavy = (weapon.type!=='mounted') && (charge >= 1.5 - 1e-6);
-    const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1) * (isTwoHanded ? 2 : 1));
+    const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1));
     return { total, parts: finalParts, staminaCost: staminaCostFinal, isHeavy };
   }, [weapon, direction, charge, swing, effective.STR, mountedSpeed, missingPieces, nakedOverride, weaponComps, skillMult, DB, bowType, bowWood, isTwoHanded]);
 
@@ -788,7 +788,6 @@ function App({ DB }){
               <div className="flex items-center justify-between">
                 <div className="text-slate-300 font-medium">Stamina Cost for the Attack</div>
                 <div className="flex gap-2">
-                  {isTwoHanded && <span className="text-[10px] px-2 py-0.5 rounded-full border border-amber-400 text-amber-300">Two-handed (double stamina)</span>}
                   {damage.isHeavy && <span className="text-[10px] px-2 py-0.5 rounded-full border border-amber-400 text-amber-300">Heavy attack (double stamina)</span>}
                 </div>
               </div>

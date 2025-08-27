@@ -11,9 +11,10 @@ export default function useMaterials() {
     let cancelled = false;
     async function load() {
       try {
-        const [base, wood, elementals, alloys, rocks, gemstones] = await Promise.all([
+        const [base, wood, woodProps, elementals, alloys, rocks, gemstones] = await Promise.all([
           getDatabaseSection('materials'),
           getDatabaseSection('woodTypes'),
+          getDatabaseSection('woodProperties'),
           getDatabaseSection('elementalMetals'),
           getDatabaseSection('metalAlloys'),
           getDatabaseSection('rockTypes'),
@@ -32,7 +33,7 @@ export default function useMaterials() {
           return out;
         };
 
-        const built = capitalizeNode(buildMaterialDB(base, wood, elementals, alloys, rocks));
+        const built = capitalizeNode(buildMaterialDB(base, wood, elementals, alloys, rocks, { woodProperties: woodProps }));
         built['Cut Gemstones'] = (gemstones || []).map(name => ({ name: capitalizeWords(name) }));
         built.Dev = [
           {

@@ -72,81 +72,30 @@
     </div>
     <script type="module" src="./database.js"></script>
     <script type="module">
-        async function loadMaterials() {
-          const container = document.getElementById('materials-container');
-          container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
+      import { normalizeDamageFactorsByCategory } from './materialCalculations.js';
 
-          try {
-            const [db, woods, woodProps, elementals, alloys, rocks] = await Promise.all([
-              getDatabaseSection('materials'),
-              getDatabaseSection('woodTypes'),
-              getDatabaseSection('woodProperties'),
-              getDatabaseSection('elementalMetals'),
-              getDatabaseSection('metalAlloys'),
-              getDatabaseSection('rockTypes')
-            ]);
+      async function loadMaterials() {
+        const container = document.getElementById('materials-container');
+        container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
 
-            const woodList = Object.values(woodProps);
-            const maxHard = Math.max(...woodList.map(w => w.hardness || 0));
-            const maxTough = Math.max(...woodList.map(w => w.toughness || 0));
-            const maxDens = Math.max(...woodList.map(w => w.density || 0));
+        try {
+          const [base, woods, woodProps, elementals, alloys, rocks] = await Promise.all([
+            getDatabaseSection('materials'),
+            getDatabaseSection('woodTypes'),
+            getDatabaseSection('woodProperties'),
+            getDatabaseSection('elementalMetals'),
+            getDatabaseSection('metalAlloys'),
+            getDatabaseSection('rockTypes')
+          ]);
 
-            const slug = name => name.toLowerCase().replace(/\s+/g, '_');
-            const toTitleCase = str => str.replace(/\b\w/g, c => c.toUpperCase());
-            const round5 = n => Math.round(n * 1e5) / 1e5;
+          const db = buildMaterialDB(base, woods, elementals, alloys, rocks, { woodProperties: woodProps });
+          const normalized = normalizeDamageFactorsByCategory(db);
 
-            // Merge wood types by subcategory
-            db['Wood'] = Object.fromEntries(
-              Object.entries(woods).map(([type, list]) => [
-                toTitleCase(type),
-                list.map(name => {
-                  const props = woodProps[name] || {};
-                  const factors = {
-                    defense_slash: round5((props.hardness || 0) / maxHard || 0),
-                    defense_pierce: round5((props.density || 0) / maxDens || 0),
-                    defense_blunt: round5((props.toughness || 0) / maxTough || 0),
-                  };
-                  return {
-                    id: slug(name),
-                    name: toTitleCase(name),
-                    density: props.density,
-                    factors,
-                  };
-                })
-              ])
-            );
+          const toTitleCase = str => str.replace(/\b\w/g, c => c.toUpperCase());
 
-            db['Rock Types'] = rocks;
-            const elementalMetals = (elementals.elements || []).map(m => ({
-              id: slug(m.name),
-              name: toTitleCase(m.name),
-              ...(m.factors ? { factors: m.factors } : {}),
-              ...(m.density != null ? { density: m.density } : {}),
-            }));
-            const alloyMetals = (alloys.elements || []).map(m => ({
-              id: slug(m.name),
-              name: toTitleCase(m.name),
-              ...(m.factors ? { factors: m.factors } : {}),
-              ...(m.density != null ? { density: m.density } : {}),
-            }));
-            db.Metals = db.Metals || {};
-            db.Metals['Elemental Metals'] = elementalMetals;
-            db.Metals['Metal Alloys'] = alloyMetals;
+          container.innerHTML = '';
 
-            const assignIds = obj => {
-              for (const val of Object.values(obj)) {
-                if (Array.isArray(val)) {
-                  val.forEach(m => { if (m.name && !m.id) m.id = slug(m.name); });
-                } else if (val && typeof val === 'object') {
-                  assignIds(val);
-                }
-              }
-            };
-            assignIds(db);
-
-            container.innerHTML = '';
-
-            function renderNested(data) {
+          function renderNested(data) {
               if (Array.isArray(data)) {
                 const ul = document.createElement('ul');
                 ul.className = 'pl-5 list-disc space-y-1';
@@ -223,7 +172,7 @@
               }
             }
 
-            Object.keys(db)
+            Object.keys(normalized)
               .sort()
               .forEach(cat => {
                 const details = document.createElement('details');
@@ -231,7 +180,7 @@
                 summary.className = 'text-2xl font-semibold mb-2 cursor-pointer';
                 summary.textContent = toTitleCase(cat);
                 details.appendChild(summary);
-                const data = db[cat];
+                const data = normalized[cat];
 
                 if (Array.isArray(data)) {
                   details.appendChild(renderNested(data));
