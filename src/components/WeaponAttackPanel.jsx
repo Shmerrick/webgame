@@ -76,7 +76,7 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
                   name="handedness"
                   checked={!isTwoHanded}
                   onChange={() => setTwoHanded(false)}
-                  disabled={armor.shield.shield !== 'None'}
+                  disabled={armor.shield.isEquipped}
                 />
                 <span className="ml-2">One-Handed</span>
               </label>
@@ -86,7 +86,7 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
                   name="handedness"
                   checked={isTwoHanded}
                   onChange={() => setTwoHanded(true)}
-                  disabled={armor.shield.shield !== 'None'}
+                  disabled={armor.shield.isEquipped}
                 />
                 <span className="ml-2">Two-Handed</span>
               </label>

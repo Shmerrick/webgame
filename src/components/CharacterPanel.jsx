@@ -11,7 +11,19 @@ export default function CharacterPanel({ races, raceId, setRaceId, stats, setSta
           {races.map(r=> <option key={r.id} value={r.id}>{r.name}</option>)}
         </select>
         <div className="text-sm text-slate-300 mt-2">
-          The chosen race applies the following adjustments to your base attributes: Strength {race.modifier.STR>=0?"+":""}{race.modifier.STR}, Dexterity {race.modifier.DEX>=0?"+":""}{race.modifier.DEX}, Intelligence {race.modifier.INT>=0?"+":""}{race.modifier.INT}, Psyche {race.modifier.PSY>=0?"+":""}{race.modifier.PSY}.
+          {(() => {
+            const fmt = (label, val) =>
+              val !== 0 ? `${label} ${val > 0 ? `+${val}` : val}` : null;
+            const parts = [
+              fmt('Strength', race.modifier.STR),
+              fmt('Dexterity', race.modifier.DEX),
+              fmt('Intelligence', race.modifier.INT),
+              fmt('Psyche', race.modifier.PSY),
+            ].filter(Boolean);
+            return parts.length
+              ? `The chosen race applies the following adjustments to your base attributes: ${parts.join(', ')}.`
+              : 'The chosen race applies no adjustments to your base attributes.';
+          })()}
         </div>
       </div>
       {["STR","DEX","INT","PSY"].map(k=> (
