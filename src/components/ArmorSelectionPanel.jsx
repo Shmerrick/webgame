@@ -10,7 +10,7 @@ import {
   MATERIALS_FOR_BINDING,
   MATERIALS_FOR_JEWELRY_SETTING,
   MATERIALS_FOR_JEWELRY_GEM,
-} from "../constants/armor.js";
+} from "../../public/constants/armor.js";
 import { firstSub, firstMaterial, factorsFor } from "../utils/materialHelpers.js";
 
 export default function ArmorSelectionPanel({

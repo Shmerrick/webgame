@@ -8,7 +8,7 @@ import {
   MATERIALS_FOR_HEAD,
   BANNED_WEAPON_HEAD_MATERIALS,
   BOW_TYPES,
-} from "./constants/weapons.js";
+} from "../public/constants/weapons.js";
 import {
   armorSlots,
   ARMOR_CLASS,
@@ -20,7 +20,7 @@ import {
   MATERIALS_FOR_JEWELRY_SETTING,
   MATERIALS_FOR_JEWELRY_GEM,
   MIN_DEFENSE_FLOOR,
-} from "./constants/armor.js";
+} from "../public/constants/armor.js";
 import CharacterPanel from "./components/CharacterPanel.jsx";
 import AttackDirectionPanel from "./components/AttackDirectionPanel.jsx";
 import WeaponAttackPanel from "./components/WeaponAttackPanel.jsx";

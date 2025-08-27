@@ -1,6 +1,14 @@
 import React from "react";
 import MaterialSelect from "./MaterialSelect.jsx";
-import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS, BOW_TYPES } from "../constants/weapons.js";
+import {
+  WEAPONS,
+  MATERIALS_FOR_HANDLE_CORE,
+  MATERIALS_FOR_HANDLE_GRIP,
+  MATERIALS_FOR_HANDLE_FITTING,
+  MATERIALS_FOR_HEAD,
+  BANNED_WEAPON_HEAD_MATERIALS,
+  BOW_TYPES,
+} from "../../public/constants/weapons.js";
 
 
 export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bowType, setBowType, bowWood, setBowWood, weaponComps, setWeaponComp, isTwoHanded, setTwoHanded, mountedSpeed, setMountedSpeed, armor, DB }) {
