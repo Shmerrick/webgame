@@ -1,1 +1,1 @@
-export * from './public/database.js';
+export { getDatabaseSection, buildMaterialDB } from './public/database.js';

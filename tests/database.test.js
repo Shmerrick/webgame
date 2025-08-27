@@ -17,4 +17,9 @@ describe('getDatabaseSection', () => {
     await expect(getDatabaseSection('foo')).rejects.toThrow('Failed to fetch foo.json');
     vi.unstubAllGlobals();
   });
+
+  it('re-exports from root module', async () => {
+    const mod = await import('../database.js');
+    expect(typeof mod.getDatabaseSection).toBe('function');
+  });
 });

@@ -7,7 +7,7 @@ import {
 } from "../utils/materialHelpers.js";
 
 export default function MaterialSelect({ DB, allowed, value, onChange, disabled = false, exclude = [] }) {
-  const categories = useMemo(() => allowed.slice().sort(), [allowed]);
+  const categories = useMemo(() => allowed.slice(), [allowed]);
   const subCats = useMemo(() => subcategoriesFor(DB, value.category), [DB, value.category]);
   const materials = useMemo(
     () => itemsForCategory(DB, value.category, value.subCategory).filter(m => !exclude.includes(m.name)),

@@ -358,7 +358,7 @@ function App({ DB }){
   });
 
   // Target armor (for “damage against armor”)
-    const [targetArmor, setTargetArmor] = useState({
+  const [targetArmor, setTargetArmor] = useState({
       class: "Heavy",
       category: "Metals",
       subCategory: firstSubCat("Metals"),
@@ -387,6 +387,33 @@ function App({ DB }){
     fitting: { category: "Metals", subCategory:firstSubCat("Metals"), material: firstMat("Metals", firstSubCat("Metals")) },
     head: { category: "Metals", subCategory:firstSubCat("Metals"), material: firstMat("Metals", firstSubCat("Metals")) },
   });
+
+  useEffect(() => {
+    if (!DB) return;
+    setTargetArmor(t => {
+      const fix = (allowed, cat, mat) => {
+        let category = allowed.includes(cat) ? cat : allowed[0];
+        const subCategory = firstSubCat(category);
+        const material = factorsFor(DB, category, mat) ? mat : firstMat(category, subCategory);
+        return { category, subCategory, material };
+      };
+      const outer = fix(MATERIALS_FOR_CLASS[t.class] || [], t.category, t.material);
+      const inner = fix(MATERIALS_FOR_INNER, t.innerCategory, t.innerMaterial);
+      const bind = fix(MATERIALS_FOR_BINDING, t.bindingCategory, t.bindingMaterial);
+      return {
+        ...t,
+        category: outer.category,
+        subCategory: outer.subCategory,
+        material: outer.material,
+        innerCategory: inner.category,
+        innerSubCategory: inner.subCategory,
+        innerMaterial: inner.material,
+        bindingCategory: bind.category,
+        bindingSubCategory: bind.subCategory,
+        bindingMaterial: bind.material,
+      };
+    });
+  }, [DB]);
   const [isTwoHanded, setTwoHanded] = useState(false);
 
   useEffect(() => {
@@ -864,7 +891,7 @@ function App({ DB }){
           nakedOverride={nakedOverride}
         />
 
-        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6">
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6 max-w-lg mx-auto">
           <h2 className="text-lg font-semibold mb-3">Target Armor for Damage Against Armor</h2>
           <div className="grid grid-cols-1 gap-2">
             <div>
