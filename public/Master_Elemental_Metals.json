@@ -226,7 +226,7 @@
       "thermalConductivity": 58.2,
       "specificHeat": 0.36,
       "meltingPoint": 39.3,
-      "electricalResistivity": 128
+      "electricalResistivity": 13.3
     },
     {
       "name": "Strontium",
@@ -238,7 +238,7 @@
       "thermalConductivity": 35,
       "specificHeat": 0.3,
       "meltingPoint": 776.85,
-      "electricalResistivity": 151
+      "electricalResistivity": 13.5
     },
     {
       "name": "Yttrium",
@@ -250,7 +250,7 @@
       "thermalConductivity": 17,
       "specificHeat": 0.3,
       "meltingPoint": 1525.85,
-      "electricalResistivity": 596
+      "electricalResistivity": 60
     },
     {
       "name": "Zirconium",
@@ -262,7 +262,7 @@
       "thermalConductivity": 22.7,
       "specificHeat": 0.28,
       "meltingPoint": 1854.85,
-      "electricalResistivity": 421
+      "electricalResistivity": 43.3
     },
     {
       "name": "Niobium",
@@ -274,7 +274,7 @@
       "thermalConductivity": 53.7,
       "specificHeat": 0.26,
       "meltingPoint": 2476.85,
-      "electricalResistivity": 152
+      "electricalResistivity": 15.2
     },
     {
       "name": "Molybdenum",
@@ -286,7 +286,7 @@
       "thermalConductivity": 138,
       "specificHeat": 0.25,
       "meltingPoint": 2622.85,
-      "electricalResistivity": 53
+      "electricalResistivity": 5.5
     },
     {
       "name": "Technetium",
@@ -298,7 +298,7 @@
       "thermalConductivity": 50.6,
       "specificHeat": 0.21,
       "meltingPoint": 2200,
-      "electricalResistivity": 200
+      "electricalResistivity": 22
     },
     {
       "name": "Ruthenium",
@@ -394,7 +394,7 @@
       "thermalConductivity": 36,
       "specificHeat": 0.24,
       "meltingPoint": 28.55,
-      "electricalResistivity": 208
+      "electricalResistivity": 21
     },
     {
       "name": "Barium",
@@ -406,7 +406,7 @@
       "thermalConductivity": 18,
       "specificHeat": 0.2,
       "meltingPoint": 726.85,
-      "electricalResistivity": 332
+      "electricalResistivity": 34
     },
     {
       "name": "Lanthanum",
