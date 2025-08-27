@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import MaterialSelect from "./MaterialSelect.jsx";
-import { WEAPONS, MATERIALS_FOR_HANDLE_CORE, MATERIALS_FOR_HANDLE_GRIP, MATERIALS_FOR_HANDLE_FITTING, MATERIALS_FOR_HEAD, BANNED_WEAPON_HEAD_MATERIALS, BOW_TYPES } from "../constants/weapons.js";
+import {
+  WEAPONS,
+  MATERIALS_FOR_HANDLE_CORE,
+  MATERIALS_FOR_HANDLE_GRIP,
+  MATERIALS_FOR_HANDLE_FITTING,
+  MATERIALS_FOR_HEAD,
+  BANNED_WEAPON_HEAD_MATERIALS,
+  BOW_TYPES,
+} from "../../public/constants/weapons.js";
 
 
 export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bowType, setBowType, bowWood, setBowWood, weaponComps, setWeaponComp, isTwoHanded, setTwoHanded, mountedSpeed, setMountedSpeed, armor, DB }) {
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg">
-      <h2 className="text-lg font-semibold mb-3">Melee</h2>
+      <div className="flex items-center justify-between mb-3">
+        <h2 className="text-lg font-semibold">Melee</h2>
+        <button type="button" className="text-xs text-slate-300 hover:text-emerald-400" onClick={() => setCollapsed(c=>!c)}>{collapsed ? 'Expand' : 'Collapse'}</button>
+      </div>
+      {!collapsed && (
       <div className="grid grid-cols-1 gap-3">
         <div>
           <label className="block text-sm mb-1">Weapon</label>
@@ -68,7 +81,7 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
                   name="handedness"
                   checked={!isTwoHanded}
                   onChange={() => setTwoHanded(false)}
-                  disabled={armor.shield.shield !== 'None'}
+                  disabled={armor.shield.isEquipped}
                 />
                 <span className="ml-2">One-Handed</span>
               </label>
@@ -78,7 +91,7 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
                   name="handedness"
                   checked={isTwoHanded}
                   onChange={() => setTwoHanded(true)}
-                  disabled={armor.shield.shield !== 'None'}
+                  disabled={armor.shield.isEquipped}
                 />
                 <span className="ml-2">Two-Handed</span>
               </label>
@@ -95,6 +108,7 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
           </div>
         )}
       </div>
+      )}
     </section>
   );
 }

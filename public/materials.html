@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <link rel="icon" href="favicon.ico">
     <meta charset="utf-8" />
     <title>Game Simulator - Materials</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,24 +36,26 @@
     <div class="min-h-screen w-full bg-slate-950/80 text-slate-100 p-4 md:p-8">
       <div class="max-w-7xl mx-auto">
         <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
-          <div class="flex items-center justify-between flex-wrap">
+          <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
               <div class="text-xl font-bold tracking-tight">Game Simulator</div>
               <span id="version-display" class="text-sm text-slate-400"></span>
             </div>
-            <div class="flex flex-wrap gap-4">
-              <a href="index.html" class="text-slate-300 hover:text-emerald-400">Home</a>
-              <a href="materials.html" class="text-emerald-400 font-semibold">Materials</a>
-              <a href="simulator.html" class="text-slate-300 hover:text-emerald-400">Simulator</a>
-              <a href="combat.html" class="text-slate-300 hover:text-emerald-400">Combat</a>
-              <a href="movement.html" class="text-slate-300 hover:text-emerald-400">Movement</a>
-              <a href="races.html" class="text-slate-300 hover:text-emerald-400">Races</a>
-              <a href="ascension.html" class="text-slate-300 hover:text-emerald-400">Ascension</a>
-              <a href="magic.html" class="text-slate-300 hover:text-emerald-400">Magic</a>
-              <a href="spells.html" class="text-slate-300 hover:text-emerald-400">Spells</a>
-              <a href="crafting.html" class="text-slate-300 hover:text-emerald-400">Crafting</a>
-              <a href="siege.html" class="text-slate-300 hover:text-emerald-400">Siege</a>
-              <a href="materials_guide.html" class="text-slate-300 hover:text-emerald-400">Materials Guide</a>
+            <button id="menu-toggle" class="md:hidden px-2 py-1 text-slate-300 hover:text-emerald-400 border border-slate-700 rounded">Menu</button>
+            <div id="nav-links" class="hidden w-full flex-col gap-2 mt-4 md:mt-0 md:flex md:flex-row md:flex-wrap md:gap-4 md:w-auto">
+              <a href="index.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Home</a>
+              <a href="materials.html" class="px-2 py-1 text-emerald-400 font-semibold">Materials</a>
+              <a href="simulator.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Simulator</a>
+              <a href="combat.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Combat</a>
+              <a href="movement.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Movement</a>
+              <a href="races.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Races</a>
+              <a href="ascension.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Ascension</a>
+              <a href="magic.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Magic</a>
+              <a href="spells.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Spells</a>
+              <a href="crafting.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Crafting</a>
+              <a href="siege.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Siege</a>
+              <a href="materials_guide.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials Guide</a>
+              <a href="game_systems.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Game Systems</a>
             </div>
           </div>
         </nav>
@@ -60,68 +63,39 @@
         <header class="text-center">
           <h1 class="text-4xl font-bold tracking-tight mb-4">Material Database</h1>
           <p class="text-lg text-slate-300 break-words">
-            Browse elemental metals and metal alloys available in the simulation tools.
+            Explore the elemental metals and alloys available in the simulation tools.
           </p>
         </header>
 
         <main id="materials-container" class="mt-10 grid grid-cols-1 gap-6"></main>
       </div>
     </div>
-    <script type="module" src="database.js"></script>
+    <script type="module" src="./database.js"></script>
     <script type="module">
-        async function loadMaterials() {
-          const container = document.getElementById('materials-container');
-          container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
+      import { normalizeDamageFactorsByCategory } from './materialCalculations.js';
 
-          try {
-            const [db, woods, woodProps, elementals, alloys, rocks] = await Promise.all([
-              getDatabaseSection('materials'),
-              getDatabaseSection('woodTypes'),
-              getDatabaseSection('woodProperties'),
-              getDatabaseSection('elementalMetals'),
-              getDatabaseSection('metalAlloys'),
-              getDatabaseSection('rockTypes')
-            ]);
+      async function loadMaterials() {
+        const container = document.getElementById('materials-container');
+        container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
 
-            const slug = name => name.toLowerCase().replace(/\s+/g, '_');
-            const toTitleCase = str => str.replace(/\b\w/g, c => c.toUpperCase());
+        try {
+          const [base, woods, woodProps, elementals, alloys, rocks] = await Promise.all([
+            getDatabaseSection('materials'),
+            getDatabaseSection('woodTypes'),
+            getDatabaseSection('woodProperties'),
+            getDatabaseSection('elementalMetals'),
+            getDatabaseSection('metalAlloys'),
+            getDatabaseSection('rockTypes')
+          ]);
 
-            // Merge wood types by subcategory
-            db['Wood'] = Object.fromEntries(
-              Object.entries(woods).map(([type, list]) => [
-                toTitleCase(type),
-                list.map(name => {
-                  const factors = woodProps[name];
-                  return {
-                    id: slug(name),
-                    name: toTitleCase(name),
-                    ...(factors ? { factors } : {})
-                  };
-                })
-              ])
-            );
+          const db = buildMaterialDB(base, woods, elementals, alloys, rocks, { woodProperties: woodProps });
+          const normalized = normalizeDamageFactorsByCategory(db);
 
-            db['Rock Types'] = rocks;
-            const elementalMetals = (elementals.elements || []).map(m => ({ id: slug(m.name), name: toTitleCase(m.name) }));
-            const alloyMetals = (alloys.elements || []).map(m => ({ id: slug(m.name), name: toTitleCase(m.name) }));
-            db.Metals = db.Metals || {};
-            db.Metals['Elemental Metals'] = elementalMetals;
-            db.Metals['Metal Alloys'] = alloyMetals;
+          const toTitleCase = str => str.replace(/\b\w/g, c => c.toUpperCase());
 
-            const assignIds = obj => {
-              for (const val of Object.values(obj)) {
-                if (Array.isArray(val)) {
-                  val.forEach(m => { if (m.name && !m.id) m.id = slug(m.name); });
-                } else if (val && typeof val === 'object') {
-                  assignIds(val);
-                }
-              }
-            };
-            assignIds(db);
+          container.innerHTML = '';
 
-            container.innerHTML = '';
-
-            function renderNested(data) {
+          function renderNested(data) {
               if (Array.isArray(data)) {
                 const ul = document.createElement('ul');
                 ul.className = 'pl-5 list-disc space-y-1';
@@ -137,8 +111,7 @@
                         const label = key
                           .replace(/_/g, ' ')
                           .replace(/\b\w/g, c => c.toUpperCase());
-                        const cleanVal = val === 0 ? 0 : val;
-                        return `${label}: ${cleanVal}`;
+                        return `${label}: ${val.toFixed(5)}`;
                       });
                       li.addEventListener('click', (e) => {
                         e.stopPropagation();
@@ -199,7 +172,7 @@
               }
             }
 
-            Object.keys(db)
+            Object.keys(normalized)
               .sort()
               .forEach(cat => {
                 const details = document.createElement('details');
@@ -207,7 +180,7 @@
                 summary.className = 'text-2xl font-semibold mb-2 cursor-pointer';
                 summary.textContent = toTitleCase(cat);
                 details.appendChild(summary);
-                const data = db[cat];
+                const data = normalized[cat];
 
                 if (Array.isArray(data)) {
                   details.appendChild(renderNested(data));
@@ -240,6 +213,7 @@
 
         loadMaterials();
       </script>
+      <script src="nav.js"></script>
       <script src="version.js"></script>
   </body>
 </html>

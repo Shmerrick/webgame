@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MaterialSelect from "./MaterialSelect.jsx";
 import Tooltip from "./Tooltip.jsx";
 import {
@@ -10,7 +10,7 @@ import {
   MATERIALS_FOR_BINDING,
   MATERIALS_FOR_JEWELRY_SETTING,
   MATERIALS_FOR_JEWELRY_GEM,
-} from "../constants/armor.js";
+} from "../../public/constants/armor.js";
 import { firstSub, firstMaterial, factorsFor } from "../utils/materialHelpers.js";
 
 export default function ArmorSelectionPanel({
@@ -31,6 +31,7 @@ export default function ArmorSelectionPanel({
 }) {
   const firstSubCat = (cat) => firstSub(DB, cat);
   const firstMat = (cat, subCat) => firstMaterial(DB, cat, subCat);
+  const [collapsed, setCollapsed] = useState({});
   return (
     <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6">
       <h2 className="text-lg font-semibold mb-3">Armor Loadout and Regeneration</h2>
@@ -53,15 +54,25 @@ export default function ArmorSelectionPanel({
           const eff = isJewelry ? { blunt: 0, slash: 0, pierce: 0, fire: 0, water: 0, wind: 0, earth: 0, fallbackFlags: {} } : effectiveDRForSlot(DB, cls, category, material, innerCategory, innerMaterial, bindingCategory, bindingMaterial, isShield);
           const allowedCats = MATERIALS_FOR_CLASS[entry.class||"None"] || [];
           const matObj = factorsFor(DB, category, material);
+          const isCollapsed = collapsed[slot.id];
 
           return (
             <div key={slot.id} className="bg-slate-800/60 rounded-xl p-3">
               <div className="flex items-center justify-between">
                 <div className="text-sm font-medium">{slot.name}</div>
-                <div className="text-xs text-slate-400">Weight factor in loadout score: {slot.factor}</div>
+                <div className="flex items-center gap-2">
+                  <div className="text-xs text-slate-400">Weight factor in loadout score: {slot.factor}</div>
+                  <button
+                    type="button"
+                    className="text-xs text-slate-300 hover:text-emerald-400"
+                    onClick={() => setCollapsed(c => ({ ...c, [slot.id]: !c[slot.id] }))}
+                  >
+                    {isCollapsed ? 'Expand' : 'Collapse'}
+                  </button>
+                </div>
               </div>
 
-              {isJewelry ? (
+              { !isCollapsed && (isJewelry ? (
                 entry.isEquipped ? (
                   <>
                     <label className="block text-sm mt-3">Setting Material</label>
@@ -163,9 +174,9 @@ export default function ArmorSelectionPanel({
                     </div>
                   )}
                 </>
-              )}
-            </div>
-          );
+                ))}
+              </div>
+            );
         })}
       </div>
     </section>

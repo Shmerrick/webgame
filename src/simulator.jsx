@@ -8,7 +8,7 @@ import {
   MATERIALS_FOR_HEAD,
   BANNED_WEAPON_HEAD_MATERIALS,
   BOW_TYPES,
-} from "./constants/weapons.js";
+} from "../public/constants/weapons.js";
 import {
   armorSlots,
   ARMOR_CLASS,
@@ -20,7 +20,7 @@ import {
   MATERIALS_FOR_JEWELRY_SETTING,
   MATERIALS_FOR_JEWELRY_GEM,
   MIN_DEFENSE_FLOOR,
-} from "./constants/armor.js";
+} from "../public/constants/armor.js";
 import CharacterPanel from "./components/CharacterPanel.jsx";
 import AttackDirectionPanel from "./components/AttackDirectionPanel.jsx";
 import WeaponAttackPanel from "./components/WeaponAttackPanel.jsx";
@@ -96,7 +96,12 @@ function effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory,
   const innerFac = factorsFor(DB, innerCategory, innerMaterialName) || zero;
   const bindFac  = factorsFor(DB, bindingCategory, bindingMaterialName) || zero;
   const wOuter=0.80, wInner=0.15, wBind=0.05;
-  const physMul = (f, type) => (f?.[type] || 0) * (f?.[`defense_${type}`] || 0);
+  const physMul = (f, type) => {
+    const defVal = f?.[`defense_${type}`];
+    const def = defVal > 0 ? defVal : 1;
+    const atk = f?.[type];
+    return def * (atk > 0 ? atk : 1);
+  };
   const comb = {
     blunt: physMul(outerFac,'blunt')*wOuter + physMul(innerFac,'blunt')*wInner + physMul(bindFac,'blunt')*wBind,
     slash: physMul(outerFac,'slash')*wOuter + physMul(innerFac,'slash')*wInner + physMul(bindFac,'slash')*wBind,
@@ -209,10 +214,11 @@ function App({ DB }){
     const ids = races.map(r => r.id);
     return ids[Math.floor(Math.random() * ids.length)];
   });
-  const [stats, setStats]   = useState({ STR:0, DEX:0, INT:0, PSY:0 });
+  const initialStats = { STR:0, DEX:0, INT:0, PSY:0 };
+  const [stats, setStats]   = useState(initialStats);
 
   // Skills with a pool
-  const [skills, setSkills] = useState({
+  const initialSkills = {
     ArmorTraining: 0,
     BlockingAndShields: 0,
     Sword: 0,
@@ -238,7 +244,8 @@ function App({ DB }){
     ElementalAmbush: 0,
     ElementalMagic: 0,
     EntropyMagic: 0,
-  });
+  };
+  const [skills, setSkills] = useState(initialSkills);
 
   const [elementalSchool, setElementalSchool] = useState("Fire");
   const [entropySchool, setEntropySchool] = useState("Radiance");
@@ -321,6 +328,9 @@ function App({ DB }){
     setSkills(nextSkills);
   }
 
+  const resetStats = () => setStats(initialStats);
+  const resetSkills = () => setSkills(initialSkills);
+
   const applyDamageToPlayer = (amount) => {
     if (amount > 0) {
       setPlayerHealth((h) => Math.max(0, h - amount));
@@ -348,7 +358,7 @@ function App({ DB }){
   });
 
   // Target armor (for “damage against armor”)
-    const [targetArmor, setTargetArmor] = useState({
+  const [targetArmor, setTargetArmor] = useState({
       class: "Heavy",
       category: "Metals",
       subCategory: firstSubCat("Metals"),
@@ -377,6 +387,33 @@ function App({ DB }){
     fitting: { category: "Metals", subCategory:firstSubCat("Metals"), material: firstMat("Metals", firstSubCat("Metals")) },
     head: { category: "Metals", subCategory:firstSubCat("Metals"), material: firstMat("Metals", firstSubCat("Metals")) },
   });
+
+  useEffect(() => {
+    if (!DB) return;
+    setTargetArmor(t => {
+      const fix = (allowed, cat, mat) => {
+        let category = allowed.includes(cat) ? cat : allowed[0];
+        const subCategory = firstSubCat(category);
+        const material = factorsFor(DB, category, mat) ? mat : firstMat(category, subCategory);
+        return { category, subCategory, material };
+      };
+      const outer = fix(MATERIALS_FOR_CLASS[t.class] || [], t.category, t.material);
+      const inner = fix(MATERIALS_FOR_INNER, t.innerCategory, t.innerMaterial);
+      const bind = fix(MATERIALS_FOR_BINDING, t.bindingCategory, t.bindingMaterial);
+      return {
+        ...t,
+        category: outer.category,
+        subCategory: outer.subCategory,
+        material: outer.material,
+        innerCategory: inner.category,
+        innerSubCategory: inner.subCategory,
+        innerMaterial: inner.material,
+        bindingCategory: bind.category,
+        bindingSubCategory: bind.subCategory,
+        bindingMaterial: bind.material,
+      };
+    });
+  }, [DB]);
   const [isTwoHanded, setTwoHanded] = useState(false);
 
   useEffect(() => {
@@ -498,7 +535,7 @@ function App({ DB }){
 
       if (weapon.type==='mounted'){
         const m = weapon.head; const factor = weapon.speed[mountedSpeed] || 1.0;
-        const mass = Math.ceil((weapon.massKilograms||0) * massMult * (isTwoHanded ? 1.5 : 1));
+        const mass = Math.ceil((weapon.massKilograms||0) * massMult);
         staminaCost = (weapon.baseCost||0) + MSF*mass;
         const rawB = effective.STR*(m.Blunt||0)*factor;
         const rawP = effective.STR*(m.Pierce||0)*factor;
@@ -527,7 +564,7 @@ function App({ DB }){
     const scaledWithSkill = {};
     for (const [k,v] of Object.entries(parts)) scaledWithSkill[k] = (v||0) * (total/partsSum0);
 
-    const damageMult = isTwoHanded ? 2 : 1;
+    const damageMult = isTwoHanded ? 1.25 : 1;
     const outMult = (nakedOverride ? 0.25 : 1) * Math.max(0, 1 - 0.15*missingPieces) * damageMult;
     total = Math.floor(total * outMult);
 
@@ -535,7 +572,7 @@ function App({ DB }){
     const finalParts = {};
     for (const [k,v] of Object.entries(scaledWithSkill)) finalParts[k] = Math.floor(total * (v||0) / partsSum);
     const isHeavy = (weapon.type!=='mounted') && (charge >= 1.5 - 1e-6);
-    const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1) * (isTwoHanded ? 2 : 1));
+    const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1));
     return { total, parts: finalParts, staminaCost: staminaCostFinal, isHeavy };
   }, [weapon, direction, charge, swing, effective.STR, mountedSpeed, missingPieces, nakedOverride, weaponComps, skillMult, DB, bowType, bowWood, isTwoHanded]);
 
@@ -600,6 +637,7 @@ function App({ DB }){
                 setRaceId={setRaceId}
                 stats={stats}
                 setStat={setStat}
+                resetStats={resetStats}
                 effective={effective}
                 jewelryBonus={jewelryBonus}
                 spent={spent}
@@ -625,8 +663,11 @@ function App({ DB }){
               <h2 className="text-lg font-semibold mb-3">Skills and Specialization</h2>
               <div className="text-sm text-slate-300 mb-2">Use the sliders to distribute your skill points. The total number of points you can allocate is limited. The skill that corresponds to your current weapon contributes directly to damage.</div>
               <div className="flex items-center justify-between text-sm mb-3">
-                <div>Skill points spent</div>
-                <div className={`tabular-nums ${totalSkill>SKILL_POOL?"text-rose-400":""}`}>{totalSkill} / {SKILL_POOL} <span className="text-slate-500">(remaining {Math.max(0, SKILL_POOL-totalSkill)})</span></div>
+                <div>
+                  <div>Skill points spent</div>
+                  <div className={`tabular-nums ${totalSkill>SKILL_POOL?"text-rose-400":""}`}>{totalSkill} / {SKILL_POOL} <span className="text-slate-500">(remaining {Math.max(0, SKILL_POOL-totalSkill)})</span></div>
+                </div>
+                <button type="button" onClick={resetSkills} className="ml-2 px-2 py-1 text-xs border border-slate-700 rounded hover:text-emerald-400">Reset</button>
               </div>
               <div className="space-y-3">
                 {Object.entries({
@@ -775,7 +816,6 @@ function App({ DB }){
               <div className="flex items-center justify-between">
                 <div className="text-slate-300 font-medium">Stamina Cost for the Attack</div>
                 <div className="flex gap-2">
-                  {isTwoHanded && <span className="text-[10px] px-2 py-0.5 rounded-full border border-amber-400 text-amber-300">Two-handed (double stamina)</span>}
                   {damage.isHeavy && <span className="text-[10px] px-2 py-0.5 rounded-full border border-amber-400 text-amber-300">Heavy attack (double stamina)</span>}
                 </div>
               </div>
@@ -851,7 +891,7 @@ function App({ DB }){
           nakedOverride={nakedOverride}
         />
 
-        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6">
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mt-6 max-w-lg mx-auto">
           <h2 className="text-lg font-semibold mb-3">Target Armor for Damage Against Armor</h2>
           <div className="grid grid-cols-1 gap-2">
             <div>

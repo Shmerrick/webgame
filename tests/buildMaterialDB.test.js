@@ -20,7 +20,8 @@ describe('buildMaterialDB', () => {
     expect(db.Metals['Base Metals'][0]).toMatchObject({ id: 'iron', name: 'Iron' });
     expect(db.Metals['Elemental Metals'][0]).toMatchObject({ id: 'silver', name: 'Silver' });
     expect(db.Metals['Metal Alloys'][0]).toMatchObject({ id: 'bronze', name: 'Bronze' });
-    expect(db.Wood.Soft[0]).toEqual({ id: 'pine', name: 'Pine', density: 0.5 });
+    expect(db.Wood.Soft[0]).toMatchObject({ id: 'pine', name: 'Pine', density: 0.5 });
+    expect(db.Wood.Soft[0].factors).toBeTruthy();
     expect(db['Rock Types'].Igneous[0]).toEqual({ id: 'granite', name: 'Granite', density: 2.7 });
   });
 });

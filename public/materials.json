@@ -387,7 +387,7 @@
   "Linen": {
     "Plant": [
       {
-        "name": "cotton",
+        "name": "Cotton",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -402,7 +402,7 @@
         }
       },
       {
-        "name": "flax",
+        "name": "Flax",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -417,7 +417,7 @@
         }
       },
       {
-        "name": "hemp",
+        "name": "Hemp",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -432,7 +432,7 @@
         }
       },
       {
-        "name": "jute",
+        "name": "Jute",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -447,7 +447,7 @@
         }
       },
       {
-        "name": "ramie",
+        "name": "Ramie",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -462,7 +462,7 @@
         }
       },
       {
-        "name": "bamboo",
+        "name": "Bamboo",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -477,7 +477,7 @@
         }
       },
       {
-        "name": "abaca",
+        "name": "Abaca",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -492,7 +492,7 @@
         }
       },
       {
-        "name": "sisal",
+        "name": "Sisal",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -507,7 +507,7 @@
         }
       },
       {
-        "name": "kenaf",
+        "name": "Kenaf",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -522,7 +522,7 @@
         }
       },
       {
-        "name": "banana-fiber",
+        "name": "Banana-Fiber",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -539,7 +539,7 @@
     ],
     "Animal": [
       {
-        "name": "sheep-wool",
+        "name": "Sheep-Wool",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -554,7 +554,7 @@
         }
       },
       {
-        "name": "silk",
+        "name": "Silk",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -569,7 +569,7 @@
         }
       },
       {
-        "name": "cashmere",
+        "name": "Cashmere",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -584,7 +584,7 @@
         }
       },
       {
-        "name": "mohair",
+        "name": "Mohair",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -599,7 +599,7 @@
         }
       },
       {
-        "name": "alpaca",
+        "name": "Alpaca",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -614,7 +614,7 @@
         }
       },
       {
-        "name": "camelhair",
+        "name": "Camelhair",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -629,7 +629,7 @@
         }
       },
       {
-        "name": "angora-rabbit",
+        "name": "Angora-Rabbit",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -644,7 +644,7 @@
         }
       },
       {
-        "name": "yak",
+        "name": "Yak",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -659,7 +659,7 @@
         }
       },
       {
-        "name": "llama",
+        "name": "Llama",
         "factors": {
           "slash": 1,
           "pierce": 1,
@@ -674,7 +674,7 @@
         }
       },
       {
-        "name": "horsehair",
+        "name": "Horsehair",
         "factors": {
           "slash": 1,
           "pierce": 1,

@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <link rel="icon" href="favicon.ico">
     <meta charset="utf-8" />
     <title>Magical Spells</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,9 +12,9 @@
         theme: {
           extend: {
             screens: {
-              "aspect-ultrawide": { "raw": "[data-aspect-ratio='ultrawide']" },
-              "aspect-widescreen": { "raw": "[data-aspect-ratio='widescreen']" },
-              "aspect-mobile": { "raw": "[data-aspect-ratio='mobile']" },
+              "aspect-ultrawide": { raw: "[data-aspect-ratio='ultrawide']" },
+              "aspect-widescreen": { raw: "[data-aspect-ratio='widescreen']" },
+              "aspect-mobile": { raw: "[data-aspect-ratio='mobile']" },
             },
           },
         },
@@ -24,19 +25,19 @@
       :root { color-scheme: dark; }
       body { background: #0f172a; color: #e2e8f0; margin: 0; }
     </style>
-
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="module" src="database.js"></script>
+    <script type="module" src="./database.js"></script>
   </head>
   <body style="background-image: url('Art/Backgrounds/summer.png'); background-size: cover; background-attachment: fixed;">
     <div class="min-h-screen w-full bg-slate-950/80 text-slate-100 p-4 md:p-8">
       <div class="max-w-7xl mx-auto">
         <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
-          <div class="flex items-center justify-between flex-wrap">
-            <div class="text-xl font-bold tracking-tight">Game Simulator</div>
-            <div class="flex flex-wrap gap-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="text-xl font-bold tracking-tight">Game Simulator</div>
+              <span id="version-display" class="text-sm text-slate-400"></span>
+            </div>
+            <button id="menu-toggle" class="md:hidden px-2 py-1 text-slate-300 hover:text-emerald-400 border border-slate-700 rounded">Menu</button>
+            <div id="nav-links" class="hidden w-full flex-col gap-2 mt-4 md:mt-0 md:flex md:flex-row md:flex-wrap md:gap-4 md:w-auto">
               <a href="index.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Home</a>
               <a href="materials.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials</a>
               <a href="simulator.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Simulator</a>
@@ -45,69 +46,82 @@
               <a href="races.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Races</a>
               <a href="ascension.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Ascension</a>
               <a href="magic.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Magic</a>
-              <a href="spells.html" class="px-2 py-1 bg-emerald-600 text-white rounded">Spells</a>
+              <a href="spells.html" class="px-2 py-1 text-emerald-400 font-semibold">Spells</a>
               <a href="crafting.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Crafting</a>
               <a href="siege.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Siege</a>
               <a href="materials_guide.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials Guide</a>
+              <a href="game_systems.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Game Systems</a>
             </div>
           </div>
         </nav>
-        <div id="root"></div>
+        <main>
+          <h1 class="text-3xl font-bold mb-6">Magical Spells</h1>
+          <div class="mb-6">
+            <label for="intelligence" class="block mb-2 font-semibold">Intelligence: <span id="int-value">50</span></label>
+            <input id="intelligence" type="range" min="0" max="100" value="50" class="w-full" />
+          </div>
+          <div id="spells-container"></div>
+        </main>
       </div>
     </div>
-
-    <script type="text/babel">
-      const { useState } = React;
-
-      function SpellsPage({ data }) {
-        const [intelligence, setIntelligence] = useState(50);
-        const ranges = ["Touch", "Short", "Long", "Ultra-Long"];
-
-        return (
-          <div>
-            <h1 className="text-3xl font-bold mb-6">Magical Spells</h1>
-            <div className="mb-6">
-              <label className="block mb-2 font-semibold">Intelligence: {intelligence}</label>
-              <input type="range" min="0" max="100" value={intelligence} onChange={e => setIntelligence(parseInt(e.target.value))} className="w-full" />
-            </div>
-            {Object.entries(data.elements).map(([element, spells]) => (
-              <div key={element} className="mb-8 overflow-x-auto">
-                <h2 className="text-2xl font-semibold mb-4 border-b-2 border-slate-700 pb-2">{element}</h2>
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="bg-slate-800/60">
-                      <th className="p-3">Range</th>
-                      <th className="p-3">Damage</th>
-                      <th className="p-3">Mana</th>
-                      <th className="p-3">Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {ranges.map(range => (
-                      <tr key={range} className="border-b border-slate-800">
-                        <td className="p-3 font-semibold text-emerald-400">{range}</td>
-                        <td className="p-3">{Math.floor(Math.floor(intelligence / 2) * data.range_multipliers[range])}</td>
-                        <td className="p-3">{data.range_mana_costs[range]}</td>
-                        <td className="p-3 text-slate-300">{spells[range].description}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ))}
-          </div>
-        );
-      }
-
+    <script>
       window.addEventListener('DOMContentLoaded', () => {
+        const ranges = ['Touch', 'Short', 'Long', 'Ultra-Long'];
+        let intelligence = 50;
+        const intSlider = document.getElementById('intelligence');
+        const intValue = document.getElementById('int-value');
+        const container = document.getElementById('spells-container');
+
+        function updateDamage(data) {
+          let index = 0;
+          const rows = container.querySelectorAll('tbody tr');
+          Object.values(data.elements).forEach(spells => {
+            ranges.forEach(range => {
+              const dmg = Math.floor(Math.floor(intelligence / 2) * data.range_multipliers[range]);
+              rows[index++].children[1].textContent = dmg;
+            });
+          });
+        }
+
         getDatabaseSection('spells')
           .then(data => {
-            ReactDOM.createRoot(document.getElementById("root")).render(
-              <React.StrictMode><SpellsPage data={data} /></React.StrictMode>
-            );
+            Object.entries(data.elements).forEach(([element, spells]) => {
+              const section = document.createElement('section');
+              section.className = 'mb-8 overflow-x-auto';
+
+              const header = document.createElement('h2');
+              header.className = 'text-2xl font-semibold mb-4 border-b-2 border-slate-700 pb-2';
+              header.textContent = element;
+              section.appendChild(header);
+
+              const table = document.createElement('table');
+              table.className = 'w-full text-left border-collapse';
+              table.innerHTML = `<thead><tr class="bg-slate-800/60"><th class="p-3">Range</th><th class="p-3">Damage</th><th class="p-3">Mana</th><th class="p-3">Description</th></tr></thead>`;
+              const tbody = document.createElement('tbody');
+
+              ranges.forEach(range => {
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-slate-800';
+                const dmg = Math.floor(Math.floor(intelligence / 2) * data.range_multipliers[range]);
+                tr.innerHTML = `<td class="p-3 font-semibold text-emerald-400">${range}</td><td class="p-3">${dmg}</td><td class="p-3">${data.range_mana_costs[range]}</td><td class="p-3 text-slate-300">${spells[range].description}</td>`;
+                tbody.appendChild(tr);
+              });
+
+              table.appendChild(tbody);
+              section.appendChild(table);
+              container.appendChild(section);
+            });
+
+            intSlider.addEventListener('input', e => {
+              intelligence = parseInt(e.target.value, 10);
+              intValue.textContent = intelligence;
+              updateDamage(data);
+            });
           })
-          .catch(error => console.error('Error loading spells:', error));
+          .catch(err => console.error('Error loading spells:', err));
       });
     </script>
+    <script src="nav.js"></script>
+    <script src="version.js"></script>
   </body>
 </html>

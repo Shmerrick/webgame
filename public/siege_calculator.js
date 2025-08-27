@@ -1,4 +1,4 @@
-import buildMaterialDB from '../src/utils/buildMaterialDB.js';
+import { buildMaterialDB, getDatabaseSection } from './database.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     let materialsDB = {};

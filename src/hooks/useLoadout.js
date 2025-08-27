@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { armorSlots, ARMOR_CLASS, OFFHAND_ITEMS, REGEN_MULT, BASE_TICK_PCT } from '../constants/armor.js';
+import { armorSlots, ARMOR_CLASS, OFFHAND_ITEMS, REGEN_MULT, BASE_TICK_PCT } from '../../public/constants/armor.js';
 
 function loadoutCategory(equipped, STR){
   let totalLoadoutWeight=0, maximumLoadoutWeight=0, missingPieces=0;

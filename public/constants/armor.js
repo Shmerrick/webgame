@@ -4,11 +4,11 @@ export const armorSlots = [
   { id: "boots",  name: "Boots",  factor: 2 },
   { id: "torso",  name: "Torso",  factor: 3 },
   { id: "legs",   name: "Legs",   factor: 3 },
-  { id: "shield", name: "Off-Hand", factor: 2 },
   { id: "ring1", name: "Ring 1", factor: 0, type: 'ring' },
   { id: "ring2", name: "Ring 2", factor: 0, type: 'ring' },
   { id: "earring1", name: "Earring 1", factor: 0, type: 'earring' },
   { id: "earring2", name: "Earring 2", factor: 0, type: 'earring' },
+  { id: "shield", name: "Off-Hand", factor: 2 },
   { id: "amulet", name: "Amulet", factor: 0, type: 'amulet' },
 ];
 

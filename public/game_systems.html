@@ -3,7 +3,7 @@
   <head>
     <link rel="icon" href="favicon.ico">
     <meta charset="utf-8" />
-    <title>Game Simulator - Home</title>
+    <title>Game Simulator - Game Systems</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="aspect_ratio.js"></script>
@@ -24,17 +24,11 @@
     <style>
       :root { color-scheme: dark; }
       body { background: #0f172a; color: #e2e8f0; margin: 0; }
-          [data-aspect-ratio='ultrawide'] #materials-container {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-      [data-aspect-ratio='widescreen'] #materials-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
     </style>
   </head>
-  <body style="background-image: url('Art/Backgrounds/spring.png'); background-size: cover; background-attachment: fixed;">
+  <body style="background-image: url('Art/Backgrounds/volcano.png'); background-size: cover; background-attachment: fixed;">
     <div class="min-h-screen w-full bg-slate-950/80 text-slate-100 p-4 md:p-8">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mx-auto">
         <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 shadow-lg mb-6">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -43,7 +37,7 @@
             </div>
             <button id="menu-toggle" class="md:hidden px-2 py-1 text-slate-300 hover:text-emerald-400 border border-slate-700 rounded">Menu</button>
             <div id="nav-links" class="hidden w-full flex-col gap-2 mt-4 md:mt-0 md:flex md:flex-row md:flex-wrap md:gap-4 md:w-auto">
-              <a href="index.html" class="px-2 py-1 text-emerald-400 font-semibold">Home</a>
+              <a href="index.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Home</a>
               <a href="materials.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials</a>
               <a href="simulator.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Simulator</a>
               <a href="combat.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Combat</a>
@@ -55,48 +49,29 @@
               <a href="crafting.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Crafting</a>
               <a href="siege.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Siege</a>
               <a href="materials_guide.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Materials Guide</a>
-              <a href="game_systems.html" class="px-2 py-1 text-slate-300 hover:text-emerald-400">Game Systems</a>
+              <a href="game_systems.html" class="px-2 py-1 text-emerald-400 font-semibold">Game Systems</a>
             </div>
           </div>
         </nav>
 
         <header class="text-center">
-          <h1 class="text-4xl font-bold tracking-tight mb-4">Welcome to the Game Simulator</h1>
-          <p class="text-lg text-slate-300 break-words">
-            Use this tool to explore game mechanics, from character stats to gear and materials.
-          </p>
+          <h1 class="text-4xl font-bold tracking-tight mb-4">Game Systems</h1>
+          <p class="text-lg text-slate-300 break-words">Discover dynamic systems that shape the world.</p>
         </header>
 
-        <main class="mt-10">
-          <div class="grid grid-cols-1 md:grid-cols-3 aspect-widescreen:grid-cols-3 aspect-ultrawide:grid-cols-3 gap-8">
-            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
-              <h2 class="text-2xl font-bold mb-4">Explore Materials</h2>
-              <p class="text-slate-300 mb-4 break-words">
-                Browse the database of materials, view their properties, and see how they are used in crafting.
-              </p>
-              <a href="materials.html" class="inline-block bg-emerald-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-emerald-600">
-                View Materials
-              </a>
-            </div>
-            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
-              <h2 class="text-2xl font-bold mb-4">Launch the Simulator</h2>
-              <p class="text-slate-300 mb-4 break-words">
-                Create characters, equip them, and test combat effectiveness. A desktop prototype built from the same C++ systems is also available.
-              </p>
-              <a href="simulator.html" class="inline-block bg-emerald-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-emerald-600">
-                Open Web Simulator
-              </a>
-            </div>
-            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
-              <h2 class="text-2xl font-bold mb-4">Learn Game Systems</h2>
-              <p class="text-slate-300 mb-4 break-words">
-                Read about dynamic systems such as reputation, invasions, and meteors that influence the world.
-              </p>
-              <a href="game_systems.html" class="inline-block bg-emerald-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-emerald-600">
-                View Game Systems
-              </a>
-            </div>
-          </div>
+        <main class="mt-10 space-y-8">
+          <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <h2 class="text-2xl font-bold mb-2">Reputation System</h2>
+            <p class="text-slate-300 break-words">Your actions influence your standing with each race, affecting trade, quests, and town access.</p>
+          </section>
+          <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <h2 class="text-2xl font-bold mb-2">Invasion System</h2>
+            <p class="text-slate-300 break-words">Hostile forces periodically assault regions, giving players a chance to defend settlements for rewards.</p>
+          </section>
+          <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <h2 class="text-2xl font-bold mb-2">Meteor System</h2>
+            <p class="text-slate-300 break-words">Falling meteors seed rare resources and dangers, creating new opportunities across the world.</p>
+          </section>
         </main>
       </div>
     </div>
