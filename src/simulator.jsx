@@ -97,7 +97,8 @@ function effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory,
   const bindFac  = factorsFor(DB, bindingCategory, bindingMaterialName) || zero;
   const wOuter=0.80, wInner=0.15, wBind=0.05;
   const physMul = (f, type) => {
-    const def = f?.[`defense_${type}`] || 0;
+    const defVal = f?.[`defense_${type}`];
+    const def = defVal > 0 ? defVal : 1;
     const atk = f?.[type];
     return def * (atk > 0 ? atk : 1);
   };
