@@ -32,48 +32,16 @@ export default function buildMaterialDB(base, wood, elementals, alloys, rocks, o
   );
 
   const procMetal = (m) => {
-    const out = { id: slug(m.name), name: m.name };
-    if (m.factors) out.factors = m.factors;
-
-    const mech = m.mechanical_properties || {};
-    const val = (k) => {
-      const v = mech[k]?.value;
-      return v != null ? parseFloat(v) : undefined;
-    };
-
-    const dens = m.density ?? val('density');
-    if (dens != null) out.density = parseFloat(dens);
-
-    const ys = val('yield_strength');
-    if (ys != null) out.yieldStrength = ys;
-
-    const uts = val('ultimate_tensile_strength');
-    if (uts != null) out.tensileStrength = uts;
-
-    const ym = val('youngs_modulus');
-    if (ym != null) {
-      const units = mech.youngs_modulus?.units;
-      out.elasticModulus = units === 'GPa' ? ym * 1000 : ym;
-    }
-
-    const br = val('brinell_hardness');
-    if (br != null) out.brinellMPa = br;
-
-    const vk = val('vickers_hardness');
-    if (vk != null) out.vickersMPa = vk;
-
-    const tc = val('thermal_conductivity');
-    if (tc != null) out.thermalConductivity = tc;
-
-    const sh = val('specific_heat');
-    if (sh != null) out.specificHeat = sh;
-
-    const mp = val('melting_point');
-    if (mp != null) out.meltingPoint = mp;
-
-    const er = val('electrical_resistivity');
-    if (er != null) out.electricalResistivity = er;
-
+    const out = { id: slug(m.name), name: m.name, class: 'Metal' };
+    if (m.density != null) out.density = m.density;
+    if (m.yieldStrength != null) out.yieldStrength = m.yieldStrength;
+    if (m.tensileStrength != null) out.tensileStrength = m.tensileStrength;
+    if (m.elasticModulus != null) out.elasticModulus = m.elasticModulus;
+    if (m.brinellHardness != null) out.brinellMPa = m.brinellHardness;
+    if (m.thermalConductivity != null) out.thermalConductivity = m.thermalConductivity;
+    if (m.specificHeat != null) out.specificHeat = m.specificHeat;
+    if (m.meltingPoint != null) out.meltingPoint = m.meltingPoint;
+    if (m.electricalResistivity != null) out.electricalResistivity = m.electricalResistivity;
     return out;
   };
 

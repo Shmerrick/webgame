@@ -1,6 +1,10 @@
 # Web Game Simulator
 
-This project provides an interactive simulator with database-backed materials and robust material defense calculations.
+This project provides an interactive simulator with database-backed materials and physics-based defense calculations derived from real mechanical and thermal properties.
+
+## Defense Calculations
+
+Material properties like hardness, strength, density, and thermal or electrical behavior are translated into slashing, piercing, blunt, and elemental resistances using straightforward formulas. Each raw resistance value is normalized only against materials of the same type so metals are compared with metals and wood with wood. Armor thickness, biases, and optional magical attunements then adjust the normalized scores.
 
 ## Live demo
 
