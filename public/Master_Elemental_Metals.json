@@ -851,6 +851,102 @@
       "specificHeat": 0.15,
       "meltingPoint": 1176,
       "electricalResistivity": 150
+    },
+    {
+      "name": "Curium",
+      "density": 13.51,
+      "yieldStrength": 200,
+      "tensileStrength": 340,
+      "elasticModulus": 35000,
+      "brinellHardness": 900,
+      "thermalConductivity": 6,
+      "specificHeat": 0.13,
+      "meltingPoint": 1340,
+      "electricalResistivity": 140
+    },
+    {
+      "name": "Berkelium",
+      "density": 14.78,
+      "yieldStrength": 190,
+      "tensileStrength": 320,
+      "elasticModulus": 35000,
+      "brinellHardness": 850,
+      "thermalConductivity": 10,
+      "specificHeat": 0.14,
+      "meltingPoint": 986,
+      "electricalResistivity": 150
+    },
+    {
+      "name": "Californium",
+      "density": 15.1,
+      "yieldStrength": 180,
+      "tensileStrength": 300,
+      "elasticModulus": 35000,
+      "brinellHardness": 800,
+      "thermalConductivity": 10,
+      "specificHeat": 0.15,
+      "meltingPoint": 900,
+      "electricalResistivity": 150
+    },
+    {
+      "name": "Einsteinium",
+      "density": 8.84,
+      "yieldStrength": 170,
+      "tensileStrength": 290,
+      "elasticModulus": 35000,
+      "brinellHardness": 750,
+      "thermalConductivity": 10,
+      "specificHeat": 0.15,
+      "meltingPoint": 860,
+      "electricalResistivity": 120
+    },
+    {
+      "name": "Fermium",
+      "density": 9.7,
+      "yieldStrength": 160,
+      "tensileStrength": 270,
+      "elasticModulus": 35000,
+      "brinellHardness": 700,
+      "thermalConductivity": 10,
+      "specificHeat": 0.15,
+      "meltingPoint": 1527,
+      "electricalResistivity": 150
+    },
+    {
+      "name": "Mendelevium",
+      "density": 10.3,
+      "yieldStrength": 150,
+      "tensileStrength": 250,
+      "elasticModulus": 35000,
+      "brinellHardness": 650,
+      "thermalConductivity": 10,
+      "specificHeat": 0.15,
+      "meltingPoint": 827,
+      "electricalResistivity": 150
+    },
+    {
+      "name": "Nobelium",
+      "density": 9.9,
+      "yieldStrength": 140,
+      "tensileStrength": 230,
+      "elasticModulus": 35000,
+      "brinellHardness": 600,
+      "thermalConductivity": 10,
+      "specificHeat": 0.15,
+      "meltingPoint": 827,
+      "electricalResistivity": 150
+    },
+    {
+      "name": "Lawrencium",
+      "density": 15.6,
+      "yieldStrength": 130,
+      "tensileStrength": 220,
+      "elasticModulus": 35000,
+      "brinellHardness": 550,
+      "thermalConductivity": 10,
+      "specificHeat": 0.15,
+      "meltingPoint": 1627,
+      "electricalResistivity": 180
     }
   ]
 }
