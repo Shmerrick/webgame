@@ -93,6 +93,7 @@
 
             const slug = name => name.toLowerCase().replace(/\s+/g, '_');
             const toTitleCase = str => str.replace(/\b\w/g, c => c.toUpperCase());
+            const round5 = n => Math.round(n * 1e5) / 1e5;
 
             // Merge wood types by subcategory
             db['Wood'] = Object.fromEntries(
@@ -101,9 +102,9 @@
                 list.map(name => {
                   const props = woodProps[name] || {};
                   const factors = {
-                    defense_slash: (props.hardness || 0) / maxHard || 0,
-                    defense_pierce: (props.density || 0) / maxDens || 0,
-                    defense_blunt: (props.toughness || 0) / maxTough || 0,
+                    defense_slash: round5((props.hardness || 0) / maxHard || 0),
+                    defense_pierce: round5((props.density || 0) / maxDens || 0),
+                    defense_blunt: round5((props.toughness || 0) / maxTough || 0),
                   };
                   return {
                     id: slug(name),
@@ -161,8 +162,7 @@
                         const label = key
                           .replace(/_/g, ' ')
                           .replace(/\b\w/g, c => c.toUpperCase());
-                        const cleanVal = val === 0 ? 0 : val;
-                        return `${label}: ${cleanVal}`;
+                        return `${label}: ${val.toFixed(5)}`;
                       });
                       li.addEventListener('click', (e) => {
                         e.stopPropagation();

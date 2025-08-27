@@ -284,16 +284,16 @@ export function scoreMaterialDefenses(enriched, bounds, options = {}) {
 
     return {
       ...mat,
-      D_slash: damage_slash,
-      D_pierce: damage_pierce,
-      D_blunt: damage_blunt,
-      R_slash: slash,
-      R_pierce: pierce,
-      R_blunt: blunt,
-      R_fire: fire,
-      R_earth: earth,
-      R_water: water,
-      R_wind: wind,
+      D_slash: round5(damage_slash),
+      D_pierce: round5(damage_pierce),
+      D_blunt: round5(damage_blunt),
+      R_slash: round5(slash),
+      R_pierce: round5(pierce),
+      R_blunt: round5(blunt),
+      R_fire: round5(fire),
+      R_earth: round5(earth),
+      R_water: round5(water),
+      R_wind: round5(wind),
     };
   });
 }
@@ -323,6 +323,10 @@ function clamp01(v) {
 
 function clamp(v, min, max) {
   return Math.max(min, Math.min(max, v));
+}
+
+function round5(v) {
+  return Math.round(v * 1e5) / 1e5;
 }
 
 function feelTransform(r) {
