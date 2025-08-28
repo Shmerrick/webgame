@@ -9,6 +9,7 @@ import {
   BANNED_WEAPON_HEAD_MATERIALS,
   BOW_TYPES,
 } from "../public/constants/weapons.js";
+import { scanDamageMax } from "../public/database.js";
 import {
   armorSlots,
   ARMOR_CLASS,
@@ -225,6 +226,7 @@ function App({ DB }){
     Axe: 0,
     Hammer: 0,
     Spear: 0,
+    Lance: 0,
     Dagger: 0,
     Polesword: 0,
     Poleaxe: 0,
@@ -249,10 +251,18 @@ function App({ DB }){
 
   const [elementalSchool, setElementalSchool] = useState("Fire");
   const [entropySchool, setEntropySchool] = useState("Radiance");
-
   // Player health and regeneration tracking
   const [playerHealth, setPlayerHealth] = useState(BASE_HEALTH);
   const [lastDamageTime, setLastDamageTime] = useState(null);
+const weaponDamageMax = useMemo(() => {
+  if (!DB) return null;
+  return {
+    head: scanDamageMax(DB, MATERIALS_FOR_HEAD),
+    core: scanDamageMax(DB, MATERIALS_FOR_HANDLE_CORE),
+    grip: scanDamageMax(DB, MATERIALS_FOR_HANDLE_GRIP),
+    fitting: scanDamageMax(DB, MATERIALS_FOR_HANDLE_FITTING),
+  };
+}, [DB]);
 
   useEffect(() => {
     const race = races.find(r => r.id === raceId);
@@ -303,7 +313,7 @@ function App({ DB }){
     return () => clearInterval(id);
   }, [playerHealth, lastDamageTime]);
 
-  const totalSkill = Object.values(skills).reduce((a,b)=> a+(b||0), 0);
+  const totalSkill = Object.entries(skills).reduce((a, [k, v]) => k === 'Lance' ? a : a + (v || 0), 0);
   function setSkillBound(name, val) {
     val = Math.max(0, Math.min(100, val));
 
@@ -311,6 +321,12 @@ function App({ DB }){
 
     if (name === 'MeleeAmbush' || name === 'RangedAmbush' || name === 'ElementalAmbush') {
       val = Math.min(val, skills.Stealth || 0);
+    }
+
+    if (name === 'Lance') {
+      nextSkills[name] = val;
+      setSkills(nextSkills);
+      return;
     }
 
     const others = totalSkill - (skills[name] || 0);
@@ -330,6 +346,44 @@ function App({ DB }){
 
   const resetStats = () => setStats(initialStats);
   const resetSkills = () => setSkills(initialSkills);
+
+  const skillGroups = {
+    "General": [
+      ["ArmorTraining", "Armor Training"],
+      ["BlockingAndShields", "Blocking & Shields"],
+      ["Anatomy", "Anatomy"],
+    ],
+    "Melee Combat": [
+      ["Axe", "Axe"],
+      ["Dagger", "Dagger"],
+      ["Hammer", "Hammer"],
+      ["Poleaxe", "Poleaxe"],
+      ["Polesword", "Polesword"],
+      ["Spear", "Spear", [["Lance", "Lance"]]],
+      ["Sword", "Sword"],
+    ],
+    "Ranged Combat": [
+      ["Archery", "Archery"],
+      ["Crossbows", "Crossbows"],
+      ["Slings", "Slings"],
+      ["ThrowingWeapons", "Throwing Weapons"],
+    ],
+    "Mounted": [
+      ["MountedArchery", "Mounted Archery"],
+      ["MountedCombat", "Mounted Combat"],
+      ["MountedMagery", "Mounted Magery"],
+    ],
+    "Stealth": [
+      ["ElementalAmbush", "Elemental Ambush"],
+      ["MeleeAmbush", "Melee Ambush"],
+      ["RangedAmbush", "Ranged Ambush"],
+      ["Stealth", "Stealth"],
+    ],
+    "Animal Handling": [
+      ["BeastControl", "Beast Control"],
+      ["Taming", "Taming"],
+    ],
+  };
 
   const applyDamageToPlayer = (amount) => {
     if (amount > 0) {
@@ -485,7 +539,7 @@ function App({ DB }){
     if (weaponKey==='Crossbow') return 'Crossbows';
     if (weaponKey==='Sling') return 'Slings';
     if (weaponKey==='Throwing') return 'ThrowingWeapons';
-    if (weaponKey==='Lance') return 'MountedCombat';
+    if (weaponKey==='Lance') return 'Lance';
     return weaponKey;
   }, [weaponKey]);
   const skillMult = useMemo(()=> 1 + 0.50 * ((skills[activeWeaponSkillName]||0)/100), [skills, activeWeaponSkillName]);
@@ -528,7 +582,10 @@ function App({ DB }){
       const headMat = factorsFor(DB, weaponComps.head.category, weaponComps.head.material) || {};
 
       const massMult = (1 + (coreMat.defense_blunt || 0) / 2) * (1 + (gripMat.defense_blunt || 0) / 2) * (1 + (fittingMat.defense_blunt || 0) / 2) * (1 + (headMat.defense_blunt || 0) / 2);
-      const damageMod = ((headMat.slash || 0) + (headMat.pierce || 0)) / 4;
+      const headMax = weaponDamageMax?.head || {};
+      const sMax = headMax.slash || 1;
+      const pMax = headMax.pierce || 1;
+      const damageMod = ((headMat.slash || 0) / sMax + (headMat.pierce || 0) / pMax) / 4;
       const avgMagic = (mat) => (((mat.fire||0) + (mat.water||0) + (mat.wind||0) + (mat.earth||0)) / 4);
       const drawBonus = avgMagic(coreMat) / 10 + avgMagic(fittingMat) / 10;
       // --- End new logic ---
@@ -574,7 +631,7 @@ function App({ DB }){
     const isHeavy = (weapon.type!=='mounted') && (charge >= 1.5 - 1e-6);
     const staminaCostFinal = Math.floor(staminaCost * (isHeavy ? 2 : 1));
     return { total, parts: finalParts, staminaCost: staminaCostFinal, isHeavy };
-  }, [weapon, direction, charge, swing, effective.STR, mountedSpeed, missingPieces, nakedOverride, weaponComps, skillMult, DB, bowType, bowWood, isTwoHanded]);
+  }, [weapon, direction, charge, swing, effective.STR, mountedSpeed, missingPieces, nakedOverride, weaponComps, skillMult, DB, bowType, bowWood, isTwoHanded, weaponDamageMax]);
 
   // Damage against target armor
   const dmgVsArmor = useMemo(()=>{
@@ -670,51 +727,41 @@ function App({ DB }){
                 <button type="button" onClick={resetSkills} className="ml-2 px-2 py-1 text-xs border border-slate-700 rounded hover:text-red-400">Reset</button>
               </div>
               <div className="space-y-3">
-                {Object.entries({
-                  "General": [
-                    ["ArmorTraining", "Armor Training"],
-                    ["BlockingAndShields", "Blocking & Shields"],
-                    ["Anatomy", "Anatomy"],
-                  ],
-                  "Melee Combat": [
-                    ["Sword", "Sword"], ["Axe", "Axe"], ["Dagger", "Dagger"], ["Hammer", "Hammer"],
-                    ["Polesword", "Polesword"], ["Poleaxe", "Poleaxe"], ["Spear", "Spear"],
-                  ],
-                  "Ranged Combat": [
-                    ["Archery", "Archery"],
-                    ["Crossbows", "Crossbows"],
-                    ["Slings", "Slings"],
-                    ["ThrowingWeapons", "Throwing Weapons"],
-                  ],
-                  "Mounted": [
-                    ["MountedCombat", "Mounted Combat"],
-                    ["MountedArchery", "Mounted Archery"],
-                    ["MountedMagery", "Mounted Magery"],
-                  ],
-                  "Stealth": [
-                    ["Stealth", "Stealth"], ["MeleeAmbush", "Melee Ambush"],
-                    ["RangedAmbush", "Ranged Ambush"], ["ElementalAmbush", "Elemental Ambush"],
-                  ],
-                  "Animal Handling": [
-                    ["BeastControl", "Beast Control"], ["Taming", "Taming"],
-                  ],
-                }).map(([groupName, groupSkills]) => (
-                  <details key={groupName} className="bg-slate-800/50 rounded-xl">
-                    <summary className="text-lg font-semibold p-3 cursor-pointer select-none">{groupName}</summary>
-                    <div className="p-3 border-t border-slate-700/50 space-y-3">
-                      {groupSkills.map(([key, label]) => (
-                        <div key={key} title={
-                          (key === 'MeleeAmbush' || key === 'RangedAmbush' || key === 'ElementalAmbush')
-                          ? 'This skill cannot be higher than your Stealth skill.'
-                          : ''
-                        }>
-                          <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
-                          <input type="range" min={0} max={100} value={skills[key]} onChange={e => setSkillBound(key, parseInt(e.target.value))} className="w-full" />
-                        </div>
-                      ))}
-                    </div>
-                  </details>
-                ))}
+                {Object.entries(skillGroups)
+                  .sort(([a], [b]) => a.localeCompare(b))
+                  .map(([groupName, groupSkills]) => (
+                    <details key={groupName} className="bg-slate-800/50 rounded-xl">
+                      <summary className="text-lg font-semibold p-3 cursor-pointer select-none">{groupName}</summary>
+                      <div className="p-3 border-t border-slate-700/50 space-y-3">
+                        {groupSkills
+                          .slice()
+                          .sort((a, b) => a[1].localeCompare(b[1]))
+                          .map(([key, label, subs]) => (
+                            <div key={key} title={
+                              (key === 'MeleeAmbush' || key === 'RangedAmbush' || key === 'ElementalAmbush')
+                                ? 'This skill cannot be higher than your Stealth skill.'
+                                : ''
+                            }>
+                              <div className="flex items-center justify-between text-sm"><span>{label}</span><span className="tabular-nums">{skills[key]}</span></div>
+                              <input type="range" min={0} max={100} value={skills[key]} onChange={e => setSkillBound(key, parseInt(e.target.value))} className="w-full" />
+                              {subs && (
+                                <div className="ml-4 mt-2 space-y-2">
+                                  {subs
+                                    .slice()
+                                    .sort((a, b) => a[1].localeCompare(b[1]))
+                                    .map(([subKey, subLabel]) => (
+                                      <div key={subKey}>
+                                        <div className="flex items-center justify-between text-sm"><span>{subLabel}</span><span className="tabular-nums">{skills[subKey]}</span></div>
+                                        <input type="range" min={0} max={100} value={skills[subKey]} onChange={e => setSkillBound(subKey, parseInt(e.target.value))} className="w-full" />
+                                      </div>
+                                    ))}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                      </div>
+                    </details>
+                  ))}
 
                 <details className="bg-slate-800/50 rounded-xl">
                   <summary className="text-lg font-semibold p-3 cursor-pointer select-none">Magic</summary>

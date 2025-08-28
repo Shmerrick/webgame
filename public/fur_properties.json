@@ -1,0 +1,122 @@
+{
+  "Mink": {
+    "density": 0.95,
+    "tensileStrength": 18,
+    "yieldStrength": 13.8,
+    "elasticModulus": 380,
+    "thermalConductivity": 0.04,
+    "specificHeat": 1.3,
+    "meltingPoint": 240,
+    "electricalResistivity": 100000000000,
+    "hardness": 30,
+    "toughness": 13.8
+  },
+  "Fox": {
+    "density": 0.92,
+    "tensileStrength": 17,
+    "yieldStrength": 13,
+    "elasticModulus": 360,
+    "thermalConductivity": 0.04,
+    "specificHeat": 1.3,
+    "meltingPoint": 240,
+    "electricalResistivity": 100000000000,
+    "hardness": 28,
+    "toughness": 13
+  },
+  "Rabbit": {
+    "density": 0.9,
+    "tensileStrength": 15,
+    "yieldStrength": 11.5,
+    "elasticModulus": 330,
+    "thermalConductivity": 0.04,
+    "specificHeat": 1.3,
+    "meltingPoint": 240,
+    "electricalResistivity": 100000000000,
+    "hardness": 25,
+    "toughness": 11.5
+  },
+  "Raccoon dog": {
+    "density": 0.93,
+    "tensileStrength": 16,
+    "yieldStrength": 12.3,
+    "elasticModulus": 350,
+    "thermalConductivity": 0.04,
+    "specificHeat": 1.3,
+    "meltingPoint": 240,
+    "electricalResistivity": 100000000000,
+    "hardness": 29,
+    "toughness": 12.3
+  },
+  "Chinchilla": {
+    "density": 0.9,
+    "tensileStrength": 16,
+    "yieldStrength": 12,
+    "elasticModulus": 340,
+    "thermalConductivity": 0.04,
+    "specificHeat": 1.3,
+    "meltingPoint": 240,
+    "electricalResistivity": 100000000000,
+    "hardness": 27,
+    "toughness": 12
+  },
+  "Karakul lamb": {
+    "density": 0.91,
+    "tensileStrength": 17,
+    "yieldStrength": 13,
+    "elasticModulus": 360,
+    "thermalConductivity": 0.04,
+    "specificHeat": 1.3,
+    "meltingPoint": 240,
+    "electricalResistivity": 100000000000,
+    "hardness": 26,
+    "toughness": 13
+  },
+  "Beaver": {
+    "density": 0.96,
+    "tensileStrength": 19,
+    "yieldStrength": 14.6,
+    "elasticModulus": 400,
+    "thermalConductivity": 0.04,
+    "specificHeat": 1.3,
+    "meltingPoint": 240,
+    "electricalResistivity": 100000000000,
+    "hardness": 32,
+    "toughness": 14.6
+  },
+  "Muskrat": {
+    "density": 0.92,
+    "tensileStrength": 16,
+    "yieldStrength": 12,
+    "elasticModulus": 340,
+    "thermalConductivity": 0.04,
+    "specificHeat": 1.3,
+    "meltingPoint": 240,
+    "electricalResistivity": 100000000000,
+    "hardness": 27,
+    "toughness": 12
+  },
+  "Raccoon": {
+    "density": 0.94,
+    "tensileStrength": 17,
+    "yieldStrength": 13.1,
+    "elasticModulus": 350,
+    "thermalConductivity": 0.04,
+    "specificHeat": 1.3,
+    "meltingPoint": 240,
+    "electricalResistivity": 100000000000,
+    "hardness": 29,
+    "toughness": 13.1
+  },
+  "Coyote": {
+    "density": 0.95,
+    "tensileStrength": 18,
+    "yieldStrength": 13.8,
+    "elasticModulus": 370,
+    "thermalConductivity": 0.04,
+    "specificHeat": 1.3,
+    "meltingPoint": 240,
+    "electricalResistivity": 100000000000,
+    "hardness": 30,
+    "toughness": 13.8
+  }
+}

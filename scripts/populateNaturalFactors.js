@@ -32,6 +32,8 @@ function populate(category, groups, className, propsFile) {
 populate('Rocks', ['Igneous', 'Sedimentary', 'Metamorphic'], 'Rock', 'public/rock_properties.json');
 populate('Linen', ['Plant'], 'Linen', 'public/linen_properties.json');
 populate('Carapace', ['Arthropod', 'Reptiles', 'Mollusk', 'Echinoderm', 'Mammals', 'Fish'], 'Carapace', 'public/carapace_properties.json');
+populate('Bone', ['Mammals', 'Birds', 'Reptiles', 'Fish'], 'Bone', 'public/bone_properties.json');
+populate('Scales', ['Fish', 'Reptiles', 'Birds'], 'Scale', 'public/scale_properties.json');
 
 fs.writeFileSync(dbPath, JSON.stringify(db, null, 2) + '\n');
 console.log('Natural material factors populated');

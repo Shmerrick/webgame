@@ -183,7 +183,39 @@ export function buildMaterialDB(base, wood, elementals, alloys, rocks, options =
     return db;
 }
 
+const DAMAGE_PROPS = ['slash', 'pierce', 'blunt', 'fire', 'water', 'wind', 'earth'];
+
+function traverseForMax(node, maxes) {
+    if (Array.isArray(node)) {
+        for (const item of node) {
+            const f = item.factors || {};
+            for (const prop of DAMAGE_PROPS) {
+                const val = f[prop];
+                if (typeof val === 'number' && val > maxes[prop]) {
+                    maxes[prop] = val;
+                }
+            }
+        }
+    } else if (node && typeof node === 'object') {
+        for (const value of Object.values(node)) {
+            traverseForMax(value, maxes);
+        }
+    }
+}
+
+export function scanDamageMax(db, categories = Object.keys(db || {})) {
+    const maxes = Object.fromEntries(DAMAGE_PROPS.map(p => [p, 0]));
+    for (const cat of categories) {
+        if (cat === 'Dev') continue;
+        const node = db[cat];
+        if (!node) continue;
+        traverseForMax(node, maxes);
+    }
+    return maxes;
+}
+
 if (typeof window !== 'undefined') {
     window.getDatabaseSection = getDatabaseSection;
     window.buildMaterialDB = buildMaterialDB;
+    window.scanDamageMax = scanDamageMax;
 }

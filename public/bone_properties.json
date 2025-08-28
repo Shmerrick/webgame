@@ -1,0 +1,50 @@
+{
+  "Deer": {
+    "density": 1.9,
+    "tensileStrength": 130,
+    "yieldStrength": 100,
+    "elasticModulus": 18000,
+    "thermalConductivity": 0.32,
+    "specificHeat": 1.3,
+    "meltingPoint": 1500,
+    "electricalResistivity": 1000000000000,
+    "hardness": 70,
+    "toughness": 3
+  },
+  "Eagle": {
+    "density": 1.5,
+    "tensileStrength": 100,
+    "yieldStrength": 80,
+    "elasticModulus": 11000,
+    "thermalConductivity": 0.25,
+    "specificHeat": 1.3,
+    "meltingPoint": 1500,
+    "electricalResistivity": 1000000000000,
+    "hardness": 60,
+    "toughness": 2.5
+  },
+  "Snake": {
+    "density": 1.7,
+    "tensileStrength": 120,
+    "yieldStrength": 90,
+    "elasticModulus": 17000,
+    "thermalConductivity": 0.3,
+    "specificHeat": 1.3,
+    "meltingPoint": 1500,
+    "electricalResistivity": 1000000000000,
+    "hardness": 65,
+    "toughness": 3
+  },
+  "Salmon": {
+    "density": 1.3,
+    "tensileStrength": 80,
+    "yieldStrength": 60,
+    "elasticModulus": 14000,
+    "thermalConductivity": 0.2,
+    "specificHeat": 1.3,
+    "meltingPoint": 1400,
+    "electricalResistivity": 1000000000000,
+    "hardness": 50,
+    "toughness": 2
+  }
+}

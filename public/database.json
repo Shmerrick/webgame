@@ -15,5 +15,11 @@
   "alchemyRecipes": "alchemy_recipes.json",
   "spells": "spells.json",
   "siegeVolumes": "siege_volumes.json",
-  "potionIngredients": { "source": "materials", "section": "Herbs" }
+  "potionIngredients": {
+    "source": "materials",
+    "section": "Herbs"
+  },
+  "furProperties": "fur_properties.json",
+  "boneProperties": "bone_properties.json",
+  "scaleProperties": "scale_properties.json"
 }

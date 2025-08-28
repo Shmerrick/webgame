@@ -1,1 +1,1 @@
-export { getDatabaseSection, buildMaterialDB } from './public/database.js';
+export { getDatabaseSection, buildMaterialDB, scanDamageMax } from './public/database.js';
