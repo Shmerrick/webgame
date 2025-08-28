@@ -1,0 +1,17 @@
+{
+  "Granite": {"density": 2.75, "tensileStrength": 4, "elasticModulus": 50000, "thermalConductivity": 2.8, "specificHeat": 0.79, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Basalt": {"density": 3.0, "tensileStrength": 10, "elasticModulus": 90000, "thermalConductivity": 1.7, "specificHeat": 0.84, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Obsidian": {"density": 2.4, "tensileStrength": 14, "elasticModulus": 70000, "thermalConductivity": 1.0, "specificHeat": 0.84, "meltingPoint": 1400, "electricalResistivity": 1e12},
+  "Diorite": {"density": 2.8, "tensileStrength": 7, "elasticModulus": 70000, "thermalConductivity": 1.5, "specificHeat": 0.79, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Andesite": {"density": 2.6, "tensileStrength": 8, "elasticModulus": 60000, "thermalConductivity": 1.4, "specificHeat": 0.84, "meltingPoint": 1400, "electricalResistivity": 1e12},
+  "Sandstone": {"density": 2.3, "tensileStrength": 4, "elasticModulus": 20000, "thermalConductivity": 2.2, "specificHeat": 0.92, "meltingPoint": 1400, "electricalResistivity": 1e12},
+  "Shale": {"density": 2.6, "tensileStrength": 5, "elasticModulus": 15000, "thermalConductivity": 1.3, "specificHeat": 0.92, "meltingPoint": 1200, "electricalResistivity": 1e12},
+  "Limestone": {"density": 2.7, "tensileStrength": 8, "elasticModulus": 30000, "thermalConductivity": 1.3, "specificHeat": 0.91, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Conglomerate": {"density": 2.4, "tensileStrength": 5, "elasticModulus": 25000, "thermalConductivity": 2.5, "specificHeat": 0.92, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Chalk": {"density": 2.4, "tensileStrength": 3, "elasticModulus": 9000, "thermalConductivity": 0.3, "specificHeat": 0.92, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Marble": {"density": 2.7, "tensileStrength": 7, "elasticModulus": 50000, "thermalConductivity": 2.1, "specificHeat": 0.88, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Slate": {"density": 2.8, "tensileStrength": 15, "elasticModulus": 40000, "thermalConductivity": 2.9, "specificHeat": 0.86, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Schist": {"density": 2.8, "tensileStrength": 10, "elasticModulus": 45000, "thermalConductivity": 2.5, "specificHeat": 0.82, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Gneiss": {"density": 2.7, "tensileStrength": 12, "elasticModulus": 60000, "thermalConductivity": 2.5, "specificHeat": 0.84, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Quartzite": {"density": 2.6, "tensileStrength": 10, "elasticModulus": 70000, "thermalConductivity": 6.5, "specificHeat": 0.74, "meltingPoint": 1700, "electricalResistivity": 1e12}
+}

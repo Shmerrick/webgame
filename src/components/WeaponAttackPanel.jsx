@@ -56,7 +56,7 @@ export default function WeaponAttackPanel({ weaponKey, setWeaponKey, weapon, bow
                 DB={DB}
                 allowed={
                   weaponKey === 'Sword'
-                    ? MATERIALS_FOR_HANDLE_FITTING.filter(c => c !== 'Rock Types')
+                    ? MATERIALS_FOR_HANDLE_FITTING.filter(c => c !== 'Rocks')
                     : MATERIALS_FOR_HANDLE_FITTING
                 }
                 value={weaponComps.fitting}
