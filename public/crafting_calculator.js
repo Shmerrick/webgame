@@ -14,7 +14,7 @@ import {
     MATERIALS_FOR_JEWELRY_SETTING,
     MATERIALS_FOR_JEWELRY_GEM,
 } from './constants/armor.js';
-import { buildMaterialDB, getDatabaseSection } from './database.js';
+import { buildMaterialDB, getDatabaseSection, scanDamageMax } from './database.js';
 
 const DEBUG = false;
 const debugLog = (...args) => { if (DEBUG) console.log(...args); };
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const weaponComponentsDiv = document.getElementById('weapon-components');
     const weaponResultsDiv = document.getElementById('weapon-crafting-results');
     let weaponVolumesData = {};
+    let weaponDamageMax = {};
 
     // Bowyer
     const bowTypeSelect = document.getElementById('bow-type');
@@ -149,6 +150,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
             ];
             materialsData = flattenMaterialsDB(db);
+            weaponDamageMax = {
+                head: scanDamageMax(db, MATERIALS_FOR_HEAD),
+                core: scanDamageMax(db, MATERIALS_FOR_HANDLE_CORE),
+                grip: scanDamageMax(db, MATERIALS_FOR_HANDLE_GRIP),
+                fitting: scanDamageMax(db, MATERIALS_FOR_HANDLE_FITTING),
+            };
             debugLog("Materials processed.");
 
             armorVolumesList.forEach(item => {
@@ -668,7 +675,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const headMat = components['Head'] ? components['Head'].material : null;
         let damageMod = 0;
         if (headMat) {
-            damageMod = ((parseFloat(headMat.slash) || 0) + (parseFloat(headMat.pierce) || 0)) / 4;
+            const max = weaponDamageMax.head || {};
+            const sMax = parseFloat(max.slash) || 1;
+            const pMax = parseFloat(max.pierce) || 1;
+            damageMod = ((parseFloat(headMat.slash) || 0) / sMax + (parseFloat(headMat.pierce) || 0) / pMax) / 4;
         }
 
         const weaponInfo = WEAPONS[type];
