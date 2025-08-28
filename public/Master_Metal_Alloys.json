@@ -2,26 +2,18 @@
   "elements": [
     {
       "name": "Aluminium Alloy 7075",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 612.5,
+          "value": 572,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 530,
+          "value": 503,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 71,
+          "value": 69,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -29,56 +21,36 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "MPa",
-          "value": 1520.03
+          "value": 1470.0,
+          "units": "MPa"
         },
         "density": {
           "value": 2.81,
           "units": "g/cm3"
         },
         "melting_point": {
-          "units": "degC",
-          "value": 556
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 556,
+          "units": "degC"
         },
         "thermal_conductivity": {
           "value": 130,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 23.6
+          "value": 23.6,
+          "units": "um/m*K"
         },
         "specific_heat": {
           "value": 0.96,
           "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
         },
         "electrical_resistivity": {
           "value": 51.5,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+          "value": "N/A",
+          "units": "cm³/mol"
         }
       },
       "factors": {
@@ -1130,22 +1102,14 @@
     },
     {
       "name": "Stainless Steel 304L",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 632.5,
+          "value": 520,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 245,
+          "value": 215,
           "units": "MPa"
         },
         "youngs_modulus": {
@@ -1157,56 +1121,36 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "MPa",
-          "value": 1716.16
+          "value": 1669.0,
+          "units": "MPa"
         },
         "density": {
           "value": 7.93,
           "units": "g/cm3"
         },
         "melting_point": {
-          "units": "degC",
-          "value": 1425
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 1425,
+          "units": "degC"
         },
         "thermal_conductivity": {
-          "value": 17,
+          "value": 16.2,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 17.2
+          "value": 17.2,
+          "units": "um/m*K"
         },
         "specific_heat": {
           "value": 0.5,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
-          "value": 690,
+          "value": 720,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+          "value": "N/A",
+          "units": "cm³/mol"
         }
       },
       "factors": {
@@ -1893,15 +1837,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 118,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 105,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 69,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1909,31 +1853,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 343.23
         },
         "density": {
-          "value": 0,
+          "value": 2.71,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 646
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 222,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 23.5
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.9,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -1945,11 +1889,11 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 28.2,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         }
       },
@@ -1979,15 +1923,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 380,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 270,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 71,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -1995,31 +1939,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 1049.31
         },
         "density": {
-          "value": 0,
+          "value": 2.82,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 640
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 155,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 23
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.89,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -2031,11 +1975,11 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 41,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         }
       },
@@ -2065,15 +2009,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 490,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 420,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 72,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2081,31 +2025,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 1373
         },
         "density": {
-          "value": 0,
+          "value": 2.8,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 570
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 150,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 23
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.87,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -2117,11 +2061,11 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 43.1,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         }
       },
@@ -2140,26 +2084,18 @@
     },
     {
       "name": "Aluminium Alloy 5052",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 228,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 193,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 69.3,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2167,47 +2103,35 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 588.42
         },
         "density": {
-          "value": 0,
+          "value": 2.68,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 607
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 138,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 23.8
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.88,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 49.6,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         }
       },
@@ -2237,15 +2161,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 317,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 228,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 72,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2253,31 +2177,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "value": 931.67,
+          "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 2.66,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 570
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 117,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 23.7
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.91,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -2289,7 +2213,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 59,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -2323,15 +2247,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 210,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 130,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 70,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2339,31 +2263,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "value": 588.42,
+          "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 2.69,
           "units": "g/cm3"
         },
         "melting_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 607,
+          "units": "degC"
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 138,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
+          "value": 23.9,
+          "units": "um/m*K"
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.9,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -2375,7 +2299,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 49,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -2398,26 +2322,18 @@
     },
     {
       "name": "Aluminium Alloy 5754",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 330,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 215,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 69,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2425,43 +2341,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "value": 735.53,
+          "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 2.67,
           "units": "g/cm3"
         },
         "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 600,
+          "units": "degC"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 130,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
+          "value": 23.7,
+          "units": "um/m*K"
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.9,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 52.3,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -2495,15 +2399,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 310,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 276,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 69,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2511,31 +2415,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 931.67
         },
         "density": {
-          "value": 0,
+          "value": 2.7,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 652
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 167,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 23.6
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.896,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -2547,7 +2451,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 40,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -2581,15 +2485,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 193,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 159,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 68.9,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2597,31 +2501,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 716
         },
         "density": {
-          "value": 0,
+          "value": 2.69,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 615
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 209,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 23.4
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.9,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -2633,7 +2537,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 32.5,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -2667,15 +2571,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 330,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 260,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 71,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2683,31 +2587,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 932
         },
         "density": {
-          "value": 0,
+          "value": 2.7,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 580
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 160,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 23
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.9,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -2719,7 +2623,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 41,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -2753,15 +2657,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 540,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 480,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 70,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2769,31 +2673,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "value": 1569.12,
+          "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 2.83,
           "units": "g/cm3"
         },
         "melting_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 494,
+          "units": "degC"
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 140,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
+          "value": 24,
+          "units": "um/m*K"
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.86,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -2805,7 +2709,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 43,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -2828,26 +2732,18 @@
     },
     {
       "name": "Aluminium Alloy Duralumin",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 427,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 345,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 72.4,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -2855,48 +2751,36 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "value": 1226,
+          "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 2.78,
           "units": "g/cm3"
         },
         "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 570,
+          "units": "degC"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 151,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
+          "value": 23.2,
+          "units": "um/m*K"
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.875,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 44.9,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
+          "value": "N/A",
+          "units": "cm3/mol"
         }
       },
       "factors": {
@@ -6967,15 +6851,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 620,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 290,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 193,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -6983,31 +6867,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "value": 1814.0,
+          "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 7.93,
           "units": "g/cm3"
         },
         "melting_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 1400,
+          "units": "degC"
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 16.3,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
+          "value": 17.3,
+          "units": "um/m*K"
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.5,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -7019,7 +6903,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 720,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -7042,26 +6926,18 @@
     },
     {
       "name": "Stainless Steel 302",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 620,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 275,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 193,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7069,43 +6945,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "value": 1971.21,
+          "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 7.93,
           "units": "g/cm3"
         },
         "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 1420,
+          "units": "degC"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 16.3,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
+          "value": 17.3,
+          "units": "um/m*K"
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.5,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 720,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -7139,15 +7003,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 620,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 240,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 193,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7155,31 +7019,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 1971.14
         },
         "density": {
-          "value": 0,
+          "value": 8,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 1425
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 16.3,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 17.3
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.5,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -7191,11 +7055,11 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 720,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         }
       },
@@ -7225,15 +7089,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 515,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 205,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 200,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7241,31 +7105,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 1667.13
         },
         "density": {
-          "value": 0,
+          "value": 7.98,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 1400
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 14.2,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 15.9
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.5,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -7277,11 +7141,11 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 720,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         }
       },
@@ -7300,26 +7164,18 @@
     },
     {
       "name": "Stainless Steel 316L",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 485,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 170,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 193,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7327,47 +7183,35 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 1471.05
         },
         "density": {
-          "value": 0,
+          "value": 8,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 1370
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 14,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 16
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.5,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 740,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         }
       },
@@ -7397,15 +7241,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 515,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 205,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 193,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7413,31 +7257,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "value": 1833.91,
+          "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 7.92,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 1400
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 16.3,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 16.5
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.5,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -7449,7 +7293,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 720,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -7483,15 +7327,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 620,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 240,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 200,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7499,31 +7343,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 1835.7
         },
         "density": {
-          "value": 0,
+          "value": 7.8,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 1400
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 16,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 17
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.48,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -7535,11 +7379,11 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 718,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
-          "units": "cm3/mol",
+          "units": "cm³/mol",
           "value": "N/A"
         }
       },
@@ -7569,15 +7413,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 480,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 275,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 200,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -7585,31 +7429,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 1794.68
         },
         "density": {
-          "value": 0,
+          "value": 7.75,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 1450
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 24.9,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 9.9
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.46,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -7621,7 +7465,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 570,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -7757,8 +7601,8 @@
           "value": 4
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": 201
+          "units": "MPa",
+          "value": 1971
         },
         "density": {
           "value": 7.75,
@@ -7843,8 +7687,8 @@
           "value": 4
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": 170
+          "units": "MPa",
+          "value": 1667
         },
         "density": {
           "value": 7.74,
@@ -7999,15 +7843,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 850,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 620,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 200,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -8015,31 +7859,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "value": 2550,
+          "units": "MPa"
         },
         "density": {
-          "value": 0,
+          "value": 7.75,
           "units": "g/cm3"
         },
         "melting_point": {
-          "units": "degC",
-          "value": "N/A"
+          "value": 1510,
+          "units": "degC"
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 25,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
+          "value": 10.3,
+          "units": "um/m*K"
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.46,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -8051,7 +7895,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 580,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {
@@ -8085,15 +7929,15 @@
       "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
-          "value": 0,
+          "value": 758,
           "units": "MPa"
         },
         "yield_strength": {
-          "value": 0,
+          "value": 448,
           "units": "MPa"
         },
         "youngs_modulus": {
-          "value": 0,
+          "value": 200,
           "units": "GPa"
         },
         "mohs_hardness": {
@@ -8101,31 +7945,31 @@
           "value": "N/A"
         },
         "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
+          "units": "MPa",
+          "value": 2638
         },
         "density": {
-          "value": 0,
+          "value": 7.65,
           "units": "g/cm3"
         },
         "melting_point": {
           "units": "degC",
-          "value": "N/A"
+          "value": 1480
         },
         "boiling_point": {
           "units": "degC",
           "value": "N/A"
         },
         "thermal_conductivity": {
-          "value": 0,
+          "value": 24.2,
           "units": "W/m*K"
         },
         "thermal_expansion_coefficient": {
           "units": "um/m*K",
-          "value": "N/A"
+          "value": 10.1
         },
         "specific_heat": {
-          "value": 0,
+          "value": 0.46,
           "units": "J/g*K"
         },
         "heat_of_fusion": {
@@ -8137,7 +7981,7 @@
           "value": "N/A"
         },
         "electrical_resistivity": {
-          "value": 0,
+          "value": 600,
           "units": "nOhm*m"
         },
         "magnetic_susceptibility": {

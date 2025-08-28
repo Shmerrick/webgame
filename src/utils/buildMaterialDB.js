@@ -33,15 +33,30 @@ export default function buildMaterialDB(base, wood, elementals, alloys, rocks, o
 
   const procMetal = (m) => {
     const out = { id: slug(m.name), name: m.name, class: 'Metal' };
-    if (m.density != null) out.density = m.density;
-    if (m.yieldStrength != null) out.yieldStrength = m.yieldStrength;
-    if (m.tensileStrength != null) out.tensileStrength = m.tensileStrength;
-    if (m.elasticModulus != null) out.elasticModulus = m.elasticModulus;
-    if (m.brinellHardness != null) out.brinellMPa = m.brinellHardness;
-    if (m.thermalConductivity != null) out.thermalConductivity = m.thermalConductivity;
-    if (m.specificHeat != null) out.specificHeat = m.specificHeat;
-    if (m.meltingPoint != null) out.meltingPoint = m.meltingPoint;
-    if (m.electricalResistivity != null) out.electricalResistivity = m.electricalResistivity;
+    const mech = m.mechanical_properties || {};
+    const num = (obj, factor = 1) =>
+      obj && typeof obj.value === 'number' ? obj.value * factor : undefined;
+    const pick = (primary, fallback) => (primary != null ? primary : fallback);
+    const dens = pick(m.density, num(mech.density));
+    if (dens != null) out.density = dens;
+    const ys = pick(m.yieldStrength, num(mech.yield_strength));
+    if (ys != null) out.yieldStrength = ys;
+    const uts = pick(m.tensileStrength, num(mech.ultimate_tensile_strength));
+    if (uts != null) out.tensileStrength = uts;
+    const ymFactor =
+      mech.youngs_modulus && mech.youngs_modulus.units === 'GPa' ? 1000 : 1;
+    const ym = pick(m.elasticModulus, num(mech.youngs_modulus, ymFactor));
+    if (ym != null) out.elasticModulus = ym;
+    const bh = pick(m.brinellHardness, num(mech.brinell_hardness));
+    if (bh != null) out.brinellMPa = bh;
+    const tc = pick(m.thermalConductivity, num(mech.thermal_conductivity));
+    if (tc != null) out.thermalConductivity = tc;
+    const sh = pick(m.specificHeat, num(mech.specific_heat));
+    if (sh != null) out.specificHeat = sh;
+    const mp = pick(m.meltingPoint, num(mech.melting_point));
+    if (mp != null) out.meltingPoint = mp;
+    const er = pick(m.electricalResistivity, num(mech.electrical_resistivity));
+    if (er != null) out.electricalResistivity = er;
     return out;
   };
 
