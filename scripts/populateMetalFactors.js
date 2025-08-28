@@ -54,13 +54,14 @@ function ensureMechanicalProps(mp){
 const datasets = files.map(readJSON);
 const elements = datasets.flatMap(d => d.elements);
 
-for(const el of elements){
-  const h = hardnessData[el.name];
-  if(h){
+for (const el of elements) {
+  const brinell = hardnessData[el.name];
+  if (brinell != null) {
     el.mechanical_properties = el.mechanical_properties || {};
-    el.mechanical_properties.mohs_hardness = { value: h.mohs, units: null };
-    el.mechanical_properties.brinell_hardness = { value: h.brinell, units: 'MPa' };
-    el.mechanical_properties.vickers_hardness = { value: h.vickers, units: 'MPa' };
+    el.mechanical_properties.brinell_hardness = {
+      value: brinell,
+      units: 'MPa',
+    };
   }
   el.mechanical_properties = ensureMechanicalProps(el.mechanical_properties || {});
 }
