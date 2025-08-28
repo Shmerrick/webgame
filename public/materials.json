@@ -10,8 +10,8 @@
           "defense_slash": 1,
           "defense_pierce": 1,
           "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
+          "fire": 0,
+          "water": 0,
           "wind": 1,
           "earth": 1
         }
@@ -19,61 +19,61 @@
       {
         "name": "Alligator",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.9026,
+          "pierce": 0.9,
+          "blunt": 0.90909,
+          "defense_slash": 0.9026,
+          "defense_pierce": 0.90113,
+          "defense_blunt": 0.91682,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.93985,
+          "earth": 0.90053
         }
       },
       {
         "name": "Caiman",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.85065,
+          "pierce": 0.85,
+          "blunt": 0.86364,
+          "defense_slash": 0.85065,
+          "defense_pierce": 0.85028,
+          "defense_blunt": 0.84726,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.84554,
+          "earth": 0.81963
         }
       },
       {
         "name": "Lizard",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.64935,
+          "pierce": 0.65,
+          "blunt": 0.77273,
+          "defense_slash": 0.64935,
+          "defense_pierce": 0.64972,
+          "defense_blunt": 0.64754,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.5217,
+          "earth": 0.59881
         }
       },
       {
         "name": "Python",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.5,
+          "pierce": 0.5,
+          "blunt": 0.72727,
+          "defense_slash": 0.5,
+          "defense_pierce": 0.5,
+          "defense_blunt": 0.49801,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.25663,
+          "earth": 0.44463
         }
       }
     ],
@@ -81,76 +81,76 @@
       {
         "name": "Cow",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.5,
+          "pierce": 0.5,
+          "blunt": 0.36364,
+          "defense_slash": 0.5,
+          "defense_pierce": 0.5,
+          "defense_blunt": 0.46963,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.66299,
+          "earth": 0.41645
         }
       },
       {
         "name": "Sheep",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0.27273,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0.13659,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0.11141
         }
       },
       {
         "name": "Goat",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.25325,
+          "pierce": 0.25,
+          "blunt": 0.31818,
+          "defense_slash": 0.25325,
+          "defense_pierce": 0.25141,
+          "defense_blunt": 0.33825,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.40764,
+          "earth": 0.29045
         }
       },
       {
         "name": "Pig",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.14935,
+          "pierce": 0.15,
+          "blunt": 0.40909,
+          "defense_slash": 0.14935,
+          "defense_pierce": 0.14972,
+          "defense_blunt": 0.30161,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.20669,
+          "earth": 0.25663
         }
       },
       {
         "name": "Deer",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.1039,
+          "pierce": 0.1,
+          "blunt": 0.22727,
+          "defense_slash": 0.1039,
+          "defense_pierce": 0.10169,
+          "defense_blunt": 0.22075,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.24836,
+          "earth": 0.18402
         }
       }
     ],
@@ -158,46 +158,46 @@
       {
         "name": "Ostrich",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.14935,
+          "pierce": 0.15,
+          "blunt": 0.09091,
+          "defense_slash": 0.14935,
+          "defense_pierce": 0.14972,
+          "defense_blunt": 0.08892,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.10965,
+          "earth": 0.07162
         }
       },
       {
         "name": "Emu",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.1039,
+          "pierce": 0.1,
+          "blunt": 0.04545,
+          "defense_slash": 0.1039,
+          "defense_pierce": 0.10169,
+          "defense_blunt": 0.04457,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.06107,
+          "earth": 0.03548
         }
       },
       {
         "name": "Rhea",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.05195,
+          "pierce": 0.05,
+          "blunt": 0,
+          "defense_slash": 0.05195,
+          "defense_pierce": 0.05085,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.01125,
+          "earth": 0
         }
       },
       {
@@ -389,16 +389,16 @@
       {
         "name": "Cotton",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
+          "slash": 0,
+          "pierce": 0,
           "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
+          "fire": 0,
+          "water": 0,
+          "wind": 0,
+          "earth": 0
         }
       },
       {
@@ -406,12 +406,12 @@
         "factors": {
           "slash": 1,
           "pierce": 1,
-          "blunt": 1,
+          "blunt": 0.33333,
           "defense_slash": 1,
           "defense_pierce": 1,
           "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
+          "fire": 0,
+          "water": 0,
           "wind": 1,
           "earth": 1
         }
@@ -419,16 +419,16 @@
       {
         "name": "Hemp",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.725,
+          "pierce": 0.725,
+          "blunt": 0,
+          "defense_slash": 0.725,
+          "defense_pierce": 0.725,
+          "defense_blunt": 0.54214,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.48855,
+          "earth": 0.4586
         }
       },
       {
@@ -1142,61 +1142,61 @@
       {
         "name": "Malacostraca Decapoda",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.63158,
+          "pierce": 0.63158,
+          "blunt": 0.35,
+          "defense_slash": 0.63158,
+          "defense_pierce": 0.63158,
+          "defense_blunt": 0.29703,
+          "fire": 0.46784,
+          "water": 0,
+          "wind": 0.03201,
+          "earth": 0.1143
         }
       },
       {
         "name": "Insecta",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.25263,
+          "pierce": 0.25263,
+          "blunt": 0.265,
+          "defense_slash": 0.25263,
+          "defense_pierce": 0.25263,
+          "defense_blunt": 0.1085,
+          "fire": 0.88596,
+          "water": 0,
+          "wind": 0.00653,
+          "earth": 0.02385
         }
       },
       {
         "name": "Chelicerata",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.31579,
+          "pierce": 0.31579,
+          "blunt": 0.25,
+          "defense_slash": 0.31579,
+          "defense_pierce": 0.31579,
+          "defense_blunt": 0.12761,
+          "fire": 0.88596,
+          "water": 0,
+          "wind": 0.00953,
+          "earth": 0.03018
         }
       },
       {
         "name": "Cirripedia",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
+          "slash": 0.15789,
+          "pierce": 0.15789,
+          "blunt": 0.9,
+          "defense_slash": 0.15789,
+          "defense_pierce": 0.15789,
+          "defense_blunt": 0.9624,
+          "fire": 0,
           "water": 1,
           "wind": 1,
-          "earth": 1
+          "earth": 0.93073
         }
       }
     ],
@@ -1204,16 +1204,16 @@
       {
         "name": "Testudines",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.81579,
+          "pierce": 0.81579,
+          "blunt": 0.5,
+          "defense_slash": 0.81579,
+          "defense_pierce": 0.81579,
+          "defense_blunt": 0.39219,
+          "fire": 0.54386,
+          "water": 0,
+          "wind": 0.03647,
+          "earth": 0.18357
         }
       },
       {
@@ -1221,14 +1221,14 @@
         "factors": {
           "slash": 1,
           "pierce": 1,
-          "blunt": 1,
+          "blunt": 0.55,
           "defense_slash": 1,
           "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "defense_blunt": 0.46036,
+          "fire": 0.31579,
+          "water": 0,
+          "wind": 0.04412,
+          "earth": 0.24295
         }
       }
     ],
@@ -1236,46 +1236,46 @@
       {
         "name": "Bivalvia",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
+          "slash": 0.63158,
+          "pierce": 0.63158,
+          "blunt": 0.9,
+          "defense_slash": 0.63158,
+          "defense_pierce": 0.63158,
+          "defense_blunt": 0.9624,
+          "fire": 0.23026,
           "water": 1,
           "wind": 1,
-          "earth": 1
+          "earth": 0.93073
         }
       },
       {
         "name": "Polyplacophora",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
+          "slash": 0.47368,
+          "pierce": 0.47368,
           "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
+          "defense_slash": 0.47368,
+          "defense_pierce": 0.47368,
           "defense_blunt": 1,
-          "fire": 1,
+          "fire": 0.11053,
           "water": 1,
-          "wind": 1,
+          "wind": 0.93074,
           "earth": 1
         }
       },
       {
         "name": "Cephalopoda",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
           "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "water": 0,
+          "wind": 0,
+          "earth": 0
         }
       }
     ],
@@ -1283,16 +1283,16 @@
       {
         "name": "Echinoidea",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
+          "slash": 0.05263,
+          "pierce": 0.05263,
+          "blunt": 0.85,
+          "defense_slash": 0.05263,
+          "defense_pierce": 0.05263,
+          "defense_blunt": 0.69549,
+          "fire": 0.11053,
           "water": 1,
-          "wind": 1,
-          "earth": 1
+          "wind": 0.59166,
+          "earth": 0.51014
         }
       }
     ],
@@ -1300,16 +1300,16 @@
       {
         "name": "Cingulata",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.63158,
+          "pierce": 0.63158,
+          "blunt": 0.45,
+          "defense_slash": 0.63158,
+          "defense_pierce": 0.63158,
+          "defense_blunt": 0.37982,
+          "fire": 0.54386,
+          "water": 0,
+          "wind": 0.03874,
+          "earth": 0.17368
         }
       }
     ],
@@ -1317,16 +1317,16 @@
       {
         "name": "Actinopterygii",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.73684,
+          "pierce": 0.73684,
+          "blunt": 0.5,
+          "defense_slash": 0.73684,
+          "defense_pierce": 0.73684,
+          "defense_blunt": 0.49636,
+          "fire": 0.54386,
+          "water": 0,
+          "wind": 0.05686,
+          "earth": 0.27759
         }
       }
     ]
@@ -1490,34 +1490,34 @@
     ]
   },
   "Wood": {},
-  "Rock Types": {
+  "Rocks": {
     "Igneous": [
       {
         "name": "Granite",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.08333,
+          "pierce": 0.08333,
+          "blunt": 0.64286,
+          "defense_slash": 0.08333,
+          "defense_pierce": 0.08333,
+          "defense_blunt": 0.60068,
+          "fire": 0.05212,
+          "water": 0.27778,
+          "wind": 0.54978,
+          "earth": 0.46659
         }
       },
       {
         "name": "Basalt",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
+          "slash": 0.58333,
+          "pierce": 0.58333,
           "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
+          "defense_slash": 0.58333,
+          "defense_pierce": 0.58333,
           "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
+          "fire": 0.12428,
+          "water": 0.55556,
           "wind": 1,
           "earth": 1
         }
@@ -1525,46 +1525,46 @@
       {
         "name": "Obsidian",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.91667,
+          "pierce": 0.91667,
+          "blunt": 0.14286,
+          "defense_slash": 0.91667,
+          "defense_pierce": 0.91667,
+          "defense_blunt": 0.70552,
+          "fire": 0.22296,
+          "water": 0.55556,
+          "wind": 0.96825,
+          "earth": 0.58937
         }
       },
       {
         "name": "Diorite",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.33333,
+          "pierce": 0.33333,
+          "blunt": 0.71429,
+          "defense_slash": 0.33333,
+          "defense_pierce": 0.33333,
+          "defense_blunt": 0.79365,
+          "fire": 0.13536,
+          "water": 0.27778,
+          "wind": 0.80952,
+          "earth": 0.70209
         }
       },
       {
         "name": "Andesite",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.41667,
+          "pierce": 0.41667,
+          "blunt": 0.42857,
+          "defense_slash": 0.41667,
+          "defense_pierce": 0.41667,
+          "defense_blunt": 0.66551,
+          "fire": 0.14671,
+          "water": 0.55556,
+          "wind": 0.73626,
+          "earth": 0.54106
         }
       }
     ],
@@ -1572,76 +1572,76 @@
       {
         "name": "Sandstone",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
+          "slash": 0.08333,
+          "pierce": 0.08333,
+          "blunt": 0,
+          "defense_slash": 0.08333,
+          "defense_pierce": 0.08333,
+          "defense_blunt": 0.18116,
+          "fire": 0.08894,
           "water": 1,
-          "wind": 1,
-          "earth": 1
+          "wind": 0.18841,
+          "earth": 0.09823
         }
       },
       {
         "name": "Shale",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
+          "slash": 0.16667,
+          "pierce": 0.16667,
+          "blunt": 0.42857,
+          "defense_slash": 0.16667,
+          "defense_pierce": 0.16667,
+          "defense_blunt": 0.13556,
+          "fire": 0.1488,
           "water": 1,
-          "wind": 1,
-          "earth": 1
+          "wind": 0.07692,
+          "earth": 0.07005
         }
       },
       {
         "name": "Limestone",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.41667,
+          "pierce": 0.41667,
+          "blunt": 0.57143,
+          "defense_slash": 0.41667,
+          "defense_pierce": 0.41667,
+          "defense_blunt": 0.36935,
+          "fire": 0.19436,
+          "water": 0.94444,
+          "wind": 0.28042,
+          "earth": 0.23913
         }
       },
       {
         "name": "Conglomerate",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
+          "slash": 0.16667,
+          "pierce": 0.16667,
+          "blunt": 0.14286,
+          "defense_slash": 0.16667,
+          "defense_pierce": 0.16667,
+          "defense_blunt": 0.26293,
+          "fire": 0.08135,
           "water": 1,
-          "wind": 1,
-          "earth": 1
+          "wind": 0.25397,
+          "earth": 0.15459
         }
       },
       {
         "name": "Chalk",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
+          "slash": 0,
+          "pierce": 0,
+          "blunt": 0.14286,
+          "defense_slash": 0,
+          "defense_pierce": 0,
+          "defense_blunt": 0,
           "fire": 1,
           "water": 1,
-          "wind": 1,
-          "earth": 1
+          "wind": 0,
+          "earth": 0
         }
       }
     ],
@@ -1649,16 +1649,16 @@
       {
         "name": "Marble",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.33333,
+          "pierce": 0.33333,
+          "blunt": 0.57143,
+          "defense_slash": 0.33333,
+          "defense_pierce": 0.33333,
+          "defense_blunt": 0.59159,
+          "fire": 0.09873,
+          "water": 0.77778,
+          "wind": 0.56261,
+          "earth": 0.45652
         }
       },
       {
@@ -1666,59 +1666,59 @@
         "factors": {
           "slash": 1,
           "pierce": 1,
-          "blunt": 1,
+          "blunt": 0.71429,
           "defense_slash": 1,
           "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "defense_blunt": 0.50368,
+          "fire": 0.05703,
+          "water": 0.66667,
+          "wind": 0.40136,
+          "earth": 0.36393
         }
       },
       {
         "name": "Schist",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.58333,
+          "pierce": 0.58333,
+          "blunt": 0.71429,
+          "defense_slash": 0.58333,
+          "defense_pierce": 0.58333,
+          "defense_blunt": 0.55816,
+          "fire": 0.06773,
+          "water": 0.44444,
+          "wind": 0.46939,
+          "earth": 0.42029
         }
       },
       {
         "name": "Gneiss",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.75,
+          "pierce": 0.75,
+          "blunt": 0.57143,
+          "defense_slash": 0.75,
+          "defense_pierce": 0.75,
+          "defense_blunt": 0.6857,
+          "fire": 0.07046,
+          "water": 0.55556,
+          "wind": 0.7037,
+          "earth": 0.56522
         }
       },
       {
         "name": "Quartzite",
         "factors": {
-          "slash": 1,
-          "pierce": 1,
-          "blunt": 1,
-          "defense_slash": 1,
-          "defense_pierce": 1,
-          "defense_blunt": 1,
-          "fire": 1,
-          "water": 1,
-          "wind": 1,
-          "earth": 1
+          "slash": 0.58333,
+          "pierce": 0.58333,
+          "blunt": 0.42857,
+          "defense_slash": 0.58333,
+          "defense_pierce": 0.58333,
+          "defense_blunt": 0.75043,
+          "fire": 0,
+          "water": 0,
+          "wind": 0.88278,
+          "earth": 0.64573
         }
       }
     ]

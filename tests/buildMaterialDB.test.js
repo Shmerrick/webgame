@@ -42,7 +42,7 @@ describe('buildMaterialDB', () => {
       elementals,
       alloys,
       rocks,
-      { defaultDensities: { Wood: 0.5, 'Rock Types': 2.7 } }
+      { defaultDensities: { Wood: 0.5, 'Rocks': 2.7 } }
     );
 
     expect(db.Metals['Base Metals'][0]).toMatchObject({ id: 'iron', name: 'Iron' });
@@ -52,7 +52,7 @@ describe('buildMaterialDB', () => {
     expect(db.Metals['Metal Alloys'][0].factors).toBeTruthy();
     expect(db.Wood.Soft[0]).toMatchObject({ id: 'pine', name: 'Pine', density: 0.5 });
     expect(db.Wood.Soft[0].factors).toBeTruthy();
-    expect(db['Rock Types'].Igneous[0]).toEqual({ id: 'granite', name: 'Granite', density: 2.7 });
+    expect(db['Rocks'].Igneous[0]).toEqual({ id: 'granite', name: 'Granite', density: 2.7 });
   });
 
   it('extracts nested mechanical properties for alloys', () => {

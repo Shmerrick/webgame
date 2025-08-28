@@ -1,0 +1,14 @@
+{
+  "Malacostraca Decapoda": {"density": 1.6, "tensileStrength": 130, "elasticModulus": 15000, "thermalConductivity": 0.3, "specificHeat": 1.3, "meltingPoint": 550, "electricalResistivity": 1e11},
+  "Insecta": {"density": 1.43, "tensileStrength": 58, "elasticModulus": 4000, "thermalConductivity": 0.2, "specificHeat": 1.3, "meltingPoint": 550, "electricalResistivity": 1e11},
+  "Chelicerata": {"density": 1.4, "tensileStrength": 70, "elasticModulus": 5000, "thermalConductivity": 0.2, "specificHeat": 1.3, "meltingPoint": 550, "electricalResistivity": 1e11},
+  "Cirripedia": {"density": 2.7, "tensileStrength": 40, "elasticModulus": 70000, "thermalConductivity": 1.3, "specificHeat": 0.91, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Testudines": {"density": 1.9, "tensileStrength": 165, "elasticModulus": 20000, "thermalConductivity": 0.3, "specificHeat": 1.3, "meltingPoint": 600, "electricalResistivity": 1e11},
+  "Crocodylia": {"density": 2.0, "tensileStrength": 200, "elasticModulus": 25000, "thermalConductivity": 0.4, "specificHeat": 1.3, "meltingPoint": 600, "electricalResistivity": 1e11},
+  "Bivalvia": {"density": 2.7, "tensileStrength": 130, "elasticModulus": 70000, "thermalConductivity": 0.8, "specificHeat": 0.91, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Polyplacophora": {"density": 2.9, "tensileStrength": 100, "elasticModulus": 70000, "thermalConductivity": 1.0, "specificHeat": 0.91, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Cephalopoda": {"density": 0.9, "tensileStrength": 10, "elasticModulus": 1000, "thermalConductivity": 0.2, "specificHeat": 1.3, "meltingPoint": 600, "electricalResistivity": 1e11},
+  "Echinoidea": {"density": 2.6, "tensileStrength": 20, "elasticModulus": 40000, "thermalConductivity": 1.0, "specificHeat": 0.91, "meltingPoint": 1500, "electricalResistivity": 1e12},
+  "Cingulata": {"density": 1.8, "tensileStrength": 130, "elasticModulus": 20000, "thermalConductivity": 0.3, "specificHeat": 1.3, "meltingPoint": 600, "electricalResistivity": 1e11},
+  "Actinopterygii": {"density": 1.9, "tensileStrength": 150, "elasticModulus": 30000, "thermalConductivity": 0.3, "specificHeat": 1.3, "meltingPoint": 600, "electricalResistivity": 1e11}
+}

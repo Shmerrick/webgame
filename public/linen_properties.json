@@ -1,0 +1,5 @@
+{
+  "Cotton": {"density": 1.54, "tensileStrength": 400, "elasticModulus": 12000, "thermalConductivity": 0.04, "specificHeat": 1.3, "meltingPoint": 500, "electricalResistivity": 1e11},
+  "Flax": {"density": 1.5, "tensileStrength": 800, "elasticModulus": 50000, "thermalConductivity": 0.04, "specificHeat": 1.3, "meltingPoint": 500, "electricalResistivity": 1e11},
+  "Hemp": {"density": 1.48, "tensileStrength": 690, "elasticModulus": 30000, "thermalConductivity": 0.04, "specificHeat": 1.3, "meltingPoint": 500, "electricalResistivity": 1e11}
+}

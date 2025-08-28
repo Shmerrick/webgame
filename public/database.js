@@ -69,13 +69,13 @@ export function buildMaterialDB(base, wood, elementals, alloys, rocks, options =
         ])
     );
 
-    db['Rock Types'] = Object.fromEntries(
+    db['Rocks'] = Object.fromEntries(
         Object.entries(rocks).map(([type, stones]) => [
             type,
             Object.keys(stones).map((name) => ({
                 id: slug(name),
                 name,
-                ...(defaultDensities['Rock Types'] ? { density: defaultDensities['Rock Types'] } : {}),
+                ...(defaultDensities['Rocks'] ? { density: defaultDensities['Rocks'] } : {}),
             })),
         ])
     );

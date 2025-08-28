@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]);
 
             const built = buildMaterialDB(db, woods, elementals, alloys, rocks, {
-                defaultDensities: { Wood: 0.6, 'Rock Types': 2.5 },
+                defaultDensities: { Wood: 0.6, 'Rocks': 2.5 },
                 woodProperties: woodProps
             });
             built['Dev'] = {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // Flatten database into map with category metadata
-            const defDensity = cat => ({ Wood: 0.6, 'Rock Types': 2.5 }[cat] || 1);
+            const defDensity = cat => ({ Wood: 0.6, 'Rocks': 2.5 }[cat] || 1);
             for (const [cat, subcats] of Object.entries(built)) {
                 const norm = Array.isArray(subcats) ? { A: subcats } : subcats;
                 for (const [sub, arr] of Object.entries(norm)) {
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function allowedCategories(type, comp) {
         let categories;
         if (type === 'Ammunition') {
-            categories = ['Metals', 'Rock Types', 'Wood', 'Dev'];
+            categories = ['Metals', 'Rocks', 'Wood', 'Dev'];
         } else if (comp === 'frame' || comp === 'head') {
             categories = ['Wood', 'Metals', 'Dev'];
         } else {

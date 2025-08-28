@@ -10,7 +10,8 @@
       "thermalConductivity": 85,
       "specificHeat": 3.57,
       "meltingPoint": 180.54,
-      "electricalResistivity": 94
+      "electricalResistivity": 94,
+      "melt": 453.65
     },
     {
       "name": "Beryllium",
@@ -22,7 +23,8 @@
       "thermalConductivity": 190,
       "specificHeat": 1.82,
       "meltingPoint": 1287,
-      "electricalResistivity": 40
+      "electricalResistivity": 40,
+      "melt": 1560
     },
     {
       "name": "Sodium",
@@ -34,7 +36,8 @@
       "thermalConductivity": 140,
       "specificHeat": 1.23,
       "meltingPoint": 97.72,
-      "electricalResistivity": 47
+      "electricalResistivity": 47,
+      "melt": 370.944
     },
     {
       "name": "Magnesium",
@@ -46,7 +49,8 @@
       "thermalConductivity": 160,
       "specificHeat": 1.02,
       "meltingPoint": 649.85,
-      "electricalResistivity": 44
+      "electricalResistivity": 44,
+      "melt": 923
     },
     {
       "name": "Aluminium",
@@ -58,7 +62,8 @@
       "thermalConductivity": 237,
       "specificHeat": 0.9,
       "meltingPoint": 660.32,
-      "electricalResistivity": 26.5
+      "electricalResistivity": 26.5,
+      "melt": 933.47
     },
     {
       "name": "Potassium",
@@ -70,7 +75,8 @@
       "thermalConductivity": 102,
       "specificHeat": 0.76,
       "meltingPoint": 63.55,
-      "electricalResistivity": 73.2
+      "electricalResistivity": 73.2,
+      "melt": 336.7
     },
     {
       "name": "Calcium",
@@ -82,7 +88,8 @@
       "thermalConductivity": 201,
       "specificHeat": 0.65,
       "meltingPoint": 841.85,
-      "electricalResistivity": 34.7
+      "electricalResistivity": 34.7,
+      "melt": 1115
     },
     {
       "name": "Scandium",
@@ -94,7 +101,8 @@
       "thermalConductivity": 16,
       "specificHeat": 0.57,
       "meltingPoint": 1540.85,
-      "electricalResistivity": 55
+      "electricalResistivity": 55,
+      "melt": 1814
     },
     {
       "name": "Titanium",
@@ -106,7 +114,8 @@
       "thermalConductivity": 21.9,
       "specificHeat": 0.52,
       "meltingPoint": 1667.85,
-      "electricalResistivity": 420
+      "electricalResistivity": 420,
+      "melt": 1941
     },
     {
       "name": "Vanadium",
@@ -118,7 +127,8 @@
       "thermalConductivity": 30.7,
       "specificHeat": 0.49,
       "meltingPoint": 1909.85,
-      "electricalResistivity": 200
+      "electricalResistivity": 200,
+      "melt": 2183
     },
     {
       "name": "Chromium",
@@ -130,7 +140,8 @@
       "thermalConductivity": 94,
       "specificHeat": 0.45,
       "meltingPoint": 1906.85,
-      "electricalResistivity": 127
+      "electricalResistivity": 127,
+      "melt": 2180
     },
     {
       "name": "Manganese",
@@ -142,7 +153,8 @@
       "thermalConductivity": 7.8,
       "specificHeat": 0.48,
       "meltingPoint": 1245.85,
-      "electricalResistivity": 144
+      "electricalResistivity": 144,
+      "melt": 1519
     },
     {
       "name": "Iron",
@@ -154,7 +166,8 @@
       "thermalConductivity": 80.4,
       "specificHeat": 0.449,
       "meltingPoint": 1538,
-      "electricalResistivity": 96.1
+      "electricalResistivity": 96.1,
+      "melt": 1811
     },
     {
       "name": "Cobalt",
@@ -166,7 +179,8 @@
       "thermalConductivity": 100,
       "specificHeat": 0.42,
       "meltingPoint": 1494.85,
-      "electricalResistivity": 60
+      "electricalResistivity": 60,
+      "melt": 1768
     },
     {
       "name": "Nickel",
@@ -178,7 +192,8 @@
       "thermalConductivity": 91,
       "specificHeat": 0.44,
       "meltingPoint": 1454.85,
-      "electricalResistivity": 72
+      "electricalResistivity": 72,
+      "melt": 1728
     },
     {
       "name": "Copper",
@@ -190,7 +205,8 @@
       "thermalConductivity": 401,
       "specificHeat": 0.38,
       "meltingPoint": 1084.62,
-      "electricalResistivity": 16.8
+      "electricalResistivity": 16.8,
+      "melt": 1357.77
     },
     {
       "name": "Zinc",
@@ -202,7 +218,8 @@
       "thermalConductivity": 116,
       "specificHeat": 0.39,
       "meltingPoint": 419.53,
-      "electricalResistivity": 60
+      "electricalResistivity": 60,
+      "melt": 692.68
     },
     {
       "name": "Gallium",
@@ -214,7 +231,8 @@
       "thermalConductivity": 29,
       "specificHeat": 0.37,
       "meltingPoint": 29.76,
-      "electricalResistivity": 140
+      "electricalResistivity": 140,
+      "melt": 302.9146
     },
     {
       "name": "Rubidium",
@@ -226,7 +244,8 @@
       "thermalConductivity": 58.2,
       "specificHeat": 0.36,
       "meltingPoint": 39.3,
-      "electricalResistivity": 13.3
+      "electricalResistivity": 13.3,
+      "melt": 312.45
     },
     {
       "name": "Strontium",
@@ -238,7 +257,8 @@
       "thermalConductivity": 35,
       "specificHeat": 0.3,
       "meltingPoint": 776.85,
-      "electricalResistivity": 13.5
+      "electricalResistivity": 13.5,
+      "melt": 1050
     },
     {
       "name": "Yttrium",
@@ -250,7 +270,8 @@
       "thermalConductivity": 17,
       "specificHeat": 0.3,
       "meltingPoint": 1525.85,
-      "electricalResistivity": 60
+      "electricalResistivity": 60,
+      "melt": 1799
     },
     {
       "name": "Zirconium",
@@ -262,7 +283,8 @@
       "thermalConductivity": 22.7,
       "specificHeat": 0.28,
       "meltingPoint": 1854.85,
-      "electricalResistivity": 43.3
+      "electricalResistivity": 43.3,
+      "melt": 2128
     },
     {
       "name": "Niobium",
@@ -274,7 +296,8 @@
       "thermalConductivity": 53.7,
       "specificHeat": 0.26,
       "meltingPoint": 2476.85,
-      "electricalResistivity": 15.2
+      "electricalResistivity": 15.2,
+      "melt": 2750
     },
     {
       "name": "Molybdenum",
@@ -286,7 +309,8 @@
       "thermalConductivity": 138,
       "specificHeat": 0.25,
       "meltingPoint": 2622.85,
-      "electricalResistivity": 5.5
+      "electricalResistivity": 5.5,
+      "melt": 2896
     },
     {
       "name": "Technetium",
@@ -298,7 +322,8 @@
       "thermalConductivity": 50.6,
       "specificHeat": 0.21,
       "meltingPoint": 2200,
-      "electricalResistivity": 22
+      "electricalResistivity": 22,
+      "melt": 2430
     },
     {
       "name": "Ruthenium",
@@ -310,7 +335,8 @@
       "thermalConductivity": 150,
       "specificHeat": 0.24,
       "meltingPoint": 2333.85,
-      "electricalResistivity": 43.3
+      "electricalResistivity": 43.3,
+      "melt": 2607
     },
     {
       "name": "Rhodium",
@@ -322,7 +348,8 @@
       "thermalConductivity": 71.8,
       "specificHeat": 0.24,
       "meltingPoint": 1963.85,
-      "electricalResistivity": 105.4
+      "electricalResistivity": 105.4,
+      "melt": 2237
     },
     {
       "name": "Palladium",
@@ -334,7 +361,8 @@
       "thermalConductivity": 429,
       "specificHeat": 0.24,
       "meltingPoint": 1554.9,
-      "electricalResistivity": 15.9
+      "electricalResistivity": 15.9,
+      "melt": 1828.05
     },
     {
       "name": "Silver",
@@ -346,7 +374,8 @@
       "thermalConductivity": 429,
       "specificHeat": 0.24,
       "meltingPoint": 961.78,
-      "electricalResistivity": 15.9
+      "electricalResistivity": 15.9,
+      "melt": 1234.93
     },
     {
       "name": "Cadmium",
@@ -358,7 +387,8 @@
       "thermalConductivity": 97,
       "specificHeat": 0.23,
       "meltingPoint": 321.07,
-      "electricalResistivity": 72
+      "electricalResistivity": 72,
+      "melt": 594.22
     },
     {
       "name": "Indium",
@@ -370,7 +400,8 @@
       "thermalConductivity": 81.8,
       "specificHeat": 0.23,
       "meltingPoint": 156.6,
-      "electricalResistivity": 83.7
+      "electricalResistivity": 83.7,
+      "melt": 429.7485
     },
     {
       "name": "Tin",
@@ -382,7 +413,8 @@
       "thermalConductivity": 66.8,
       "specificHeat": 0.23,
       "meltingPoint": 231.93,
-      "electricalResistivity": 115
+      "electricalResistivity": 115,
+      "melt": 505.08
     },
     {
       "name": "Cesium",
@@ -394,7 +426,8 @@
       "thermalConductivity": 36,
       "specificHeat": 0.24,
       "meltingPoint": 28.55,
-      "electricalResistivity": 21
+      "electricalResistivity": 21,
+      "melt": 301.7
     },
     {
       "name": "Barium",
@@ -406,7 +439,8 @@
       "thermalConductivity": 18,
       "specificHeat": 0.2,
       "meltingPoint": 726.85,
-      "electricalResistivity": 34
+      "electricalResistivity": 34,
+      "melt": 1000
     },
     {
       "name": "Lanthanum",
@@ -418,7 +452,8 @@
       "thermalConductivity": 13.4,
       "specificHeat": 0.2,
       "meltingPoint": 919.85,
-      "electricalResistivity": 615
+      "electricalResistivity": 615,
+      "melt": 1193
     },
     {
       "name": "Cerium",
@@ -430,7 +465,8 @@
       "thermalConductivity": 11.3,
       "specificHeat": 0.192,
       "meltingPoint": 795,
-      "electricalResistivity": 816
+      "electricalResistivity": 816,
+      "melt": 1068
     },
     {
       "name": "Praseodymium",
@@ -442,7 +478,8 @@
       "thermalConductivity": 12.5,
       "specificHeat": 0.193,
       "meltingPoint": 935,
-      "electricalResistivity": 700
+      "electricalResistivity": 700,
+      "melt": 1208
     },
     {
       "name": "Neodymium",
@@ -454,7 +491,8 @@
       "thermalConductivity": 17,
       "specificHeat": 0.19,
       "meltingPoint": 1024,
-      "electricalResistivity": 640
+      "electricalResistivity": 640,
+      "melt": 1297
     },
     {
       "name": "Promethium",
@@ -466,7 +504,8 @@
       "thermalConductivity": 17.9,
       "specificHeat": 0.18,
       "meltingPoint": 1100,
-      "electricalResistivity": 750
+      "electricalResistivity": 750,
+      "melt": 1315
     },
     {
       "name": "Samarium",
@@ -478,7 +517,8 @@
       "thermalConductivity": 13,
       "specificHeat": 0.197,
       "meltingPoint": 1072,
-      "electricalResistivity": 1300
+      "electricalResistivity": 1300,
+      "melt": 1345
     },
     {
       "name": "Europium",
@@ -490,7 +530,8 @@
       "thermalConductivity": 13.9,
       "specificHeat": 0.182,
       "meltingPoint": 826,
-      "electricalResistivity": 945
+      "electricalResistivity": 945,
+      "melt": 1099
     },
     {
       "name": "Gadolinium",
@@ -502,7 +543,8 @@
       "thermalConductivity": 10.6,
       "specificHeat": 0.236,
       "meltingPoint": 1312,
-      "electricalResistivity": 1310
+      "electricalResistivity": 1310,
+      "melt": 1585
     },
     {
       "name": "Terbium",
@@ -514,7 +556,8 @@
       "thermalConductivity": 11.1,
       "specificHeat": 0.182,
       "meltingPoint": 1356,
-      "electricalResistivity": 1150
+      "electricalResistivity": 1150,
+      "melt": 1629
     },
     {
       "name": "Dysprosium",
@@ -526,7 +569,8 @@
       "thermalConductivity": 10.7,
       "specificHeat": 0.167,
       "meltingPoint": 1412,
-      "electricalResistivity": 560
+      "electricalResistivity": 560,
+      "melt": 1680
     },
     {
       "name": "Holmium",
@@ -538,7 +582,8 @@
       "thermalConductivity": 16.2,
       "specificHeat": 0.165,
       "meltingPoint": 1474,
-      "electricalResistivity": 814
+      "electricalResistivity": 814,
+      "melt": 1734
     },
     {
       "name": "Erbium",
@@ -550,7 +595,8 @@
       "thermalConductivity": 14.5,
       "specificHeat": 0.167,
       "meltingPoint": 1497,
-      "electricalResistivity": 833
+      "electricalResistivity": 833,
+      "melt": 1802
     },
     {
       "name": "Thulium",
@@ -562,7 +608,8 @@
       "thermalConductivity": 16.9,
       "specificHeat": 0.16,
       "meltingPoint": 1545,
-      "electricalResistivity": 800
+      "electricalResistivity": 800,
+      "melt": 1818
     },
     {
       "name": "Ytterbium",
@@ -574,7 +621,8 @@
       "thermalConductivity": 38.5,
       "specificHeat": 0.155,
       "meltingPoint": 824,
-      "electricalResistivity": 250
+      "electricalResistivity": 250,
+      "melt": 1097
     },
     {
       "name": "Lutetium",
@@ -586,7 +634,8 @@
       "thermalConductivity": 16.4,
       "specificHeat": 0.154,
       "meltingPoint": 1663,
-      "electricalResistivity": 728
+      "electricalResistivity": 728,
+      "melt": 1925
     },
     {
       "name": "Hafnium",
@@ -598,7 +647,8 @@
       "thermalConductivity": 23,
       "specificHeat": 0.144,
       "meltingPoint": 2233,
-      "electricalResistivity": 340
+      "electricalResistivity": 340,
+      "melt": 2506
     },
     {
       "name": "Tantalum",
@@ -610,7 +660,8 @@
       "thermalConductivity": 57,
       "specificHeat": 0.14,
       "meltingPoint": 3017,
-      "electricalResistivity": 131
+      "electricalResistivity": 131,
+      "melt": 3290
     },
     {
       "name": "Tungsten",
@@ -622,7 +673,8 @@
       "thermalConductivity": 173,
       "specificHeat": 0.134,
       "meltingPoint": 3422,
-      "electricalResistivity": 52.8
+      "electricalResistivity": 52.8,
+      "melt": 3695
     },
     {
       "name": "Rhenium",
@@ -634,7 +686,8 @@
       "thermalConductivity": 48,
       "specificHeat": 0.137,
       "meltingPoint": 3186,
-      "electricalResistivity": 180
+      "electricalResistivity": 180,
+      "melt": 3459
     },
     {
       "name": "Osmium",
@@ -646,7 +699,8 @@
       "thermalConductivity": 88,
       "specificHeat": 0.13,
       "meltingPoint": 3033,
-      "electricalResistivity": 81
+      "electricalResistivity": 81,
+      "melt": 3306
     },
     {
       "name": "Iridium",
@@ -658,7 +712,8 @@
       "thermalConductivity": 150,
       "specificHeat": 0.131,
       "meltingPoint": 2466,
-      "electricalResistivity": 47
+      "electricalResistivity": 47,
+      "melt": 2719
     },
     {
       "name": "Platinum",
@@ -670,7 +725,8 @@
       "thermalConductivity": 71.6,
       "specificHeat": 0.133,
       "meltingPoint": 1768.3,
-      "electricalResistivity": 106
+      "electricalResistivity": 106,
+      "melt": 2041.4
     },
     {
       "name": "Gold",
@@ -682,7 +738,8 @@
       "thermalConductivity": 318,
       "specificHeat": 0.129,
       "meltingPoint": 1064.18,
-      "electricalResistivity": 22.14
+      "electricalResistivity": 22.14,
+      "melt": 1337.33
     },
     {
       "name": "Mercury",
@@ -694,7 +751,8 @@
       "thermalConductivity": 8.3,
       "specificHeat": 0.14,
       "meltingPoint": -38.83,
-      "electricalResistivity": 960
+      "electricalResistivity": 960,
+      "melt": 234.321
     },
     {
       "name": "Thallium",
@@ -706,7 +764,8 @@
       "thermalConductivity": 46,
       "specificHeat": 0.129,
       "meltingPoint": 304,
-      "electricalResistivity": 150
+      "electricalResistivity": 150,
+      "melt": 577
     },
     {
       "name": "Lead",
@@ -718,7 +777,8 @@
       "thermalConductivity": 35,
       "specificHeat": 0.128,
       "meltingPoint": 327.46,
-      "electricalResistivity": 208
+      "electricalResistivity": 208,
+      "melt": 600.61
     },
     {
       "name": "Bismuth",
@@ -730,7 +790,8 @@
       "thermalConductivity": 7.97,
       "specificHeat": 0.122,
       "meltingPoint": 271.4,
-      "electricalResistivity": 1300
+      "electricalResistivity": 1300,
+      "melt": 544.7
     },
     {
       "name": "Polonium",
@@ -742,7 +803,8 @@
       "thermalConductivity": 20,
       "specificHeat": 0.125,
       "meltingPoint": 254,
-      "electricalResistivity": 460
+      "electricalResistivity": 460,
+      "melt": 527
     },
     {
       "name": "Francium",
@@ -754,7 +816,8 @@
       "thermalConductivity": 14,
       "specificHeat": 0.2,
       "meltingPoint": 27,
-      "electricalResistivity": 300
+      "electricalResistivity": 300,
+      "melt": 300
     },
     {
       "name": "Radium",
@@ -766,7 +829,8 @@
       "thermalConductivity": 18.6,
       "specificHeat": 0.094,
       "meltingPoint": 700,
-      "electricalResistivity": 410
+      "electricalResistivity": 410,
+      "melt": 1233
     },
     {
       "name": "Actinium",
@@ -778,7 +842,8 @@
       "thermalConductivity": 12,
       "specificHeat": 0.12,
       "meltingPoint": 1220,
-      "electricalResistivity": 240
+      "electricalResistivity": 240,
+      "melt": 1500
     },
     {
       "name": "Thorium",
@@ -790,7 +855,8 @@
       "thermalConductivity": 54,
       "specificHeat": 0.113,
       "meltingPoint": 1750,
-      "electricalResistivity": 180
+      "electricalResistivity": 180,
+      "melt": 2023
     },
     {
       "name": "Protactinium",
@@ -802,7 +868,8 @@
       "thermalConductivity": 47,
       "specificHeat": 0.12,
       "meltingPoint": 1572,
-      "electricalResistivity": 177
+      "electricalResistivity": 177,
+      "melt": 1841
     },
     {
       "name": "Uranium",
@@ -814,7 +881,8 @@
       "thermalConductivity": 27,
       "specificHeat": 0.116,
       "meltingPoint": 1132,
-      "electricalResistivity": 300
+      "electricalResistivity": 300,
+      "melt": 1405.3
     },
     {
       "name": "Neptunium",
@@ -826,7 +894,8 @@
       "thermalConductivity": 6.3,
       "specificHeat": 0.1,
       "meltingPoint": 640,
-      "electricalResistivity": 125
+      "electricalResistivity": 125,
+      "melt": 912
     },
     {
       "name": "Plutonium",
@@ -838,7 +907,8 @@
       "thermalConductivity": 6.74,
       "specificHeat": 0.13,
       "meltingPoint": 640,
-      "electricalResistivity": 150
+      "electricalResistivity": 150,
+      "melt": 912.5
     },
     {
       "name": "Americium",
@@ -850,7 +920,8 @@
       "thermalConductivity": 10,
       "specificHeat": 0.15,
       "meltingPoint": 1176,
-      "electricalResistivity": 150
+      "electricalResistivity": 150,
+      "melt": 1449
     },
     {
       "name": "Curium",
@@ -862,7 +933,8 @@
       "thermalConductivity": 6,
       "specificHeat": 0.13,
       "meltingPoint": 1340,
-      "electricalResistivity": 140
+      "electricalResistivity": 140,
+      "melt": 1613
     },
     {
       "name": "Berkelium",
@@ -874,7 +946,8 @@
       "thermalConductivity": 10,
       "specificHeat": 0.14,
       "meltingPoint": 986,
-      "electricalResistivity": 150
+      "electricalResistivity": 150,
+      "melt": 1259
     },
     {
       "name": "Californium",
@@ -886,7 +959,8 @@
       "thermalConductivity": 10,
       "specificHeat": 0.15,
       "meltingPoint": 900,
-      "electricalResistivity": 150
+      "electricalResistivity": 150,
+      "melt": 1173
     },
     {
       "name": "Einsteinium",
@@ -898,7 +972,8 @@
       "thermalConductivity": 10,
       "specificHeat": 0.15,
       "meltingPoint": 860,
-      "electricalResistivity": 120
+      "electricalResistivity": 120,
+      "melt": 1133
     },
     {
       "name": "Fermium",
@@ -910,7 +985,8 @@
       "thermalConductivity": 10,
       "specificHeat": 0.15,
       "meltingPoint": 1527,
-      "electricalResistivity": 150
+      "electricalResistivity": 150,
+      "melt": 1800
     },
     {
       "name": "Mendelevium",
@@ -922,7 +998,8 @@
       "thermalConductivity": 10,
       "specificHeat": 0.15,
       "meltingPoint": 827,
-      "electricalResistivity": 150
+      "electricalResistivity": 150,
+      "melt": 1100
     },
     {
       "name": "Nobelium",
@@ -934,7 +1011,8 @@
       "thermalConductivity": 10,
       "specificHeat": 0.15,
       "meltingPoint": 827,
-      "electricalResistivity": 150
+      "electricalResistivity": 150,
+      "melt": 1100
     },
     {
       "name": "Lawrencium",
@@ -946,7 +1024,8 @@
       "thermalConductivity": 10,
       "specificHeat": 0.15,
       "meltingPoint": 1627,
-      "electricalResistivity": 180
+      "electricalResistivity": 180,
+      "melt": 1900
     },
     {
       "name": "Rutherfordium",
@@ -958,7 +1037,8 @@
       "thermalConductivity": 23,
       "specificHeat": 0.144,
       "meltingPoint": 2126.85,
-      "electricalResistivity": 340
+      "electricalResistivity": 340,
+      "melt": 2400
     },
     {
       "name": "Dubnium",
@@ -970,7 +1050,8 @@
       "thermalConductivity": 57,
       "specificHeat": 0.14,
       "meltingPoint": 3000,
-      "electricalResistivity": 131
+      "electricalResistivity": 131,
+      "melt": 3273.15
     },
     {
       "name": "Seaborgium",
@@ -982,7 +1063,8 @@
       "thermalConductivity": 173,
       "specificHeat": 0.134,
       "meltingPoint": 2830,
-      "electricalResistivity": 52.8
+      "electricalResistivity": 52.8,
+      "melt": 3103.15
     },
     {
       "name": "Bohrium",
@@ -994,7 +1076,8 @@
       "thermalConductivity": 48,
       "specificHeat": 0.137,
       "meltingPoint": 3000,
-      "electricalResistivity": 180
+      "electricalResistivity": 180,
+      "melt": 3273.15
     },
     {
       "name": "Hassium",
@@ -1006,7 +1089,8 @@
       "thermalConductivity": 88,
       "specificHeat": 0.13,
       "meltingPoint": 3033,
-      "electricalResistivity": 81
+      "electricalResistivity": 81,
+      "melt": 126
     },
     {
       "name": "Meitnerium",
@@ -1018,7 +1102,8 @@
       "thermalConductivity": 150,
       "specificHeat": 0.131,
       "meltingPoint": 2466,
-      "electricalResistivity": 47
+      "electricalResistivity": 47,
+      "melt": 2739.15
     },
     {
       "name": "Darmstadtium",
@@ -1030,7 +1115,8 @@
       "thermalConductivity": 71.6,
       "specificHeat": 0.133,
       "meltingPoint": 1768.3,
-      "electricalResistivity": 106
+      "electricalResistivity": 106,
+      "melt": 2041.45
     },
     {
       "name": "Roentgenium",
@@ -1042,7 +1128,8 @@
       "thermalConductivity": 318,
       "specificHeat": 0.129,
       "meltingPoint": 1064.18,
-      "electricalResistivity": 22.14
+      "electricalResistivity": 22.14,
+      "melt": 1337.33
     },
     {
       "name": "Copernicium",
@@ -1054,7 +1141,8 @@
       "thermalConductivity": 8.3,
       "specificHeat": 0.14,
       "meltingPoint": 10,
-      "electricalResistivity": 960
+      "electricalResistivity": 960,
+      "melt": 283.15
     },
     {
       "name": "Nihonium",
@@ -1066,7 +1154,8 @@
       "thermalConductivity": 46,
       "specificHeat": 0.129,
       "meltingPoint": 426.85,
-      "electricalResistivity": 150
+      "electricalResistivity": 150,
+      "melt": 700
     },
     {
       "name": "Flerovium",
@@ -1078,7 +1167,8 @@
       "thermalConductivity": 35,
       "specificHeat": 0.128,
       "meltingPoint": 66.85,
-      "electricalResistivity": 208
+      "electricalResistivity": 208,
+      "melt": 340
     },
     {
       "name": "Moscovium",
@@ -1090,7 +1180,8 @@
       "thermalConductivity": 7.97,
       "specificHeat": 0.122,
       "meltingPoint": 396.85,
-      "electricalResistivity": 1300
+      "electricalResistivity": 1300,
+      "melt": 670
     },
     {
       "name": "Livermorium",
@@ -1102,7 +1193,8 @@
       "thermalConductivity": 20,
       "specificHeat": 0.125,
       "meltingPoint": 435.85,
-      "electricalResistivity": 460
+      "electricalResistivity": 460,
+      "melt": 709
     }
   ]
 }

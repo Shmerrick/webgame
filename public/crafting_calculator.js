@@ -381,13 +381,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const GEMSTONES = [
-        { name: "Diamond", rowName: "Rock Types_T5_Diamond", rough: "Rough Diamond", cut: "Cut Diamond" },
-        { name: "Ruby", rowName: "Rock Types_T5_Ruby", rough: "Rough Ruby", cut: "Cut Ruby" },
-        { name: "Sapphire", rowName: "Rock Types_T5_Sapphire", rough: "Rough Sapphire", cut: "Cut Sapphire" },
-        { name: "Emerald", rowName: "Rock Types_T4_Emerald", rough: "Rough Emerald", cut: "Cut Emerald" },
-        { name: "Topaz", rowName: "Rock Types_T4_Topaz", rough: "Rough Topaz", cut: "Cut Topaz" },
-        { name: "Garnet", rowName: "Rock Types_T3_Garnet", rough: "Rough Garnet", cut: "Cut Garnet" },
-        { name: "Quartz", rowName: "Rock Types_T1_Quartz", rough: "Rough Quartz", cut: "Cut Quartz" },
+        { name: "Diamond", rowName: "Rocks_T5_Diamond", rough: "Rough Diamond", cut: "Cut Diamond" },
+        { name: "Ruby", rowName: "Rocks_T5_Ruby", rough: "Rough Ruby", cut: "Cut Ruby" },
+        { name: "Sapphire", rowName: "Rocks_T5_Sapphire", rough: "Rough Sapphire", cut: "Cut Sapphire" },
+        { name: "Emerald", rowName: "Rocks_T4_Emerald", rough: "Rough Emerald", cut: "Cut Emerald" },
+        { name: "Topaz", rowName: "Rocks_T4_Topaz", rough: "Rough Topaz", cut: "Cut Topaz" },
+        { name: "Garnet", rowName: "Rocks_T3_Garnet", rough: "Rough Garnet", cut: "Cut Garnet" },
+        { name: "Quartz", rowName: "Rocks_T1_Quartz", rough: "Rough Quartz", cut: "Cut Quartz" },
     ];
 
     function populateBowyerDropdowns() {
@@ -430,7 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (['guard','pommel','butt'].some(k => l.includes(k))) {
                 let cats = MATERIALS_FOR_HANDLE_FITTING;
                 if (type === 'Sword' && (l.includes('guard') || l.includes('pommel'))) {
-                    cats = cats.filter(c => c !== 'Rock Types');
+                    cats = cats.filter(c => c !== 'Rocks');
                 }
                 return cats;
             }
