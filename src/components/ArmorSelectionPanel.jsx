@@ -162,7 +162,22 @@ export default function ArmorSelectionPanel({
                               if (isFallback) {
                                   return (
                                       <React.Fragment key={key}>
-                                          <Tooltip text="This value is a fallback for missing data.">
+                                          <Tooltip
+                                            text={
+                                              <span>
+                                                This value is a fallback for missing data. Please report missing data on the{' '}
+                                                <a
+                                                  href="https://github.com/shmerrick/webgame/issues"
+                                                  target="_blank"
+                                                  rel="noopener noreferrer"
+                                                  className="underline"
+                                                >
+                                                  GitHub issues page
+                                                </a>
+                                                .
+                                              </span>
+                                            }
+                                          >
                                               <span className="text-amber-400 cursor-help">{text}*</span>
                                           </Tooltip>
                                           {' '}
