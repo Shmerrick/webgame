@@ -87,7 +87,7 @@ const metals = {
 };
 
 const all = [...metals['Elemental Metals'], ...metals['Metal Alloys']];
-const scored = calculateMaterialDefenses(all);
+const scored = calculateMaterialDefenses(all, { minDefense: 0.8 });
 all.forEach((m, i) => {
   const s = scored[i];
   m.factors = {

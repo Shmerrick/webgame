@@ -161,7 +161,7 @@ export function buildMaterialDB(base, wood, elementals, alloys, rocks, options =
         ...db.Metals['Elemental Metals'],
         ...db.Metals['Metal Alloys'],
     ];
-    const metalScored = calculateMaterialDefenses(metalMaterials);
+    const metalScored = calculateMaterialDefenses(metalMaterials, { minDefense: 0.8 });
     metalMaterials.forEach((m, i) => {
         const s = metalScored[i];
         m.factors = {

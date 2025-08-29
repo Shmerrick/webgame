@@ -78,6 +78,24 @@ describe('calculateMaterialDefenses', () => {
     expect(attuned.R_fire).toBeCloseTo(Math.min(1, base.R_fire + 0.2));
   });
 
+  it('biases low defenses toward a minimum threshold', () => {
+    const materials = [
+      { name: 'Weak', class: 'Metal', yieldStrength: 10, tensileStrength: 10, elasticModulus: 10, density: 1, thermalConductivity: 1, specificHeat: 1, meltingPoint: 1, electricalResistivity: 1 },
+      { name: 'Strong', class: 'Metal', yieldStrength: 1000, tensileStrength: 1000, elasticModulus: 1000, density: 100, thermalConductivity: 100, specificHeat: 100, meltingPoint: 100, electricalResistivity: 100 },
+    ];
+    const base = calculateMaterialDefenses(materials);
+    const biased = calculateMaterialDefenses(materials, { minDefense: 0.8 });
+    const weakBase = base[0];
+    const weakBiased = biased[0];
+    const strongBase = base[1];
+    const strongBiased = biased[1];
+    const expectedSlash = 0.8 - (0.8 - weakBase.R_slash) * 0.5;
+    const expectedFire = 0.8 - (0.8 - weakBase.R_fire) * 0.5;
+    expect(weakBiased.R_slash).toBeCloseTo(expectedSlash);
+    expect(weakBiased.R_fire).toBeCloseTo(expectedFire);
+    expect(strongBiased.R_slash).toBeCloseTo(strongBase.R_slash);
+  });
+
   it('handles NaN inputs without producing NaN offense scores', () => {
     const materials = [
       { name: 'Valid', class: 'Metal', yieldStrength: 200, tensileStrength: 400, elasticModulus: 210000, density: 7.8 },
@@ -115,6 +133,27 @@ describe('calculateMaterialDefenses', () => {
     expect(Math.max(...woods.map(m=>m.factors.slash))).toBeCloseTo(1);
     expect(Math.max(...woods.map(m=>m.factors.pierce))).toBeCloseTo(1);
     expect(Math.max(...woods.map(m=>m.factors.blunt))).toBeCloseTo(1);
+  });
+
+  it('normalizes metal subcategories independently', () => {
+    const db = {
+      Metals: {
+        'Elemental Metals': [
+          { name: 'Iron', factors: { slash: 20 } },
+          { name: 'Copper', factors: { slash: 10 } },
+        ],
+        'Metal Alloys': [
+          { name: 'Bronze', factors: { slash: 5 } },
+          { name: 'Steel', factors: { slash: 15 } },
+        ],
+      },
+    };
+    const normalized = normalizeDamageFactorsByCategory(db);
+    const elems = normalized.Metals['Elemental Metals'];
+    expect(Math.max(...elems.map(m => m.factors.slash))).toBeCloseTo(1);
+    const alloys = normalized.Metals['Metal Alloys'];
+    expect(Math.max(...alloys.map(m => m.factors.slash))).toBeCloseTo(1);
+    expect(alloys[0].factors.slash).toBeCloseTo(5 / 15);
   });
 
   it('does not mutate the original database object', () => {
