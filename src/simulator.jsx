@@ -124,15 +124,22 @@ function effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory,
   };
 
   const fallbackFlags = {};
+  const bias = (v) =>
+    v < MIN_DEFENSE_FLOOR
+      ? MIN_DEFENSE_FLOOR - (MIN_DEFENSE_FLOOR - v) * 0.5
+      : v;
   for (const key in defenses) {
-      // If the defense is positive but extremely low, floor it to a small minimum
-      // value so it doesn't display as 0%.
-      if (defenses[key] > 0 && defenses[key] < MIN_DEFENSE_FLOOR) {
-          defenses[key] = MIN_DEFENSE_FLOOR; // Fallback to 1%
-          fallbackFlags[key] = true;
-      } else {
-          fallbackFlags[key] = false;
-      }
+    if (defenses[key] <= 0) {
+      // No data – fall back to a small minimum and flag it.
+      defenses[key] = MIN_DEFENSE_FLOOR;
+      fallbackFlags[key] = true;
+    } else if (defenses[key] < MIN_DEFENSE_FLOOR) {
+      // Bias very low defenses upward instead of marking them as fallback.
+      defenses[key] = bias(defenses[key]);
+      fallbackFlags[key] = false;
+    } else {
+      fallbackFlags[key] = false;
+    }
   }
 
   return { ...defenses, fallbackFlags };
