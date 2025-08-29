@@ -11,7 +11,7 @@
           "defense_pierce": 1,
           "defense_blunt": 1,
           "fire": 0,
-          "water": 0,
+          "water": 1,
           "wind": 1,
           "earth": 1
         },
@@ -2013,8 +2013,8 @@
           "defense_slash": 1,
           "defense_pierce": 1,
           "defense_blunt": 1,
-          "fire": 0,
-          "water": 0,
+          "fire": 0.1,
+          "water": 1,
           "wind": 1,
           "earth": 1
         },
@@ -2039,8 +2039,8 @@
           "defense_slash": 0.90909,
           "defense_pierce": 0.92,
           "defense_blunt": 0.99399,
-          "fire": 0,
-          "water": 0,
+          "fire": 0.1,
+          "water": 1,
           "wind": 0.86429,
           "earth": 0.99081
         },
@@ -2066,7 +2066,7 @@
           "defense_pierce": 0.44,
           "defense_blunt": 0.57826,
           "fire": 0.28,
-          "water": 0,
+          "water": 1,
           "wind": 0.48333,
           "earth": 0.44853
         },
@@ -2092,7 +2092,7 @@
           "defense_pierce": 0.52,
           "defense_blunt": 0.62796,
           "fire": 0.28,
-          "water": 0,
+          "water": 1,
           "wind": 0.56667,
           "earth": 0.50368
         },
@@ -2117,8 +2117,8 @@
           "defense_slash": 0.63636,
           "defense_pierce": 0.68,
           "defense_blunt": 0.89195,
-          "fire": 0,
-          "water": 0,
+          "fire": 0.1,
+          "water": 1,
           "wind": 0.60455,
           "earth": 0.84069
         },
@@ -2146,7 +2146,7 @@
           "defense_pierce": 0.08,
           "defense_blunt": 0.10735,
           "fire": 1,
-          "water": 0,
+          "water": 0.25,
           "wind": 0.11154,
           "earth": 0.05637
         },
@@ -2172,7 +2172,7 @@
           "defense_pierce": 0.12,
           "defense_blunt": 0.13155,
           "fire": 1,
-          "water": 0,
+          "water": 0.25,
           "wind": 0.11667,
           "earth": 0.07077
         },
@@ -2191,14 +2191,14 @@
       {
         "name": "Granular",
         "factors": {
-          "slash": 0,
-          "pierce": 0,
+          "slash": 0.04545,
+          "pierce": 0.03571,
           "blunt": 0.1,
-          "defense_slash": 0,
-          "defense_pierce": 0,
+          "defense_slash": 0.04545,
+          "defense_pierce": 0.04,
           "defense_blunt": 0.07927,
           "fire": 1,
-          "water": 0,
+          "water": 0.2,
           "wind": 0.06538,
           "earth": 0.04044
         },
@@ -2221,12 +2221,12 @@
         "factors": {
           "slash": 0.18182,
           "pierce": 0.14286,
-          "blunt": 0,
+          "blunt": 0.05,
           "defense_slash": 0.18182,
           "defense_pierce": 0.16,
           "defense_blunt": 0.01544,
           "fire": 1,
-          "water": 0,
+          "water": 0.15,
           "wind": 0.025,
           "earth": 0.00735
         },
@@ -2247,14 +2247,14 @@
         "factors": {
           "slash": 0.12727,
           "pierce": 0.11429,
-          "blunt": 0,
+          "blunt": 0.05,
           "defense_slash": 0.12727,
           "defense_pierce": 0.12,
-          "defense_blunt": 0,
+          "defense_blunt": 0.05,
           "fire": 1,
-          "water": 0,
-          "wind": 0,
-          "earth": 0
+          "water": 0.15,
+          "wind": 0.02,
+          "earth": 0.01
         },
         "class": "Scale",
         "density": 1.2,

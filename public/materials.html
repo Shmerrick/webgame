@@ -109,7 +109,20 @@
                     li.textContent = toTitleCase(item.name || item);
                     if (item.factors) {
                       const f = item.factors;
-                      const props = Object.entries(f).map(([key, val]) => {
+                      const keys = [
+                        'slash',
+                        'pierce',
+                        'blunt',
+                        'defense_slash',
+                        'defense_pierce',
+                        'defense_blunt',
+                        'fire',
+                        'water',
+                        'wind',
+                        'earth',
+                      ];
+                      const props = keys.map(key => {
+                        const val = f[key] ?? 0;
                         const label = key
                           .replace(/_/g, ' ')
                           .replace(/\b\w/g, c => c.toUpperCase());
@@ -132,6 +145,13 @@
                         tooltip.style.top = `${e.clientY + 10}px`;
                         tooltip.innerHTML = props.map(p => `<div>${p}</div>`).join('');
                         document.body.appendChild(tooltip);
+                        const rect = tooltip.getBoundingClientRect();
+                        if (rect.right > window.innerWidth) {
+                          tooltip.style.left = `${Math.max(window.innerWidth - rect.width - 10, 0)}px`;
+                        }
+                        if (rect.bottom > window.innerHeight) {
+                          tooltip.style.top = `${Math.max(window.innerHeight - rect.height - 10, 0)}px`;
+                        }
                         const hide = () => {
                           tooltip.remove();
                           document.removeEventListener('click', hide);
