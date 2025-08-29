@@ -1,7 +1,7 @@
 import { calculateMaterialDefenses } from '../materialCalculations.js';
 
 export default function buildMaterialDB(base, wood, elementals, alloys, rocks, options = {}) {
-  const { defaultDensities = {}, woodProperties = {} } = options;
+  const { defaultDensities = {}, woodProperties = {}, rockProperties = {}, furProperties = {} } = options;
   const slug = (name) => name.toLowerCase().replace(/\s+/g, '_');
   const db = { ...base };
   const safe = (n) => Number.isFinite(n) ? n : 0;
@@ -49,13 +49,24 @@ export default function buildMaterialDB(base, wood, elementals, alloys, rocks, o
   db['Rocks'] = Object.fromEntries(
     Object.entries(rocks).map(([type, stones]) => [
       type,
-      Object.keys(stones).map((name) => ({
-        id: slug(name),
-        name,
-        ...(defaultDensities['Rocks'] ? { density: defaultDensities['Rocks'] } : {}),
-      })),
+      Object.keys(stones).map((name) => {
+        const props = rockProperties[name] || {};
+        const entry = { id: slug(name), name, ...props };
+        if (entry.density == null && defaultDensities['Rocks']) {
+          entry.density = defaultDensities['Rocks'];
+        }
+        return entry;
+      }),
     ])
   );
+
+  db['Fur'] = Object.entries(furProperties).map(([name, props]) => {
+    const entry = { id: slug(name), name, ...props };
+    if (entry.density == null && defaultDensities['Fur']) {
+      entry.density = defaultDensities['Fur'];
+    }
+    return entry;
+  });
 
   const procMetal = (m) => {
     const out = { id: slug(m.name), name: m.name, class: 'Metal' };
@@ -142,6 +153,45 @@ export default function buildMaterialDB(base, wood, elementals, alloys, rocks, o
   const metalScored = calculateMaterialDefenses(metalMaterials);
   metalMaterials.forEach((m, i) => {
     const s = metalScored[i];
+    m.factors = {
+      slash: safe(s.D_slash),
+      pierce: safe(s.D_pierce),
+      blunt: safe(s.D_blunt),
+      defense_slash: safe(s.R_slash),
+      defense_pierce: safe(s.R_pierce),
+      defense_blunt: safe(s.R_blunt),
+      fire: safe(s.R_fire),
+      earth: safe(s.R_earth),
+      water: safe(s.R_water),
+      wind: safe(s.R_wind),
+    };
+  });
+
+  // Compute defensive factors for rocks
+  const rockMaterials = [];
+  for (const arr of Object.values(db['Rocks'])) rockMaterials.push(...arr);
+  const rockScored = calculateMaterialDefenses(rockMaterials);
+  rockMaterials.forEach((m, i) => {
+    const s = rockScored[i];
+    m.factors = {
+      slash: safe(s.D_slash),
+      pierce: safe(s.D_pierce),
+      blunt: safe(s.D_blunt),
+      defense_slash: safe(s.R_slash),
+      defense_pierce: safe(s.R_pierce),
+      defense_blunt: safe(s.R_blunt),
+      fire: safe(s.R_fire),
+      earth: safe(s.R_earth),
+      water: safe(s.R_water),
+      wind: safe(s.R_wind),
+    };
+  });
+
+  // Compute defensive factors for fur
+  const furMaterials = db['Fur'] || [];
+  const furScored = calculateMaterialDefenses(furMaterials);
+  furMaterials.forEach((m, i) => {
+    const s = furScored[i];
     m.factors = {
       slash: safe(s.D_slash),
       pierce: safe(s.D_pierce),

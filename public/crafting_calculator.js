@@ -97,38 +97,41 @@ document.addEventListener('DOMContentLoaded', () => {
         debugLog("CRAFTING_CALCULATOR: loadData function started.");
         try {
             debugLog("CRAFTING_CALCULATOR: Starting data load...");
-            const [
-                baseMaterials,
-                woodList,
-                woodProps,
-                elementalList,
-                alloyList,
-                rockTypes,
-                armorVolumesList,
-                shieldVolumesList,
-                weaponVolumesList,
-                potionIngredientsList,
-                enchantmentRunesList,
-                bannedNamesText,
-                alchemyRecipesList
-            ] = await Promise.all([
-                getDatabaseSection('materials'),
-                getDatabaseSection('woodTypes'),
-                getDatabaseSection('woodProperties'),
-                getDatabaseSection('elementalMetals'),
-                getDatabaseSection('metalAlloys'),
-                getDatabaseSection('rockTypes'),
-                getDatabaseSection('armorVolumes'),
-                getDatabaseSection('shieldVolumes'),
-                getDatabaseSection('weaponVolumes'),
-                getDatabaseSection('potionIngredients'),
-                getDatabaseSection('enchantmentRunes'),
-                getDatabaseSection('bannedNames'),
-                getDatabaseSection('alchemyRecipes')
-            ]);
+              const [
+                  baseMaterials,
+                  woodList,
+                  woodProps,
+                  elementalList,
+                  alloyList,
+                  rockTypes,
+                  rockProps,
+                  armorVolumesList,
+                  shieldVolumesList,
+                  weaponVolumesList,
+                  potionIngredientsList,
+                  enchantmentRunesList,
+                  bannedNamesText,
+                  alchemyRecipesList
+              ] = await Promise.all([
+                  getDatabaseSection('materials'),
+                  getDatabaseSection('woodTypes'),
+                  getDatabaseSection('woodProperties'),
+                  getDatabaseSection('elementalMetals'),
+                  getDatabaseSection('metalAlloys'),
+                  getDatabaseSection('rockTypes'),
+                  getDatabaseSection('rockProperties'),
+                  getDatabaseSection('furProperties'),
+                  getDatabaseSection('armorVolumes'),
+                  getDatabaseSection('shieldVolumes'),
+                  getDatabaseSection('weaponVolumes'),
+                  getDatabaseSection('potionIngredients'),
+                  getDatabaseSection('enchantmentRunes'),
+                  getDatabaseSection('bannedNames'),
+                  getDatabaseSection('alchemyRecipes')
+              ]);
             debugLog("CRAFTING_CALCULATOR: All files fetched.");
 
-            const db = buildMaterialDB(baseMaterials, woodList, elementalList, alloyList, rockTypes, { woodProperties: woodProps });
+              const db = buildMaterialDB(baseMaterials, woodList, elementalList, alloyList, rockTypes, { woodProperties: woodProps, rockProperties: rockProps, furProperties: furProps });
             db.Dev = [
                 {
                     id: 'dev_material',
