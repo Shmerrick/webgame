@@ -17,11 +17,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 3.09,
+          "units": "Mohs"
         },
         "brinell_hardness": {
-          "value": 1470.0,
+          "value": 1470,
           "units": "MPa"
         },
         "density": {
@@ -48,35 +48,27 @@
           "value": 51.5,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "value": "N/A",
-          "units": "cm³/mol"
+        "vickers_hardness": {
+          "value": 1470,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.44000119646824326,
-        "pierce": 0.5257510729613734,
+        "slash": 0.375,
+        "pierce": 0.49098712446351933,
         "blunt": 0.3143176733780761,
-        "defense_slash": 0.87785,
-        "defense_pierce": 0.49341,
-        "defense_blunt": 0.37114,
-        "fire": 0.22928,
-        "water": 0.27443,
-        "wind": 0.21223,
-        "earth": 0.35708
+        "defense_slash": 0.90553,
+        "defense_pierce": 0.44751,
+        "defense_blunt": 0.37343,
+        "fire": 0.46205,
+        "water": 0.35713,
+        "wind": 0.46039,
+        "earth": 0.33485
       }
     },
     {
       "name": "Stainless Steel 316",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 567.5,
@@ -91,8 +83,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 3.33,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -106,10 +98,6 @@
           "units": "degC",
           "value": 1387.5
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 16.3,
           "units": "W/m*K"
@@ -122,55 +110,31 @@
           "value": 0.5,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 740,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 1794.62,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.5933340403372953,
+        "slash": 0.4578112244897959,
         "pierce": 0.4871244635193133,
         "blunt": 0.894854586129754,
-        "defense_slash": 1.71777,
-        "defense_pierce": 0.45327,
-        "defense_blunt": 0.59267,
-        "fire": 0.24089,
-        "water": 0.63972,
-        "wind": 0.45778,
-        "earth": 0.67738
+        "defense_slash": 1.88057,
+        "defense_pierce": 0.39229,
+        "defense_blunt": 0.63302,
+        "fire": 0.36312,
+        "water": 0.65812,
+        "wind": 0.68191,
+        "earth": 0.6442
       }
     },
     {
       "name": "Mild Steel S355",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Mild Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 550,
@@ -185,8 +149,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 3.21,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -200,10 +164,6 @@
           "units": "degC",
           "value": 1482.5
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 50,
           "units": "W/m*K"
@@ -216,55 +176,31 @@
           "value": 0.486,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 167,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 1632.81,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.4800013052380836,
+        "slash": 0.4165331632653061,
         "pierce": 0.4721030042918455,
         "blunt": 0.8780760626398211,
-        "defense_slash": 1.76373,
-        "defense_pierce": 0.46209,
-        "defense_blunt": 0.65899,
-        "fire": 0.22271,
-        "water": 0.34539,
-        "wind": 0.25874,
-        "earth": 0.62468
+        "defense_slash": 1.97092,
+        "defense_pierce": 0.43353,
+        "defense_blunt": 0.7008,
+        "fire": 0.34086,
+        "water": 0.37985,
+        "wind": 0.51933,
+        "earth": 0.62878
       }
     },
     {
       "name": "Engineering Steel EN24 (AISI 4340)",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Alloy Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 925,
@@ -279,8 +215,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 4,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -294,10 +230,6 @@
           "units": "degC",
           "value": 1482.5
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 46,
           "units": "W/m*K"
@@ -310,55 +242,31 @@
           "value": 0.486,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 248,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 2696.83,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.7733345298015766,
+        "slash": 0.6879668367346938,
         "pierce": 0.7939914163090128,
         "blunt": 0.8780760626398211,
-        "defense_slash": 2.04601,
-        "defense_pierce": 0.77603,
-        "defense_blunt": 0.78265,
-        "fire": 0.2247,
-        "water": 0.45596,
-        "wind": 0.3722,
-        "earth": 0.77657
+        "defense_slash": 2.24822,
+        "defense_pierce": 0.73761,
+        "defense_blunt": 0.82551,
+        "fire": 0.34293,
+        "water": 0.485,
+        "wind": 0.63321,
+        "earth": 0.77062
       }
     },
     {
       "name": "Copper Alloy C101",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Copper Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 230,
@@ -373,8 +281,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 1.9,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -388,10 +296,6 @@
           "units": "degC",
           "value": 1085
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 386,
           "units": "W/m*K"
@@ -404,55 +308,31 @@
           "value": 0.385,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 17.2,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 514.85,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.1600004350793612,
+        "slash": 0.13133928571428571,
         "pierce": 0.19742489270386265,
         "blunt": 1,
-        "defense_slash": 0.93542,
-        "defense_pierce": 0.142,
-        "defense_blunt": 0.47563,
-        "fire": 0.04523,
-        "water": 0.06938,
-        "wind": 0.08734,
-        "earth": 0.40439
+        "defense_slash": 1.06325,
+        "defense_pierce": 0.1291,
+        "defense_blunt": 0.50051,
+        "fire": 0.13211,
+        "water": 0.09704,
+        "wind": 0.22484,
+        "earth": 0.41138
       }
     },
     {
       "name": "Brass Alloy CZ121",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Brass Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 425,
@@ -467,8 +347,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.41,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -482,10 +362,6 @@
           "units": "degC",
           "value": 895
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 120,
           "units": "W/m*K"
@@ -498,55 +374,31 @@
           "value": 0.38,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 64.9,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 882.6,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.2666655789682637,
+        "slash": 0.2251530612244898,
         "pierce": 0.3648068669527897,
         "blunt": 0.947427293064877,
-        "defense_slash": 0.90508,
-        "defense_pierce": 0.30065,
-        "defense_blunt": 0.51082,
-        "fire": 0.1774,
-        "water": 0.21638,
-        "wind": 0.12874,
-        "earth": 0.42473
+        "defense_slash": 1.0008,
+        "defense_pierce": 0.28197,
+        "defense_blunt": 0.53121,
+        "fire": 0.26822,
+        "water": 0.24417,
+        "wind": 0.24262,
+        "earth": 0.42145
       }
     },
     {
       "name": "Bronze Alloy PB102",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Bronze Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 500,
@@ -561,8 +413,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.85,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -576,10 +428,6 @@
           "units": "degC",
           "value": 1017.5
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 50,
           "units": "W/m*K"
@@ -592,55 +440,31 @@
           "value": 0.38,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 135,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 1225.83,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.37333344210317365,
+        "slash": 0.31271173469387753,
         "pierce": 0.4291845493562232,
         "blunt": 0.9843400447427294,
-        "defense_slash": 1.08548,
-        "defense_pierce": 0.34717,
-        "defense_blunt": 0.53193,
-        "fire": 0.21232,
-        "water": 0.30016,
-        "wind": 0.1861,
-        "earth": 0.50636
+        "defense_slash": 1.19554,
+        "defense_pierce": 0.31989,
+        "defense_blunt": 0.55649,
+        "fire": 0.30449,
+        "water": 0.32419,
+        "wind": 0.31446,
+        "earth": 0.4971
       }
     },
     {
       "name": "Nickel Alloy Inconel 625",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 930,
@@ -655,8 +479,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 3.49,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -670,10 +494,6 @@
           "units": "degC",
           "value": 1320
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 10,
           "units": "W/m*K"
@@ -686,55 +506,31 @@
           "value": 0.435,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 1020,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 2010.36,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.5933340403372953,
+        "slash": 0.5128469387755101,
         "pierce": 0.7982832618025751,
         "blunt": 0.9440715883668904,
-        "defense_slash": 1.90029,
-        "defense_pierce": 0.5943,
-        "defense_blunt": 0.70635,
-        "fire": 0.23766,
-        "water": 0.76287,
-        "wind": 0.54193,
-        "earth": 0.70447
+        "defense_slash": 2.11032,
+        "defense_pierce": 0.55808,
+        "defense_blunt": 0.75015,
+        "fire": 0.34408,
+        "water": 0.7883,
+        "wind": 0.79022,
+        "earth": 0.70177
       }
     },
     {
       "name": "Nickel Alloy Inconel 718",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 1080,
@@ -749,8 +545,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 3.75,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -764,10 +560,6 @@
           "units": "degC",
           "value": 1300
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 11.4,
           "units": "W/m*K"
@@ -780,55 +572,31 @@
           "value": 0.435,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 862,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 2353.6,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.7600020666269658,
+        "slash": 0.6004081632653061,
         "pierce": 0.927038626609442,
         "blunt": 0.9161073825503355,
-        "defense_slash": 2.08301,
-        "defense_pierce": 0.811,
-        "defense_blunt": 0.81391,
-        "fire": 0.23696,
-        "water": 0.73431,
-        "wind": 0.54741,
-        "earth": 0.78221
+        "defense_slash": 2.25349,
+        "defense_pierce": 0.73918,
+        "defense_blunt": 0.85771,
+        "fire": 0.34336,
+        "water": 0.73994,
+        "wind": 0.78029,
+        "earth": 0.73996
       }
     },
     {
       "name": "Nickel Alloy Monel 400",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 550,
@@ -843,8 +611,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.97,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -858,10 +626,6 @@
           "units": "degC",
           "value": 1325
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 21.8,
           "units": "W/m*K"
@@ -874,55 +638,31 @@
           "value": 0.43,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 455,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 1323.9,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.4666661228174652,
+        "slash": 0.33772959183673473,
         "pierce": 0.4721030042918455,
         "blunt": 0.9843400447427294,
-        "defense_slash": 1.58099,
-        "defense_pierce": 0.37263,
-        "defense_blunt": 0.58912,
-        "fire": 0.23128,
-        "water": 0.47731,
-        "wind": 0.32797,
-        "earth": 0.62358
+        "defense_slash": 1.73753,
+        "defense_pierce": 0.3146,
+        "defense_blunt": 0.62779,
+        "fire": 0.33625,
+        "water": 0.48993,
+        "wind": 0.52002,
+        "earth": 0.59226
       }
     },
     {
       "name": "Nickel Alloy hastelloy C276",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 740,
@@ -937,8 +677,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 3.53,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -952,10 +692,6 @@
           "units": "degC",
           "value": 1347.5
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 10.2,
           "units": "W/m*K"
@@ -968,55 +704,31 @@
           "value": 0.42,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 909,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 2059.4,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.6000016315476046,
+        "slash": 0.5253571428571429,
         "pierce": 0.6351931330472103,
         "blunt": 0.9944071588366892,
-        "defense_slash": 1.84676,
-        "defense_pierce": 0.5146,
-        "defense_blunt": 0.66894,
-        "fire": 0.23609,
-        "water": 0.71486,
-        "wind": 0.50747,
-        "earth": 0.71578
+        "defense_slash": 2.05733,
+        "defense_pierce": 0.48101,
+        "defense_blunt": 0.71231,
+        "fire": 0.33883,
+        "water": 0.74017,
+        "wind": 0.74125,
+        "earth": 0.71564
       }
     },
     {
       "name": "Magnesium Alloy AZ31",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Magnesium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 265,
@@ -1031,8 +743,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 1.9,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -1046,10 +758,6 @@
           "units": "degC",
           "value": 635
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 96,
           "units": "W/m*K"
@@ -1062,42 +770,26 @@
           "value": 1.02,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 455,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 514.85,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.1666680262896704,
+        "slash": 0.13133928571428571,
         "pierce": 0.22746781115879827,
         "blunt": 0.19910514541387025,
-        "defense_slash": 0.44615,
-        "defense_pierce": 0.17793,
-        "defense_blunt": 0.17205,
-        "fire": 0.25212,
-        "water": 0.39935,
-        "wind": 0.24894,
-        "earth": 0.17019
+        "defense_slash": 0.48225,
+        "defense_pierce": 0.16203,
+        "defense_blunt": 0.18145,
+        "fire": 0.50026,
+        "water": 0.49626,
+        "wind": 0.51581,
+        "earth": 0.16059
       }
     },
     {
@@ -1117,11 +809,11 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 3.24,
+          "units": "Mohs"
         },
         "brinell_hardness": {
-          "value": 1669.0,
+          "value": 1669,
           "units": "MPa"
         },
         "density": {
@@ -1148,35 +840,27 @@
           "value": 720,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "value": "N/A",
-          "units": "cm³/mol"
+        "vickers_hardness": {
+          "value": 1669,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.49333376841269455,
-        "pierce": 0.5429184549356223,
+        "slash": 0.425765306122449,
+        "pierce": 0.44635193133047213,
         "blunt": 0.8870246085011186,
-        "defense_slash": 1.667,
-        "defense_pierce": 0.41853,
-        "defense_blunt": 0.58942,
-        "fire": 0.24054,
-        "water": 0.59239,
-        "wind": 0.41363,
-        "earth": 0.62581
+        "defense_slash": 1.85455,
+        "defense_pierce": 0.35804,
+        "defense_blunt": 0.619,
+        "fire": 0.36317,
+        "water": 0.64132,
+        "wind": 0.6693,
+        "earth": 0.62661
       }
     },
     {
       "name": "Aluminium Alloy 2024",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 495,
@@ -1191,8 +875,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.91,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -1206,10 +890,6 @@
           "units": "degC",
           "value": 570
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 130,
           "units": "W/m*K"
@@ -1222,55 +902,31 @@
           "value": 0.875,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 58.1,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 1274.86,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.3800010333134829,
+        "slash": 0.325219387755102,
         "pierce": 0.4248927038626609,
         "blunt": 0.31096196868008946,
-        "defense_slash": 0.81179,
-        "defense_pierce": 0.3879,
-        "defense_blunt": 0.31424,
-        "fire": 0.22095,
-        "water": 0.25877,
-        "wind": 0.19872,
-        "earth": 0.3285
+        "defense_slash": 0.8716,
+        "defense_pierce": 0.36325,
+        "defense_blunt": 0.3295,
+        "fire": 0.43289,
+        "water": 0.3351,
+        "wind": 0.47049,
+        "earth": 0.31419
       }
     },
     {
       "name": "Stainless Steel 17-4PH",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 1165,
@@ -1285,8 +941,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 4.36,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -1300,10 +956,6 @@
           "units": "degC",
           "value": 1425
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 17,
           "units": "W/m*K"
@@ -1316,55 +968,31 @@
           "value": 0.46,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 833,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 3481.36,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 1,
+        "slash": 0.8881020408163266,
         "pierce": 1,
         "blunt": 0.8668903803131992,
-        "defense_slash": 2.19373,
-        "defense_pierce": 1,
-        "defense_blunt": 0.85397,
-        "fire": 0.23662,
-        "water": 0.78047,
-        "wind": 0.61147,
-        "earth": 0.88244
+        "defense_slash": 2.3767,
+        "defense_pierce": 0.94965,
+        "defense_blunt": 0.89578,
+        "fire": 0.34903,
+        "water": 0.80057,
+        "wind": 0.86113,
+        "earth": 0.86233
       }
     },
     {
       "name": "Bronze Alloy C932",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Bronze Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 345,
@@ -1379,8 +1007,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.38,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -1394,10 +1022,6 @@
           "units": "degC",
           "value": 975
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 52,
           "units": "W/m*K"
@@ -1410,55 +1034,31 @@
           "value": 0.377,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 150,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 858.08,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.26000070700396194,
+        "slash": 0.21889795918367347,
         "pierce": 0.296137339055794,
         "blunt": 0.9955257270693513,
-        "defense_slash": 0.91863,
-        "defense_pierce": 0.24264,
-        "defense_blunt": 0.49312,
-        "fire": 0.21103,
-        "water": 0.27757,
-        "wind": 0.1525,
-        "earth": 0.43886
+        "defense_slash": 1.02351,
+        "defense_pierce": 0.22414,
+        "defense_blunt": 0.51507,
+        "fire": 0.30242,
+        "water": 0.30613,
+        "wind": 0.26966,
+        "earth": 0.43713
       }
     },
     {
       "name": "Aluminium Alloy 4047",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 280,
@@ -1473,8 +1073,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.22,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -1488,10 +1088,6 @@
           "units": "degC",
           "value": 581
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 170,
           "units": "W/m*K"
@@ -1504,55 +1100,31 @@
           "value": 0.89,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 58.1,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 735.5,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.2333330614087326,
+        "slash": 0.18762755102040815,
         "pierce": 0.24034334763948498,
         "blunt": 0.29753914988814323,
-        "defense_slash": 0.65565,
-        "defense_pierce": 0.20871,
-        "defense_blunt": 0.23088,
-        "fire": 0.20247,
-        "water": 0.20777,
-        "wind": 0.15535,
-        "earth": 0.24987
+        "defense_slash": 0.71702,
+        "defense_pierce": 0.18814,
+        "defense_blunt": 0.24562,
+        "fire": 0.41731,
+        "water": 0.28736,
+        "wind": 0.43253,
+        "earth": 0.23965
       }
     },
     {
       "name": "Aluminium Alloy 2219",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 515,
@@ -1567,8 +1139,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.97,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -1582,10 +1154,6 @@
           "units": "degC",
           "value": 590.5
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 130,
           "units": "W/m*K"
@@ -1598,55 +1166,31 @@
           "value": 0.877,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 58.1,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 1323.9,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.3866659052777846,
+        "slash": 0.33772959183673473,
         "pierce": 0.44206008583690987,
         "blunt": 0.31767337807606266,
-        "defense_slash": 0.8182,
-        "defense_pierce": 0.39792,
-        "defense_blunt": 0.31984,
-        "fire": 0.22114,
-        "water": 0.26052,
-        "wind": 0.19929,
-        "earth": 0.33317
+        "defense_slash": 0.88094,
+        "defense_pierce": 0.3759,
+        "defense_blunt": 0.3351,
+        "fire": 0.43357,
+        "water": 0.33852,
+        "wind": 0.46673,
+        "earth": 0.32179
       }
     },
     {
       "name": "Aluminium Alloy 3003",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 165,
@@ -1661,8 +1205,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 1.66,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -1676,10 +1220,6 @@
           "units": "degC",
           "value": 648.5
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 165,
           "units": "W/m*K"
@@ -1692,55 +1232,31 @@
           "value": 0.904,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 42.7,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 416.78,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.13333278948413185,
+        "slash": 0.10632142857142857,
         "pierce": 0.14163090128755365,
         "blunt": 0.3053691275167785,
-        "defense_slash": 0.57755,
-        "defense_pierce": 0.11525,
-        "defense_blunt": 0.2039,
-        "fire": 0.20633,
-        "water": 0.17843,
-        "wind": 0.1186,
-        "earth": 0.20091
+        "defense_slash": 0.64767,
+        "defense_pierce": 0.10309,
+        "defense_blunt": 0.21853,
+        "fire": 0.4247,
+        "water": 0.26424,
+        "wind": 0.39192,
+        "earth": 0.19995
       }
     },
     {
       "name": "Special Alloy Havar",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Special Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 975,
@@ -1755,8 +1271,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 4.27,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -1770,10 +1286,6 @@
           "units": "degC",
           "value": 1485
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 14,
           "units": "W/m*K"
@@ -1786,55 +1298,31 @@
           "value": 0.4,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 500,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        },
-        "hardness_brinell": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "specific_heat_capacity": {
-          "units": "J/g*K",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 3285.23,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0.9466674280555488,
+        "slash": 0.8380688775510204,
         "pierce": 0.8369098712446352,
         "blunt": 0.9284116331096198,
-        "defense_slash": 2.40373,
-        "defense_pierce": 0.85364,
-        "defense_blunt": 0.83756,
-        "fire": 0.23223,
-        "water": 0.61882,
-        "wind": 0.50709,
-        "earth": 0.91511
+        "defense_slash": 2.64211,
+        "defense_pierce": 0.80477,
+        "defense_blunt": 0.88878,
+        "fire": 0.33,
+        "water": 0.63349,
+        "wind": 0.79848,
+        "earth": 0.90472
       }
     },
     {
       "name": "Aluminium Alloy 1050",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 118,
@@ -1849,8 +1337,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 1.49,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -1864,10 +1352,6 @@
           "units": "degC",
           "value": 646
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 222,
           "units": "W/m*K"
@@ -1880,47 +1364,31 @@
           "value": 0.9,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 28.2,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 343.23,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.08755867346938775,
+        "pierce": 0.10128755364806867,
+        "blunt": 0.30313199105145416,
+        "defense_slash": 0.63935,
+        "defense_pierce": 0.09735,
+        "defense_blunt": 0.2272,
+        "fire": 0.3938,
+        "water": 0.23041,
+        "wind": 0.37959,
+        "earth": 0.1889
       }
     },
     {
       "name": "Aluminium Alloy 2011",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 380,
@@ -1935,8 +1403,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.62,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -1950,10 +1418,6 @@
           "units": "degC",
           "value": 640
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 155,
           "units": "W/m*K"
@@ -1966,47 +1430,31 @@
           "value": 0.89,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 41,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 1049.31,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.26768112244897957,
+        "pierce": 0.3261802575107296,
+        "blunt": 0.31543624161073824,
+        "defense_slash": 0.79651,
+        "defense_pierce": 0.28262,
+        "defense_blunt": 0.29298,
+        "fire": 0.42508,
+        "water": 0.30566,
+        "wind": 0.43354,
+        "earth": 0.28387
       }
     },
     {
       "name": "Aluminium Alloy 2014",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 490,
@@ -2021,8 +1469,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 3.02,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -2036,10 +1484,6 @@
           "units": "degC",
           "value": 570
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 150,
           "units": "W/m*K"
@@ -2052,34 +1496,26 @@
           "value": 0.87,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 43.1,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 1373,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.35025510204081634,
+        "pierce": 0.4206008583690987,
+        "blunt": 0.3131991051454139,
+        "defense_slash": 0.89211,
+        "defense_pierce": 0.3925,
+        "defense_blunt": 0.34759,
+        "fire": 0.42081,
+        "water": 0.32623,
+        "wind": 0.46621,
+        "earth": 0.32593
       }
     },
     {
@@ -2099,8 +1535,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.04,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -2130,35 +1566,27 @@
           "value": 49.6,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 588.42,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.15010714285714286,
+        "pierce": 0.19570815450643778,
+        "blunt": 0.2997762863534676,
+        "defense_slash": 0.70015,
+        "defense_pierce": 0.17597,
+        "defense_blunt": 0.25821,
+        "fire": 0.43046,
+        "water": 0.28519,
+        "wind": 0.41003,
+        "earth": 0.21987
       }
     },
     {
       "name": "Aluminium Alloy 5083",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 317,
@@ -2173,8 +1601,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.48,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "value": 931.67,
@@ -2188,10 +1616,6 @@
           "units": "degC",
           "value": 570
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 117,
           "units": "W/m*K"
@@ -2204,47 +1628,31 @@
           "value": 0.91,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 59,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 931.67,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.23767091836734694,
+        "pierce": 0.2721030042918455,
+        "blunt": 0.29753914988814323,
+        "defense_slash": 0.77674,
+        "defense_pierce": 0.24322,
+        "defense_blunt": 0.27397,
+        "fire": 0.45163,
+        "water": 0.3238,
+        "wind": 0.45545,
+        "earth": 0.26651
       }
     },
     {
       "name": "Aluminium Alloy 5251",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 210,
@@ -2259,8 +1667,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.04,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "value": 588.42,
@@ -2274,10 +1682,6 @@
           "value": 607,
           "units": "degC"
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 138,
           "units": "W/m*K"
@@ -2290,34 +1694,26 @@
           "value": 0.9,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 49,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 588.42,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.15010714285714286,
+        "pierce": 0.18025751072961374,
+        "blunt": 0.30089485458612975,
+        "defense_slash": 0.68648,
+        "defense_pierce": 0.15027,
+        "defense_blunt": 0.23694,
+        "fire": 0.43732,
+        "water": 0.28787,
+        "wind": 0.41207,
+        "earth": 0.22095
       }
     },
     {
@@ -2337,8 +1733,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.23,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "value": 735.53,
@@ -2368,35 +1764,27 @@
           "value": 52.3,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 735.53,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.18763520408163264,
+        "pierce": 0.2832618025751073,
+        "blunt": 0.2986577181208054,
+        "defense_slash": 0.72324,
+        "defense_pierce": 0.21827,
+        "defense_blunt": 0.26535,
+        "fire": 0.44147,
+        "water": 0.30182,
+        "wind": 0.42187,
+        "earth": 0.23804
       }
     },
     {
       "name": "Aluminium Alloy 6061",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 310,
@@ -2411,8 +1799,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.48,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -2426,10 +1814,6 @@
           "units": "degC",
           "value": 652
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 167,
           "units": "W/m*K"
@@ -2442,47 +1826,31 @@
           "value": 0.896,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 40,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 931.67,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.23767091836734694,
+        "pierce": 0.26609442060085836,
+        "blunt": 0.302013422818792,
+        "defense_slash": 0.76702,
+        "defense_pierce": 0.25925,
+        "defense_blunt": 0.28825,
+        "fire": 0.42092,
+        "water": 0.29393,
+        "wind": 0.42937,
+        "earth": 0.26373
       }
     },
     {
       "name": "Aluminium Alloy 6063",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 193,
@@ -2497,8 +1865,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.2,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -2512,10 +1880,6 @@
           "units": "degC",
           "value": 615
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 209,
           "units": "W/m*K"
@@ -2528,47 +1892,31 @@
           "value": 0.9,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 32.5,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 716,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.1826530612244898,
+        "pierce": 0.16566523605150216,
+        "blunt": 0.30089485458612975,
+        "defense_slash": 0.7027,
+        "defense_pierce": 0.1724,
+        "defense_blunt": 0.24577,
+        "fire": 0.40053,
+        "water": 0.26114,
+        "wind": 0.41144,
+        "earth": 0.23587
       }
     },
     {
       "name": "Aluminium Alloy 6082",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 330,
@@ -2583,8 +1931,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.48,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "units": "MPa",
@@ -2598,10 +1946,6 @@
           "units": "degC",
           "value": 580
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 160,
           "units": "W/m*K"
@@ -2614,47 +1958,31 @@
           "value": 0.9,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 41,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 932,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.23775510204081632,
+        "pierce": 0.2832618025751073,
+        "blunt": 0.302013422818792,
+        "defense_slash": 0.77847,
+        "defense_pierce": 0.25698,
+        "defense_blunt": 0.28537,
+        "fire": 0.42592,
+        "water": 0.2977,
+        "wind": 0.43973,
+        "earth": 0.26622
       }
     },
     {
       "name": "Aluminium Alloy 7050",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
       "category": "Aluminium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
       "mechanical_properties": {
         "ultimate_tensile_strength": {
           "value": 540,
@@ -2669,8 +1997,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 3.17,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "value": 1569.12,
@@ -2684,10 +2012,6 @@
           "value": 494,
           "units": "degC"
         },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
         "thermal_conductivity": {
           "value": 140,
           "units": "W/m*K"
@@ -2700,34 +2024,26 @@
           "value": 0.86,
           "units": "J/g*K"
         },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
         "electrical_resistivity": {
           "value": 43,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
+        "vickers_hardness": {
+          "value": 1569.12,
+          "units": "MPa"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.40028571428571424,
+        "pierce": 0.463519313304721,
+        "blunt": 0.31655480984340045,
+        "defense_slash": 0.91926,
+        "defense_pierce": 0.44514,
+        "defense_blunt": 0.36727,
+        "fire": 0.42256,
+        "water": 0.34111,
+        "wind": 0.46792,
+        "earth": 0.34917
       }
     },
     {
@@ -2747,8 +2063,8 @@
           "units": "GPa"
         },
         "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
+          "value": 2.85,
+          "units": "Mohs"
         },
         "brinell_hardness": {
           "value": 1226,
@@ -2778,5400 +2094,22 @@
           "value": 44.9,
           "units": "nOhm*m"
         },
-        "magnetic_susceptibility": {
-          "value": "N/A",
-          "units": "cm3/mol"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Brass Alloy CZ108",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Brass Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Brass Alloy CZ130",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Brass Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Bronze Alloy CA104",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Bronze Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Bronze Alloy LG2",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Bronze Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Bronze Alloy PB1",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Bronze Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Bronze Alloy PB2",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Bronze Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Copper Alloy C106",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Copper Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Copper Alloy Constantan",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Copper Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Copper Alloy Evanohm",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Copper Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Engineering Steel EN16",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Engineering Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Engineering Steel EN19",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Engineering Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Engineering Steel EN30",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Engineering Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Engineering Steel EN36",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Engineering Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Engineering Steel EN8",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Engineering Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Magnesium Alloy AJ62",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Magnesium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Magnesium Alloy AZ61",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Magnesium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Magnesium Alloy EV31A",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Magnesium Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Mild Steel Black",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Mild Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Mild Steel EN1A",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Mild Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Mild Steel EN3B",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Mild Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Mild Steel S275",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Mild Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy hastelloy B",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy hastelloy B-2",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy hastelloy B-3",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy hastelloy C-22",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy hastelloy X",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Haynes 214",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Haynes 230",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Incoloy 800",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Incoloy 825",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Inconel 600",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Inconel 601",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Inconel 617",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Inconel X750",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Monel 404",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Monel K-500",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Nickel Alloy Nimonic 90",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Nickel Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Special Alloy C Solder",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Special Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Special Alloy Fercalloy",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Special Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Special Alloy Hiperco 50",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Special Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Special Alloy Hiperco 50A",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Special Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Special Alloy Invar",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Special Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Special Alloy Manganin",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Special Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Special Alloy Nitinol",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Special Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Special Alloy Permalloy IJ85",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Special Alloy",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 15-7PH",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 17-7PH",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 301",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 620,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 290,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 193,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "value": 1814.0,
-          "units": "MPa"
-        },
-        "density": {
-          "value": 7.93,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "value": 1400,
-          "units": "degC"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 16.3,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "value": 17.3,
-          "units": "um/m*K"
-        },
-        "specific_heat": {
-          "value": 0.5,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 720,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 302",
-      "category": "Stainless Steel",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 620,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 275,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 193,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "value": 1971.21,
-          "units": "MPa"
-        },
-        "density": {
-          "value": 7.93,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "value": 1420,
-          "units": "degC"
-        },
-        "thermal_conductivity": {
-          "value": 16.3,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "value": 17.3,
-          "units": "um/m*K"
-        },
-        "specific_heat": {
-          "value": 0.5,
-          "units": "J/g*K"
-        },
-        "electrical_resistivity": {
-          "value": 720,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 303",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 620,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 240,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 193,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "MPa",
-          "value": 1971.14
-        },
-        "density": {
-          "value": 8,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": 1425
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 16.3,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 17.3
-        },
-        "specific_heat": {
-          "value": 0.5,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 720,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 310",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 515,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 205,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 200,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "MPa",
-          "value": 1667.13
-        },
-        "density": {
-          "value": 7.98,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": 1400
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 14.2,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 15.9
-        },
-        "specific_heat": {
-          "value": 0.5,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 720,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 316L",
-      "category": "Stainless Steel",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 485,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 170,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 193,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "MPa",
-          "value": 1471.05
-        },
-        "density": {
-          "value": 8,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": 1370
-        },
-        "thermal_conductivity": {
-          "value": 14,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 16
-        },
-        "specific_heat": {
-          "value": 0.5,
-          "units": "J/g*K"
-        },
-        "electrical_resistivity": {
-          "value": 740,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 321",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 515,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 205,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 193,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "value": 1833.91,
-          "units": "MPa"
-        },
-        "density": {
-          "value": 7.92,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": 1400
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 16.3,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 16.5
-        },
-        "specific_heat": {
-          "value": 0.5,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 720,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 347",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 620,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 240,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 200,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "MPa",
-          "value": 1835.7
-        },
-        "density": {
-          "value": 7.8,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": 1400
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 16,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 17
-        },
-        "specific_heat": {
-          "value": 0.48,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 718,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm³/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 410",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 480,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 275,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 200,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "MPa",
-          "value": 1794.68
-        },
-        "density": {
-          "value": 7.75,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": 1450
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 24.9,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 9.9
-        },
-        "specific_heat": {
-          "value": 0.46,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 570,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 416",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 420",
-      "atomic_mass": "N/A",
-      "boil": 3000,
-      "category": "Stainless Steel",
-      "density": 7.75,
-      "melt": 1450,
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 655,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 345,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 200,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": 4
-        },
-        "brinell_hardness": {
-          "units": "MPa",
-          "value": 1971
-        },
-        "density": {
-          "value": 7.75,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": 1450
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": 3000
-        },
-        "thermal_conductivity": {
-          "value": 24.9,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 10.3
-        },
-        "specific_heat": {
-          "value": 0.46,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 560,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 430",
-      "atomic_mass": "N/A",
-      "boil": 3000,
-      "category": "Stainless Steel",
-      "density": 7.74,
-      "melt": 1510,
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 515,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 310,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 200,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": 4
-        },
-        "brinell_hardness": {
-          "units": "MPa",
-          "value": 1667
-        },
-        "density": {
-          "value": 7.74,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": 1510
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": 3000
-        },
-        "thermal_conductivity": {
-          "value": 26,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 10.4
-        },
-        "specific_heat": {
-          "value": 0.46,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 600,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 430F",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 431",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 850,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 620,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 200,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "value": 2550,
-          "units": "MPa"
-        },
-        "density": {
-          "value": 7.75,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "value": 1510,
-          "units": "degC"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 25,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "value": 10.3,
-          "units": "um/m*K"
-        },
-        "specific_heat": {
-          "value": 0.46,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 580,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Stainless Steel 440C",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Stainless Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 758,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 448,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 200,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "MPa",
-          "value": 2638
-        },
-        "density": {
-          "value": 7.65,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": 1480
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 24.2,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": 10.1
-        },
-        "specific_heat": {
-          "value": 0.46,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 600,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Tool Steel BD2",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Tool Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
-        }
-      },
-      "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
-      }
-    },
-    {
-      "name": "Tool Steel BS1401",
-      "atomic_mass": "N/A",
-      "boil": "N/A",
-      "category": "Tool Steel",
-      "density": "N/A",
-      "melt": "N/A",
-      "molar_heat": "N/A",
-      "symbol": "N/A",
-      "electron_affinity": "N/A",
-      "electronegativity_pauling": "N/A",
-      "mechanical_properties": {
-        "ultimate_tensile_strength": {
-          "value": 0,
-          "units": "MPa"
-        },
-        "yield_strength": {
-          "value": 0,
+        "vickers_hardness": {
+          "value": 1226,
           "units": "MPa"
-        },
-        "youngs_modulus": {
-          "value": 0,
-          "units": "GPa"
-        },
-        "mohs_hardness": {
-          "units": "Mohs",
-          "value": "N/A"
-        },
-        "brinell_hardness": {
-          "units": "HB",
-          "value": "N/A"
-        },
-        "density": {
-          "value": 0,
-          "units": "g/cm3"
-        },
-        "melting_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "boiling_point": {
-          "units": "degC",
-          "value": "N/A"
-        },
-        "thermal_conductivity": {
-          "value": 0,
-          "units": "W/m*K"
-        },
-        "thermal_expansion_coefficient": {
-          "units": "um/m*K",
-          "value": "N/A"
-        },
-        "specific_heat": {
-          "value": 0,
-          "units": "J/g*K"
-        },
-        "heat_of_fusion": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "heat_of_vaporization": {
-          "units": "kJ/mol",
-          "value": "N/A"
-        },
-        "electrical_resistivity": {
-          "value": 0,
-          "units": "nOhm*m"
-        },
-        "magnetic_susceptibility": {
-          "units": "cm3/mol",
-          "value": "N/A"
         }
       },
       "factors": {
-        "slash": 0,
-        "pierce": 0,
-        "blunt": 0,
-        "defense_slash": 0,
-        "defense_pierce": 0,
-        "defense_blunt": 0,
-        "fire": 0.2,
-        "water": 0.15,
-        "wind": 0,
-        "earth": 0
+        "slash": 0.3127551020408163,
+        "pierce": 0.3665236051502146,
+        "blunt": 0.31096196868008946,
+        "defense_slash": 0.85355,
+        "defense_pierce": 0.33789,
+        "defense_blunt": 0.32056,
+        "fire": 0.42201,
+        "water": 0.318,
+        "wind": 0.45994,
+        "earth": 0.30722
       }
     }
   ]

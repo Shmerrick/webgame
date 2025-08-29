@@ -6,6 +6,32 @@ export default function buildMaterialDB(base, wood, elementals, alloys, rocks, o
   const db = { ...base };
   const safe = (n) => Number.isFinite(n) ? n : 0;
 
+  const hardnessTable = [
+    { m: 1, hv: 14 },
+    { m: 2, hv: 57 },
+    { m: 3, hv: 137 },
+    { m: 4, hv: 275 },
+    { m: 5, hv: 500 },
+    { m: 6, hv: 800 },
+    { m: 7, hv: 1250 },
+    { m: 8, hv: 2000 },
+    { m: 9, hv: 3100 },
+    { m: 10, hv: 4000 },
+  ];
+
+  function hvToMohs(hv) {
+    if (!hv || !Number.isFinite(hv)) return undefined;
+    for (let i = 1; i < hardnessTable.length; i++) {
+      if (hv <= hardnessTable[i].hv) {
+        const prev = hardnessTable[i - 1];
+        const next = hardnessTable[i];
+        const frac = (hv - prev.hv) / (next.hv - prev.hv);
+        return Number((prev.m + frac * (next.m - prev.m)).toFixed(2));
+      }
+    }
+    return 10;
+  }
+
   db['Wood'] = Object.fromEntries(
     Object.entries(wood).map(([type, list]) => [
       type,
@@ -47,8 +73,27 @@ export default function buildMaterialDB(base, wood, elementals, alloys, rocks, o
       mech.youngs_modulus && mech.youngs_modulus.units === 'GPa' ? 1000 : 1;
     const ym = pick(m.elasticModulus, num(mech.youngs_modulus, ymFactor));
     if (ym != null) out.elasticModulus = ym;
-    const bh = pick(m.brinellHardness, num(mech.brinell_hardness));
+    const bh = pick(m.brinellMPa, pick(m.brinellHardness, num(mech.brinell_hardness)));
     if (bh != null) out.brinellMPa = bh;
+    const vh = pick(m.vickersMPa, num(mech.vickers_hardness));
+    if (vh != null) out.vickersMPa = vh;
+    const hardness = pick(
+      m.hardness,
+      num(mech.mohs_hardness) ??
+        (vh != null
+          ? hvToMohs(vh / 9.807)
+          : bh != null
+          ? hvToMohs(bh / 9.807)
+          : undefined)
+    );
+    if (hardness != null) out.hardness = hardness;
+    const toughness = pick(
+      m.toughness,
+      uts != null ? Number((uts * 0.1).toFixed(2)) : undefined
+    );
+    if (toughness != null) out.toughness = toughness;
+    const tec = pick(m.thermalExpansion, num(mech.thermal_expansion_coefficient));
+    if (tec != null) out.thermalExpansion = tec;
     const tc = pick(m.thermalConductivity, num(mech.thermal_conductivity));
     if (tc != null) out.thermalConductivity = tc;
     const sh = pick(m.specificHeat, num(mech.specific_heat));

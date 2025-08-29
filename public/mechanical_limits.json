@@ -4,7 +4,7 @@
     "units": "MPa"
   },
   "elasticModulus": {
-    "max": 287,
+    "max": 245,
     "units": "GPa"
   },
   "yieldStrength": {
@@ -24,11 +24,11 @@
     "units": "K"
   },
   "specificHeat": {
-    "max": 3.57,
+    "max": 1.02,
     "units": "J/g·K"
   },
   "thermalConductivity": {
-    "max": 401,
+    "max": 386,
     "units": "W/m·K"
   },
   "electricalResistivity": {
@@ -36,7 +36,7 @@
     "units": "nΩ·m"
   },
   "specificStiffness": {
-    "max": 155.30303030303028,
+    "max": 29.518072289156624,
     "units": "GPa·cm³/g"
   }
 }
