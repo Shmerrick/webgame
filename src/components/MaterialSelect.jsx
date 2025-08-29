@@ -20,8 +20,8 @@ export default function MaterialSelect({ DB, allowed, value, onChange, disabled 
         value={value.category}
         onChange={e => {
           const category = e.target.value;
-          const subCategory = firstSub(category);
-          const material = firstMaterial(category, subCategory);
+          const subCategory = firstSub(DB, category);
+          const material = firstMaterial(DB, category, subCategory);
           onChange({ category, subCategory, material });
         }}
         disabled={disabled}
@@ -36,7 +36,7 @@ export default function MaterialSelect({ DB, allowed, value, onChange, disabled 
           value={value.subCategory}
           onChange={e => {
             const subCategory = e.target.value;
-            const material = firstMaterial(value.category, subCategory);
+            const material = firstMaterial(DB, value.category, subCategory);
             onChange({ ...value, subCategory, material });
           }}
           disabled={disabled}
