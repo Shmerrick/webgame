@@ -11,28 +11,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadData() {
         try {
-            const [
-                db,
-                woods,
-                woodProps,
-                elementals,
-                alloys,
-                siegeVolumesList,
-                rocks
-            ] = await Promise.all([
-                getDatabaseSection('materials'),
-                getDatabaseSection('woodTypes'),
-                getDatabaseSection('woodProperties'),
-                getDatabaseSection('elementalMetals'),
-                getDatabaseSection('metalAlloys'),
-                getDatabaseSection('siegeVolumes'),
-                getDatabaseSection('rockTypes')
-            ]);
+              const [
+                  db,
+                  woods,
+                  woodProps,
+                  elementals,
+                  alloys,
+                  siegeVolumesList,
+                  rocks,
+                  rockProps,
+                  furProps
+              ] = await Promise.all([
+                  getDatabaseSection('materials'),
+                  getDatabaseSection('woodTypes'),
+                  getDatabaseSection('woodProperties'),
+                  getDatabaseSection('elementalMetals'),
+                  getDatabaseSection('metalAlloys'),
+                  getDatabaseSection('siegeVolumes'),
+                  getDatabaseSection('rockTypes'),
+                  getDatabaseSection('rockProperties'),
+                  getDatabaseSection('furProperties')
+              ]);
 
-            const built = buildMaterialDB(db, woods, elementals, alloys, rocks, {
-                defaultDensities: { Wood: 0.6, 'Rocks': 2.5 },
-                woodProperties: woodProps
-            });
+              const built = buildMaterialDB(db, woods, elementals, alloys, rocks, {
+                  defaultDensities: { Wood: 0.6, 'Rocks': 2.5 },
+                  woodProperties: woodProps,
+                  rockProperties: rockProps,
+                  furProperties: furProps
+              });
             built['Dev'] = {
                 Dev: [
                     {

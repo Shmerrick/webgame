@@ -79,16 +79,18 @@
         container.innerHTML = '<p class="text-slate-300">Loading materials...</p>';
 
         try {
-          const [base, woods, woodProps, elementals, alloys, rocks] = await Promise.all([
-            getDatabaseSection('materials'),
-            getDatabaseSection('woodTypes'),
-            getDatabaseSection('woodProperties'),
-            getDatabaseSection('elementalMetals'),
-            getDatabaseSection('metalAlloys'),
-            getDatabaseSection('rockTypes')
-          ]);
+            const [base, woods, woodProps, elementals, alloys, rocks, rockProps, furProps] = await Promise.all([
+              getDatabaseSection('materials'),
+              getDatabaseSection('woodTypes'),
+              getDatabaseSection('woodProperties'),
+              getDatabaseSection('elementalMetals'),
+              getDatabaseSection('metalAlloys'),
+              getDatabaseSection('rockTypes'),
+              getDatabaseSection('rockProperties'),
+              getDatabaseSection('furProperties')
+            ]);
 
-          const db = buildMaterialDB(base, woods, elementals, alloys, rocks, { woodProperties: woodProps });
+            const db = buildMaterialDB(base, woods, elementals, alloys, rocks, { woodProperties: woodProps, rockProperties: rockProps, furProperties: furProps });
           const normalized = normalizeDamageFactorsByCategory(db);
 
           const toTitleCase = str => str.replace(/\b\w/g, c => c.toUpperCase());

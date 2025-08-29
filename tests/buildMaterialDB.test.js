@@ -36,13 +36,45 @@ describe('buildMaterialDB', () => {
       ],
     };
     const rocks = { Igneous: { Granite: {} } };
+    const rockProps = {
+      Granite: {
+        density: 2.75,
+        tensileStrength: 4,
+        yieldStrength: 200,
+        elasticModulus: 50000,
+        thermalConductivity: 2,
+        specificHeat: 0.8,
+        meltingPoint: 1500,
+        electricalResistivity: 1e12,
+        hardness: 600,
+        toughness: 2,
+      },
+    };
+    const furProps = {
+      Beaver: {
+        density: 0.96,
+        tensileStrength: 19,
+        yieldStrength: 14.6,
+        elasticModulus: 400,
+        thermalConductivity: 0.04,
+        specificHeat: 1.3,
+        meltingPoint: 240,
+        electricalResistivity: 1e11,
+        hardness: 32,
+        toughness: 14.6,
+      },
+    };
     const db = buildMaterialDB(
       base,
       wood,
       elementals,
       alloys,
       rocks,
-      { defaultDensities: { Wood: 0.5, 'Rocks': 2.7 } }
+      {
+        defaultDensities: { Wood: 0.5, 'Rocks': 2.7 },
+        rockProperties: rockProps,
+        furProperties: furProps,
+      }
     );
 
     expect(db.Metals['Base Metals'][0]).toMatchObject({ id: 'iron', name: 'Iron' });
@@ -52,7 +84,11 @@ describe('buildMaterialDB', () => {
     expect(db.Metals['Metal Alloys'][0].factors).toBeTruthy();
     expect(db.Wood.Soft[0]).toMatchObject({ id: 'pine', name: 'Pine', density: 0.5 });
     expect(db.Wood.Soft[0].factors).toBeTruthy();
-    expect(db['Rocks'].Igneous[0]).toEqual({ id: 'granite', name: 'Granite', density: 2.7 });
+    expect(db['Rocks'].Igneous[0]).toMatchObject({ id: 'granite', name: 'Granite', density: 2.75 });
+    expect(db['Rocks'].Igneous[0].factors).toBeTruthy();
+    expect(db.Fur[0]).toMatchObject({ id: 'beaver', name: 'Beaver' });
+    expect(db.Fur[0].factors).toBeTruthy();
+    expect(db.Fur[0].factors.slash).not.toBe(1);
   });
 
   it('extracts nested mechanical properties for alloys', () => {
