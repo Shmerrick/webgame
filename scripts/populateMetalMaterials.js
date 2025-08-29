@@ -47,15 +47,14 @@ function extract(m) {
   const elasticModulus =
     m.elasticModulus ??
     num(mp.youngs_modulus, mp.youngs_modulus?.units === 'GPa' ? 1000 : 1);
-  const brinellMPa =
-    m.brinellHardness ?? num(mp.brinell_hardness) ?? num(mp.vickers_hardness);
-  const vickersMPa = m.vickersMPa ?? num(mp.vickers_hardness);
+  const rawBrinell = m.brinellHardness ?? num(mp.brinell_hardness);
+  const brinellMPa = rawBrinell ? rawBrinell * 9.807 : num(mp.vickers_hardness);
+  const vickersMPa =
+    m.vickersMPa ?? num(mp.vickers_hardness) ?? brinellMPa;
   const hardness =
     m.hardness ??
     num(mp.mohs_hardness) ??
-    (mp.brinell_hardness || mp.vickers_hardness
-      ? hvToMohs(brinellMPa / 9.807)
-      : brinellMPa);
+    (vickersMPa ? hvToMohs(vickersMPa / 9.807) : undefined);
   const toughness =
     m.toughness ??
     (tensileStrength ? Number((tensileStrength * 0.1).toFixed(2)) : undefined);
