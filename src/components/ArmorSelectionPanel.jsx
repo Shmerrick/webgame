@@ -145,10 +145,10 @@ export default function ArmorSelectionPanel({
                     <MaterialSelect DB={DB} allowed={allowedCats} value={{category, subCategory: entry.subCategory, material}} onChange={val=> setArmorOuter(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
                     <label className="block text-sm mt-3">Inner Layer Material</label>
-                    <MaterialSelect DB={DB} allowed={MATERIALS_FOR_INNER} value={{category: innerCategory, subCategory: entry.innerSubCategory, material: innerMaterial}} onChange={val=> setArmorInner(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+                    <MaterialSelect DB={DB} allowed={MATERIALS_FOR_INNER} value={{category: innerCategory, subCategory: innerSubCategory, material: innerMaterial}} onChange={val=> setArmorInner(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
                     <label className="block text-sm mt-3">Binding</label>
-                    <MaterialSelect DB={DB} allowed={MATERIALS_FOR_BINDING} value={{category: bindingCategory, subCategory: entry.bindingSubCategory, material: bindingMaterial}} onChange={val=> setArmorBinding(slot.id, val)} disabled={(entry.class||"None")==="None"} />
+                    <MaterialSelect DB={DB} allowed={MATERIALS_FOR_BINDING} value={{category: bindingCategory, subCategory: bindingSubCategory, material: bindingMaterial}} onChange={val=> setArmorBinding(slot.id, val)} disabled={(entry.class||"None")==="None"} />
 
                     {(entry.class||"None")!=="None" && matObj && (
                       <div className="mt-3 bg-slate-900/60 rounded-lg p-3">
@@ -165,16 +165,7 @@ export default function ArmorSelectionPanel({
                                           <Tooltip
                                             text={
                                               <span>
-                                                This value is a fallback for missing data. Please report missing data on the{' '}
-                                                <a
-                                                  href="https://github.com/shmerrick/webgame/issues"
-                                                  target="_blank"
-                                                  rel="noopener noreferrer"
-                                                  className="underline"
-                                                >
-                                                  GitHub issues page
-                                                </a>
-                                                .
+                                                This value is a fallback for missing data.
                                               </span>
                                             }
                                           >

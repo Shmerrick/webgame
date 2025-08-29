@@ -220,8 +220,12 @@ export function buildNormalizationBounds(enriched, normProps = NORM_PROPS) {
  * Use normalized properties to generate final defense scores.
  */
 export function scoreMaterialDefenses(enriched, propBounds, options = {}) {
-  const { feel = false, armorBias = {}, thickness = 1, attunement = {} } = options;
+  const { feel = false, armorBias = {}, thickness = 1, attunement = {}, minDefense } = options;
   const thicknessFactor = clamp(thickness, 0.5, 1.5);
+  const biasDefense = (v) =>
+    minDefense != null && v < minDefense
+      ? minDefense - (minDefense - v) * 0.5
+      : v;
 
   // First compute raw resistance metrics based on physical properties.
   const withRaw = enriched.map((mat) => {
@@ -303,6 +307,15 @@ export function scoreMaterialDefenses(enriched, propBounds, options = {}) {
     windResistance = clamp01(
       windResistance + (armorBias.wind || 0) + (attunement.wind || 0)
     );
+
+    // Nudge extremely low defenses toward a minimum useful value.
+    slashingResistance = biasDefense(slashingResistance);
+    piercingResistance = biasDefense(piercingResistance);
+    bluntResistance = biasDefense(bluntResistance);
+    fireResistance = biasDefense(fireResistance);
+    earthResistance = biasDefense(earthResistance);
+    waterResistance = biasDefense(waterResistance);
+    windResistance = biasDefense(windResistance);
 
     // Damage metrics are also normalized per material class.
     const clsBounds = propBounds.boundsByClass[cls] || propBounds.globalBounds;
@@ -392,7 +405,8 @@ export function normalizeDamageFactorsByCategory(db) {
       }
     } else if (node && typeof node === "object") {
       for (const [k, v] of Object.entries(node)) {
-        gather(v, top || k);
+        const nextTop = top === "Metals" ? k : (top || k);
+        gather(v, nextTop);
       }
     }
   };
@@ -408,7 +422,8 @@ export function normalizeDamageFactorsByCategory(db) {
       }
     } else if (node && typeof node === "object") {
       for (const [k, v] of Object.entries(node)) {
-        apply(v, top || k);
+        const nextTop = top === "Metals" ? k : (top || k);
+        apply(v, nextTop);
       }
     }
   };
