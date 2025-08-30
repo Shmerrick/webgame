@@ -219,7 +219,22 @@ export function buildNormalizationBounds(enriched, normProps = NORM_PROPS) {
  * Use normalized properties to generate final defense scores.
  */
 export function scoreMaterialDefenses(enriched, propBounds, options = {}) {
-  const { feel = false, armorBias = {}, thickness = 1, attunement = {}, minDefense } = options;
+  const {
+    feel = false,
+    armorBias = {},
+    thickness = 1,
+    attunement = {},
+    minDefense,
+  } = options;
+  const biases = {
+    slashing: armorBias.slashing ?? armorBias.slash ?? 0,
+    piercing: armorBias.piercing ?? armorBias.pierce ?? 0,
+    blunt: armorBias.blunt ?? 0,
+    fire: armorBias.fire ?? 0,
+    earth: armorBias.earth ?? 0,
+    water: armorBias.water ?? 0,
+    wind: armorBias.wind ?? 0,
+  };
   const thicknessFactor = clamp(thickness, 0.5, 1.5);
   const biasDefense = (v) =>
     minDefense != null && v < minDefense
@@ -285,26 +300,26 @@ export function scoreMaterialDefenses(enriched, propBounds, options = {}) {
 
     // Apply thickness scaling and armor bias after normalization.
     slashingResistance = clamp01(
-      slashingResistance * thicknessFactor + (armorBias.slashing || 0)
+      slashingResistance * thicknessFactor + biases.slashing
     );
     piercingResistance = clamp01(
-      piercingResistance * thicknessFactor + (armorBias.piercing || 0)
+      piercingResistance * thicknessFactor + biases.piercing
     );
     bluntResistance = clamp01(
-      bluntResistance * thicknessFactor + (armorBias.blunt || 0)
+      bluntResistance * thicknessFactor + biases.blunt
     );
 
     fireResistance = clamp01(
-      fireResistance + (armorBias.fire || 0) + (attunement.fire || 0)
+      fireResistance + biases.fire + (attunement.fire || 0)
     );
     earthResistance = clamp01(
-      earthResistance + (armorBias.earth || 0) + (attunement.earth || 0)
+      earthResistance + biases.earth + (attunement.earth || 0)
     );
     waterResistance = clamp01(
-      waterResistance + (armorBias.water || 0) + (attunement.water || 0)
+      waterResistance + biases.water + (attunement.water || 0)
     );
     windResistance = clamp01(
-      windResistance + (armorBias.wind || 0) + (attunement.wind || 0)
+      windResistance + biases.wind + (attunement.wind || 0)
     );
 
     // Nudge extremely low defenses toward a minimum useful value.
