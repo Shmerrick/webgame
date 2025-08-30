@@ -49,6 +49,18 @@ describe('calculateMaterialDefenses', () => {
     expect(thick.R_slash).toBeCloseTo(Math.min(1, base.R_slash * 1.5));
   });
 
+  it('accepts shorthand bias keys', () => {
+    const materials = [
+      { name: 'Mat1', class: 'Metal', yieldStrength: 100, tensileStrength: 200, elasticModulus: 100, density: 10, thermalConductivity: 1, specificHeat: 1, meltingPoint: 1, electricalResistivity: 1 },
+      { name: 'Mat2', class: 'Metal', yieldStrength: 200, tensileStrength: 400, elasticModulus: 200, density: 20, thermalConductivity: 2, specificHeat: 2, meltingPoint: 2, electricalResistivity: 2 },
+      { name: 'Mat3', class: 'Metal', yieldStrength: 150, tensileStrength: 300, elasticModulus: 150, density: 15, thermalConductivity: 1.5, specificHeat: 1.5, meltingPoint: 1.5, electricalResistivity: 1.5 },
+    ];
+    const base = calculateMaterialDefenses(materials)[2];
+    const biased = calculateMaterialDefenses(materials, { armorBias: { slash: 0.1, pierce: 0.2 } })[2];
+    expect(biased.R_slash).toBeCloseTo(Math.min(1, base.R_slash + 0.1));
+    expect(biased.R_pierce).toBeCloseTo(Math.min(1, base.R_pierce + 0.2));
+  });
+
   it('ranks slash defense by strength and hardness', () => {
     const materials = [
       { name: 'Soft', class: 'Metal', yieldStrength: 100, tensileStrength: 150, elasticModulus: 100, density: 10, thermalConductivity: 1, specificHeat: 1, meltingPoint: 1, electricalResistivity: 1 },
