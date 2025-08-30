@@ -101,8 +101,8 @@ describe('calculateMaterialDefenses', () => {
     const weakBiased = biased[0];
     const strongBase = base[1];
     const strongBiased = biased[1];
-    const expectedSlash = 0.8 - (0.8 - weakBase.R_slash) * 0.5;
-    const expectedFire = 0.8 - (0.8 - weakBase.R_fire) * 0.5;
+    const expectedSlash = 0.8 - (0.8 - weakBase.R_slash) * 0.25;
+    const expectedFire = 0.8 - (0.8 - weakBase.R_fire) * 0.25;
     expect(weakBiased.R_slash).toBeCloseTo(expectedSlash);
     expect(weakBiased.R_fire).toBeCloseTo(expectedFire);
     expect(strongBiased.R_slash).toBeCloseTo(strongBase.R_slash);
