@@ -32,7 +32,13 @@ export const DEFAULT_OFFHAND_ITEM = Object.keys(OFFHAND_ITEMS).find(k => k !== "
 
 export const REGEN_MULT = { Naked: 1.0, Light: 0.75, Medium: 0.50, Heavy: 0.25 };
 export const BASE_TICK_PCT = 0.10;
-export const MIN_DEFENSE_FLOOR = 0.01;
+// Target minimum defense value for metal materials. Values below this are
+// biased upward toward the target but are not hard-clamped to it so weak
+// metals still differ from one another.
+export const METAL_DEFENSE_BIAS_TARGET = 0.8;
+// Fraction of the gap to the target that remains after biasing metal defenses.
+// Setting this to 0.25 moves a defense three-quarters of the way toward the target.
+export const METAL_DEFENSE_BIAS_STRENGTH = 0.25;
 
 export const MATERIALS_FOR_CLASS = {
   None:   [],

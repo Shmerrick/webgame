@@ -236,9 +236,10 @@ export function scoreMaterialDefenses(enriched, propBounds, options = {}) {
     wind: armorBias.wind ?? 0,
   };
   const thicknessFactor = clamp(thickness, 0.5, 1.5);
+  const METAL_DEFENSE_BIAS_STRENGTH = 0.25;
   const biasDefense = (v) =>
     minDefense != null && v < minDefense
-      ? minDefense - (minDefense - v) * 0.5
+      ? minDefense - (minDefense - v) * METAL_DEFENSE_BIAS_STRENGTH
       : v;
 
   // First compute raw resistance metrics based on physical properties.

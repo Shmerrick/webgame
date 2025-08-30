@@ -20,7 +20,8 @@ import {
   MATERIALS_FOR_BINDING,
   MATERIALS_FOR_JEWELRY_SETTING,
   MATERIALS_FOR_JEWELRY_GEM,
-  MIN_DEFENSE_FLOOR,
+  METAL_DEFENSE_BIAS_TARGET,
+  METAL_DEFENSE_BIAS_STRENGTH,
 } from "../public/constants/armor.js";
 import CharacterPanel from "./components/CharacterPanel.jsx";
 import AttackDirectionPanel from "./components/AttackDirectionPanel.jsx";
@@ -125,16 +126,20 @@ function effectiveDRForSlot(DB, cls, outerCategory, materialName, innerCategory,
 
   const fallbackFlags = {};
   const bias = (v) =>
-    v < MIN_DEFENSE_FLOOR
-      ? MIN_DEFENSE_FLOOR - (MIN_DEFENSE_FLOOR - v) * 0.5
-      : v;
+    METAL_DEFENSE_BIAS_TARGET -
+    (METAL_DEFENSE_BIAS_TARGET - v) * METAL_DEFENSE_BIAS_STRENGTH;
+  const isMetal =
+    outerCategory === "Metals" ||
+    innerCategory === "Metals" ||
+    bindingCategory === "Metals";
+
   for (const key in defenses) {
     if (defenses[key] <= 0) {
-      // No data – fall back to a small minimum and flag it.
-      defenses[key] = MIN_DEFENSE_FLOOR;
+      // No data – flag it and bias if the material is metal.
       fallbackFlags[key] = true;
-    } else if (defenses[key] < MIN_DEFENSE_FLOOR) {
-      // Bias very low defenses upward instead of marking them as fallback.
+      if (isMetal) defenses[key] = bias(0);
+    } else if (isMetal && defenses[key] < METAL_DEFENSE_BIAS_TARGET) {
+      // Bias very low metal defenses upward instead of marking them as fallback.
       defenses[key] = bias(defenses[key]);
       fallbackFlags[key] = false;
     } else {
